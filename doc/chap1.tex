@@ -103,10 +103,10 @@ i.e. $\character \mathbb{K} \neq 2$ ならば\footnote{体 $\mathbb{K}$ の\text
     \end{description}
     このLie代数 $(\End V,\, +,\, \cdot\;,\, \comm{\;}{\,})$ は\textbf{一般線形代数} (general linear algebra) と呼ばれ，記号として $\bm{\Lgl (V)}$ と書かれる．
 
-    　$\dim V \eqqcolon n < \infty$ のとき，$\End V$ は $n \times n$ $\mathbb{K}$-行列全体が成す $\mathbb{K}$ ベクトル空間 $\Mat{n}{\mathbb{K}}$ と同型である\footnote{$V$ の基底 $e_1,\, \dots,\, e_n$ を1つ固定する．このとき同型写像 $\varphi \colon V \lto \mathbb{K}^n,\; v^\mu e_\mu \lmto (v^\mu)_{1 \le \mu \le n}$ を使って定義される線型写像 $M \colon \End V \lto \Mat{n}{\mathbb{K}},\; f \lmto \varphi \circ f \circ \varphi^{-1}$ が所望の同型写像である．}．
-    $\Mat{n}{\mathbb{K}}$ をLieブラケット $\comm{X}{Y} \coloneqq XY - YX$ によってLie代数と見做す\footnote{右辺の $XY$ は行列の積である．}ときは，この同型を意識して $\lgl{n}{\mathbb{K}}$ と書く．さて，$\lgl{n}{\mathbb{K}}$ の標準的な基底は所謂\textbf{行列単位}
+    　$\dim V \eqqcolon n < \infty$ のとき，$\End V$ は $n \times n$ $\mathbb{K}$-行列全体が成す $\mathbb{K}$ ベクトル空間 $\Mat{n}{\mathbb{K}}$ と同型である\footnote{$V$ の基底 $e_1,\, \dots,\, e_n$ を1つ固定する．このとき同型写像 $\varphi \colon V \lto \mathbb{K}^n,\; v^\mu e_\mu \lmto (v^\mu)_{1 \le \mu \le n}$ を使って定義される線型写像 $\phi \colon \End V \lto \Mat{n}{\mathbb{K}},\; f \lmto \varphi \circ f \circ \varphi^{-1}$ が所望の同型写像である．}．
+    $\Mat{n}{\mathbb{K}}$ をLieブラケット $\comm{x}{y} \coloneqq xy - yx$ によってLie代数と見做す\footnote{右辺の $xy$ は行列の積である．}ときは，この同型を意識して $\lgl{n}{\mathbb{K}}$ と書く．さて，$\lgl{n}{\mathbb{K}}$ の標準的な基底は所謂\textbf{行列単位}
     \begin{align}
-        E_{ij} \coloneqq \bigl[\, \delta_{i\mu} \delta_{j\nu} \bigr]_{1 \le \mu,\, \nu \le n} 
+        e_{ij} \coloneqq \bigl[\, \delta_{i\mu} \delta_{j\nu} \bigr]_{1 \le \mu,\, \nu \le n} 
         = 
         \begin{blockarray}{cccccc}
             & & j & & \\
@@ -119,16 +119,97 @@ i.e. $\character \mathbb{K} \neq 2$ ならば\footnote{体 $\mathbb{K}$ の\text
             \end{block}
         \end{blockarray}
     \end{align}
-    である．Einsteinの規約を使って $E_{ij} E_{kl} = \bigl[\, \delta_{i\mu} \delta_{j\lambda} \delta_{k \lambda} \delta_{l \nu} \bigr]_{1 \le \mu,\, \nu \le n} = \delta_{jk} \bigl[\, \delta_{i\mu} \delta_{l\nu} \bigr]_{1 \le \mu,\, \nu \le n} = \delta_{jk} E_{il}$ と計算できるので，$\lgl{n}{\mathbb{K}}$ のLieブラケットは
+    である．Einsteinの規約を使って $e_{ij} e_{kl} = \bigl[\, \delta_{i\mu} \delta_{j\lambda} \delta_{k \lambda} \delta_{l \nu} \bigr]_{1 \le \mu,\, \nu \le n} = \delta_{jk} \bigl[\, \delta_{i\mu} \delta_{l\nu} \bigr]_{1 \le \mu,\, \nu \le n} = \delta_{jk} E_{il}$ と計算できるので，$\lgl{n}{\mathbb{K}}$ のLieブラケットは
     \begin{align}
-        \comm{E_{ij}}{E_{kl}} = \delta_{jk} E_{il} - \delta_{li} E_{kj}
+        \comm{e_{ij}}{e_{kl}} = \delta_{jk} e_{il} - \delta_{li} e_{kj}
     \end{align}
-    によって完全に決まる\footnote{$\forall X,\, Y \in \lgl{n}{\mathbb{K}}$ は $X = X^{ij} E_{ij},\, Y = Y^{ij} E_{ij}$ と展開できるので，Lieブラケットの双線型性から $\comm{X}{Y} = X^{ij} Y^{kl}\comm{E_{ij}}{E_{kl}} = X^{ik} Y^{kl} E_{il} - X^{ij}Y^{ki} E_{jk} = (X^{ik} Y^{kj} - X^{ki} Y^{jk}) E_{ij}$ と計算できる．}．
+    によって完全に決まる．
 \end{myexample}
 
-\begin{mydef}[]{部分Lie代数}
-    
+\subsection{線型Lie群}
+
+\begin{mydef}[label=def:subLieAlg]{部分Lie代数}
+    \hyperref[ax:LieAlg]{Lie代数} $L$ の\underline{部分ベクトル空間} $M \subset L$ が\textbf{部分Lie代数}であるとは，$M$ がLieブラケットについても閉じていることを言う．
+    i.e. $\forall x,\, y \in M,\; \forall \lambda \in \mathbb{K}$ に対して
+    \begin{align}
+        x + y,\; \lambda x,\; \comm{x}{y} \in M
+    \end{align}
+    が成り立つこと．
 \end{mydef}
+
+この小節では以降，$V$ を体 $\mathbb{K}$ 上の有限次元ベクトル空間とする．
+
+\begin{mydef}[label=def:linearLieAlg]{線型Lie群}
+    \hyperref[def:gl-alg]{一般線形代数} $\Lgl (V)$ の\hyperref[def:subLieAlg]{部分Lie代数}のことを\textbf{線型Lie群} (linear Lie algebra) と呼ぶ．
+\end{mydef}
+
+線型Lie群として有名なものは\textbf{古典代数} (classical algebra) である．これは $A_l,\, B_l,\, C_l,\, D_l$ と呼ばれる4つの無限系列からなる．
+以下，$\character \mathbb{K} \neq 2$ とする．
+
+\begin{myexample}[label=def:typeA]{線型Lie群：$A_l$ 型}
+    　$\dim V = l+1$ とする．\textbf{特殊線形代数} $\Lsl (V)$（または $\Lsl (l+1,\, \mathbb{K})$）は次のように定義される：
+    \begin{align}
+        \Lsl (V) \coloneqq \bigl\{\, x \in \Lgl (V) \bigm| \Tr (x) = 0 \,\bigr\} 
+    \end{align}
+    $\Lsl (V)$ が本当に\hyperref[def:linearLieAlg]{線型Lie群}かどうか確認しよう．
+    \begin{proof}
+        $\forall x,\, y \in \Lsl (V)$ をとる．トレースの線形性および $\Tr (xy) = \Tr (yx)$ から
+        \begin{align}
+            \Tr (x + y) &= \Tr (x) + \Tr (y) = 0 + 0 = 0, \\
+            \Tr (\lambda x) &= \lambda \Tr (x) = \lambda 0 = 0, \\
+            \Tr (\comm{x}{y}) &= \Tr (xy) - \Tr (yx) = \Tr (xy) - \Tr (xy) = 0
+        \end{align}
+        が言えるので，$x + y,\, \lambda x,\, \comm{x}{y} \in \Lsl (V)$ が言えた．
+    \end{proof}
+    　\exref{def:gl-alg}で使った $\lgl{l+1}{\mathbb{K}}$ の標準的な基底で $\forall x \in \lsl{l+1}{\mathbb{K}}$ を $x = x^{ij} e_{ij}$ と展開すると，トレースレスであることから
+    \begin{align}
+        h_{ij} \coloneqq 
+        \begin{cases}
+            e_{ij} &i \neq j,\; 1 \le i,\, j \le l+1 \\
+            e_{ii} - e_{i+1,\, i+1} &1 \le i=j \le l
+        \end{cases}
+    \end{align}
+    の $(l+1)^2 - 1$ 個の行列が $\lsl{l+1}{\mathbb{K}}$ の基底を成すことがわかる．従って $\dim \lsl{l+1}{\mathbb{K}} = (l+1)^2 -1$ である．
+\end{myexample}
+
+\begin{myexample}[label=def:typeB]{線型Lie群：$B_l$ 型}
+    $\dim V = 2l + 1$ とする．行列
+    \begin{align}
+        s \coloneqq \mqty[
+            1 & 0 & 0 \\
+            0 & 0 & \unity_l \\
+            0 & \unity_l & 0
+        ] \in \Mat{2l+1}{\mathbb{K}}
+    \end{align}
+    により定まる $V$ 上の非退化かつ対称な双線型形式を $f$ と書く\footnote{$f \colon V \times V \lto \mathbb{K},\; (v,\, w) \lmto v^{\mathsf{T}} s w$ のこと．}．
+    このとき，\textbf{直交代数} (orthogonal algebra) $\Lo (V)$（または $\lo{2l+1,\, \mathbb{K}}$）が以下のように定義される：
+    \begin{align}
+        \Lo (V) \coloneqq \bigl\{\, x \in \Lgl (V) \bigm| f \bigl( x(v),\, w \bigr) = -f \bigl( v,\, x(w) \bigr),\; \forall v,\, w \in V \,\bigr\} 
+    \end{align}
+    $\Lo (V)$ が本当に\hyperref[def:linearLieAlg]{線型Lie群}かどうか確認しよう．
+    \begin{proof}
+        $\forall x,\, y \in \Lo (V)$ をとる．$f$ の双線型性から $\forall v,\, w \in V$ に対して
+        \begin{align}
+            f \bigl( (x+y)(v),\, w \bigr) 
+            &= f \bigl( x(v),\, w \bigr) + f \bigl( y(v),\, w \bigr) \\
+            &= - f \bigl( v,\, x(w) \bigr) - f \bigl( v,\, y(w) \bigr) \\
+            &= - f \bigl( v,\, x(w) + y(w) \bigr) \\
+            &= - f \bigl( v,\, (x+y)(w) \bigr) \\
+            f \bigl( (\lambda x)(v),\, w \bigr)  
+            &= \lambda f \bigl( x(v),\, w \bigr) \\
+            &= - \lambda f \bigl( v,\, x(w) \bigr) \\
+            &= - f \bigl( v,\, \lambda x(w) \bigr) \\
+            &= - f \bigl( v,\, (\lambda x)(w) \bigr) \\
+            f \bigl(\comm{x}{y}(v),\, w \bigr) 
+            &= f \bigl(x(y(v)),\, w \bigr) - f \bigl(y(x(v)),\, w \bigr) \\
+            &= - f \bigl(y(v),\, x(w) \bigr) + f \bigl(x(v),\, y(w) \bigr) \\
+            &= f \bigl( v,\, y(x(w)) \bigr) - f \bigl( v,\, x(y(w)) \bigr) \\
+            &= - f \bigl( v,\, \comm{x}{y}(w) \bigr) 
+        \end{align}
+        が言えるので，$x + y,\, \lambda x,\, \comm{x}{y} \in \Lo (V)$ が言えた．
+    \end{proof}
+\end{myexample}
+
 
 
 \end{document}
