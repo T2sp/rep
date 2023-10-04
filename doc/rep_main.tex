@@ -140,6 +140,56 @@
 
 %%%%%%framing%%%%%
 
+
+\newtcolorbox[auto counter,number within=section]{myaxiom}[2][breakable]{%
+colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,
+title=公理~\thetcbcounter: #2,#1}
+
+\newtcolorbox[auto counter,number within=section]{mytheo}[2][breakable]{%
+colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,
+title=定理~\thetcbcounter: #2,#1}
+
+\newtcolorbox[auto counter,number within=section]{myprop}[2][breakable]{%
+colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,
+title=命題~\thetcbcounter: #2,#1}
+
+\newtcolorbox[auto counter,number within=section]{mylem}[2][breakable]{%
+colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,
+title=補題~\thetcbcounter: #2,#1}
+
+\newtcolorbox[auto counter,number within=section]{mydef}[2][breakable]{%
+colback=green!5!white,colframe=green!75!black,fonttitle=\bfseries,
+title=定義~\thetcbcounter: #2,#1}
+
+\newtcolorbox[auto counter,number within=section]{myproblem}[2][breakable]{%
+colback=DarkViolet!5!white,colframe=DarkViolet!75!black,fonttitle=\bfseries,
+title=問題~\thetcbcounter: #2,#1}
+
+\newtcolorbox[use counter from=mytheo]{mycol}[2][breakable]{%
+fonttitle=\bfseries,enhanced,
+attach boxed title to top left=
+{xshift=-2mm,yshift=-2mm},
+title=系~\thetcbcounter: #2,#1}
+
+\newtcolorbox[auto counter, number within=section]{myexample}[2][breakable]{
+    breakable,
+    empty,
+    outer arc=0pt,
+    arc=0pt,
+    attach boxed title to top left,
+    boxed title style={
+        empty,
+        left=-2mm,
+        right=-2mm
+    },
+    coltitle=black,
+    colframe=black,
+    colback=white,
+    fonttitle=\bfseries,
+    title=【例~\thetcbcounter】#2,#1,
+}
+\newcommand{\exref}[1]{\textbf{【例\ref{#1}】}}
+
 %%%%%title decorations%%%%%
 
 %% section
@@ -190,6 +240,10 @@
 % \
 % \vspace{-25pt}
 % ]
+\newcommand{\lto}{\longrightarrow}
+\newcommand{\lmto}{\longmapsto}
+\usepackage{blkarray}
+
 \usepackage{subfiles}
 
 \begin{document}

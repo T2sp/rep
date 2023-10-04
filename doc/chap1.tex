@@ -5,5 +5,127 @@
 % \setcounter{}{}
 \chapter{Lie群とLie代数}
 
+本資料ではベクトル空間を英大文字で表記し，係数体をblackboardbold\footnote{\LaTeX コマンドは\texttt{\textbackslash mathbb}}で表記する（e.g. 体 $\mathbb{K}$ 上のベクトル空間 $L$）．
+本章に限ってはベクトルを $x \in L$ のように英小文字で表記し，係数体の元は $\lambda \in \mathbb{K}$ のようにギリシャ文字で表記する．零ベクトルは $o \in L$ と書き\footnote{$0$ の濫用を回避するための苦肉の策です... 普通に不便なので次章以降では零ベクトルも $0$ と書きます．}，$0 \in \mathbb{K}$ を係数体の加法単位元，$1 \in \mathbb{K}$ を係数体の乗法単位元とする．
+ベクトル空間の加法を $+$ と書き，スカラー乗法は $\lambda x$ のように係数を左に書く．
+
+\section{公理的Lie代数}
+
+この節では $\mathbb{K}$ を任意の体とする．
+
+\begin{myaxiom}[label=ax:LieAlg, breakable]{Lie代数の公理}
+    体 $\mathbb{K}$ 上のベクトル空間 $L$ の上に二項演算\footnote{ベクトル空間に備わっている加法とスカラー乗法の他に，追加で $\comm{\;}{\,}$ が定義されているという状況である．この付加的な二項演算はしばしば\textbf{括弧積} (bracket) とか\textbf{交換子} (commutator) とか\textbf{Lieブラケット} (Lie bracket) とか呼ばれる．}
+    \begin{align}
+        \comm{\;}{\,} \colon L \times L \lto L,\; (x,\, y) \lmto \comm{x}{y}
+    \end{align}
+    が定義されていて，かつ以下の条件を充たすとき，$L$ は\textbf{Lie代数} (Lie algebra) と呼ばれる：
+    \begin{description}
+        \item[\textbf{(L-1)}] $\comm{\;}{\,}$ は双線型写像である．i.e. $\forall x,\, x_i,\, y,\, y_i \in L,\; \forall \lambda_i,\, \mu_i \in \mathbb{K}\; (i = 1,\, 2)$ に対して
+        \begin{align}
+            \comm{\lambda_1 x_1 + \lambda_2 x_2}{y} &= \lambda_1 \comm{x_1}{y} + \lambda_2 \comm{x_2}{y}, \\
+            \comm{x}{\mu_1 y_1 + \mu_2 y_2} &= \mu_1 \comm{x}{y_1} + \mu_2 \comm{x}{y_2}
+        \end{align}
+        が成り立つ．
+        \item[\textbf{(L-2)}] $\forall x \in L$ に対して
+        \begin{align}
+            \comm{x}{x} = o
+        \end{align}
+        が成り立つ．
+        \item[\textbf{(L-3)}] $\forall x,\, y,\, z \in L$ に対して
+        \begin{align}
+            \label{eq:Jacobi-identity}
+            \comm{x}{\comm{y}{z}} + \comm{y}{\comm{z}{x}} + \comm{z}{\comm{x}{y}} = o
+        \end{align}
+        が成り立つ\footnote{\underline{結合律ではない！}}（\textbf{Jacobi}恒等式）．
+    \end{description}
+    
+\end{myaxiom}
+
+\hyperref[ax:LieAlg]{公理\textsf{\textbf{(L-1)}}, \textsf{\textbf{(L-2)}}}から
+\begin{align}
+    o = \comm{x+y}{x+y} = \comm{x}{x} + \comm{x}{y} + \comm{y}{x} + \comm{y}{y} = \comm{x}{y} + \comm{y}{x}
+\end{align}
+が従う．i.e. $\comm{x}{y}$ は反交換 (anticommute) する：
+\begin{description}
+    \item[\textbf{(L'-2)}] $\forall x,\, y \in L$ に対して
+    \begin{align}
+        \comm{x}{y} = -\comm{y}{x}
+    \end{align}
+    が成り立つ．
+\end{description}
+逆に\textsf{\textbf{(L'-2)}}を仮定すると
+\begin{align}
+    o = \comm{x}{x} + \comm{x}{x} = (1 + 1)\comm{x}{x}
+\end{align}
+が成り立つ\footnote{2つ目の等号ではスカラー乗法の分配律（ベクトル空間の公理である）を使った．}ので，\underline{体 $\mathbb{K}$ において $1 + 1 \neq 0$ ならば} $\comm{x}{x} = o$ が言える．
+i.e. $\character \mathbb{K} \neq 2$ ならば\footnote{体 $\mathbb{K}$ の\textbf{標数} (characteristic) を $\character \mathbb{K}$ と書いた．} \textsf{\textbf{(L'-2)}} と \textsf{\textbf{(L-2)}} は同値である．
+
+\begin{myexample}[label=def:gl-alg]{一般線形代数 $\Lgl (V)$}
+    　$V$ を体 $\mathbb{K}$ 上のベクトル空間とする．$V$ から $V$ への線型写像全体が成す集合を $\End V$ と書く\footnote{\textbf{自己準同型} (endomorphism) の略である．}．
+    $\End V$ の加法とスカラー乗法をそれぞれ
+    \begin{align}
+        + \colon \End V \times \End V &\lto \End V,\; (f,\, g) \lmto \bigl( v \mapsto f(v) + g(v) \bigr) \\
+        \cdot\; \colon \mathbb{K} \times \End V &\lto \End V,\; (\lambda,\, f) \lmto \bigl( v \mapsto \lambda f(v) \bigr)
+    \end{align}
+    として定義すると，組 $(\End V,\, +,\, \cdot\; )$ は体 $\mathbb{K}$ 上のベクトル空間になる．以降では常に $\End V$ をこの方法でベクトル空間と見做す．
+
+    　$\End V$ の上のLieブラケットを
+    \begin{align}
+        \label{eq:Liebracket-gl}
+        \comm{\;}{\,} \colon \End V \times \End V \lto \End V,\; (f,\, g) \lmto fg - gf
+    \end{align}
+    と定義する．ただし右辺の $fg$ は写像の合成 $f \circ g$ の略記である．このとき組 $(\End V,\, +,\, \cdot\;,\, \comm{\;}{\,})$ が\hyperref[ax:LieAlg]{Lie代数の公理}を充たすことを確認しよう：
+    \begin{description}
+        \item[\textbf{(L-1)}] $\forall v \in V$ を1つとる．定義に従ってとても丁寧に計算すると
+        \begin{align}
+            \comm{\lambda_1 f_1 + \lambda_2 f_2}{g}(v) 
+            &= \bigl( (\lambda_1 f_1 + \lambda_2 f_2) g - g (\lambda_1 f_1 + \lambda_2 f_2) \bigr)(v) \\
+            &= (\lambda_1 f_1 + \lambda_2 f_2) \bigl( g(v) \bigr) - g \bigl((\lambda_1 f_1 + \lambda_2 f_2)(v)\bigr) \\
+            &= (\lambda_1 f_1) \bigl(g (v) \bigr) + (\lambda_2 f_2) \bigl( g(v) \bigr) - g \bigl( (\lambda_1 f_1)(v) + (\lambda_2 f_2)(v)  \bigr) \\
+            &= \lambda_1 f_1 \bigl(g (v) \bigr) + \lambda_2 f_2 \bigl( g(v) \bigr) - \lambda_1 g \bigl( f_1(v) \bigr) - \lambda_2 g \bigl( f_2(v) \bigr) \\
+            &= \lambda_1 \Bigl( f_1 \bigl(g (v) \bigr) - g \bigl( f_1(v) \bigr) \Bigr) + \lambda_2 \Bigl(f_2 \bigl( g(v) \bigr) - g \bigl( f_2(v) \bigr) \Bigr) \\
+            &= \lambda_1 \comm{f_1}{g} (v) + \lambda_2 \comm{f_2}{g} (v) \\
+            &= \bigl( \lambda_1 \comm{f_1}{g} + \lambda_2 \comm{f_2}{g}  \bigr) (v)
+        \end{align}
+        となる．ただし4つ目の等号で $g \in \End V$ が線型写像であることを使った．全く同様にして
+        \begin{align}
+            \comm{f}{\mu_1 g_1 + \mu_2 g_2}(v) = \mu_1 \comm{f}{g_1} + \mu_2 \comm{f}{g_2}
+        \end{align}
+        を示すこともできる．
+        \item[\textbf{(L-2)}] 明らかに $\comm{f}{f} = ff - ff = o$ なのでよい．
+        \item[\textbf{(L-3)}] $\comm{\;}{\,}$ の双線型（\textsf{\textbf{(L-1)}}）から
+        \begin{align}
+            &\comm{f}{\comm{g}{h}} + \comm{g}{\comm{h}{f}} + \comm{h}{\comm{f}{g}} \\
+            &= \comm{f}{gh} - \comm{f}{hg} + \comm{g}{hf} - \comm{g}{fh} + \comm{h}{fg} - \comm{h}{gf} \\
+            &= fgh - ghf - fhg + hgf + ghf - hfg - gfh + fhg + hfg - fgh - hgf + gfh \\
+            &= o.
+        \end{align}
+    \end{description}
+    このLie代数 $(\End V,\, +,\, \cdot\;,\, \comm{\;}{\,})$ は\textbf{一般線形代数} (general linear algebra) と呼ばれ，記号として $\bm{\Lgl (V)}$ と書かれる．
+
+    　$\dim V \eqqcolon n < \infty$ のとき，$\End V$ は $n \times n$ $\mathbb{K}$-行列全体が成す $\mathbb{K}$ ベクトル空間 $\Mat{n}{\mathbb{K}}$ と同型である\footnote{$V$ の基底 $e_1,\, \dots,\, e_n$ を1つ固定する．このとき同型写像 $\varphi \colon V \lto \mathbb{K}^n,\; v^\mu e_\mu \lmto (v^\mu)_{1 \le \mu \le n}$ を使って定義される線型写像 $M \colon \End V \lto \Mat{n}{\mathbb{K}},\; f \lmto \varphi \circ f \circ \varphi^{-1}$ が所望の同型写像である．}．
+    $\Mat{n}{\mathbb{K}}$ をLieブラケット $\comm{X}{Y} \coloneqq XY - YX$ によってLie代数と見做す\footnote{右辺の $XY$ は行列の積である．}ときは，この同型を意識して $\lgl{n}{\mathbb{K}}$ と書く．さて，$\lgl{n}{\mathbb{K}}$ の標準的な基底は所謂\textbf{行列単位}
+    \begin{align}
+        E_{ij} \coloneqq \bigl[\, \delta_{i\mu} \delta_{j\nu} \bigr]_{1 \le \mu,\, \nu \le n} 
+        = 
+        \begin{blockarray}{cccccc}
+            & & j & & \\
+            \begin{block}{(ccccc)c}
+                0 & \cdots & 0 & \cdots & 0 & \\
+                \vdots & \ddots & \vdots & \ddots & \vdots & \\
+                0 & \cdots & 1 & \cdots & 0 & i \\
+                \vdots & \ddots & \vdots & \ddots & \vdots & \\
+                0 & \cdots & 0 & \cdots & 0 & \\
+            \end{block}
+        \end{blockarray}
+    \end{align}
+    である．Einsteinの規約を使って $E_{ij} E_{kl} = \bigl[\, \delta_{i\mu} \delta_{j\lambda} \delta_{k \lambda} \delta_{l \nu} \bigr]_{1 \le \mu,\, \nu \le n} = \delta_{jk} \bigl[\, \delta_{i\mu} \delta_{l\nu} \bigr]_{1 \le \mu,\, \nu \le n} = \delta_{jk} E_{il}$ と計算できるので，$\lgl{n}{\mathbb{K}}$ のLieブラケットは
+    \begin{align}
+        \comm{E_{ij}}{E_{kl}} = \delta_{jk} E_{il} - \delta_{li} E_{kj}
+    \end{align}
+    によって完全に決まる\footnote{$\forall X,\, Y \in \lgl{n}{\mathbb{K}}$ は $X = X^{ij} E_{ij},\, Y = Y^{ij} E_{ij}$ と展開できるので，Lieブラケットの双線型性から $\comm{X}{Y} = X^{ij} Y^{kl}\comm{E_{ij}}{E_{kl}} = X^{ik} Y^{kl} E_{il} - X^{ij}Y^{ki} E_{jk} = (X^{ik} Y^{kj} - X^{ki} Y^{jk}) E_{ij}$ と計算できる．}．
+\end{myexample}
+
+
 
 \end{document}
