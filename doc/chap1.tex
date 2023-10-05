@@ -8,6 +8,7 @@
 本資料ではベクトル空間を英大文字で表記し，係数体をblackboardbold\footnote{\LaTeX コマンドは\texttt{\textbackslash mathbb}}で表記する（e.g. 体 $\mathbb{K}$ 上のベクトル空間 $L$）．
 本章に限ってはベクトルを $x \in L$ のように英小文字で表記し，係数体の元は $\lambda \in \mathbb{K}$ のようにギリシャ文字で表記する．零ベクトルは $o \in L$ と書き\footnote{$0$ の濫用を回避するための苦肉の策です... 普通に不便なので次章以降では零ベクトルも $0$ と書きます．}，$0 \in \mathbb{K}$ を係数体の加法単位元，$1 \in \mathbb{K}$ を係数体の乗法単位元とする．
 ベクトル空間の加法を $+$ と書き，スカラー乗法は $\lambda x$ のように係数を左に書く．
+また，特に断りがなければEinsteinの規約を使う．
 
 \section{公理的Lie代数}
 
@@ -60,6 +61,58 @@
 が成り立つ\footnote{2つ目の等号ではスカラー乗法の分配律（ベクトル空間の公理である）を使った．}ので，\underline{体 $\mathbb{K}$ において $1 + 1 \neq 0$ ならば} $\comm{x}{x} = o$ が言える．
 i.e. $\character \mathbb{K} \neq 2$ ならば\footnote{体 $\mathbb{K}$ の\textbf{標数} (characteristic) を $\character \mathbb{K}$ と書いた．} \textsf{\textbf{(L'-2)}} と \textsf{\textbf{(L-2)}} は同値である．
 
+\begin{myexample}[label=ex:R3-LieAlg]{3次元実ベクトル空間}
+    $\mathbb{R}^3$ を $\mathbb{R}$-ベクトル空間と見做す．$\mathbb{R}^3$ 上のLieブラケットを
+    \begin{align}
+        \comm{\;}{\,} \colon \mathbb{R}^3 \times \mathbb{R}^3 \lto \mathbb{R}^3,\; (x,\, y) \lmto x \times y
+    \end{align}
+    によって定義する．ただし右辺の $\times$ はベクトル積である．このとき $\mathbb{R}^3$ が\hyperref[ax:LieAlg]{Lie代数の公理}を充たすことを確認しよう：
+    \begin{proof}
+        $\mathbb{R}^3$ の元の成分を $x = (\, x_\mu \,)_{1 \le \mu \le 3}$ のように書く．ひたすら成分計算をする．
+        \begin{description}
+            \item[\textbf{(L-1)}] ベクトル積の定義から
+            \begin{align}
+                (\comm{\lambda_1 x_1 + \lambda_2 x_2}{y} )_\mu 
+                &= \epsilon_{\mu\nu\lambda} (\lambda_1 x_1{}_\nu + \lambda_2 x_2{}_\nu) y_\lambda \\
+                &= \lambda_1 \epsilon_{\mu\nu\lambda} x_1{}_\mu y_\lambda + \lambda_2 \epsilon_{\mu\nu\lambda} x_2{}_\nu y_\lambda \\
+                &= \lambda_1 \comm{x_1}{y} + \lambda_2 \comm{x_2}{y}
+            \end{align}
+            が成り立つ．全く同様に
+            \begin{align}
+                \comm{x}{\mu_1 y_1 + \mu_2 y_2} = \mu_1 \comm{x}{y_1} + \mu_2 \comm{x}{y_2}
+            \end{align}
+            が示される．
+            \item[\textbf{(L-2)}] Levi-Civita記号の添字に関する反対称性から
+            \begin{align}
+                (\comm{x}{x})_\mu = \epsilon_{\mu\nu\lambda} x_\nu x_\lambda = \epsilon_{\mu\nu\lambda} x_\lambda x_\nu = - \epsilon_{\mu\lambda\nu} x_\lambda x_\nu = (- \comm{x}{x})_\mu
+            \end{align}
+            $\character \mathbb{R} = 0 \neq 2$ なので，ここから $\comm{x}{x} = o$ が従う．
+            \item[\textbf{(L-3)}] 行と列をそれぞれ適切に入れ替えた単位行列の行列式を考えることで，恒等式 $\epsilon_{\mu\nu\lambda} \epsilon_{\rho\sigma \lambda} = \delta_{\mu\rho} \delta_{\nu\sigma} - \delta_{\mu\sigma} \delta_{\nu\rho}$ が成り立つことがわかる．従って
+            \begin{align}
+                (\comm{x}{\comm{y}{z}})_\mu &= \epsilon_{\mu\nu\lambda} x_\nu \epsilon_{\lambda\rho\sigma} y_\rho z_\sigma \\
+                &= (\delta_{\mu\rho}\delta_{\nu \sigma} - \delta_{\mu\sigma} \delta_{\nu\rho}) x_\nu y_\rho z_\sigma \\
+                &= x_\nu y_\mu z_\nu - x_\nu y_\nu z_\mu
+            \end{align}
+            であるから，
+            \begin{align}
+                (\comm{x}{\comm{y}{z}} + \comm{y}{\comm{z}{x}} + \comm{z}{\comm{x}{y}})_\mu 
+                &= x_\nu y_\mu z_\nu - x_\nu y_\nu z_\mu + y_\nu z_\mu x_\nu - y_\nu z_\nu x_\mu + z_\nu x_\mu y_\nu - z_\nu x_\nu y_\mu \\
+                &= 0.
+            \end{align}
+        \end{description}
+    \end{proof}
+    $\mathbb{R}^3$ の標準的な基底
+    \begin{align}
+        e_1 \coloneqq \mqty[1 \\ 0 \\ 0],\quad e_1 \coloneqq \mqty[0 \\ 1 \\ 0],\quad e_1 \coloneqq \mqty[0 \\ 0 \\ 1]
+    \end{align}
+    に対して
+    \begin{align}
+        \comm{e_i}{e_j} = \epsilon_{ijk} e_k
+    \end{align}
+    が成り立つ．$\mathbb{R}^3$ の任意の2つの元に対するLieブラケットがこの恒等式によって完全に決まることを含意して，$3^3 = 27$ 個の実定数 $\epsilon_{ijk}$ のことを $\mathbb{R}^3$ の\textbf{構造定数} (structure constant) と呼ぶ．
+\end{myexample}
+
+
 \begin{myexample}[label=def:gl-alg]{一般線形代数 $\Lgl (V)$}
     　$V$ を体 $\mathbb{K}$ 上のベクトル空間とする．$V$ から $V$ への線型写像全体が成す集合を $\End V$ と書く\footnote{\textbf{自己準同型} (endomorphism) の略である．}．
     $\End V$ の加法とスカラー乗法をそれぞれ
@@ -75,32 +128,35 @@ i.e. $\character \mathbb{K} \neq 2$ ならば\footnote{体 $\mathbb{K}$ の\text
         \comm{\;}{\,} \colon \End V \times \End V \lto \End V,\; (f,\, g) \lmto fg - gf
     \end{align}
     と定義する．ただし右辺の $fg$ は写像の合成 $f \circ g$ の略記である．このとき組 $(\End V,\, +,\, \cdot\;,\, \comm{\;}{\,})$ が\hyperref[ax:LieAlg]{Lie代数の公理}を充たすことを確認しよう：
-    \begin{description}
-        \item[\textbf{(L-1)}] $\forall v \in V$ を1つとる．定義に従ってとても丁寧に計算すると
-        \begin{align}
-            \comm{\lambda_1 f_1 + \lambda_2 f_2}{g}(v) 
-            &= \bigl( (\lambda_1 f_1 + \lambda_2 f_2) g - g (\lambda_1 f_1 + \lambda_2 f_2) \bigr)(v) \\
-            &= (\lambda_1 f_1 + \lambda_2 f_2) \bigl( g(v) \bigr) - g \bigl((\lambda_1 f_1 + \lambda_2 f_2)(v)\bigr) \\
-            &= (\lambda_1 f_1) \bigl(g (v) \bigr) + (\lambda_2 f_2) \bigl( g(v) \bigr) - g \bigl( (\lambda_1 f_1)(v) + (\lambda_2 f_2)(v)  \bigr) \\
-            &= \lambda_1 f_1 \bigl(g (v) \bigr) + \lambda_2 f_2 \bigl( g(v) \bigr) - \lambda_1 g \bigl( f_1(v) \bigr) - \lambda_2 g \bigl( f_2(v) \bigr) \\
-            &= \lambda_1 \Bigl( f_1 \bigl(g (v) \bigr) - g \bigl( f_1(v) \bigr) \Bigr) + \lambda_2 \Bigl(f_2 \bigl( g(v) \bigr) - g \bigl( f_2(v) \bigr) \Bigr) \\
-            &= \lambda_1 \comm{f_1}{g} (v) + \lambda_2 \comm{f_2}{g} (v) \\
-            &= \bigl( \lambda_1 \comm{f_1}{g} + \lambda_2 \comm{f_2}{g}  \bigr) (v)
-        \end{align}
-        となる．ただし4つ目の等号で $g \in \End V$ が線型写像であることを使った．全く同様にして
-        \begin{align}
-            \comm{f}{\mu_1 g_1 + \mu_2 g_2}(v) = \mu_1 \comm{f}{g_1} + \mu_2 \comm{f}{g_2}
-        \end{align}
-        を示すこともできる．
-        \item[\textbf{(L-2)}] 明らかに $\comm{f}{f} = ff - ff = o$ なのでよい．
-        \item[\textbf{(L-3)}] $\comm{\;}{\,}$ の双線型（\textsf{\textbf{(L-1)}}）から
-        \begin{align}
-            &\comm{f}{\comm{g}{h}} + \comm{g}{\comm{h}{f}} + \comm{h}{\comm{f}{g}} \\
-            &= \comm{f}{gh} - \comm{f}{hg} + \comm{g}{hf} - \comm{g}{fh} + \comm{h}{fg} - \comm{h}{gf} \\
-            &= fgh - ghf - fhg + hgf + ghf - hfg - gfh + fhg + hfg - fgh - hgf + gfh \\
-            &= o.
-        \end{align}
-    \end{description}
+    \begin{proof}
+        \begin{description}
+            \item[\textbf{(L-1)}] $\forall v \in V$ を1つとる．定義に従ってとても丁寧に計算すると
+            \begin{align}
+                \comm{\lambda_1 f_1 + \lambda_2 f_2}{g}(v) 
+                &= \bigl( (\lambda_1 f_1 + \lambda_2 f_2) g - g (\lambda_1 f_1 + \lambda_2 f_2) \bigr)(v) \\
+                &= (\lambda_1 f_1 + \lambda_2 f_2) \bigl( g(v) \bigr) - g \bigl((\lambda_1 f_1 + \lambda_2 f_2)(v)\bigr) \\
+                &= (\lambda_1 f_1) \bigl(g (v) \bigr) + (\lambda_2 f_2) \bigl( g(v) \bigr) - g \bigl( (\lambda_1 f_1)(v) + (\lambda_2 f_2)(v)  \bigr) \\
+                &= \lambda_1 f_1 \bigl(g (v) \bigr) + \lambda_2 f_2 \bigl( g(v) \bigr) - \lambda_1 g \bigl( f_1(v) \bigr) - \lambda_2 g \bigl( f_2(v) \bigr) \\
+                &= \lambda_1 \Bigl( f_1 \bigl(g (v) \bigr) - g \bigl( f_1(v) \bigr) \Bigr) + \lambda_2 \Bigl(f_2 \bigl( g(v) \bigr) - g \bigl( f_2(v) \bigr) \Bigr) \\
+                &= \lambda_1 \comm{f_1}{g} (v) + \lambda_2 \comm{f_2}{g} (v) \\
+                &= \bigl( \lambda_1 \comm{f_1}{g} + \lambda_2 \comm{f_2}{g}  \bigr) (v)
+            \end{align}
+            となる．ただし4つ目の等号で $g \in \End V$ が線型写像であることを使った．全く同様にして
+            \begin{align}
+                \comm{f}{\mu_1 g_1 + \mu_2 g_2}(v) = \mu_1 \comm{f}{g_1} + \mu_2 \comm{f}{g_2}
+            \end{align}
+            を示すこともできる．
+            \item[\textbf{(L-2)}] 明らかに $\comm{f}{f} = ff - ff = o$ なのでよい．
+            \item[\textbf{(L-3)}] $\comm{\;}{\,}$ の双線型（\textsf{\textbf{(L-1)}}）から
+            \begin{align}
+                &\comm{f}{\comm{g}{h}} + \comm{g}{\comm{h}{f}} + \comm{h}{\comm{f}{g}} \\
+                &= \comm{f}{gh} - \comm{f}{hg} + \comm{g}{hf} - \comm{g}{fh} + \comm{h}{fg} - \comm{h}{gf} \\
+                &= fgh - ghf - fhg + hgf + ghf - hfg - gfh + fhg + hfg - fgh - hgf + gfh \\
+                &= o.
+            \end{align}
+        \end{description}
+    \end{proof}
+    
     このLie代数 $(\End V,\, +,\, \cdot\;,\, \comm{\;}{\,})$ は\textbf{一般線形代数} (general linear algebra) と呼ばれ，記号として $\bm{\Lgl (V)}$ と書かれる．
 
     　$\dim V \eqqcolon n < \infty$ のとき，$\End V$ は $n \times n$ $\mathbb{K}$-行列全体が成す $\mathbb{K}$ ベクトル空間 $\Mat{n}{\mathbb{K}}$ と同型である\footnote{$V$ の基底 $e_1,\, \dots,\, e_n$ を1つ固定する．このとき同型写像 $\varphi \colon V \lto \mathbb{K}^n,\; v^\mu e_\mu \lmto (v^\mu)_{1 \le \mu \le n}$ を使って定義される線型写像 $\phi \colon \End V \lto \Mat{n}{\mathbb{K}},\; f \lmto \varphi \circ f \circ \varphi^{-1}$ が所望の同型写像である．}．
@@ -119,11 +175,11 @@ i.e. $\character \mathbb{K} \neq 2$ ならば\footnote{体 $\mathbb{K}$ の\text
             \end{block}
         \end{blockarray}
     \end{align}
-    である．Einsteinの規約を使って $e_{ij} e_{kl} = \bigl[\, \delta_{i\mu} \delta_{j\lambda} \delta_{k \lambda} \delta_{l \nu} \bigr]_{1 \le \mu,\, \nu \le n} = \delta_{jk} \bigl[\, \delta_{i\mu} \delta_{l\nu} \bigr]_{1 \le \mu,\, \nu \le n} = \delta_{jk} E_{il}$ と計算できるので，$\lgl{n}{\mathbb{K}}$ のLieブラケットは
+    である．Einsteinの規約を使って $e_{ij} e_{kl} = \bigl[\, \delta_{i\mu} \delta_{j\lambda} \delta_{k \lambda} \delta_{l \nu} \bigr]_{1 \le \mu,\, \nu \le n} = \delta_{jk} \bigl[\, \delta_{i\mu} \delta_{l\nu} \bigr]_{1 \le \mu,\, \nu \le n} = \delta_{jk} E_{il}$ と計算できるので，$\lgl{n}{\mathbb{K}}$ の構造定数は
     \begin{align}
         \comm{e_{ij}}{e_{kl}} = \delta_{jk} e_{il} - \delta_{li} e_{kj}
     \end{align}
-    によって完全に決まる．
+    となる\footnote{少し紛らわしいかもしれないが，右辺において $e_{il}$ は行列（行列の成分\underline{ではない}！）で $\delta_{jk}$ はただの $\mathbb{K}$ の元である．以下では行列を指定する添字を $a,\,b,\, c,\, \dots,\, i,\, j,\, k,\, \dots$ で，行列の成分の添字を $\mu,\, \nu,\, \lambda,\, \dots$ で書くことにする．つまり，例えば $x_{ij}$ はある一つの行列を表す一方，$x_{ij}{}_{\mu\nu}$ は行列 $x_{ij}$ の第 $(\mu,\, \nu)$ 成分を表す．あまりにも紛らわしい場合には，行列の成分を表す際に $[x_{ij}]_{\mu\nu}$ のように角括弧で括ることにする．}．
 \end{myexample}
 
 \subsection{線型Lie群}
@@ -139,19 +195,25 @@ i.e. $\character \mathbb{K} \neq 2$ ならば\footnote{体 $\mathbb{K}$ の\text
 
 この小節では以降，$V$ を体 $\mathbb{K}$ 上の有限次元ベクトル空間とする．
 
-\begin{mydef}[label=def:linearLieAlg]{線型Lie群}
-    \hyperref[def:gl-alg]{一般線形代数} $\Lgl (V)$ の\hyperref[def:subLieAlg]{部分Lie代数}のことを\textbf{線型Lie群} (linear Lie algebra) と呼ぶ．
+\begin{mydef}[label=def:linearLieAlg]{線型Lie代数}
+    \hyperref[def:gl-alg]{一般線形代数} $\Lgl (V)$ の\hyperref[def:subLieAlg]{部分Lie代数}のことを\textbf{線型Lie代数} (linear Lie algebra) と呼ぶ．
 \end{mydef}
 
-線型Lie群として有名なものは\textbf{古典代数} (classical algebra) である．これは $A_l,\, B_l,\, C_l,\, D_l$ と呼ばれる4つの無限系列からなる．
+\begin{marker}
+    慣習として，Lie代数を表す記号はFrakturという字体で書くことが多い．例えば「Fraktur」という文字列は $\mathfrak{Fraktur}$ のようになる．
+    \LaTeX コマンドは数式モード中で \texttt{\textbackslash mathfrak \{\}} とする．
+\end{marker}
+
+
+線型Lie代数として有名なものは\textbf{古典代数} (classical algebra) である．これは $A_l,\, B_l,\, C_l,\, D_l$ と呼ばれる4つの無限系列からなる．
 以下，$\character \mathbb{K} \neq 2$ とする．
 
-\begin{myexample}[label=def:typeA]{線型Lie群：$A_l$ 型}
+\begin{myexample}[label=def:typeA]{線型Lie代数：$A_l$ 型}
     　$\dim V = l+1$ とする．\textbf{特殊線形代数} $\Lsl (V)$（または $\Lsl (l+1,\, \mathbb{K})$）は次のように定義される：
     \begin{align}
         \Lsl (V) \coloneqq \bigl\{\, x \in \Lgl (V) \bigm| \Tr (x) = 0 \,\bigr\} 
     \end{align}
-    $\Lsl (V)$ が本当に\hyperref[def:linearLieAlg]{線型Lie群}かどうか確認しよう．
+    $\Lsl (V)$ が本当に\hyperref[def:linearLieAlg]{線型Lie代数}かどうか確認しよう．
     \begin{proof}
         $\forall x,\, y \in \Lsl (V)$ をとる．トレースの線形性および $\Tr (xy) = \Tr (yx)$ から
         \begin{align}
@@ -172,7 +234,7 @@ i.e. $\character \mathbb{K} \neq 2$ ならば\footnote{体 $\mathbb{K}$ の\text
     の $(l+1)^2 - 1$ 個の行列が $\lsl{l+1}{\mathbb{K}}$ の基底を成すことがわかる．従って $\dim \lsl{l+1}{\mathbb{K}} = (l+1)^2 -1$ である．
 \end{myexample}
 
-\begin{myexample}[label=def:typeB]{線型Lie群：$B_l$ 型}
+\begin{myexample}[label=def:typeB]{線型Lie代数：$B_l$ 型}
     $\dim V = 2l + 1$ とする．行列
     \begin{align}
         s \coloneqq \mqty[
@@ -181,12 +243,12 @@ i.e. $\character \mathbb{K} \neq 2$ ならば\footnote{体 $\mathbb{K}$ の\text
             0 & \unity_l & 0
         ] \in \Mat{2l+1}{\mathbb{K}}
     \end{align}
-    により定まる $V$ 上の非退化かつ対称な双線型形式を $f$ と書く\footnote{$f \colon V \times V \lto \mathbb{K},\; (v,\, w) \lmto v^{\mathsf{T}} s w$ のこと．}．
+    により定まる $V$ 上の非退化\footnote{「$v \in V$ が $\forall w \in V$ に対して $f(v,\, w) = 0$ を充たす $\IMP v = o$」かつ「$w \in V$ が $\forall v \in V$ に対して $f(v,\, w) = 0$ を充たす $\IMP w = o$」}かつ対称な双線型形式を $f$ と書く\footnote{$f \colon V \times V \lto \mathbb{K},\; (v,\, w) \lmto v^{\mathsf{T}} s w$ のこと．}．
     このとき，\textbf{直交代数} (orthogonal algebra) $\Lo (V)$（または $\lo{2l+1,\, \mathbb{K}}$）が以下のように定義される：
     \begin{align}
         \Lo (V) \coloneqq \bigl\{\, \textcolor{red}{x} \in \Lgl (V) \bigm| f \bigl( \textcolor{red}{x}(v),\, w \bigr) = -f \bigl( v,\, \textcolor{red}{x}(w) \bigr),\; \forall v,\, w \in V \,\bigr\} 
     \end{align}
-    $\Lo (V)$ が本当に\hyperref[def:linearLieAlg]{線型Lie群}かどうか確認しよう．
+    $\Lo (V)$ が本当に\hyperref[def:linearLieAlg]{線型Lie代数}かどうか確認しよう．
     \begin{proof}
         $\forall x,\, y \in \Lo (V)$ をとる．$f$ の双線型性から $\forall v,\, w \in V$ に対して
         \begin{align}
@@ -210,6 +272,72 @@ i.e. $\character \mathbb{K} \neq 2$ ならば\footnote{体 $\mathbb{K}$ の\text
     \end{proof}
 \end{myexample}
 
+\begin{myexample}[label=def:typeC]{線型Lie代数：$C_l$ 型}
+    $\dim V = 2l$ とする．行列
+    \begin{align}
+        s \coloneqq \mqty[
+            0 & \unity_l \\
+            -\unity_l & 0
+        ] \in \Mat{2l}{\mathbb{K}}
+    \end{align}
+    により定まる $V$ 上の非退化かつ歪対称な双線型形式を $f$ と書く．
+    このとき，\textbf{シンプレクティック代数} (symplectic algebra) $\Lsp (V)$（または $\lsp{2l,\, \mathbb{K}}$）が以下のように定義される：
+    \begin{align}
+        \Lsp (V) \coloneqq \bigl\{\, \textcolor{red}{x} \in \Lgl (V) \bigm| f \bigl( \textcolor{red}{x}(v),\, w \bigr) = -f \bigl( v,\, \textcolor{red}{x}(w) \bigr),\; \forall v,\, w \in V \,\bigr\} 
+    \end{align}
+    \exref{def:typeB}と全く同様にして $\Lsp (V)$ が\hyperref[def:linearLieAlg]{線型Lie代数}であることを証明できる．
+\end{myexample}
 
+\begin{myexample}[label=def:typeD]{線型Lie代数：$D_l$ 型}
+    $\dim V = 2l$ とし，行列
+    \begin{align}
+        s \coloneqq \mqty[
+            0 & \unity_l \\
+            \unity_l & 0
+        ] \in \Mat{2l}{\mathbb{K}}
+    \end{align}
+    により定まる $V$ 上の非退化かつ対称な双線型形式を $f$ と書く．
+    このとき，\exref{def:typeB}と全く同様に\textbf{直交代数} (orthogonal algebra) $\Lo (V)$（または $\lo{2l,\, \mathbb{K}}$）が定義される．
+\end{myexample}
+
+さらに，古典代数以外の線型Lie代数をいくつか導入する．
+
+\begin{myexample}[label=def:t]{線型Lie代数：$\mathfrak{t}$}
+    $n \times n$ 上三角行列全体の集合を $\mathfrak{t}(n,\, \mathbb{K}) \subset \lgl{n}{\mathbb{K}}$ と書く\footnote{$\mathfrak{t}$ の\LaTeX コマンドは \texttt{\textbackslash mathfrak\{t\}}}：
+    \begin{align}
+        \mathfrak{t}(n,\, \mathbb{K}) \coloneqq \Bigl\{\, \bigl[\, a_{\mu\nu}\, \bigr]_{1 \le \mu,\, \nu \le n} \in \lgl{n}{\mathbb{K}} \Bigm| \mu > \nu \IMP a_{\mu\nu} = 0 \,\Bigr\} 
+    \end{align}
+    $\mathfrak{t}(n,\, \mathbb{K})$ が\hyperref[def:linearLieAlg]{線型Lie代数}であることを確認しよう．
+    \begin{proof}
+        $\forall x = \bigl[\, x_{\mu\nu}\, \bigr]_{1\le \mu,\, \nu \le n},\, y = \bigl[\, y_{\mu\nu}\, \bigr]_{1\le \mu,\, \nu \le n} \in \mathfrak{t}(n,\, \mathbb{K})$ をとる．このとき $1 \le \nu < \mu \le n$ なる全ての $(\mu,\, \nu)$ に対して
+        \begin{align}
+            [x + y]_{\mu\nu} &= x_{\mu\nu} + y_{\mu\nu} = 0 + 0 = 0 \\
+            [\lambda x]_{\mu\nu} &= \lambda x_{\mu\nu} = \lambda 0 = 0 \\
+            [xy]_{\mu\nu}
+            &= \sum_{\lambda=1}^n x_{\mu \lambda} y_{\lambda \nu}
+            = \sum_{\lambda=1}^{\nu} 0 y_{\lambda\nu} + \sum_{\lambda=\nu+1}^n x_{\mu\lambda} 0
+            = 0
+        \end{align}
+        が成り立つので $x + y,\, \lambda x,\, \comm{x}{y} \in \mathfrak{t}(n,\, \mathbb{K})$ が言えた．
+    \end{proof}
+\end{myexample}
+
+
+\begin{myexample}[label=def:n]{線型Lie代数：$\mathfrak{n}$}
+    $n \times n$ 上三角行列のうち対角成分が全て $0$ であるもの全体がなす集合を $\mathfrak{n}(n,\, \mathbb{K}) \subset \lgl{n}{\mathbb{K}}$ と書く\footnote{$\mathfrak{n}$ の\LaTeX コマンドは \texttt{\textbackslash mathfrak\{n\}}}：
+    \begin{align}
+        \mathfrak{n}(n,\, \mathbb{K}) \coloneqq \Bigl\{\, \bigl[\, a_{\mu\nu}\, \bigr]_{1 \le \mu,\, \nu \le n} \in \lgl{n}{\mathbb{K}} \Bigm| \mu \;\textcolor{red}{\ge}\; \nu \IMP a_{\mu\nu} = 0 \,\Bigr\} 
+    \end{align}
+    $\mathfrak{n}(n,\, \mathbb{K})$ が\hyperref[def:linearLieAlg]{線型Lie代数}であることは\exref{def:t}と全く同様に証明できる．
+\end{myexample}
+
+
+\begin{myexample}[label=def:d]{線型Lie代数：$\mathfrak{d}$}
+    $n \times n$ 対角行列全体がなす集合を $\mathfrak{d}(n,\, \mathbb{K}) \subset \lgl{n}{\mathbb{K}}$ と書く\footnote{$\mathfrak{d}$ の\LaTeX コマンドは \texttt{\textbackslash mathfrak\{d\}}}：
+    \begin{align}
+        \mathfrak{d}(n,\, \mathbb{K}) \coloneqq \Bigl\{\, \bigl[\, a_{\mu\nu}\, \bigr]_{1 \le \mu,\, \nu \le n} \in \lgl{n}{\mathbb{K}} \Bigm| \mu \neq \nu \IMP a_{\mu\nu} = 0 \,\Bigr\} 
+    \end{align}
+    $\mathfrak{d}(n,\, \mathbb{K})$ は明らかに\hyperref[def:linearLieAlg]{線型Lie代数}である．
+\end{myexample}
 
 \end{document}
