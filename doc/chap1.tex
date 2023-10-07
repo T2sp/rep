@@ -12,27 +12,32 @@
 
 \section{公理的Lie代数}
 
-この節では $\mathbb{K}$ を任意の体とする．
+この節では $\mathbb{K}$ を任意の体とする．Lie代数を，純粋に代数学的な対象として扱うことを考える．幾何学的側面については後述する．
+
+\begin{marker}
+    Lie代数を表す記号はFrakturという字体で書く慣例がある．例えば「Fraktur」という文字列は $\mathfrak{Fraktur}$ のようになる．
+    \LaTeX コマンドは数式モード中で \texttt{\textbackslash mathfrak\{\}} とする．
+\end{marker}
 
 \begin{myaxiom}[label=ax:LieAlg, breakable]{Lie代数の公理}
-    体 $\mathbb{K}$ 上のベクトル空間 $L$ の上に二項演算\footnote{ベクトル空間に備わっている加法とスカラー乗法の他に，追加で $\comm{\;}{\,}$ が定義されているという状況である．この付加的な二項演算はしばしば\textbf{括弧積} (bracket) とか\textbf{交換子} (commutator) とか\textbf{Lieブラケット} (Lie bracket) とか呼ばれる．}
+    体 $\mathbb{K}$ 上のベクトル空間 $\mathfrak{g}$ の上に二項演算\footnote{ベクトル空間に備わっている加法とスカラー乗法の他に，追加で $\comm{\;}{\,}$ が定義されているという状況である．この付加的な二項演算はしばしば\textbf{括弧積} (bracket) とか\textbf{交換子} (commutator) とか\textbf{Lieブラケット} (Lie bracket) とか呼ばれる．}
     \begin{align}
-        \comm{\;}{\,} \colon L \times L \lto L,\; (x,\, y) \lmto \comm{x}{y}
+        \comm{\;}{\,} \colon \mathfrak{g} \times \mathfrak{g} \lto \mathfrak{g},\; (x,\, y) \lmto \comm{x}{y}
     \end{align}
-    が定義されていて，かつ以下の条件を充たすとき，$L$ は\textbf{Lie代数} (Lie algebra) と呼ばれる：
+    が定義されていて，かつ以下の条件を充たすとき，$\mathfrak{g}$ は\textbf{Lie代数} (Lie algebra) と呼ばれる：
     \begin{description}
-        \item[\textbf{(L-1)}] $\comm{\;}{\,}$ は双線型写像である．i.e. $\forall x,\, x_i,\, y,\, y_i \in L,\; \forall \lambda_i,\, \mu_i \in \mathbb{K}\; (i = 1,\, 2)$ に対して
+        \item[\textbf{(L-1)}] $\comm{\;}{\,}$ は双線型写像である．i.e. $\forall x,\, x_i,\, y,\, y_i \in \mathfrak{g},\; \forall \lambda_i,\, \mu_i \in \mathbb{K}\; (i = 1,\, 2)$ に対して
         \begin{align}
             \comm{\lambda_1 x_1 + \lambda_2 x_2}{y} &= \lambda_1 \comm{x_1}{y} + \lambda_2 \comm{x_2}{y}, \\
             \comm{x}{\mu_1 y_1 + \mu_2 y_2} &= \mu_1 \comm{x}{y_1} + \mu_2 \comm{x}{y_2}
         \end{align}
         が成り立つ．
-        \item[\textbf{(L-2)}] $\forall x \in L$ に対して
+        \item[\textbf{(L-2)}] $\forall x \in \mathfrak{g}$ に対して
         \begin{align}
             \comm{x}{x} = o
         \end{align}
         が成り立つ．
-        \item[\textbf{(L-3)}] $\forall x,\, y,\, z \in L$ に対して
+        \item[\textbf{(L-3)}] $\forall x,\, y,\, z \in \mathfrak{g}$ に対して
         \begin{align}
             \label{eq:Jacobi-identity}
             \comm{x}{\comm{y}{z}} + \comm{y}{\comm{z}{x}} + \comm{z}{\comm{x}{y}} = o
@@ -48,7 +53,7 @@
 \end{align}
 が従う．i.e. $\comm{x}{y}$ は反交換 (anticommute) する：
 \begin{description}
-    \item[\textbf{(L'-2)}] $\forall x,\, y \in L$ に対して
+    \item[\textbf{(L'-2)}] $\forall x,\, y \in \mathfrak{g}$ に対して
     \begin{align}
         \comm{x}{y} = -\comm{y}{x}
     \end{align}
@@ -117,41 +122,41 @@ i.e. $\character \mathbb{K} \neq 2$ ならば\footnote{体 $\mathbb{K}$ の\text
     　$V$ を体 $\mathbb{K}$ 上のベクトル空間とする．$V$ から $V$ への線型写像全体が成す集合を $\End V$ と書く\footnote{\textbf{自己準同型} (endomorphism) の略である．}．
     $\End V$ の加法とスカラー乗法をそれぞれ
     \begin{align}
-        + \colon \End V \times \End V &\lto \End V,\; (f,\, g) \lmto \bigl( v \mapsto f(v) + g(v) \bigr) \\
-        \cdot\; \colon \mathbb{K} \times \End V &\lto \End V,\; (\lambda,\, f) \lmto \bigl( v \mapsto \lambda f(v) \bigr)
+        + \colon \End V \times \End V &\lto \End V,\; (x,\, y) \lmto \bigl( v \mapsto x(v) + y(v) \bigr) \\
+        \cdot\; \colon \mathbb{K} \times \End V &\lto \End V,\; (\lambda,\, x) \lmto \bigl( v \mapsto \lambda x(v) \bigr)
     \end{align}
     として定義すると，組 $(\End V,\, +,\, \cdot\; )$ は体 $\mathbb{K}$ 上のベクトル空間になる．以降では常に $\End V$ をこの方法でベクトル空間と見做す．
 
     　$\End V$ の上のLieブラケットを
     \begin{align}
         \label{eq:Liebracket-gl}
-        \comm{\;}{\,} \colon \End V \times \End V \lto \End V,\; (f,\, g) \lmto fg - gf
+        \comm{\;}{\,} \colon \End V \times \End V \lto \End V,\; (x,\, y) \lmto xy - yx
     \end{align}
-    と定義する．ただし右辺の $fg$ は写像の合成 $f \circ g$ の略記である．このとき組 $(\End V,\, +,\, \cdot\;,\, \comm{\;}{\,})$ が\hyperref[ax:LieAlg]{Lie代数の公理}を充たすことを確認しよう：
+    と定義する．ただし右辺の $xy$ などは写像の合成 $x \circ y$ の略記である．このとき組 $(\End V,\, +,\, \cdot\;,\, \comm{\;}{\,})$ が\hyperref[ax:LieAlg]{Lie代数の公理}を充たすことを確認しよう：
     \begin{proof}
         \begin{description}
             \item[\textbf{(L-1)}] $\forall v \in V$ を1つとる．定義に従ってとても丁寧に計算すると
             \begin{align}
-                \comm{\lambda_1 f_1 + \lambda_2 f_2}{g}(v) 
-                &= \bigl( (\lambda_1 f_1 + \lambda_2 f_2) g - g (\lambda_1 f_1 + \lambda_2 f_2) \bigr)(v) \\
-                &= (\lambda_1 f_1 + \lambda_2 f_2) \bigl( g(v) \bigr) - g \bigl((\lambda_1 f_1 + \lambda_2 f_2)(v)\bigr) \\
-                &= (\lambda_1 f_1) \bigl(g (v) \bigr) + (\lambda_2 f_2) \bigl( g(v) \bigr) - g \bigl( (\lambda_1 f_1)(v) + (\lambda_2 f_2)(v)  \bigr) \\
-                &= \lambda_1 f_1 \bigl(g (v) \bigr) + \lambda_2 f_2 \bigl( g(v) \bigr) - \lambda_1 g \bigl( f_1(v) \bigr) - \lambda_2 g \bigl( f_2(v) \bigr) \\
-                &= \lambda_1 \Bigl( f_1 \bigl(g (v) \bigr) - g \bigl( f_1(v) \bigr) \Bigr) + \lambda_2 \Bigl(f_2 \bigl( g(v) \bigr) - g \bigl( f_2(v) \bigr) \Bigr) \\
-                &= \lambda_1 \comm{f_1}{g} (v) + \lambda_2 \comm{f_2}{g} (v) \\
-                &= \bigl( \lambda_1 \comm{f_1}{g} + \lambda_2 \comm{f_2}{g}  \bigr) (v)
+                \comm{\lambda_1 x_1 + \lambda_2 x_2}{y}(v) 
+                &= \bigl( (\lambda_1 x_1 + \lambda_2 x_2) y - y (\lambda_1 x_1 + \lambda_2 x_2) \bigr)(v) \\
+                &= (\lambda_1 x_1 + \lambda_2 x_2) \bigl( y(v) \bigr) - y \bigl((\lambda_1 x_1 + \lambda_2 x_2)(v)\bigr) \\
+                &= (\lambda_1 x_1) \bigl(y (v) \bigr) + (\lambda_2 x_2) \bigl( y(v) \bigr) - y \bigl( (\lambda_1 x_1)(v) + (\lambda_2 x_2)(v)  \bigr) \\
+                &= \lambda_1 x_1 \bigl(y (v) \bigr) + \lambda_2 x_2 \bigl( y(v) \bigr) - \lambda_1 y \bigl( x_1(v) \bigr) - \lambda_2 y \bigl( x_2(v) \bigr) \\
+                &= \lambda_1 \Bigl( x_1 \bigl(y (v) \bigr) - y \bigl( x_1(v) \bigr) \Bigr) + \lambda_2 \Bigl(x_2 \bigl( y(v) \bigr) - y \bigl( x_2(v) \bigr) \Bigr) \\
+                &= \lambda_1 \comm{x_1}{y} (v) + \lambda_2 \comm{x_2}{y} (v) \\
+                &= \bigl( \lambda_1 \comm{x_1}{y} + \lambda_2 \comm{x_2}{y}  \bigr) (v)
             \end{align}
-            となる．ただし4つ目の等号で $g \in \End V$ が線型写像であることを使った．全く同様にして
+            となる．ただし4つ目の等号で $y \in \End V$ が線型写像であることを使った．全く同様にして
             \begin{align}
-                \comm{f}{\mu_1 g_1 + \mu_2 g_2}(v) = \mu_1 \comm{f}{g_1} + \mu_2 \comm{f}{g_2}
+                \comm{x}{\mu_1 y_1 + \mu_2 y_2}(v) = \mu_1 \comm{x}{y_1} + \mu_2 \comm{x}{y_2}
             \end{align}
             を示すこともできる．
-            \item[\textbf{(L-2)}] 明らかに $\comm{f}{f} = ff - ff = o$ なのでよい．
+            \item[\textbf{(L-2)}] 明らかに $\comm{x}{x} = xx - xx = o$ なのでよい．
             \item[\textbf{(L-3)}] $\comm{\;}{\,}$ の双線型（\textsf{\textbf{(L-1)}}）から
             \begin{align}
-                &\comm{f}{\comm{g}{h}} + \comm{g}{\comm{h}{f}} + \comm{h}{\comm{f}{g}} \\
-                &= \comm{f}{gh} - \comm{f}{hg} + \comm{g}{hf} - \comm{g}{fh} + \comm{h}{fg} - \comm{h}{gf} \\
-                &= fgh - ghf - fhg + hgf + ghf - hfg - gfh + fhg + hfg - fgh - hgf + gfh \\
+                &\comm{x}{\comm{y}{z}} + \comm{y}{\comm{z}{x}} + \comm{z}{\comm{x}{y}} \\
+                &= \comm{x}{yz} - \comm{x}{zy} + \comm{y}{zx} - \comm{y}{xz} + \comm{z}{xy} - \comm{z}{yx} \\
+                &= xyz - yzx - xzy + zyx + yzx - zxy - yxz + xzy + zxy - xyz - zyx + yxz \\
                 &= o.
             \end{align}
         \end{description}
@@ -182,28 +187,22 @@ i.e. $\character \mathbb{K} \neq 2$ ならば\footnote{体 $\mathbb{K}$ の\text
     となる\footnote{少し紛らわしいかもしれないが，右辺において $e_{il}$ は行列（行列の成分\underline{ではない}！）で $\delta_{jk}$ はただの $\mathbb{K}$ の元である．以下では行列を指定する添字を $a,\,b,\, c,\, \dots,\, i,\, j,\, k,\, \dots$ で，行列の成分の添字を $\mu,\, \nu,\, \lambda,\, \dots$ で書くことにする．つまり，例えば $x_{ij}$ はある一つの行列を表す一方，$x_{ij}{}_{\mu\nu}$ は行列 $x_{ij}$ の第 $(\mu,\, \nu)$ 成分を表す．あまりにも紛らわしい場合には，行列の成分を表す際に $[x_{ij}]_{\mu\nu}$ のように角括弧で括ることにする．}．
 \end{myexample}
 
-\subsection{線型Lie群}
+\subsection{線型Lie代数}
 
 \begin{mydef}[label=def:subLieAlg]{部分Lie代数}
-    \hyperref[ax:LieAlg]{Lie代数} $L$ の\underline{部分ベクトル空間} $M \subset L$ が\textbf{部分Lie代数}であるとは，$M$ がLieブラケットについても閉じていることを言う．
-    i.e. $\forall x,\, y \in M,\; \forall \lambda \in \mathbb{K}$ に対して
+    \hyperref[ax:LieAlg]{Lie代数} $\mathfrak{g}$ の\underline{部分ベクトル空間} $\mathfrak{h} \subset \mathfrak{g}$ が\textbf{部分Lie代数}であるとは，$\mathfrak{h}$ がLieブラケットについても閉じていることを言う．
+    i.e. $\forall x,\, y \in \mathfrak{h},\; \forall \lambda \in \mathbb{K}$ に対して
     \begin{align}
-        x + y,\; \lambda x,\; \comm{x}{y} \in M
+        x + y,\; \lambda x,\; \comm{x}{y} \in \mathfrak{h}
     \end{align}
     が成り立つこと．
 \end{mydef}
 
-この小節では以降，$V$ を体 $\mathbb{K}$ 上の有限次元ベクトル空間とする．
+この小節では以降，$V$ を体 $\mathbb{K}$ 上の\underline{有限次元}ベクトル空間とする．
 
 \begin{mydef}[label=def:linearLieAlg]{線型Lie代数}
     \hyperref[def:gl-alg]{一般線形代数} $\Lgl (V)$ の\hyperref[def:subLieAlg]{部分Lie代数}のことを\textbf{線型Lie代数} (linear Lie algebra) と呼ぶ．
 \end{mydef}
-
-\begin{marker}
-    慣習として，Lie代数を表す記号はFrakturという字体で書くことが多い．例えば「Fraktur」という文字列は $\mathfrak{Fraktur}$ のようになる．
-    \LaTeX コマンドは数式モード中で \texttt{\textbackslash mathfrak \{\}} とする．
-\end{marker}
-
 
 線型Lie代数として有名なものは\textbf{古典代数} (classical algebra) である．これは $A_l,\, B_l,\, C_l,\, D_l$ と呼ばれる4つの無限系列からなる．
 以下，$\character \mathbb{K} \neq 2$ とする．
@@ -339,5 +338,272 @@ i.e. $\character \mathbb{K} \neq 2$ ならば\footnote{体 $\mathbb{K}$ の\text
     \end{align}
     $\mathfrak{d}(n,\, \mathbb{K})$ は明らかに\hyperref[def:linearLieAlg]{線型Lie代数}である．
 \end{myexample}
+
+\begin{myaxiom}[label=ax:Alg]{代数}
+    体 $\mathbb{K}$ 上のベクトル空間 $\mathfrak{U}$\footnote{\texttt{\textbackslash mathfrak\{U\}}}の上に二項演算
+    \begin{align}
+        * \colon \mathfrak{U} \times \mathfrak{U} \lto \mathfrak{U},\; (x,\, y) \lmto x * y
+    \end{align}
+    が定義されていて，かつ以下の条件を充たすとき，$\mathfrak{U}$ は $\mathbb{K}$-\textbf{代数} ($\mathbb{K}$-algebra) と呼ばれる\footnote{結合律は\underline{要請しない}！$*$ に関する結合律を公理に含める場合は\textbf{結合代数} (associative algebra) と言う．文献によっては代数と言って結合代数のことを指す場合があるので注意．}：
+    \begin{description}
+        \item[\textbf{(A-1)}] $*$ は双線型写像である．i.e. $\forall x,\, x_i,\, y,\, y_i \in \mathfrak{g},\; \forall \lambda_i,\, \mu_i \in \mathbb{K}\; (i = 1,\, 2)$ に対して
+        \begin{align}
+            (\lambda_1 x_1 + \lambda_2 x_2)*y &= \lambda_1 x_1*y + \lambda_2 x_2*y, \\
+            x*(\mu_1 y_1 + \mu_2 y_2) &= \mu_1 x*y_1 + \mu_2 x*y_2
+        \end{align}
+        が成り立つ．
+        % \item[\textbf{(L-2)}] $\forall x \in \mathfrak{g}$ に対して
+        % \begin{align}
+        %     \comm{x}{x} = o
+        % \end{align}
+        % が成り立つ．
+        % \item[\textbf{(L-3)}] $\forall x,\, y,\, z \in \mathfrak{g}$ に対して
+        % \begin{align}
+        %     \label{eq:Jacobi-identity}
+        %     \comm{x}{\comm{y}{z}} + \comm{y}{\comm{z}{x}} + \comm{z}{\comm{x}{y}} = o
+        % \end{align}
+        % が成り立つ\footnote{\underline{結合律ではない！}}（\textbf{Jacobi}恒等式）．
+    \end{description}
+\end{myaxiom}
+
+\hyperref[ax:LieAlg]{Lie代数}は $\mathbb{K}$-\hyperref[ax:Alg]{代数}である．
+
+\begin{mydef}[label=def:derivation-Alg]{代数の微分}
+    $\mathbb{K}$-\hyperref[ax:Alg]{代数} $\mathfrak{U}$ の\textbf{微分} (derivation) とは，
+    線型写像
+    \begin{align}
+        d \colon \mathfrak{U} \lto \mathfrak{U}
+    \end{align}
+    であってLeibniz則
+    \begin{align}
+        d (x * y) = x * d (y) + d(x) * y
+    \end{align}
+    を充たすもののこと．
+\end{mydef}
+
+全ての $\mathfrak{U}$ の微分がなす集合を $\Der \mathfrak{U}$ と書く．
+
+\begin{myprop}[label=prop:Der-LieAlg]{代数の微分がなすLie代数}
+    $\Der \mathfrak{U}$ の上の加法，スカラー乗法，Lieブラケットをそれぞれ
+    \begin{align}
+        +\colon \Der \mathfrak{U} \times \Der \mathfrak{U} \lto \Der \mathfrak{U},\; &(d,\, e) \lmto \bigl( x \mapsto d(x) + e(x) \bigr) \\
+        \cdot\;\colon \mathbb{K} \times \Der \mathfrak{U} \lto \Der \mathfrak{U},\; &(\lambda,\, d) \lmto \bigl( x \mapsto \lambda d(x) \bigr) \\
+        \comm{\;}{\,}\colon \Der \mathfrak{U} \times \Der \mathfrak{U} \lto \Der \mathfrak{U},\; &(d,\, e) \lmto \bigl( x \mapsto d(e(x)) - e(d(x)) \bigr)
+    \end{align}
+    と定義すると，組 $(\Der \mathfrak{U},\, +,\, \cdot\;,\, \comm{\;}{\,})$ は $\Lgl (\mathfrak{U})$ の\hyperref[def:subLieAlg]{部分Lie代数}である．
+    Lie代数としての $\Der \mathfrak{U}$ のことを\textbf{微分代数} (derivation algebra) と呼ぶ\footnote{https://mathworld.wolfram.com/DerivationAlgebra.html}．
+\end{myprop}
+
+\begin{proof}
+    $\forall x,\, y \in \mathfrak{U}$ をとる．
+    \hyperref[def:derivation-Alg]{代数の微分}は線型写像なので，$*$ の双線型性および微分のLeibniz則から
+    \begin{align}
+        (d + e)(x * y) &= x * d(y) + d(x) * y + x * e(y) + e(x) * y = x * (d + e)(y) + (d + e)(x) * y \\
+        (\lambda d)(x * y) &= \lambda \bigl( d(x) * y + x * d(y) \bigr) = \bigl(\lambda d(x) \bigr) * y + x * \bigl(\lambda d(y)\bigr) = (\lambda d)(x) * y + x * (\lambda d)(y)
+    \end{align}
+    が成り立つ．i.e. $d + e,\, \lambda d \in \Der \mathfrak{U}$ が言えた．
+    Lieブラケットに関しては，
+    \begin{align}
+        d \bigl(e (x * y)\bigr) = d \bigl( x * e(y) + e(x) * y \bigr) = x * d\bigl(e(y)\bigr) + d(x) * e(y) + e(x) * d(y) + d\bigl(e(x)\bigr) * y
+    \end{align}
+    に注意すると
+    \begin{align}
+        \comm{d}{e}(x*y) 
+        &= x * d\bigl(e(y)\bigr) + \cancel{d(x) * e(y) + e(x) * d(y)} + d\bigl(e(x)\bigr) * y \\
+        &\quad - x * e\bigl(d(y)\bigr) \cancel{- e(x) * d(y) - d(x) * e(y)} - e\bigl(d(x)\bigr) * y \\
+        &=x * \comm{d}{e}(y) + \comm{d}{e}(x) * y
+    \end{align}
+    が成り立つ．i.e. $\comm{d}{e} \in \Der \mathfrak{U}$ が言えた．
+\end{proof}
+
+\begin{myexample}[label=def:Der-inner]{内部微分}
+    \hyperref[ax:LieAlg]{Lie代数} $\mathfrak{g}$ は $\mathbb{K}$-\hyperref[ax:Alg]{代数}なので，その\hyperref[prop:Der-LieAlg]{微分代数} $\Der \mathfrak{g}$ を考えることができる．
+    
+    ここで $\textcolor{blue}{x} \in \mathfrak{g}$ を任意に取ろう．このとき，写像
+    \begin{align}
+        \ad \textcolor{blue}{x} \colon \mathfrak{g} \lto \mathfrak{g},\; z \lmto \comm{\textcolor{blue}{x}}{z}
+    \end{align}
+    は線型写像で，\hyperref[ax:LieAlg]{Jacobi恒等式}から
+    \begin{align}
+        \ad \textcolor{blue}{x} (\comm{z}{w}) 
+        &= \comm{\textcolor{blue}{x}}{\comm{z}{w}} \\
+        &= \comm{\comm{\textcolor{blue}{x}}{z}}{w} + \comm{z}{\comm{\textcolor{blue}{x}}{w}} \\
+        &= \comm{\ad \textcolor{blue}{x} (z)}{w} + \comm{z}{\ad \textcolor{blue}{x} (w)}
+    \end{align}
+    を充たすことがわかる．これはまさにLeibniz則なので，$\ad \textcolor{blue}{x} \in \Der (\mathfrak{g})$ である．
+    $\ad \textcolor{blue}{x}$ の形で書ける $\Der (\mathfrak{g})$ の元のことを\textbf{内部微分} (inner derivation) と呼ぶ\footnote{$\Der (\mathfrak{g})$ の元が内部微分でないとき，\textbf{外部微分} (outer derivation) であると言う．}．
+\end{myexample}
+
+
+\subsection{イデアル・商代数}
+
+\begin{mydef}[label=def:ideal-LieAlg]{Lie代数のイデアル}
+    \hyperref[ax:LieAlg]{Lie代数} $\mathfrak{g}$ の部分集合 $\mathfrak{i}$ \footnote{\texttt{\textbackslash mathfrak\{i\}}}が $\mathfrak{g}$ の\textbf{イデアル} (ideal) であるとは，以下の2条件を充たすことを言う：
+    \begin{description}
+        \item[\textbf{(LI-1)}]  $\mathfrak{i}$ は $\mathfrak{g}$ の部分ベクトル空間である．
+        \item[\textbf{(LI-2)}]  $\forall \textcolor{blue}{x} \in \textcolor{blue}{\mathfrak{g}},\, \forall y \in \mathfrak{i}$ に対して $\comm{\textcolor{blue}{x}}{y} \in \mathfrak{i}$
+    \end{description}
+\end{mydef}
+
+\begin{myexample}[label=def:trivialIdeal-LieAlg]{自明なイデアル}
+    $\forall x \in \mathfrak{g}$ に対して $\comm{x}{o} = \comm{x}{x + (-x)} = \comm{x}{x} - \comm{x}{x} = o$ が成り立つので，$\{o\}$ は $\mathfrak{g}$ の\hyperref[def:ideal-LieAlg]{イデアル}である．
+    また，Lieブラケットについて閉じているので $\mathfrak{g}$ 自身もイデアルである．この2つを\textbf{自明なイデアル} (trivial ideal) と呼ぶ．
+\end{myexample}
+
+
+\begin{myexample}[label=def:center-LieAlg]{中心}
+    \hyperref[ax:LieAlg]{Lie代数} $\mathfrak{g}$ の\textbf{中心} (center) は
+    \begin{align}
+        Z(\mathfrak{g}) \coloneqq \bigl\{\, z \in \mathfrak{g} \bigm| \forall \textcolor{blue}{x} \in \mathfrak{g},\; \comm{\textcolor{blue}{x}}{z} = o \,\bigr\} 
+    \end{align}
+    と定義される．$o \in Z(\mathfrak{g})$ であることから $Z(\mathfrak{g})$ は\hyperref[def:ideal-LieAlg]{イデアル}である．
+    $\mathfrak{g}$ がLieブラケットに関して可換である必要十分条件は $Z(\mathfrak{g}) = \mathfrak{g}$ が成り立つことである\footnote{\hyperref[ax:LieAlg]{Lie代数の公理} \textsf{\textbf{(L'-1)}} より，$\comm{x}{y} = \comm{y}{x}$ ならば $\comm{x}{y} = - \comm{x}{y} \IFF \comm{x}{y} = o$ である．}．
+\end{myexample}
+
+
+
+\begin{mylem}[label=lem:ideal-LieAlg]{イデアル同士のLieブラケットはイデアル}
+    \hyperref[ax:LieAlg]{Lie代数} $\mathfrak{g}$ とその\hyperref[def:ideal-LieAlg]{イデアル} $\mathfrak{i},\, \mathfrak{j}$ を与える．
+    このとき $\comm{\mathfrak{i}}{\mathfrak{j}}$ もまた $\mathfrak{g}$ のイデアルである．
+\end{mylem}
+
+\begin{proof}
+    $\forall \textcolor{blue}{x} \in \mathfrak{g}$ を1つとる．Lieブラケットの双線型性から，このとき $\forall z \in \mathfrak{i},\, \forall w \in \mathfrak{j}$ に対して $\comm{\textcolor{blue}{x}}{\comm{z}{w}} \in \comm{\mathfrak{i}}{\mathfrak{j}}$ が成り立つことを示せば良い．
+    実際，\hyperref[label]{Lie代数の公理} \textsf{\textbf{(L-2)}}, \textsf{\textbf{(L-3)}} より
+    \begin{align}
+        \comm{\textcolor{blue}{x}}{\comm{z}{w}} = \comm{\comm{w}{\textcolor{blue}{x}}}{z} + \comm{\comm{\textcolor{blue}{x}}{z}}{w} = \comm{z}{\comm{\textcolor{blue}{x}}{w}} + \comm{\comm{\textcolor{blue}{x}}{z}}{w}
+    \end{align}
+    が言えるが，$\mathfrak{i},\, \mathfrak{j}$ が\hyperref[def:ideal-LieAlg]{イデアル}であることにより $\comm{\textcolor{blue}{x}}{w} \in \mathfrak{j},\, \comm{\textcolor{blue}{x}}{z} \in \mathfrak{i}$ なので右辺は $\comm{\mathfrak{i}}{\mathfrak{j}}$ に属する．
+\end{proof}
+
+\begin{myexample}[label=def:derived-LieAlg]{導来Lie代数}
+    \hyperref[ax:LieAlg]{Lie代数} $\mathfrak{g}$ の\textbf{導来代数} (derived algebra) とは，$\mathfrak{g}$ の\hyperref[def:ideal-LieAlg]{イデアル} $\comm{\mathfrak{g}}{\mathfrak{g}}$ のこと．
+\end{myexample}
+
+\begin{mydef}[label=def:simple-LieAlg]{単純Lie代数}
+    \hyperref[ax:LieAlg]{Lie代数} $\mathfrak{g}$ が\textbf{単純} (simple) であるとは，
+    $\mathfrak{g}$ が\hyperref[def:trivialIdeal-LieAlg]{自明なイデアル}以外の\hyperref[def:ideal-LieAlg]{イデアル}を持たず，かつ $\comm{\mathfrak{g}}{\mathfrak{g}} \neq \{o\}$ を充たすことを言う．
+\end{mydef}
+
+\begin{myexample}[label=ex:sl2]{単純Lie代数：$\Lsl (2)$}
+    
+\end{myexample}
+
+\hyperref[ax:LieAlg]{Lie代数} $\mathfrak{g}$ の\hyperref[def:ideal-LieAlg]{イデアル} $\mathfrak{i}$ が与えられたとき，商群のときと同じ要領で商代数を構成できる．このことを復習しよう：
+
+$\mathfrak{g}$ 上の同値関係を
+\begin{align}
+    \sim \; \coloneqq \bigl\{\, (x,\, y) \in \mathfrak{g} \times \mathfrak{g} \bigm| x - y \in \mathfrak{i} \,\bigr\} 
+\end{align}
+と定義する\footnote{\hyperref[def:ideal-LieAlg]{\textsf{\textbf{(LI-1)}}}より $\mathfrak{i}$ は部分ベクトル空間なので反射律と対称律が言える．$x \sim y \AND y \sim z$ ならば $x - z = (x - y) + (y - z) \in \mathfrak{i}$ なので $x \sim z$ であり，推移律が成り立つことがわかる．}．
+$\sim$ による $x \in \mathfrak{g}$ の同値類のことを $x + \mathfrak{i}$ と書き，商集合 $\mathfrak{g}/{\sim}$ のことを $\bm{\mathfrak{g}/\mathfrak{i}}$ と書く．
+全射 $p \colon \mathfrak{g} \lto \mathfrak{g}/\mathfrak{i}$ を\textbf{標準的射影} (canonical projection) と呼ぶ．
+
+\begin{mydef}[label=def:quotient-LieAlg]{商代数}
+    集合 $\mathfrak{g} / \mathfrak{i}$ の上には次のようにしてwell-definedな加法，スカラー乗法，Lieブラケットが定義できる：
+    \begin{align}
+        + \colon \mathfrak{g} / \mathfrak{i} \times \mathfrak{g} / \mathfrak{i} \lto \mathfrak{g} / \mathfrak{i},\; &(x + \mathfrak{i},\, y + \mathfrak{i}) \lmto (x + y) + \mathfrak{i} \\
+        \cdot\; \colon \mathbb{K} \times \mathfrak{g} / \mathfrak{i} \lto \mathfrak{g} / \mathfrak{i},\; &(\lambda,\, x + \mathfrak{i}) \lmto (\lambda x) + \mathfrak{i} \\
+        \comm{\;}{\,} \colon \mathfrak{g} / \mathfrak{i} \times \mathfrak{g} / \mathfrak{i} \lto \mathfrak{g} / \mathfrak{i},\; &(x + \mathfrak{i},\, y + \mathfrak{i}) \lmto \comm{x}{y} + \mathfrak{i}
+    \end{align}
+    \hyperref[ax:LieAlg]{Lie代数} $(\mathfrak{g} / \mathfrak{i},\, + ,\, \cdot\; ,\, \comm{\;}{\,})$ のことを\textbf{商代数} (quotient algebra) と呼ぶ．
+\end{mydef}
+
+\begin{proof}
+    well-definednessを示す．$x + \mathfrak{i} = x' + \mathfrak{i},\, y + \mathfrak{i} = y' + \mathfrak{i}$ ならば $x'-x,\, y' - y \in \mathfrak{i}$ であるから
+    \begin{align}
+        x' + y' &= (x + y) + (x' - x) + (y' - y) \in (x + y) + \mathfrak{i}, \\
+        \lambda x' &= \lambda x + \lambda (x' - x) \in (\lambda x) + \mathfrak{i}
+    \end{align}
+    が成り立つ．また，$\textcolor{red}{\mathfrak{i}}$ \textcolor{red}{が}\hyperref[def:ideal-LieAlg]{イデアル}\textcolor{red}{であることにより}
+    \begin{align}
+        \comm{x'}{y'} &= \comm{x + (x' - x)}{y + (y' - y)} \\
+        &= \comm{x}{y} + \comm{x}{y' - y} - \comm{y}{x' - x} + \comm{x'-x}{y'-y} \\
+        &\in \comm{x}{y} + \mathfrak{i}
+    \end{align}
+    が言える．
+\end{proof}
+
+
+\begin{mydef}[label=def:normalizer-LieAlg]{正規化代数・中心化代数}
+    \begin{itemize}
+        \item \hyperref[ax:LieAlg]{Lie代数} $\mathfrak{g}$ とその\hyperref[def:subLieAlg]{部分Lie代数}（もしくは部分ベクトル空間） $\mathfrak{h}$ を与える．
+        このとき $\mathfrak{h}$ の\textbf{正規化代数} (normalizer) を
+        \begin{align}
+            N_{\mathfrak{g}} (\mathfrak{h}) \coloneqq \bigl\{\, x \in \mathfrak{g} \bigm| \forall \textcolor{blue}{h} \in \mathfrak{h},\; \comm{x}{\textcolor{blue}{h}} \in \mathfrak{h} \,\bigr\} 
+        \end{align}
+        で定義する
+        \footnote{
+            $N_{\mathfrak{g}} (\mathfrak{h})$ は $\mathfrak{g}$ の部分Lie代数である：$\forall x,\, y \in N_{\mathfrak{g}}(\mathfrak{h})$ に対して，Jacobi恒等式から $\forall z \in \mathfrak{h},\; \comm{\comm{x}{y}}{z} = \comm{x}{\comm{y}{z}} - \comm{y}{\comm{x}{z}} \in \mathfrak{h}$ が言える．
+            さらに，もし $\mathfrak{h}$ が部分Lie代数ならば，定義から $\mathfrak{h}$ を $N_{\mathfrak{g}} (\mathfrak{h})$ の部分ベクトル空間と見做したときに $\mathfrak{h}$ は自動的に\hyperref[def:ideal-LieAlg]{イデアル}になる．
+            特に，$N_{\mathfrak{g}} (\mathfrak{h})$ は $\mathfrak{h} \subset N_{\mathfrak{g}} (\mathfrak{h})$ をイデアルとして持つ最大の部分Lie代数である．
+        }．特に $N_{\mathfrak{g}} (\mathfrak{h})  = \mathfrak{h}$ のとき，$\mathfrak{h}$ は\textbf{self-normalizing}であると言う．
+        \item \hyperref[ax:LieAlg]{Lie代数} $\mathfrak{g}$ とその\underline{部分集合} $X$ を与える．
+        このとき $X$ の\textbf{中心化代数} (centralizer) を
+        \begin{align}
+            C_{\mathfrak{g}} (X) \coloneqq \bigl\{\, x \in \mathfrak{g} \bigm| \forall \textcolor{blue}{z} \in X,\; \comm{x}{\textcolor{blue}{z}} = o \,\bigr\} 
+        \end{align}
+        と定義する
+        \footnote{
+            $C_{\mathfrak{g}} (X)$ が $\mathfrak{g}$ の部分Lie代数であることは，$N_{\mathfrak{g}} (\mathfrak{h})$ のときと全く同様にして示される．
+        }
+        ．
+    \end{itemize}
+\end{mydef}
+
+\exref{def:center-LieAlg}を思い出すと，$Z (\mathfrak{g}) = C_{\mathfrak{g}} (\mathfrak{g})$ である．
+
+\subsection{準同型・表現}
+
+\begin{mydef}[label=def:hom-LieAlg]{Lie代数の準同型}
+    
+\end{mydef}
+
+\begin{myprop}[label=prop:homo]{準同型定理}
+    
+\end{myprop}
+
+\begin{mydef}[label=def:rep-LieAlg]{Lie代数の表現}
+    
+\end{mydef}
+
+\begin{myexample}[label=def:adj-LieAlg]{随伴表現}
+    
+\end{myexample}
+
+\subsection{自己同型}
+
+\begin{mydef}[label=def:auto-LieAlg]{自己同型}
+
+\end{mydef}
+
+\subsection{可解Lie代数}
+
+\begin{mydef}[label=def:solvable-LieAlg]{可解Lie代数}
+    
+\end{mydef}
+
+\begin{myprop}[label=prop:solvable-basic]{}
+    
+\end{myprop}
+
+\begin{mydef}[label=def:rad-LieAlg]{根基}
+    
+\end{mydef}
+
+\begin{mydef}[label=def:semisimple-LieAlg]{半単純Lie代数}
+    
+\end{mydef}
+
+\subsection{冪零Lie代数}
+
+\begin{mydef}[label=def:nilpotent-LieAlg]{冪零Lie代数}
+    
+\end{mydef}
+
+\begin{mytheo}[label=thm:Engel]{Engelの定理}
+    
+\end{mytheo}
+
 
 \end{document}
