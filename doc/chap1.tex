@@ -462,18 +462,27 @@ i.e. $\character \mathbb{K} \neq 2$ ならば\footnote{体 $\mathbb{K}$ の\text
 
 
 
-\begin{mylem}[label=lem:ideal-LieAlg]{イデアル同士のLieブラケットはイデアル}
-    \hyperref[ax:LieAlg]{Lie代数} $\mathfrak{g}$ とその\hyperref[def:ideal-LieAlg]{イデアル} $\mathfrak{i},\, \mathfrak{j}$ を与える．
-    このとき $\comm{\mathfrak{i}}{\mathfrak{j}}$ もまた $\mathfrak{g}$ のイデアルである．
+\begin{mylem}[label=lem:ideal-LieAlg]{イデアル同士の演算}
+    \hyperref[ax:LieAlg]{Lie代数} $\mathfrak{g}$ とその\hyperref[def:ideal-LieAlg]{イデアル} $\mathfrak{i},\, \mathfrak{j}$ を与える．このとき以下の2つが成り立つ：
+    \begin{enumerate}
+        \item 集合 $\mathfrak{i} \cap \mathfrak{j}$ は $\mathfrak{g}$ のイデアルである．
+        \item 集合 $\mathfrak{i} + \mathfrak{j} \coloneqq \bigl\{\, x + y \bigm| x \in \mathfrak{i},\, y \in \mathfrak{j} \,\bigr\}$ は $\mathfrak{g}$ のイデアルである．
+        \item 集合 $\comm{\mathfrak{i}}{\mathfrak{j}} \coloneqq \bigl\{\, \sum_{i=1}^n \comm{x_i}{y_i} \bigm| x_i \in \mathfrak{i},\, y_i \in \mathfrak{j};\, \textcolor{red}{n < \infty} \,\bigr\}$ は $\mathfrak{g}$ のイデアルである．
+    \end{enumerate}
 \end{mylem}
 
 \begin{proof}
-    $\forall \textcolor{blue}{x} \in \mathfrak{g}$ を1つとる．Lieブラケットの双線型性から，このとき $\forall z \in \mathfrak{i},\, \forall w \in \mathfrak{j}$ に対して $\comm{\textcolor{blue}{x}}{\comm{z}{w}} \in \comm{\mathfrak{i}}{\mathfrak{j}}$ が成り立つことを示せば良い．
-    実際，\hyperref[label]{Lie代数の公理} \textsf{\textbf{(L-2)}}, \textsf{\textbf{(L-3)}} より
-    \begin{align}
-        \comm{\textcolor{blue}{x}}{\comm{z}{w}} = \comm{\comm{w}{\textcolor{blue}{x}}}{z} + \comm{\comm{\textcolor{blue}{x}}{z}}{w} = \comm{z}{\comm{\textcolor{blue}{x}}{w}} + \comm{\comm{\textcolor{blue}{x}}{z}}{w}
-    \end{align}
-    が言えるが，$\mathfrak{i},\, \mathfrak{j}$ が\hyperref[def:ideal-LieAlg]{イデアル}であることにより $\comm{\textcolor{blue}{x}}{w} \in \mathfrak{j},\, \comm{\textcolor{blue}{x}}{z} \in \mathfrak{i}$ なので右辺は $\comm{\mathfrak{i}}{\mathfrak{j}}$ に属する．
+    \begin{enumerate}
+        \item ほぼ自明．
+        \item $\mathfrak{i} + \mathfrak{j}$ の勝手な元 $z + w$ と $\forall \textcolor{blue}{x} \in \mathfrak{g}$ をとる．Lieブラケットの双線型性から $\comm{\textcolor{blue}{x}}{z + w} = \comm{\textcolor{blue}{x}}{z} + \comm{\textcolor{blue}{x}}{w}$ が言えるが，$\mathfrak{i},\, \mathfrak{j}$ が\hyperref[def:ideal-LieAlg]{イデアル}であることにより $\comm{\textcolor{blue}{x}}{z} \in \mathfrak{i},\, \comm{\textcolor{blue}{x}}{w} \in \mathfrak{j}$ なので右辺は $\mathfrak{i} + \mathfrak{j}$ に属する．
+        \item $\forall \textcolor{blue}{x} \in \mathfrak{g}$ を1つとる．Lieブラケットの双線型性から，このとき $\forall z \in \mathfrak{i},\, \forall w \in \mathfrak{j}$ に対して $\comm{\textcolor{blue}{x}}{\comm{z}{w}} \in \comm{\mathfrak{i}}{\mathfrak{j}}$ が成り立つことを示せば良い．
+        実際，\hyperref[label]{Lie代数の公理} \textsf{\textbf{(L-2)}}, \textsf{\textbf{(L-3)}} より
+        \begin{align}
+            \comm{\textcolor{blue}{x}}{\comm{z}{w}} = \comm{\comm{w}{\textcolor{blue}{x}}}{z} + \comm{\comm{\textcolor{blue}{x}}{z}}{w} = \comm{z}{\comm{\textcolor{blue}{x}}{w}} + \comm{\comm{\textcolor{blue}{x}}{z}}{w}
+        \end{align}
+        が言えるが，$\mathfrak{i},\, \mathfrak{j}$ が\hyperref[def:ideal-LieAlg]{イデアル}であることにより $\comm{\textcolor{blue}{x}}{w} \in \mathfrak{j},\, \comm{\textcolor{blue}{x}}{z} \in \mathfrak{i}$ なので右辺は $\comm{\mathfrak{i}}{\mathfrak{j}}$ に属する．
+    \end{enumerate}
+    
 \end{proof}
 
 \begin{myexample}[label=def:derived-LieAlg]{導来Lie代数}
@@ -524,6 +533,15 @@ $\sim$ による $x \in \mathfrak{g}$ の同値類のことを $x + \mathfrak{i}
     が言える．
 \end{proof}
 
+\begin{marker}
+    定義\ref{def:quotient-LieAlg}による商代数の構成によって，標準的射影は自動的にLie代数の準同型写像になる：
+    \begin{align}
+        p (x + y) &= (x + y) + \mathfrak{i} \eqqcolon (x + \mathfrak{i}) + (y + \mathfrak{i}) = p(x) + p(y), \\
+        p (\lambda x) &= (\lambda x) + \mathfrak{i} \eqqcolon\lambda(x + \mathfrak{i}) = \lambda p(x), \\
+        p (\comm{x}{y}) &= \comm{x}{y} + \mathfrak{i} \eqqcolon \comm{(x + \mathfrak{i})}{(y + \mathfrak{i})} = \comm{p(x)}{p(y)}.
+    \end{align}
+\end{marker}
+
 
 \begin{mydef}[label=def:normalizer-LieAlg]{正規化代数・中心化代数}
     \begin{itemize}
@@ -556,19 +574,108 @@ $\sim$ による $x \in \mathfrak{g}$ の同値類のことを $x + \mathfrak{i}
 \subsection{準同型・表現}
 
 \begin{mydef}[label=def:hom-LieAlg]{Lie代数の準同型}
-    
+    2つの\hyperref[ax:LieAlg]{Lie代数} $\mathfrak{g},\, \mathfrak{h}$ を与える．写像 $f \colon \mathfrak{g},\, \mathfrak{h}$ が\textbf{Lie代数の準同型} (homomorphism) であるとは，
+    $f$ が和，スカラー乗法，Lieブラケットの全てを保存することを言う．i.e. $\forall x,\, y \in \mathfrak{g},\; \forall \lambda \in \mathbb{K}$ に対して
+    \begin{align}
+        f (x + y) &= f(x) + f(y), \\
+        f (\lambda x) &= \lambda f(x), \\
+        f (\comm{x}{y}) &= \comm{f(x)}{f(y)}
+    \end{align}
+    が成り立つこと．
+    \tcblower
+    全単射なLie代数の準同型のことをLie代数の\textbf{同型} (isomorphism) と呼ぶ．
 \end{mydef}
 
+Lie代数の準同型 $f \colon \mathfrak{g} \lto \mathfrak{h}$ の\textbf{核} (kernel), \textbf{像} (image) をそれぞれ
+\begin{align}
+    \Ker f &\coloneqq \bigl\{\, x \in \mathfrak{g} \bigm| f(x) = o \,\bigr\}, \\
+    \Im f &\coloneqq \bigl\{\, f(x) \in \mathfrak{h} \bigm| x \in \mathfrak{g} \,\bigr\}
+\end{align}
+と定義すると $\Ker f$ は\hyperref[def:ideal-LieAlg]{イデアル}であり
+\footnote{
+    $\forall x,\, y \in \Ker f$ に対して $f(x + y) = f(x) + f(y) = o + o = o,\; f(\lambda x) = \lambda f(x) = \lambda o = o$ なので部分ベクトル空間，かつ $\forall z \in \mathfrak{g}$ に対して $f(\comm{z}{x}) = \comm{f(z)}{f(x)} = \comm{f(z)}{o} = o$．
+}，
+$\Im f$ は\hyperref[def:subLieAlg]{部分Lie代数}である
+\footnote{
+    $\forall f(x),\, f(y) \in \Im f$ に対して $f(x) + f(y) = f(x+y),\; \lambda f(x) = f(\lambda x);\, \comm{f(x)}{f(y)} = f(\comm{x}{y})$
+}
+．
+
 \begin{myprop}[label=prop:homo]{準同型定理}
-    
+    Lie代数 $\mathfrak{g}$ およびその\hyperref[def:ideal-LieAlg]{イデアル} $\mathfrak{i},\, \mathfrak{j}$ を与える．
+    このとき，\underline{任意の}Lie代数の準同型 $\textcolor{blue}{f} \colon \mathfrak{g} \textcolor{blue}{\lto \mathfrak{h}}$ に対して\footnote{わざわざこのような記述をしたのは，(1) が商代数の\textbf{普遍性} (universal property) を意味していることを明示するためである．}以下が成り立つ：
+    \begin{enumerate}
+        \item $\mathfrak{g}/\Ker \textcolor{blue}{f} \cong \Im \textcolor{blue}{f}$．
+        また，$\mathfrak{i} \subset \Ker \textcolor{blue}{f}$ が成り立つならば，以下の図式を可換にするLie代数の準同型 $\textcolor{red}{\psi} \colon \mathfrak{g}/\mathfrak{i} \lto \textcolor{blue}{\mathfrak{h}}$ が一意的に存在する：
+        \begin{figure}[H]
+            \centering
+            \begin{tikzcd}[row sep=large, column sep=large]
+                &\mathfrak{g} \ar[rr, blue, "f"]\ar[dr, "p"'] & &\forall \textcolor{blue}{\mathfrak{h}} \ar[from=dl,red, dashed, "\exists! \psi"'] \\
+                & &\mathfrak{g}/\mathfrak{i} &
+            \end{tikzcd}
+            \caption{\hyperref[def:quotient-LieAlg]{商代数}の普遍性．$p$ は標準的射影 $p \colon x \lmto x + \mathfrak{i}$ を表す．}
+            \label{cmtd:1st-homo}
+        \end{figure}%
+        \item $\mathfrak{i} \subset \mathfrak{j}$ が成り立つとする．
+        このとき $\mathfrak{j}/\mathfrak{i}$ は $\mathfrak{g}/\mathfrak{i}$ のイデアルであり，自然な同型 $(\mathfrak{g}/\mathfrak{i})/(\mathfrak{j}/\mathfrak{i}) \cong \mathfrak{g} / \mathfrak{j}$ が成り立つ．
+        \item 自然な同型 $(\mathfrak{i} + \mathfrak{j}) / \mathfrak{j} \cong \mathfrak{i} / (\mathfrak{i} \cap \mathfrak{j})$ が成り立つ．
+    \end{enumerate}
 \end{myprop}
 
+\begin{proof}
+    \begin{enumerate}
+        \item 
+        % $i \colon \Ker f \hookrightarrow \mathfrak{g}$ を包含写像とすると，Lie代数とLie代数の準同型からなる図式
+        % \begin{center}
+        %     \begin{tikzcd}[row sep=large, column sep=large]
+        %         \Ker f \ar[r, "i"] &\mathfrak{g} \ar[r, "f"] &\Im f \ar[r] &\{o\}
+        %     \end{tikzcd}
+        % \end{center}
+        % は完全列である．
+        　まず，$\iota \subset \Ker f$ ならば写像 $\psi \colon \mathfrak{g} / \mathfrak{i} \lto \Im f,\; x + \mathfrak{i} \lmto f(x)$ がwell-definedなLie代数の準同型であることを示す．実際 $x + \mathfrak{i} = x' + \mathfrak{i}$ ならば $x' - x \in \mathfrak{i} \subset \Ker f$ であり， 
+        $\psi (x' + \mathfrak{i}) = f(x') = f\bigl(x + (x' - x)\bigr) = f(x) + f(x'-x) = f(x) = \psi (x + \mathfrak{i})$ が言えた．$\psi$ がLie代数の準同型であることは $f$ がLie代数の準同型であることから明らか．
+        定義から $\psi \circ p = f$ である．
+
+        　次に $\psi$ の一意性を示す．別の $\phi \colon \mathfrak{g} / \mathfrak{i} \lto \mathfrak{h}$ が存在して $\phi \circ p = f$ が成り立つとする．このとき $\forall x \in \mathfrak{g}$ に対して $\phi (x + \iota) = f(x)$ が成り立つので $\phi = \psi$ である．
+
+        　特に $\mathfrak{i} = \Ker f$ ならば，$\Ker \psi = \{\Ker f\} = \{ o \}$ なので $\psi$ は単射であり $\mathfrak{g} / \Ker f \cong \Im f$ が言えた．
+        \item 
+        　$\mathfrak{i} \subset \mathfrak{j}$ のとき，\hyperref[def:ideal-LieAlg]{イデアルの定義}より $\mathfrak{i}$ は $\mathfrak{j}$ のイデアルでもある．よって商代数 $\mathfrak{j}/\mathfrak{i}$ はwell-defined．明らかに $\mathfrak{j} / \mathfrak{i} \subset \mathfrak{g} / \mathfrak{i}$ なので $\mathfrak{j} / \mathfrak{i}$ は $\mathfrak{g} / \mathfrak{i}$ の\hyperref[def:subLieAlg]{部分Lie代数}だと分かった．
+        ここで $\forall x + \mathfrak{i} \in \mathfrak{g}/\mathfrak{i},\; \forall y + \mathfrak{i} \in \mathfrak{j}/ \mathfrak{i}$ をとると，$\mathfrak{j}$ が $\mathfrak{g}$ のイデアルであることから $\comm{x + \mathfrak{i}}{y + \mathfrak{i}} = \comm{x}{y} + \mathfrak{i} \in \mathfrak{j} / \mathfrak{i}$ が従う\footnote{$\comm{x}{y} \in \mathfrak{j}$ なので．}．以上の議論から $\mathfrak{j}/\mathfrak{i}$ が $\mathfrak{g} / \mathfrak{i}$ のイデアルであることが示された．
+
+        　さて，Lie代数の全射準同型 $f \colon \mathfrak{g}/\mathfrak{i} \lto \mathfrak{g}/\mathfrak{j},\; x + \mathfrak{i} \lmto x + \mathfrak{j}$ は仮定よりwell-definedで\footnote{$x + \mathfrak{i} = x' + \mathfrak{i} \IMP x' - x \in \mathfrak{i} \subset \mathfrak{j} \IMP f(x' + \mathfrak{i}) = (x + (x' - x)) + \mathfrak{j} = x + \mathfrak{j} = f(x + \mathfrak{i})$} ，かつ $\Ker f = \mathfrak{j} / \mathfrak{i}$ である．従って (1) より $ \mathfrak{g} / \mathfrak{j} \cong (\mathfrak{g}/ \mathfrak{i}) / (\mathfrak{j} / \mathfrak{i})$ が言える．
+        \item Lie代数の全射準同型 $f \colon \mathfrak{i} \lto (\mathfrak{i} + \mathfrak{j}) / \mathfrak{j},\; x \lmto x + \mathfrak{j}$ に対して $\Ker f = \mathfrak{i} \cap \mathfrak{j}$ である．従って (1) より $(\mathfrak{i} + \mathfrak{j}) / \mathfrak{j} \cong \mathfrak{i} / (\mathfrak{i} \cap \mathfrak{j})$ が言える．
+    \end{enumerate}
+\end{proof}
+
+
 \begin{mydef}[label=def:rep-LieAlg]{Lie代数の表現}
-    
+    $V$ を $\mathbb{K}$-ベクトル空間とする．Lie代数の準同型
+    \begin{align}
+        \phi \colon \mathfrak{g} \lto \Lgl (V)
+    \end{align}
+    と $V$ の組 $(\phi,\, V)$ のことを\textbf{Lie代数の表現} (representation) と呼ぶ\footnote{「代数の表現」と言われたとき，\hyperref[ax:Alg]{代数}\textbf{の表現}なのか\textbf{結合代数の表現}なのか\textbf{Lie代数の表現}なのか文脈で判断しなくてはならないかもしれない．}．
 \end{mydef}
 
 \begin{myexample}[label=def:adj-LieAlg]{随伴表現}
-    
+    　\exref{def:Der-inner}で定義した $\ad (x)$ は，写像
+    \begin{align}
+        \ad \colon \mathfrak{g} \lto \Der(\mathfrak{g}) \subset \Lgl (\mathfrak{g}),\; \textcolor{blue}{x} \lmto \bigl( z \mapsto \comm{\textcolor{blue}{x}}{z} \bigr) 
+    \end{align}
+    だと思うことができる．$\ad$ は明らかに線型写像で，かつ $\forall z \in \mathfrak{g}$ に対して
+    \begin{align}
+        \comm{\ad x}{\ad y}(z) &= \ad x (\comm{y}{z}) - \ad y (\comm{x}{z}) \\
+        &= \comm{x}{\comm{y}{z}} - \comm{y}{\comm{x}{z}} \\
+        &= \comm{x}{\comm{y}{z}} + \comm{y}{\comm{z}{x}} \\
+        &= \comm{\comm{x}{y}}{z} \\
+        &= \ad \comm{x}{y} (z)
+    \end{align}
+    が成り立つのでLie代数の準同型である．
+    故に組 $(\ad,\, \mathfrak{g})$ は\hyperref[def:rep-LieAlg]{Lie代数の表現}である．
+    \begin{align}
+        x \in \Ker \ad &\IFF \forall y \in \mathfrak{g},\; \comm{x}{y} = o
+    \end{align}
+    より，\exref{def:center-LieAlg}を思い出すと $\Ker \ad = Z(\mathfrak{g})$ と分かる．特に\hyperref[def:simple-LieAlg]{単純Lie代数} $\mathfrak{g}$ に対して $Z(\mathfrak{g}) = \{o\}$ なので $\ad$ は単射準同型である．i.e. \textcolor{red}{任意の単純Lie代数は\hyperref[def:linearLieAlg]{線形Lie代数}と同型である}\footnote{単射準同型は包含準同型だと見做せる．}．
 \end{myexample}
 
 \subsection{自己同型}
@@ -579,13 +686,34 @@ $\sim$ による $x \in \mathfrak{g}$ の同値類のことを $x + \mathfrak{i}
 
 \subsection{可解Lie代数}
 
+\hyperref[ax:LieAlg]{Lie代数} $\mathfrak{g}$ を与える．$D \mathfrak{g} \coloneqq \comm{\mathfrak{g}}{\mathfrak{g}}$ とおくと，\exref{def:derived-LieAlg}より $D \mathfrak{g}$ は $\mathfrak{g}$ の\hyperref[def:ideal-LieAlg]{イデアル}である．
+
 \begin{mydef}[label=def:solvable-LieAlg]{可解Lie代数}
-    
+    \textbf{導来列} (derived series) とは，\hyperref[def:ideal-LieAlg]{イデアル}の減少列
+    \begin{align}
+        \mathfrak{g} = D^0 \mathfrak{g} \supset D^1 \mathfrak{g} \supset D^2 \mathfrak{g} \supset \cdots
+    \end{align}
+    のこと．
+    ある $n \ge 0$ に対して導来列が止まるとき，i.e. $D^n \mathfrak{g} = \{o\}$ が成り立つとき，Lie代数 $\mathfrak{g}$ は\textbf{可解} (solvable) であると言われる．
 \end{mydef}
 
 \begin{myprop}[label=prop:solvable-basic]{}
-    
+    Lie代数 $\mathfrak{g}$ およびLie代数の準同型 $f \colon \mathfrak{g} \lto \mathfrak{h}$ を与える．このとき以下が成り立つ：
+    \begin{enumerate}
+        \item $\mathfrak{g}$ が\hyperref[def:solvable-LieAlg]{可解}ならば，
+        $\mathfrak{g}$ の任意の\hyperref[def:subLieAlg]{部分Lie代数}および $\Im f$ も可解である．
+        \item $\mathfrak{g}$ のイデアル $\mathfrak{i}$ および\hyperref[def:quotient-LieAlg]{商代数} $\mathfrak{g}/\mathfrak{i}$ がどちらも可解ならば，$\mathfrak{g}$ 自身も可解である．
+        \item $\mathfrak{g}$ のイデアル $\mathfrak{i},\, \mathfrak{j}$ が可解ならば，イデアル $\mathfrak{i} + \mathfrak{j}$ も可解である．
+    \end{enumerate}
 \end{myprop}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+    
+\end{proof}
+
 
 \begin{mydef}[label=def:rad-LieAlg]{根基}
     
