@@ -5,14 +5,16 @@
 % \setcounter{}{}
 \chapter{Lie群とLie代数}
 
-本資料ではベクトル空間を英大文字で表記し，係数体をblackboardbold\footnote{\LaTeX コマンドは\texttt{\textbackslash mathbb}}で表記する（e.g. 体 $\mathbb{K}$ 上のベクトル空間 $L$）．
+この章は\cite[Chapter I]{Humphreys1972introduction}, \cite[第1-3章]{Satake1987LieAlg}に相当する．
+
 本章に限ってはベクトルを $x \in L$ のように英小文字で表記し，係数体の元は $\lambda \in \mathbb{K}$ のようにギリシャ文字で表記する．零ベクトルは $o \in L$ と書き\footnote{$0$ の濫用を回避するための苦肉の策です... 普通に不便なので次章以降では零ベクトルも $0$ と書きます．}，$0 \in \mathbb{K}$ を係数体の加法単位元，$1 \in \mathbb{K}$ を係数体の乗法単位元とする．
 ベクトル空間の加法を $+$ と書き，スカラー乗法は $\lambda x$ のように係数を左に書く．
 また，特に断りがなければEinsteinの規約を使う．
 
 \section{公理的Lie代数}
 
-この節では $\mathbb{K}$ を任意の体とする．Lie代数を，純粋に代数学的な対象として扱うことを考える．幾何学的側面については後述する．
+この節では，特に断りがなければ $\mathbb{K}$ を\underline{任意の体}とする．Lie代数を純粋に代数学的な対象として扱うことを考える．
+% 幾何学的側面については後述する．
 
 \begin{marker}
     Lie代数を表す記号はFrakturという字体で書く慣例がある．例えば「Fraktur」という文字列は $\mathfrak{Fraktur}$ のようになる．
@@ -391,7 +393,7 @@ i.e. $\character \mathbb{K} \neq 2$ ならば\footnote{体 $\mathbb{K}$ の\text
         \comm{\;}{\,}\colon \Der \mathfrak{U} \times \Der \mathfrak{U} \lto \Der \mathfrak{U},\; &(d,\, e) \lmto \bigl( x \mapsto d(e(x)) - e(d(x)) \bigr)
     \end{align}
     と定義すると，組 $(\Der \mathfrak{U},\, +,\, \cdot\;,\, \comm{\;}{\,})$ は $\Lgl (\mathfrak{U})$ の\hyperref[def:subLieAlg]{部分Lie代数}である．
-    Lie代数としての $\Der \mathfrak{U}$ のことを\textbf{微分代数} (derivation algebra) と呼ぶ\footnote{https://mathworld.wolfram.com/DerivationAlgebra.html}．
+    Lie代数としての $\Der \mathfrak{U}$ のことを\textbf{微分代数} (derivation algebra) と呼ぶ\footnote{\url{https://mathworld.wolfram.com/DerivationAlgebra.html}}．
 \end{myprop}
 
 \begin{proof}
@@ -476,7 +478,7 @@ i.e. $\character \mathbb{K} \neq 2$ ならば\footnote{体 $\mathbb{K}$ の\text
         \item ほぼ自明．
         \item $\mathfrak{i} + \mathfrak{j}$ の勝手な元 $z + w$ と $\forall \textcolor{blue}{x} \in \mathfrak{g}$ をとる．Lieブラケットの双線型性から $\comm{\textcolor{blue}{x}}{z + w} = \comm{\textcolor{blue}{x}}{z} + \comm{\textcolor{blue}{x}}{w}$ が言えるが，$\mathfrak{i},\, \mathfrak{j}$ が\hyperref[def:ideal-LieAlg]{イデアル}であることにより $\comm{\textcolor{blue}{x}}{z} \in \mathfrak{i},\, \comm{\textcolor{blue}{x}}{w} \in \mathfrak{j}$ なので右辺は $\mathfrak{i} + \mathfrak{j}$ に属する．
         \item $\forall \textcolor{blue}{x} \in \mathfrak{g}$ を1つとる．Lieブラケットの双線型性から，このとき $\forall z \in \mathfrak{i},\, \forall w \in \mathfrak{j}$ に対して $\comm{\textcolor{blue}{x}}{\comm{z}{w}} \in \comm{\mathfrak{i}}{\mathfrak{j}}$ が成り立つことを示せば良い．
-        実際，\hyperref[label]{Lie代数の公理} \textsf{\textbf{(L-2)}}, \textsf{\textbf{(L-3)}} より
+        実際，\hyperref[ax:LieAlg]{Lie代数の公理} \textsf{\textbf{(L-2)}}, \textsf{\textbf{(L-3)}} より
         \begin{align}
             \comm{\textcolor{blue}{x}}{\comm{z}{w}} = \comm{\comm{w}{\textcolor{blue}{x}}}{z} + \comm{\comm{\textcolor{blue}{x}}{z}}{w} = \comm{z}{\comm{\textcolor{blue}{x}}{w}} + \comm{\comm{\textcolor{blue}{x}}{z}}{w}
         \end{align}
@@ -694,15 +696,16 @@ $\Im f$ は\hyperref[def:subLieAlg]{部分Lie代数}である
         \mathfrak{g} = D^0 \mathfrak{g} \supset D^1 \mathfrak{g} \supset D^2 \mathfrak{g} \supset \cdots
     \end{align}
     のこと．
-    ある $n \ge 0$ に対して導来列が止まるとき，i.e. $D^n \mathfrak{g} = \{o\}$ が成り立つとき，Lie代数 $\mathfrak{g}$ は\textbf{可解} (solvable) であると言われる．
+    ある $n \ge 0$ に対して導来列がゼロになって止まるとき，i.e. $D^n \mathfrak{g} = \{o\}$ が成り立つとき，Lie代数 $\mathfrak{g}$ は\textbf{可解} (solvable) であると言われる．
 \end{mydef}
 
 \begin{myprop}[label=prop:solvable-basic]{}
     Lie代数 $\mathfrak{g}$ およびLie代数の準同型 $f \colon \mathfrak{g} \lto \mathfrak{h}$ を与える．このとき以下が成り立つ：
     \begin{enumerate}
         \item $\mathfrak{g}$ が\hyperref[def:solvable-LieAlg]{可解}ならば，
-        $\mathfrak{g}$ の任意の\hyperref[def:subLieAlg]{部分Lie代数}および $\Im f$ も可解である．
-        \item $\mathfrak{g}$ のイデアル $\mathfrak{i}$ および\hyperref[def:quotient-LieAlg]{商代数} $\mathfrak{g}/\mathfrak{i}$ がどちらも可解ならば，$\mathfrak{g}$ 自身も可解である．
+        $\mathfrak{g}$ の任意の\hyperref[def:subLieAlg]{部分Lie代数} $\mathfrak{a}$ は可解である．特に $\mathfrak{a}$ が\hyperref[def:ideal-LieAlg]{イデアル}ならば\hyperref[def:quotient-LieAlg]{商代数} $\mathfrak{g} / \mathfrak{a}$ も可解である．
+        \item $\mathfrak{g}$ が\hyperref[def:solvable-LieAlg]{可解}ならば $\Im f$ は可解である．
+        \item $\mathfrak{g}$ のイデアル $\mathfrak{i}$ と\hyperref[def:quotient-LieAlg]{商代数} $\mathfrak{g}/\mathfrak{i}$ がどちらも可解ならば，$\mathfrak{g}$ 自身も可解である．
         \item $\mathfrak{g}$ のイデアル $\mathfrak{i},\, \mathfrak{j}$ が可解ならば，イデアル $\mathfrak{i} + \mathfrak{j}$ も可解である．
     \end{enumerate}
 \end{myprop}
@@ -711,27 +714,170 @@ $\Im f$ は\hyperref[def:subLieAlg]{部分Lie代数}である
     \begin{enumerate}
         \item 
     \end{enumerate}
-    
 \end{proof}
 
+$\mathfrak{g}$ を\underline{有限次元}Lie代数とし，
+$\mathfrak{r}$ \footnote{\texttt{\textbackslash mathfrak\{r\}}}を $\mathfrak{g}$ の極大\footnote{$\mathfrak{r} \subsetneq \mathfrak{i} \subset \mathfrak{g}$ を充たす $\mathfrak{g}$ の可解イデアル $\mathfrak{i}$ が $\mathfrak{g}$ 以外に存在しない．}\hyperref[def:solvable-LieAlg]{可解}イデアルとしよう\footnote{$\mathfrak{r}$ は少なくとも1つ存在する．$\mathfrak{g}$ が有限次元なので，$\mathfrak{g}$ の可解イデアルのうち次元が最大のものを取れば良い．}
+
+\begin{mylem}[label=lem:maximal]{}
+    $\mathfrak{r}$ は $\mathfrak{g}$ の全ての可解イデアルを含む．i.e. 最大 (maximal) の可解イデアルである．
+\end{mylem}
+
+\begin{proof}
+    任意の $\mathfrak{g}$ の可解イデアル $\mathfrak{i}$ をとる．\hyperref[prop:homo]{準同型定理}-(3) より
+    \begin{align}
+        (\mathfrak{i} + \mathfrak{r})/\mathfrak{i} \cong \mathfrak{r} / (\mathfrak{i} \cap \mathfrak{r})
+    \end{align}
+    が成り立つ．$\mathfrak{r}$ は可解なので命題\ref{prop:solvable-basic}-(1) より $\mathfrak{r} / (\mathfrak{i} \cap \mathfrak{r})$ は可解であり，従って $(\mathfrak{i} + \mathfrak{r})/\mathfrak{i}$ も可解である．$\mathfrak{i}$ も可解なので命題\ref{prop:solvable-basic}-(3) より $\mathfrak{i} + \mathfrak{r}$ も可解である．
+    然るに，$\mathfrak{r}$ の極大性により $\mathfrak{i} + \mathfrak{r} = \mathfrak{r}$ であるから $\mathfrak{i} \subset \mathfrak{r}$ が言えた．
+\end{proof}
 
 \begin{mydef}[label=def:rad-LieAlg]{根基}
-    
+    $\mathfrak{g}$ の最大可解イデアル\footnote{補題\ref{lem:maximal}によりこれは一意的に存在する．} (maximal solvable ideal) $\mathfrak{r}$ のことを $\mathfrak{g}$ の\textbf{根基} (radical) と呼び，$\rad \mathfrak{g}$ と書く．
 \end{mydef}
 
 \begin{mydef}[label=def:semisimple-LieAlg]{半単純Lie代数}
-    
+    Lie代数 $\mathfrak{g}$ が\textbf{半単純} (semisimple) であるとは，$\rad \mathfrak{g} = \{o\}$ であることを言う．
 \end{mydef}
 
 \subsection{冪零Lie代数}
 
+Lie代数 $\mathfrak{g}$ に対して
+\begin{align}
+    C^0 \mathfrak{g} &\coloneqq \mathfrak{g}, \\
+    C^n \mathfrak{g} &\coloneqq \comm{\mathfrak{g}}{C^{n-1} \mathfrak{g}}
+\end{align}
+のように帰納的に\hyperref[def:ideal-LieAlg]{イデアル}の減少列
+\begin{align}
+    \label{eq:descendingCentralSeries}
+    \mathfrak{g} = C^0 \mathfrak{g} \supset C^1 \mathfrak{g} \supset C^2 \mathfrak{g} \supset \cdots
+\end{align}
+を定義する．
+
 \begin{mydef}[label=def:nilpotent-LieAlg]{冪零Lie代数}
-    
+    イデアルの減少列\eqref{eq:descendingCentralSeries}がある $n$ に対してゼロになって止まるとき，i.e. $C^n \mathfrak{g} = \{o\}$ が成り立つとき，Lie代数 $\mathfrak{g}$ は\textbf{冪零} (nilpotent) であると言われる．
 \end{mydef}
 
-\begin{mytheo}[label=thm:Engel]{Engelの定理}
+\begin{marker}
+    線型写像 $x \colon \mathfrak{g} \lto \mathfrak{g}$ の冪零性との混同を避けるため，定義\ref{def:nilpotent-LieAlg}の意味で冪零と言う場合は冪零Lie代数と言うことにする．
+\end{marker}
+
+\begin{myprop}[label=prop:nilpo-basic]{}
+    Lie代数 $\mathfrak{g}$ およびLie代数の準同型 $f \colon \mathfrak{g} \lto \mathfrak{h}$ を与える．このとき以下が成り立つ：
+    \begin{enumerate}
+        \item $\mathfrak{g}$ が\hyperref[def:nilpotent-LieAlg]{冪零Lie代数}ならば，
+        $\mathfrak{g}$ の任意の\hyperref[def:subLieAlg]{部分Lie代数} $\mathfrak{a}$ は冪零Lie代数である．特に $\mathfrak{a}$ が\hyperref[def:ideal-LieAlg]{イデアル}ならば\hyperref[def:quotient-LieAlg]{商代数} $\mathfrak{g} / \mathfrak{a}$ も冪零Lie代数である．
+        \item $\mathfrak{g}$ が\hyperref[def:nilpotent-LieAlg]{冪零Lie代数}ならば $\Im f$ は冪零Lie代数である．
+        \item $\mathfrak{g}$ の\hyperref[def:center-LieAlg]{中心}による商代数 $\mathfrak{g} / Z (\mathfrak{g})$ が冪零Lie代数ならば $\mathfrak{g}$ は冪零Lie代数である．
+        \item $\mathfrak{g}$ が冪零Lie代数かつ $\mathfrak{g} \neq \{o\}$ ならば，$Z (\mathfrak{g}) \neq \{o\}$ である．
+        \item $\mathfrak{g}$ が冪零Lie代数ならば，$\forall x \in \mathfrak{g}$ に対して $\ad x$ は冪零である．
+    \end{enumerate}
+\end{myprop}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+\end{proof}
+
+\subsection{Engelの定理}
+
+\begin{mylem}[label=lem:ad-nilpo]{$\ad$ の冪零性}
+    $x \in \Lgl (V)$ が冪零ならば $\ad x \in \Lgl (\Lgl (V))$ も冪零である．
+\end{mylem}
+
+\begin{proof}
+    $x$ が冪零であるという仮定から，$x^n = 0$ を充たす $n \in \mathbb{N}$ が存在する． 
     
+    さて，$x$ による左移動と右移動をそれぞれ
+    \begin{align}
+        \lambda_x \colon \Lgl (V) \lto \Lgl (V),\; y \lmto \bigl(\, v \mapsto x (y(v))\,\bigr), \\
+        \rho_x \colon \Lgl (V) \lto \Lgl (V),\; y \lmto \bigl(\, v \mapsto y(x(v)) \bigr)
+    \end{align}
+    と定義しよう．$\forall y \in \Lgl (V)$ を1つとると
+    \begin{align}
+        \label{eq:ad-nilpo-lr}
+        (\lambda_x)^n (y) &= x^n y = 0, &
+        (\rho_x)^n (y) &= y x^n = 0
+    \end{align}
+    が成り立つ．さらに $\rho_x (\lambda_x (y)) = xyx = \lambda_x (\rho_x (y))$ が成り立つ．i.e. $\rho_x \lambda_x = \lambda_x \rho_x$ である．
+    従って二項定理が使えて\footnote{写像の合成の結合律を暗に使っている．}，\eqref{eq:ad-nilpo-lr}から
+    \begin{align}
+        (\ad x)^{2n-1} &= (\lambda_x - \rho_x)^{2n-1} \\
+        &= \sum_{k=0}^{2n-1} \mqty(2n-1 \\ k) (\rho_x)^{2n-k-1} (\lambda_x)^{k} \\ 
+        &= \sum_{k=0}^{n-1} \mqty(2n-1 \\ k) 0 (\lambda_x)^k + \sum_{k=n}^{2n}-1 \mqty(2n-1 \\ k) (\rho_x)^{2n - k - 1} 0 \\
+        &= 0
+    \end{align}
+    が言えた．
+\end{proof}
+
+
+\begin{mylem}[label=lem:eigen]{}
+    $V \neq \{o\}$ を\underline{有限次元}ベクトル空間とし，$\Lgl (V)$ の任意の\hyperref[def:subLieAlg]{部分Lie代数} $\mathfrak{g}$ をとる．
+
+    このとき $\forall x \in \mathfrak{g}$ が冪零ならば，ある $v \in V \setminus \{o\}$ が存在して $\forall x \in \mathfrak{g}$ に対して $x(v) = o$ が成り立つ．
+\end{mylem}
+
+\begin{proof}
+    $\dim \mathfrak{g}$ に関する数学的帰納法により示す．
+    $\dim \mathfrak{g} = 0$ のときは $\mathfrak{g} = \{0\}$ なので自明．
+
+    $\dim \mathfrak{g} > 0$ とし，$\mathfrak{g}$ の\hyperref[def:subLieAlg]{部分Lie代数} $\mathfrak{h} \subsetneq \mathfrak{g}$ を任意に1つとる．
+    
+    \begin{description}
+        \item[$\bm{\mathfrak{h} \subsetneq N_{\mathfrak{g}} (\mathfrak{h})}$ \textbf{であること}]　
+        
+            　補題\ref{lem:ad-nilpo}より，$\ad|_{\mathfrak{h}} \colon \mathfrak{h} \lto \Lgl(\mathfrak{g})$ の\footnote{$\ad \colon \mathfrak{g} \lto \Lgl (\mathfrak{g})$ の $\mathfrak{h} \subset \mathfrak{g}$ への制限．}像の全ての元は冪零である\footnote{仮定より $\forall x \in \mathfrak{h} \subset \mathfrak{g}$ が冪零なので．}．
+            ここで $\mathfrak{g},\, \mathfrak{h}$ のLieブラケットを忘れて $\mathbb{K}$ 上のベクトル空間と見做したとき，商ベクトル空間 $\mathfrak{g} / \mathfrak{h}$ を構成できる\footnote{\hyperref[def:quotient-LieAlg]{商代数の構成}においてLieブラケットを忘れることで商ベクトル空間が構成できる．この際 $\mathfrak{h}$ は $\mathfrak{g}$ の部分ベクトル空間でありさえすれば良い．}．
+            このとき，$\forall x \in \mathfrak{h}$ に対して写像
+            \begin{align}
+                \overline{\ad|_{\mathfrak{h}}}(x) \colon \mathfrak{g} / \mathfrak{h} \lto \mathfrak{g} / \mathfrak{h},\; y + \mathfrak{h} \lmto \ad (x) (y) + \mathfrak{h}
+            \end{align}
+            がwell-definedな線型写像であることを示す．実際 $y + \mathfrak{h} = y' + \mathfrak{h} \IFF y' - y \in \mathfrak{h}$ ならば
+            \begin{align}
+                \overline{\ad|_{\mathfrak{h}}}(x) (y' + \mathfrak{h}) &= \ad (x) (y')  + \mathfrak{h} \\
+                &= \bigl(\ad (x) (y) + \ad (x) (y' - y)\bigr) + \mathfrak{h} \\
+                &= \bigl(\ad (x) (y) + \comm{x}{y' - y}\bigr) + \mathfrak{h} \\
+                &= \ad (x) (y) + \mathfrak{h} \\
+                &= \overline{\ad|_{\mathfrak{h}}}(x) (y + \mathfrak{h})
+            \end{align}
+            が成り立つので $\overline{\ad|_{\mathfrak{h}}}(x)$ はwell-definedであり，$\ad (x)$ が線型写像であることから線型写像である．
+            以上の考察から，写像 $\overline{\ad|_{\mathfrak{h}}} \colon \mathfrak{h} \lto \Lgl (\mathfrak{g} / \mathfrak{h}),\; x \lmto \overline{\ad|_{\mathfrak{h}}} (x)$ はwell-definedなLie代数の準同型で，$\Im \overline{\ad|_{\mathfrak{h}}}$ （もちろんこれは $\Lgl (\mathfrak{g}/\mathfrak{h})$ の部分Lie代数である）の元は全て冪零である．
+
+            　さて，$\mathfrak{h} \neq \mathfrak{g}$ より $\dim \mathfrak{h} < \dim \mathfrak{g}$ であるから，帰納法の仮定よりある $v + \mathfrak{h} \in (\mathfrak{g} / \mathfrak{h}) \setminus \{\mathfrak{h}\}$ が存在して，$\forall \overline{\ad|_{\mathfrak{h}}} (\textcolor{blue}{x}) \in \Im \overline{\ad|_{\mathfrak{h}}}$ に対して $\overline{\ad|_{\mathfrak{h}}} (\textcolor{blue}{x}) (v + \mathfrak{h}) = \mathfrak{h}$ が成り立つ．
+            i.e. ある $v \in \mathfrak{g} \setminus \mathfrak{h}$ が存在して $\forall \textcolor{blue}{x} \in \mathfrak{h}$ に対して $\ad|_{\mathfrak{h}} (\textcolor{blue}{x}) (v) = \comm{\textcolor{blue}{x}}{v} \in \mathfrak{h}$ が成り立つ．i.e. $\mathfrak{h}$ は $\mathfrak{h}$ の\hyperref[def:normalizer-LieAlg]{正規化代数} $N_{\mathfrak{g}} (\mathfrak{h})$ の真部分集合である\footnote{$\exists v \in N_{\mathfrak{g}}(\mathfrak{h}) \setminus \mathfrak{h}$ なので}．
+    \end{description}
+
+    $\mathfrak{h}$ を，$\mathfrak{h} \subsetneq \mathfrak{g}$ を充たす極大\footnote{$\mathfrak{h} \subsetneq \mathfrak{h}'$ でかつ $\mathfrak{h}' \subsetneq \mathfrak{g}$ を充たすものが存在しない．}部分Lie代数とする．$\mathfrak{h}$ の極大性と先ほど証明した事実から $N_{\mathfrak{g}} (\mathfrak{h}) = \mathfrak{g}$ でなくてはならない．従って\hyperref[def:normalizer-LieAlg]{正規化代数の定義の脚注}から $\mathfrak{h}$ は $\mathfrak{g}$ の\hyperref[def:ideal-LieAlg]{イデアル}であり，商代数 $\mathfrak{g} / \mathfrak{h}$ がwell-definedである．
+    もし $\dim \mathfrak{g} / \mathfrak{h} > 1$ だとすると $\mathfrak{g} / \mathfrak{h}$ の1次元部分Lie代数 $\mathbb{K} (x + \mathfrak{h})\, \WHERE x \in \mathfrak{g} \setminus \mathfrak{h}$ の，標準的射影による逆像が $\mathfrak{h}$ を真部分集合にもつ $\mathfrak{g}$ の真部分代数ということになり，$\mathfrak{h}$ の極大性に矛盾する．故に背理法から $\dim \mathfrak{g} / \mathfrak{h} = 1$ であり，$\mathfrak{g} = \mathfrak{h} + \mathbb{K} z\; \WHERE z \in \mathfrak{g} \setminus \mathfrak{h}$ だと分かった．
+
+    ここで $\mathfrak{g}$ の部分ベクトル空間 $W \coloneqq \bigl\{\, v \in V \bigm| \forall y \in \mathfrak{h},\; y(v) = o \,\bigr\}$ を考える．$\dim \mathfrak{h} = \dim \mathfrak{g} - 1 < \dim \mathfrak{g}$ なので，帰納法の仮定より $W \neq \{o\}$ だと分かる\footnote{仮定より $\mathfrak{h}$ の全ての元は冪零．}．
+    % あとはある $v \in W \setminus \{o\}$ が存在して $\forall z \in \mathfrak{g} \setminus \mathfrak{h}$ に対しても $z(v) = o$ を充たすことを示せば証明が完了する．
+    $\mathfrak{h}$ はイデアルなので，$\forall \textcolor{blue}{x} \in \mathfrak{g},\, \forall y \in \mathfrak{h},\, \forall w \in W$ に対して $y (\textcolor{blue}{x}(w)) = \textcolor{blue}{x} (y(w)) - \comm{\textcolor{blue}{x}}{y}(w) = o$ が成り立つ．i.e. $\forall w \in W$ に対して $\forall \textcolor{blue}{x} \in \mathfrak{g},\; \textcolor{blue}{x} (w) \in W$ が言える（$W$ は $\textcolor{blue}{x}$ 不変）．
+    故に $\forall z \in \mathfrak{g} \setminus \mathfrak{h}$ の $W$ における固有ベクトル $v \in W \setminus \{o\}$ が存在する\footnote{$\forall z \in \mathfrak{g}/\mathfrak{h}$ はスカラー倍の違いしかないので，固有ベクトルは共通のものを取れる．}．$z$ は冪零なのでその固有値は $0$ であり，$z (v) = o$ が成り立つ．
+
+
+\end{proof}
+
+
+\begin{mytheo}[label=thm:Engel]{Engelの定理}
+    $\mathfrak{g}$ を\underline{有限次元}Lie代数とする．
+    $\forall x \in \mathfrak{g}$ に対して $\ad x$ が冪零ならば，$\mathfrak{g}$ は\hyperref[def:nilpotent-LieAlg]{冪零Lie代数}である．
 \end{mytheo}
 
+\begin{marker}
+    命題\ref{prop:nilpo-basic}-(5) と併せて以下を得る：
+
+    有限次元Lie代数 $\mathfrak{g}$ が\hyperref[def:nilpotent-LieAlg]{冪零Lie代数} $\IFF$ $\forall x \in \mathfrak{g}$ に対して $\ad x$ が冪零
+\end{marker}
+
+\begin{proof}
+    $\dim \mathfrak{g}$ に関する数学的帰納法により示す．
+    $\dim \mathfrak{g} = 0,\, 1$ のときは自明．
+
+    $\dim \mathfrak{g} > 1$ とする．
+    仮定より，$\Lgl (\mathfrak{g})$ の部分Lie代数 $\Im \ad$ に対して補題\ref{lem:eigen}を使うことができる．すなわちある $v \in \mathfrak{g} \setminus \{o\}$ が存在して，$\forall x \in \mathfrak{g}$ に対して $\ad(x)(v) = \comm{x}{v} = o$ を充たす．i.e. $\mathfrak{g}$ の\hyperref[def:center-LieAlg]{中心} $Z(\mathfrak{g})$ は非零である．
+    このとき $\dim \mathfrak{g} / Z(\mathfrak{g}) < \dim \mathfrak{g}$ で，かつ $\forall x + Z(\mathfrak{g}) \in \mathfrak{g} / Z(\mathfrak{g})$ に対して $\ad (x + Z(\mathfrak{g}))$ は冪零である．故に帰納法の仮定から $\mathfrak{g} / Z(\mathfrak{g})$ は\hyperref[def:nilpotent-LieAlg]{冪零Lie代数}である．従って命題\ref{prop:nilpo-basic}-(3)より $\mathfrak{g}$ は冪零Lie代数である．
+\end{proof}
 
 \end{document}
