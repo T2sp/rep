@@ -3,18 +3,16 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: rep_main.aux
 The style file: myh-physrev.bst
 Database file #1: repref.bib
-You can't pop an empty literal stack for entry Humphreys1972introduction
-while executing---line 964 of file myh-physrev.bst
 You've used 3 entries,
             1990 wiz_defined-function locations,
-            631 strings with 5086 characters,
-and the built_in function-call counts, 471 in all, are:
+            630 strings with 5059 characters,
+and the built_in function-call counts, 463 in all, are:
 = -- 25
 > -- 22
-< -- 1
+< -- 0
 + -- 7
 - -- 4
-* -- 43
+* -- 40
 := -- 63
 add.period$ -- 3
 call.type$ -- 3
@@ -24,7 +22,7 @@ cite$ -- 3
 duplicate$ -- 24
 empty$ -- 58
 format.name$ -- 7
-if$ -- 106
+if$ -- 105
 int.to.chr$ -- 0
 int.to.str$ -- 3
 missing$ -- 6
@@ -34,11 +32,11 @@ pop$ -- 20
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 13
+skip$ -- 12
 stack$ -- 0
 substring$ -- 0
-swap$ -- 10
-text.length$ -- 1
+swap$ -- 9
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
@@ -47,4 +45,3 @@ while$ -- 3
 width$ -- 4
 write$ -- 23
 is.kanji.str$ -- 0
-(There was 1 error message)
