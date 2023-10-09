@@ -6,5 +6,6 @@
 \contentsline {subsection}{\numberline {1.1.4}自己同型}{17}{subsection.1.1.4}%
 \contentsline {subsection}{\numberline {1.1.5}可解Lie代数}{17}{subsection.1.1.5}%
 \contentsline {subsection}{\numberline {1.1.6}冪零Lie代数}{19}{subsection.1.1.6}%
-\contentsline {subsection}{\numberline {1.1.7}Engelの定理}{19}{subsection.1.1.7}%
+\contentsline {subsection}{\numberline {1.1.7}Engelの定理}{20}{subsection.1.1.7}%
+\contentsline {section}{\numberline {1.2}Lie群とLie代数の関係}{22}{section.1.2}%
 \contentsline {chapter}{参考文献}{23}{chapter*.3}%

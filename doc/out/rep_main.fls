@@ -880,8 +880,6 @@ INPUT ./out/rep_main.toc
 OUTPUT out/rep_main.toc
 INPUT ./chap1.tex
 INPUT ./chap1.tex
-INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc
-INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmroman10-bold.luc
 INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-bold.luc
 INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmroman12-bold.luc
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd
@@ -891,6 +889,8 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm7.t
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm5.tfm
 INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmmono10-regular.luc
 INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmmono10-regular.luc
+INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc
+INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmroman10-bold.luc
 INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman7-italic.luc
 INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmroman7-italic.luc
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm

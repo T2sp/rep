@@ -5,46 +5,46 @@ The style file: myh-physrev.bst
 Database file #1: repref.bib
 You can't pop an empty literal stack for entry Humphreys1972introduction
 while executing---line 964 of file myh-physrev.bst
-You've used 2 entries,
+You've used 3 entries,
             1990 wiz_defined-function locations,
-            625 strings with 5007 characters,
-and the built_in function-call counts, 310 in all, are:
-= -- 16
-> -- 12
+            631 strings with 5086 characters,
+and the built_in function-call counts, 471 in all, are:
+= -- 25
+> -- 22
 < -- 1
-+ -- 4
-- -- 2
-* -- 29
-:= -- 43
-add.period$ -- 2
-call.type$ -- 2
++ -- 7
+- -- 4
+* -- 43
+:= -- 63
+add.period$ -- 3
+call.type$ -- 3
 change.case$ -- 0
 chr.to.int$ -- 0
-cite$ -- 2
-duplicate$ -- 16
-empty$ -- 39
-format.name$ -- 4
-if$ -- 68
+cite$ -- 3
+duplicate$ -- 24
+empty$ -- 58
+format.name$ -- 7
+if$ -- 106
 int.to.chr$ -- 0
-int.to.str$ -- 2
-missing$ -- 4
-newline$ -- 11
-num.names$ -- 2
-pop$ -- 14
+int.to.str$ -- 3
+missing$ -- 6
+newline$ -- 15
+num.names$ -- 3
+pop$ -- 20
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 7
+skip$ -- 13
 stack$ -- 0
 substring$ -- 0
-swap$ -- 7
+swap$ -- 10
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 2
-width$ -- 3
-write$ -- 16
+while$ -- 3
+width$ -- 4
+write$ -- 23
 is.kanji.str$ -- 0
 (There was 1 error message)

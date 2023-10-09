@@ -696,15 +696,15 @@ $\Im f$ は\hyperref[def:subLieAlg]{部分Lie代数}である
         \mathfrak{g} = D^0 \mathfrak{g} \supset D^1 \mathfrak{g} \supset D^2 \mathfrak{g} \supset \cdots
     \end{align}
     のこと．
-    ある $n \ge 0$ に対して導来列がゼロになって止まるとき，i.e. $D^n \mathfrak{g} = \{o\}$ が成り立つとき，Lie代数 $\mathfrak{g}$ は\textbf{可解} (solvable) であると言われる．
+    ある $n > 0$ に対して導来列が初めてゼロになって止まるとき，i.e. $D^n \mathfrak{g} = \{o\}$ が成り立つとき，Lie代数 $\mathfrak{g}$ は\textbf{可解} (solvable) であると言われる．
 \end{mydef}
 
 \begin{myprop}[label=prop:solvable-basic]{}
     Lie代数 $\mathfrak{g}$ およびLie代数の準同型 $f \colon \mathfrak{g} \lto \mathfrak{h}$ を与える．このとき以下が成り立つ：
     \begin{enumerate}
         \item $\mathfrak{g}$ が\hyperref[def:solvable-LieAlg]{可解}ならば，
-        $\mathfrak{g}$ の任意の\hyperref[def:subLieAlg]{部分Lie代数} $\mathfrak{a}$ は可解である．特に $\mathfrak{a}$ が\hyperref[def:ideal-LieAlg]{イデアル}ならば\hyperref[def:quotient-LieAlg]{商代数} $\mathfrak{g} / \mathfrak{a}$ も可解である．
-        \item $\mathfrak{g}$ が\hyperref[def:solvable-LieAlg]{可解}ならば $\Im f$ は可解である．
+        $\mathfrak{g}$ の任意の\hyperref[def:subLieAlg]{部分Lie代数} $\mathfrak{a}$ は可解である．また，$\Im f$ も可解である．
+        \item $\mathfrak{g}$ が\hyperref[def:solvable-LieAlg]{可解}ならば，$\mathfrak{g}$ の任意の\hyperref[def:ideal-LieAlg]{イデアル} $\mathfrak{a}$ について\hyperref[def:quotient-LieAlg]{商代数} $\mathfrak{g} / \mathfrak{a}$ も可解である．
         \item $\mathfrak{g}$ のイデアル $\mathfrak{i}$ と\hyperref[def:quotient-LieAlg]{商代数} $\mathfrak{g}/\mathfrak{i}$ がどちらも可解ならば，$\mathfrak{g}$ 自身も可解である．
         \item $\mathfrak{g}$ のイデアル $\mathfrak{i},\, \mathfrak{j}$ が可解ならば，イデアル $\mathfrak{i} + \mathfrak{j}$ も可解である．
     \end{enumerate}
@@ -712,7 +712,16 @@ $\Im f$ は\hyperref[def:subLieAlg]{部分Lie代数}である
 
 \begin{proof}
     \begin{enumerate}
-        \item 
+        \item 仮定より $\mathfrak{g}$ が可解なので，ある $n > 0$ に対して $D^n \mathfrak{g} = \{o\}$ となる．$\mathfrak{a} \subset \mathfrak{g}$ ならば $D \mathfrak{a} \subset D \mathfrak{g}$ であるから，帰納的に $D^i \mathfrak{a} \subset D^i \mathfrak{g}\; (i = 0,\, 1,\, \dots)$ が分かる．よって $D^n \mathfrak{a} = \{o\}$ である．
+        また，$f$ がLie代数の準同型であることから $f(D \mathfrak{g}) = \comm{f(\mathfrak{g})}{f(\mathfrak{g})} = \comm{\Im f}{\Im f} = D(\Im f)$ であり，帰納的に $f(D^i \mathfrak{g}) = D^i(\Im f)$ が分かる．故に $D^n (\Im f) = f(\{o\}) = \{o\}$ である．
+        \item 標準的射影 $p \colon \mathfrak{g} \lto \mathfrak{g}/\mathfrak{a},\; x \lmto x + \mathfrak{a}$ に対して (1) を適用すれば良い．
+        \item 仮定より $\mathfrak{g} / \mathfrak{i}$ が可解なので，ある $n > 0$ に対して $D^n (\mathfrak{g}/\mathfrak{i}) = \{o\}$ と成る．標準的射影 $p \colon \mathfrak{g} \lto \mathfrak{g}/\mathfrak{i}$ について，(1) の証明から $\{o\} = D^n (\mathfrak{g}/\mathfrak{i}) = D^n (\Im p) = p (D^n \mathfrak{g})$ がわかる．従って $D^n \mathfrak{g} \subset \mathfrak{i}$ である．
+        仮定より $\mathfrak{i}$ も可解だからある $m > 0$ に対して $D^m\mathfrak{i} = \{o\}$ となる．故に帰納的に $D^{n+m} \mathfrak{g} \subset \mathfrak{i}^m = \{o\}$ が示される．
+        \item \hyperref[prop:homo]{準同型定理}-(3) より
+        \begin{align}
+            (\mathfrak{i} + \mathfrak{j})/\mathfrak{j} \cong \mathfrak{i}/(\mathfrak{i} \cap \mathfrak{j})
+        \end{align}
+        が成り立つ．仮定より $\mathfrak{i}$ は可解なので，(2) より右辺も可解．よって (3) より $\mathfrak{i} + \mathfrak{j}$ も可解である．
     \end{enumerate}
 \end{proof}
 
@@ -755,7 +764,7 @@ Lie代数 $\mathfrak{g}$ に対して
 を定義する．
 
 \begin{mydef}[label=def:nilpotent-LieAlg]{冪零Lie代数}
-    イデアルの減少列\eqref{eq:descendingCentralSeries}がある $n$ に対してゼロになって止まるとき，i.e. $C^n \mathfrak{g} = \{o\}$ が成り立つとき，Lie代数 $\mathfrak{g}$ は\textbf{冪零} (nilpotent) であると言われる．
+    イデアルの減少列\eqref{eq:descendingCentralSeries}がある $n > 0$ に対して初めてゼロになって止まるとき，i.e. $C^n \mathfrak{g} = \{o\}$ が成り立つとき，Lie代数 $\mathfrak{g}$ は\textbf{冪零} (nilpotent) であると言われる．
 \end{mydef}
 
 \begin{marker}
@@ -766,8 +775,9 @@ Lie代数 $\mathfrak{g}$ に対して
     Lie代数 $\mathfrak{g}$ およびLie代数の準同型 $f \colon \mathfrak{g} \lto \mathfrak{h}$ を与える．このとき以下が成り立つ：
     \begin{enumerate}
         \item $\mathfrak{g}$ が\hyperref[def:nilpotent-LieAlg]{冪零Lie代数}ならば，
-        $\mathfrak{g}$ の任意の\hyperref[def:subLieAlg]{部分Lie代数} $\mathfrak{a}$ は冪零Lie代数である．特に $\mathfrak{a}$ が\hyperref[def:ideal-LieAlg]{イデアル}ならば\hyperref[def:quotient-LieAlg]{商代数} $\mathfrak{g} / \mathfrak{a}$ も冪零Lie代数である．
-        \item $\mathfrak{g}$ が\hyperref[def:nilpotent-LieAlg]{冪零Lie代数}ならば $\Im f$ は冪零Lie代数である．
+        $\mathfrak{g}$ の任意の\hyperref[def:subLieAlg]{部分Lie代数} $\mathfrak{a}$ は冪零Lie代数である．
+        また，$\Im f$ も冪零Lie代数である．
+        \item $\mathfrak{g}$ が\hyperref[def:nilpotent-LieAlg]{冪零Lie代数}ならば，$\mathfrak{g}$ の任意の\hyperref[def:ideal-LieAlg]{イデアル} $\mathfrak{a}$ について\hyperref[def:quotient-LieAlg]{商代数} $\mathfrak{g} / \mathfrak{a}$ も冪零Lie代数である．
         \item $\mathfrak{g}$ の\hyperref[def:center-LieAlg]{中心}による商代数 $\mathfrak{g} / Z (\mathfrak{g})$ が冪零Lie代数ならば $\mathfrak{g}$ は冪零Lie代数である．
         \item $\mathfrak{g}$ が冪零Lie代数かつ $\mathfrak{g} \neq \{o\}$ ならば，$Z (\mathfrak{g}) \neq \{o\}$ である．
         \item $\mathfrak{g}$ が冪零Lie代数ならば，$\forall x \in \mathfrak{g}$ に対して $\ad x$ は冪零である．
@@ -776,7 +786,17 @@ Lie代数 $\mathfrak{g}$ に対して
 
 \begin{proof}
     \begin{enumerate}
-        \item 
+        \item 仮定より $\mathfrak{g}$ が冪零Lie代数なので，ある $n > 0$ に対して $C^n \mathfrak{g} = \{o\}$ となる．$\mathfrak{a} \subset \mathfrak{g}$ ならば $C \mathfrak{a} \subset C \mathfrak{g}$ であるから，帰納的に $C^i \mathfrak{a} \subset C^i \mathfrak{g}\; (i = 0,\, 1,\, \dots)$ が分かる．よって $C^n \mathfrak{a} = \{o\}$ である．
+        また，$f$ がLie代数の準同型であることから $f(C \mathfrak{g}) = \comm{f(\mathfrak{g})}{f(\mathfrak{g})} = \comm{\Im f}{\Im f} = C(\Im f)$ であり，帰納的に $f(C^i \mathfrak{g}) = C^i(\Im f)$ が分かる．故に $C^n (\Im f) = f(\{o\}) = \{o\}$ である．
+        \item 標準的射影 $p \colon \mathfrak{g} \lto \mathfrak{g}/\mathfrak{a},\; x \lmto x + \mathfrak{a}$ に対して (1) を適用すれば良い．
+        \item 仮定より $\mathfrak{g} / Z(\mathfrak{g})$ が冪零Lie代数なので，ある $n > 0$ に対して $C^n (\mathfrak{g}/Z(\mathfrak{g})) = \{o\}$ と成る．標準的射影 $p \colon \mathfrak{g} \lto \mathfrak{g}/Z(\mathfrak{g})$ について，(1) の証明から $\{o\} = C^n (\mathfrak{g}/Z(\mathfrak{g})) = C^n (\Im p) = p (C^n \mathfrak{g})$ がわかる．従って $C^n \mathfrak{g} \subset Z(\mathfrak{g})$ である．
+        故に\hyperref[def:center-LieAlg]{中心の定義}から $C^{n+1} \mathfrak{g} = \comm{\mathfrak{g}}{C^n \mathfrak{g}} \subset \comm{\mathfrak{g}}{Z(\mathfrak{g})} = \{o\}$ が示された．
+        \item 仮定より $\mathfrak{g}$ が冪零Lie代数なので，ある $n > 0$ に対して $C^{n-1} \mathfrak{g} \neq \{o\}$ かつ $C^n \mathfrak{g} = \{o\}$ となる．このとき $\{o\} = C^{n} \mathfrak{g} = \comm{\mathfrak{g}}{C^{n-1}\mathfrak{g}}$ なので中心の定義から $\{o\} \neq C^{n-1}\mathfrak{g} \subset Z(\mathfrak{g})$ が言える．
+        \item 仮定より $\mathfrak{g}$ が冪零Lie代数なので，ある $n > 0$ に対して $C^n \mathfrak{g} = \{o\}$ となる．このとき $\forall x \in \mathfrak{g}$ に対して\hyperref[def:adj-LieAlg]{随伴表現} $\ad (x) \colon \mathfrak{g} \lto \mathfrak{g}$ を考える．$\ad(x)(C^i \mathfrak{g}) = \comm{x}{C^i\mathfrak{g}} \subset \comm{\mathfrak{g}}{C^i\mathfrak{g}} = C^{i+1} \mathfrak{g}$ なので，イデアルの減少列\eqref{eq:descendingCentralSeries}に $\ad(x)$ を作用させると
+        \begin{align}
+            \mathfrak{g} \xrightarrow{\ad(x)} C^1 \mathfrak{g} \xrightarrow{\ad(x)} \cdots \xrightarrow{\ad(x)} C^n \mathfrak{g} = \{o\}
+        \end{align}
+        となる．i.e. $\forall y \in \mathfrak{g}$ に対して $\bigl(\ad(x)\bigr)^n = 0$ である．
     \end{enumerate}
 \end{proof}
 
@@ -849,7 +869,7 @@ Lie代数 $\mathfrak{g}$ に対して
     \end{description}
 
     $\mathfrak{h}$ を，$\mathfrak{h} \subsetneq \mathfrak{g}$ を充たす極大\footnote{$\mathfrak{h} \subsetneq \mathfrak{h}'$ でかつ $\mathfrak{h}' \subsetneq \mathfrak{g}$ を充たすものが存在しない．}部分Lie代数とする．$\mathfrak{h}$ の極大性と先ほど証明した事実から $N_{\mathfrak{g}} (\mathfrak{h}) = \mathfrak{g}$ でなくてはならない．従って\hyperref[def:normalizer-LieAlg]{正規化代数の定義の脚注}から $\mathfrak{h}$ は $\mathfrak{g}$ の\hyperref[def:ideal-LieAlg]{イデアル}であり，商代数 $\mathfrak{g} / \mathfrak{h}$ がwell-definedである．
-    もし $\dim \mathfrak{g} / \mathfrak{h} > 1$ だとすると $\mathfrak{g} / \mathfrak{h}$ の1次元部分Lie代数 $\mathbb{K} (x + \mathfrak{h})\, \WHERE x \in \mathfrak{g} \setminus \mathfrak{h}$ の，標準的射影による逆像が $\mathfrak{h}$ を真部分集合にもつ $\mathfrak{g}$ の真部分代数ということになり，$\mathfrak{h}$ の極大性に矛盾する．故に背理法から $\dim \mathfrak{g} / \mathfrak{h} = 1$ であり，$\mathfrak{g} = \mathfrak{h} + \mathbb{K} z\; \WHERE z \in \mathfrak{g} \setminus \mathfrak{h}$ だと分かった．
+    もし $\dim \mathfrak{g} / \mathfrak{h} > 1$ だとすると $\mathfrak{g} / \mathfrak{h}$ の1次元部分Lie代数 $\mathbb{K} (x + \mathfrak{h})\; (\WHERE x \in \mathfrak{g} \setminus \mathfrak{h})$ の，標準的射影による逆像が $\mathfrak{h}$ を真部分集合にもつ $\mathfrak{g}$ の真部分代数ということになり，$\mathfrak{h}$ の極大性に矛盾する．故に背理法から $\dim \mathfrak{g} / \mathfrak{h} = 1$ であり，$\mathfrak{g} = \mathfrak{h} + \mathbb{K} z\; (\WHERE z \in \mathfrak{g} \setminus \mathfrak{h})$ だと分かった．
 
     ここで $\mathfrak{g}$ の部分ベクトル空間 $W \coloneqq \bigl\{\, v \in V \bigm| \forall y \in \mathfrak{h},\; y(v) = o \,\bigr\}$ を考える．$\dim \mathfrak{h} = \dim \mathfrak{g} - 1 < \dim \mathfrak{g}$ なので，帰納法の仮定より $W \neq \{o\}$ だと分かる\footnote{仮定より $\mathfrak{h}$ の全ての元は冪零．}．
     % あとはある $v \in W \setminus \{o\}$ が存在して $\forall z \in \mathfrak{g} \setminus \mathfrak{h}$ に対しても $z(v) = o$ を充たすことを示せば証明が完了する．
@@ -868,7 +888,7 @@ Lie代数 $\mathfrak{g}$ に対して
 \begin{marker}
     命題\ref{prop:nilpo-basic}-(5) と併せて以下を得る：
 
-    有限次元Lie代数 $\mathfrak{g}$ が\hyperref[def:nilpotent-LieAlg]{冪零Lie代数} $\IFF$ $\forall x \in \mathfrak{g}$ に対して $\ad x$ が冪零
+    \underline{有限次元}Lie代数 $\mathfrak{g}$ が\hyperref[def:nilpotent-LieAlg]{冪零Lie代数} $\IFF$ $\forall x \in \mathfrak{g}$ に対して $\ad x$ が冪零
 \end{marker}
 
 \begin{proof}
@@ -879,5 +899,9 @@ Lie代数 $\mathfrak{g}$ に対して
     仮定より，$\Lgl (\mathfrak{g})$ の部分Lie代数 $\Im \ad$ に対して補題\ref{lem:eigen}を使うことができる．すなわちある $v \in \mathfrak{g} \setminus \{o\}$ が存在して，$\forall x \in \mathfrak{g}$ に対して $\ad(x)(v) = \comm{x}{v} = o$ を充たす．i.e. $\mathfrak{g}$ の\hyperref[def:center-LieAlg]{中心} $Z(\mathfrak{g})$ は非零である．
     このとき $\dim \mathfrak{g} / Z(\mathfrak{g}) < \dim \mathfrak{g}$ で，かつ $\forall x + Z(\mathfrak{g}) \in \mathfrak{g} / Z(\mathfrak{g})$ に対して $\ad (x + Z(\mathfrak{g}))$ は冪零である．故に帰納法の仮定から $\mathfrak{g} / Z(\mathfrak{g})$ は\hyperref[def:nilpotent-LieAlg]{冪零Lie代数}である．従って命題\ref{prop:nilpo-basic}-(3)より $\mathfrak{g}$ は冪零Lie代数である．
 \end{proof}
+
+\section{Lie群とLie代数の関係}
+
+この節は~\cite[第5章]{Kobayashi2005Lie}による．
 
 \end{document}
