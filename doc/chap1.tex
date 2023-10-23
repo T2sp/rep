@@ -465,7 +465,7 @@ i.e. $\character \mathbb{K} \neq 2$ ならば\footnote{体 $\mathbb{K}$ の\text
 
 
 \begin{mylem}[label=lem:ideal-LieAlg]{イデアル同士の演算}
-    \hyperref[ax:LieAlg]{Lie代数} $\mathfrak{g}$ とその\hyperref[def:ideal-LieAlg]{イデアル} $\mathfrak{i},\, \mathfrak{j}$ を与える．このとき以下の2つが成り立つ：
+    \hyperref[ax:LieAlg]{Lie代数} $\mathfrak{g}$ とその\hyperref[def:ideal-LieAlg]{イデアル} $\mathfrak{i},\, \mathfrak{j}$ を与える．このとき以下の3つが成り立つ：
     \begin{enumerate}
         \item 集合 $\mathfrak{i} \cap \mathfrak{j}$ は $\mathfrak{g}$ のイデアルである．
         \item 集合 $\mathfrak{i} + \mathfrak{j} \coloneqq \bigl\{\, x + y \bigm| x \in \mathfrak{i},\, y \in \mathfrak{j} \,\bigr\}$ は $\mathfrak{g}$ のイデアルである．
@@ -861,14 +861,14 @@ Lie代数 $\mathfrak{g}$ に対して
                 &= \ad (x) (y) + \mathfrak{h} \\
                 &= \overline{\ad|_{\mathfrak{h}}}(x) (y + \mathfrak{h})
             \end{align}
-            が成り立つので $\overline{\ad|_{\mathfrak{h}}}(x)$ はwell-definedであり，$\ad (x)$ が線型写像であることから線型写像である．
+            が成り立つので $\overline{\ad|_{\mathfrak{h}}}(x)$ はwell-definedであり，かつ $\ad (x)$ が線型写像なので線型写像である．
             以上の考察から，写像 $\overline{\ad|_{\mathfrak{h}}} \colon \mathfrak{h} \lto \Lgl (\mathfrak{g} / \mathfrak{h}),\; x \lmto \overline{\ad|_{\mathfrak{h}}} (x)$ はwell-definedなLie代数の準同型で，$\Im \overline{\ad|_{\mathfrak{h}}}$ （もちろんこれは $\Lgl (\mathfrak{g}/\mathfrak{h})$ の部分Lie代数である）の元は全て冪零である．
 
             　さて，$\mathfrak{h} \neq \mathfrak{g}$ より $\dim \mathfrak{h} < \dim \mathfrak{g}$ であるから，帰納法の仮定よりある $v + \mathfrak{h} \in (\mathfrak{g} / \mathfrak{h}) \setminus \{\mathfrak{h}\}$ が存在して，$\forall \overline{\ad|_{\mathfrak{h}}} (\textcolor{blue}{x}) \in \Im \overline{\ad|_{\mathfrak{h}}}$ に対して $\overline{\ad|_{\mathfrak{h}}} (\textcolor{blue}{x}) (v + \mathfrak{h}) = \mathfrak{h}$ が成り立つ．
             i.e. ある $v \in \mathfrak{g} \setminus \mathfrak{h}$ が存在して $\forall \textcolor{blue}{x} \in \mathfrak{h}$ に対して $\ad|_{\mathfrak{h}} (\textcolor{blue}{x}) (v) = \comm{\textcolor{blue}{x}}{v} \in \mathfrak{h}$ が成り立つ．i.e. $\mathfrak{h}$ は $\mathfrak{h}$ の\hyperref[def:normalizer-LieAlg]{正規化代数} $N_{\mathfrak{g}} (\mathfrak{h})$ の真部分集合である\footnote{$\exists v \in N_{\mathfrak{g}}(\mathfrak{h}) \setminus \mathfrak{h}$ なので}．
     \end{description}
 
-    $\mathfrak{h}$ を，$\mathfrak{h} \subsetneq \mathfrak{g}$ を充たす極大\footnote{$\mathfrak{h} \subsetneq \mathfrak{h}'$ でかつ $\mathfrak{h}' \subsetneq \mathfrak{g}$ を充たすものが存在しない．}部分Lie代数とする．$\mathfrak{h}$ の極大性と先ほど証明した事実から $N_{\mathfrak{g}} (\mathfrak{h}) = \mathfrak{g}$ でなくてはならない．従って\hyperref[def:normalizer-LieAlg]{正規化代数の定義の脚注}から $\mathfrak{h}$ は $\mathfrak{g}$ の\hyperref[def:ideal-LieAlg]{イデアル}であり，商代数 $\mathfrak{g} / \mathfrak{h}$ がwell-definedである．
+    $\mathfrak{h}$ を，$\mathfrak{h} \subsetneq \mathfrak{g}$ を充たす極大\footnote{$\mathfrak{h} \subsetneq \mathfrak{h}'$ でかつ $\mathfrak{h}' \subsetneq \mathfrak{g}$ を充たす $\mathfrak{h}'$ が存在しない．}部分Lie代数とする．$\mathfrak{h}$ の極大性と先ほど証明した事実から $N_{\mathfrak{g}} (\mathfrak{h}) = \mathfrak{g}$ でなくてはならない．従って\hyperref[def:normalizer-LieAlg]{正規化代数の定義の脚注}から $\mathfrak{h}$ は $\mathfrak{g}$ の\hyperref[def:ideal-LieAlg]{イデアル}であり，商代数 $\mathfrak{g} / \mathfrak{h}$ がwell-definedである．
     もし $\dim \mathfrak{g} / \mathfrak{h} > 1$ だとすると $\mathfrak{g} / \mathfrak{h}$ の1次元部分Lie代数 $\mathbb{K} (x + \mathfrak{h})\; (\WHERE x \in \mathfrak{g} \setminus \mathfrak{h})$ の，標準的射影による逆像が $\mathfrak{h}$ を真部分集合にもつ $\mathfrak{g}$ の真部分代数ということになり，$\mathfrak{h}$ の極大性に矛盾する．故に背理法から $\dim \mathfrak{g} / \mathfrak{h} = 1$ であり，$\mathfrak{g} = \mathfrak{h} + \mathbb{K} z\; (\WHERE z \in \mathfrak{g} \setminus \mathfrak{h})$ だと分かった．
 
     ここで $\mathfrak{g}$ の部分ベクトル空間 $W \coloneqq \bigl\{\, v \in V \bigm| \forall y \in \mathfrak{h},\; y(v) = o \,\bigr\}$ を考える．$\dim \mathfrak{h} = \dim \mathfrak{g} - 1 < \dim \mathfrak{g}$ なので，帰納法の仮定より $W \neq \{o\}$ だと分かる\footnote{仮定より $\mathfrak{h}$ の全ての元は冪零．}．
