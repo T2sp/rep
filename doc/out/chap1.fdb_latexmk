@@ -1,6 +1,6 @@
 # Fdb version 4
-["lualatex"] 1698054966 "/Users/takamatoshinori/Desktop/Seminors/rep/doc/chap1.tex" "out/chap1.pdf" "chap1" 1698055002 0
-  "/Users/takamatoshinori/Desktop/Seminors/rep/doc/chap1.tex" 1698054960 70704 d24da6fe34e61a00ca94657d0b341962 ""
+["lualatex"] 1698420516 "/Users/takamatoshinori/Desktop/Seminors/rep/doc/chap1.tex" "out/chap1.pdf" "chap1" 1698420536 0
+  "/Users/takamatoshinori/Desktop/Seminors/rep/doc/chap1.tex" 1698420515 75679 c785dafdee108da748eeae45f227e925 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/haranoajigothic-medium.luc" 1680092069 1875369 563a49d56453118cc2bc098475a23186 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/haranoajimincho-regular.luc" 1680092052 1961878 305e540f3545673854903467c3d18712 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmmono10-regular.luc" 1682219440 81837 4defb7a479a5fd058bb0732d84253c7a ""
@@ -51,7 +51,7 @@
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/ltj-kinsoku_default.luc" 1680091971 17654 e3e3c85f63c77f4caa824d338e2428e0 ""
   "/Users/takamatoshinori/Library/texmf/tex/latex/myQM/myQM.sty" 1666922311 911 5c87313d86ce1a64a77d90503c96ce7c ""
   "/Users/takamatoshinori/Library/texmf/tex/latex/myalgebra/myalgebra.sty" 1696761281 3864 d0e97e653d13cdfd347812612b1e38bf ""
-  "/Users/takamatoshinori/Library/texmf/tex/latex/mygeometry/mygeometry.sty" 1698028417 1421 bd5dbe1c9ed68df8394c1cc082e99a0a ""
+  "/Users/takamatoshinori/Library/texmf/tex/latex/mygeometry/mygeometry.sty" 1698170135 1484 91abc87ceb92f4475cc99fc7a0761711 ""
   "/Users/takamatoshinori/Library/texmf/tex/latex/mylogics/mylogics.sty" 1690527392 1426 70e6644af870eb1122a25027d1b960bb ""
   "/usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf" 1677185994 4690004 f38d025815e65462ac61ddc6a192e733 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf" 1677185994 6355816 b639bf61ed5bcdb176671541b66519c7 ""
@@ -136,6 +136,7 @@
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1248133631 32587 1788b0c1c5b39540c96f5e42ccd6dae8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb" 1248133631 30273 87a352d78b6810ae5cfdc68d2fb827b2 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufb10.pfb" 1336858727 21346 da223bc4b3fca54dd485f97de1174c1d ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufb7.pfb" 1336858727 21375 c63c6a87952ee93dc9aa94472047c450 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb" 1336858727 21098 d4aee7c0aac232caac5688b586b9363c ""
@@ -591,9 +592,9 @@
   "/usr/local/texlive/2023/texmf-dist/tex/platex/jsclasses/jslogo.sty" 1601931076 5585 8e4615c54073c390d14154b29cee89cb ""
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1680072210 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/luahbtex/lualatex.fmt" 1680072074 11876436 fe019cd16c56b2a02a7f439a19527237 ""
-  "chap1.tex" 1698054960 70704 d24da6fe34e61a00ca94657d0b341962 ""
-  "out/chap1.aux" 1698055000 6310 033708c3fdfb381229c52c03f6f3208b "lualatex"
-  "out/chap1.out" 1698055000 354 e4c4e10b884b6f8a1744f8063f40610a "lualatex"
+  "chap1.tex" 1698420515 75679 c785dafdee108da748eeae45f227e925 ""
+  "out/chap1.aux" 1698420535 6542 dc234773d51582d30d0a18caa2a14025 "lualatex"
+  "out/chap1.out" 1698420535 354 e4c4e10b884b6f8a1744f8063f40610a "lualatex"
   "rep_main.tex" 1696826204 7243 3fab3cd42e12dfc7ff289e77159c0159 ""
   (generated)
   "out/chap1.aux"
