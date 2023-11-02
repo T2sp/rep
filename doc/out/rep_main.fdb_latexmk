@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex out/rep_main"] 1696830830 "out/rep_main.aux" "out/rep_main.bbl" "out/rep_main" 1696830851 0
+["bibtex out/rep_main"] 1698657263 "out/rep_main.aux" "out/rep_main.bbl" "out/rep_main" 1698657286 0
   "./myh-physrev.bst" 1687527611 17141 2e35e7d2990544349d72280dee109834 ""
-  "./repref.bib" 1696830829 1822 befae3eff21f694540c6f030dfcb699d ""
-  "out/rep_main.aux" 1696830848 6551 3bc57b4dd6039ffba142ba11a0e42625 "lualatex"
+  "./repref.bib" 1697289017 1991 7eaf8f9a4fa44beb4954d4157a56f2cf ""
+  "out/rep_main.aux" 1698657282 6783 55733996eb3275af6151aac891c93710 "lualatex"
   (generated)
   "out/rep_main.bbl"
   "out/rep_main.blg"
   (rewritten before read)
-["lualatex"] 1696830830 "/Users/takamatoshinori/Desktop/Seminors/rep/doc/rep_main.tex" "out/rep_main.pdf" "rep_main" 1696830851 0
+["lualatex"] 1698657264 "/Users/takamatoshinori/Desktop/Seminors/rep/doc/rep_main.tex" "out/rep_main.pdf" "rep_main" 1698657286 0
   "/Users/takamatoshinori/Desktop/Seminors/rep/doc/rep_main.tex" 1696826204 7243 3fab3cd42e12dfc7ff289e77159c0159 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/haranoajigothic-medium.luc" 1680092069 1875369 563a49d56453118cc2bc098475a23186 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/haranoajimincho-regular.luc" 1680092052 1961878 305e540f3545673854903467c3d18712 ""
@@ -59,7 +59,7 @@
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/ltj-kinsoku_default.luc" 1680091971 17654 e3e3c85f63c77f4caa824d338e2428e0 ""
   "/Users/takamatoshinori/Library/texmf/tex/latex/myQM/myQM.sty" 1666922311 911 5c87313d86ce1a64a77d90503c96ce7c ""
   "/Users/takamatoshinori/Library/texmf/tex/latex/myalgebra/myalgebra.sty" 1696761281 3864 d0e97e653d13cdfd347812612b1e38bf ""
-  "/Users/takamatoshinori/Library/texmf/tex/latex/mygeometry/mygeometry.sty" 1695307654 1387 2c0c69e6f956e02b45d0e8fe7a20f820 ""
+  "/Users/takamatoshinori/Library/texmf/tex/latex/mygeometry/mygeometry.sty" 1698644039 1518 50d69d421b87d3f8589a1bb28074c97b ""
   "/Users/takamatoshinori/Library/texmf/tex/latex/mylogics/mylogics.sty" 1690527392 1426 70e6644af870eb1122a25027d1b960bb ""
   "/usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf" 1677185994 4690004 f38d025815e65462ac61ddc6a192e733 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf" 1677185994 6355816 b639bf61ed5bcdb176671541b66519c7 ""
@@ -150,6 +150,7 @@
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1248133631 32587 1788b0c1c5b39540c96f5e42ccd6dae8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb" 1248133631 30273 87a352d78b6810ae5cfdc68d2fb827b2 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufb10.pfb" 1336858727 21346 da223bc4b3fca54dd485f97de1174c1d ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufb7.pfb" 1336858727 21375 c63c6a87952ee93dc9aa94472047c450 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb" 1336858727 21098 d4aee7c0aac232caac5688b586b9363c ""
@@ -604,11 +605,11 @@
   "/usr/local/texlive/2023/texmf-dist/tex/platex/jsclasses/jslogo.sty" 1601931076 5585 8e4615c54073c390d14154b29cee89cb ""
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1680072210 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/luahbtex/lualatex.fmt" 1680072074 11876436 fe019cd16c56b2a02a7f439a19527237 ""
-  "chap1.tex" 1696825992 70698 efd1fdf833282dbd6ee607a6ddde76b8 ""
-  "out/rep_main.aux" 1696830848 6551 3bc57b4dd6039ffba142ba11a0e42625 "lualatex"
-  "out/rep_main.bbl" 1696830830 411 fc39f418cb1f3dda358ec831896c0547 "bibtex out/rep_main"
-  "out/rep_main.out" 1696830848 1193 2e1dd41c0c550ce5c0add1f3b4a6e8cf "lualatex"
-  "out/rep_main.toc" 1696830848 910 c00031e57ac8ced074b6f6e10a28e4e1 "lualatex"
+  "chap1.tex" 1698420515 75679 c785dafdee108da748eeae45f227e925 ""
+  "out/rep_main.aux" 1698657282 6783 55733996eb3275af6151aac891c93710 "lualatex"
+  "out/rep_main.bbl" 1698657264 411 fc39f418cb1f3dda358ec831896c0547 "bibtex out/rep_main"
+  "out/rep_main.out" 1698657282 1193 2e1dd41c0c550ce5c0add1f3b4a6e8cf "lualatex"
+  "out/rep_main.toc" 1698657282 910 440221a94e5c4bce7aa7e3b4beecaf13 "lualatex"
   "rep_main.tex" 1696826204 7243 3fab3cd42e12dfc7ff289e77159c0159 ""
   (generated)
   "out/rep_main.aux"

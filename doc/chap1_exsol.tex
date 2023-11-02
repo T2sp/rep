@@ -1,0 +1,552 @@
+\documentclass{ltjsarticle}
+
+%%%%%%%%%%packages%%%%%%%%%%
+%% colors and links
+\usepackage[svgnames]{xcolor}
+\usepackage[colorlinks,citecolor=DarkGreen,linkcolor=DeepPink,linktocpage,unicode]{hyperref} 
+
+%% equations
+%%%% math
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{cancel}
+\usepackage{dsfont}
+%%%% physics
+\usepackage{siunitx}
+\usepackage{physics}
+%%%% chemistry
+\usepackage[version=3]{mhchem}
+
+%% positioning
+\usepackage{array}
+\usepackage{arydshln}
+\usepackage{float}
+
+%% table
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{caption}
+\captionsetup{format=hang}
+\usepackage{subcaption}
+
+%% figure
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{intersections,calc,patterns,through,positioning,arrows,backgrounds,cd,tqft,braids}
+\usepackage{tikz-feynman}
+\usepackage{pgfplots}
+\usepgfplotslibrary{patchplots}
+\pgfplotsset{compat=1.15}
+
+%% decorations
+\usepackage{titlesec}
+\usepackage{picture}
+
+%% framing
+\usepackage{fancybox}
+\usepackage{boites}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,theorems,breakable}
+
+%% citation
+\usepackage{cite}
+
+%% miscellaneous
+%%%% comment
+\usepackage{comment}
+%%%% Japanese
+\usepackage{ascmac}
+\usepackage{listings} %日本語のコメントアウトをする場合jlisting（もしくはjvlisting）が必要
+\lstset{
+    basicstyle={\ttfamily},
+    identifierstyle={\small},
+    commentstyle={\smallitshape},
+    keywordstyle={\small\bfseries},
+    ndkeywordstyle={\small},
+    stringstyle={\small	tfamily},
+    frame={tb},
+    breaklines=true,
+    columns=[l]{fullflexible},
+    numbers=left,
+    xrightmargin=0pt,
+    xleftmargin=27pt,
+    numberstyle={\scriptsize},
+    stepnumber=1,
+    lineskip=-0.5ex
+}
+
+%%macros
+\usepackage{mylogics}
+\usepackage{myalgebra}
+\usepackage{mygeometry}
+\usepackage{myQM}
+
+%%%%%%%%%%optional settings%%%%%%%%%%
+
+%%%%%図表並列%%%%%
+\makeatletter
+\newcommand{\figcaption}[1]{\def\@captype{figure}\caption{#1}}
+\newcommand{\tblcaption}[1]{\def\@captype{table}\caption{#1}}
+\makeatother
+
+%%%%%itemization%%%%%
+\renewcommand{\labelenumi}{\theenumi}
+\renewcommand{\theenumi}{(\arabic{enumi})} % 箇条書きをローマ数字に
+
+%%%%%%theorem environments%%%%%
+\newtheoremstyle{mystyle}%   % スタイル名
+    {}%                      % 上部スペース
+    {}%                      % 下部スペース
+    {\normalfont}%          % 本文フォント
+    {}%                      % インデント量
+    {\bf}%                  % 見出しフォント
+    {.}%                      % 見出し後の句読点
+    {\newline}%                     % 見出し後のスペース
+    {\underline{\thmname{#1}\thmnumber{#2}\thmnote{（#3）}}}%
+    % 見出しの書式 (can be left empty, meaning `normal')
+\theoremstyle{mystyle} % スタイルの適用
+
+\newtheorem{theorem}{定理}[section]
+\newtheorem{definition}{定義}[section]
+\newtheorem{proposition}[definition]{命題}
+\newtheorem{corollary}[theorem]{系}
+\renewcommand{\proofname}{証明}
+
+%proof
+\makeatletter % use at mark
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\renewenvironment{proof}[1][\proofname]{\par
+    \pushQED{\qed}%
+    \normalfont \topsep6\p@\@plus6\p@\relax
+    \trivlist
+    \item[\hskip\labelsep
+        \itshape
+    \textbf{\underline{#1}}]\ignorespaces
+    % {\bf\underline{#1}\@addpunct{.}}]\ignorespaces % ピリオドあり
+}{%
+    \popQED\endtrivlist\@endpefalse
+}
+\makeatother % end at mark
+
+%%%%%%mathtools%%%%%
+\mathtoolsset{showonlyrefs=true} % 被参照数式のみ数式番号割り振り
+\numberwithin{equation}{section}
+
+\makeatletter
+\@addtoreset{equation}{section}
+\makeatother
+
+%%%%%%framing%%%%%
+
+\newtcolorbox[auto counter,number within=section]{myaxiom}[2][]{%
+colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,
+title=公理~\thetcbcounter: #2,#1}
+
+\newtcolorbox[auto counter,number within=section]{mytheo}[2][]{%
+colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,
+title=定理~\thetcbcounter: #2,#1}
+
+\newtcolorbox[auto counter,number within=section]{myprop}[2][]{%
+colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,
+title=命題~\thetcbcounter: #2,#1}
+
+\newtcolorbox[auto counter,number within=section]{mylem}[2][]{%
+colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,
+title=補題~\thetcbcounter: #2,#1}
+
+\newtcolorbox[auto counter,number within=section]{mydef}[2][]{%
+colback=green!5!white,colframe=green!75!black,fonttitle=\bfseries,
+title=定義~\thetcbcounter: #2,#1}
+
+\newtcolorbox[use counter from=mytheo]{mycol}[2][]{%
+fonttitle=\bfseries,enhanced,
+attach boxed title to top left=
+{xshift=-2mm,yshift=-2mm},
+title=系~\thetcbcounter: #2,#1}
+
+\newtcolorbox{marker}[1][breakable]{enhanced,
+  	before skip=2mm,after skip=3mm,
+  	boxrule=0.4pt,left=5mm,right=2mm,top=1mm,bottom=1mm,
+  	colback=yellow!50,
+  	colframe=yellow!20!black,
+  	sharp corners,rounded corners=southeast,arc is angular,arc=3mm,
+  	underlay={%
+  	  	\path[fill=tcbcolback!80!black] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+  	  	\path[draw=tcbcolframe,shorten <=-0.05mm,shorten >=-0.05mm] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+  	  	\path[fill=yellow!50!black,draw=none] (interior.south west) rectangle node[white]{\Huge\bfseries !} ([xshift=4mm]interior.north west);
+  	  	},
+  	drop fuzzy shadow,#1}
+
+
+\newtcolorbox[auto counter, number within=section]{myproblem}[2][]{
+    breakable,
+    % empty,
+    outer arc=0pt,
+    arc=0pt,
+    attach boxed title to top left={
+    %     % empty,
+        xshift=-2mm,
+        yshift=-2mm
+    },
+    % coltitle=black,
+    % colframe=black,
+    colback=white,
+    fonttitle=\bfseries,
+    title=問題~\thetcbcounter #2,#1,
+}
+\newcommand{\probref}[1]{\textbf{【問題\ref{#1}】}}
+
+
+%%%%%title decorations%%%%%
+
+%% section
+% \titleformat{\section}[block]
+% {}{}{0pt}
+% {
+%     \colorbox{teal}{\begin{picture}(0,20)\end{picture}}
+%     \hspace{0pt}
+%     \normalfont \Huge\bfseries \thesection
+%     \hspace{0.5em}
+% }
+% [
+% \begin{picture}(100,0)
+%     \put(3,30){\color{teal}\line(1,0){400}}
+% \end{picture}
+% \
+% \vspace{-50pt}
+% ]
+
+% % subsection
+% \titleformat{\subsection}[block]
+% {}{}{0pt}
+% {
+%     \colorbox{blue}{\begin{picture}(0,10)\end{picture}}
+%     \hspace{0pt}
+%     \normalfont \Large\bfseries \thesubsection
+%     \hspace{0.5em}
+% }
+% [
+% \begin{picture}(100,0)
+%     \put(3,18){\color{blue}\line(1,0){300}}
+% \end{picture}
+% \
+% \vspace{-30pt}
+% ]
+
+% % subsubsection
+% \titleformat{\subsubsection}[block]
+% {}{}{0pt}
+% {
+%     \normalfont \large\bfseries \thesubsubsection
+%     \hspace{0.5em}
+% }
+% [
+% \begin{picture}(100,0)
+%     \put(3,15){\color{black}\line(1,0){200}}
+% \end{picture}
+% \
+% \vspace{-25pt}
+% ]
+\newcommand{\lto}{\longrightarrow}
+\newcommand{\lmto}{\longmapsto}
+\usepackage{blkarray}
+
+\begin{document}
+
+\title{Humphreys Chapter I Exercises \\ 解答例（2023/10/16 実施分）}
+\author{高間俊至}
+\date{\today}
+\maketitle
+
+\setcounter{section}{1}
+
+\cite[p.5, Exercise 8]{Humphreys1972introduction}と\cite[p.14, Exercise 2]{Humphreys1972introduction}の解答例です．
+
+\begin{myproblem}[label=ex:1-1-8]{p.3 および p.5 の Exercise 8}
+    % \setcounter{\tcbcounter}{7}
+    $\character \mathbb{K} \neq 2$ とする，$A_l,\, B_l,\, C_l,\, D_l$ 型の線型Lie代数の各々について基底を構成し，その次元を答えよ．ただし $\lgl{l}{\mathbb{K}}$ の標準的な基底を行列単位とし，$e_{ij}$ と書く．
+\end{myproblem}
+
+\begin{description}
+    \item[\textbf{$\bm{A_l}$ 型}] $A_l$ 型の定義は
+    \begin{align}
+        \mathfrak{sl} (l + 1,\, \mathbb{K}) \coloneqq \bigl\{\, x \in \mathfrak{gl}(l+1,\, \mathbb{K}) \bigm| \Tr x = 0 \,\bigr\} 
+    \end{align}
+    であった．従って $\mathfrak{sl} (l + 1,\, \mathbb{K})$ の基底として，例えば
+    \begin{align}
+        &\bigl\{\, e_{ij} \bigm| 1 \le i \neq j \le l+1 \,\bigr\} \\
+        \cup\, &\bigl\{\, e_{ii} - e_{i+1,\, i+1} \bigm| 1 \le i \le l \,\bigr\} 
+    \end{align}
+    を採ることができる．故に
+    \begin{align}
+        \dim \mathfrak{sl} (l + 1,\, \mathbb{K}) = (l+1)^2 - (l+1) + l = (l+1)^2 - 1
+    \end{align}
+    である．
+    \item[\textbf{$\bm{B_l}$ 型}] $B_l$ 型の定義は，対称行列
+    \begin{align}
+        s \coloneqq 
+        \left[
+            \begin{array}{c:cc}
+                1 &\bm{0}^{\mathsf{T}} &\bm{0}^{\mathsf{T}} \\ 
+                \hdashline 
+                \bm{0} &O_l &\unity_l \\ 
+                \bm{0} &\unity_l &O_l
+            \end{array}
+        \right]
+    \end{align}
+    を用いて
+    \begin{align}
+        \label{eq:ex1-1-8B}
+        \mathfrak{o} (2l + 1,\, \mathbb{K}) \coloneqq \bigl\{\, x \in \mathfrak{gl}(2l+1,\, \mathbb{K}) \bigm| x^{\mathsf{T}}s = -sx  \,\bigr\} 
+    \end{align}
+    であった．ただし $O_l$ は全ての要素が $0 \in \mathbb{K}$ であるような $l \times l$ 行列である．
+    $\forall x \in \mathfrak{o} (2l + 1,\, \mathbb{K})$ を1つとり，行列の区分けを
+    \begin{align}
+        x = \left[
+            \begin{array}{c:cc}
+                a & \bm{b}_1{}^{\mathsf{T}} & \bm{b}_2{}^{\mathsf{T}} \\ 
+                \hdashline 
+                \bm{c}_1 & M & N \\  
+                \bm{c}_2 & P & Q 
+            \end{array}
+        \right]
+    \end{align}
+    のように行うと
+    \begin{align}
+        x^{\mathsf{T}} s &= \left[
+            \begin{array}{ccc}
+                a & \bm{c}_1{}^{\mathsf{T}} & \bm{c}_2{}^{\mathsf{T}} \\ 
+                \bm{b}_1 & M^{\mathsf{T}} & P^{\mathsf{T}} \\  
+                \bm{b}_2 & N^{\mathsf{T}} & Q^{\mathsf{T}} 
+            \end{array}
+        \right] \left[
+            \begin{array}{ccc}
+                1 &\bm{0}^{\mathsf{T}} &\bm{0}^{\mathsf{T}} \\ 
+                \bm{0} &O_l &\unity_l \\ 
+                \bm{0} &\unity_l &O_l
+            \end{array}
+        \right]
+        = \left[
+            \begin{array}{ccc}
+                a & \bm{c}_2{}^{\mathsf{T}} & \bm{c}_1{}^{\mathsf{T}} \\ 
+                \bm{b}_1 & P^{\mathsf{T}} & M^{\mathsf{T}} \\  
+                \bm{b}_2 & Q^{\mathsf{T}} & N^{\mathsf{T}} 
+            \end{array}
+        \right] \\
+        sx &= \left[
+            \begin{array}{ccc}
+                1 &\bm{0}^{\mathsf{T}} &\bm{0}^{\mathsf{T}} \\ 
+                \bm{0} &O_l &\unity_l \\ 
+                \bm{0} &\unity_l &O_l
+            \end{array}
+        \right] \left[
+            \begin{array}{ccc}
+                a & \bm{b}_1{}^{\mathsf{T}} & \bm{b}_2{}^{\mathsf{T}} \\ 
+                \bm{c}_1 & M & N \\  
+                \bm{c}_2 & P & Q 
+            \end{array}
+        \right]
+        = \left[
+            \begin{array}{ccc}
+                a & \bm{b}_1{}^{\mathsf{T}} & \bm{b}_2{}^{\mathsf{T}} \\ 
+                \bm{c}_2 & P & Q \\  
+                \bm{c}_1 & M & N 
+            \end{array}
+        \right]
+    \end{align}
+    と計算できるので，\eqref{eq:ex1-1-8B}の条件は
+    \begin{align}
+        a &= -a \IFF a = 0\label{eq:ex-1-1-8-a} \\
+        \bm{b}_1 &= -\bm{c}_2 \label{eq:ex-1-1-8-b1} \\
+        \bm{b}_2 &= -\bm{c}_1 \label{eq:ex-1-1-8-b2} \\
+        P^{\mathsf{T}} &= -P \label{eq:ex-1-1-8-P} \\
+        M^{\mathsf{T}} &= -Q \label{eq:ex-1-1-8-MQ} \\
+        N^{\mathsf{T}} &= -N \label{eq:ex-1-1-8-N} 
+    \end{align}
+    と同値である．ただし\eqref{eq:ex-1-1-8-a}の同値変形に $\character \mathbb{K} \neq 2$ であることを使った．
+    \eqref{eq:ex-1-1-8-b1}から
+    \begin{align}
+        \bigl\{\, e_{1,\, 1 + \textcolor{red}{i}} - e_{1 + l + \textcolor{red}{i},\, 1} \bigm| 1 \le \textcolor{red}{i} \le l \,\bigr\} 
+    \end{align}
+    が，\eqref{eq:ex-1-1-8-b2}から
+    \begin{align}
+        \bigl\{\, e_{1,\, 1 + l + \textcolor{red}{i}} - e_{1 + \textcolor{red}{i},\, 1} \bigm| 1 \le \textcolor{red}{i} \le l \,\bigr\} 
+    \end{align}
+    が，\eqref{eq:ex-1-1-8-P}から
+    \begin{align}
+        \bigl\{\, e_{1 + l + \textcolor{red}{i},\, 1 + \textcolor{blue}{j}} - e_{1 + l + \textcolor{blue}{j},\, 1 + \textcolor{red}{i}} \bigm| 1 \le \textcolor{red}{i} < \textcolor{blue}{j} \le l \,\bigr\} 
+    \end{align}
+    が，\eqref{eq:ex-1-1-8-MQ}から
+    \begin{align}
+        \bigl\{\, e_{1 + \textcolor{blue}{j},\, 1 + \textcolor{red}{i}} - e_{1 + l + \textcolor{red}{i},\, 1 + l + \textcolor{blue}{j}} \bigm| 1 \le \textcolor{red}{i},\, \textcolor{blue}{j} \le l \,\bigr\} 
+    \end{align}
+    が，\eqref{eq:ex-1-1-8-N}から
+    \begin{align}
+        \bigl\{\, e_{1 + \textcolor{red}{i},\, 1 + l + \textcolor{blue}{j}} - e_{1 + \textcolor{blue}{j},\, 1 + l + \textcolor{red}{i}} \bigm| 1 \le \textcolor{red}{i} < \textcolor{blue}{j} \le l \,\bigr\} 
+    \end{align}
+    が基底を構成することが分かった．以上をまとめると $\Lo (2l+1,\, \mathbb{K})$ の基底として
+    \begin{align}
+        &\bigl\{\, e_{1,\, 1 + \textcolor{red}{i}} - e_{1 + l + \textcolor{red}{i},\, 1} \bigm| 1 \le \textcolor{red}{i} \le l \,\bigr\} \\
+        \cup\, &\bigl\{\, e_{1,\, 1 + l + \textcolor{red}{i}} - e_{1 + \textcolor{red}{i},\, 1} \bigm| 1 \le \textcolor{red}{i} \le l \,\bigr\} \\
+        \cup\, &\bigl\{\, e_{1 + l + \textcolor{red}{i},\, 1 + \textcolor{blue}{j}} - e_{1 + l + \textcolor{blue}{j},\, 1 + \textcolor{red}{i}} \bigm| 1 \le \textcolor{red}{i} < \textcolor{blue}{j} \le l \,\bigr\} \\
+        \cup\, &\bigl\{\, e_{1 + \textcolor{blue}{j},\, 1 + \textcolor{red}{i}} - e_{1 + l + \textcolor{red}{i},\, 1 + l + \textcolor{blue}{j}} \bigm| 1 \le \textcolor{red}{i},\, \textcolor{blue}{j} \le l \,\bigr\}  \\
+        \cup\, &\bigl\{\, e_{1 + \textcolor{red}{i},\, 1 + l + \textcolor{blue}{j}} - e_{1 + \textcolor{blue}{j},\, 1 + l + \textcolor{red}{i}} \bigm| 1 \le \textcolor{red}{i} < \textcolor{blue}{j} \le l \,\bigr\} 
+    \end{align}
+    を採ることができる．故に
+    \begin{align}
+        \dim \Lo (2l+1,\, \mathbb{K}) = 2l + 2 \cdot \frac{l (l-1)}{2} + l^2 = 2l^2 + l
+    \end{align}
+    である．
+    \item[\textbf{$\bm{C_l}$ 型}] $C_l$ 型の定義は，歪対称行列
+    \begin{align}
+        s \coloneqq 
+        \left[
+            \begin{array}{cc}
+                O_l &\unity_l \\ 
+                -\unity_l &O_l
+            \end{array}
+        \right]
+    \end{align}
+    を用いて
+    \begin{align}
+        \label{eq:ex1-1-8C}
+        \mathfrak{sp} (2l,\, \mathbb{K}) \coloneqq \bigl\{\, x \in \mathfrak{gl}(2l,\, \mathbb{K}) \bigm| x^{\mathsf{T}}s = -sx  \,\bigr\} 
+    \end{align}
+    であった．$\forall x \in \mathfrak{sp} (2l,\, \mathbb{K})$ を1つとり，行列の区分けを
+    \begin{align}
+        x = \left[
+            \begin{array}{cc}
+                M & N \\  
+                P & Q 
+            \end{array}
+        \right]
+    \end{align}
+    のように行うと\eqref{eq:ex1-1-8C}の条件は
+    \begin{align}
+        P^{\mathsf{T}} &= P  \\
+        M^{\mathsf{T}} &= -Q \\
+        N^{\mathsf{T}} &= N
+    \end{align}
+    と同値である．$B_l$ 型のときと同様の考察から $\Lsp (2l,\, \mathbb{K})$ の基底として
+    \begin{align}
+        &\bigl\{\, e_{l + \textcolor{red}{i},\, \textcolor{red}{i}} \bigm| 1 \le \textcolor{red}{i} \le l \,\bigr\} \cup \bigl\{\, e_{l + \textcolor{red}{i},\, \textcolor{blue}{j}} + e_{l + \textcolor{blue}{j},\, \textcolor{red}{i}} \bigm| 1 \le \textcolor{red}{i} < \textcolor{blue}{j} \le l \,\bigr\} \\
+        \cup\, &\bigl\{\, e_{\textcolor{blue}{j},\, \textcolor{red}{i}} - e_{l + \textcolor{red}{i},\, l + \textcolor{blue}{j}} \bigm| 1 \le \textcolor{red}{i},\, \textcolor{blue}{j} \le l \,\bigr\}  \\
+        \cup\, &\bigl\{\, e_{\textcolor{red}{i},\, l + \textcolor{red}{i}} \bigm| 1 \le \textcolor{red}{i} \le l \,\bigr\} \cup \bigl\{\, e_{\textcolor{red}{i},\, l + \textcolor{blue}{j}} + e_{1 + \textcolor{blue}{j},\, l + \textcolor{red}{i}} \bigm| 1 \le \textcolor{red}{i} < \textcolor{blue}{j} \le l \,\bigr\} 
+    \end{align}
+    を採ることができる\footnote{$\textcolor{red}{i} \le \textcolor{blue}{j}$ のように等号を含むことに注意．}．故に
+    \begin{align}
+        \dim \Lsp (2l,\, \mathbb{K}) = 2l + 2 \cdot \frac{l (l-1)}{2} + l^2 = 2l^2 + l
+    \end{align}
+    である．
+    \item[\textbf{$\bm{D_l}$ 型}] $D_l$ 型の定義は，対称行列
+    \begin{align}
+        s \coloneqq 
+        \left[
+            \begin{array}{cc}
+                O_l &\unity_l \\ 
+                \unity_l &O_l
+            \end{array}
+        \right]
+    \end{align}
+    を用いて
+    \begin{align}
+        \label{eq:ex1-1-8D}
+        \mathfrak{o} (2l,\, \mathbb{K}) \coloneqq \bigl\{\, x \in \mathfrak{gl}(2l,\, \mathbb{K}) \bigm| x^{\mathsf{T}}s = -sx  \,\bigr\} 
+    \end{align}
+    であった．
+    $\forall x \in \mathfrak{o} (2l,\, \mathbb{K})$ を1つとり，行列の区分けを
+    \begin{align}
+        x = \left[
+            \begin{array}{cc}
+                M & N \\  
+                P & Q 
+            \end{array}
+        \right]
+    \end{align}
+    のように行うと\eqref{eq:ex1-1-8D}の条件は $B_l$ 型のときと同様に
+    \begin{align}
+        P^{\mathsf{T}} &= -P  \\
+        M^{\mathsf{T}} &= -Q \\
+        N^{\mathsf{T}} &= -N
+    \end{align}
+    と同値である．$B_l$ 型のときと同様の考察から $\Lo (2l,\, \mathbb{K})$ の基底として
+    \begin{align}
+        &\bigl\{\, e_{l + \textcolor{red}{i},\, \textcolor{blue}{j}} - e_{l + \textcolor{blue}{j},\, \textcolor{red}{i}} \bigm| 1 \le \textcolor{red}{i} < \textcolor{blue}{j} \le l \,\bigr\} \\
+        \cup\, &\bigl\{\, e_{\textcolor{blue}{j},\, \textcolor{red}{i}} - e_{l + \textcolor{red}{i},\, l + \textcolor{blue}{j}} \bigm| 1 \le \textcolor{red}{i},\, \textcolor{blue}{j} \le l \,\bigr\}  \\
+        \cup\, &\bigl\{\, e_{\textcolor{red}{i},\, l + \textcolor{blue}{j}} - e_{\textcolor{blue}{j},\, l + \textcolor{red}{i}} \bigm| 1 \le \textcolor{red}{i} < \textcolor{blue}{j} \le l \,\bigr\} 
+    \end{align}
+    を採ることができる．故に
+    \begin{align}
+        \dim \Lo (2l,\, \mathbb{K}) = 2 \cdot \frac{l (l-1)}{2} + l^2 = 2l^2 - l
+    \end{align}
+    である．
+\end{description}
+
+
+\begin{myproblem}[label=ex:1-3-8]{p.14 の Exercise 2}
+    % \setcounter{\tcbcounter}{7}
+    標数が $2$ でない体 $\mathbb{K}$ 上の\underline{有限次元} Lie代数 $\mathfrak{g}$ を与える．このとき以下の (1), (2) が同値であることを示せ：
+    \begin{enumerate}
+        \item Lie代数 $\mathfrak{g}$ が可解 
+        \item $\mathfrak{g}$ の部分Lie代数の減少列
+        \begin{align}
+            \mathfrak{g} = \mathfrak{g}_0 \supset \mathfrak{g}_1 \supset \cdots \supset \mathfrak{g}_k = \{o\}
+        \end{align}
+        であって，$\mathfrak{g}_{i+1}$ が $\mathfrak{g}_i$ のイデアルであり，かつ $\mathfrak{g}_i / \mathfrak{g}_{i+1}$ がLieブラケットについて可換であるようなものが存在する．
+    \end{enumerate}
+\end{myproblem}
+
+\begin{marker}
+    $\character \mathbb{K} \neq 2$ なので，$\mathfrak{g}_i / \mathfrak{g}_{i+1}$ がLieブラケットについて可換であるとは $\mathfrak{g}_i / \mathfrak{g}_{i+1}$ の任意の2つの元のLieブラケットが零ベクトルになることと同値である．
+\end{marker}
+
+\begin{proof}
+    $D \mathfrak{g} \coloneqq \comm{\mathfrak{g}}{\mathfrak{g}}$ とおき，帰納的に $D^{i+1} \mathfrak{g} \coloneqq D^{i} \mathfrak{g}$ と定義する．
+    \begin{description}
+        \item[\textbf{(1) $\bm{\Longrightarrow}$ (2)}] $\mathfrak{g}$ の導来列そのものが (2) の条件を充たしていることを示す．
+        仮定より $\mathfrak{g}$ が可解なので，ある $k > 0$ が存在して $D^k \mathfrak{g} = \{o\}$ となる．また，第1回の資料の\textbf{補題1.1.1}（p.13）より $D^{i+1}\mathfrak{g} = D (D^i \mathfrak{g}) \subset D^i \mathfrak{g}$ は $D^i \mathfrak{g}$ のイデアルであり，商代数 $D^i \mathfrak{g} / D^{i+1} \mathfrak{g}$ が定義できる．
+        あとは $D^i \mathfrak{g} / D^{i+1} \mathfrak{g}$ がLieブラケットについて可換であることを示せばよい．
+        
+        　$i = 0$ のとき，$\forall x + D \mathfrak{g},\, y + D \mathfrak{g} \in \mathfrak{g} /  D \mathfrak{g} = D^0\mathfrak{g}/D^1 \mathfrak{g}$ をとる\footnote{$D^0\mathfrak{g}/D^1 \mathfrak{g}$ の任意の元は $x + D \mathfrak{g}$ の形で書ける．標準的射影 $p \colon \mathfrak{g} \lto \mathfrak{g} / D \mathfrak{g},\, x \lmto x + D\mathfrak{g}$ が全射であるとも言える．}．
+        商代数のLieブラケットの定義と $\comm{x}{y} \in \comm{\mathfrak{g}}{\mathfrak{g}} = D \mathfrak{g}$ であることから
+        \begin{align}
+            \comm{x + D \mathfrak{g}}{y + D \mathfrak{g}} &= \comm{x}{y} + D \mathfrak{g}
+            = D \mathfrak{g}
+        \end{align}
+        なので\footnote{商代数 $D^0\mathfrak{g}/D^1 \mathfrak{g}$ の加法単位元（零ベクトル）は $D \mathfrak{g}$ である．}，$D^0\mathfrak{g}/D^1 \mathfrak{g}$ はLieブラケットについて可換である．
+        $i > 0$  のときも全く同様に示される．
+        \item[\textbf{(1) $\bm{\Longleftarrow}$ (2)}] (2) の条件を充たす部分Lie代数の減少列 $\mathfrak{g} = \mathfrak{g}_0 \supset \mathfrak{g}_1 \supset \cdots \supset \mathfrak{g}_k = \{o\}$ が与えられたとき，$0 \le \forall i \le k$ に対して $D^i \mathfrak{g} \subset \mathfrak{g}_i$ が成り立つ\footnote{つまり，\textbf{導来列は (2) の条件を充たす部分Lie代数の減少列のうち最小のものである}．なお明示していなかったが，$\subset$ は $=$ も含むとする．一方，真 (\textbf{proper}) の包含は $\subsetneq$ と書く．}ことを $i$ についての数学的帰納法により示す．
+        
+        　$i = 0$ のときは $D^0 \mathfrak{g} = \mathfrak{g} \subset \mathfrak{g} = \mathfrak{g}_0$ なので明らか．
+        $i > 0$ のとき，$D^{i-1} \mathfrak{g} \subset \mathfrak{g}_{i-1}$ が示されているとする．このとき $D^i \mathfrak{g} \subset \mathfrak{g}_i$ であることを2段階に分けて示す：
+        \begin{description}
+            \item[$\bm{D \mathfrak{g}_{i-1} \subset \mathfrak{g}_i}$ ]　 
+            
+            $\forall x,\, y \in \mathfrak{g}_{i-1}$ に対して，$\mathfrak{g}_{i-1} / \mathfrak{g}_i$ が可換であると言う仮定から
+            \begin{align}
+                &\mathfrak{g}_i = \comm{x + \mathfrak{g}_i}{y + \mathfrak{g}_i} = \comm{x}{y} + \mathfrak{g_{i}} \\
+                \IFF &\comm{x}{y} \in \mathfrak{g}_i
+            \end{align}
+            が言える\footnote{商代数 $\mathfrak{g}_{i-1}/ \mathfrak{g}_i$ の加法単位元（零ベクトル）は $\mathfrak{g}_{i}$ である．}．従って $D \mathfrak{g}_{i-1} \subset \mathfrak{g}_i$ である\footnote{$D \mathfrak{g_{i-1}}$ の勝手な元は，ある $n < \infty$ を用いて $\sum_{i=1}^n \comm{x_i}{y_i}$ と書ける．$\mathfrak{g}_i$ は部分Lie代数であり，加法について閉じているので $\sum_{i=1}^n \comm{x_i}{y_i} \in \mathfrak{g}_i$ が言える．}．
+            \item[$\bm{D^{i} \mathfrak{g} \subset \mathfrak{g}_{i}}$]　
+            
+            帰納法の仮定より $D (D^{i-1} \mathfrak{g}) \subset D \mathfrak{g}_{i-1}$ が言える\footnote{任意のイデアル $\mathfrak{i},\, \mathfrak{j} \subset \mathfrak{g}$ に対して，$\mathfrak{i} \subset \mathfrak{j}$ ならば $D$ の定義から $D \mathfrak{i} \subset D \mathfrak{j}$ が成り立つ．}ので，
+            \begin{align}
+                D^i \mathfrak{g} = D (D^{i-1} \mathfrak{g}) \subset D \mathfrak{g}_{i-1} \subset \mathfrak{g}_i
+            \end{align}
+            が示された．
+        \end{description}
+    \end{description}
+    
+\end{proof}
+
+
+%参考文献のスタイル（style.bstを参照）
+\bibliographystyle{myh-physrev}
+%参考文献（reference.bibを参照）
+\bibliography{repref}
+
+\end{document}

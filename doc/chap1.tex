@@ -110,7 +110,7 @@ i.e. $\character \mathbb{K} \neq 2$ ならば\footnote{体 $\mathbb{K}$ の\text
     \end{proof}
     $\mathbb{R}^3$ の標準的な基底
     \begin{align}
-        e_1 \coloneqq \mqty[1 \\ 0 \\ 0],\quad e_1 \coloneqq \mqty[0 \\ 1 \\ 0],\quad e_1 \coloneqq \mqty[0 \\ 0 \\ 1]
+        e_1 \coloneqq \mqty[1 \\ 0 \\ 0],\quad e_2 \coloneqq \mqty[0 \\ 1 \\ 0],\quad e_3 \coloneqq \mqty[0 \\ 0 \\ 1]
     \end{align}
     に対して
     \begin{align}
@@ -465,7 +465,7 @@ i.e. $\character \mathbb{K} \neq 2$ ならば\footnote{体 $\mathbb{K}$ の\text
 
 
 \begin{mylem}[label=lem:ideal-LieAlg]{イデアル同士の演算}
-    \hyperref[ax:LieAlg]{Lie代数} $\mathfrak{g}$ とその\hyperref[def:ideal-LieAlg]{イデアル} $\mathfrak{i},\, \mathfrak{j}$ を与える．このとき以下の2つが成り立つ：
+    \hyperref[ax:LieAlg]{Lie代数} $\mathfrak{g}$ とその\hyperref[def:ideal-LieAlg]{イデアル} $\mathfrak{i},\, \mathfrak{j}$ を与える．このとき以下の3つが成り立つ：
     \begin{enumerate}
         \item 集合 $\mathfrak{i} \cap \mathfrak{j}$ は $\mathfrak{g}$ のイデアルである．
         \item 集合 $\mathfrak{i} + \mathfrak{j} \coloneqq \bigl\{\, x + y \bigm| x \in \mathfrak{i},\, y \in \mathfrak{j} \,\bigr\}$ は $\mathfrak{g}$ のイデアルである．
@@ -861,14 +861,14 @@ Lie代数 $\mathfrak{g}$ に対して
                 &= \ad (x) (y) + \mathfrak{h} \\
                 &= \overline{\ad|_{\mathfrak{h}}}(x) (y + \mathfrak{h})
             \end{align}
-            が成り立つので $\overline{\ad|_{\mathfrak{h}}}(x)$ はwell-definedであり，$\ad (x)$ が線型写像であることから線型写像である．
+            が成り立つので $\overline{\ad|_{\mathfrak{h}}}(x)$ はwell-definedであり，かつ $\ad (x)$ が線型写像なので線型写像である．
             以上の考察から，写像 $\overline{\ad|_{\mathfrak{h}}} \colon \mathfrak{h} \lto \Lgl (\mathfrak{g} / \mathfrak{h}),\; x \lmto \overline{\ad|_{\mathfrak{h}}} (x)$ はwell-definedなLie代数の準同型で，$\Im \overline{\ad|_{\mathfrak{h}}}$ （もちろんこれは $\Lgl (\mathfrak{g}/\mathfrak{h})$ の部分Lie代数である）の元は全て冪零である．
 
             　さて，$\mathfrak{h} \neq \mathfrak{g}$ より $\dim \mathfrak{h} < \dim \mathfrak{g}$ であるから，帰納法の仮定よりある $v + \mathfrak{h} \in (\mathfrak{g} / \mathfrak{h}) \setminus \{\mathfrak{h}\}$ が存在して，$\forall \overline{\ad|_{\mathfrak{h}}} (\textcolor{blue}{x}) \in \Im \overline{\ad|_{\mathfrak{h}}}$ に対して $\overline{\ad|_{\mathfrak{h}}} (\textcolor{blue}{x}) (v + \mathfrak{h}) = \mathfrak{h}$ が成り立つ．
             i.e. ある $v \in \mathfrak{g} \setminus \mathfrak{h}$ が存在して $\forall \textcolor{blue}{x} \in \mathfrak{h}$ に対して $\ad|_{\mathfrak{h}} (\textcolor{blue}{x}) (v) = \comm{\textcolor{blue}{x}}{v} \in \mathfrak{h}$ が成り立つ．i.e. $\mathfrak{h}$ は $\mathfrak{h}$ の\hyperref[def:normalizer-LieAlg]{正規化代数} $N_{\mathfrak{g}} (\mathfrak{h})$ の真部分集合である\footnote{$\exists v \in N_{\mathfrak{g}}(\mathfrak{h}) \setminus \mathfrak{h}$ なので}．
     \end{description}
 
-    $\mathfrak{h}$ を，$\mathfrak{h} \subsetneq \mathfrak{g}$ を充たす極大\footnote{$\mathfrak{h} \subsetneq \mathfrak{h}'$ でかつ $\mathfrak{h}' \subsetneq \mathfrak{g}$ を充たすものが存在しない．}部分Lie代数とする．$\mathfrak{h}$ の極大性と先ほど証明した事実から $N_{\mathfrak{g}} (\mathfrak{h}) = \mathfrak{g}$ でなくてはならない．従って\hyperref[def:normalizer-LieAlg]{正規化代数の定義の脚注}から $\mathfrak{h}$ は $\mathfrak{g}$ の\hyperref[def:ideal-LieAlg]{イデアル}であり，商代数 $\mathfrak{g} / \mathfrak{h}$ がwell-definedである．
+    $\mathfrak{h}$ を，$\mathfrak{h} \subsetneq \mathfrak{g}$ を充たす極大\footnote{$\mathfrak{h} \subsetneq \mathfrak{h}'$ でかつ $\mathfrak{h}' \subsetneq \mathfrak{g}$ を充たす $\mathfrak{h}'$ が存在しない．}部分Lie代数とする．$\mathfrak{h}$ の極大性と先ほど証明した事実から $N_{\mathfrak{g}} (\mathfrak{h}) = \mathfrak{g}$ でなくてはならない．従って\hyperref[def:normalizer-LieAlg]{正規化代数の定義の脚注}から $\mathfrak{h}$ は $\mathfrak{g}$ の\hyperref[def:ideal-LieAlg]{イデアル}であり，商代数 $\mathfrak{g} / \mathfrak{h}$ がwell-definedである．
     もし $\dim \mathfrak{g} / \mathfrak{h} > 1$ だとすると $\mathfrak{g} / \mathfrak{h}$ の1次元部分Lie代数 $\mathbb{K} (x + \mathfrak{h})\; (\WHERE x \in \mathfrak{g} \setminus \mathfrak{h})$ の，標準的射影による逆像が $\mathfrak{h}$ を真部分集合にもつ $\mathfrak{g}$ の真部分代数ということになり，$\mathfrak{h}$ の極大性に矛盾する．故に背理法から $\dim \mathfrak{g} / \mathfrak{h} = 1$ であり，$\mathfrak{g} = \mathfrak{h} + \mathbb{K} z\; (\WHERE z \in \mathfrak{g} \setminus \mathfrak{h})$ だと分かった．
 
     ここで $\mathfrak{g}$ の部分ベクトル空間 $W \coloneqq \bigl\{\, v \in V \bigm| \forall y \in \mathfrak{h},\; y(v) = o \,\bigr\}$ を考える．$\dim \mathfrak{h} = \dim \mathfrak{g} - 1 < \dim \mathfrak{g}$ なので，帰納法の仮定より $W \neq \{o\}$ だと分かる\footnote{仮定より $\mathfrak{h}$ の全ての元は冪零．}．
@@ -898,6 +898,63 @@ Lie代数 $\mathfrak{g}$ に対して
     $\dim \mathfrak{g} > 1$ とする．
     仮定より，$\Lgl (\mathfrak{g})$ の部分Lie代数 $\Im \ad$ に対して補題\ref{lem:eigen}を使うことができる．すなわちある $v \in \mathfrak{g} \setminus \{o\}$ が存在して，$\forall x \in \mathfrak{g}$ に対して $\ad(x)(v) = \comm{x}{v} = o$ を充たす．i.e. $\mathfrak{g}$ の\hyperref[def:center-LieAlg]{中心} $Z(\mathfrak{g})$ は非零である．
     このとき $\dim \mathfrak{g} / Z(\mathfrak{g}) < \dim \mathfrak{g}$ で，かつ $\forall x + Z(\mathfrak{g}) \in \mathfrak{g} / Z(\mathfrak{g})$ に対して $\ad (x + Z(\mathfrak{g}))$ は冪零である．故に帰納法の仮定から $\mathfrak{g} / Z(\mathfrak{g})$ は\hyperref[def:nilpotent-LieAlg]{冪零Lie代数}である．従って命題\ref{prop:nilpo-basic}-(3)より $\mathfrak{g}$ は冪零Lie代数である．
+\end{proof}
+
+\begin{mydef}[label=def:flag]{旗}
+    \begin{itemize}
+        \item $V$ を有限次元 $\mathbb{K}$ ベクトル空間とする．$V$ の\textbf{旗} (flag) とは，部分ベクトル空間の増大列
+        \begin{align}
+            \{o\} \eqqcolon V_0 \subset V_1 \subset \cdots \subset V_{\dim V} \coloneqq V
+        \end{align}
+        であって，$0 \le \forall i \le \dim V$ に対して $\dim V_i = i$ が成り立つようなもののこと．
+
+        \item $x \in \End V$ が旗を\textbf{安定化する} (stabilize) とは，$0 \le \forall i \le \dim V$ に対して $x V_i \subset V_i$ が成り立つことを言う．
+    \end{itemize}
+\end{mydef}
+
+\begin{mycol}[label=col:Engel-flag]{}
+    $V \neq \{o\}$ を\underline{有限次元}ベクトル空間とし，$\Lgl (V)$ の任意の\hyperref[def:subLieAlg]{部分Lie代数} $\mathfrak{g}$ をとる．
+
+    このとき $\forall x \in \mathfrak{g}$ が冪零ならば， $\forall x \in \mathfrak{g}$ によって\hyperref[def:flag]{安定化される} $V$ の\hyperref[def:flag]{旗}が存在する．
+\end{mycol}
+
+\begin{proof}
+    $\dim V$ に関する数学的帰納法により示す．$\dim V = 0$ ならば $V = \{o\}$ なので示すべきことは何もない．
+    $\dim V > 0$ とする．
+    補題\ref{lem:eigen}より $\forall x \in \mathfrak{g}$ に対して $x v = o$ を充たす $v \in V \setminus \{o\}$ が存在する．
+    ここで $V_1 \coloneqq \mathbb{K} v$ とおき，$W \coloneqq V / V_1$ とする．$\forall x \in \mathfrak{g} \subset \Lgl (V)$ に対して，$v \in V$ の採り方から明らかに $V_1 \subset \Ker x$ なので\hyperref[prop:homo]{商ベクトル空間の普遍性}\footnote{命題\ref{prop:homo}-(1) の証明がそのまま適用できる．}を使うことができ，
+    図式
+    \begin{center}
+        \begin{tikzcd}[row sep=large, column sep=large]
+            V \ar[d, "p"']\ar[r, "x"] &V \ar[r, "p"] &V/V_1 \\
+            V/V_1 \ar[urr, red, dashed, "\exists! \overline{x}"] & &
+        \end{tikzcd}
+    \end{center}
+    を可換にするような $\textcolor{red}{\overline{x}} \in \mathfrak{gl}(V/V_1)$ が一意的に存在する\footnote{$p \colon V \lto V/V_1$ は標準的射影．}．
+    このようにして得られるLie代数の単射準同型 $\overline{\cdot}\; \colon \mathfrak{g} \lto \mathfrak{gl}(V/V_1),\; x \lmto \overline{x}$ によって $\mathfrak{g}$ を $\Lgl (V/V_1)$ の部分Lie代数と見做すと，明らかに $\mathfrak{g}$ の任意の元は冪零であり，かつ $\dim (V/V_1) = \dim V - 1 < \dim V$ なので帰納法の仮定が使えて，$V/V_1$ の\hyperref[def:flag]{旗}
+    \begin{align}
+        \{o\} = W_0 \subset W_1 \subset \cdots \subset W_{\dim V - 1} = V/V_1
+    \end{align}
+    が存在して\footnote{$V/V_1$ の零ベクトルは $V_1$ であることに注意．} $\forall \overline{x} \in \mathfrak{g}$ がそれを安定化する．
+    このとき $V$ の部分ベクトル空間の増大列
+    \begin{align}
+        \{o\} \subset p^{-1} (W_0) \subset p^{-1}(W_1) \subset \cdots \subset p^{-1}(W_{\dim V - 1}) = V
+    \end{align}
+    は $\forall x \in \mathfrak{g}$ により安定化される
+    \footnote{
+        $\forall x \in \mathfrak{g}$ をとる．このとき，旗 $W_0 \subset \cdots \subset W_{\dim V -1}$ が $\overline{x}$ によって安定化されるので，$\forall w + V_1 \in W_i\quad (0 \le \forall i \le \dim V - 1)$ に対して $\overline{x}(w + V_1) \in W_i$ が成り立つ．
+        $\forall v \in p^{-1}(W_i)$ に対して $p(v) = v + V_1 \in W_i$ なので，命題\ref{prop:homo}-(1) の証明から $x(v) + V_1 = \overline{x}(v + V_1)$ であることに注意すると $p\bigl(x(v)\bigr) = x(v) + V_1 = \overline{x}(v + V_1) \in W_i$，i.e. $x(v) \in p^{-1}(W_i)$ がわかった．
+    }
+    ので帰納法が完成する．
+\end{proof}
+
+\begin{mylem}[label=lem:nilpo-ideal]{}
+    $\mathfrak{g}$ を\hyperref[def:nilpotent-LieAlg]{冪零Lie代数}，$\mathfrak{i} \subset \mathfrak{g}$ をその\hyperref[def:ideal-LieAlg]{イデアル}とする．
+    このとき，もし $\mathfrak{i} \neq \{o\}$ ならば $\mathfrak{i} \cap Z(\mathfrak{g}) \neq \{o\}$ である．
+\end{mylem}
+
+\begin{proof}
+    イデアルの定義から，\hyperref[def:adj-LieAlg]{随伴表現} $\ad \colon \mathfrak{g} \lto \Lgl (\mathfrak{g})$ は $\forall x \in \mathfrak{i}$ に対して $\ad (\mathfrak{g})(x) = \comm{\mathfrak{g}}{x} \subset \mathfrak{i}$ を充たす．i.e. 部分Lie代数 $\ad(\mathfrak{g}) \subset \Lgl (\mathfrak{i})$ と見做すことができる．さらに仮定より $\mathfrak{i} \neq \{o\}$ なので補題\ref{lem:eigen}が使えて，ある $x \in \mathfrak{i} \setminus \{o\}$ が存在して $\ad (\mathfrak{g}) (x) = \comm{\mathfrak{g}}{x} = \{o\}$ を充たす．\hyperref[def:center-LieAlg]{中心の定義}を思い出すと，これは $x \in \mathfrak{i} \cap Z(\mathfrak{g})$ を意味する．
 \end{proof}
 
 \section{Lie群とLie代数の関係}
