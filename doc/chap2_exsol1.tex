@@ -1,0 +1,341 @@
+\documentclass{ltjsarticle}
+
+%%%%%%%%%%packages%%%%%%%%%%
+%% colors and links
+\usepackage[svgnames]{xcolor}
+\usepackage[colorlinks,citecolor=DarkGreen,linkcolor=DeepPink,linktocpage,unicode]{hyperref} 
+
+%% equations
+%%%% math
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{cancel}
+\usepackage{dsfont}
+%%%% physics
+\usepackage{siunitx}
+\usepackage{physics}
+%%%% chemistry
+\usepackage[version=3]{mhchem}
+
+%% positioning
+\usepackage{array}
+\usepackage{arydshln}
+\usepackage{float}
+
+%% table
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{caption}
+\captionsetup{format=hang}
+\usepackage{subcaption}
+
+%% figure
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{intersections,calc,patterns,through,positioning,arrows,backgrounds,cd,tqft,braids}
+\usepackage{tikz-feynman}
+\usepackage{pgfplots}
+\usepgfplotslibrary{patchplots}
+\pgfplotsset{compat=1.15}
+
+%% decorations
+\usepackage{titlesec}
+\usepackage{picture}
+
+%% framing
+\usepackage{fancybox}
+\usepackage{boites}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,theorems,breakable}
+
+%% citation
+\usepackage{cite}
+
+%% miscellaneous
+%%%% comment
+\usepackage{comment}
+%%%% Japanese
+\usepackage{ascmac}
+\usepackage{listings} %日本語のコメントアウトをする場合jlisting（もしくはjvlisting）が必要
+\lstset{
+    basicstyle={\ttfamily},
+    identifierstyle={\small},
+    commentstyle={\smallitshape},
+    keywordstyle={\small\bfseries},
+    ndkeywordstyle={\small},
+    stringstyle={\small	tfamily},
+    frame={tb},
+    breaklines=true,
+    columns=[l]{fullflexible},
+    numbers=left,
+    xrightmargin=0pt,
+    xleftmargin=27pt,
+    numberstyle={\scriptsize},
+    stepnumber=1,
+    lineskip=-0.5ex
+}
+
+%%macros
+\usepackage{mylogics}
+\usepackage{myalgebra}
+\usepackage{mygeometry}
+\usepackage{myQM}
+
+%%%%%%%%%%optional settings%%%%%%%%%%
+
+%%%%%図表並列%%%%%
+\makeatletter
+\newcommand{\figcaption}[1]{\def\@captype{figure}\caption{#1}}
+\newcommand{\tblcaption}[1]{\def\@captype{table}\caption{#1}}
+\makeatother
+
+%%%%%itemization%%%%%
+\renewcommand{\labelenumi}{\theenumi}
+\renewcommand{\theenumi}{(\arabic{enumi})} % 箇条書きをローマ数字に
+
+%%%%%%theorem environments%%%%%
+\newtheoremstyle{mystyle}%   % スタイル名
+    {}%                      % 上部スペース
+    {}%                      % 下部スペース
+    {\normalfont}%          % 本文フォント
+    {}%                      % インデント量
+    {\bf}%                  % 見出しフォント
+    {.}%                      % 見出し後の句読点
+    {\newline}%                     % 見出し後のスペース
+    {\underline{\thmname{#1}\thmnumber{#2}\thmnote{（#3）}}}%
+    % 見出しの書式 (can be left empty, meaning `normal')
+\theoremstyle{mystyle} % スタイルの適用
+
+\newtheorem{theorem}{定理}[section]
+\newtheorem{definition}{定義}[section]
+\newtheorem{proposition}[definition]{命題}
+\newtheorem{corollary}[theorem]{系}
+\renewcommand{\proofname}{証明}
+
+%proof
+\makeatletter % use at mark
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\renewenvironment{proof}[1][\proofname]{\par
+    \pushQED{\qed}%
+    \normalfont \topsep6\p@\@plus6\p@\relax
+    \trivlist
+    \item[\hskip\labelsep
+        \itshape
+    \textbf{\underline{#1}}]\ignorespaces
+    % {\bf\underline{#1}\@addpunct{.}}]\ignorespaces % ピリオドあり
+}{%
+    \popQED\endtrivlist\@endpefalse
+}
+\makeatother % end at mark
+
+%%%%%%mathtools%%%%%
+\mathtoolsset{showonlyrefs=true} % 被参照数式のみ数式番号割り振り
+\numberwithin{equation}{section}
+
+\makeatletter
+\@addtoreset{equation}{section}
+\makeatother
+
+%%%%%%framing%%%%%
+
+\newtcolorbox[auto counter,number within=section]{myaxiom}[2][]{%
+colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,
+title=公理~\thetcbcounter: #2,#1}
+
+\newtcolorbox[auto counter,number within=section]{mytheo}[2][]{%
+colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,
+title=定理~\thetcbcounter: #2,#1}
+
+\newtcolorbox[auto counter,number within=section]{myprop}[2][]{%
+colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,
+title=命題~\thetcbcounter: #2,#1}
+
+\newtcolorbox[auto counter,number within=section]{mylem}[2][]{%
+colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,
+title=補題~\thetcbcounter: #2,#1}
+
+\newtcolorbox[auto counter,number within=section]{mydef}[2][]{%
+colback=green!5!white,colframe=green!75!black,fonttitle=\bfseries,
+title=定義~\thetcbcounter: #2,#1}
+
+\newtcolorbox[use counter from=mytheo]{mycol}[2][]{%
+fonttitle=\bfseries,enhanced,
+attach boxed title to top left=
+{xshift=-2mm,yshift=-2mm},
+title=系~\thetcbcounter: #2,#1}
+
+\newtcolorbox{marker}[1][breakable]{enhanced,
+  	before skip=2mm,after skip=3mm,
+  	boxrule=0.4pt,left=5mm,right=2mm,top=1mm,bottom=1mm,
+  	colback=yellow!50,
+  	colframe=yellow!20!black,
+  	sharp corners,rounded corners=southeast,arc is angular,arc=3mm,
+  	underlay={%
+  	  	\path[fill=tcbcolback!80!black] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+  	  	\path[draw=tcbcolframe,shorten <=-0.05mm,shorten >=-0.05mm] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+  	  	\path[fill=yellow!50!black,draw=none] (interior.south west) rectangle node[white]{\Huge\bfseries !} ([xshift=4mm]interior.north west);
+  	  	},
+  	drop fuzzy shadow,#1}
+
+
+\newtcolorbox[auto counter, number within=section]{myproblem}[2][]{
+    breakable,
+    % empty,
+    outer arc=0pt,
+    arc=0pt,
+    attach boxed title to top left={
+    %     % empty,
+        xshift=-2mm,
+        yshift=-2mm
+    },
+    % coltitle=black,
+    % colframe=black,
+    colback=white,
+    fonttitle=\bfseries,
+    title=問題~\thetcbcounter #2,#1,
+}
+\newcommand{\probref}[1]{\textbf{【問題\ref{#1}】}}
+
+
+%%%%%title decorations%%%%%
+
+%% section
+% \titleformat{\section}[block]
+% {}{}{0pt}
+% {
+%     \colorbox{teal}{\begin{picture}(0,20)\end{picture}}
+%     \hspace{0pt}
+%     \normalfont \Huge\bfseries \thesection
+%     \hspace{0.5em}
+% }
+% [
+% \begin{picture}(100,0)
+%     \put(3,30){\color{teal}\line(1,0){400}}
+% \end{picture}
+% \
+% \vspace{-50pt}
+% ]
+
+% % subsection
+% \titleformat{\subsection}[block]
+% {}{}{0pt}
+% {
+%     \colorbox{blue}{\begin{picture}(0,10)\end{picture}}
+%     \hspace{0pt}
+%     \normalfont \Large\bfseries \thesubsection
+%     \hspace{0.5em}
+% }
+% [
+% \begin{picture}(100,0)
+%     \put(3,18){\color{blue}\line(1,0){300}}
+% \end{picture}
+% \
+% \vspace{-30pt}
+% ]
+
+% % subsubsection
+% \titleformat{\subsubsection}[block]
+% {}{}{0pt}
+% {
+%     \normalfont \large\bfseries \thesubsubsection
+%     \hspace{0.5em}
+% }
+% [
+% \begin{picture}(100,0)
+%     \put(3,15){\color{black}\line(1,0){200}}
+% \end{picture}
+% \
+% \vspace{-25pt}
+% ]
+\newcommand{\lto}{\longrightarrow}
+\newcommand{\lmto}{\longmapsto}
+\usepackage{blkarray}
+
+\begin{document}
+
+\title{Humphreys Chapter II Exercises \\ 解答例（2023/11/13 実施分）}
+\author{高間俊至}
+\date{\today}
+\maketitle
+
+\setcounter{section}{1}
+
+\cite[p.24, Exercise1, 2]{Humphreys1972introduction}
+% と\cite[p.14, Exercise 2]{Humphreys1972introduction}
+の解答例です．
+
+何の断りもない場合，体 $\mathbb{K}$ は代数閉体でかつ $\character \mathbb{K} = 0$ であるとする．
+また，$\mathfrak{g}$ は\underline{零でない}体 $\mathbb{K}$ 上の\underline{有限次元} Lie代数とする．
+
+\begin{myproblem}[label=ex:2-2-1]{p.24 の Exercise 1}
+    % \setcounter{\tcbcounter}{7}
+    Lie代数 $\mathfrak{g}$ が冪零Lie代数 $\IMP$ $\mathfrak{g}$ のKilling形式が恒等的に $0$
+\end{myproblem}
+
+\begin{proof}
+    $\mathfrak{g}$ が冪零Lie代数であるとする．このとき第1回資料の命題1.1.4-(5) より，部分Lie代数 $\Im \ad \subset \Lgl (\mathfrak{g})$ の任意の元 $\ad(x) \in \Im \ad$ は冪零である．
+    従って $\Im \ad$ に対して Corollary 3.3~\cite[p.13]{Humphreys1972introduction} を使うことができて，$\forall \ad(x) \in \Im \ad$ の表現行列を同時に $\mathfrak{n}(\dim \mathfrak{g},\, \mathbb{K})$ の元（i.e. 対角成分が全て $0$ であるような上三角行列）にするような $\mathfrak{g}$ の基底が存在する．
+    この基底の下では，$\forall \ad(x),\, \ad(y) \in \Lgl(\mathfrak{g})$ に対して $\ad(x) \circ \ad(y)$ の表現行列も $\mathfrak{n}(\dim \mathfrak{g},\, \mathbb{K})$ の元になるので $\Tr \bigl( \ad(x) \circ \ad(y) \bigr) = 0$ が言えた．
+    % $\forall x,\, y \in \mathfrak{g}$ を固定する．
+    % $\mathfrak{g}$ が冪零Lie代数なので，命題1.1.4-(6) より $\ad(x),\, \ad (y),\, \ad(\comm{x}{y})$ は冪零．
+    % Jacobi恒等式から
+    % \begin{align}
+    %     \ad(x) \circ \ad(y) (z) 
+    %     &= \comm{x}{\comm{y}{z}} \\
+    %     &= \comm{y}{\comm{x}{z}} + \comm{\comm{x}{y}}{z} \\
+    %     &= \ad(y) \circ \ad(x)(z) + \ad(\comm{x}{y})(z)
+    % \end{align}
+    % であり，
+    % \begin{align}
+    %     (\ad(x) \ad(y))^2 
+    %     &= \ad(x)\ad(y)\ad(x)\ad(y) \\
+    %     &= \ad(y)\ad(x)\ad(x)\ad(y) + \ad(\comm{x}{y})\ad(x)\ad(y)
+    % \end{align}
+
+\end{proof}
+
+
+\begin{myproblem}[label=ex:2-2-2]{p.24 の Exercise 2}
+    % \setcounter{\tcbcounter}{7}
+    Lie代数 $\mathfrak{g}$ およびそのKilling形式
+    \begin{align}
+        \kappa \colon \mathfrak{g} \times \mathfrak{g} \lto \mathbb{K},\; (x,\, y) \lmto \Tr \bigl(\ad (x) \circ \ad (y)\bigr)
+    \end{align}
+    を与える．
+    このとき以下の2つは同値である\footnote{$\bigl\{\, x \in \mathfrak{g} \bigm| \forall y \in \mathfrak{g},\; \kappa (x,\, y) = 0 \,\bigr\} $  を $\kappa$ の\textbf{radical}と呼ぶのだった．}：
+    \begin{enumerate}
+        \item $\mathfrak{g}$ が可解
+        \item \begin{align}
+            \comm{\mathfrak{g}}{\mathfrak{g}} \subset \bigl\{\, x \in \mathfrak{g} \bigm| \forall y \in \mathfrak{g},\; \kappa (x,\, y) = 0 \,\bigr\} 
+        \end{align}
+    \end{enumerate}
+\end{myproblem}
+
+\begin{proof}
+    \begin{description}
+        \item[\textbf{(1) $\bm{\Longrightarrow}$ (2)}]　
+        
+        $\mathfrak{g}$ が可解であるとする．このとき第1回資料の命題1.1.3-(1) より，Lie代数の準同型 $\ad \colon \mathfrak{g} \lto \Lgl(\mathfrak{g})$ の像 $\Im \ad \subset \Lgl(\mathfrak{g})$ もまた可解な部分Lie代数である．よってLieの定理~\cite[p.16, Corollary A]{Humphreys1972introduction}から，$\forall \ad(x) \in \Im \ad$ の表現行列を同時に $\mathfrak{t}(\dim \mathfrak{g},\, \mathbb{K})$ の元（i.e. 上三角行列）にするような $\mathfrak{g}$ の基底が存在する．
+        以下，$\mathfrak{g}$ の基底をこの特別な基底に固定する．
+        
+        　$\comm{x}{y}$ の形をした任意の $\comm{\mathfrak{g}}{\mathfrak{g}}$ の元をとる．
+        このとき $\ad(\comm{x}{y}) = \comm{\ad(x)}{\ad(y)} = \ad(x) \circ \ad(y) - \ad(y) \circ \ad(x)$ が成り立つ\footnote{$\ad$ はLie代数の準同型なので．$\Lgl (\mathfrak{g})$ のLieブラケットは交換子だったことを思い出すと良い．}が，今の基底の下では $\ad(x),\, \ad(y)$ の表現行列が上三角行列なので $\ad(\comm{x}{y})$ の表現行列は $\mathfrak{n}(\dim \mathfrak{g},\, \mathbb{K})$ の元（i.e. 対角成分が全て $0$ であるような上三角行列）になる．
+        このとき $\forall z \in \mathfrak{g}$ に対して\footnote{$\mathfrak{g}$ の基底の取り方から $\ad(z) \in \Im \ad$ の表現行列もまた上三角行列である．} $\ad(\comm{x}{y}) \circ \ad(z)$ の表現行列もまた $\mathfrak{n}(\dim \mathfrak{g},\, \mathbb{K})$ の元になるので $\kappa(\comm{x}{y},\, z) = \Tr \bigl( \ad(\comm{x}{y}) \circ \ad (z)\bigr) = 0$ が言える．$\comm{\mathfrak{g}}{\mathfrak{g}}$ が $\comm{x}{y}$ の形をした元によって生成されること，および $\kappa$ が双線型写像であることから証明が完了した．
+        
+        \item[\textbf{(1) $\bm{\Longleftarrow}$ (2)}]　
+        
+        Corollary~\cite[p.20]{Humphreys1972introduction} そのものである．
+    \end{description}
+    
+\end{proof}
+
+
+%参考文献のスタイル（style.bstを参照）
+\bibliographystyle{myh-physrev}
+%参考文献（reference.bibを参照）
+\bibliography{repref}
+
+\end{document}
