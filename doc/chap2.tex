@@ -86,7 +86,7 @@
 	が存在する．然るに $\VEC{\mathbb{K}}$ の可換図式
 	\begin{center}
 		\begin{tikzcd}[row sep=large, column sep=large]
-			&V \times W \ar[d, "\bm{\Phi}"] \ar[r, "\bm{\Phi}"] &\bm{T'} \\
+			&V \times W \ar[d, "\bm{\Phi}"] \ar[r, "\bm{\Phi}"] &\bm{T} \\
 				&\bm{T} \ar[ur, red, dashed, "\mathrm{id}_T"] &
 		\end{tikzcd}
 	\end{center}
@@ -411,7 +411,7 @@ $f \colon S \lto \mathbb{K}$ のことである
     は双線型なので，\hyperref[def:tensor-vec]{テンソル積の普遍性}から $\VEC{\mathbb{K}}$ の可換図式
     \begin{center}
 		\begin{tikzcd}[row sep=large, column sep=large]
-			&V^* \times W \ar[d, "\pi \circ \iota"'] \ar[r,"\Phi"] &L(V,\, W;,\, \mathbb{K}) \\
+			&V^* \times W \ar[d, "\pi \circ \iota"'] \ar[r,"\Phi"] &\Hom{\mathbb{K}}(V,\, W) \\
 			&\bm{V^* \otimes W} \ar[ur, red, dashed, "\exists! \overline{\Phi}"'] &
 		\end{tikzcd}
 	\end{center}
@@ -426,7 +426,7 @@ $f \colon S \lto \mathbb{K}$ のことである
         \label{eq:tensorbasis}
         \omega \otimes w \coloneqq \Phi(\omega,\, w) \colon V \lto W,\; v \lmto \omega(v) w
     \end{align}
-    とおくと $L(V;\, W)$ の基底として
+    とおくと $\Hom{\mathbb{K}}(V,\, W)$ の基底として
 	\begin{align}
 		\mathcal{B} \coloneqq \bigl\{\, \varepsilon^\mu \otimes f_\nu \bigm| 1 \le \mu \le n,\, 1 \le \nu \le m \,\bigr\} 
 	\end{align}
@@ -542,15 +542,15 @@ $\mathfrak{g}$ を体 $\mathbb{K}$ 上の\hyperref[ax:LieAlg]{Lie代数}とす�
     \begin{align}
         \phi \colon \mathfrak{g} \lto \Lgl (V),\; x \lmto \bigl( v \mapsto \phi(x)(v) \bigr) 
     \end{align}
-    において
+    について
     \begin{align}
         \btr \colon \mathfrak{g} \times V \lto V,\; (x,\, v) \lmto \phi(x)(v)
     \end{align}
-    とおいて得られる4つ組 $(V,\, +,\, \cdot\;,\, \btr)$ のことである\footnote{\exref{def:gl-alg}より $\Lgl (V)$ のLieブラケットは交換子だったので $\comm{x}{y} \btr \mhyphen = \phi(\comm{x}{y}) = \comm{\phi(x)}{\phi(y)} = \phi(x) \circ \phi(y) - \phi(y) \circ \phi(x) = x \btr (y\btr \mhyphen) - y \btr (x \btr \mhyphen)$ となる．}．
+    とおくことで得られる4つ組 $(V,\, +,\, \cdot\;,\, \btr)$ のことである\footnote{\exref{def:gl-alg}より $\Lgl (V)$ のLieブラケットは交換子だったので $\comm{x}{y} \btr \mhyphen = \phi(\comm{x}{y}) = \comm{\phi(x)}{\phi(y)} = \phi(x) \circ \phi(y) - \phi(y) \circ \phi(x) = x \btr (y\btr \mhyphen) - y \btr (x \btr \mhyphen)$ となる．}．
 \end{myaxiom}
 
 \begin{marker}
-    $\mathfrak{g}$-加群に備わっている3つの演算（加法，スカラー乗法，左作用）をいちいち全て明記するのは面倒なので $(V,\, +,\, \cdot\;,\, \btr)$ のことを「$\bm{\mathfrak{g}}$\textbf{-加群} $\bm{V}$」と略記する．この略記において，今まで通りスラカー乗法 $\cdot$ は省略して $\lambda v$ の様に書き，左作用はなんの断りもなく $x \btr v$ の様に書くことにする．
+    $\mathfrak{g}$-加群に備わっている3つの演算（加法，スカラー乗法，左作用）をいちいち全て明記するのは面倒なので $(V,\, +,\, \cdot\;,\, \btr)$ のことを「$\bm{\mathfrak{g}}$\textbf{-加群} $\bm{V}$」と略記する．この略記において，今まで通りスカラー乗法 $\cdot$ は省略して $\lambda v$ の様に書き，左作用はなんの断りもなく $x \btr v$ の様に書くことにする．
 \end{marker}
 
 全く同様に\hyperref[def:Alg]{代数}上の加群，\hyperref[def:Alg]{結合代数}上の加群を定義することもできるが，本章では以降 $\mathfrak{g}$-加群と言ったら\hyperref[ax:g-module]{Lie代数上の加群}を指すことにする．
@@ -575,10 +575,37 @@ $\mathfrak{g}$ を体 $\mathbb{K}$ 上の\hyperref[ax:LieAlg]{Lie代数}とす�
     \end{itemize}
 \end{mydef}
 
+\begin{mydef}[label=def:sub-g-module]{部分 $\mathfrak{g}$-加群}
+	$\mathfrak{g}$-\hyperref[ax:g-module]{加群} $V$ を与える．\underline{部分集合} $W \subset V$ が\textbf{部分 $\bm{\mathfrak{g}}$-加群}であるとは，$W$ が和，スカラー乗法，$\mathfrak{g}$ の左作用の全てについて閉じていること．
+	i.e. $\forall w,\, w_1,\, w_2 \in W,\; \forall \lambda \in \mathbb{K},\; \forall x \in \mathfrak{g}$ に対して
+	\begin{align}
+		w_1 + w_2 &\in W \\
+		\lambda w &\in W \\
+		x \btr w &\in W
+	\end{align}
+	が成り立つことを言う．
+\end{mydef}
 
 \begin{mydef}[label=def:irr]{Lie代数の表現の既約性}
-    
+    \begin{itemize}
+		\item $\mathfrak{g}$-\hyperref[ax:g-module]{加群} $V$ が\textbf{既約} (irreducible)\footnote{i.e. Lie代数 $\mathfrak{g}$ の表現 $(\phi,\, V)$ が\textbf{既約表現} (irreducible representation; irrep) だ，と言っても良い．}であるとは，$V$ の部分 $\mathfrak{g}$-加群が $0,\, V$ のちょうど\underline{2つ}\footnote{つまり，零ベクトル空間 $0$ は既約な $\mathfrak{g}$-加群とは呼ばない．}だけであることを言う．
+		\item $\mathfrak{g}$-\hyperref[ax:g-module]{加群} $V$ が\textbf{完全可約} (completely reducible)であるとは，$V$ が既約な部分 $\mathfrak{g}$-加群の直和であることを言う．
+	\end{itemize}
+	
 \end{mydef}
+
+\begin{myprop}[label=prop:reducible-1]{完全可約性}
+	以下の2つは同値である：
+	\begin{enumerate}
+		\item $\mathfrak{g}$-\hyperref[ax:g-module]{加群} $V$ が完全可約
+		\item $V$ の任意の部分 $\mathfrak{g}$-加群 $W \subset V$ に対して，部分 $\mathfrak{g}$-加群 $W^c \subset V$ \footnote{$W$ の\textbf{補空間} (complement) と言う．}が存在して $V \cong W \oplus W^c$ を充たす．
+	\end{enumerate}
+\end{myprop}
+
+\begin{proof}
+	
+\end{proof}
+
 
 
 \subsection{表現のCasimir元}
