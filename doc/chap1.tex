@@ -608,11 +608,11 @@ $\Im f$ は\hyperref[def:subLieAlg]{部分Lie代数}である
     このとき，\underline{任意の}Lie代数の準同型 $\textcolor{blue}{f} \colon \mathfrak{g} \textcolor{blue}{\lto \mathfrak{h}}$ に対して\footnote{わざわざこのような記述をしたのは，(1) が商代数の\textbf{普遍性} (universal property) を意味していることを明示するためである．}以下が成り立つ：
     \begin{enumerate}
         \item $\mathfrak{g}/\Ker \textcolor{blue}{f} \cong \Im \textcolor{blue}{f}$．
-        また，$\mathfrak{i} \subset \Ker \textcolor{blue}{f}$ が成り立つならば，以下の図式を可換にするLie代数の準同型 $\textcolor{red}{\psi} \colon \mathfrak{g}/\mathfrak{i} \lto \textcolor{blue}{\mathfrak{h}}$ が一意的に存在する：
+        また，$\mathfrak{i} \subset \Ker \textcolor{blue}{f}$ が成り立つならば，以下の図式を可換にするLie代数の準同型 $\textcolor{red}{\overline{f}} \colon \mathfrak{g}/\mathfrak{i} \lto \textcolor{blue}{\mathfrak{h}}$ が一意的に存在する：
         \begin{figure}[H]
             \centering
             \begin{tikzcd}[row sep=large, column sep=large]
-                &\mathfrak{g} \ar[rr, blue, "f"]\ar[dr, "p"'] & &\forall \textcolor{blue}{\mathfrak{h}} \ar[from=dl,red, dashed, "\exists! \psi"'] \\
+                &\mathfrak{g} \ar[rr, blue, "f"]\ar[dr, "p"'] & &\forall \textcolor{blue}{\mathfrak{h}} \ar[from=dl,red, dashed, "\exists! \overline{f}"'] \\
                 & &\mathfrak{g}/\mathfrak{i} &
             \end{tikzcd}
             \caption{\hyperref[def:quotient-LieAlg]{商代数}の普遍性．$p$ は標準的射影 $p \colon x \lmto x + \mathfrak{i}$ を表す．}
@@ -634,13 +634,13 @@ $\Im f$ は\hyperref[def:subLieAlg]{部分Lie代数}である
         %     \end{tikzcd}
         % \end{center}
         % は完全列である．
-        　まず，$\iota \subset \Ker f$ ならば写像 $\psi \colon \mathfrak{g} / \mathfrak{i} \lto \Im f,\; x + \mathfrak{i} \lmto f(x)$ がwell-definedなLie代数の準同型であることを示す．実際 $x + \mathfrak{i} = x' + \mathfrak{i}$ ならば $x' - x \in \mathfrak{i} \subset \Ker f$ であり， 
-        $\psi (x' + \mathfrak{i}) = f(x') = f\bigl(x + (x' - x)\bigr) = f(x) + f(x'-x) = f(x) = \psi (x + \mathfrak{i})$ が言えた．$\psi$ がLie代数の準同型であることは $f$ がLie代数の準同型であることから明らか．
-        定義から $\psi \circ p = f$ である．
+        　まず，$\mathfrak{i} \subset \Ker f$ ならば写像 $\overline{f} \colon \mathfrak{g} / \mathfrak{i} \lto \Im f,\; x + \mathfrak{i} \lmto f(x)$ がwell-definedなLie代数の準同型であることを示す．実際 $x + \mathfrak{i} = x' + \mathfrak{i}$ ならば $x' - x \in \mathfrak{i} \subset \Ker f$ であり， 
+        $\overline{f} (x' + \mathfrak{i}) = f(x') = f\bigl(x + (x' - x)\bigr) = f(x) + f(x'-x) = f(x) = \overline{f} (x + \mathfrak{i})$ が言えた．$\overline{f}$ がLie代数の準同型であることは $f$ がLie代数の準同型であることから明らか．
+        定義から $\overline{f} \circ p = f$ である．
 
-        　次に $\psi$ の一意性を示す．別の $\phi \colon \mathfrak{g} / \mathfrak{i} \lto \mathfrak{h}$ が存在して $\phi \circ p = f$ が成り立つとする．このとき $\forall x \in \mathfrak{g}$ に対して $\phi (x + \iota) = f(x)$ が成り立つので $\phi = \psi$ である．
+        　次に $\overline{f}$ の一意性を示す．別の $\phi \colon \mathfrak{g} / \mathfrak{i} \lto \mathfrak{h}$ が存在して $\phi \circ p = f$ が成り立つとする．このとき $\forall x \in \mathfrak{g}$ に対して $\phi (x + \iota) = f(x)$ が成り立つので $\phi = \overline{f}$ である．
 
-        　特に $\mathfrak{i} = \Ker f$ ならば，$\Ker \psi = \{\Ker f\} = \{ o \}$ なので $\psi$ は単射であり $\mathfrak{g} / \Ker f \cong \Im f$ が言えた．
+        　特に $\mathfrak{i} = \Ker f$ ならば，$\Ker \overline{f} = \{\Ker f\} = \{ o \}$ なので $\overline{f}$ は単射であり $\mathfrak{g} / \Ker f \cong \Im f$ が言えた．
         \item 
         　$\mathfrak{i} \subset \mathfrak{j}$ のとき，\hyperref[def:ideal-LieAlg]{イデアルの定義}より $\mathfrak{i}$ は $\mathfrak{j}$ のイデアルでもある．よって商代数 $\mathfrak{j}/\mathfrak{i}$ はwell-defined．明らかに $\mathfrak{j} / \mathfrak{i} \subset \mathfrak{g} / \mathfrak{i}$ なので $\mathfrak{j} / \mathfrak{i}$ は $\mathfrak{g} / \mathfrak{i}$ の\hyperref[def:subLieAlg]{部分Lie代数}だと分かった．
         ここで $\forall x + \mathfrak{i} \in \mathfrak{g}/\mathfrak{i},\; \forall y + \mathfrak{i} \in \mathfrak{j}/ \mathfrak{i}$ をとると，$\mathfrak{j}$ が $\mathfrak{g}$ のイデアルであることから $\comm{x + \mathfrak{i}}{y + \mathfrak{i}} = \comm{x}{y} + \mathfrak{i} \in \mathfrak{j} / \mathfrak{i}$ が従う\footnote{$\comm{x}{y} \in \mathfrak{j}$ なので．}．以上の議論から $\mathfrak{j}/\mathfrak{i}$ が $\mathfrak{g} / \mathfrak{i}$ のイデアルであることが示された．
