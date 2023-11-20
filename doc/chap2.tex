@@ -33,7 +33,13 @@
 \begin{mytheo}[label=thm:Cartan-crit]{Cartanの判定条件}
 	$V$ を\underline{有限次元} $\mathbb{K}$-ベクトル空間とし，$\Lgl (V)$ の部分Lie代数 $\mathfrak{g} \subset \Lgl (V)$ を与える．
 
-	このとき $\forall x \in \comm{\mathfrak{g}}{\mathfrak{g}},\; \forall y \in \mathfrak{g}$ に対して $\Tr (x \circ y) = 0$ が成り立つならば，$\mathfrak{g}$ は\hyperref[def:solvable-LieAlg]{可解}である．
+	このとき以下の2つは同値である：
+	\begin{enumerate}
+		\item $\mathfrak{g}$ が\hyperref[def:solvable-LieAlg]{可解}
+		\item $\forall x \in \comm{\mathfrak{g}}{\mathfrak{g}},\; \forall y \in \mathfrak{g}$ に対して $\Tr (x \circ y) = 0$ が成り立つ
+	\end{enumerate}
+	
+	% ならば，$\mathfrak{g}$ は\hyperref[def:solvable-LieAlg]{可解}である．
 \end{mytheo}
 
 \begin{mycol}[label=col:Cartan-crit]{}
@@ -204,25 +210,38 @@ $\mathfrak{g}$ を体 $\mathbb{K}$ 上の\hyperref[ax:LieAlg]{Lie代数}とす�
 \hyperref[def:rep-LieAlg]{Lie代数の表現}を考えることは $\mathfrak{g}$-加群を考えることと同値なのである．
 
 \begin{mydef}[label=def:g-module-hom]{$\mathfrak{g}$-加群の準同型}
-    $\mathfrak{g}$ を\hyperref[ax:LieAlg]{Lie代数}，$V,\, W$ を \hyperref[ax:g-module]{ $\mathfrak{g}$-加群}とする．
-    線型写像 $f \colon V \lto W$ が $\bm{\mathfrak{g}}$\textbf{-加群の準同型} (homomorphism of $\mathfrak{g}$-module)
-    \footnote{
-        \textbf{同変写像} (equivalent map) と言うこともある．
-        \textbf{絡作用素} (intertwining operator)，\textbf{インタートウィナー} (intertwiner) と言う場合もあるが，そこまで普及していない気がする．
-    } であるとは，$\forall x \in \mathfrak{g},\; \forall v \in V$ に対して
-    \begin{align}
-        f(x \btr v) = x \btr f(v)
-    \end{align}
-    が成り立つこと\footnote{スカラー乗法についての線型性の定義を $\btr$ について拡張しただけ．}．
-    \tcblower
+    $\mathfrak{g}$ を\hyperref[ax:LieAlg]{Lie代数}，$(V,\, +,\, \cdot\;,\, \btr_1),\, (W,\, +,\, \cdot\;,\, \btr_2)$ を \hyperref[ax:g-module]{ $\mathfrak{g}$-加群}とする．
     \begin{itemize}
+		\item 線型写像 $f \colon V \lto W$ が $\bm{\mathfrak{g}}$\textbf{-加群の準同型} (homomorphism of $\mathfrak{g}$-module)
+		\footnote{
+			\textbf{同変写像} (equivalent map) と言うこともある．
+			\textbf{絡作用素} (intertwining operator)，\textbf{インタートウィナー} (intertwiner) と言う場合もあるが，そこまで普及していない気がする．
+		} であるとは，$\forall x \in \mathfrak{g},\; \forall v \in V$ に対して
+		\begin{align}
+			f(x \btr_1 v) = x \btr_2 f(v)
+		\end{align}
+		が成り立つこと\footnote{スカラー乗法についての線型性の定義を $\btr$ について拡張しただけ．}．	
         \item $\mathfrak{g}$-加群の準同型 $f \colon V \lto W$ が\textbf{同型} (isomorphism) であるとは，
         $f$ が\underline{ベクトル空間の同型写像}であることを言う．
         \item 同型な $\mathfrak{g}$-加群のことを，\textbf{同値な} $\bm{\mathfrak{g}}$ \textbf{の表現} (equivalent representation of $\mathfrak{g}$)とも言う．
     \end{itemize}
+
+    \tcblower
+
+	同値な定義だが，線型写像 $f \colon V \lto W$ が $\mathfrak{g}$-加群の準同型であるとは，\hyperref[def:rep-LieAlg]{Lie代数の表現}
+	\begin{align}
+		\phi_1 \colon \mathfrak{g} &\lto \Lgl (V),\; x \lmto \bigl( v \mapsto x \btr_1 v \bigr) 
+		\phi_2 \colon \mathfrak{g} &\lto \Lgl (W),\; x \lmto \bigl( v \mapsto x \btr_2 v \bigr) 
+	\end{align}
+	に関して
+	\begin{align}
+		\forall x \in \mathfrak{g},\; f \circ \phi_1(x) = \phi_2(x) \circ f
+	\end{align}
+	が成り立つことを言う．
 \end{mydef}
 
-\begin{mydef}[label=def:sub-g-module]{部分 $\mathfrak{g}$-加群}
+
+\begin{mydef}[label=def:sub-g-module,breakable]{部分 $\mathfrak{g}$-加群}
 	\hyperref[ax:g-module]{ $\mathfrak{g}$-加群} $V$ を与える．\underline{部分集合} $W \subset V$ が\textbf{部分 $\bm{\mathfrak{g}}$-加群}であるとは，$W$ が和，スカラー乗法，$\mathfrak{g}$ の左作用の全てについて閉じていること．
 	i.e. $\forall w,\, w_1,\, w_2 \in W,\; \forall \lambda \in \mathbb{K},\; \forall x \in \mathfrak{g}$ に対して
 	\begin{align}
@@ -532,53 +551,105 @@ $\mathfrak{g}$ を体 $\mathbb{K}$ 上の\hyperref[ax:LieAlg]{Lie代数}とす�
 
 \subsection{Casimir演算子}
 
-この小節では $\mathbb{K}$ は代数閉体とする．
+この小節では $\mathbb{K}$ は\underline{標数 $0$ の体}とする．
 
 \begin{mydef}[label=def:faithful]{忠実な表現}
 	\hyperref[def:rep-LieAlg]{Lie代数 $\mathfrak{g}$ の表現} $\rho \colon \mathfrak{g} \lto \Lgl (V)$ が\textbf{忠実} (faithful)\footnote{群作用の文脈では\textbf{効果的な作用} (effective action) と呼ぶ．} であるとは，$\rho$ が単射であることを言う．
 \end{mydef}
 
-% この小節の以降では有限次元表現を考える．
-Lie代数 $\mathfrak{g}$ の表現 $\phi \colon \mathfrak{g} \lto \Lgl (V)$ は忠実であるとする．
-$\mathfrak{g}$ 上の対称な双線型形式 $\beta \in L(\mathfrak{g},\, \mathfrak{g};\, \mathbb{K})$ を
-\begin{align}
-	\beta \colon \mathfrak{g} \times \mathfrak{g} \lto \mathbb{K},\; (x,\, y) \lmto \Tr \bigl( \phi(x) \circ \phi(y) \bigr) 
-\end{align}
-と定義する．このとき $\Tr$ の循環性から
-\begin{align}
-	\beta (x,\, \comm{y}{z}) 
-	&= \Tr \bigl( \phi(x) \circ \phi(\comm{y}{z}) \bigr) \\
-	&= \Tr \bigl( \phi(x) \circ \phi(y) \circ \phi(z) \bigr) - \Tr \bigl( \phi(x) \circ \phi(z) \circ \phi(y) \bigr) \\
-	&= \Tr \bigl( \phi(x) \circ \phi(y) \circ \phi(z) \bigr) - \Tr \bigl( \phi(y) \circ \phi(x) \circ \phi(z) \bigr) \\
-	&= \Tr \bigl( \phi(\comm{x}{y}) \circ \phi(z) \bigr) \\
-	&= \beta (\comm{x}{y},\, z)
-\end{align}
-が成り立つので，$\beta$ の\hyperref[def:radical-bilinear]{radical}
-\begin{align}
-	S_\beta \coloneqq \bigl\{\, x \in \mathfrak{g} \bigm| \forall y \in \mathfrak{g},\; \beta (x,\, y) = 0 \,\bigr\} 
-\end{align}
-は $\mathfrak{g}$ の\hyperref[def:ideal-LieAlg]{イデアル}となる．
-さらに $\mathfrak{g}$ が\hyperref[def:semisimple-LieAlg]{半単純}ならば，定理\ref{thm:Cartan-crit}から $\phi(S) \subset \Lgl (\mathfrak{g})$ は\hyperref[def:solvable-LieAlg]{可解}であり，定理\ref{thm:semisimple-LieAlg-iff}の証明からこのとき $S_\beta = 0$ であること，i.e. $\beta$ が\hyperref[def:radical-bilinear]{非退化}であることが言える．
+% % この小節の以降では有限次元表現を考える．
+% Lie代数 $\mathfrak{g}$ の\underline{有限次元}表現 $\phi \colon \mathfrak{g} \lto \Lgl (V)$ は忠実であるとする．
+% $\mathfrak{g}$ 上の対称な双線型形式 $\beta \in L(\mathfrak{g},\, \mathfrak{g};\, \mathbb{K})$ を
+% \begin{align}
+% 	\beta \colon \mathfrak{g} \times \mathfrak{g} \lto \mathbb{K},\; (x,\, y) \lmto \Tr \bigl( \phi(x) \circ \phi(y) \bigr) 
+% \end{align}
+% と定義する．このとき $\Tr$ の循環性から
+% \begin{align}
+% 	\beta (x,\, \comm{y}{z}) 
+% 	&= \Tr \bigl( \phi(x) \circ \phi(\comm{y}{z}) \bigr) \\
+% 	&= \Tr \bigl( \phi(x) \circ \phi(y) \circ \phi(z) \bigr) - \Tr \bigl( \phi(x) \circ \phi(z) \circ \phi(y) \bigr) \\
+% 	&= \Tr \bigl( \phi(x) \circ \phi(y) \circ \phi(z) \bigr) - \Tr \bigl( \phi(y) \circ \phi(x) \circ \phi(z) \bigr) \\
+% 	&= \Tr \bigl( \phi(\comm{x}{y}) \circ \phi(z) \bigr) \\
+% 	&= \beta (\comm{x}{y},\, z)
+% \end{align}
+% が成り立つので，$\beta$ の\hyperref[def:radical-bilinear]{radical}
+% \begin{align}
+% 	S_\beta \coloneqq \bigl\{\, x \in \mathfrak{g} \bigm| \forall y \in \mathfrak{g},\; \beta (x,\, y) = 0 \,\bigr\} 
+% \end{align}
+% は $\mathfrak{g}$ の\hyperref[def:ideal-LieAlg]{イデアル}となる．
+% さらに $\mathfrak{g}$ が\hyperref[def:semisimple-LieAlg]{半単純}ならば $S_\beta = 0$ であること，i.e. $\beta$ が\hyperref[def:radical-bilinear]{非退化}であることが言える：
+
+\begin{mylem}[label=lem:nondegenerate]{}
+	\begin{itemize}
+		\item \hyperref[def:semisimple-LieAlg]{半単純Lie代数} $\mathfrak{g}$ の\hyperref[def:faithful]{忠実}な\underline{有限次元}表現 $\phi \colon \mathfrak{g} \lto \Lgl (V)$ 
+		\item $\mathfrak{g}$ 上の対称な双線型形式
+		\begin{align}
+			\beta \colon \mathfrak{g} \times \mathfrak{g} \lto \mathbb{K},\; (x,\, y) \lmto \Tr \bigl( \phi(x) \circ \phi(y) \bigr) 
+		\end{align}
+	\end{itemize}
+	を与える．$\beta$ の\hyperref[def:radical-bilinear]{radical}を
+	\begin{align}
+		S_\beta \coloneqq \bigl\{\, x \in \mathfrak{g} \bigm| \forall y \in \mathfrak{g},\; \beta (x,\, y) = 0 \,\bigr\} 
+	\end{align}
+	とおく．このとき以下が成り立つ：
+	\begin{enumerate}
+		\item $S_\beta$ は $\mathfrak{g}$ の\hyperref[def:ideal-LieAlg]{イデアル}である．
+		\item $S_\beta = 0$，i.e. $\beta$ は\hyperref[def:radical-bilinear]{非退化}である．
+	\end{enumerate}
+\end{mylem}
+
+\begin{proof}
+	\begin{enumerate}
+		\item $\Tr$ の循環性から
+		\begin{align}
+			\beta (x,\, \comm{y}{z}) 
+			&= \Tr \bigl( \phi(x) \circ \phi(\comm{y}{z}) \bigr) \\
+			&= \Tr \bigl( \phi(x) \circ \phi(y) \circ \phi(z) \bigr) - \Tr \bigl( \phi(x) \circ \phi(z) \circ \phi(y) \bigr) \\
+			&= \Tr \bigl( \phi(x) \circ \phi(y) \circ \phi(z) \bigr) - \Tr \bigl( \phi(y) \circ \phi(x) \circ \phi(z) \bigr) \\
+			&= \Tr \bigl( \phi(\comm{x}{y}) \circ \phi(z) \bigr) \\
+			&= \beta (\comm{x}{y},\, z)
+		\end{align}
+		が成り立つので，$\forall x \in \mathfrak{g},\; \forall y \in S_\beta$ に対して
+		\begin{align}
+			\forall z \in \mathfrak{g},\; \beta(\comm{x}{y},\, z) = -\beta (y,\, \comm{x}{z}) = 0
+		\end{align}
+		が成り立つ．i.e. $\comm{x}{y} \in S_\beta$ が言えた．
+		\item $S_\beta$ の定義から $\comm{\phi(x)}{\phi(y)}$ の形をした $\comm{\phi(S_\beta)}{\phi(S_\beta)}$ の任意の元および $\forall \phi(z) \in \phi(S_\beta)$ に対して
+		\begin{align}
+			\Tr\bigl(\comm{\phi(x)}{\phi(y)} \circ \phi(z)\bigr) 
+			&= \Tr \bigl( \phi(\comm{x}{y}) \circ \phi(z) \bigr) \\
+			&= \beta (\comm{x}{y},\, z) \\
+			&= 0
+		\end{align}
+		が成り立つので，定理\ref{thm:Cartan-crit}より $\phi(S_\beta)$ は可解である．$\phi$ は忠実なので $\Ker \phi = 0$ であり，
+		\hyperref[prop:homo]{準同型定理}から $\phi(S_\beta) \cong S_\beta / \Ker \phi = S_\beta$ が言える．従って (1) も併せると $S_\beta$ は $\mathfrak{g}$ の可解イデアルである．
+		仮定より $\mathfrak{g}$ は半単純だったから，\hyperref[def:semisimple-LieAlg]{半単純Lie代数の定義}から $S_\beta = 0$ が言える．
+	\end{enumerate}
+	
+\end{proof}
+
 
 \begin{mylem}[label=lem:Casimir,breakable]{}
-	$\{e_\mu\}$ を\hyperref[de:semisimple-LieAlg]{半単純Lie代数} $\mathfrak{g}$ の基底，
-	$\beta \in L(\mathfrak{g},\, \mathfrak{g};\, \mathbb{K})$
-	を対称かつ\hyperref[def:radical-bilinear]{非退化}な双線型形式であって $\forall x,\, y,\, z \in \mathfrak{g}$ に対して
-	\begin{align}
-		\beta(x,\, \comm{y}{z}) = \beta (\comm{x}{y},\, z)
-	\end{align}
-	を充たすものとする．
-	このとき以下が成り立つ： 
+	\begin{itemize}
+		\item \hyperref[de:semisimple-LieAlg]{半単純Lie代数} $\mathfrak{g}$ の基底 $\{e_\mu\}$
+		\item 対称かつ\hyperref[def:radical-bilinear]{非退化}な双線型形式 $\beta \in L(\mathfrak{g},\, \mathfrak{g};\, \mathbb{K})$
+		であって $\forall x,\, y,\, z \in \mathfrak{g}$ に対して
+		\begin{align}
+			\beta(x,\, \comm{y}{z}) = \beta (\comm{x}{y},\, z)
+		\end{align}
+		を充たすもの
+	\end{itemize}
+	を与える．このとき以下が成り立つ： 
 	\begin{enumerate}
 		\item 
-		$\mathfrak{g}$ の基底 $\{f_\mu\}$ であって，$\forall (\mu,\, \nu) \in \{1,\, \dots,\, \dim \mathfrak{g}\}^2$ に対して
+		$\mathfrak{g}$ の基底 $\{e^\mu\}$ であって\footnote{$\mathfrak{g}^*$ の元ではないが，Einsteinの規約との便宜上添字を上付きにする．}，$\forall (\mu,\, \nu) \in \{1,\, \dots,\, \dim \mathfrak{g}\}^2$ に対して
 		\begin{align}
-			\beta(e_\mu,\, f_\nu) = \delta_{\mu\nu}
+			\beta(e_\mu,\, e^\nu) = \delta_{\mu}^{\nu}
 		\end{align}
 		を充たすものが一意的に存在する．
-		\item $\forall x \in \mathfrak{g}$ を一つ固定する．このとき $\ad(x) \colon \mathfrak{g} \lto \Lgl (\mathfrak{g})$ の基底 $\{e_\mu\}$ による表現行列 $\bigl[ a_\mu{}^\nu \bigr]_{1 \le \mu,\, \nu \le \dim \mathfrak{g}}$ と，(1) の基底 $\{f_\mu\}$ による表現行列 $\bigl[ a_\mu{}^\nu \bigr]_{1 \le \mu,\, \nu \le \dim \mathfrak{g}}$ について
+		\item $\forall x \in \mathfrak{g}$ を一つ固定する．このとき $\ad(x) \colon \mathfrak{g} \lto \Lgl (\mathfrak{g})$ の基底 $\{e_\mu\}$ による表現行列 $\bigl[ a_\mu{}^\nu \bigr]_{1 \le \mu,\, \nu \le \dim \mathfrak{g}}$ と，(1) の基底 $\{e^\mu\}$ による表現行列 $\bigl[ b^\mu{}_\nu \bigr]_{1 \le \mu,\, \nu \le \dim \mathfrak{g}}$ について
 		\begin{align}
-			a_\mu{}^\nu = -b_\nu{}^\mu
+			a_\mu{}^\nu = -b^\nu{}_\mu
 		\end{align}
 		が成り立つ．
 	\end{enumerate}
@@ -590,79 +661,89 @@ $\mathfrak{g}$ 上の対称な双線型形式 $\beta \in L(\mathfrak{g},\, \math
 		$\beta_{\mu\nu} \coloneqq \beta(e_\mu,\, e_\nu)$ とおく．このとき $x = x^\mu e_\mu \in \mathfrak{g}$ に対して
 		\begin{align}
 			\forall y = y^\nu e_\nu \in \mathfrak{g},\; \beta(x,\, y) = 0 
-			&\IFF \forall (y^\nu)_{1 \le \nu \le \dim \mathfrak{g}} \in \mathbb{K}^{\dim \mathfrak{g}},\; \beta_{\mu\nu} x^\mu y^\nu = 0 \\
-			&\IFF \beta_{\nu\mu} x^\mu = 0\quad (1 \le \forall \nu \le \dim \mathfrak{g}) \\
-			&\IFF (x^\mu)_{1 \le \nu \le \dim \mathfrak{g}} \in \Ker \bigl[ \beta_{\mu\nu} \bigr]_{1 \le \mu,\, \nu \le \dim \mathfrak{g}} \subset \mathbb{K}^{\dim \mathfrak{g}}
+			&\IFF \forall \mqty[y^1 \\ \vdots \\ y^{\dim \mathfrak{g}}] \in \mathbb{K}^{\dim \mathfrak{g}},\; \beta_{\mu\nu} x^\mu y^\nu = 0 \\
+			&\IFF 1 \le \forall \nu \le \dim \mathfrak{g},\; \beta_{\nu\mu} x^\mu = 0 \\
+			&\IFF \mqty[x^1 \\ \vdots \\ x^{\dim \mathfrak{g}}] \in \Ker \bigl[ \beta_{\mu\nu} \bigr] \subset \mathbb{K}^{\dim \mathfrak{g}}
 		\end{align}
-		が言える．ただし2つ目の同値変形で $\beta$ が対称であることを使った．したがって $\beta$ が非退化であることは $\Ker \bigl[ \beta_{\mu\nu} \bigr]_{1 \le \mu,\, \nu \le \dim \mathfrak{g}} = 0$ と同値であり，$\det \bigl[ \beta_{\mu\nu} \bigr]_{1 \le \mu,\, \nu \le \dim \mathfrak{g}} \neq 0$ が言える．
-		よって $\bigl[ \beta_{\mu\nu} \bigr]_{1 \le \mu,\, \nu \le \dim \mathfrak{g}}$ の逆行列 $\bigl[ \alpha_{\mu}{}^\nu \bigr]_{1 \le \mu,\, \nu \le \dim \mathfrak{g}}$ が一意的に存在するので，
-		$f_\mu \coloneqq e_\nu \alpha_\mu{}^\nu$ と定めると，
+		が言える．ただし2つ目の同値変形で $\beta$ が対称であることを使った．したがって $\beta$ が非退化であることは $\Ker \bigl[ \beta_{\mu\nu} \bigr] = 0$ と同値であり，このことはさらに補題\ref{lem:finvec-basic}-(3) より $\det \bigl[ \beta_{\mu\nu} \bigr] \neq 0$ と同値である\footnote{Cramerの公式は任意の体 $\mathbb{K}$ 上で成り立つ．}．
+		よって $\bigl[ \beta_{\mu\nu} \bigr]$ の逆行列 $\bigl[ \alpha^{\mu\nu} \bigr]$ が一意的に存在するので，
+		$e^\mu \coloneqq e_\nu \alpha^{\mu\nu}$ と定めると，
 		\begin{align}
-			\beta(e_\mu,\, f_\nu) 
-			&= \alpha_\nu{}^\rho \beta_{\mu\rho} = \delta_{\mu\nu}
+			\beta(e_\mu,\, e^\nu) 
+			&= \alpha^{\nu\rho} \beta_{\mu\rho} = \delta_{\mu}^{\nu}
 		\end{align}
 		が成り立つ．
-		\item $\ad(x)(e_\mu) \eqqcolon a_\mu{}^\nu e_\nu,\; \ad(f_\mu) \eqqcolon b_{\mu}{}^\nu f_\nu$ とおくと，
+		\item $\ad(x)(e_\mu) \eqqcolon a_\mu{}^\nu e_\nu,\; \ad(e^\mu) \eqqcolon b^{\mu}{}_\nu e^\nu$ とおくと，
 		\begin{align}
 			a_\mu{}^\nu 
-			&= a_\mu{}^\rho \delta_{\rho\nu} \\
-			&= a_\mu{}^\rho \beta(e_\rho,\, f_\nu) \\
-			&= \beta \bigl(\ad(x)(e_\mu),\, f_\nu\bigr) \\
-			&= \beta \bigl(-\comm{e_\mu}{x},\, f_\nu\bigr) \\
-			&= \beta \bigl(e_\mu,\, - \ad(x){f_\nu}\bigr) \\
-			&= -b_\nu{}^\rho \beta \bigl(e_\mu,\, f_\rho\bigr) \\
-			&= -b_\nu{}^\mu
+			&= a_\mu{}^\rho \delta_{\rho}^{\nu} \\
+			&= a_\mu{}^\rho \beta(e_\rho,\, e^\nu) \\
+			&= \beta \bigl(\ad(x)(e_\mu),\, e^\nu\bigr) \\
+			&= \beta \bigl(-\comm{e_\mu}{x},\, e^\nu\bigr) \\
+			&= \beta \bigl(e_\mu,\, - \ad(x){e^\nu}\bigr) \\
+			&= -b^\nu{}_\rho \beta \bigl(e_\mu,\, e^\rho\bigr) \\
+			&= -b^\nu{}_\mu
 		\end{align}
-		
 	\end{enumerate}
 	
 \end{proof}
 
-\begin{mydef}[label=def:Casimir]{忠実な表現のCasimir演算子}
-	$\phi \colon \mathfrak{g} \lto \Lgl(V)$ を$\{e_\mu\}$ を\hyperref[de:semisimple-LieAlg]{半単純Lie代数} $\mathfrak{g}$ の基底，
-	$\beta \in L(\mathfrak{g},\, \mathfrak{g};\, \mathbb{K})$
-	を対称かつ\hyperref[def:radical-bilinear]{非退化}な双線型形式であって $\forall x,\, y,\, z \in \mathfrak{g}$ に対して
-	\begin{align}
-		\beta(x,\, \comm{y}{z}) = \beta (\comm{x}{y},\, z)
-	\end{align}
-	を充たすものとする．$\mathfrak{g}$ の基底 $\{e_\mu\}$ を一つ固定し，補題\ref{lem:Casimir}で構成した $\mathfrak{g}$ の基底 $\{f_\mu\}$ をとる．
+\begin{mydef}[label=def:Casimir,breakable]{忠実な表現のCasimir演算子}
+	\begin{itemize}
+		\item \hyperref[def:semisimple-LieAlg]{半単純Lie代数} $\mathfrak{g}$ の\underline{有限次元}\hyperref[ax:g-module]{表現} $\phi \colon \mathfrak{g} \lto \Lgl(V)$
+		\item \hyperref[de:semisimple-LieAlg]{半単純Lie代数} $\mathfrak{g}$ の基底 $\{e_\mu\}$
+		\item 対称かつ\hyperref[def:radical-bilinear]{非退化}な双線型形式 $\beta \in L(\mathfrak{g},\, \mathfrak{g};\, \mathbb{K})$
+		であって $\forall x,\, y,\, z \in \mathfrak{g}$ に対して
+		\begin{align}
+			\beta(x,\, \comm{y}{z}) = \beta (\comm{x}{y},\, z)
+		\end{align}
+		を充たすもの
+	\end{itemize}
+	を与える．与えられた $\mathfrak{g}$ の基底 $\{e_\mu\}$ から補題\ref{lem:Casimir}により構成した $\mathfrak{g}$ の基底 $\{e^\mu\}$ をとる．このとき
 
 	\begin{itemize}
 		\item $\mathbb{K}$-線型変換
 		\begin{align}
-			\bm{c_\phi(\beta)} \colon V \lto V,\; v \lmto \sum_{\mu = 1}^{\dim \mathfrak{g}} \phi(e_\mu) \circ \phi(f_\mu) (v)
+			\bm{c_\phi(\beta)} \colon V \lto V,\; v \lmto \sum_{\mu = 1}^{\dim \mathfrak{g}} \phi(e_\mu) \circ \phi(e^\mu) (v)
 		\end{align}
 		を $\beta,\, \phi$ の前Casimir演算子と呼ぶ．
 		\item $\phi$ が\hyperref[def:faithful]{忠実な表現}で，かつ
 		\begin{align}
 			\beta(x,\, y) \coloneqq \Tr \bigl(\phi(x) \circ \phi(y) \bigr) 
 		\end{align}
-		であるとき，$\beta,\, \phi$ の前Casimir演算子のことを\textbf{$\bm{\phi}$ のCasimir演算子} (Casimir element of $\phi$) と呼んで $\bm{c_\phi}$ と略記する．
+		であるとき\footnote{補題\ref{lem:nondegenerate}よりこの $\beta$ は非退化である}，$\beta,\, \phi$ の前Casimir演算子のことを\textbf{$\bm{\phi}$ のCasimir演算子} (Casimir operator of $\phi$) と呼んで $\bm{c_\phi}$ と略記する．
 	\end{itemize}
-	
 \end{mydef}
 
-\begin{myprop}[label=prop:Casimir-basic]{Casimir演算子の性質}
-	$\phi \colon \mathfrak{g} \lto \Lgl(V)$ を$\{e_\mu\}$ を\hyperref[de:semisimple-LieAlg]{半単純Lie代数} $\mathfrak{g}$ の基底，
-	$\beta \in L(\mathfrak{g},\, \mathfrak{g};\, \mathbb{K})$
-	を対称かつ\hyperref[def:radical-bilinear]{非退化}な双線型形式であって $\forall x,\, y,\, z \in \mathfrak{g}$ に対して
-	\begin{align}
-		\beta(x,\, \comm{y}{z}) = \beta (\comm{x}{y},\, z)
-	\end{align}
-	を充たすものとする．$\mathfrak{g}$ の基底 $\{e_\mu\}$ を一つ固定し，補題\ref{lem:Casimir}で構成した $\mathfrak{g}$ の基底 $\{f_\mu\}$ をとる．
+\begin{myprop}[label=prop:Casimir-basic,breakable]{Casimir演算子の性質}
+	\begin{itemize}
+		\item \hyperref[def:semisimple-LieAlg]{半単純Lie代数} $\mathfrak{g}$ の\underline{有限次元}\hyperref[ax:g-module]{表現} $\phi \colon \mathfrak{g} \lto \Lgl(V)$
+		\item \hyperref[de:semisimple-LieAlg]{半単純Lie代数} $\mathfrak{g}$ の基底 $\{e_\mu\}$
+		\item 対称かつ\hyperref[def:radical-bilinear]{非退化}な双線型形式 $\beta \in L(\mathfrak{g},\, \mathfrak{g};\, \mathbb{K})$
+		であって $\forall x,\, y,\, z \in \mathfrak{g}$ に対して
+		\begin{align}
+			\beta(x,\, \comm{y}{z}) = \beta (\comm{x}{y},\, z)
+		\end{align}
+		を充たすもの
+	\end{itemize}
+	を与える．与えられた $\mathfrak{g}$ の基底 $\{e_\mu\}$ から補題\ref{lem:Casimir}により構成した $\mathfrak{g}$ の基底 $\{e^\mu\}$ をとる．
 
 	\begin{enumerate}
 		\item \hyperref[def:Casimir]{前Casimir演算子} $c_{\phi}(\beta) \in \End (V)$ は，$\forall x \in \mathfrak{g}$ に対して
 		\begin{align}
 			\comm{\phi(x)}{c_\phi(\beta)} = 0
 		\end{align}
-		を充たす．
+		を充たす．従って $c_\phi (\beta)$ は\hyperref[def:g-module-hom]{$\mathfrak{g}$-加群の準同型である}．	
 		\item $\phi$ が\hyperref[def:faithful]{忠実な表現}ならば，\hyperref[def:Casimir]{Casimir演算子} $c_\phi \in \End V$ について
 		\begin{align}
 			\Tr c_\phi = \dim \mathfrak{g}
 		\end{align}
 		が成り立つ．
-		\item $\phi$ が\hyperref[def:faithful]{忠実な表現}でかつ $\phi$ が\hyperref[def:irr]{既約表現}ならば，\hyperref[def:Casimir]{Casimir演算子} $c_\phi \in \End V$ は $\mathfrak{g}$ の基底の取り方によらない．
+		\item $\mathbb{K}$ が\underline{代数閉体}でかつ $\phi$ が\hyperref[def:faithful]{忠実な表現}でかつ $\phi$ が\hyperref[def:irr]{既約表現}ならば，\hyperref[def:Casimir]{Casimir演算子} $c_\phi \in \End V$ は $\mathfrak{g}$ の基底の取り方によらずに
+		\begin{align}
+			c_\phi = \frac{\dim \mathfrak{g}}{\dim V}\, \mathrm{id}_{V}
+		\end{align}
+		と書ける．
 	\end{enumerate}
 \end{myprop}
 
@@ -676,21 +757,21 @@ $\mathfrak{g}$ 上の対称な双線型形式 $\beta \in L(\mathfrak{g},\, \math
 		が成り立つことと補題\ref{lem:Casimir}-(2) より，
 		\begin{align}
 			\comm{\phi(x)}{c_\phi(\beta)} 
-			&= \sum_{\mu=1}^{\dim \mathfrak{g}} \comm{\phi(x)}{\phi(e_\mu)} \circ \phi(f_\mu) + \sum_{\mu=1}^{\dim \mathfrak{g}} \phi(e_\mu) \circ \comm{\phi(x)}{\phi(f_\mu)} \\
-			&= \sum_{\mu=1}^{\dim \mathfrak{g}} \ad\bigl(\phi(x)\bigr)\bigl(\phi(e_\mu)\bigr) \circ \phi(f_\mu) + \sum_{\mu=1}^{\dim \mathfrak{g}} \phi(e_\mu) \circ  \ad\bigl(\phi(x)\bigr)\bigl(\phi(f_\mu)\bigr) \\
-			&= \sum_{\mu=1}^{\dim \mathfrak{g}} \phi\bigl(\ad(x)(e_\mu)\bigr) \circ \phi(f_\mu) + \sum_{\mu=1}^{\dim \mathfrak{g}} \phi(e_\mu) \circ  \phi\bigl(\ad(x)(f_\mu)\bigr) \\
-			&= \sum_{\mu=1}^{\dim \mathfrak{g}} a_\mu{}^\nu \phi(e_\nu) \circ \phi(f_\mu) + \sum_{\mu=1}^{\dim \mathfrak{g}} b_\mu{}^\nu\phi(e_\mu) \circ \phi(f_\nu) \\
+			&= \sum_{\mu=1}^{\dim \mathfrak{g}} \comm{\phi(x)}{\phi(e_\mu)} \circ \phi(e^\mu) + \sum_{\mu=1}^{\dim \mathfrak{g}} \phi(e_\mu) \circ \comm{\phi(x)}{\phi(e^\mu)} \\
+			&= \sum_{\mu=1}^{\dim \mathfrak{g}} \ad\bigl(\phi(x)\bigr)\bigl(\phi(e_\mu)\bigr) \circ \phi(e^\mu) + \sum_{\mu=1}^{\dim \mathfrak{g}} \phi(e_\mu) \circ  \ad\bigl(\phi(x)\bigr)\bigl(\phi(e^\mu)\bigr) \\
+			&= \sum_{\mu=1}^{\dim \mathfrak{g}} \phi\bigl(\ad(x)(e_\mu)\bigr) \circ \phi(e^\mu) + \sum_{\mu=1}^{\dim \mathfrak{g}} \phi(e_\mu) \circ  \phi\bigl(\ad(x)(e^\mu)\bigr) \\
+			&= \sum_{\mu=1}^{\dim \mathfrak{g}} a_\mu{}^\nu \phi(e_\nu) \circ \phi(e^\mu) + \sum_{\mu=1}^{\dim \mathfrak{g}} b^\mu{}_\nu\phi(e_\mu) \circ \phi(e^\nu) \\
 			&= 0
 		\end{align}
 		が言えた．
 		\item 補題\ref{lem:Casimir}-(1) より
 		\begin{align}
 			\Tr c_\phi 
-			&= \sum_{\mu}^{\dim \mathfrak{g}} \Tr \bigl(\phi(e_\mu) \circ \phi(f_\mu) \bigr) \\
-			&= \sum_{\mu}^{\dim \mathfrak{g}} \beta (e_\mu,\, f_\nu) \\
+			&= \sum_{\mu}^{\dim \mathfrak{g}} \Tr \bigl(\phi(e_\mu) \circ \phi(e^\mu) \bigr) \\
+			&= \sum_{\mu}^{\dim \mathfrak{g}} \beta (e_\mu,\, e^\nu) \\
 			&= \dim \mathfrak{g}
 		\end{align}
-		\item $\mathbb{K}$ が代数閉体でかつ $\phi$ が既約なので，\hyperref[col:Schur-closed]{代数閉体上のSchurの補題}から $c_\phi \colon V \lto V$ は $(\dim \mathfrak{g} / \dim V) \, \mathrm{id}_V$ に等しい．i.e. 基底によらない．
+		\item $\mathbb{K}$ が代数閉体でかつ $\phi$ が既約なので，(1), (2) と\hyperref[col:Schur-closed]{代数閉体上のSchurの補題}から $c_\phi \colon V \lto V$ は $(\dim \mathfrak{g} / \dim V) \, \mathrm{id}_V$ に等しい．
 	\end{enumerate}
 	
 \end{proof}
@@ -707,6 +788,215 @@ $\phi \colon \mathfrak{g} \lto \Lgl (V)$ が忠実でない場合は次のよう
 
 
 \subsection{Weylの定理}
+
+この小説では，$\mathbb{K}$ を\underline{標数 $0$ の体}とする．
+
+\begin{mylem}[label=lem:Weyl]{}
+	$\phi \colon \mathfrak{g} \lto \Lgl (V)$ を\hyperref[def:semisimple-LieAlg]{半単純Lie代数}の\underline{有限次元}\hyperref[ax:g-module]{表現}とする．
+	このとき
+	\begin{align}
+		\phi(\mathfrak{g}) \subset \Lsl (V)
+	\end{align}
+	が成り立つ．特に，$\dim V = 1$ ならば $\phi$ は零写像である\footnote{これを\textbf{自明な表現} (trivial representation) と言う．}
+\end{mylem}
+
+\begin{proof}
+	\exref{def:typeA}より，$\Lsl (V)$ の基底は行列単位 $e_{ij}$ を使って
+	\begin{align}
+		\bigl\{\, e_{ij} - e_{ji} \bigm| 1 \le i\neq j \le \dim V \,\bigr\} \cup \bigl\{\, e_{ii} - e_{i+1,i+1} \bigm| 1 \le i \le \dim V - 1 \,\bigr\} = \comm{\{e_i\}}{\{e_j\}}
+	\end{align}
+	と書けた．よって $\Lsl (V) = \comm{\Lgl(V)}{\Lgl(V)}$ である．
+	一方で $\mathfrak{g}$ が半単純なので系\ref{col:semisimple-decomp}-(1) より $\mathfrak{g} = \comm{\mathfrak{g}}{\mathfrak{g}}$ であるから，
+	\begin{align}
+		\phi(\mathfrak{g}) = \phi(\comm{\mathfrak{g}}{\mathfrak{g}}) = \comm{\phi(\mathfrak{g})}{\phi(\mathfrak{g})} \subset \comm{\Lgl(V)}{\Lgl(V)} = \Lsl(V)
+	\end{align}
+	が言えた．特に $\dim V = 0$ ならば $\dim \Lsl(V) = 1^2 - 1 = 0$ なので，$\Im \phi = 0$ である． 
+\end{proof}
+
+\begin{mylem}[label=lem:Whitehead]{Whiteheadの補題}
+	\hyperref[def:semisimple-LieAlg]{半単純Lie代数}の\underline{有限次元}\hyperref[ax:g-module]{表現} $\phi \colon \mathfrak{g} \lto \Lgl (V)$ を与える．
+	
+	このとき
+	\begin{align}
+		\label{eq:cocycle}
+		\forall x,\, y \in \mathfrak{g},\; f(\comm{x}{y}) = \phi(x) \circ f(y) - \phi(y) \circ f(x)
+	\end{align}
+	を充たす任意の\underline{$\mathbb{K}$-線型写像} $f \in \Hom{\mathbb{K}}(\mathfrak{g},\, V)$ に対して，
+	ある $v \in V$ が存在して
+	\begin{align}
+		\forall x \in \mathfrak{g},\; f(x) = \phi(x)(v)
+	\end{align}
+	が成り立つ．
+\end{mylem}
+
+\begin{proof}
+	\begin{description}
+		\item[\textbf{case1: $\bm{\phi}$ が既約かつ忠実な場合}]　
+		
+		\eqref{eq:cocycle}を充たす任意の $f \in \Hom{\mathbb{K}}(\mathfrak{g},\, V)$ を1つとる．
+		$\mathfrak{g}$ の基底 $\{e_\mu\}$ を1つ固定し，
+		\begin{align}
+			\beta \colon \mathfrak{g} \times \mathfrak{g} \lto \mathbb{K},\; (x,\, y) \lmto \Tr \bigl( \phi(x) \circ \phi(y) \bigr) 
+		\end{align}
+		を用いて補題\ref{lem:Casimir}-(1) の方法で対応する $\mathfrak{g}$ の基底 $\{e^\mu\}$ を作る．このとき
+		\begin{align}
+			v \coloneqq \sum_{\mu = 1}^{\dim \mathfrak{g}} \phi(e_\mu) \circ f(e^\mu) \in V
+		\end{align}
+		とおくと，$\forall x \in \mathfrak{g}$ に対して補題\ref{lem:Casimir}と同じ記号の下で
+		\begin{align}
+			\phi(x)(v) 
+			&= \sum_{\mu = 1}^{\dim \mathfrak{g}} \phi(x) \circ \phi(e_\mu) \circ f(e^\mu) \\
+			&= \sum_{\mu = 1}^{\dim \mathfrak{g}} \comm{\phi(x)}{\phi(e_\mu)} \circ f(e^\mu)  + \sum_{\mu = 1}^{\dim \mathfrak{g}} \phi(e_\mu) \circ \phi(x) \circ f(e^\mu) \\
+			&= \sum_{\mu = 1}^{\dim \mathfrak{g}} \phi\bigl(\ad(x)(e_\mu)\bigr) \circ f(e^\mu) + \sum_{\mu = 1}^{\dim \mathfrak{g}} \phi(e_\mu) \circ \phi(x) \circ f(e^\mu) \\
+			&= \sum_{\mu = 1}^{\dim \mathfrak{g}} a_\mu{}^\nu \phi(e_\nu) \circ f(e^\mu) + \sum_{\mu = 1}^{\dim \mathfrak{g}} \phi(e_\mu) \circ \phi(x) \circ f(e^\mu) \\
+			c_\phi \circ f (x)
+			&= \sum_{\mu=1}^{\dim \mathfrak{g}} \phi(e_\mu) \circ \phi(e^\nu) \circ f(x) \\
+			&= \sum_{\mu=1}^{\dim \mathfrak{g}} \phi(e_\mu) \circ f(\comm{e^\nu}{x}) 
+			+ \sum_{\mu=1}^{\dim \mathfrak{g}} \phi(e_\mu) \circ \phi(x) \circ f(e^\nu) \\
+			&= -\sum_{\mu=1}^{\dim \mathfrak{g}} \phi(e_\mu) \circ f \bigl( \ad(x)(e^\nu) \bigr)  
+			+ \sum_{\mu=1}^{\dim \mathfrak{g}} \phi(e_\mu) \circ \phi(x) \circ f(e^\nu) \\
+			&= -\sum_{\mu=1}^{\dim \mathfrak{g}} b^\nu{}_\mu \phi(e_\mu) \circ f (e^\mu)
+			+ \sum_{\mu=1}^{\dim \mathfrak{g}} \phi(e_\mu) \circ \phi(x) \circ f(e^\nu) 
+		\end{align}
+		と計算できるので，補題\ref{lem:Casimir}-(2) から
+		\begin{align}
+			\phi(x) (v) = c_\phi \circ f(x)
+		\end{align}
+		が言えた．仮定より\hyperref[ax:g-module]{ $\mathfrak{g}$-加群} $V$ は\hyperref[def:irr]{既約}なので，\hyperref[lem:Schur]{Schurの補題}-(1), (2) から\hyperref[def:g-module-hom]{ $\mathfrak{g}$-加群の準同型} $c_\phi \colon V \lto V$ は $\mathfrak{g}$-加群の同型であり，$c_\phi^{-1} (v) \in V$ が所望のベクトルとなる．
+
+		\item[\textbf{case2: $\bm{\phi}$ が忠実とは限らない既約表現の場合}]　
+		
+		\eqref{eq:cocycle}を充たす任意の $f \in \Hom{\mathbb{K}}(\mathfrak{g},\, V)$ を1つとる．
+		このとき $\forall \comm{x}{y} \in \comm{\Ker \phi}{\Ker \phi}$ に対して 
+		\begin{align}
+			f(\comm{x}{y}) = \phi(x) \circ f(y) - \phi(y) \circ f(x) = 0 \IFF \comm{x}{y} \in \Ker f
+		\end{align}
+		が言えるが，仮定より $\mathfrak{g}$ は半単純なので，系\ref{col:semisimple-decomp}-(3) よりそのイデアルである $\Ker \phi \subset \mathfrak{g}$ もまた半単純．故に系\ref{col:semisimple-decomp}-(1) から $\comm{\Ker \phi}{\Ker \phi} = \Ker \phi$ であり，
+		\begin{align}
+			\Ker \phi \subset \Ker f
+		\end{align}
+		がわかった．従ってこのとき\hyperref[prop:homo]{商ベクトル空間の普遍性}を使うことができ，以下の図式を可換にする $\overline{f} \in \Hom{\mathbb{K}}(V/\Ker \phi,\, \mathfrak{g})$ が一意的に存在する：
+		\begin{center}
+			\begin{tikzcd}[row sep=large, column sep=large]
+				\mathfrak{g} \ar[d, "p"']\ar[r, "f"] &V \\
+				\mathfrak{g}/\Ker \phi \arrow[ur, red, dashed, "\exists!\bar{f}"']&
+			\end{tikzcd}
+		\end{center}
+		さらに商代数の普遍性から，表現 $\phi \colon \mathfrak{g} \lto \Lgl (V)$ は以下の図式を可換にする表現 $\overline{\phi}\colon \mathfrak{g}/\Ker \phi \lto \Lgl (V)$ に一意的に持ち上がる：
+		\begin{center}
+			\begin{tikzcd}[row sep=large, column sep=large]
+				\mathfrak{g} \ar[d, "p"']\ar[r, "\phi"] &\Lgl (V) \\
+				\mathfrak{g}/\Ker \phi \arrow[ur, red, dashed, "\exists!\bar{f}"']&
+			\end{tikzcd}
+		\end{center}
+		このとき $\overline{\phi}$ は $\mathfrak{g} / \Ker \phi$ の忠実な既約表現であり，$\overline{f} \in \Hom{\mathbb{K}}(\mathfrak{g}/\Ker \phi,\, V)$ は\eqref{eq:cocycle}を充たす．
+		よって \textsf{\textbf{case1}} からある $v \in V$ があって
+		\begin{align}
+			\forall x \in \mathfrak{g},\; \overline{f}(x + \Ker \phi) = \overline{\phi}(x + \Ker \phi) (v) 
+			&\IFF \forall x \in \mathfrak{g},\; f(x) = \phi(x) (v) 
+		\end{align}
+		が成り立つ．
+		% 逆に\eqref{eq:cocycle}を充たす任意の $g \in \Hom{\mathbb{K}}(\mathfrak{g}/\Ker \phi,\, V)$ に対して，\eqref{eq:cocycle}を充たす $f \in \Hom{\mathbb{K}}(\mathfrak{g},\, V)$ が一意的に存在して $f = g \circ p$ を充たす．
+
+		\item[\textbf{case3: $\bm{\phi}$ が一般の場合}]　
+		
+		\eqref{eq:cocycle}を充たす任意の $f \in \Hom{\mathbb{K}}(\mathfrak{g},\, V)$ を1つ固定する．
+		このときある $v \in V$ が存在して $\forall x \in \mathfrak{g},\; f(x) = \phi(x)(v)$ が成り立つことを $\dim V$ に関する数学的帰納法により示す．$\dim V = 1$ のとき，補題\ref{lem:Weyl}より $\phi$ が零写像なので $\forall v \in V$ に対して $\forall x \in \mathfrak{g},\; f(x) = \phi(x)(v)$ が成り立つ．
+		
+		　$\dim V > 0$ とする．\hyperref[ax:g-module]{$\mathfrak{g}$-加群} $V$ が\hyperref[def:irr]{既約}でないならば，\hyperref[def:sub-g-module]{部分 $\mathfrak{g}$-加群} $0 \subsetneq W \subsetneq V$ が存在する．標準的射影\footnote{このとき $V$ の $\mathbb{K}$-ベクトル空間としての構造しか見ない．} $p \colon V \lto V/W$ および $\forall x \in \mathfrak{g}$ について $W \subset \Ker p \circ \phi(x)$ であるから，\hyperref[prop:homo]{商代数の普遍性}より $\forall \phi(x) \in \phi(\mathfrak{g})$ に対して以下の図式を可換にする $\overline{\phi}(x) \in \Lgl(V/W)$ が一意的に存在する：
+		\begin{center}
+			\begin{tikzcd}[row sep=large, column sep=large]
+				V \ar[d, "p"']\ar[r, "p \circ \phi(x)"] &V/W \\
+				V/W \arrow[ur, red, dashed, "\exists!\overline{\phi}(x)"']&
+			\end{tikzcd}
+		\end{center}
+		このとき写像
+		\begin{align}
+			\phi_1 \colon \mathfrak{g} \lmto \Lgl(V/W),\; x \lmto \bigl(v + W \mapsto \overline{\phi}(x)(v+W) \bigr)
+		\end{align}
+		はwell-definedなLie代数の準同型なので $\mathfrak{g}$ の表現である．
+		$f_1 \coloneqq p \circ f \in \Hom{\mathbb{K}}(\mathfrak{g},\, V/W)$ は $\phi_1$ に関して\eqref{eq:cocycle}を充たすので，
+		帰納法の仮定より\footnote{$\dim V/W < \dim V$ なので帰納法の仮定が使える．}ある $v_1 + W \in V/W$ が存在して
+		\begin{align}
+			\forall x \in \mathfrak{g},\; f_1(x) = f(x) + W = \phi_1(x) (v_1 + W)
+		\end{align}
+		が成り立つ．ここで $f_2 \in \Hom{\mathbb{K}}(\mathfrak{g},\, W)$ を
+		\begin{align}
+			f_2 (x) \coloneqq f(x) - \phi(x)(v_1)
+		\end{align}
+		と定義すると，$f_2$ は\hyperref[def:sub-g-module]{部分表現} $\phi|_W \colon \mathfrak{g} \lto \Lgl(W)$ に関して\eqref{eq:cocycle}を充たす．よって帰納法の仮定から\footnote{$\dim W < \dim V$ なので帰納法の仮定が使える．}ある $v_2 \in V$ が存在して
+		\begin{align}
+			\forall x \in \mathfrak{g},\; f_2(x) = \phi|_W (x)(v_2)
+		\end{align}
+		が成り立つ．以上より，$v \coloneqq v_1 + v_2 \in V$ とおけば
+		\begin{align}
+			\forall x \in \mathfrak{g},\; f(x) = f_2(x) + \phi(x)(v_1) = \phi|_W(x)(v_2) + \phi(x)(v_1) = \phi(x)(v)
+		\end{align}
+		が言えた．
+		
+	\end{description}
+	
+\end{proof}
+
+
+\begin{mytheo}[label=thm:Weyl]{完全可約性に関するWeylの定理}
+	$\phi \colon \mathfrak{g} \lto \Lgl (V)$ が\hyperref[def:semisimple-LieAlg]{半単純Lie代数}の\underline{有限次元}\hyperref[ax:g-module]{表現}ならば，
+	$\mathfrak{\phi}$ は\hyperref[def:irr]{完全可約}である．
+\end{mytheo}
+
+\begin{proof}
+	$V$ の任意の\hyperref[def:sub-g-module]{部分 $\mathfrak{g}$-加群} $W \subset V$ を1つ固定する．
+	このとき命題\ref{prop:reducible-1}より，部分 $\mathfrak{g}$-加群 $W^c \subset V$ が存在して $V \cong W \oplus W^c$ が成り立つことを示せば良い．
+
+	$\End V$ の\underline{部分ベクトル空間} $L_W$ を
+	\begin{align}
+		L_W \coloneqq \bigl\{\, t \in \End V \bigm| t(V) \subset W,\; t(W) = 0  \,\bigr\} 
+	\end{align}
+	と定める．$L_W$ への $\mathfrak{g}$ の左作用を
+	\begin{align}
+		x \btr t \coloneqq \comm{\phi(x)}{t}
+	\end{align}
+	と定義すると，$W$ が部分 $\mathfrak{g}$-加群であることおよび定義\ref{def:gmod-hom}より $L_W$ は $\mathfrak{g}$-加群になる．
+	i.e. 
+	\begin{align}
+		\tilde{\phi} \colon \mathfrak{g} \lto \Lgl (L_W),\; x \lmto \bigl( t \lmto x \btr t \bigr) 
+	\end{align}
+	は半単純Lie代数 $\mathfrak{g}$ の有限次元表現である．
+	
+	ここで \underline{$\mathbb{K}$-ベクトル空間} $W$ への射影演算子\footnote{$p^2 = p$ かつ $p|_W = \mathrm{id}_W$} $p \colon V \lto V$ を1つとり，$f \in \Hom{\mathbb{K}}(\mathfrak{g},\, L_W)$ を
+	\begin{align}
+		f(x) \coloneqq \comm{p}{\phi(x)}
+	\end{align}
+	と定義しよう．このとき $\forall x,\, y \in \mathfrak{g}$ に対して\hyperref[ax:LieAlg]{Jacobi恒等式}から
+	\begin{align}
+		f(\comm{x}{y})
+		&= \comm{p}{\comm{\phi(x)}{\phi(y)}} \\
+		&= \comm{\phi(x)}{\comm{p}{\phi(y)}} - \comm{\phi(y)}{\comm{p}{\phi(x)}} \\
+		&= \comm{\phi(x)}{f(y)} - \comm{\phi(y)}{f(x)} \\
+		&= \tilde{\phi}(x) \circ f(y) - \tilde{\phi}(y) \circ f(x)
+	\end{align}
+	が成り立つので，補題\ref{lem:Whitehead}からある $t \in L_W$ が存在して
+	\begin{align}
+		\forall x \in \mathfrak{g},\; f(x) = \tilde{\phi}(x)(t) = \comm{\phi(x)}{t}
+	\end{align}
+	が成り立つ．よってこのとき $\forall x \in \mathfrak{g}$ に対して
+	\begin{align}
+		\comm{\phi(x)}{p+t} = \tilde{\phi}\bigl(\phi(x)\bigr)\bigl( p+t \bigr) = - \comm{p}{\phi(x)} + \comm{\phi(x)}{t} = -f(x) + \comm{\phi(x)}{t} = 0
+	\end{align}
+	が言えた．i.e. $p+t \in \End V$ は\hyperref[def:g-module-hom]{$\mathfrak{g}$-加群の準同型}である．
+	さらに $t \in L_W$ であることから，$(p+t)(V) = W$ かつ $(p+t) \circ (p+t)|_W = \mathrm{id}_W$ が言える．i.e. $\mathfrak{g}$-加群の短完全列
+	\begin{align}
+		0 \hookrightarrow \Ker (p+t) \hookrightarrow V \xrightarrow{p+t} W \lto 0
+	\end{align}
+	は\hyperref[prop:split]{分裂}し，\hyperref[def:gmod-directsum]{$\mathfrak{g}$-加群の直和}として
+	\begin{align}
+		V \cong W \oplus \Ker (p+t)
+	\end{align}
+	が言えた．
+\end{proof}
+
+
+
 \subsection{Jordan分解の保存}
 
 \section{$\lsl{2}{\mathbb{K}}$ の表現}
