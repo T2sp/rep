@@ -20,16 +20,18 @@
 \contentsline {section}{\numberline {2.6}抽象Jordan分解}{26}{section.2.6}%
 \contentsline {section}{\numberline {2.7}表現の完全可約性}{26}{section.2.7}%
 \contentsline {subsection}{\numberline {2.7.1}$\mathfrak {g}$-加群と表現}{34}{subsection.2.7.1}%
-\contentsline {subsection}{\numberline {2.7.2}表現のCasimir元}{36}{subsection.2.7.2}%
-\contentsline {subsection}{\numberline {2.7.3}Weylの定理}{36}{subsection.2.7.3}%
-\contentsline {subsection}{\numberline {2.7.4}Jordan分解の保存}{36}{subsection.2.7.4}%
-\contentsline {section}{\numberline {2.8}$\mathfrak {sl}(2,\, \mathbb {K})$ の表現}{36}{section.2.8}%
-\contentsline {subsection}{\numberline {2.8.1}ウエイトと極大ベクトル}{36}{subsection.2.8.1}%
-\contentsline {subsection}{\numberline {2.8.2}既約加群の分類}{36}{subsection.2.8.2}%
-\contentsline {section}{\numberline {2.9}ルート空間分解}{36}{section.2.9}%
-\contentsline {subsection}{\numberline {2.9.1}極大トーラスとルート}{36}{subsection.2.9.1}%
+\contentsline {subsection}{\numberline {2.7.2}表現のCasimir元}{37}{subsection.2.7.2}%
+\contentsline {subsection}{\numberline {2.7.3}Weylの定理}{37}{subsection.2.7.3}%
+\contentsline {subsection}{\numberline {2.7.4}Jordan分解の保存}{37}{subsection.2.7.4}%
+\contentsline {section}{\numberline {2.8}$\mathfrak {sl}(2,\, \mathbb {K})$ の表現}{37}{section.2.8}%
+\contentsline {subsection}{\numberline {2.8.1}ウエイトと極大ベクトル}{37}{subsection.2.8.1}%
+\contentsline {subsection}{\numberline {2.8.2}既約加群の分類}{37}{subsection.2.8.2}%
+\contentsline {section}{\numberline {2.9}ルート空間分解}{37}{section.2.9}%
+\contentsline {subsection}{\numberline {2.9.1}極大トーラスとルート}{37}{subsection.2.9.1}%
 \contentsline {subsection}{\numberline {2.9.2}極大トーラスの中心化代数}{37}{subsection.2.9.2}%
 \contentsline {subsection}{\numberline {2.9.3}直交性}{37}{subsection.2.9.3}%
 \contentsline {subsection}{\numberline {2.9.4}整性}{37}{subsection.2.9.4}%
 \contentsline {subsection}{\numberline {2.9.5}有理性}{37}{subsection.2.9.5}%
-\contentsline {chapter}{参考文献}{38}{chapter*.5}%
+\contentsline {chapter}{\numberline {付録A}ベクトル空間の話}{38}{appendix.A}%
+\contentsline {section}{\numberline {A.1}ベクトル空間の直積・直和}{38}{section.A.1}%
+\contentsline {chapter}{参考文献}{41}{appendix*.5}%

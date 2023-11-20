@@ -6,474 +6,121 @@
 
 \chapter{半単純Lie代数}
 
+この章以降，$\mathbb{K}$-ベクトル空間 $V$ の零ベクトルを $0 \in V$ と書き，零ベクトル空間 $\{0\}$ のことも $0$ と表記する\footnote{記号の濫用だが，広く普及している慣習である．}．
 この章において，特に断らない限り体 $\mathbb{K}$ は代数閉体\footnote{つまり，定数でない任意の1変数多項式 $f(x) \in \mathbb{K}[x]$ に対してある $\alpha \in \mathbb{K}$ が存在して $f(\alpha) = 0$ を充たす．}で，かつ $\character \mathbb{K} = 0$ であるとする．
-
+また，\hyperref[ax:LieAlg]{Lie代数} $\mathfrak{g}$ は常に\underline{有限次元}であるとする．
 \section{Lieの定理・Cartanの判定条件}
 
 \subsection{Lieの定理}
 
+\begin{mytheo}[label=thm:eigen-Lie]{}
+	$V$ を\underline{有限次元} $\mathbb{K}$-ベクトル空間とし，$\Lgl (V)$ の部分Lie代数 $\mathfrak{g} \subset \Lgl (V)$ が\hyperref[def:solvable-LieAlg]{可解}であるとする．
+
+	このとき $V \neq 0$ ならば，$\forall x \in \Lgl (V)$ は共通の固有ベクトルを持つ．
+\end{mytheo}
+
+\begin{mycol}[label=thm:Lie]{Lieの定理}
+	$V$ を\underline{有限次元} $\mathbb{K}$-ベクトル空間とし，$\Lgl (V)$ の部分Lie代数 $\mathfrak{g} \subset \Lgl (V)$ が\hyperref[def:solvable-LieAlg]{可解}であるとする．
+
+	このとき $\forall x \in \mathfrak{g}$ は $V$ のある\underline{共通の}\hyperref[def:flag]{旗を安定化}する．i.e. $\forall x \in \mathfrak{g}$ の表現行列を同時に上三角行列にするような $V$ の基底が存在する．
+\end{mycol}
+
+
 \subsection{Jordan-Chevalley分解}
+
 \subsection{Cartanの判定条件}
+
+\begin{mytheo}[label=thm:Cartan-crit]{Cartanの判定条件}
+	$V$ を\underline{有限次元} $\mathbb{K}$-ベクトル空間とし，$\Lgl (V)$ の部分Lie代数 $\mathfrak{g} \subset \Lgl (V)$ を与える．
+
+	このとき $\forall x \in \comm{\mathfrak{g}}{\mathfrak{g}},\; \forall y \in \mathfrak{g}$ に対して $\Tr (x \circ y) = 0$ が成り立つならば，$\mathfrak{g}$ は\hyperref[def:solvable-LieAlg]{可解}である．
+\end{mytheo}
+
+\begin{mycol}[label=col:Cartan-crit]{}
+	Lie代数 $\mathfrak{g}$ を与える．
+	
+	このとき $\forall x \in \comm{\mathfrak{g}}{\mathfrak{g}},\; \forall y \in \mathfrak{g}$ に対して $\Tr \bigl(\ad (x) \circ \ad (y)\bigr) = 0$ が成り立つならば，$\mathfrak{g}$ は\hyperref[def:solvable-LieAlg]{可解}である．
+\end{mycol}
+
 
 \section{Killing形式}
 
-\section{半単純性の判定条件}
-\section{単純イデアル}
-\section{内部微分}
-\section{抽象Jordan分解}
+\subsection{半単純性の判定条件}
+
+
+\begin{mydef}[label=def:Killing-form]{Killing形式}
+	体 $\mathbb{K}$ 上のLie代数 $\mathfrak{g}$ の上の対称な双線型形式
+	\begin{align}
+		\kappa \colon \mathfrak{g} \times \mathfrak{g} \lto \mathbb{K},\; (x,\, y) \lmto \Tr \bigl( \ad(x) \circ \ad(y) \bigr) 
+	\end{align}
+	のことを $\mathfrak{g}$ の\textbf{Killing形式} (Killing form) と呼ぶ．
+\end{mydef}
+
+\begin{mydef}[label=def:radical-bilinear]{双線型形式のradical}
+	体 $\mathbb{K}$ 上のLie代数 $\mathfrak{g}$ の上の対称な双線型形式
+	\begin{align}
+		\beta \colon \mathfrak{g} \times \mathfrak{g} \lto \mathbb{K}
+	\end{align}
+	を与える．
+	\begin{itemize}
+		\item $\mathfrak{g}$ の\underline{部分ベクトル空間}
+		\begin{align}
+			S_\beta \coloneqq \bigl\{\, x \in \mathfrak{g} \bigm| \forall y \in \mathfrak{g},\; \beta(x,\, y) = 0 \,\bigr\} 
+		\end{align}
+		のことを $\beta$ の\textbf{radical}と呼ぶ．
+		\item $\beta$ が\textbf{非退化} (nondegenerate) であるとは，$S_\beta = 0$ であることを言う．
+	\end{itemize}
+	
+\end{mydef}
+
+\begin{mytheo}[label=thm:semisimple-LieAlg-iff]{Lie代数の半単純性とKilling形式の非退化性}
+	$\mathfrak{g}$ が\hyperref[def:semisimple-LieAlg]{半単純Lie代数}
+	$\IFF$ $\mathfrak{g}$ の\hyperref[def:Killing-form]{Killing形式}が\hyperref[def:radical-bilinear]{非退化}
+\end{mytheo}
+
+
+\subsection{単純イデアル}
+
+Lie代数 $\mathfrak{g}$ と，その\hyperref[def:ideal-LieAlg]{イデアル}の族 $\Familyset[\big]{\mathfrak{i}_i}{i \in I}$ を与える．
+$\mathfrak{g}$ が $\Familyset[\big]{\mathfrak{i}_i}{i \in I}$ の\textbf{直和} (direct sum)\footnote{厳密には，命題\ref{prop:subvec-directsum}の意味で\textbf{内部直和} (internal direct sum) と呼ぶべきだと思う．} 
+であるとは，\hyperref[prop:subvec-directsum]{部分ベクトル空間の内部直和}として
+\begin{align}
+	\mathfrak{g} = \bigoplus_{i \in I} \mathfrak{i}_i
+\end{align}
+が成り立つことを言う．
+
+\begin{mytheo}[label=thm:semisimple-decomp]{半単純Lie代数の直和分解}
+	$\mathfrak{g}$ を\hyperref[def:semisimple-LieAlg]{半単純Lie代数}とする．
+	このとき $\mathfrak{g}$ の\hyperref[def:simple-LieAlg]{単純}イデアル $\mathfrak{i}_1,\, \dots,\, \mathfrak{i}_t$ が存在して以下を充たす：
+	\begin{enumerate}
+		\item \begin{align}
+			\mathfrak{g} = \bigoplus_{i = 1}^t \mathfrak{i}_i
+		\end{align}
+		\item $\mathfrak{g}$ の任意の単純イデアルは $\mathfrak{i}_i$ のどれか1つと一致する．i.e. (1) の直和分解は一意である．
+		\item $\mathfrak{i}_i$ 上の\hyperref[def:Killing-form]{Killing形式} $\kappa_{\mathfrak{i}_i}$ は $\kappa_{\mathfrak{i}_i \times \mathfrak{i}_i}$ に等しい．
+	\end{enumerate}
+	
+\end{mytheo}
+
+\begin{mycol}[label=col:semisimple-decomp]{}
+	$\mathfrak{g}$ が\hyperref[def:semisimple-LieAlg]{半単純Lie代数}ならば以下が成り立つ：
+	\begin{enumerate}
+		\item $\mathfrak{g} = \comm{\mathfrak{g}}{\mathfrak{g}}$
+		\item $\mathfrak{g}$ の任意の\hyperref[def:ideal-LieAlg]{イデアル}は半単純である．
+		\item 任意の\hyperref[def:hom-LieAlg]{Lie代数の準同型} $f \colon \mathfrak{g} \lto \mathfrak{h}$ について，$\Im (\mathfrak{h})$ は半単純である．
+		\item $\mathfrak{g}$ の任意の\hyperref[def:ideal-LieAlg]{イデアル}は $\mathfrak{g}$ の\hyperref[def:simple-LieAlg]{単純イデアル}の\hyperref[prop:subvec-directsum]{直和}である．
+	\end{enumerate}
+	
+\end{mycol}
+
+\subsection{内部微分}
+\subsection{抽象Jordan分解}
 
 \section{表現の完全可約性}
 
-ベクトル空間のテンソル積について復習する：
-
-\begin{mydef}[label=def:tensor-vec]{ベクトル空間のテンソル積}
-    $\mathbb{K}$ を任意の体とし，$\mathbb{K}$-ベクトル空間 $V,\, W$ を与える．
-    \begin{itemize}
-        \item $\mathbb{K}$-ベクトル空間 $\bm{V \otimes W}$ 
-        \item 双線型写像 $\bm{\Phi} \colon V \times W \lto \bm{V \otimes W}$ 
-    \end{itemize}
-    の組 $(V \otimes W,\, \Phi)$ が $V,\, W$ の\textbf{テンソル積} (tensor product) であるとは，以下の性質を充たすことをいう：
-    \begin{description}
-        \item[\textbf{テンソル積の普遍性}]　
-        
-        任意の $\mathbb{K}$-ベクトル空間 $\textcolor{blue}{Z}$ および任意の双線型写像 $\textcolor{blue}{f} \colon V \times W \lto \textcolor{blue}{Z}$ に対して，以下の図式を可換にする線型写像 $\textcolor{red}{\overline{f}} \colon \bm{V \otimes W} \lto \textcolor{blue}{Z}$ が一意的に存在する：
-        \begin{center}
-            \begin{tikzcd}[row sep=large, column sep=large]
-                V \times W \ar[d, "\bm{\Phi}"']\ar[r, blue, "f"] &\forall \textcolor{blue}{Z} \\
-                \bm{V \otimes W} \arrow[ur, red, dashed, "\exists!\bar{f}"']&
-            \end{tikzcd}
-        \end{center}
-    \end{description}
-\end{mydef}
-
-テンソル積をとる操作は結合的である．i.e. $V_1 \otimes (V_2 \otimes V_3) \cong (V_1 \otimes V_2) \otimes V_3$ が成り立つ．
-従って以降では3つ以上のベクトル空間のテンソル積を括弧を省略して書く．
-
-\begin{myprop}[label=prop:unique-tensor-vec]{テンソル積の一意性}
-	\hyperref[def:tensor-vec]{テンソル積}は，存在すればベクトル空間の同型を除いて一意である．
-\end{myprop}
-
-\begin{proof}
-	$\mathbb{K}$ 上のベクトル空間 $V,\, W \in \Obj{\VEC{\mathbb{K}}}$ を与える．
-	体 $\mathbb{K}$ 上のベクトル空間と双線型写像の組 $(\bm{T},\, \bm{\Phi} \colon V \times W \lto \bm{T})$ および $(\bm{T},\, \bm{\Phi'} \colon V \times W \lto \bm{T'})$ がどちらも $V,\, W$ の\hyperref[def:tensor-vec]{テンソル積}であるとする．
-	このとき\hyperref[def:tensor-vec]{テンソル積の普遍性}から $\VEC{\mathbb{K}}$ の\hyperref[def:commutative]{可換図式}
-	\begin{figure}[H]
-		\centering
-		\begin{subfigure}{0.4\columnwidth}
-			\centering
-			\begin{tikzcd}[row sep=large, column sep=large]
-				&V \times W \ar[d, "\bm{\Phi}"] \ar[r, blue, "\Phi'"] &\textcolor{blue}{T'} \\
-				&\bm{T} \ar[ur, red, dashed, "\exists! u"] &
-			\end{tikzcd}
-		\end{subfigure}
-		\hspace{5mm}
-		\begin{subfigure}{0.4\columnwidth}
-			\centering
-			\begin{tikzcd}[row sep=large, column sep=large]
-				&V \times W \ar[d, "\bm{\Phi'}"] \ar[r, blue, "\Phi"] &\textcolor{blue}{T} \\
-				&\bm{T'} \ar[ur, red, dashed, "\exists! u'"] &
-			\end{tikzcd}
-		\end{subfigure}
-	\end{figure}%
-	が成り立つので，これらの図式を併せた $\VEC{\mathbb{K}}$ の可換図式
-	\begin{center}
-		\begin{tikzcd}[row sep=large, column sep=large]
-			&\bm{T} & \\
-			&V \times W \ar[u, "\bm{\Phi}"]\ar[d, "\bm{\Phi}"] \ar[r, blue, "\Phi'"] &\textcolor{blue}{T'}\ar[ul, red, dashed, "\exists! u'"] \\
-			&\bm{T} \ar[ur, red, dashed, "\exists! u"] &
-		\end{tikzcd}
-	\end{center}
-	が存在する．然るに $\VEC{\mathbb{K}}$ の可換図式
-	\begin{center}
-		\begin{tikzcd}[row sep=large, column sep=large]
-			&V \times W \ar[d, "\bm{\Phi}"] \ar[r, "\bm{\Phi}"] &\bm{T} \\
-				&\bm{T} \ar[ur, red, dashed, "\mathrm{id}_T"] &
-		\end{tikzcd}
-	\end{center}
-	も成り立ち，\hyperref[def:tensor-vec]{テンソル積の普遍性}より赤点線で書いた線型写像は一意でなくてはならないので，
-	\begin{align}
-		\textcolor{red}{u'} \circ \textcolor{red}{u} = \mathrm{id}_T
-	\end{align}
-	がわかる．同様の議論から
-	\begin{align}
-		\textcolor{red}{u} \circ \textcolor{red}{u'} = \mathrm{id}_{T'}
-	\end{align}
-	も従うので，線型写像 $\textcolor{red}{u} \colon \bm{T} \lto \bm{T'},\; \textcolor{red}{u'} \colon \bm{T'} \lto \bm{T}$ は互いに逆写像，i.e. 同型写像である．
-\end{proof}
-
-
-命題\ref{prop:unique-tensor-vec}からテンソル積の一意性が言えたが，そもそもテンソル積が存在しなければ意味がない．
-そこで，\hyperref[ax.ring]{体} $\mathbb{K}$ 上の任意のベクトル空間 $V,\, W \in \Obj{\VEC{\mathbb{K}}}$ を素材にして\hyperref[def:tensor-vec]{テンソル積} $(V \otimes W,\, \Phi \colon V \times W \lto V \otimes W)$ を具体的に構成してみよう．
-
-$\mathbb{K} \in \Obj{\VEC{\mathbb{K}}}$ なので，任意の集合 $S$ に対して\hyperref[prop:sum-vect]{ベクトル空間の直和}
-\begin{align}
-	\mathbb{K}^{\oplus S} \in \Obj{\VEC{\mathbb{K}}}
-\end{align}
-を考えることができる．$\mathbb{K}^{\oplus S}$ の元 $f$ とは，有限個の元 $x_1,\, \dots,\; x_n \in S$ を除いた全ての $x \in S$ に対して値 $0 \in \mathbb{K}$ を返すような $\mathbb{K}$ 値関数
-$f \colon S \lto \mathbb{K}$ のことである
-\footnote{これは集合論の記法である：ある集合 $\Lambda$ から集合 $A$ への写像 $a \colon \Lambda \lto A$ のことを $\Lambda$ によって\textbf{添字づけられた} $A$ の元の\textbf{族}と呼び，$\forall \lambda \in \Lambda$ に対して $a(\lambda) \in A$ のことを $\bm{a_\lambda}$ と書き，$\bm{a \colon \Lambda \lto A}$ \textbf{自身のこと}を $\bm{(a_\lambda)_{\lambda \in \Lambda}}$ と書くのである．
-なお，$\Familyset[\big]{a_\lambda}{\lambda \in \Lambda}$ と書いたときは $A$ の部分集合 $\bigl\{\, a(\lambda) \bigm| \lambda \in \Lambda \,\bigr\} \subset A$ のことを意味する．}．
-
-ところで，$\forall x \in S$ に対して次のような関数 $\delta_{x} \in \mathbb{K}^{\oplus S}$ が存在する：
-\begin{align}
-	\delta_{x} \bigl(y\bigr) =
-	\begin{cases}
-		1, &y = x \\
-		0, &y \neq x
-	\end{cases}
-\end{align}
-この $\delta_{x}$ を $x$ そのものと同一視してしまうことで，先述の $f \in \mathbb{K}^{\oplus (V \times W)}$ は
-\begin{align}
-	f = \sum_{i=1}^n \lambda_i x_i \quad \WHERE \lambda_i \coloneqq f (x_i) \in \mathbb{K}
-\end{align}
-の形に一意的に書ける．
-\footnote{
-	というのも，このように書けば $\forall y \in S$ に対して
-	\begin{align}
-		f (y)  &= \sum_{i=1}^n \lambda_i \delta_{x_i}(y) =
-		\begin{cases}
-			f (x_i), &y = x_i \\
-			0, &\text{otherwise}
-		\end{cases}
-	\end{align}
-	が言えるので．特に，この式の中辺は $\mathbb{K}$ の元の有限和なので意味を持つ．
-}
-この意味で，$\mathbb{K}^{\oplus (V \times W)}$ は $V \times W$ の元の\textbf{形式的な} $\bm{\mathbb{K}}$ \textbf{係数線形結合}全体がなす $\mathbb{K}$ ベクトル空間と言うことができ，集合 $V \times W$ 上の\textbf{自由ベクトル空間}と呼ばれる．
-\hyperref[def:free-mod]{自由加群}の特別な場合と言っても良い．自由ベクトル空間は次の普遍性によって特徴づけられる：
-
-\begin{mylem}[label=lem:univ-free-vec, breakable]{自由ベクトル空間の普遍性}
-	任意の集合 $S$ および任意の $\mathbb{K}$ ベクトル空間 $\textcolor{blue}{Z} \in \Obj{\VEC{\mathbb{K}}}$ を与える．
-	包含写像
-	\begin{align}
-		\iota \colon S \lto \mathbb{K}^{\oplus S},\; x \lmto \delta_x
-	\end{align}
-	を考える．
-	このとき，任意の写像 $\textcolor{blue}{f} \colon S \lto \textcolor{blue}{Z}$ に対して線型写像
-	$\textcolor{red}{u} \colon \mathbb{K}^{\oplus S} \lto \textcolor{blue}{Z}$ が一意的に存在して，図式\ref{cmtd:free-vec}を可換にする：
-	\begin{figure}[H]
-		\centering
-		\begin{tikzcd}[row sep=large, column sep=large]
-			&S \ar[r, blue, "f"]\ar[d, "\iota"] &\forall \textcolor{blue}{Z} \\
-			&\mathbb{K}^{\oplus S} \ar[ur, red, dashed, "\exists! u"] &
-		\end{tikzcd}
-		\caption{自由ベクトル空間の普遍性}
-		\label{cmtd:free-vec}
-	\end{figure}%
-\end{mylem}
-
-\begin{proof}
-	写像
-	\begin{align}
-		\textcolor{red}{u} \colon \mathbb{K}^{\oplus S} \lto \textcolor{blue}{Z},\; \sum_{i=1}^n \lambda_i \delta_{x_i} \lmto \sum_{i=1}^n \lambda_i \textcolor{blue}{f}(x_i)
-	\end{align}
-	は右辺が有限和なのでwell-definedであり，$\forall x \in S$ に対して $\textcolor{red}{u} \bigl( \iota(x) \bigr) = \textcolor{blue}{f}(x)$ を充たす．
-	
-	別の線型写像 $g \colon \mathbb{K}^{\oplus S} \lto \textcolor{blue}{Z}$ が $g \circ \iota = \textcolor{blue}{f}$ を充たすとする．このとき $\forall x \in S$ に対して $g(\delta_x) = \textcolor{blue}{f}(x)$ であるから，
-	$\forall v = \sum_{i=1}^n \lambda_i \delta_{x_i} \in \mathbb{K}^{\oplus S}$ に対して
-	\begin{align}
-		g(v) = g \left( \sum_{i=1}^n \lambda_i \delta_{x_i} \right) = \sum_{i=1}^n \lambda_i g(\delta_{x_i}) = \sum_{i=1}^n \lambda_i \textcolor{blue}{f}(x_i) = \textcolor{red}{u} (v)
-	\end{align}
-	が言える．よって $g = \textcolor{red}{u}$ である．
-\end{proof}
-
-さて，\hyperref[cmtd:free-vec]{自由加群の普遍性の図式}と\hyperref[def:tensor-vec]{テンソル積の普遍性の図式}はとても似ているので，$\bm{V \otimes W} \in \Obj{\VEC{\mathbb{K}}}$ の候補として $\mathbb{K}^{\oplus (V \times W)}$ を考えてみる．
-しかしそのままでは $\iota \colon V \times W \lto \mathbb{K}^{\oplus (V \times W)}$ が双線型写像になってくれる保証はない．
-そこで，
-\begin{align}
-	\iota(\lambda v,\, w) &\sim \lambda \iota(v,\, w), \\
-	\iota(v,\, \lambda w) &\sim \lambda \iota(v,\, w), \\
-	\iota(v_1 + v_2,\, w) &\sim \iota(v_1,\, w) + \iota(v_2,\, w), \\
-	\iota(v,\, w_1 + w_2) &\sim \iota(v,\, w_1) + \iota(v,\, w_2)
-\end{align}
-を充たすような上手い\hyperref[ax.eq]{同値関係}による\hyperref[prop:quotient-vec]{商ベクトル空間}を構成する．
-% そこで，$\iota (V \times W) \in \mathbb{K}^{\oplus (V \times W)}$ の上に適切な関係式を課してできる $\mathbb{K}^{\oplus (V \times W)}$ の部分集合が\hyperref[prop:gen-submodule]{生成する部分ベクトル空間}で $\mathbb{K}^{\oplus (V \times W)}$ の\hyperref[prop:quotient-vec]{商ベクトル空間}を作ることを試みる．
-% \hyperref[prop:universality-dp]{直和の普遍性}から $\forall \textcolor{blue}{V} \in \Obj{\VEC{\mathbb{K}}}$ に対して可換図式
-% \begin{center}
-% 	\begin{tikzcd}[row sep=large, column sep=large]
-% 		&V \times W \ar[d, "\bm{\Phi}"] \ar[r, blue, "f"] &\forall \textcolor{blue}{Z} \\
-% 		&\bm{V \otimes W} \ar[ur, red, dashed, "\exists! u"] &
-% 	\end{tikzcd}
-% \end{center}
-
-
-\begin{myprop}[label=prop:tensor-vec, breakable]{テンソル積の構成}
-	$\mathbb{K}^{\oplus (V \times W)}$ の部分集合
-	\begin{align}
-		S_1 &\coloneqq \bigl\{\iota(\lambda v,\, w) - \lambda \iota(v,\, w) \bigm| \forall v \in V,\, \forall w \in W,\, \forall \lambda \in \mathbb{K} \bigr\} , \\
-		S_2 &\coloneqq \bigl\{\iota(v,\, \lambda w) - \lambda \iota(v,\, w) \bigm| \forall v \in V,\, \forall w \in W,\, \forall \lambda \in \mathbb{K} \bigr\}, \\
-		S_3 &\coloneqq \bigl\{\iota(v_1 + v_2,\, w) - \iota(v_1,\, w) - \iota(v_2,\, w) \bigm| \forall v_1,\, \forall v_2 \in V,\, \forall w \in W,\, \forall \lambda \in \mathbb{K} \bigr\}, \\
-		S_4 &\coloneqq \bigl\{\iota(v,\, w_1 + w_2) - \iota(v,\, w_1) - \iota(v,\, w_2) \bigm| \forall v \in V,\, \forall w_1,\, w_2 \in W,\, \forall \lambda \in \mathbb{K} \bigr\}
-	\end{align}
-	の和集合 $S_1 \cup S_2 \cup S_3 \cup S_4$ が\hyperref[prop:gen-submodule]{生成する} $\mathbb{K}$ ベクトル空間\footnote{これらの元の形式的な$\mathbb{K}$ 係数線型結合全体が成すベクトル空間のこと．}を $\mathcal{R}$ と書き，
-	\hyperref[prop:quotient-vec]{商ベクトル空間}
-	$\mathbb{K}^{\oplus (V \times W)} / \mathcal{R}$ 
-	の商写像を
-	\begin{align}
-		\pi \colon \mathbb{K}^{\oplus (V \times W)} \lto \mathbb{K}^{\oplus (V \times W)} / \mathcal{R},\; \sum_{i=1}^n \lambda_i \iota(v_i,\, w_i) \lmto \left( \sum_{i=1}^n \lambda_i \iota(v_i,\, w_i) \right) + \mathcal{R}
-	\end{align}
-	と書き，$\bm{v \otimes w} \coloneqq \pi \bigl( \iota (v,\, w) \bigr)$ とおく．
-	このとき，
-	\begin{itemize}
-		\item $\mathbb{K}$ ベクトル空間 $\bm{\mathbb{K}^{\oplus (V \times W)} / \mathcal{R}}$
-		\item 写像 $\bm{\Phi} = \pi \circ \iota \colon V \times W \lto \bm{\mathbb{K}^{\oplus (V \times W)} / \mathcal{R}},\; (v,\, w) \lmto v \otimes w$
-	\end{itemize}
-	の組は $V,\, W$ の\hyperref[def:tensor-vec]{テンソル積}である．
-\end{myprop}
-
-\begin{proof}
-	まず，$\bm{\Phi}$ が双線型写像であることを示す．\hyperref[prop:quotient-vec]{商ベクトル空間}の和とスカラー乗法の定義から
-	\begin{align}
-		\Phi (\lambda v,\, w) &= \iota(v,\, w) + \mathcal{R} = \bigl( \lambda \iota(v,\, w) + \iota (\lambda v,\, w) - \lambda \iota (v,\, w) \bigr) + \mathcal{R} \\
-		&= \lambda \iota (v,\, w) + \mathcal{R} = \lambda \bigl( \iota(v,\, w) + \mathcal{R} \bigr) = \lambda \Phi(v,\, w) \\
-		\Phi (v_1 + v_2,\, w) &= \iota(v_1 + v_2,\, w) + \mathcal{R} = \bigl( \iota(v_1,\, w) + \iota (v_2,\, w) + \iota(v_1+v_2,\, w) - \iota (v_1,\, w) - \iota(v_2,\, w) \bigr) + \mathcal{R} \\
-		&= \bigl(\iota (v_1,\, w) + \iota (v_2,\, w) \bigr) + \mathcal{R} = \bigl( \iota(v_1,\, w) + \mathcal{R} \bigr) + \bigl( \iota(v_2,\, w) + \mathcal{R} \bigr) \\
-		&= \Phi(v_1,\, w) + \Phi(v_2,\, w)
-	\end{align}
-	が言える．第2引数に関しても同様であり，$\bm{\Phi}$ は双線型写像である．
-
-	次に，上述の構成が\hyperref[def:tensor-vec]{テンソル積の普遍性}を充たすことを示す．$\forall  \textcolor{blue}{Z} \in \Obj{\VEC{\mathbb{K}}}$ と任意の双線型写像 $\textcolor{blue}{f} \colon V \times W \lto \textcolor{blue}{Z}$ を与える．
-	\hyperref[lem:univ-free-vec]{自由ベクトル空間の普遍性}から $\VEC{\mathbb{K}}$ の可換図式
-	\begin{center}
-		\begin{tikzcd}[row sep=large, column sep=large]
-			&V \times W \ar[r, blue, "f"]\ar[d, "\iota"'] &\forall \textcolor{blue}{Z} \\
-			&\mathbb{K}^{\oplus (V \times W)} \ar[ur, red, dashed, "\exists! \overline{f}"] &
-		\end{tikzcd}
-	\end{center}
-	が存在する．$\textcolor{blue}{f}$ が双線型なので，
-	\begin{align}
-		\textcolor{red}{\overline{f}} \bigl( \iota (\lambda v,\, w) \bigr) &= f (\lambda v,\, w) = \lambda f(v,\, w) \\ 
-		&= \lambda\textcolor{red}{\overline{f}} \bigl( \iota (v,\, w) \bigr) = \textcolor{red}{\overline{f}}\bigl( \lambda \iota(v,\, w) \bigr) , \\
-		\textcolor{red}{\overline{f}} \bigl( \iota (v_1 + v_2,\, w) \bigr) &= f (v_1 + v_2,\, w) = f(v_1,\, w) + f(v_2,\, w)\\
-		&= \textcolor{red}{\overline{f}} \bigl( \iota(v_1,\, w) \bigr) + \textcolor{red}{\overline{f}} \bigl(\iota(v_2,\, w) \bigr) = \textcolor{red}{\overline{f}} \bigl( \iota(v_1,\, w) + \iota(v_2,\, w)\bigr) 
-	\end{align}
-	が成り立つ．第2引数についても同様なので，$\mathcal{R} \subset \Ker \textcolor{red}{\overline{f}}$ である．よって\hyperref[thm.homo1]{準同型定理}から
-	$\VEC{\mathbb{K}}$ の可換図式
-	\begin{center}
-		\begin{tikzcd}[row sep=large, column sep=large]
-			&V \times W \ar[r, blue, "f"]\ar[d, "\iota"'] &\forall \textcolor{blue}{Z} \\
-			&\mathbb{K}^{\oplus (V \times W)} \ar[d, "\pi"']\ar[ur, red, dashed, "\exists! \overline{f}"] & \\
-			&\mathbb{K}^{\oplus (V \times W)} /\mathcal{R}\ar[uur, red, dashed, "\exists! u"] &
-		\end{tikzcd}
-	\end{center}
-	が存在する．この図式の外周部は\hyperref[def:tensor-vec]{テンソル積の普遍性の図式}である．
-\end{proof}
-
-\begin{myprop}[label=prop:basis-tensor]{有限次元テンソル積の基底}
-	\underline{有限次元} $\mathbb{K}$-ベクトル空間 $V,\, W$（$\dim V \eqqcolon n,\; \dim W \eqqcolon m$）を与える．
-    $V,\, W$ の基底をそれぞれ $\{e_1,\, \dots,\, e_n\},\; \{f_1,\, \dots,\, f_m\}$ と書く．
-	このとき，集合
-	\begin{align}
-		\mathcal{E} \coloneqq \bigl\{\, e_\mu \otimes f_\nu \bigm| 1 \le \mu \le n,\, 1 \le \nu \le m \,\bigr\} 
-	\end{align}
-	は $V \otimes W$ の基底である．従って $\dim V \otimes W = nm$ である．
-\end{myprop}
-
-\begin{proof}
-	\hyperref[prop:tensor-vec]{テンソル積の構成}から，$\forall t \in V \otimes W$ は有限個の $(v_i,\, w_i) \in V \times W\; (i=1,\, \dots l)$ を使って
-	\begin{align}
-		t = \left(\sum_{i=1}^l t_{i} \iota(v_i,\, w_i)\right) = \sum_{i=1}^l t_i v_i \otimes w_i
-	\end{align}
-	と書ける．$v_i = v_i{}^\mu e_\mu,\; w_i = w_i{}^{\mu} f_\mu$ のように展開することで，
-	\begin{align}
-		t &= \sum_{i=1}^l t_i (v_i{}^\mu e_\mu) \otimes (w_i{}^\nu f_\nu) \\
-		&= \sum_{i=1}^l t_i v_i{}^\mu w_i{}^\nu e_{\mu} \otimes f_\nu
-	\end{align}
-	と書ける．ただし添字 $\mu,\, \nu$ に関してはEinsteinの規約を適用した．従って $\mathcal{E}$ は $V \otimes W$ を生成する．
-
-	$\mathcal{E}$ の元が線型独立であることを示す．
-	\begin{align}
-		t^{\mu\nu} e_\mu \otimes e_{\nu} = 0
-	\end{align}
-	を仮定する．$\{e_\mu\},\, \{f_\mu\}$ の\hyperref[def.basisforDVS]{双対基底}をそれぞれ $\{\varepsilon^\mu\},\, \{\eta^\nu\}$ と書き，
-	全ての添字の組み合わせ $(\mu,\, \nu) \in \{	1,\, \dots,\, n\} \times \{1,\, \dots,\, m\}$ に対して双線型写像
-	\begin{align}
-		\tau^{\mu\nu} \colon V \times W \lto \mathbb{R},\; (v,\, w) \lmto \varepsilon^\mu (v) \eta^\nu (w)
-	\end{align}
-	を定める．$\tau^{\mu\nu}$ は双線型なので\hyperref[cmtd:tensor-vec]{テンソル積の普遍性}から $\VEC{\mathbb{K}}$ の可換図式
-	\begin{center}
-		\begin{tikzcd}[row sep=large, column sep=large]
-			&V \times W \ar[d, "\pi \circ \iota"'] \ar[r,"\tau^{\mu\nu}"] &\mathbb{R} \\
-			&\bm{V \otimes W} \ar[ur, red, dashed, "\exists! \overline{\tau}^{\mu\nu}"'] &
-		\end{tikzcd}
-	\end{center}
-	が存在する．このことは，
-	\begin{align}
-		0 &= \textcolor{red}{\overline{\tau}^{\mu\nu}} (t^{\rho\sigma} e_{\rho} \otimes f_{\sigma}) \\
-		&= t^{\rho\sigma} (\textcolor{red}{\overline{\tau}^{\mu\nu}} \circ \pi \circ \iota) (e_\rho ,\,  f_\sigma) \\
-		&= t^{\rho\sigma} \tau^{\mu\nu}(e_\rho ,\,  f_\sigma) = t^{\mu\nu}
-	\end{align}
-	を意味する．従って$\mathcal{E}$ の元は線型独立である．
-\end{proof}
-
-これでもまだ直接の計算には向かない．より具体的な構成を探そう．
-
-任意の $\mathbb{K}$-ベクトル空間\footnote{有限次元でなくても良い．} $V_1,\, \dots,V_n,\, W \in \Obj{\VEC{\mathbb{K}}}$ に対して，集合
-\begin{align}
-	\bm{L(V_1},\,\dots,\, \bm{V_n;\, W)} \coloneqq \bigl\{\, F \colon V_1 \times \cdots \times V_n \lto W \bigm| F\;\text{は多重線型写像} \,\bigr\} 
-\end{align}
-を考える．$L(V_1,\, \dots,\, V_n;\, W)$ の上の加法とスカラー乗法を $\forall v_i \in V_i,\, \forall \lambda \in \mathbb{K}$ に対して
-\begin{align}
-	(F + G)(v_1,\, \dots,\, v_n) &\coloneqq F(v_1,\, \dots,\, v_n) + G(v_1,\, \dots,\, v_n), \\
-	(\lambda F)(v_1,\, \dots,\, v_n) &\coloneqq \lambda \bigl(F(v_1,\, \dots,\, v_n)\bigr)
-\end{align}
-と定義すると $L(V_1,\, \dots,\, V_n;\, W)$ は $\mathbb{K}$ ベクトル空間になる．
-そして $\forall \omega_i \in V_i^*$ に対して，$\bm{\omega_1 \otimes \cdots \otimes \omega_n}$ と書かれる $L(V_1,\, \dots,\, V_n;\, \mathbb{K})$ の元を
-\begin{align}
-	\bm{\omega_1 \otimes \cdots \otimes \omega_n} \colon V_1 \times \cdots \times V_n \lto \mathbb{K},\; (v_1,\, \dots,\, v_n) \lmto \prod_{i=1}^n \omega_i(v_i)
-\end{align}
-によって定義する．ただし右辺の総積記号は $\mathbb{K}$ の積についてとる．
-
-\begin{myprop}[label=prop:basis-L]{}
-	有限次元 $\mathbb{K}$-ベクトル空間 $V,\, W$（$\dim V \eqqcolon n,\, \dim W \eqqcolon m$）の基底をそれぞれ $\{e_\mu\},\, \{f_\nu\}$ と書き，その\hyperref[def.basisforDVS]{双対基底}をそれぞれ $\{\varepsilon^\mu\},\, \{\eta^\mu\}$ と書く．このとき，集合
-	\begin{align}
-		\mathcal{B} \coloneqq \bigl\{\, \varepsilon^\mu \otimes \eta^\nu \bigm| 1 \le \mu \le n,\, 1 \le \nu \le m \,\bigr\} 
-	\end{align}
-	は $L(V,\, W;\, \mathbb{K})$ の基底である．従って $\dim L(V,\, W;\, \mathbb{K}) = nm$ である．
-\end{myprop}
-
-\begin{proof}
-	$\forall F  \in L(V,\, W;\, \mathbb{K})$ を1つとり，全ての添字の組み合わせ $(\mu,\, \nu)$ に対して
-	\begin{align}
-		F_{\mu\nu} \coloneqq F(e_\mu,\, e_\nu)
-	\end{align}
-	とおく．$\forall (v,\, w) \in V \times W$ を $v = v^\mu e_\mu,\; w = w^\nu f_\nu$ と展開すると，
-	\begin{align}
-		F_{\mu\nu} \varepsilon^\mu \otimes \eta^\nu (v,\, w) &= F_{\mu\nu} \varepsilon^{\mu}(v) \eta^\nu(w) \\
-		&= F_{\mu\nu} v^\mu w^\nu
-	\end{align}
-	が成り立つ．一方，双線型性から
-	\begin{align}
-		F(v,\, w) = v^\mu w^\nu F(e_\mu,\, e_\nu) = F_{\mu\nu} v^\mu w^\nu
-	\end{align}
-	も成り立つので $F = F_{\mu\nu} \varepsilon^\mu \otimes \eta^\nu$ が言えた．i.e. 集合 $\mathcal{B}$ は $L(V,\, W;\, \mathbb{K})$ を生成する．
-
-	次に，$\mathcal{B}$ の元が線型独立であることを示す．
-	\begin{align}
-		F_{\mu\nu} \varepsilon^\mu \otimes \eta^\nu = 0
-	\end{align}
-	を仮定する．全ての添字の組み合わせについて，$(e_\mu,\, f_\nu)$ に左辺を作用させることで，$F_{\mu\nu} = 0$ が従う．i.e. $\mathcal{B}$ の元は互いに線型独立である．
-\end{proof}
-
-
-\begin{myprop}[label=prop:tensor-multillinear]{テンソル積の構成その2}
-	任意の\underline{有限次元} $\mathbb{K}$-ベクトル空間 $V,\, W$ に対して
-    \begin{align}
-		L(V,\, W;\, \mathbb{K}) \cong V^* \otimes W^*
-	\end{align}
-\end{myprop}
-
-\begin{proof}
-	写像
-	\begin{align}
-		\Phi \colon V^* \times W^* &\lto L(V,\, W;\, \mathbb{K}), \\
-		(\omega,\, \eta) &\lmto \bigl( (v,\, w) \lmto \omega(v) \eta(w) \bigr) 
-	\end{align}
-	は双線型写像なので
-	\hyperref[cmtd:tensor-vec]{テンソル積の普遍性}から $\VEC{\mathbb{K}}$ の可換図式
-	\begin{center}
-		\begin{tikzcd}[row sep=large, column sep=large]
-			&V^* \times W^* \ar[d, "\pi \circ \iota"'] \ar[r,"\Phi"] &L(V,\, W;,\, \mathbb{K}) \\
-			&\bm{V^* \otimes W^*} \ar[ur, red, dashed, "\exists! \overline{\Phi}"'] &
-		\end{tikzcd}
-	\end{center}
-	が存在する．
-	$V,\, W$（$\dim V = n,\, \dim W = m$）の基底をそれぞれ $\{e_\mu\},\, \{f_\nu\}$ と書き，その\hyperref[def.basisforDVS]{双対基底}をそれぞれ $\{\varepsilon^\mu\},\, \{\eta^\mu\}$ と書く．
-	命題\ref{prop:basis-tensor}より $V^* \otimes W^*$ の基底として
-	\begin{align}
-		\mathcal{E} \coloneqq \bigl\{\, \varepsilon^\mu \otimes \eta^\nu \bigm| 1 \le \mu \le n,\, 1 \le \nu \le m \,\bigr\} 
-	\end{align}
-	がとれ，命題\ref{prop:basis-L}より $L(V,\, W;\, \mathbb{K})$ の基底として
-	\begin{align}
-		\mathcal{B} \coloneqq \bigl\{\, \varepsilon^\mu \otimes \eta^\nu \bigm| 1 \le \mu \le n,\, 1 \le \nu \le m \,\bigr\} 
-	\end{align}
-	がとれる（記号が同じだが，違う定義である）．
-	このとき，$\forall (v,\, w) \in V \times W$ に対して
-	\begin{align}
-		\textcolor{red}{\overline{\Phi}}(\varepsilon^\mu \otimes \eta^\nu )(v,\, w) = \textcolor{red}{\overline{\Phi}}\circ \pi \circ \iota(\varepsilon^\mu,\,\eta^\nu )(v,\, w) = \Phi(\varepsilon^\mu,\, \eta^\nu)(v,\, w) = \varepsilon^\mu (v) \eta^\nu (w) = \varepsilon^\mu \otimes \eta^\nu(v,\, w)
-	\end{align}
-	が成り立つ（ただし，左辺の $\otimes$ は命題\ref{prop:tensor-vec}，右辺は命題\ref{prop:basis-L}で定義したものである）ので，
-	$\textcolor{red}{\overline{\Phi}}$ は $\mathcal{E}$ の元と $\mathcal{B}$ の元の1対1対応を与える．i.e. 同型写像である．
-\end{proof}
-
-\begin{mycol}[label=col:tensor-hom]{}
-    任意の\underline{有限次元} $\mathbb{K}$-ベクトル空間 $V,\, W$ に対して
-    \begin{align}
-        L(V;\, W) = \Hom{\mathbb{K}} (V,\, W) \cong V^* \otimes W
-    \end{align}
-\end{mycol}
-
-\begin{proof}
-    写像
-    \begin{align}
-        \Phi \colon V^* \times W &\lto \Hom{\mathbb{K}}(V,\, W), \\
-        (\omega,\, w) &\lmto \bigl( v \lmto \omega(v) w \bigr) 
-    \end{align}
-    は双線型なので，\hyperref[def:tensor-vec]{テンソル積の普遍性}から $\VEC{\mathbb{K}}$ の可換図式
-    \begin{center}
-		\begin{tikzcd}[row sep=large, column sep=large]
-			&V^* \times W \ar[d, "\pi \circ \iota"'] \ar[r,"\Phi"] &\Hom{\mathbb{K}}(V,\, W) \\
-			&\bm{V^* \otimes W} \ar[ur, red, dashed, "\exists! \overline{\Phi}"'] &
-		\end{tikzcd}
-	\end{center}
-	が存在する．
-	$V,\, W$（$\dim V = n,\, \dim W = m$）の基底をそれぞれ $\{e_\mu\},\, \{f_\nu\}$ と書き，その\hyperref[def.basisforDVS]{双対基底}をそれぞれ $\{\varepsilon^\mu\},\, \{\eta^\mu\}$ と書く．
-	命題\ref{prop:basis-tensor}より $V^* \otimes W*$ の基底として
-	\begin{align}
-		\mathcal{E} \coloneqq \bigl\{\, \varepsilon^\mu \otimes f_\nu \bigm| 1 \le \mu \le n,\, 1 \le \nu \le m \,\bigr\} 
-	\end{align}
-	がとれる．一方，$\forall \omega \in V^*,\; \forall w \in W$ に対して
-    \begin{align}
-        \label{eq:tensorbasis}
-        \omega \otimes w \coloneqq \Phi(\omega,\, w) \colon V \lto W,\; v \lmto \omega(v) w
-    \end{align}
-    とおくと $\Hom{\mathbb{K}}(V,\, W)$ の基底として
-	\begin{align}
-		\mathcal{B} \coloneqq \bigl\{\, \varepsilon^\mu \otimes f_\nu \bigm| 1 \le \mu \le n,\, 1 \le \nu \le m \,\bigr\} 
-	\end{align}
-	がとれる
-    \footnote{
-        $\forall F \in L(V;\, W)$ をとる．$F_{\mu}{}^\nu \coloneqq \eta^\nu \bigl( F(e_\mu) \bigr)$ とおく．このとき $\forall v = v^\mu e_\mu \in V$ に対して
-        \begin{align}
-            F_{\mu}{}^{\nu} \varepsilon^\mu \otimes f_\nu (v) = F_\mu{}^\nu \varepsilon^\mu(v) f_\nu = F_\mu{}^\nu v^\mu f_\nu
-        \end{align}
-        一方で，線形性および双対基底の定義から
-        \begin{align}
-            F(v) = v^\mu F(e_\mu) = v^\mu \eta^\nu \bigl( F(e_\mu) \bigr) f_\nu = v^\mu F_\mu{}^\nu f_\nu
-        \end{align}
-        が成り立つので $F = F_\mu{}^\nu \varepsilon^\mu \otimes f_\nu$ が言えた．i.e. $\mathcal{B}$ は $L(V;\, W)$ を生成する．
-
-        次に，$\mathcal{B}$ の元が線型独立であることを示す．
-        \begin{align}
-            F_{\mu}{}^\nu \varepsilon^\mu \otimes f_\nu = 0
-        \end{align}
-        を仮定する．$1 \le \forall \mu \le \dim V$ について右辺を $e_\mu$ に作用させることで $F_\mu{}^\nu f_\nu = 0$ が従うが，$f_\nu$ の線型独立性から $F_{\mu}{}^\nu = 0$ である．
-    }
-    （記号が同じだが，$\mathcal{E}$ とは違う定義である）．
-	このとき，$\forall v \in V$ に対して
-	\begin{align}
-		\textcolor{red}{\overline{\Phi}}(\varepsilon^\mu \otimes f_\nu )(v) = \textcolor{red}{\overline{\Phi}} \circ \pi \circ \iota(\varepsilon^\mu,\, f_\nu )(v) = \Phi(\varepsilon^\mu,\, f_\nu)(v) = \varepsilon^\mu (v) f_\nu = \varepsilon^\mu \otimes f_\nu(v)
-	\end{align}
-	が成り立つ（ただし，左辺の $\otimes$ は命題\ref{prop:tensor-vec}，右辺は\eqref{eq:tensorbasis}で定義したものである）ので，
-	$\textcolor{red}{\overline{\Phi}}$ は $\mathcal{E}$ の元と $\mathcal{B}$ の元の1対1対応を与える．i.e. 同型写像である．
-\end{proof}
-
-\begin{mycol}[label=col:tensor-multillinear]{}
-    任意の\underline{有限次元} $\mathbb{K}$-ベクトル空間 $V_1,\, \dots,\, V_n,\, W$ に対して
-    \begin{align}
-        L(V_1,\, \dots,\, V_n;\, W) \cong V_1^* \otimes \cdots \otimes V_n^* \otimes W
-    \end{align}
-\end{mycol}
-
-\begin{proof}
-    命題\ref{prop:tensor-multillinear}, 系\ref{col:tensor-hom}をあわせて
-    \begin{align}
-        L(V_1,\, \dots,\, V_n;\, W) \cong L(V_1,\, \dots,\, V_n;\, \mathbb{K}) \otimes W \cong V_1^* \otimes \cdots \otimes V_n^* \otimes W
-    \end{align}
-    を得る．
-\end{proof}
-
 \subsection{$\mathfrak{g}$-加群と表現}
 
+この小節では $\mathbb{K}$ を\underline{任意の体}とする．
 まず，環上の加群の定義を復習する：
 
 \begin{myaxiom}[label=ax:R-module,breakable]{環上の加群の公理}
@@ -557,7 +204,7 @@ $\mathfrak{g}$ を体 $\mathbb{K}$ 上の\hyperref[ax:LieAlg]{Lie代数}とす�
 \hyperref[def:rep-LieAlg]{Lie代数の表現}を考えることは $\mathfrak{g}$-加群を考えることと同値なのである．
 
 \begin{mydef}[label=def:g-module-hom]{$\mathfrak{g}$-加群の準同型}
-    $\mathfrak{g}$ を\hyperref[ax:LieAlg]{Lie代数}，$V,\, W$ を $\mathfrak{g}$-\hyperref[ax:g-module]{加群}とする．
+    $\mathfrak{g}$ を\hyperref[ax:LieAlg]{Lie代数}，$V,\, W$ を \hyperref[ax:g-module]{ $\mathfrak{g}$-加群}とする．
     線型写像 $f \colon V \lto W$ が $\bm{\mathfrak{g}}$\textbf{-加群の準同型} (homomorphism of $\mathfrak{g}$-module)
     \footnote{
         \textbf{同変写像} (equivalent map) と言うこともある．
@@ -576,7 +223,7 @@ $\mathfrak{g}$ を体 $\mathbb{K}$ 上の\hyperref[ax:LieAlg]{Lie代数}とす�
 \end{mydef}
 
 \begin{mydef}[label=def:sub-g-module]{部分 $\mathfrak{g}$-加群}
-	$\mathfrak{g}$-\hyperref[ax:g-module]{加群} $V$ を与える．\underline{部分集合} $W \subset V$ が\textbf{部分 $\bm{\mathfrak{g}}$-加群}であるとは，$W$ が和，スカラー乗法，$\mathfrak{g}$ の左作用の全てについて閉じていること．
+	\hyperref[ax:g-module]{ $\mathfrak{g}$-加群} $V$ を与える．\underline{部分集合} $W \subset V$ が\textbf{部分 $\bm{\mathfrak{g}}$-加群}であるとは，$W$ が和，スカラー乗法，$\mathfrak{g}$ の左作用の全てについて閉じていること．
 	i.e. $\forall w,\, w_1,\, w_2 \in W,\; \forall \lambda \in \mathbb{K},\; \forall x \in \mathfrak{g}$ に対して
 	\begin{align}
 		w_1 + w_2 &\in W \\
@@ -584,31 +231,481 @@ $\mathfrak{g}$ を体 $\mathbb{K}$ 上の\hyperref[ax:LieAlg]{Lie代数}とす�
 		x \btr w &\in W
 	\end{align}
 	が成り立つことを言う．
+	\tcblower
+	同値な定義として，以下の2つの条件が充たされることを言う：
+	\begin{description}
+		\item[\textbf{(sub-M1)}] $W$ が $V$ の\underline{部分ベクトル空間}
+		\item[\textbf{(sub-M2)}] \hyperref[def:rep-LieAlg]{Lie代数の表現}
+		\begin{align}
+			\phi \colon \mathfrak{g} \lto \mathfrak{gl}(V),\; x \lmto (v \lmto x \btr v)
+		\end{align}
+		に関して
+		\begin{align}
+			\forall x \in \mathfrak{g},\; \phi(x)(W) \subset W
+		\end{align}
+		が成り立つ．i.e. $\forall x \in \mathfrak{g}$ に対して $W$ は $\phi(x)$-不変である．
+	\end{description}
+\end{mydef}
+
+\begin{myexample}[label=ex:gmod-Ker-Im]{$\mathfrak{g}$-加群の準同型の核と像}
+	\hyperref[ax:g-module]{$\mathfrak{g}$-加群} $V,\, W$ とその間の\hyperref[def:g-module-hom]{$\mathfrak{g}$-加群の準同型} $f \colon V \lto W$ を与える．このとき
+	\begin{align}
+		v \in \Ker f &\IMP \forall x \in \mathfrak{g},\; f(x \btr v) = x \btr f(v) = x \btr 0 = 0 \IFF \forall x \in \mathfrak{g},\; x \btr v \in \Ker f, \\
+		w \in \Im f &\IFF \exists v \in V,\; w = f(v) \IMP \forall x \in \mathfrak{g},\; x \btr w = x \btr f(v) = f(x \btr v) \\
+		&\IFF \forall x \in \mathfrak{g},\; x \btr w \in \Im f
+	\end{align}
+	が言えるので $\Ker f,\; \Im f$ はそれぞれ $V,\, W$ の\hyperref[def:sub-g-module]{部分 $\mathfrak{g}$-加群}である．
+\end{myexample}
+
+
+\subsection{$\mathfrak{g}$-加群の直和と既約性}
+
+この小節でも $\mathbb{K}$ を\underline{任意の体}とする．
+
+\begin{mydef}[label=def:gmod-directsum,breakable]{$\mathfrak{g}$-加群の直和}
+	\hyperref[ax:g-module]{ $\mathfrak{g}$-加群}の族 $\Familyset[\big]{(V_i,\, +,\, \cdot\;,\, \btr_i)}{i \in I}$ を与える．このとき
+	\begin{itemize}
+		\item \hyperref[def:univ-vec-sum]{直和ベクトル空間} $\bigoplus_{i \in I} V_i$
+		\item $\bigoplus_{i \in I} V_i$ への $\mathfrak{g}$ の左作用
+		\begin{align}
+			\btr \colon \mathfrak{g} \times \bigoplus_{i \in I} V_i \lto \bigoplus_{i \in I} V_i,\; \bigl(x,\, (v_i)_{i \in I}\bigr) \lmto (x \btr_i v_i)_{i \in I}
+		\end{align}
+	\end{itemize}
+	の組として得られる $\mathfrak{g}$-加群 $(\bigoplus_{i \in I} V_i,\, +,\, \cdot\;,\, \btr)$ を\textbf{$\mathfrak{\bm{g}}$-加群の直和} (direct sum) と呼び\footnote{系\ref{col:subvec-directsum}の注と同様に，この定義は厳密には\textbf{外部直和} (external direct sum) と呼ぶべきだと思う．}，$\bm{\bigoplus_{i \in I} V_i}$ と略記する．
 \end{mydef}
 
 \begin{mydef}[label=def:irr]{Lie代数の表現の既約性}
     \begin{itemize}
-		\item $\mathfrak{g}$-\hyperref[ax:g-module]{加群} $V$ が\textbf{既約} (irreducible)\footnote{i.e. Lie代数 $\mathfrak{g}$ の表現 $(\phi,\, V)$ が\textbf{既約表現} (irreducible representation; irrep) だ，と言っても良い．}であるとは，$V$ の部分 $\mathfrak{g}$-加群が $0,\, V$ のちょうど\underline{2つ}\footnote{つまり，零ベクトル空間 $0$ は既約な $\mathfrak{g}$-加群とは呼ばない．}だけであることを言う．
-		\item $\mathfrak{g}$-\hyperref[ax:g-module]{加群} $V$ が\textbf{完全可約} (completely reducible)であるとは，$V$ が既約な部分 $\mathfrak{g}$-加群の直和であることを言う．
+		\item \hyperref[ax:g-module]{ $\mathfrak{g}$-加群} $V$ が\textbf{既約} (irreducible)\footnote{i.e. Lie代数 $\mathfrak{g}$ の表現 $(\phi,\, V)$ が\textbf{既約表現} (irreducible representation; irrep) だ，と言っても良い．}であるとは，$V$ の\hyperref[def:sub-g-module]{部分 $\mathfrak{g}$-加群}が $0,\, V$ のちょうど\underline{2つ}\footnote{つまり，零ベクトル空間 $0$ は既約な $\mathfrak{g}$-加群とは呼ばない．}だけであることを言う．
+		\item \hyperref[ax:g-module]{ $\mathfrak{g}$-加群} $V$ が\textbf{完全可約} (completely reducible)であるとは，$V$ が既約な\hyperref[def:gmod-directsum]{部分 $\mathfrak{g}$-加群の直和}
+		\footnote{こちらの場合，厳密には\textbf{内部直和} (internal direct sum) と呼ぶべきだと思う．}
+		であることを言う．
 	\end{itemize}
-	
 \end{mydef}
 
-\begin{myprop}[label=prop:reducible-1]{完全可約性}
+次の補題は証明が少し厄介である：
+\begin{mylem}[label=lem:semisimple-split]{完全可約の全射}
+	\hyperref[def:g-module-hom]{$\mathfrak{g}$-加群の準同型} $p \colon V \lto W$ を与える．
+	このとき $p$ が全射かつ $V$ が\hyperref[def:irr]{完全可約}ならば，$\mathfrak{g}$-加群の短完全列
+	\begin{align}
+		0 \lto \Ker p \hookrightarrow V \xrightarrow{p} W \lto 0
+	\end{align}
+	は\hyperref[lem:splitting]{分裂}する．
+\end{mylem}
+
+\begin{proof}
+	% \hyperref[def:g-module-hom]{$\mathfrak{g}$-加群の準同型} $i \colon W \lto V$ であって $p \circ i = \mathrm{id}_W$ を充たすものが存在することを示す．
+	$V$ が完全可約という仮定から，\hyperref[def:irr]{既約}な\hyperref[def:sub-g-module]{部分 $\mathfrak{g}$-加群}の族 $\Familyset[\big]{V_i}{i \in I}$ が存在して，\hyperref[col:subvec-directsum]{内部直和}の意味で
+	\begin{align}
+		V = \bigoplus_{i \in I} V_i
+	\end{align}
+	と書ける．ここで $\mathcal{S}$ を以下の条件を充たす組 $(J,\, V_J)$ 全体の集合とする：
+	\begin{itemize}
+		\item $J \subset I,\; V_J = \bigoplus_{j \in J} V_j \subset V$
+		\item $\Ker p \cap V_J = 0$
+	\end{itemize}
+	$\mathcal{S}$ の上の2項関係を
+	\begin{align}
+		(J,\, V_J) \le (K,\, V_K) \DEF J \subset K
+	\end{align}
+	と定義すると組 $(\mathcal{S},\, \le)$ は順序集合になる．
+	また $\mathcal{S}' = \Familyset[\big]{(J_a,\, V_{J_a})}{a \in A}$ を $\mathcal{S}$ の任意の全順序部分集合とすると $\Bigl(\bigcup_{a\in A} J_a,\, V_{\bigcup_{a \in A} J_a}\Bigr) \in \mathcal{S}$ であり\footnote{$V_{\bigcup_{a \in A} J_a} = \bigoplus_{j \in \bigcup_{a \in A} J_a} V_j = \bigcup_{a \in A} V_{J_a}$ なので，$\cap$ の分配律から $\Ker p \cap V_{\bigcup_{a \in A} J_a} = \Ker p \cap \bigcup_{a \in A} V_{J_a} = \bigcup_{a \in A} (\Ker p \cap V_{J_a}) = 0$ が言える．}，これが $\mathcal{S}'$ の上界を与える．i.e. $\mathcal{S}$ は帰納的順序集合である．
+	したがってZornの補題を使うことができ，$\mathcal{S}$ は極大元 $(J_0,\, V_{J_0}) \in \mathcal{S}$ を持つ．
+
+	次に $V = \Ker p \oplus V_{J_0}$ を示す．$\mathcal{S}$ の定義から $\Ker p \cap V_{J_0} = 0$ なので，命題\ref{prop:subvec-directsum}より $V = \Ker p + V_{J_0}$ を示せば良い．
+	$V \neq \Ker p + V_{J_0}$ を仮定すると，ある $k \in I \setminus J_0$ が存在して $V_k \not\subset \Ker p + V_{J_0}$ を充たす．$V_k$ は既約なので $V_k \cap (\Ker p + V_{J_0}) = 0$ が成り立つが，このことは $(J_0,\, V_{J_0})$ の極大性に矛盾．よって背理法から $V = \Ker p + V_{J_0}$ が言えた．
+
+	以上より $W \cong V / \Ker p \cong V_{J_0}$ が言える．このとき包含準同型 $i \colon V_{J_0} \hookrightarrow V$ が $p \circ i = \mathrm{id}_{V_{J_0}}$ を充たすので証明が完了した．
+\end{proof}
+
+
+\begin{myprop}[label=prop:reducible-1]{完全可約性の特徴付け}
 	以下の2つは同値である：
 	\begin{enumerate}
-		\item $\mathfrak{g}$-\hyperref[ax:g-module]{加群} $V$ が完全可約
-		\item $V$ の任意の部分 $\mathfrak{g}$-加群 $W \subset V$ に対して，部分 $\mathfrak{g}$-加群 $W^c \subset V$ \footnote{$W$ の\textbf{補空間} (complement) と言う．}が存在して $V \cong W \oplus W^c$ を充たす．
+		\item \hyperref[ax:g-module]{ $\mathfrak{g}$-加群} $V$ が\hyperref[def:irr]{完全可約}
+		\item $V$ の任意の\hyperref[def:gmod-directsum]{部分 $\mathfrak{g}$-加群} $W \subset V$ に対して，\hyperref[def:gmod-directsum]{部分 $\mathfrak{g}$-加群} $W^c \subset V$ \footnote{$W$ の\textbf{補表現} (complement representation) と言う．}が存在して $V \cong W \oplus W^c$ を充たす．
 	\end{enumerate}
 \end{myprop}
 
 \begin{proof}
+	\begin{description}
+		\item[\textbf{(1) $\bm{\Longrightarrow}$ (2)}]　
+		$V$ が既約な部分 $\mathfrak{g}$-加群の族 $\Familyset[\big]{V_i}{i \in I}$ によって
+		\begin{align}
+			\label{eq:ds1}
+			V = \bigoplus_{i \in I} V_i 
+		\end{align}
+		と書けるとする．$V$ の任意の部分 $\mathfrak{g}$-加群 $W \subset V$ を1つ固定する．
+		このとき標準的射影 $p \colon V \lto V/W$ は全射な\hyperref[def:g-module-hom]{$\mathfrak{g}$-加群の準同型}なので，補題\ref{lem:semisimple-split}から$\mathfrak{g}$-加群の短完全列
+		\begin{align}
+			0 \lto \Ker p \cong W \hookrightarrow V \xrightarrow{p} V/W \lto 0
+		\end{align}
+		が\hyperref[lem:splitting]{分裂}する．よって系\ref{col:split}から
+		\begin{align}
+			V \cong W \oplus (V/W)
+		\end{align}
+		が言えた．
+		% i.e. $p \circ i = \mathrm{id}_W$ を充たす $\mathfrak{g}$-加群の準同型 $i \colon V/W \lto V$ が存在する．$p$ は全射なので $i$ は単射であり，$V/W \cong \Im i$ が言える．よって 
+
+		\item[\textbf{(1) $\bm{\Longleftarrow}$ (2)}]　
+		
+		% $V$ の任意の\hyperref[def:gmod-directsum]{部分 $\mathfrak{g}$-加群}が補空間を持つとする．
+		% このとき $\dim V$ に関する数学的帰納法から
+		$V$ の\hyperref[def:irr]{既約な部分 $\mathfrak{g}$-加群}全体の集合を $\mathcal{V}$ と書く．$\mathcal{S}$ を以下の条件を充たす組 $(I,\, V_I)$ 全体の集合とする：
+		\begin{itemize}
+			\item $I \subset \mathcal{V}$
+			\item 内部直和の意味で $V_I = \bigoplus_{V_i \in I} V_i \subset V$
+		\end{itemize}
+		$\mathcal{S}$ 上の2項関係を
+		\begin{align}
+			(I,\, V_I) \le (J,\, V_J) \DEF I \subset J
+		\end{align}
+		と定義すると組 $(\mathcal{S},\, \le)$ は順序集合になる．$V$ の $0$ でない部分 $\mathfrak{g}$-加群のうち極小のものを $V_1$ とすると，定義から $V_1 \in \mathcal{V}$ なので $(\{V_1\},\, V_{V_1}) \in \mathcal{S}$ となり $\mathcal{S}$ は空でない．
+		また $\mathcal{S}' = \Familyset[\big]{(J_a,\, V_{J_a})}{a \in A}$ を $\mathcal{S}$ の任意の全順序部分集合とすると $\Bigl(\bigcup_{a\in A} J_a,\, V_{\bigcup_{a \in A} J_a}\Bigr) \in \mathcal{S}$ であり，これが $\mathcal{S}'$ の上界を与える．i.e. $\mathcal{S}$ は帰納的順序集合である．
+		したがってZornの補題を使うことができ，$\mathcal{S}$ は極大元 $(I_0,\, V_{I_0}) \in \mathcal{S}$ を持つ．
+		このとき $V = V_{I_0}$ であることを背理法により示そう．
+
+		　$V \neq V_{I_0}$ を仮定する．このとき (2) より $V$ の $0$ でない部分 $\mathfrak{g}$-加群 $V_{I_0}^c$ が存在して $V \cong V_{I_0} \oplus V_{I_0}^c$ を充たす．このとき $V_{I_0}^c$ に含まれる $0$ でない極小の部分 $\mathfrak{g}$-加群 $W$ をとることができるが，定義からこの $W$ は既約である．よって
+		\begin{align}
+			W \oplus V_{I_0} \subset V
+		\end{align}
+		もまた既約部分 $\mathfrak{g}$-加群の直和となり，$V_{I_0}$ の極大性に矛盾する．
+	\end{description}
+	
+\end{proof}
+
+\begin{mylem}[label=lem:Schur]{Schurの補題}
+	\underline{任意の体}\footnote{代数閉体でなくても良い} $\mathbb{K}$ 上の\hyperref[ax:g-module]{$\mathfrak{g}$-加群} $V,\, W$，および \underline{$0$ でない}\hyperref[def:g-module-hom]{$\mathfrak{g}$-加群の準同型} $f \colon V \lto W$ を与える．
+	このとき以下が成り立つ：
+	\begin{enumerate}
+		\item $V$ が\hyperref[def:irr]{既約}ならば $f$ は単射
+		\item $W$ が\hyperref[def:irr]{既約}ならば $f$ は全射
+	\end{enumerate}
+	
+\end{mylem}
+
+\begin{proof}
+	\begin{enumerate}
+		\item \exref{ex:gmod-Ker-Im}より $\Ker f$ は $V$ の\hyperref[def:sub-g-module]{部分 $\mathfrak{g}$-加群}だが，$V$ が既約なので $\Ker f = 0,\, V$ のどちらかである．仮定より $f$ は $0$ でないので $\Ker f = 0$，i.e. $f$ は単射である．
+		\item \exref{ex:gmod-Ker-Im}より $\Im f$ は $W$ の\hyperref[def:sub-g-module]{部分 $\mathfrak{g}$-加群}だが，$W$ が既約なので $\Im f = 0,\, W$ のどちらかである．仮定より $f$ は $0$ でないので $\Im f = W$，i.e. $f$ は全射である．
+	\end{enumerate}
+	
+\end{proof}
+
+\begin{mycol}[label=col:Schur-closed]{代数閉体上のSchurの補題}
+	\underline{代数閉体} $\mathbb{K}$ 上の有限次元\hyperref[ax:g-module]{$\mathfrak{g}$-加群} $V$ を与える．
+	このとき $V$ が\hyperref[def:irr]{既約}ならば，任意の\hyperref[def:g-module-hom]{$\mathfrak{g}$-加群の自己準同型} $\phi \in \End V$ はある $\lambda \in \mathbb{K}$ を使って $\phi = \lambda\, \mathrm{id}_V$（i.e. スカラー倍）と書ける．
+\end{mycol}
+
+\begin{proof}
+	仮定より $V$ が既約なので，補題\ref{lem:Schur}-(1), (2) より任意の\hyperref[def:g-module-hom]{$\mathfrak{g}$-加群の自己準同型} $\phi \colon V \lto V$ は\hyperref[def:g-module-hom]{$\mathfrak{g}$-加群の同型}か $0$ のどちらかである．
+	ここで $\lambda \in \mathbb{K}$ を $\phi$ の固有値とする．$\mathbb{K}$ が代数閉体なので $\lambda$ は確かに存在する．
+	このとき写像 $\phi - \lambda\, \mathrm{id}_V \colon V \lto V$ もまた\hyperref[def:g-module-hom]{$\mathfrak{g}$-加群の自己準同型}となるが，固有値の定義から $\det (\phi - \lambda\, \mathrm{id}_V) = 0$ なので同型写像ではあり得ない．よって $\phi - \lambda\, \mathrm{id}_V = 0 \IFF \phi = \lambda\, \mathrm{id}_V$ である．
+\end{proof}
+
+\begin{mycol}[label=col:solvable-irrep]{可換なLie代数の有限次元既約表現}
+	\underline{代数閉体}上のLie代数 $\mathfrak{g}$ が可換ならば，$\mathfrak{g}$ の任意の\underline{有限次元}\hyperref[def:irr]{既約表現}は1次元である．
+\end{mycol}
+
+\begin{proof}
+	$\phi \colon \mathfrak{g} \lto \Lgl (V)$ を $\mathfrak{g}$ の有限次元既約表現とする．
+	このとき $\mathfrak{g}$ が可換であることから $\forall x,\, y \in \mathfrak{g},\, \forall v \in V$ に対して
+	\begin{align}
+		\phi(x)(y \btr v) 
+		&= \phi(x) \circ \phi(y) (v) \\
+		&= \comm{\phi(x)}{\phi(y)}(v) + \phi(y) \circ \phi(x)(v) \\
+		&= \phi(\comm{x}{y})(v) + \phi(y) \circ \phi(x)(v) \\
+		&= \phi(0)(v) + \phi(y) \circ \phi(x)(v) \\
+		&= \phi(y) \circ \phi(x)(v) \\
+		&= y \btr \bigl( \phi(x)(v) \bigr)
+	\end{align}
+	が言える．i.e. $\forall x \in \mathfrak{g}$ に対して $\phi(x) \colon V \lto V$ は\hyperref[def:g-module-hom]{$\mathfrak{g}$-加群の準同型}である．
+	よって\hyperref[col:Schur-closed]{Schurの補題}から $\phi(x)$ がスカラー倍だとわかる．
+	故に $V$ の任意の1次元部分ベクトル空間は自動的に\hyperref[def:sub-g-module]{部分 $\mathfrak{g}$-加群}になる．
+	然るに $V$ は仮定より既約だから $V$ の\hyperref[def:sub-g-module]{部分 $\mathfrak{g}$-加群}は $0,\, V$ しかあり得ない．さらに $V \neq 0$ なので $\dim V = 1$ でなくてはならない．
+\end{proof}
+
+\subsection{$\mathfrak{g}$-加群のHomとテンソル積}
+
+この小節でも $\mathbb{K}$ を\underline{任意の体}とする．
+
+\begin{mydef}[label=def:gmod-tensor]{$\mathfrak{g}$-加群のテンソル積}
+	$(V_1,\, +,\, \cdot\;,\, \btr_1) ,\, (V_2,\, +,\, \cdot\;,\, \btr_2)$ を\underline{有限次元}\hyperref[ax:g-module]{ $\mathfrak{g}$-加群}とする．このとき
+	\begin{itemize}
+		\item \hyperref[def:univ-vec-tensor]{$\mathbb{K}$-ベクトル空間のテンソル積} $V_1 \otimes V_2$
+		\item $V_1 \otimes V_2$ への $\mathfrak{g}$ の左作用\footnote{正確には，これの右辺を線型に拡張したもの}
+		\begin{align}
+			\btr \colon \mathfrak{g} \times (V_1 \otimes V_2) \lto V_1 \otimes V_2,\; (x,\, v_1 \otimes v_2) \lmto (x \btr_1 v_1) \otimes v_2 + v_1 \otimes (x \btr_2 v_2)
+		\end{align}
+	\end{itemize}
+	の組として得られる $\mathfrak{g}$-加群 $(V_1 \otimes V_2,\, +,\, \cdot\;,\, \btr)$ を\textbf{$\bm{\mathfrak{g}}$-加群のテンソル積} (tensor product) と呼び，$\bm{V_1 \otimes V_2}$ と略記する．
+\end{mydef}
+
+実際 $V_1 \otimes V_2$ が $\mathfrak{g}$-加群になっていることを確認しておこう：
+\begin{align}
+	\comm{x}{y} \btr (v_1 \otimes v_2)
+	&= (\comm{x}{y} \btr_1 v_1) \otimes v_2 + v_1 \otimes (\comm{x}{y} \btr_2 v_2) \\
+	&= (x \btr_1 y \btr_1 v_1) \otimes v_2 - (y \btr_1 x \btr_1 v_1) \otimes v_2 \\
+	&\quad + v_1 \otimes (x \btr_2 y \btr_2 v_2) - v_1 \otimes (y \btr_2 x \btr_2 v_2) \\
+	&= \bigl( (x \btr_1 y \btr_1 v_1) \otimes v_2 + v_1 \otimes (x \btr_2 y \btr_2 v_2) \bigr) \\
+	&\quad - \bigl( (y \btr_1 x \btr_1 v_1) \otimes v_2 + v_1 \otimes (y \btr_2 x \btr_2 v_2) \bigr), \\
+	x \btr y \btr (v_1 \otimes v_2) - y \btr x \btr (v_1 \otimes v_2)
+	&= x \btr \bigl( (y \btr_1 v_1) \otimes v_2 + v_1 \otimes (y \btr_2 v_2) \bigr) \\
+	&\quad - y \btr \bigl( (x \btr_1 v_1) \otimes v_2 + v_1 \otimes (x \btr_2 v_2) \bigr) \\
+	&= \bigl( (x \btr_1 y \btr_1 v_1) \otimes v_2 + v_1 \otimes (x \btr_2 y \btr_2 v_2) \bigr) \\
+	&\quad - \bigl( (y \btr_1 x \btr_1 v_1) \otimes v_2 + v_1 \otimes (y \btr_2 x \btr_2 v_2) \bigr)
+\end{align}
+なので
+\begin{align}
+	\comm{x}{y} \btr (v_1 \otimes v_2)  = x \btr y \btr (v_1 \otimes v_2) - y \btr x \btr (v_1 \otimes v_2)
+\end{align}
+がわかった．
+
+\begin{mydef}[label=def:gmod-dual]{$\mathfrak{g}$-加群の双対}
+	$(V,\, +,\, \cdot\;,\, \btr)$ を\underline{有限次元}\hyperref[ax:g-module]{ $\mathfrak{g}$-加群}とする．このとき
+	\begin{itemize}
+		\item \hyperref[def:hom-vec]{双対ベクトル空間} $V^* = \Hom{\mathbb{K}}(V,\, \mathbb{K})$
+		\item $V^*$ への $\mathfrak{g}$ の左作用
+		\begin{align}
+			\btr \colon \mathfrak{g} \times V^* \lto V^*,\; (x,\, f) \lmto \bigl(v \mapsto - f(x \btr v)\bigr)
+		\end{align}
+	\end{itemize}
+	の組として得られる $\mathfrak{g}$-加群 $(V^*,\, +,\, \cdot\;,\, \btr)$ を\textbf{$\bm{\mathfrak{g}}$-加群の双対} (dual)\footnote{\textbf{反傾} (contragradient) と呼ぶ場合もあるようだが，現在はあまり使われていないような気がする．} と呼び，$\bm{V^*}$ と略記する．
+	
+\end{mydef}
+
+実際 $V^*$ が $\mathfrak{g}$-加群になっていることを確認しておこう：
+\begin{align}
+	(\comm{x}{y} \btr f)(v)
+	&= - f(\comm{x}{y} \btr f)(v) \\
+	&= - f(x \btr y \btr v - y \btr x \btr v) \\
+	&= - f(x \btr y \btr v)  + f(y \btr x \btr v) \\
+	&= (x \btr f)(y \btr v) - (y \btr f)(x \btr v) \\
+	&= -\bigl( y \btr (x \btr f) \bigr) (v) + \bigl( x \btr (y \btr f) \bigr) (v) \\
+	&= (x \btr y \btr f)(v) - (y \btr x \btr f)(v)
+\end{align}
+なので
+\begin{align}
+	\comm{x}{y} \btr f = x \btr y \btr f - y \btr x \btr f
+\end{align}
+がわかった．
+
+ここで， $\mathbb{K}$-ベクトル空間の自然な同型（命題\ref{prop:tensor-hom}）
+\begin{align}
+	V^* \otimes W \cong \Hom{\mathbb{K}}(V,\, W)
+\end{align}
+の具体形が
+\begin{align}
+	\label{eq:isom-tensorhom}
+	\alpha \colon f \otimes w \lmto \bigl( v \mapsto f(v) \cdot w  \bigr) 
+\end{align}
+となっていたことを思い出そう．このことから，$\mathbb{K}$-ベクトル空間 $\Hom{\mathbb{K}}(V,\, W)$ の上の $\mathfrak{g}$ の左作用を
+\begin{align}
+	x \btr (f \otimes w) = - f (x \btr \mhyphen) \otimes w + f \otimes (x \btr w)
+\end{align}
+に着想を得て
+\begin{align}
+	(x \btr F)(v) = - F(x \btr v) + x \btr F(v)\quad (\forall F \in \Hom{\mathbb{K}}(V,\, W))
+\end{align}
+と定義しようと思うのが自然である．というのも，こう定義することで $\mathbb{K}$-ベクトル空間の同型写像\eqref{eq:isom-tensorhom}が
+\begin{align}
+	\alpha \bigl( x \btr (f \otimes w) \bigr) (v)
+	&= - \alpha \bigl(f (x \btr \mhyphen) \otimes w\bigr)(v) + \alpha \bigl( f \otimes (x \btr w) \bigr)(v) \\
+	&= - f (x \btr v)\cdot w + f(v) \cdot (x \btr w) \\
+	&= - f (x \btr v)\cdot w + x \btr \bigl( f(v) \cdot w \bigr) \\
+	&= \bigl(x \btr \alpha (f \otimes w) \bigr)(v)
+\end{align}
+となって\hyperref[def:g-module-hom]{$\mathfrak{g}$-加群の同型写像}になる！
+
+\begin{mydef}[label=def:gmod-hom]{$\mathfrak{g}$-加群のHom}
+	$(V,\, +,\, \cdot\;,\, \btr_1) ,\, (W,\, +,\, \cdot\;,\, \btr_2)$ を\underline{有限次元}\hyperref[ax:g-module]{ $\mathfrak{g}$-加群}とする．このとき
+	\begin{itemize}
+		\item \hyperref[def:vec-hom]{$\mathbb{K}$-ベクトル空間} $\Hom{\mathbb{K}}(V,\, W)$\footnote{$V$ から $W$ への\hyperref[def:g-module-hom]{$\mathfrak{g}$-加群の準同型}全体の集合\underline{ではない}．}
+		\item $\Hom{\mathbb{K}}(V,\, W)$ への $\mathfrak{g}$ の左作用
+		\begin{align}
+			\btr \colon \mathfrak{g} \times \Hom{\mathbb{K}}(V,\, W) \lto \Hom{\mathbb{K}}(V,\, W),\; F \lmto \bigl( v \mapsto - F(x \btr_1 v) + x \btr_2 F(v) \bigr) 
+		\end{align}
+	\end{itemize}
+	の組として得られる $\mathfrak{g}$-加群 $\bigl(\Hom{\mathbb{K}}(V,\, W),\, +,\, \cdot\;,\, \btr\bigr)$ を $\bm{\Hom{\mathbb{K}}(V,\, W)}$ と略記する．
+\end{mydef}
+
+
+\subsection{Casimir演算子}
+
+この小節では $\mathbb{K}$ は代数閉体とする．
+
+\begin{mydef}[label=def:faithful]{忠実な表現}
+	\hyperref[def:rep-LieAlg]{Lie代数 $\mathfrak{g}$ の表現} $\rho \colon \mathfrak{g} \lto \Lgl (V)$ が\textbf{忠実} (faithful)\footnote{群作用の文脈では\textbf{効果的な作用} (effective action) と呼ぶ．} であるとは，$\rho$ が単射であることを言う．
+\end{mydef}
+
+% この小節の以降では有限次元表現を考える．
+Lie代数 $\mathfrak{g}$ の表現 $\phi \colon \mathfrak{g} \lto \Lgl (V)$ は忠実であるとする．
+$\mathfrak{g}$ 上の対称な双線型形式 $\beta \in L(\mathfrak{g},\, \mathfrak{g};\, \mathbb{K})$ を
+\begin{align}
+	\beta \colon \mathfrak{g} \times \mathfrak{g} \lto \mathbb{K},\; (x,\, y) \lmto \Tr \bigl( \phi(x) \circ \phi(y) \bigr) 
+\end{align}
+と定義する．このとき $\Tr$ の循環性から
+\begin{align}
+	\beta (x,\, \comm{y}{z}) 
+	&= \Tr \bigl( \phi(x) \circ \phi(\comm{y}{z}) \bigr) \\
+	&= \Tr \bigl( \phi(x) \circ \phi(y) \circ \phi(z) \bigr) - \Tr \bigl( \phi(x) \circ \phi(z) \circ \phi(y) \bigr) \\
+	&= \Tr \bigl( \phi(x) \circ \phi(y) \circ \phi(z) \bigr) - \Tr \bigl( \phi(y) \circ \phi(x) \circ \phi(z) \bigr) \\
+	&= \Tr \bigl( \phi(\comm{x}{y}) \circ \phi(z) \bigr) \\
+	&= \beta (\comm{x}{y},\, z)
+\end{align}
+が成り立つので，$\beta$ の\hyperref[def:radical-bilinear]{radical}
+\begin{align}
+	S_\beta \coloneqq \bigl\{\, x \in \mathfrak{g} \bigm| \forall y \in \mathfrak{g},\; \beta (x,\, y) = 0 \,\bigr\} 
+\end{align}
+は $\mathfrak{g}$ の\hyperref[def:ideal-LieAlg]{イデアル}となる．
+さらに $\mathfrak{g}$ が\hyperref[def:semisimple-LieAlg]{半単純}ならば，定理\ref{thm:Cartan-crit}から $\phi(S) \subset \Lgl (\mathfrak{g})$ は\hyperref[def:solvable-LieAlg]{可解}であり，定理\ref{thm:semisimple-LieAlg-iff}の証明からこのとき $S_\beta = 0$ であること，i.e. $\beta$ が\hyperref[def:radical-bilinear]{非退化}であることが言える．
+
+\begin{mylem}[label=lem:Casimir,breakable]{}
+	$\{e_\mu\}$ を\hyperref[de:semisimple-LieAlg]{半単純Lie代数} $\mathfrak{g}$ の基底，
+	$\beta \in L(\mathfrak{g},\, \mathfrak{g};\, \mathbb{K})$
+	を対称かつ\hyperref[def:radical-bilinear]{非退化}な双線型形式であって $\forall x,\, y,\, z \in \mathfrak{g}$ に対して
+	\begin{align}
+		\beta(x,\, \comm{y}{z}) = \beta (\comm{x}{y},\, z)
+	\end{align}
+	を充たすものとする．
+	このとき以下が成り立つ： 
+	\begin{enumerate}
+		\item 
+		$\mathfrak{g}$ の基底 $\{f_\mu\}$ であって，$\forall (\mu,\, \nu) \in \{1,\, \dots,\, \dim \mathfrak{g}\}^2$ に対して
+		\begin{align}
+			\beta(e_\mu,\, f_\nu) = \delta_{\mu\nu}
+		\end{align}
+		を充たすものが一意的に存在する．
+		\item $\forall x \in \mathfrak{g}$ を一つ固定する．このとき $\ad(x) \colon \mathfrak{g} \lto \Lgl (\mathfrak{g})$ の基底 $\{e_\mu\}$ による表現行列 $\bigl[ a_\mu{}^\nu \bigr]_{1 \le \mu,\, \nu \le \dim \mathfrak{g}}$ と，(1) の基底 $\{f_\mu\}$ による表現行列 $\bigl[ a_\mu{}^\nu \bigr]_{1 \le \mu,\, \nu \le \dim \mathfrak{g}}$ について
+		\begin{align}
+			a_\mu{}^\nu = -b_\nu{}^\mu
+		\end{align}
+		が成り立つ．
+	\end{enumerate}
+\end{mylem}
+
+\begin{proof}
+	\begin{enumerate}
+		\item 
+		$\beta_{\mu\nu} \coloneqq \beta(e_\mu,\, e_\nu)$ とおく．このとき $x = x^\mu e_\mu \in \mathfrak{g}$ に対して
+		\begin{align}
+			\forall y = y^\nu e_\nu \in \mathfrak{g},\; \beta(x,\, y) = 0 
+			&\IFF \forall (y^\nu)_{1 \le \nu \le \dim \mathfrak{g}} \in \mathbb{K}^{\dim \mathfrak{g}},\; \beta_{\mu\nu} x^\mu y^\nu = 0 \\
+			&\IFF \beta_{\nu\mu} x^\mu = 0\quad (1 \le \forall \nu \le \dim \mathfrak{g}) \\
+			&\IFF (x^\mu)_{1 \le \nu \le \dim \mathfrak{g}} \in \Ker \bigl[ \beta_{\mu\nu} \bigr]_{1 \le \mu,\, \nu \le \dim \mathfrak{g}} \subset \mathbb{K}^{\dim \mathfrak{g}}
+		\end{align}
+		が言える．ただし2つ目の同値変形で $\beta$ が対称であることを使った．したがって $\beta$ が非退化であることは $\Ker \bigl[ \beta_{\mu\nu} \bigr]_{1 \le \mu,\, \nu \le \dim \mathfrak{g}} = 0$ と同値であり，$\det \bigl[ \beta_{\mu\nu} \bigr]_{1 \le \mu,\, \nu \le \dim \mathfrak{g}} \neq 0$ が言える．
+		よって $\bigl[ \beta_{\mu\nu} \bigr]_{1 \le \mu,\, \nu \le \dim \mathfrak{g}}$ の逆行列 $\bigl[ \alpha_{\mu}{}^\nu \bigr]_{1 \le \mu,\, \nu \le \dim \mathfrak{g}}$ が一意的に存在するので，
+		$f_\mu \coloneqq e_\nu \alpha_\mu{}^\nu$ と定めると，
+		\begin{align}
+			\beta(e_\mu,\, f_\nu) 
+			&= \alpha_\nu{}^\rho \beta_{\mu\rho} = \delta_{\mu\nu}
+		\end{align}
+		が成り立つ．
+		\item $\ad(x)(e_\mu) \eqqcolon a_\mu{}^\nu e_\nu,\; \ad(f_\mu) \eqqcolon b_{\mu}{}^\nu f_\nu$ とおくと，
+		\begin{align}
+			a_\mu{}^\nu 
+			&= a_\mu{}^\rho \delta_{\rho\nu} \\
+			&= a_\mu{}^\rho \beta(e_\rho,\, f_\nu) \\
+			&= \beta \bigl(\ad(x)(e_\mu),\, f_\nu\bigr) \\
+			&= \beta \bigl(-\comm{e_\mu}{x},\, f_\nu\bigr) \\
+			&= \beta \bigl(e_\mu,\, - \ad(x){f_\nu}\bigr) \\
+			&= -b_\nu{}^\rho \beta \bigl(e_\mu,\, f_\rho\bigr) \\
+			&= -b_\nu{}^\mu
+		\end{align}
+		
+	\end{enumerate}
+	
+\end{proof}
+
+\begin{mydef}[label=def:Casimir]{忠実な表現のCasimir演算子}
+	$\phi \colon \mathfrak{g} \lto \Lgl(V)$ を$\{e_\mu\}$ を\hyperref[de:semisimple-LieAlg]{半単純Lie代数} $\mathfrak{g}$ の基底，
+	$\beta \in L(\mathfrak{g},\, \mathfrak{g};\, \mathbb{K})$
+	を対称かつ\hyperref[def:radical-bilinear]{非退化}な双線型形式であって $\forall x,\, y,\, z \in \mathfrak{g}$ に対して
+	\begin{align}
+		\beta(x,\, \comm{y}{z}) = \beta (\comm{x}{y},\, z)
+	\end{align}
+	を充たすものとする．$\mathfrak{g}$ の基底 $\{e_\mu\}$ を一つ固定し，補題\ref{lem:Casimir}で構成した $\mathfrak{g}$ の基底 $\{f_\mu\}$ をとる．
+
+	\begin{itemize}
+		\item $\mathbb{K}$-線型変換
+		\begin{align}
+			\bm{c_\phi(\beta)} \colon V \lto V,\; v \lmto \sum_{\mu = 1}^{\dim \mathfrak{g}} \phi(e_\mu) \circ \phi(f_\mu) (v)
+		\end{align}
+		を $\beta,\, \phi$ の前Casimir演算子と呼ぶ．
+		\item $\phi$ が\hyperref[def:faithful]{忠実な表現}で，かつ
+		\begin{align}
+			\beta(x,\, y) \coloneqq \Tr \bigl(\phi(x) \circ \phi(y) \bigr) 
+		\end{align}
+		であるとき，$\beta,\, \phi$ の前Casimir演算子のことを\textbf{$\bm{\phi}$ のCasimir演算子} (Casimir element of $\phi$) と呼んで $\bm{c_\phi}$ と略記する．
+	\end{itemize}
+	
+\end{mydef}
+
+\begin{myprop}[label=prop:Casimir-basic]{Casimir演算子の性質}
+	$\phi \colon \mathfrak{g} \lto \Lgl(V)$ を$\{e_\mu\}$ を\hyperref[de:semisimple-LieAlg]{半単純Lie代数} $\mathfrak{g}$ の基底，
+	$\beta \in L(\mathfrak{g},\, \mathfrak{g};\, \mathbb{K})$
+	を対称かつ\hyperref[def:radical-bilinear]{非退化}な双線型形式であって $\forall x,\, y,\, z \in \mathfrak{g}$ に対して
+	\begin{align}
+		\beta(x,\, \comm{y}{z}) = \beta (\comm{x}{y},\, z)
+	\end{align}
+	を充たすものとする．$\mathfrak{g}$ の基底 $\{e_\mu\}$ を一つ固定し，補題\ref{lem:Casimir}で構成した $\mathfrak{g}$ の基底 $\{f_\mu\}$ をとる．
+
+	\begin{enumerate}
+		\item \hyperref[def:Casimir]{前Casimir演算子} $c_{\phi}(\beta) \in \End (V)$ は，$\forall x \in \mathfrak{g}$ に対して
+		\begin{align}
+			\comm{\phi(x)}{c_\phi(\beta)} = 0
+		\end{align}
+		を充たす．
+		\item $\phi$ が\hyperref[def:faithful]{忠実な表現}ならば，\hyperref[def:Casimir]{Casimir演算子} $c_\phi \in \End V$ について
+		\begin{align}
+			\Tr c_\phi = \dim \mathfrak{g}
+		\end{align}
+		が成り立つ．
+		\item $\phi$ が\hyperref[def:faithful]{忠実な表現}でかつ $\phi$ が\hyperref[def:irr]{既約表現}ならば，\hyperref[def:Casimir]{Casimir演算子} $c_\phi \in \End V$ は $\mathfrak{g}$ の基底の取り方によらない．
+	\end{enumerate}
+\end{myprop}
+
+\begin{proof}
+	\begin{enumerate}
+		\item $\forall x,\,y,\, z\in \End (V)$ に対して
+		% \footnote{写像の合成を略記した．}
+		\begin{align}
+			\comm{x}{y \circ z} = \comm{x}{y} \circ z + y \circ \comm{x}{z}
+		\end{align}
+		が成り立つことと補題\ref{lem:Casimir}-(2) より，
+		\begin{align}
+			\comm{\phi(x)}{c_\phi(\beta)} 
+			&= \sum_{\mu=1}^{\dim \mathfrak{g}} \comm{\phi(x)}{\phi(e_\mu)} \circ \phi(f_\mu) + \sum_{\mu=1}^{\dim \mathfrak{g}} \phi(e_\mu) \circ \comm{\phi(x)}{\phi(f_\mu)} \\
+			&= \sum_{\mu=1}^{\dim \mathfrak{g}} \ad\bigl(\phi(x)\bigr)\bigl(\phi(e_\mu)\bigr) \circ \phi(f_\mu) + \sum_{\mu=1}^{\dim \mathfrak{g}} \phi(e_\mu) \circ  \ad\bigl(\phi(x)\bigr)\bigl(\phi(f_\mu)\bigr) \\
+			&= \sum_{\mu=1}^{\dim \mathfrak{g}} \phi\bigl(\ad(x)(e_\mu)\bigr) \circ \phi(f_\mu) + \sum_{\mu=1}^{\dim \mathfrak{g}} \phi(e_\mu) \circ  \phi\bigl(\ad(x)(f_\mu)\bigr) \\
+			&= \sum_{\mu=1}^{\dim \mathfrak{g}} a_\mu{}^\nu \phi(e_\nu) \circ \phi(f_\mu) + \sum_{\mu=1}^{\dim \mathfrak{g}} b_\mu{}^\nu\phi(e_\mu) \circ \phi(f_\nu) \\
+			&= 0
+		\end{align}
+		が言えた．
+		\item 補題\ref{lem:Casimir}-(1) より
+		\begin{align}
+			\Tr c_\phi 
+			&= \sum_{\mu}^{\dim \mathfrak{g}} \Tr \bigl(\phi(e_\mu) \circ \phi(f_\mu) \bigr) \\
+			&= \sum_{\mu}^{\dim \mathfrak{g}} \beta (e_\mu,\, f_\nu) \\
+			&= \dim \mathfrak{g}
+		\end{align}
+		\item $\mathbb{K}$ が代数閉体でかつ $\phi$ が既約なので，\hyperref[col:Schur-closed]{代数閉体上のSchurの補題}から $c_\phi \colon V \lto V$ は $(\dim \mathfrak{g} / \dim V) \, \mathrm{id}_V$ に等しい．i.e. 基底によらない．
+	\end{enumerate}
 	
 \end{proof}
 
 
+$\phi \colon \mathfrak{g} \lto \Lgl (V)$ が忠実でない場合は次のように考える：
+まず，$\mathfrak{g}$ が\hyperref[def:semisimple-LieAlg]{半単純}なので，$\Ker \phi$（$\mathfrak{g}$ のイデアルである）は系\ref{lem:semisimple-decomp}から $\mathfrak{g}$ の\hyperref[def:simple-LieAlg]{単純}イデアルの直和である．
+定理\ref{thm:semisimple-decomp}を使って $\mathfrak{g}^\perp$ を $\mathfrak{g} \eqqcolon \Ker \phi \oplus \mathfrak{g}^\perp$ で定義すると，$\mathfrak{g}^\perp \cong \mathfrak{g}/\Ker \phi$ なので，制限
+\begin{align}
+	\phi|_{\mathfrak{g}^\perp} \colon \mathfrak{g}^\perp \lto \Lgl (V)
+\end{align}
+は忠実な表現になる．そして $\mathfrak{g}^\perp$ の基底に対して定義\ref{def:Casimir}を適用するのである．
 
-\subsection{表現のCasimir元}
+
+
 \subsection{Weylの定理}
 \subsection{Jordan分解の保存}
 

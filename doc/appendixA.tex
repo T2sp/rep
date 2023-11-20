@@ -3,9 +3,1169 @@
 \begin{document}
 
 % \setcounter{}{}
-\chapter{線型代数の話}
+\chapter{ベクトル空間の話}
 
 \cite{Humphreys1972introduction}が前提としていそうな線型代数の知識をまとめておく．
+$\mathbb{K}$ を\underline{任意の}体とする．また，選択公理を認める．
+
+\section{Hom ベクトル空間}
+
+\begin{mydef}[label=def:hom-vec]{Hom ベクトル空間}
+    任意の $\mathbb{K}$-ベクトル空間 $V,\, W \in \Obj{\VEC{\mathbb{K}}}$ を与える．このとき
+    \begin{itemize}
+        \item 台集合を
+        \begin{align}
+            \bm{\Hom{\mathbb{K}} (V,\, W)} \coloneqq \bigl\{\, f \colon V \lto W \bigm| \mathbb{K}\text{-線型写像} \,\bigr\} 
+        \end{align}
+        とする．
+        \item 加法とスカラー乗法を，$\forall f,\, f_1,\, f_2 \in \Hom{\mathbb{K}}(V,\, W),\; \forall \lambda \in \mathbb{K}$ について
+        \begin{align}
+            f_1 + f_2 \colon V &\lto W,\; v \lmto f_1(v) + f_2(v) \\
+            \lambda f \colon V &\lto W,\; v \lmto \lambda \bigl(f(v)\bigr)
+        \end{align}
+        と定める．
+    \end{itemize}
+    ことで得られる $\mathbb{K}$-ベクトル空間のことを $\bm{\Hom{\mathbb{K}}(V,\, W)}$ と書く．
+    \tcblower
+    特に $\mathbb{K}$ 自身を $\mathbb{K}$-ベクトル空間と見做したとき，
+    \begin{align}
+        \bm{V^*} \coloneqq \Hom{\mathbb{K}}(V,\mathbb{K})
+    \end{align}
+    と書いて\textbf{双対ベクトル空間} (dual vector space) と呼ぶ．
+\end{mydef}
+
+特に\underline{有限次元} $\mathbb{K}$-ベクトル空間の場合は，双対ベクトル空間の基底が次のように構成される：
+
+\begin{myprop}[label=prop:dual-basis]{双対ベクトル空間の基底}
+    \underline{有限次元} $\mathbb{K}$-ベクトル空間 $V$ とその基底 $\{e_\mu\}$ を与える．
+    このとき $\dim V$ 個の線型写像 $\varepsilon^\mu \in V^*$ を
+    \begin{align}
+        \varepsilon^\mu (e_\nu) \coloneqq \delta^\mu_\nu
+    \end{align}
+    により定義すると，$\{\varepsilon^\mu\}$ は $V^*$ の基底になる．
+\end{myprop}
+
+
+\section{ベクトル空間のテンソル積}
+
+
+\subsection{普遍性による定義}
+
+$\mathbb{K}$-ベクトル空間 $V,\, W,\, Z$ を与える．このとき写像 $f \colon V \times W \lto Z$ が\textbf{双線型} (bilinear) であるとは，2つの引数について\underline{それぞれ}\footnote{つまり，\hyperref[def:univ-vec-sum]{直積ベクトル空間} $V \times W$ から $Z$ への線型写像\underline{ではない}．} $\mathbb{K}$-線型であることを言う．i.e. $\forall v,\, v_1,\, v_2 \in V,\; \forall w,\, w_1,\, w_2 \in W,\; \forall \lambda \in \mathbb{K}$ に対して
+\begin{align}
+    f(v_1 + v_2,\, w) &= f(v_1,\, w) + f(v_2,\, w) \\
+    f(v,\, w_1 + w_2) &= f(v,\, w_1) + f(v,\, w_2) \\
+    f(\lambda v,\, w) &= \lambda f(v,\, w) \\
+    f(v,\, \lambda w) &= \lambda f(v,\, w)
+\end{align}
+が成り立つこと．
+同様に $\mathbb{K}$-ベクトル空間 $V_1,\, \dots,\, V_n,\, W$ に関して，写像 $f \colon V_1 \times \cdots \times V_n \lto W$ が\textbf{多重線型} (multillinear) であるとは，全ての引数について\underline{それぞれ} $\mathbb{K}$-線型であることを言う．
+
+\begin{mydef}[label=def:univ-vec-tensor]{ベクトル空間のテンソル積}
+    $\mathbb{K}$ を任意の体とし，$\mathbb{K}$-ベクトル空間 $V,\, W$ を与える．
+    \begin{itemize}
+        \item $\mathbb{K}$-ベクトル空間 $\bm{V \otimes W}$ 
+        \item 双線型写像 $\bm{\Phi} \colon V \times W \lto \bm{V \otimes W}$ 
+    \end{itemize}
+    の2つ組 $(V \otimes W,\, \Phi)$ が $V,\, W$ の\textbf{テンソル積} (tensor product) であるとは，以下の性質を充たすことをいう：
+    \begin{description}
+        \item[\textbf{(テンソル積の普遍性)}]　
+        
+        任意の $\mathbb{K}$-ベクトル空間 $\textcolor{blue}{Z}$ および任意の双線型写像 $\textcolor{blue}{f} \colon V \times W \lto \textcolor{blue}{Z}$ に対して，以下の図式を可換にする線型写像 $\textcolor{red}{\overline{f}} \colon \bm{V \otimes W} \lto \textcolor{blue}{Z}$ が一意的に存在する：
+        \begin{center}
+            \begin{tikzcd}[row sep=large, column sep=large]
+                V \times W \ar[d, "\bm{\Phi}"']\ar[r, blue, "f"] &\forall \textcolor{blue}{Z} \\
+                \bm{V \otimes W} \arrow[ur, red, dashed, "\exists!\bar{f}"']&
+            \end{tikzcd}
+        \end{center}
+    \end{description}
+\end{mydef}
+
+テンソル積をとる操作は結合的かつ対称である．i.e. $V_1 \otimes (V_2 \otimes V_3) \cong (V_1 \otimes V_2) \otimes V_3$ および $V_1 \otimes V_2 \cong V_2 \otimes V_1$ が成り立つ．
+従って以降では3つ以上のベクトル空間のテンソル積を括弧を省略して書く．
+
+\begin{myprop}[label=prop:unique-tensor-vec]{テンソル積の一意性}
+	\hyperref[def:univ-vec-tensor]{テンソル積}は，存在すればベクトル空間の同型を除いて一意である．
+\end{myprop}
+
+\begin{proof}
+	$\mathbb{K}$ 上のベクトル空間 $V,\, W \in \Obj{\VEC{\mathbb{K}}}$ を与える．
+	体 $\mathbb{K}$ 上のベクトル空間と双線型写像の組 $(\bm{T},\, \bm{\Phi} \colon V \times W \lto \bm{T})$ および $(\bm{T},\, \bm{\Phi'} \colon V \times W \lto \bm{T'})$ がどちらも $V,\, W$ の\hyperref[def:univ-vec-tensor]{テンソル積}であるとする．
+	このとき\hyperref[def:univ-vec-tensor]{テンソル積の普遍性}から $\VEC{\mathbb{K}}$ の\hyperref[def:commutative]{可換図式}
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}{0.4\columnwidth}
+			\centering
+			\begin{tikzcd}[row sep=large, column sep=large]
+				&V \times W \ar[d, "\bm{\Phi}"] \ar[r, blue, "\Phi'"] &\textcolor{blue}{T'} \\
+				&\bm{T} \ar[ur, red, dashed, "\exists! u"] &
+			\end{tikzcd}
+		\end{subfigure}
+		\hspace{5mm}
+		\begin{subfigure}{0.4\columnwidth}
+			\centering
+			\begin{tikzcd}[row sep=large, column sep=large]
+				&V \times W \ar[d, "\bm{\Phi'}"] \ar[r, blue, "\Phi"] &\textcolor{blue}{T} \\
+				&\bm{T'} \ar[ur, red, dashed, "\exists! u'"] &
+			\end{tikzcd}
+		\end{subfigure}
+	\end{figure}%
+	が成り立つので，これらの図式を併せた $\VEC{\mathbb{K}}$ の可換図式
+	\begin{center}
+		\begin{tikzcd}[row sep=large, column sep=large]
+			&\bm{T} & \\
+			&V \times W \ar[u, "\bm{\Phi}"]\ar[d, "\bm{\Phi}"] \ar[r, blue, "\Phi'"] &\textcolor{blue}{T'}\ar[ul, red, dashed, "\exists! u'"] \\
+			&\bm{T} \ar[ur, red, dashed, "\exists! u"] &
+		\end{tikzcd}
+	\end{center}
+	が存在する．然るに $\VEC{\mathbb{K}}$ の可換図式
+	\begin{center}
+		\begin{tikzcd}[row sep=large, column sep=large]
+			&V \times W \ar[d, "\bm{\Phi}"] \ar[r, "\bm{\Phi}"] &\bm{T} \\
+				&\bm{T} \ar[ur, red, dashed, "\mathrm{id}_T"] &
+		\end{tikzcd}
+	\end{center}
+	も成り立ち，\hyperref[def:univ-vec-tensor]{テンソル積の普遍性}より赤点線で書いた線型写像は一意でなくてはならないので，
+	\begin{align}
+		\textcolor{red}{u'} \circ \textcolor{red}{u} = \mathrm{id}_T
+	\end{align}
+	がわかる．同様の議論から
+	\begin{align}
+		\textcolor{red}{u} \circ \textcolor{red}{u'} = \mathrm{id}_{T'}
+	\end{align}
+	も従うので，線型写像 $\textcolor{red}{u} \colon \bm{T} \lto \bm{T'},\; \textcolor{red}{u'} \colon \bm{T'} \lto \bm{T}$ は互いに逆写像，i.e. 同型写像である．
+\end{proof}
+
+
+命題\ref{prop:unique-tensor-vec}からテンソル積の一意性が言えたが，そもそもテンソル積が存在しなければ意味がない．
+そこで，\hyperref[ax.ring]{体} $\mathbb{K}$ 上の任意のベクトル空間 $V,\, W \in \Obj{\VEC{\mathbb{K}}}$ を素材にして\hyperref[def:univ-vec-tensor]{テンソル積} $(V \otimes W,\, \Phi \colon V \times W \lto V \otimes W)$ を具体的に構成してみよう．
+
+$\mathbb{K} \in \Obj{\VEC{\mathbb{K}}}$ なので，任意の集合 $S$ に対して\hyperref[def:univ-vec-sum]{ベクトル空間の直和}
+\begin{align}
+	\mathbb{K}^{\oplus S} \in \Obj{\VEC{\mathbb{K}}}
+\end{align}
+を考えることができる．$\mathbb{K}^{\oplus S}$ の元 $f$ とは，命題\ref{prop:subvec-directsum}からわかるように有限個の元 $x_1,\, \dots,\; x_n \in S$ を除いた全ての $x \in S$ に対して値 $0 \in \mathbb{K}$ を返すような $\mathbb{K}$ 値関数
+$f \colon S \lto \mathbb{K}$ のことである
+% \footnote{これは集合論の記法である：ある集合 $\Lambda$ から集合 $A$ への写像 $a \colon \Lambda \lto A$ のことを $\Lambda$ によって\textbf{添字づけられた} $A$ の元の\textbf{族}と呼び，$\forall \lambda \in \Lambda$ に対して $a(\lambda) \in A$ のことを $\bm{a_\lambda}$ と書き，$\bm{a \colon \Lambda \lto A}$ \textbf{自身のこと}を $\bm{(a_\lambda)_{\lambda \in \Lambda}}$ と書くのである．
+% なお，$\Familyset[\big]{a_\lambda}{\lambda \in \Lambda}$ と書いたときは $A$ の部分集合 $\bigl\{\, a(\lambda) \bigm| \lambda \in \Lambda \,\bigr\} \subset A$ のことを意味する．}．
+
+ところで，$\forall x \in S$ に対して次のような関数 $\delta_{x} \in \mathbb{K}^{\oplus S}$ が存在する：
+\begin{align}
+	\delta_{x} \bigl(y\bigr) =
+	\begin{cases}
+		1, &y = x \\
+		0, &y \neq x
+	\end{cases}
+\end{align}
+この $\delta_{x}$ を $x$ そのものと同一視してしまうことで，先述の $f \in \mathbb{K}^{\oplus (V \times W)}$ は
+\begin{align}
+	f = \sum_{i=1}^n \lambda_i x_i \quad \WHERE \lambda_i \coloneqq f (x_i) \in \mathbb{K}
+\end{align}
+の形に一意的に書ける．
+\footnote{
+	というのも，このように書けば $\forall y \in S$ に対して
+	\begin{align}
+		f (y)  &= \sum_{i=1}^n \lambda_i \delta_{x_i}(y) =
+		\begin{cases}
+			f (x_i), &y = x_i \\
+			0, &\text{otherwise}
+		\end{cases}
+	\end{align}
+	が言えるので．特に，この式の中辺は $\mathbb{K}$ の元の有限和なので意味を持つ．
+}
+この意味で，$\mathbb{K}^{\oplus (V \times W)}$ は $V \times W$ の元の\textbf{形式的な} $\bm{\mathbb{K}}$ \textbf{係数線形結合}全体がなす $\mathbb{K}$ ベクトル空間と言うことができ，集合 $V \times W$ 上の\textbf{自由ベクトル空間}と呼ばれる．
+\hyperref[def:free-mod]{自由加群}の特別な場合と言っても良い．自由ベクトル空間は次の普遍性によって特徴づけられる：
+
+\begin{mylem}[label=lem:univ-free-vec, breakable]{自由ベクトル空間の普遍性}
+	任意の\underline{集合} $S$ および任意の $\mathbb{K}$ ベクトル空間 $\textcolor{blue}{Z} \in \Obj{\VEC{\mathbb{K}}}$ を与える．
+	包含写像
+	\begin{align}
+		\iota \colon S \lto \mathbb{K}^{\oplus S},\; x \lmto \delta_x
+	\end{align}
+	を考える．
+	このとき，任意の写像 $\textcolor{blue}{f} \colon S \lto \textcolor{blue}{Z}$ に対して線型写像
+	$\textcolor{red}{u} \colon \mathbb{K}^{\oplus S} \lto \textcolor{blue}{Z}$ が一意的に存在して，図式\ref{cmtd:free-vec}を可換にする：
+	\begin{figure}[H]
+		\centering
+		\begin{tikzcd}[row sep=large, column sep=large]
+			&S \ar[r, blue, "f"]\ar[d, "\iota"] &\forall \textcolor{blue}{Z} \\
+			&\mathbb{K}^{\oplus S} \ar[ur, red, dashed, "\exists! u"] &
+		\end{tikzcd}
+		\caption{自由ベクトル空間の普遍性}
+		\label{cmtd:free-vec}
+	\end{figure}%
+\end{mylem}
+
+\begin{proof}
+	写像
+	\begin{align}
+		\textcolor{red}{u} \colon \mathbb{K}^{\oplus S} \lto \textcolor{blue}{Z},\; \sum_{i=1}^n \lambda_i \delta_{x_i} \lmto \sum_{i=1}^n \lambda_i \textcolor{blue}{f}(x_i)
+	\end{align}
+	は右辺が有限和なのでwell-definedであり，$\forall x \in S$ に対して $\textcolor{red}{u} \bigl( \iota(x) \bigr) = \textcolor{blue}{f}(x)$ を充たす．
+	
+	別の線型写像 $g \colon \mathbb{K}^{\oplus S} \lto \textcolor{blue}{Z}$ が $g \circ \iota = \textcolor{blue}{f}$ を充たすとする．このとき $\forall x \in S$ に対して $g(\delta_x) = \textcolor{blue}{f}(x)$ であるから，
+	$\forall v = \sum_{i=1}^n \lambda_i \delta_{x_i} \in \mathbb{K}^{\oplus S}$ に対して
+	\begin{align}
+		g(v) = g \left( \sum_{i=1}^n \lambda_i \delta_{x_i} \right) = \sum_{i=1}^n \lambda_i g(\delta_{x_i}) = \sum_{i=1}^n \lambda_i \textcolor{blue}{f}(x_i) = \textcolor{red}{u} (v)
+	\end{align}
+	が言える．よって $g = \textcolor{red}{u}$ である．
+\end{proof}
+
+さて，\hyperref[cmtd:free-vec]{自由加群の普遍性の図式}と\hyperref[def:univ-vec-tensor]{テンソル積の普遍性の図式}はとても似ているので，$\bm{V \otimes W} \in \Obj{\VEC{\mathbb{K}}}$ の候補として $\mathbb{K}^{\oplus (V \times W)}$ を考えてみる．
+しかしそのままでは $\iota \colon V \times W \lto \mathbb{K}^{\oplus (V \times W)}$ が双線型写像になってくれる保証はない．
+そこで，
+\begin{align}
+	\iota(\lambda v,\, w) &\sim \lambda \iota(v,\, w), \\
+	\iota(v,\, \lambda w) &\sim \lambda \iota(v,\, w), \\
+	\iota(v_1 + v_2,\, w) &\sim \iota(v_1,\, w) + \iota(v_2,\, w), \\
+	\iota(v,\, w_1 + w_2) &\sim \iota(v,\, w_1) + \iota(v,\, w_2)
+\end{align}
+を充たすような上手い\hyperref[ax.eq]{同値関係}による\hyperref[prop:quotient-vec]{商ベクトル空間}を構成する．
+% そこで，$\iota (V \times W) \in \mathbb{K}^{\oplus (V \times W)}$ の上に適切な関係式を課してできる $\mathbb{K}^{\oplus (V \times W)}$ の部分集合が\hyperref[prop:gen-submodule]{生成する部分ベクトル空間}で $\mathbb{K}^{\oplus (V \times W)}$ の\hyperref[prop:quotient-vec]{商ベクトル空間}を作ることを試みる．
+% \hyperref[prop:universality-dp]{直和の普遍性}から $\forall \textcolor{blue}{V} \in \Obj{\VEC{\mathbb{K}}}$ に対して可換図式
+% \begin{center}
+% 	\begin{tikzcd}[row sep=large, column sep=large]
+% 		&V \times W \ar[d, "\bm{\Phi}"] \ar[r, blue, "f"] &\forall \textcolor{blue}{Z} \\
+% 		&\bm{V \otimes W} \ar[ur, red, dashed, "\exists! u"] &
+% 	\end{tikzcd}
+% \end{center}
+
+
+\begin{myprop}[label=prop:tensor-vec, breakable]{テンソル積の構成}
+	$\mathbb{K}^{\oplus (V \times W)}$ の部分集合
+	\begin{align}
+		S_1 &\coloneqq \bigl\{\iota(\lambda v,\, w) - \lambda \iota(v,\, w) \bigm| \forall v \in V,\, \forall w \in W,\, \forall \lambda \in \mathbb{K} \bigr\} , \\
+		S_2 &\coloneqq \bigl\{\iota(v,\, \lambda w) - \lambda \iota(v,\, w) \bigm| \forall v \in V,\, \forall w \in W,\, \forall \lambda \in \mathbb{K} \bigr\}, \\
+		S_3 &\coloneqq \bigl\{\iota(v_1 + v_2,\, w) - \iota(v_1,\, w) - \iota(v_2,\, w) \bigm| \forall v_1,\, \forall v_2 \in V,\, \forall w \in W,\, \forall \lambda \in \mathbb{K} \bigr\}, \\
+		S_4 &\coloneqq \bigl\{\iota(v,\, w_1 + w_2) - \iota(v,\, w_1) - \iota(v,\, w_2) \bigm| \forall v \in V,\, \forall w_1,\, w_2 \in W,\, \forall \lambda \in \mathbb{K} \bigr\}
+	\end{align}
+	の和集合 $S_1 \cup S_2 \cup S_3 \cup S_4$ が\hyperref[prop:gen-submodule]{生成する} $\mathbb{K}$ ベクトル空間\footnote{これらの元の形式的な$\mathbb{K}$ 係数線型結合全体が成すベクトル空間のこと．}を $\mathcal{R}$ と書き，
+	\hyperref[prop:quotient-vec]{商ベクトル空間}
+	$\mathbb{K}^{\oplus (V \times W)} / \mathcal{R}$ 
+	の商写像を
+	\begin{align}
+		\pi \colon \mathbb{K}^{\oplus (V \times W)} \lto \mathbb{K}^{\oplus (V \times W)} / \mathcal{R},\; \sum_{i=1}^n \lambda_i \iota(v_i,\, w_i) \lmto \left( \sum_{i=1}^n \lambda_i \iota(v_i,\, w_i) \right) + \mathcal{R}
+	\end{align}
+	と書き，$\bm{v \otimes w} \coloneqq \pi \bigl( \iota (v,\, w) \bigr)$ とおく．
+	このとき，
+	\begin{itemize}
+		\item $\mathbb{K}$ ベクトル空間 $\bm{\mathbb{K}^{\oplus (V \times W)} / \mathcal{R}}$
+		\item 写像 $\bm{\Phi} = \pi \circ \iota \colon V \times W \lto \bm{\mathbb{K}^{\oplus (V \times W)} / \mathcal{R}},\; (v,\, w) \lmto v \otimes w$
+	\end{itemize}
+	の組は $V,\, W$ の\hyperref[def:univ-vec-tensor]{テンソル積}である．
+\end{myprop}
+
+\begin{proof}
+	まず，$\bm{\Phi}$ が双線型写像であることを示す．\hyperref[prop:quotient-vec]{商ベクトル空間}の和とスカラー乗法の定義から
+	\begin{align}
+		\Phi (\lambda v,\, w) &= \iota(v,\, w) + \mathcal{R} = \bigl( \lambda \iota(v,\, w) + \iota (\lambda v,\, w) - \lambda \iota (v,\, w) \bigr) + \mathcal{R} \\
+		&= \lambda \iota (v,\, w) + \mathcal{R} = \lambda \bigl( \iota(v,\, w) + \mathcal{R} \bigr) = \lambda \Phi(v,\, w) \\
+		\Phi (v_1 + v_2,\, w) &= \iota(v_1 + v_2,\, w) + \mathcal{R} = \bigl( \iota(v_1,\, w) + \iota (v_2,\, w) + \iota(v_1+v_2,\, w) - \iota (v_1,\, w) - \iota(v_2,\, w) \bigr) + \mathcal{R} \\
+		&= \bigl(\iota (v_1,\, w) + \iota (v_2,\, w) \bigr) + \mathcal{R} = \bigl( \iota(v_1,\, w) + \mathcal{R} \bigr) + \bigl( \iota(v_2,\, w) + \mathcal{R} \bigr) \\
+		&= \Phi(v_1,\, w) + \Phi(v_2,\, w)
+	\end{align}
+	が言える．第2引数に関しても同様であり，$\bm{\Phi}$ は双線型写像である．
+
+	次に，上述の構成が\hyperref[def:univ-vec-tensor]{テンソル積の普遍性}を充たすことを示す．$\forall  \textcolor{blue}{Z} \in \Obj{\VEC{\mathbb{K}}}$ と任意の双線型写像 $\textcolor{blue}{f} \colon V \times W \lto \textcolor{blue}{Z}$ を与える．
+	\hyperref[lem:univ-free-vec]{自由ベクトル空間の普遍性}から $\VEC{\mathbb{K}}$ の可換図式
+	\begin{center}
+		\begin{tikzcd}[row sep=large, column sep=large]
+			&V \times W \ar[r, blue, "f"]\ar[d, "\iota"'] &\forall \textcolor{blue}{Z} \\
+			&\mathbb{K}^{\oplus (V \times W)} \ar[ur, red, dashed, "\exists! \overline{f}"] &
+		\end{tikzcd}
+	\end{center}
+	が存在する．$\textcolor{blue}{f}$ が双線型なので，
+	\begin{align}
+		\textcolor{red}{\overline{f}} \bigl( \iota (\lambda v,\, w) \bigr) &= f (\lambda v,\, w) = \lambda f(v,\, w) \\ 
+		&= \lambda\textcolor{red}{\overline{f}} \bigl( \iota (v,\, w) \bigr) = \textcolor{red}{\overline{f}}\bigl( \lambda \iota(v,\, w) \bigr) , \\
+		\textcolor{red}{\overline{f}} \bigl( \iota (v_1 + v_2,\, w) \bigr) &= f (v_1 + v_2,\, w) = f(v_1,\, w) + f(v_2,\, w)\\
+		&= \textcolor{red}{\overline{f}} \bigl( \iota(v_1,\, w) \bigr) + \textcolor{red}{\overline{f}} \bigl(\iota(v_2,\, w) \bigr) = \textcolor{red}{\overline{f}} \bigl( \iota(v_1,\, w) + \iota(v_2,\, w)\bigr) 
+	\end{align}
+	が成り立つ．第2引数についても同様なので，$\mathcal{R} \subset \Ker \textcolor{red}{\overline{f}}$ である．よって\hyperref[thm.homo1]{準同型定理}から
+	$\VEC{\mathbb{K}}$ の可換図式
+	\begin{center}
+		\begin{tikzcd}[row sep=large, column sep=large]
+			&V \times W \ar[r, blue, "f"]\ar[d, "\iota"'] &\forall \textcolor{blue}{Z} \\
+			&\mathbb{K}^{\oplus (V \times W)} \ar[d, "\pi"']\ar[ur, red, dashed, "\exists! \overline{f}"] & \\
+			&\mathbb{K}^{\oplus (V \times W)} /\mathcal{R}\ar[uur, red, dashed, "\exists! u"] &
+		\end{tikzcd}
+	\end{center}
+	が存在する．この図式の外周部は\hyperref[def:univ-vec-tensor]{テンソル積の普遍性の図式}である．
+\end{proof}
+
+\subsection{多重線型写像とテンソル積}
+
+任意の $\mathbb{K}$-ベクトル空間\footnote{有限次元でなくても良い．} $V_1,\, \dots,V_n,\, W \in \Obj{\VEC{\mathbb{K}}}$ に対して，集合
+\begin{align}
+	\bm{L(V_1},\,\dots,\, \bm{V_n;\, W)} \coloneqq \bigl\{\, F \colon V_1 \times \cdots \times V_n \lto W \bigm| F\;\text{は多重線型写像} \,\bigr\} 
+\end{align}
+を考える．$L(V_1,\, \dots,\, V_n;\, W)$ の上の加法とスカラー乗法を $\forall v_i \in V_i,\, \forall \lambda \in \mathbb{K}$ に対して
+\begin{align}
+	(F + G)(v_1,\, \dots,\, v_n) &\coloneqq F(v_1,\, \dots,\, v_n) + G(v_1,\, \dots,\, v_n), \\
+	(\lambda F)(v_1,\, \dots,\, v_n) &\coloneqq \lambda \bigl(F(v_1,\, \dots,\, v_n)\bigr)
+\end{align}
+と定義すると $L(V_1,\, \dots,\, V_n;\, W)$ は $\mathbb{K}$ ベクトル空間になる．
+特に，\hyperref[def:hom-vec]{Hom の定義}から $\mathbb{K}$-ベクトル空間の等式として
+\begin{align}
+    L(V;\, W) = \Hom{\mathbb{K}} (V,\, W)
+\end{align}
+が成り立つ．\hyperref[def:univ-vec-tensor]{テンソル積の普遍性}はこの等式を多重線型写像について一般化するものである．
+
+\begin{myprop}[label=prop:tensor-multillinear]{多重線型写像とテンソル積}
+    任意の $\mathbb{K}$-ベクトル空間 $V_1,\, \dots,\, V_n,\, W \in \Obj{\VEC{\mathbb{K}}}$ に対して，$\mathbb{K}$-ベクトル空間として
+    \begin{align}
+        L(V_1,\, \dots,\, V_n;\, W) \cong \Hom{\mathbb{K}}(V_1 \otimes \cdots \otimes V_n,\, W)
+    \end{align}
+    が成り立つ．
+\end{myprop}
+
+\begin{proof}
+    \hyperref[def:univ-vec-tensor]{テンソル積の普遍性}から，$\mathbb{K}$-線型写像
+    \begin{align}
+        \alpha \colon \Hom{\mathbb{K}}(V_1 \otimes \cdots \otimes V_n,\, W) \lto L(V_1,\, \dots,\, V_n;\, W),\; f \lmto f \circ \Phi
+    \end{align}
+    は全単射，i.e. $\mathbb{K}$-ベクトル空間の同型写像である．
+\end{proof}
+
+\subsection{有限次元ベクトル空間のテンソル積}
+
+\begin{myprop}[label=prop:basis-tensor]{有限次元テンソル積の基底}
+	\underline{有限次元} $\mathbb{K}$-ベクトル空間 $V,\, W$（$\dim V \eqqcolon n,\; \dim W \eqqcolon m$）を与える．
+    $V,\, W$ の基底をそれぞれ $\{e_1,\, \dots,\, e_n\},\; \{f_1,\, \dots,\, f_m\}$ と書く．
+	このとき，集合
+	\begin{align}
+		\mathcal{E} \coloneqq \bigl\{\, e_\mu \otimes f_\nu \bigm| 1 \le \mu \le n,\, 1 \le \nu \le m \,\bigr\} 
+	\end{align}
+	は $V \otimes W$ の基底である．従って $\dim V \otimes W = nm$ である．
+\end{myprop}
+
+\begin{proof}
+	\hyperref[prop:tensor-vec]{テンソル積の構成}から，$\forall t \in V \otimes W$ は有限個の $(v_i,\, w_i) \in V \times W\; (i=1,\, \dots l)$ を使って
+	\begin{align}
+		t = \left(\sum_{i=1}^l t_{i} \iota(v_i,\, w_i)\right) = \sum_{i=1}^l t_i v_i \otimes w_i
+	\end{align}
+	と書ける．$v_i = v_i{}^\mu e_\mu,\; w_i = w_i{}^{\mu} f_\mu$ のように展開することで，
+	\begin{align}
+		t &= \sum_{i=1}^l t_i (v_i{}^\mu e_\mu) \otimes (w_i{}^\nu f_\nu) \\
+		&= \sum_{i=1}^l t_i v_i{}^\mu w_i{}^\nu e_{\mu} \otimes f_\nu
+	\end{align}
+	と書ける．ただし添字 $\mu,\, \nu$ に関してはEinsteinの規約を適用した．従って $\mathcal{E}$ は $V \otimes W$ を生成する．
+
+	$\mathcal{E}$ の元が線型独立であることを示す．
+	\begin{align}
+		t^{\mu\nu} e_\mu \otimes e_{\nu} = 0
+	\end{align}
+	を仮定する．$\{e_\mu\},\, \{f_\mu\}$ の\hyperref[def.basisforDVS]{双対基底}をそれぞれ $\{\varepsilon^\mu\},\, \{\eta^\nu\}$ と書き，
+	全ての添字の組み合わせ $(\mu,\, \nu) \in \{	1,\, \dots,\, n\} \times \{1,\, \dots,\, m\}$ に対して双線型写像
+	\begin{align}
+		\tau^{\mu\nu} \colon V \times W \lto \mathbb{R},\; (v,\, w) \lmto \varepsilon^\mu (v) \eta^\nu (w)
+	\end{align}
+	を定める．$\tau^{\mu\nu}$ は双線型なので\hyperref[cmtd:tensor-vec]{テンソル積の普遍性}から $\VEC{\mathbb{K}}$ の可換図式
+	\begin{center}
+		\begin{tikzcd}[row sep=large, column sep=large]
+			&V \times W \ar[d, "\pi \circ \iota"'] \ar[r,"\tau^{\mu\nu}"] &\mathbb{R} \\
+			&\bm{V \otimes W} \ar[ur, red, dashed, "\exists! \overline{\tau}^{\mu\nu}"'] &
+		\end{tikzcd}
+	\end{center}
+	が存在する．このことは，
+	\begin{align}
+		0 &= \textcolor{red}{\overline{\tau}^{\mu\nu}} (t^{\rho\sigma} e_{\rho} \otimes f_{\sigma}) \\
+		&= t^{\rho\sigma} (\textcolor{red}{\overline{\tau}^{\mu\nu}} \circ \pi \circ \iota) (e_\rho ,\,  f_\sigma) \\
+		&= t^{\rho\sigma} \tau^{\mu\nu}(e_\rho ,\,  f_\sigma) = t^{\mu\nu}
+	\end{align}
+	を意味する．従って$\mathcal{E}$ の元は線型独立である．
+\end{proof}
+
+これでもまだ直接の計算には向かない．より具体的な構成を探そう．
+$\forall \omega_i \in V_i^*$ に対して，$\bm{\omega_1 \otimes \cdots \otimes \omega_n}$ と書かれる $L(V_1,\, \dots,\, V_n;\, \mathbb{K})$ の元を
+\begin{align}
+	\bm{\omega_1 \otimes \cdots \otimes \omega_n} \colon V_1 \times \cdots \times V_n \lto \mathbb{K},\; (v_1,\, \dots,\, v_n) \lmto \prod_{i=1}^n \omega_i(v_i)
+\end{align}
+によって定義する．ただし右辺の総積記号は $\mathbb{K}$ の積についてとる．
+
+\begin{myprop}[label=prop:basis-L]{}
+	有限次元 $\mathbb{K}$-ベクトル空間 $V,\, W$（$\dim V \eqqcolon n,\, \dim W \eqqcolon m$）の基底をそれぞれ $\{e_\mu\},\, \{f_\nu\}$ と書き，その\hyperref[def.basisforDVS]{双対基底}をそれぞれ $\{\varepsilon^\mu\},\, \{\eta^\mu\}$ と書く．このとき，集合
+	\begin{align}
+		\mathcal{B} \coloneqq \bigl\{\, \varepsilon^\mu \otimes \eta^\nu \bigm| 1 \le \mu \le n,\, 1 \le \nu \le m \,\bigr\} 
+	\end{align}
+	は $L(V,\, W;\, \mathbb{K})$ の基底である．従って $\dim L(V,\, W;\, \mathbb{K}) = nm$ である．
+\end{myprop}
+
+\begin{proof}
+	$\forall F  \in L(V,\, W;\, \mathbb{K})$ を1つとり，全ての添字の組み合わせ $(\mu,\, \nu)$ に対して
+	\begin{align}
+		F_{\mu\nu} \coloneqq F(e_\mu,\, e_\nu)
+	\end{align}
+	とおく．$\forall (v,\, w) \in V \times W$ を $v = v^\mu e_\mu,\; w = w^\nu f_\nu$ と展開すると，
+	\begin{align}
+		F_{\mu\nu} \varepsilon^\mu \otimes \eta^\nu (v,\, w) &= F_{\mu\nu} \varepsilon^{\mu}(v) \eta^\nu(w) \\
+		&= F_{\mu\nu} v^\mu w^\nu
+	\end{align}
+	が成り立つ．一方，双線型性から
+	\begin{align}
+		F(v,\, w) = v^\mu w^\nu F(e_\mu,\, e_\nu) = F_{\mu\nu} v^\mu w^\nu
+	\end{align}
+	も成り立つので $F = F_{\mu\nu} \varepsilon^\mu \otimes \eta^\nu$ が言えた．i.e. 集合 $\mathcal{B}$ は $L(V,\, W;\, \mathbb{K})$ を生成する．
+
+	次に，$\mathcal{B}$ の元が線型独立であることを示す．
+	\begin{align}
+		F_{\mu\nu} \varepsilon^\mu \otimes \eta^\nu = 0
+	\end{align}
+	を仮定する．全ての添字の組み合わせについて，$(e_\mu,\, f_\nu)$ に左辺を作用させることで，$F_{\mu\nu} = 0$ が従う．i.e. $\mathcal{B}$ の元は互いに線型独立である．
+\end{proof}
+
+
+\begin{myprop}[label=prop:fin-tensor-dual]{テンソル積の構成その2}
+	任意の\underline{有限次元} $\mathbb{K}$-ベクトル空間 $V,\, W$ に対して
+    \begin{align}
+		L(V,\, W;\, \mathbb{K}) \cong V^* \otimes W^*
+	\end{align}
+\end{myprop}
+
+\begin{marker}
+    命題\ref{prop:tensor-multillinear}より，これは 
+    \begin{align}
+        L(V,\, W;\, \mathbb{K}) \cong \Hom{\mathbb{K}}(V \otimes W,\, \mathbb{K}) = (V \otimes W)^* \cong V^* \otimes W^*
+    \end{align}
+    と同値である．
+\end{marker}
+
+\begin{proof}
+	写像
+	\begin{align}
+		\Phi \colon V^* \times W^* &\lto L(V,\, W;\, \mathbb{K}), \\
+		(\omega,\, \eta) &\lmto \bigl( (v,\, w) \lmto \omega(v) \eta(w) \bigr) 
+	\end{align}
+	は双線型写像なので
+	\hyperref[cmtd:tensor-vec]{テンソル積の普遍性}から $\VEC{\mathbb{K}}$ の可換図式
+	\begin{center}
+		\begin{tikzcd}[row sep=large, column sep=large]
+			&V^* \times W^* \ar[d, "\pi \circ \iota"'] \ar[r,"\Phi"] &L(V,\, W;,\, \mathbb{K}) \\
+			&\bm{V^* \otimes W^*} \ar[ur, red, dashed, "\exists! \overline{\Phi}"'] &
+		\end{tikzcd}
+	\end{center}
+	が存在する．
+	$V,\, W$（$\dim V = n,\, \dim W = m$）の基底をそれぞれ $\{e_\mu\},\, \{f_\nu\}$ と書き，その\hyperref[def.basisforDVS]{双対基底}をそれぞれ $\{\varepsilon^\mu\},\, \{\eta^\mu\}$ と書く．
+	命題\ref{prop:basis-tensor}より $V^* \otimes W^*$ の基底として
+	\begin{align}
+		\mathcal{E} \coloneqq \bigl\{\, \varepsilon^\mu \otimes \eta^\nu \bigm| 1 \le \mu \le n,\, 1 \le \nu \le m \,\bigr\} 
+	\end{align}
+	がとれ，命題\ref{prop:basis-L}より $L(V,\, W;\, \mathbb{K})$ の基底として
+	\begin{align}
+		\mathcal{B} \coloneqq \bigl\{\, \varepsilon^\mu \otimes \eta^\nu \bigm| 1 \le \mu \le n,\, 1 \le \nu \le m \,\bigr\} 
+	\end{align}
+	がとれる（記号が同じだが，違う定義である）．
+	このとき，$\forall (v,\, w) \in V \times W$ に対して
+	\begin{align}
+		\textcolor{red}{\overline{\Phi}}(\varepsilon^\mu \otimes \eta^\nu )(v,\, w) = \textcolor{red}{\overline{\Phi}}\circ \pi \circ \iota(\varepsilon^\mu,\,\eta^\nu )(v,\, w) = \Phi(\varepsilon^\mu,\, \eta^\nu)(v,\, w) = \varepsilon^\mu (v) \eta^\nu (w) = \varepsilon^\mu \otimes \eta^\nu(v,\, w)
+	\end{align}
+	が成り立つ（ただし，左辺の $\otimes$ は命題\ref{prop:tensor-vec}，右辺は命題\ref{prop:basis-L}で定義したものである）ので，
+	$\textcolor{red}{\overline{\Phi}}$ は $\mathcal{E}$ の元と $\mathcal{B}$ の元の1対1対応を与える．i.e. 同型写像である．
+\end{proof}
+
+\begin{myprop}[label=prop:tensor-hom]{テンソル積と Hom の同型}
+    任意の\underline{有限次元} $\mathbb{K}$-ベクトル空間 $V,\, W$ に対して
+    \begin{align}
+        \Hom{\mathbb{K}} (V,\, W) \cong V^* \otimes W
+    \end{align}
+\end{myprop}
+
+\begin{proof}
+    % 定義から $L(V;\, W) = \Hom{\mathbb{K}}(V,\, W)$ である．
+    写像
+    \begin{align}
+        \Phi \colon V^* \times W &\lto \Hom{\mathbb{K}}(V,\, W), \\
+        (\omega,\, w) &\lmto \bigl( v \lmto \omega(v) w \bigr) 
+    \end{align}
+    は双線型なので，\hyperref[def:univ-vec-tensor]{テンソル積の普遍性}から $\VEC{\mathbb{K}}$ の可換図式
+    \begin{center}
+		\begin{tikzcd}[row sep=large, column sep=large]
+			&V^* \times W \ar[d, "\pi \circ \iota"'] \ar[r,"\Phi"] &\Hom{\mathbb{K}}(V,\, W) \\
+			&\bm{V^* \otimes W} \ar[ur, red, dashed, "\exists! \overline{\Phi}"'] &
+		\end{tikzcd}
+	\end{center}
+	が存在する．
+	$V,\, W$（$\dim V = n,\, \dim W = m$）の基底をそれぞれ $\{e_\mu\},\, \{f_\nu\}$ と書き，その\hyperref[def.basisforDVS]{双対基底}をそれぞれ $\{\varepsilon^\mu\},\, \{\eta^\mu\}$ と書く．
+	命題\ref{prop:basis-tensor}より $V^* \otimes W*$ の基底として
+	\begin{align}
+		\mathcal{E} \coloneqq \bigl\{\, \varepsilon^\mu \otimes f_\nu \bigm| 1 \le \mu \le n,\, 1 \le \nu \le m \,\bigr\} 
+	\end{align}
+	がとれる．一方，$\forall \omega \in V^*,\; \forall w \in W$ に対して
+    \begin{align}
+        \label{eq:tensorbasis}
+        \omega \otimes w \coloneqq \Phi(\omega,\, w) \colon V \lto W,\; v \lmto \omega(v) w
+    \end{align}
+    とおくと $\Hom{\mathbb{K}}(V,\, W)$ の基底として
+	\begin{align}
+		\mathcal{B} \coloneqq \bigl\{\, \varepsilon^\mu \otimes f_\nu \bigm| 1 \le \mu \le n,\, 1 \le \nu \le m \,\bigr\} 
+	\end{align}
+	がとれる
+    \footnote{
+        $\forall F \in \Hom{\mathbb{K}}(V,\, W)$ をとる．$F_{\mu}{}^\nu \coloneqq \eta^\nu \bigl( F(e_\mu) \bigr)$ とおく．このとき $\forall v = v^\mu e_\mu \in V$ に対して
+        \begin{align}
+            F_{\mu}{}^{\nu} \varepsilon^\mu \otimes f_\nu (v) = F_\mu{}^\nu \varepsilon^\mu(v) f_\nu = F_\mu{}^\nu v^\mu f_\nu
+        \end{align}
+        一方で，線形性および双対基底の定義から
+        \begin{align}
+            F(v) = v^\mu F(e_\mu) = v^\mu \eta^\nu \bigl( F(e_\mu) \bigr) f_\nu = v^\mu F_\mu{}^\nu f_\nu
+        \end{align}
+        が成り立つので $F = F_\mu{}^\nu \varepsilon^\mu \otimes f_\nu$ が言えた．i.e. $\mathcal{B}$ は $\Hom{\mathbb{K}}(V,\, W)$ を生成する．
+
+        次に，$\mathcal{B}$ の元が線型独立であることを示す．
+        \begin{align}
+            F_{\mu}{}^\nu \varepsilon^\mu \otimes f_\nu = 0
+        \end{align}
+        を仮定する．$1 \le \forall \mu \le \dim V$ について右辺を $e_\mu$ に作用させることで $F_\mu{}^\nu f_\nu = 0$ が従うが，$f_\nu$ の線型独立性から $F_{\mu}{}^\nu = 0$ である．
+    }
+    （記号が同じだが，$\mathcal{E}$ とは違う定義である）．
+	このとき，$\forall v \in V$ に対して
+	\begin{align}
+		\textcolor{red}{\overline{\Phi}}(\varepsilon^\mu \otimes f_\nu )(v) = \textcolor{red}{\overline{\Phi}} \circ \pi \circ \iota(\varepsilon^\mu,\, f_\nu )(v) = \Phi(\varepsilon^\mu,\, f_\nu)(v) = \varepsilon^\mu (v) f_\nu = \varepsilon^\mu \otimes f_\nu(v)
+	\end{align}
+	が成り立つ（ただし，左辺の $\otimes$ は命題\ref{prop:tensor-vec}，右辺は\eqref{eq:tensorbasis}で定義したものである）ので，
+	$\textcolor{red}{\overline{\Phi}}$ は $\mathcal{E}$ の元と $\mathcal{B}$ の元の1対1対応を与える．i.e. 同型写像である．
+\end{proof}
+
+
+\begin{mycol}[label=col:tensor-multillinear]{}
+    任意の\underline{有限次元} $\mathbb{K}$-ベクトル空間 $V_1,\, \dots,\, V_n,\, W$ に対して
+    \begin{align}
+        L(V_1,\, \dots,\, V_n;\, W) \cong V_1^* \otimes \cdots \otimes V_n^* \otimes W
+    \end{align}
+\end{mycol}
+
+\begin{proof}
+    命題\ref{prop:tensor-multillinear}および命題\ref{prop:fin-tensor-dual}, \ref{prop:tensor-hom}から
+    % , \ref{prop:tensor-hom}の証明と同様の議論をすることで
+    \begin{align}
+        L(V_1,\, \dots,\, V_n;\, W) 
+        &\cong \Hom{\mathbb{K}}(V_1 \otimes \cdots \otimes V_n,\, W) \\
+        &\cong (V_1 \otimes \cdots \otimes V_n)^* \otimes W \\
+        &\cong V_1^* \otimes \cdots \otimes V_n^* \otimes W
+    \end{align}
+    を得る．
+\end{proof}
+
+\begin{mycol}[label=col:tensor-hom-adj]{Tensor-Hom adjunction}
+    任意の\underline{有限次元} $\mathbb{K}$-ベクトル空間 $V,\, W,\, Z$ に対して，
+    \begin{align}
+        \Hom{\mathbb{K}} (V \otimes W,\, Z) \cong \Hom{\mathbb{K}} \bigl( V,\, \Hom{\mathbb{K}} (W,\, Z) \bigr) 
+    \end{align}
+\end{mycol}
+
+\begin{proof}
+    命題\ref{prop:fin-tensor-dual}, \ref{prop:tensor-hom}およびテンソル積の結合則より
+    \begin{align}
+        \Hom{\mathbb{K}} (V \otimes W,\, Z) 
+        &\cong (V \otimes W)^* \otimes Z \\
+        &\cong V^* \otimes W^* \otimes Z \\
+        &\cong V^* \otimes (W^* \otimes Z) \\
+        &\cong V^* \otimes \Hom{\mathbb{K}} (W,\, Z) \\
+        &\cong \Hom{\mathbb{K}} \bigl( V,\, \Hom{\mathbb{K}} (W,\, Z) \bigr) 
+    \end{align}
+\end{proof}
+
+\begin{marker}
+    系\ref{col:tensor-hom-adj}は，有限次元ベクトル空間の圏がコンパクト圏 (compact category) であることを意味する．
+\end{marker}
+
+
+\section{ベクトル空間の直積・直和}
+
+\subsection{普遍性による定義}
+
+$A$ を集合とする．集合 $I$ を\textbf{添字集合} (index set) とする $A$ の元の\textbf{族} (family) とは，写像 $a \colon I \lto A$ のことを言う．$\forall i \in I$ に対して $\bm{a_i} \coloneqq a(i)$ と略記し，写像 $a \colon I \lto A$ 自身のことを $\bm{(a_i)_{i \in I}}$ や $\bm{\{a_i\}_{i \in I}}$ と略記する．
+集合族 $\{A_i\}_{i \in I}$ の\textbf{直積} (Cartesian product) とは，写像の集合
+\begin{align}
+    \bm{\prod_{i \in I} A_i} \coloneqq \Bigl\{\, a \colon I \lto \bigcup_{i \in I} A_i \Bigm| \forall i \in I,\; a(i) \in A_i \,\Bigr\} 
+\end{align}
+のこと．集合族の直積について定まる自然な全射
+\begin{align}
+    \pi_i \colon \prod_{j \in I} A_j \lto A_i,\; a \lmto a(i)
+\end{align}
+のことを\textbf{標準的射影} (canonical projection) と呼ぶ．
+族としての略記を使うと，直積は
+\begin{align}
+    \prod_{i \in I} A_i = \Bigl\{\, (a_i)_{i \in I} \Bigm| \forall i \in I,\; a_i \in A_i \,\Bigr\} 
+\end{align}
+と書くことができる．
+選択公理を認めたので空でない集合族の直積は空でない．
+
+\begin{mydef}[label=def:univ-vec-sum,breakable]{直積・直和-普遍性による定義}
+	添字集合 $I$，および $\mathbb{K}$-ベクトル空間の族 $\Familyset[\big]{V_i}{i\in I}$ を与える．
+    % 添字 $\mu \in I$ に対する標準的射影，標準的包含をそれぞれ $\pi_\mu,\, \iota_\mu$ と書く．
+	\begin{enumerate}
+		\item \begin{itemize}
+            \item $\mathbb{K}$-ベクトル空間 $\bm{P}$
+            \item $\mathbb{K}$-線型写像の族 $\Familyset[\big]{ \bm{\pi_i} \colon \bm{P} \lto V_i}{i \in I}$
+        \end{itemize}
+        の2つ組が $\mathbb{K}$-ベクトル空間の族 $\Familyset[\big]{V_i}{i \in I}$ の\textbf{直積} (product) であるとは，以下の性質を充たすことを言う：
+        \begin{description}
+            \item[\textbf{(ベクトル空間の直積の普遍性)}]　
+            
+            $\forall \textcolor{blue}{W} \in \Obj{\VEC{\mathbb{K}}}$ および任意の $\mathbb{K}$-線型写像の族 $\Familyset[\big]{\textcolor{blue}{f_i} \colon \textcolor{blue}{W} \lto V_i}{i \in I}$ に対して，以下の図式を可換にする $\mathbb{K}$-線型写像 $\textcolor{red}{f} \colon \textcolor{blue}{W} \lto \bm{P}$ が一意的に存在する：
+            \begin{center}
+                \begin{tikzcd}[column sep=huge,row sep=large]
+                    &\forall \textcolor{blue}{W} \ar[d, red, dashed, "\exists ! f"'] \ar[dr, "\textcolor{blue}{f_i}"] & \\
+                    &\bm{P} \ar[r, "\bm{\pi_i}"'] &V_i
+                \end{tikzcd}
+            \end{center}
+        \end{description}
+        
+		\item \begin{itemize}
+            \item $\mathbb{K}$-ベクトル空間 $\bm{S}$
+            \item $\mathbb{K}$-線型写像の族 $\Familyset[\big]{\bm{\iota_i} \colon V_i \lto \bm{S}}{i \in I}$
+        \end{itemize}
+        の2つ組が $\mathbb{K}$-ベクトル空間の族 $\Familyset[\big]{V_i}{i \in I}$ の\textbf{直和} (direct sum) であるとは，以下の性質を充たすことを言う：
+        \begin{description}
+            \item[\textbf{(ベクトル空間の直和の普遍性)}]　
+            
+            $\forall \textcolor{blue}{W} \in \Obj{\VEC{\mathbb{K}}}$ および任意の $\mathbb{K}$-線型写像の族 $\Familyset[\big]{\textcolor{blue}{f_i} \colon V_i \lto \textcolor{blue}{W}}{i \in I}$ に対して，以下の図式を可換にする $\mathbb{K}$-線型写像 $\textcolor{red}{f} \colon \bm{S} \lto \textcolor{blue}{W}$ が一意的に存在する：
+            \begin{center}
+                \begin{tikzcd}[column sep=huge,row sep=large]
+                    &\forall \textcolor{blue}{W} \ar[from=d, red, dashed, "\exists ! f"] \ar[from=dr, "\textcolor{blue}{f_i}"'] & \\
+                    &\bm{S} \ar[from=r, "\bm{\iota_i}"] &V_i
+                \end{tikzcd}
+            \end{center}
+        \end{description}
+	\end{enumerate}
+\end{mydef}
+
+\begin{myprop}[label=prop:unique-vecsum]{}
+    \hyperref[def:univ-vec-sum]{ベクトル空間の直和・直積}は，存在すれば同型を除いて一意である．
+\end{myprop}
+
+\begin{proof}
+    \hyperref[prop:unique-tensor-vec]{テンソル積の場合}と全く同様．
+\end{proof}
+
+\begin{myprop}[label=prop:sum-vec,breakable]{ベクトル空間の直和・直積の構成}
+    添字集合 $I$，および $\mathbb{K}$-ベクトル空間の族 $\Familyset[\big]{V_i}{i\in I}$ を与える．
+    \begin{enumerate}
+        \item \begin{itemize}
+            \item 集合族の直積 $\prod_{i \in I} V_i$ の上に加法とスカラー乗法を
+            \begin{align}
+                (v_i)_{i \in I} + (w_i)_{i \in I} &\coloneqq (v_i + w_i)_{i \in I} \\
+                \lambda (v_i)_{i \in I}  &\coloneqq (\lambda v_i)_{i \in I}
+            \end{align}
+            と定義することで得られる $\mathbb{K}$-ベクトル空間 $\prod_{i \in I} V_i$
+            \item $\forall i \in I$ に対して定まる $\mathbb{K}$-線型写像\footnote{\underline{集合} $\prod_{i \in I} V_i$ に入れたベクトル空間の構造の定義から，自動的に $p_i$ は $\mathbb{K}$-線型写像になる．}
+            \begin{align}
+                \pi_i \colon \prod_{j \in I} V_j \lto V_i,\; (v_j)_{j \in I} \lmto v_i
+            \end{align}
+        \end{itemize}
+        の2つ組は $\Familyset[\big]{V_i}{i\in I}$ の\hyperref[def:univ-vec-sum]{直積}である．
+        \item \begin{itemize}
+            \item 集合族の直積 $\prod_{i \in I} V_i$ の部分集合
+            \begin{align}
+                \bigoplus_{i \in I} V_i \coloneqq \Bigl\{\, (v_i)_{i \in I} \in \prod_{i \in I} V_i \Bigm| \substack{\text{有限個の添字を除いた全ての}\, j \in I \\ \text{について}\, v_j = 0 \in V_j} \,\Bigr\} 
+            \end{align}
+            の上に加法とスカラー乗法を
+            \begin{align}
+                (v_i)_{i \in I} + (w_i)_{i \in I} &\coloneqq (v_i + w_i)_{i \in I} \\
+                \lambda (v_i)_{i \in I}  &\coloneqq (\lambda v_i)_{i \in I}
+            \end{align}
+            と定義することで得られる $\mathbb{K}$-ベクトル空間 $\bigoplus_{i \in I} V_i$
+            \item $\forall i \in I$ に対して定まる $\mathbb{K}$-線型写像\footnote{\underline{集合} $\bigoplus_{i \in I} V_i$ に入れたベクトル空間の構造の定義から，自動的に $i_i$ は $\mathbb{K}$-線型写像になる．}
+            \begin{align}
+                &\iota_i \colon V_i \lto \bigoplus_{j \in I} V_j,\; v \lmto (y_j)_{j \in I} \\
+                &\WHERE y_j = \begin{cases}
+                    v, &j=i \\
+                    0, &j\neq i
+                \end{cases}
+            \end{align}
+        \end{itemize}
+        の2つ組は $\Familyset[\big]{V_i}{i\in I}$ の\hyperref[def:univ-vec-sum]{直和}である．
+    \end{enumerate}
+    
+\end{myprop}
+
+\begin{marker}
+    構成から明らかに，添字集合 $I$ が有限集合ならベクトル空間の直積と直和は同型である．
+\end{marker}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+    
+\end{proof}
+
+\begin{myprop}[label=prop:hom-sum]{Hom と直積・直和の交換}
+    任意の $\mathbb{K}$-ベクトル空間 $W$，添字集合 $I$，および $\mathbb{K}$-ベクトル空間の族 $\Familyset[\big]{V_i}{i\in I}$ を与える．
+    このとき以下の2つの $\mathbb{K}$-ベクトル空間の同型が成り立つ：
+    \begin{enumerate}
+        \item 
+        \begin{align}
+            \Hom{\mathbb{K}} \Bigl( W,\, \prod_{i \in I} V_i \Bigr) \cong \prod_{i \in I} \Hom{\mathbb{K}}(W,\, V_i)
+        \end{align}
+        \item \begin{align}
+            \Hom{\mathbb{K}} \Bigl(\bigoplus_{i \in I} V_i,\, W\Bigr) \cong \prod_{i \in I} \Hom{\mathbb{K}}(V_i,\, W)
+        \end{align}
+    \end{enumerate}
+    
+\end{myprop}
+
+\begin{proof}
+    \begin{enumerate}
+        \item \hyperref[def:univ-vec-sum]{直積の普遍性}より，$\mathbb{K}$-線型写像
+        \begin{align}
+            \alpha\colon \Hom{\mathbb{K}} \Bigl( W,\, \prod_{i \in I} V_i \Bigr) \lto \prod_{i \in I} \Hom{\mathbb{K}}(W,\, V_i),\; f \lmto (\pi_i \circ f)_{i \in I}
+        \end{align}
+        は全単射である．
+        \item \hyperref[def:univ-vec-sum]{直和の普遍性}より，$\mathbb{K}$-線型写像
+        \begin{align}
+            \beta \colon \Hom{\mathbb{K}} \Bigl(\bigoplus_{i \in I} V_i,\, W\Bigr) \lto \prod_{i \in I} \Hom{\mathbb{K}}(V_i,\, W),\; f \lmto (f \circ \iota_i)_{i \in I}
+        \end{align}
+        は全単射である．
+    \end{enumerate}
+\end{proof}
+
+\begin{marker}
+    命題\ref{prop:hom-sum}の同型は，$\mathbb{K}$-ベクトル空間の圏 $\VEC{\mathbb{K}}$ における（圏論的）極限，余極限に関する同型
+    \begin{align}
+        \Hom{\mathbb{K}} (W,\, \lim_{i \in I} V_i ) &\cong \lim_{i \in I} \Hom{\mathbb{K}}(W,\, V_i) \\
+        \Hom{\mathbb{K}} (\colim_{i \in I} V_i,\, W) &\cong \lim_{i \in I} \Hom{\mathbb{K}}(V_i,\, W)
+    \end{align}
+    の一例である．
+\end{marker}
+
+
+\subsection{部分ベクトル空間の直和}
+
+$\mathbb{K}$-ベクトル空間 $V$ の部分ベクトル空間の族 $\Familyset[\big]{W_i}{i \in I}$ の和空間とは，$V$ の部分 $\mathbb{K}$-ベクトル空間
+\begin{align}
+    \bm{\sum_{i \in I} W_i} \coloneqq \Bigl\{\, \sum_{i \in I} w_i \in V \Bigm| \substack{\forall i \in I,\; w_i \in W_i\;\text{かつ，有限個の添字を除いた} \\ \text{全ての}\, j \in I\, \text{について}\, w_j = 0 \in W_j} \,\Bigr\} 
+\end{align}
+のこと．集合 $\bigcup_{i \in I} W_i$ が生成する（張る）部分 $\mathbb{K}$-ベクトル空間と言っても良い．
+
+\begin{myprop}[label=prop:subvec-directsum,breakable]{部分ベクトル空間の直和}
+    $\mathbb{K}$-ベクトル空間 $V$ の部分ベクトル空間の族 $\Familyset[\big]{W_i}{i \in I}$ が
+    \begin{align}
+        \label{eq:subvec-directsum}
+        \forall i \in I,\; W_i \cap \left(\sum_{j \in I \setminus \{i\}} W_j\right) = 0
+    \end{align}
+    を充たすとする．このとき
+    \begin{itemize}
+        \item 和空間 $\sum_{i \in I} W_i$
+        \item $\forall i \in I$ に対して定まる $\mathbb{K}$-線型写像
+        \begin{align}
+            \iota_i \colon W_i \lto \sum_{j \in I} W_j,\; w \lmto w
+        \end{align}
+    \end{itemize}
+    の2つ組は $\Familyset[\big]{W_i}{i \in I}$ の\hyperref[def:univ-vec-sum]{直和}である．
+\end{myprop}
+
+% \begin{marker}
+%     条件\eqref{eq:subvec-directsum}が満たされているとき，この命題によって $\sum_{i \in I}W_i$ と命題\ref{prop:sum-vec}の $\bigoplus_{i \in I} W_i$ を同一視できる．
+% \end{marker}
+
+\begin{proof}
+    $\forall w \in \sum_{i \in I} W_i$ を1つとる．まず，条件\eqref{eq:subvec-directsum}が充たされているならば $w = w_{i_1} + \cdots + w_{i_n}\; (1 \le \forall k \le n,\; v_{i_k} \in W_{i_k})$ と書く方法が一意的に定まることを示す．
+    $w = w_{i_1} + \cdots + w_{i_n} = w'_{j_1} + \cdots + w'_{j_m}$ が成り立つと仮定する．$A \coloneqq \{i_1,\, \dots,\, i_n\} \cup \{j_1,\, \dots,\, j_m\} \subset I$ とおき，$\forall r \in A \setminus \{i_1,\, \dots,\, i_n\}$ に対しては $w_{r} = 0$，$\forall s \in A \setminus \{j_1,\, \dots,\, j_m\}$ に対しては $w'_s = 0$ とおくことで
+    \begin{align}
+        w = \sum_{r \in A} w_r = \sum_{r \in A} w'_r \in \sum_{i \in I} W_i
+    \end{align}
+    と書ける\footnote{$\sharp A \le n + m < \infty$ なので左辺は有限和である．}．
+    このとき $\forall r \in A$ について
+    \begin{align}
+        w_r - w'_r = \sum_{s \in A \setminus \{r\}} (w'_s - w_s) \in W_r \cap \left(\sum_{s \in A \setminus \{r\}} W_s\right)
+    \end{align}
+    が言えるが，条件\eqref{eq:subvec-directsum}より左辺は $0$ である．i.e. $\forall r \in A$ に対して $w_r = w'_r$ が言えた．
+
+    次に\hyperref[def:univ-vec-sum]{直和の普遍性}を示す．任意の $\mathbb{K}$-ベクトル空間 $\textcolor{blue}{W}$ および $\mathbb{K}$-線型写像の族 $\Familyset[\big]{\textcolor{blue}{f_i} \colon V_i \lto \textcolor{blue}{W}}{i \in I}$ を与える．このとき
+    $\mathbb{K}$-線型写像
+    \begin{align}
+        \textcolor{red}{f} \colon \sum_{i \in I} W_i \lto \textcolor{blue}{W},\; \sum_{i \in I} w_i \lmto \sum_{i \in I} \textcolor{blue}{f_i} (w_i)
+    \end{align}
+    は先程の議論からwell-definedであり\footnote{右辺は有限和なので意味を持つ．}，かつ $\forall i \in I,\; \forall w \in W_i$ に対して 
+    \begin{align}
+        \textcolor{red}{f}(w) = \textcolor{blue}{f_i} (w) = \textcolor{blue}{f_i} \circ \iota_i (w)
+    \end{align}
+    を充たす．i.e. $\forall i \in I$ に対して図式
+    \begin{center}
+        \begin{tikzcd}[column sep=huge,row sep=large]
+            &\forall \textcolor{blue}{W} \ar[from=d, red, dashed, "\exists ! f"] \ar[from=dr, "\textcolor{blue}{f_i}"'] & \\
+            &\sum_{i \in I} W_i \ar[from=r, "\iota_i"] &W_i
+        \end{tikzcd}
+    \end{center}
+    は可換である．
+    別の $\mathbb{K}$-線型写像 $g \colon \sum_{i \in I} W_i \lto \textcolor{blue}{W}$ がこの図式を可換にするならば，線型性から $\forall w = \sum_{i \in I} w_i \in \sum_{i \in I} W_i$ に対して
+    \begin{align}
+        g(w) &= g \left( \sum_{i \in I} w_i \right) = \sum_{i \in I} g(w_i) = \sum_{i \in I} g \circ \iota_i (w_i) = \sum_{i \in I} \textcolor{blue}{f_i}(w_i) = \textcolor{red}{f}(w)
+    \end{align}
+    が言える．i.e. $g = \textcolor{red}{f}$ であり，$\textcolor{red}{f}$ は一意である．
+\end{proof}
+
+\begin{mycol}[label=col:subvec-directsum]{内部直和}
+    $\mathbb{K}$-ベクトル空間 $V$ の部分ベクトル空間の族 $\Familyset[\big]{W_i}{i \in I}$ が
+    \begin{align}
+        \forall i \in I,\; W_i \cap \left(\sum_{j \in I \setminus \{i\}} W_j\right) = 0
+    \end{align}
+    を充たすとする．このとき
+    \begin{align}
+        \sum_{i \in I} W_i \cong \bigoplus_{i \in I} W_i
+    \end{align}
+    が成り立つ．ただし右辺は命題\ref{prop:sum-vec}で構成した\hyperref[def:univ-vec-sum]{ベクトル空間の直和}である．
+\end{mycol}
+
+\begin{marker}
+    結局同型ではあるのだが，系\ref{col:subvec-directsum}において $\sum_{i \in I} W_I$ と $\bigoplus_{i \in I} W_i$ を区別するときは，前者を\textbf{内部直和} (internal direct sum)，後者を\textbf{外部直和} (external direct sum) と呼ぶ．
+\end{marker}
+
+\begin{proof}
+    命題\ref{prop:unique-vecsum}より従う．
+\end{proof}
+
+\section{階数・退化次数の定理}
+
+\subsection{有限次元の場合}
+
+$V,\, W$ を\textbf{有限次元} $\mathbb{K}$ ベクトル空間とし，線型写像 $T \colon V \lto W$ を与える．
+$V,\, W$ の\hyperref[def:free-mod]{基底} $\{\vb{e}_1,\, \dots,\, \vb{e}_{\dim V}\},\; \{\vb{f}_1,\, \dots,\, \vb{f}_{\dim W}\}$ をとり，
+\begin{align}
+	T(\vb{e}_\mu) = T^\nu{}_{\mu} \vb{f}_\nu
+\end{align}
+のように左辺を展開したときに得られる行列
+\begin{align}
+	\mqty[T^1{}_1 & \cdots &T^1{}_{\dim V} \\ \vdots &\ddots &\vdots \\ T^{\dim W}{}_1 &\cdots &T^{\dim W}{}_{\dim V}]
+\end{align}
+は基底 $\{\vb{e}_1,\, \dots,\, \vb{e}_{\dim V}\},\; \{\vb{f}_1,\, \dots,\, \vb{f}_{\dim W}\}$ に関する $T$ の\textbf{表現表列}と呼ばれる．
+$\forall \bm{v} = v^\nu \vb{e}_\nu \in V$ に対して
+\begin{align}
+	T(\bm{v}) = T(v^\nu \vb{e}_\nu) = v^\nu T(\vb{e}_\nu) = v^\nu T^\mu{}_{\nu} \vb{f}_\mu
+\end{align}
+と書けるので，成分表示だけを見ると $T$ はその表現行列を左から掛けることに相当する：
+\begin{align}
+	\mqty[T^1{}_1 & \cdots &T^1{}_{\dim V} \\ \vdots &\ddots &\vdots \\ T^{\dim W}{}_1 &\cdots &T^{\dim W}{}_{\dim V}] \mqty[v^1 \\ \vdots \\ v^{\dim V}]
+\end{align}
+
+\begin{mydef}[label=def:rank]{線型写像の階数}
+	$\Im T$ の次元のことを $T$ の\textbf{階数} (rank) と呼び，$\bm{\rank T}$ と書く．
+\end{mydef}
+
+\begin{myprop}[label=prop:canonical-matrix]{表現行列の標準形}
+	$V,\, W$ を\textbf{有限次元}ベクトル空間とし，任意の線型写像 $T \colon V \lto W$ を与える．
+	このとき $V,\, W$ の基底であって，$T$ の表現行列を
+	\begin{align}
+		\mqty[I_{\rank T} & 0 \\ 0 & 0]
+	\end{align}
+	の形にするものが存在する．
+\end{myprop}
+
+\begin{proof}
+	$\Im T$ の基底 $\{\vb{f}_1,\, \dots,\, \vb{f}_{\rank T}\}$ および $\Ker T$ の基底 $\{\vb{k}_1,\, \dots \vb{k}_{\dim (\Ker T)}\}$ を勝手にとる．
+	\hyperref[def:ker-module]{像の定義}から，$1 \le \forall \mu \le \rank T$ に対して $\vb{e}_\mu \in V$ が存在して $\vb{f}_\mu = T(\vb{e}_\mu)$ を充たす．
+	
+	まず $\vb{e}_1,\, \dots ,\, \vb{e}_{\rank T},\, \vb{k}_1,\, \dots,\, \vb{k}_{\dim (\Ker T)}$ が $V$ の基底を成すことを示す．
+	\begin{description}
+		\item[\textbf{線型独立性}] 
+		\begin{align}
+			\sum_{\mu = 1}^{\rank T} a^\mu \vb{e}_\mu + \sum_{\nu = 1}^{\dim (\Ker T)} b^\nu \vb{k}_\nu = 0
+		\end{align}
+		を仮定する．左辺に $T$ を作用させることで
+		\begin{align}
+			\sum_{\mu = 1}^{\rank T} a^\mu \vb{f}_\mu = 0
+		\end{align}
+		がわかるが，$\vb{f}_1,\, \dots,\, \vb{f}_{\rank T}$ は $\Im T$ の基底なので線型独立であり，$1 \le \forall \mu \le \rank T$ に対して $a_\mu = 0$ が言える．
+		故に仮定から
+		\begin{align}
+			\sum_{\nu = 1}^{\dim (\Ker T)} b^\nu \vb{k}_\nu = 0
+		\end{align}
+		であるが，$\vb{k}_1,\, \dots,\, \vb{k}_{\dim (\Ker T)}$ は $\Ker T$ の基底なので線型独立であり，$1 \le \forall \nu \le \dim (\Ker T)$ に対して $b_\nu = 0$ が言える．
+		i.e. $\vb{e}_1,\, \dots ,\, \vb{e}_{\rank T},\, \vb{k}_1,\, \dots,\, \vb{k}_{\dim (\Ker T)}$ は線型独立である．
+		\item[\textbf{$\bm{V}$ を生成すること}] 
+		$\forall \bm{v} \in V$ を1つとる．このとき $T(\bm{v}) \in \Im T$ なので
+		\begin{align}
+			T(\bm{v}) = \sum_{\mu = 1}^{\rank T} v^\mu \vb{f}_\mu
+		\end{align}
+		と展開できる．ここで
+		$\bm{w} \coloneqq \sum_{\mu=1}^{\rank T} v^\mu \vb{e}_\mu \in V$ 
+		とおくと，$T(\bm{v}) = T(\bm{w})$ が成り立つが，$T$ が線型写像であることから $T(\bm{v} - \bm{w}) = 0 \iff \bm{v} - \bm{w} \in \Ker T$ が言えて
+		\begin{align}
+			\bm{v} - \bm{w} = \sum_{\nu = 1}^{\dim (\Ker T)} w^\nu \vb{k}_\nu
+		\end{align}
+		と展開できる．従って
+		\begin{align}
+			\bm{v} = \bm{w} + (\bm{v} - \bm{w})
+			= \sum_{\mu=1}^{\rank T} v^\mu \vb{e}_\mu + \sum_{\nu = 1}^{\dim (\Ker T)} w^\nu \vb{k}_\nu
+		\end{align}
+		であり，$\vb{e}_1,\, \dots ,\, \vb{e}_{\rank T},\, \vb{k}_1,\, \dots,\, \vb{k}_{\dim (\Ker T)}$ は $V$ を生成する．
+	\end{description}
+	$\vb{f}_1,\, \dots,\, \vb{f}_{\rank T}$ と線型独立な $\dim W - \rank T$ 個のベクトル $\tilde{\vb{f}}_{\rank T + 1},\, \dots,\, \tilde{\vb{f}}_{\dim W}$ をとると，
+	\begin{itemize}
+		\item $V$ の基底 $\{\vb{e}_1,\, \dots ,\, \vb{e}_{\rank T},\, \vb{k}_1,\, \dots,\, \vb{k}_{\dim (\Ker T)}\}$ 
+		\item $W$ の基底 $\{\vb{f}_1,\, \dots,\, \vb{f}_{\rank T},\, \tilde{\vb{f}}_{\rank T + 1},\, \dots,\, \tilde{\vb{f}}_{\dim W}\}$
+	\end{itemize}
+	に関する $T$ の表現行列は
+	\begin{align}
+		\mqty[I_{\rank T} & 0 \\ 0 & 0]
+	\end{align}
+	になる．
+\end{proof}
+
+\begin{mycol}[label=col:rank-nullity]{階数・退化次数の定理（有限次元）}
+	$V,\, W$ を\textbf{有限次元}ベクトル空間とし，任意の線型写像 $T \colon V \lto W$ を与える．
+	このとき
+	\begin{align}
+		\dim V = \dim (\Im T) + \dim (\Ker T)
+	\end{align}
+	が成り立つ．
+\end{mycol}
+
+\begin{proof}
+	命題\ref{prop:canonical-matrix}の証明より従う．
+\end{proof}
+
+系\ref{col:rank-nullity}から便利な補題がいくつか従う：
+
+\begin{mylem}[label=lem:finvec-basic]{有限次元ベクトル空間に関する小定理集}
+	$V,\, W$ を\textbf{有限次元}ベクトル空間とし，任意の線型写像 $T \colon V \lto W$ を与える．
+	このとき以下が成り立つ：
+	\begin{enumerate}
+		\item $\rank T \le \dim V.$ 特に $\rank T = \dim V \iff T$ は単射
+		\item $\rank T \le \dim W.$ 特に $\rank T = \dim W \iff T$ は全射
+		\item $\dim V = \dim W$ かつ $T$ が単射 $\IMP$ $T$ は同型写像
+		\item $\dim V = \dim W$ かつ $T$ が全射 $\IMP$ $T$ は同型写像
+	\end{enumerate}
+\end{mylem}
+
+\begin{proof}
+	\begin{enumerate}
+		\item 系\ref{col:rank-nullity}より
+		\begin{align}
+			\dim V = \rank T + \dim (\Ker T) \ge \rank T
+		\end{align}
+		が成り立つ．特に命題\ref{prop.kernel1}から $T$ が単射 $\iff \Ker T = 0 \iff \dim (\Ker T) = 0 \iff \rank T = \dim V$ が従う．
+		\item \hyperref[def:rank]{rankの定義}より $\rank T \le \dim W$ は明らか．特に次元の等しい有限次元ベクトル空間は同型なので，$T$ が全射 $\iff \Im T \cong W \iff \dim (\Im T) = \rank T = \dim W$ が言える．
+		\item $\dim V = \dim W$ かつ $T$ が単射とする．$T$ が単射なので (1) より $\rank T = \dim V = \dim W$ が従い，(2) より $T$ は全射でもある．
+		\item $\dim V = \dim W$ かつ $T$ が全射とする．$T$ が全射なので (2) より $\rank T = \dim W = \dim V$ が従い，(1) より $T$ は単射でもある．
+	\end{enumerate}
+\end{proof}
+
+\subsection{分裂補題と射影的加群}
+
+実は，系\ref{col:rank-nullity}は有限次元でなくとも成り立つ．
+それどころか，左 $R$ 加群の場合の\hyperref[lem:splitting]{分裂補題}に一般化される．
+
+\begin{mylem}[label=lem:splitting]{分裂補題}
+    左 $R$ 加群の短完全列
+    \begin{align}
+        \label{SES:3-1}
+        0 \lto M_1 \xrightarrow{i_1} M \xrightarrow{p_2} M_2 \lto 0
+    \end{align}
+    が与えられたとする．このとき，以下の二つは同値である：
+    \begin{enumerate}
+        \item 左 $R$ 加群の準同型 $i_2 \colon M_2 \lto M$ であって $p_2 \circ i_2 = 1_{M_2}$ を充たすものが存在する
+        \item 左 $R$ 加群の準同型 $p_1 \colon M \lto M_1$ であって $p_1 \circ i_1 = 1_{M_1}$ を充たすものが存在する
+    \end{enumerate}
+\end{mylem}
+
+\begin{proof}
+    \begin{description}
+        \item[\textbf{(1) $\Longrightarrow$ (2)}] 写像
+        \begin{align}
+            p_1' \colon M \lto M,\; x \lmto x - i_2 \bigl( p_2(x) \bigr) 
+        \end{align}
+        を定義すると，
+        \begin{align}
+            p_2 \bigl( p_1'(x) \bigr) = p_2(x) - ((p_2 \circ i_2) \circ p_2)(x) = p_2(x) - p_2(x) = 0
+        \end{align}
+        が成り立つ．従って，\eqref{SES:3-1}が完全列であることを使うと $p_1'(x) \in \Ker p_2 = \Im i_1$ である．さらに $i_1$ が単射であることから
+        \begin{align}
+            \exists ! y \in M_1,\; p_1'(x) = i_1(y)
+        \end{align}
+        が成り立つ．ここで写像
+        \begin{align}
+            p_1 \colon M \lto M_1,\; x \lmto y
+        \end{align}
+        を定義するとこれは準同型写像であり，$\forall x \in M_1$ に対して
+        \begin{align}
+            p_1' \bigl( i_1(x) \bigr) = i_1(x) - (i_2 \circ (p_2 \circ i_1))(x) = i_1(x)
+        \end{align}
+        が成り立つ\footnote{\eqref{SES:3-1}が完全列であるため，$p_2 \circ i_1 = 0$}ことから
+        \begin{align}
+            (p_1 \circ i_1)(x) = x
+        \end{align}
+        とわかる．i.e. $p_1 \circ i_1 = 1_{M_1}$
+        \item[\textbf{(1) $\Longleftarrow$ (2)}] \eqref{SES:3-1}は完全列であるから $M_2 = \Ker 0 =  \Im p_2$ である．
+        従って $\forall x \in M_2 = \Im p_2$ に対して，$x = p_2(y)$ を充たす $y \in M$ が存在する．ここで写像
+        \begin{align}
+            i_2 \colon M_2 \lto M,\; x \lmto y - i_1 \bigl( p_1(y) \bigr) 
+        \end{align}
+        はwell-definedである．$x = p_2(y')$ を充たす勝手な元 $y' \in M$ をとってきたとき，$p_2(y-y') = 0$ より $y-y' \in \Ker p_2 = \Im i_1$ だから，$i_1$ の単射性から
+        \begin{align}
+            \exists ! z \in M_1,\quad y-y' = i_1(z)
+        \end{align}
+        が成り立ち，このとき
+        \begin{align}
+           	\Bigl( y - i_1 \bigl( p_1(y) \bigr) \Bigr) - \Bigl( y' - i_1 \bigl( p_1(y') \bigr)  \Bigr) = i_1(z) - (i_1 \circ (p_1 \circ i_1))(z) = i_1(z) - i_1(z) = 0
+        \end{align}
+        とわかるからである．$i_2$ は準同型写像であり，$\forall x \in M_2$ に対して
+        \begin{align}
+            (p_2 \circ i_2)(x) = p_2(y) - ((p_2 \circ i_1) \circ p_1)(y) = p_2(y) = x
+        \end{align}
+        なので $p_2 \circ i_2 = 1_{M_2}$．
+    \end{description}
+\end{proof}
+
+\begin{mycol}[label=col:split]{}
+    左 $R$ 加群の短完全列
+    \begin{align}
+        0 \lto M_1 \xrightarrow{i_1} M \xrightarrow{p_2} M_2 \lto 0
+    \end{align}
+    が補題\ref{lem:splitting}の条件を充たすならば
+    \begin{align}
+        M \cong M_1 \oplus M_2 
+    \end{align}
+\end{mycol}
+
+\begin{proof}
+    補題\ref{lem:splitting}の条件 (1) が満たされているとする．このとき補題\ref{lem:splitting}証明から $\forall x \in M$ に対して
+    \begin{align}
+        i_1  \bigl( p_1(x) \bigr) = p_1'(x) = x - i_2 \bigl( p_2(x) \bigr) \IFF i_1 \bigl(p_1(x)  \bigr) + i_2 \bigl( p_2(x) \bigr) = x
+    \end{align}
+    また，完全列の定義から $p_2 \bigl( i_1(x) \bigr) = 0$ であるから $\forall x \in M_2$ に対して
+    \begin{align}
+        p_1' \bigl( i_2(x) \bigr) = i_2(x) - ((i_2 \circ p_2) \circ i_2)(x) = 0 = i_1(0)
+    \end{align}
+    であり，結局 $p_1 \bigl( i_2(x) \bigr) = 0$ とわかる．
+
+    ここで準同型写像
+    \begin{align}
+        &f\colon M_1 \oplus M_2 \lto M,\; (x,\, y) \lmto i_1(x) + i_2(y), \\
+        &g\colon M \lto M_1 \oplus M_2,\; x \lmto \bigl( p_1(x),\, p_2(x) \bigr) 
+    \end{align}
+    を定めると
+    \begin{align}
+        (g \circ f)(x,\, y) &= \bigl( p_1(i_1(x)) + p_1(i_2(y)) ,\, p_2(i_1(x)) + p_2(i_2(x)) \bigr) = (x,\, y) , \\
+        (f\circ g)(x) &= i_1(p_1(x)) + i_2(p_2(x)) = x
+    \end{align}
+    なので $f,\, g$ は同型写像．
+\end{proof}
+
+\begin{mydef}[label=def:split]{分裂}
+    左 $R$ 加群の短完全列
+    \begin{align}
+        0 \lto M_1 \xrightarrow{i_1} M \xrightarrow{p_2} M_2 \lto 0
+    \end{align}
+    が\textbf{分裂} (split) するとは，補題\ref{lem:splitting}の条件を充たすことをいう．
+\end{mydef}
+
+
+% \subsection{射影的加群}
+
+\begin{mydef}[label=def:proj-mod]{射影的加群}
+    左 $R$ 加群 $P$ が\textbf{射影的加群} (projective module) であるとは，
+    任意の左 $R$ 加群の\textbf{全射準同型} $f\colon M \lto N$ および任意の準同型写像 $g \colon P \lto N$ に対し，左 $R$ 加群の準同型写像 $ h \colon P \lto M$ であって $f \circ h = g$ を充たすものが存在することを言う（図式\ref{fig:proj-mod}）．
+\end{mydef}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzcd}[row sep=large, column sep=large]
+        &P \ar[d, "g"]\ar[dl, red, dashed, "\exists h"] \\
+        M \ar[r, two heads, "f"] &N
+    \end{tikzcd}
+    \caption{射影的加群}
+    \label{fig:proj-mod}
+\end{figure}%
+
+\begin{myprop}[label=prop:proj-mod-split]{}
+    左 $R$ 加群の完全列
+    \begin{align}
+        0 \lto L \xrightarrow{f} M \xrightarrow{g} \textcolor{red}{N} \lto 0
+    \end{align}
+    は，$\textcolor{red}{N}$ が\hyperref[def:proj-mod]{射影的加群}ならば\hyperref[def:split]{分裂}する．
+\end{myprop}
+
+\begin{proof}
+    射影的加群の定義において $P = N$ とすることで，左 $R$ 加群の準同型写像 $s \colon N \lto M$ であって $g \circ s = 1_N$ を充たすものが存在する．
+\end{proof}
+
+\begin{myprop}[label=prop:proj-mod-dp]{射影的加群の直和}
+    左 $R$ 加群の族 $\Familyset[\big]{P_\lambda}{\lambda \in \Lambda}$ に対して以下の2つは同値：
+    \begin{enumerate}
+        \item $\forall \lambda \in \Lambda$ に対して $P_\lambda$ が射影的加群
+        \item $\displaystyle\bigoplus_{\lambda \in \Lambda} P_\lambda$ が射影的加群
+    \end{enumerate}
+\end{myprop}
+
+\begin{proof}
+    \hyperref[def:inj-proj]{標準的包含}を $\iota_\lambda \colon P_\lambda \hookrightarrow \bigoplus_{\lambda \in  \Lambda}P_\lambda$と書く．
+    \begin{description}
+        \item[\textbf{(1)$\bm{\Longrightarrow}$(2)}] 仮定より，$\forall \lambda \in \lambda$ に対して，任意の全射準同型写像
+        $f \colon M \lto N$ および任意の準同型写像 $g \colon \bigoplus_{\lambda \in \Lambda}P_\lambda \lto N$ に対して，準同型写像 $h_\lambda \colon P_\lambda \lto M$ であって $f \circ h_\lambda = g \circ \iota_\lambda$ を充たすものが存在する．
+        従って\hyperref[prop:univ-dp]{直和の普遍性}より
+        準同型写像
+        \begin{align}
+            h \colon \bigoplus_{\lambda \in \Lambda} P_\lambda \lto M
+        \end{align}
+        であって $f \circ h_\lambda = h \circ \iota_\lambda$ を充たすものが一意的に存在する．
+        このとき 
+        \begin{align}
+            (f \circ h) \circ \iota_\lambda = f \circ h_\lambda = g \circ \iota_\lambda
+        \end{align}
+        であるから，$h$ の一意性から $f \circ h = g$．
+        \item[\textbf{(1)$\bm{\Longleftarrow}$(2)}] $\lambda \in \Lambda$ を一つ固定し，任意の全射準同型写像
+        $f \colon M \lto N$ および任意の準同型写像 $g \colon P_\lambda \lto M$ を与える． 
+        \hyperref[prop:univ-dp]{直和の普遍性}より
+        準同型写像
+        \begin{align}
+            h \colon \bigoplus_{\lambda \in \Lambda} P_\lambda \lto N
+        \end{align}
+        であって $h \circ \iota_\lambda = g$（$\forall \mu \in \Lambda \setminus \{\lambda\},\; h \circ \iota_\lambda = 0$）を充たすものが一意的に存在する．
+        さらに仮定より，準同型写像
+        \begin{align}
+            \alpha \colon \bigoplus_{\lambda \in \Lambda} \lto M
+        \end{align}
+        であって $f \circ \alpha = h$ を充たすものが存在する．このとき
+        \begin{align}
+            f \circ (\alpha \circ \iota_\lambda) = h \circ \iota_\lambda = g
+        \end{align}
+        なので $\beta \coloneqq h \circ \iota_\lambda$ とおけば良い．
+    \end{description}
+\end{proof}
+
+\begin{mycol}[label=col:free-proj]{自由加群は射影的加群}
+    環 $R$ 上の自由加群は射影的加群である
+\end{mycol}
+
+\begin{proof}
+    $R$ が射影的加群であることを示せば命題\ref{prop:proj-mod-dp}より従う．
+
+    左 $R$ 加群の全射準同型写像と準同型写像 $f \colon M \lto N,\; g\colon R \lto N$ を任意に与える．このとき
+    ある $x \in M$ が存在して $f(x) = g(1)$ となる．この $x$ に対して準同型写像 $h \colon R \lto M,\; a \lmto ax$ を定めると，$\forall a \in R$ に対して
+    \begin{align}
+        f \bigl( h(a) \bigr)  = f(ax) = af(x) = ag(1) = g(a)
+    \end{align}
+    が成り立つので $f \circ h = g$ となる．
+\end{proof}
+
+$V,\, W$ を任意の（有限次元とは限らない） $\mathbb{K}$ ベクトル空間，$T \colon V \lto W$ を任意の線型写像とする．
+\begin{align}
+	i_1 &\colon \Ker T  \lto V,\; \bm{v} \lmto \bm{v}, \\
+	p_2 &\colon V \lto \Im T,\; \bm{v} \lmto T(\bm{v}),
+\end{align}
+と定めると，$i_1$ は単射，$p_2$ は全射で，かつ $p_2 \circ i_1 = 0$ が成り立つ．よって $\VEC{\mathbb{K}}$ の図式
+\begin{align}
+	\label{eq:split-vec}
+	0 \lto \Ker T \xrightarrow{i_1} V \xrightarrow{p_2} \Im T \lto 0
+\end{align}
+は短完全列だが，$\Im T$ はベクトル空間なので\hyperref[def:free-mod]{自由加群}であり，系\ref{col:free-proj}より\hyperref[def:proj-mod]{射影的加群}でもある．
+従って命題\ref{prop:proj-mod-split}より短完全列\eqref{eq:split-vec}は\hyperref[def:split]{分裂}し，系\ref{col:split}から
+\begin{align}
+	V \cong \Im T \oplus \Ker T
+\end{align}
+が言える．
+
+\begin{mytheo}[label=thm:rank-nullity]{階数・退化次数の定理}
+	$V,\, W$ をベクトル空間とし，任意の線型写像 $T \colon V \lto W$ を与える．
+	このとき
+	\begin{align}
+		\dim V = \dim (\Im T) + \dim (\Ker T)
+	\end{align}
+	が成り立つ．
+\end{mytheo}
 
 % \section{旗と上三角行列}
 

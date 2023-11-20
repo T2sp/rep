@@ -1,8 +1,8 @@
-This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.29)  20 NOV 2023 03:48
+This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.29)  19 NOV 2023 17:15
  restricted system commands enabled.
  file:line:error style messages enabled.
-**/Users/takamatoshinori/Desktop/Seminors/rep/doc/chap2.tex
-(/Users/takamatoshinori/Desktop/Seminors/rep/doc/chap2.tex
+**/Users/takamatoshinori/Desktop/Seminors/rep/doc/appendixA.tex
+(/Users/takamatoshinori/Desktop/Seminors/rep/doc/appendixA.tex
 LaTeX2e <2022-11-01> patch level 1
 Lua module: luaotfload 2022-10-03 3.23 Lua based OpenType font support
 Lua module: lualibs 2022-10-04 2.75 ConTeXt Lua standard libraries.
@@ -1243,8 +1243,8 @@ warning  (map file): entry for 'ascgrp' already exists, duplicates ignored
 Package: lltjp-array 2019-07-18 Patch to array for LuaTeX-ja
 )
 Package translations Info: No language package found. I am going to use `english' as default language. on input line 3.
- (./out/chap2.aux)
-\openout1 = chap2.aux
+ (./out/appendixA.aux)
+\openout1 = appendixA.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
@@ -1294,10 +1294,10 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package hyperref Info: Link coloring ON on input line 3.
- (./out/chap2.out) (./out/chap2.out)
+ (./out/appendixA.out) (./out/appendixA.out)
 \@outlinefile=\write7
 
-\openout7 = chap2.out
+\openout7 = appendixA.out
 
 
 Package siunitx Warning: Detected the "physics" package:
@@ -1327,21 +1327,33 @@ Package tikz-feynman Warning: Consider loading TikZ-Feynman with \usepackage[com
 Package pgfplots notification 'compat/show suggested version=true': you might benefit from \pgfplotsset{compat=1.18} (current compat level: 1.15).
 
 \c@lstlisting=\count405
-第2章
+第1章
 (load cache: extra_lmroman17-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 19.17854pt on input line 7.
+(Font)              scaled to size 19.17854pt on input line 6.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 19.17854pt on input line 7.
+(Font)              scaled to size 19.17854pt on input line 6.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 19.17854pt on input line 7.
+(Font)              scaled to size 19.17854pt on input line 6.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 19.17854pt on input line 7.
+(Font)              scaled to size 19.17854pt on input line 6.
 (load cache: extra_haranoajigothic-medium.luc)(load cache: extra_lmsans17-regular.luc)
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 7.
+(Font)              scaled to size 23.00687pt on input line 6.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 7.
+(Font)              scaled to size 23.00687pt on input line 6.
+(load cache: extra_lmroman10-bold.luc)
+LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <10> not available
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 8.
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 9.24713pt on input line 8.
+LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <10> not available
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 8.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 9.24713pt on input line 8.
+
+LaTeX Warning: Citation `Humphreys1972introduction' on page 1 undefined on input line 8.
+
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
 (Font)              scaled to size 6.47299pt on input line 9.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
@@ -1359,334 +1371,213 @@ LaTeX Font Info:    Trying to load font information for U+rsfs on input line 9.
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 9.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 6.47299pt on input line 9.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 4.62357pt on input line 9.
-(load cache: extra_lmroman7-regular.luc)
+(load cache: extra_lmroman12-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 6.47299pt on input line 9.
+(Font)              scaled to size 13.31586pt on input line 11.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 5.54828pt on input line 9.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 7.3977pt on input line 9.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 5.54828pt on input line 9.
-(load cache: extra_lmroman6-regular.luc)
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 5.54828pt on input line 9.
-
-
-LaTeX Warning: Hyper reference `ax:LieAlg' on page 1 undefined on input line 11.
-
-LaTeX Font Info:    Trying to load font information for U+euf on input line 11.
-(/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd
-File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-)(load cache: extra_lmroman12-regular.luc)
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 12.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 12.
+(Font)              scaled to size 13.31586pt on input line 11.
 (load cache: extra_lmroman12-bold.luc)
 LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <14.4> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 12.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 11.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 12.
+(Font)              scaled to size 13.31586pt on input line 11.
 LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <14.4> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 12.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 11.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 12.
+(Font)              scaled to size 13.31586pt on input line 11.
+(load cache: extra_lmroman7-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 14.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 14.
-LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <12> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 14.
-LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 14.
-LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <12> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 14.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 14.
-(load cache: extra_lmroman10-bold.luc)
-LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <10> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 16.
-LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 16.
-LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <10> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 16.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 16.
-
-
-LaTeX Warning: Hyper reference `def:solvable-LieAlg' on page 1 undefined on input line 17.
-
-
-LaTeX Warning: Hyper reference `def:solvable-LieAlg' on page 1 undefined on input line 23.
-
-
-LaTeX Warning: Hyper reference `def:flag' on page 1 undefined on input line 25.
-
-
-LaTeX Warning: Hyper reference `def:solvable-LieAlg' on page 1 undefined on input line 36.
-
-[1
+(Font)              scaled to size 6.47299pt on input line 19.
+(load cache: extra_lmroman5-regular.luc)
+LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
+(Font)              scaled to size 4.62357pt on input line 19.
+ [1
 
 
 ]
-
-LaTeX Warning: Hyper reference `def:solvable-LieAlg' on page 2 undefined on input line 42.
-
-
-LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 2 undefined on input line 77.
-
-
-LaTeX Warning: Hyper reference `def:ideal-LieAlg' on page 2 undefined on input line 84.
-
-(load cache: extra_lmroman8-bold.luc)
-LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <8> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 85.
+LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
+(Font)              scaled to size 11.09656pt on input line 52.
+LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
+(Font)              scaled to size 11.09656pt on input line 52.
+LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <12> not available
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 52.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 7.3977pt on input line 85.
-LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <8> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 85.
+(Font)              scaled to size 11.09656pt on input line 52.
+LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <12> not available
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 52.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 7.3977pt on input line 85.
-
-LaTeX Warning: Reference `prop:subvec-directsum' on page 2 undefined on input line 85.
-
-
-LaTeX Warning: Hyper reference `prop:subvec-directsum' on page 2 undefined on input line 86.
-
-[2]
-
-LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 3 undefined on input line 93.
-
-
-LaTeX Warning: Hyper reference `def:simple-LieAlg' on page 3 undefined on input line 94.
-
-
-LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 3 undefined on input line 106.
-
-
-LaTeX Warning: Hyper reference `def:ideal-LieAlg' on page 3 undefined on input line 109.
-
-
-LaTeX Warning: Hyper reference `def:hom-LieAlg' on page 3 undefined on input line 110.
-
-
-LaTeX Warning: Hyper reference `def:ideal-LieAlg' on page 3 undefined on input line 111.
-
-
-LaTeX Warning: Hyper reference `def:simple-LieAlg' on page 3 undefined on input line 111.
-
-
-LaTeX Warning: Hyper reference `prop:subvec-directsum' on page 3 undefined on input line 111.
-
-(load cache: extra_lmroman7-italic.luc)
-LaTeX Font Info:    Font shape `JT3/mc/m/it' in size <7> not available
-(Font)              Font shape `JT3/mc/m/n' tried instead on input line 128.
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 6.47299pt on input line 128.
-LaTeX Font Info:    Font shape `JY3/mc/m/it' in size <7> not available
-(Font)              Font shape `JY3/mc/m/n' tried instead on input line 128.
+(Font)              scaled to size 11.09656pt on input line 52.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 6.47299pt on input line 128.
-LaTeX Font Info:    Font shape `JT3/mc/m/it' in size <6> not available
-(Font)              Font shape `JT3/mc/m/n' tried instead on input line 128.
+(Font)              scaled to size 5.54828pt on input line 54.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 7.3977pt on input line 54.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 5.54828pt on input line 54.
+(load cache: extra_lmroman6-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 5.54828pt on input line 128.
-LaTeX Font Info:    Font shape `JY3/mc/m/it' in size <6> not available
-(Font)              Font shape `JY3/mc/m/n' tried instead on input line 128.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 5.54828pt on input line 128.
+(Font)              scaled to size 5.54828pt on input line 54.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 134.
+(Font)              scaled to size 9.24713pt on input line 72.
 (load cache: extra_lmsans10-regular.luc)(load cache: extra_lmsans10-bold.luc)
 LaTeX Font Info:    Font shape `JT3/gt/b/n' in size <10> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 134.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 72.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 134.
+(Font)              scaled to size 9.24713pt on input line 72.
 LaTeX Font Info:    Font shape `JY3/gt/b/n' in size <10> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 134.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 72.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 134.
-[3]
+(Font)              scaled to size 9.24713pt on input line 72.
+ [2](load cache: extra_lmroman10-italic.luc)
+LaTeX Font Info:    Font shape `JT3/mc/m/it' in size <10> not available
+(Font)              Font shape `JT3/mc/m/n' tried instead on input line 92.
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 172.
+(Font)              scaled to size 9.24713pt on input line 92.
+LaTeX Font Info:    Font shape `JY3/mc/m/it' in size <10> not available
+(Font)              Font shape `JY3/mc/m/n' tried instead on input line 92.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 172.
-LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <24.88> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 172.
+(Font)              scaled to size 9.24713pt on input line 92.
+(load cache: extra_lmroman10-bolditalic.luc)
+LaTeX Font Info:    Font shape `JT3/mc/b/it' in size <10> not available
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 92.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 172.
-LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <24.88> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 172.
+(Font)              scaled to size 9.24713pt on input line 92.
+LaTeX Font Info:    Font shape `JY3/mc/b/it' in size <10> not available
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 92.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 172.
+(Font)              scaled to size 9.24713pt on input line 92.
 
 
-LaTeX Warning: Hyper reference `ax:LieAlg' on page 4 undefined on input line 174.
+LaTeX Warning: Hyper reference `def:commutative' on page 3 undefined on input line 94.
 
 
-LaTeX Warning: Hyper reference `ax:LieAlg' on page 4 undefined on input line 177.
+LaTeX Warning: Hyper reference `ax.ring' on page 3 undefined on input line 141.
 
+[3]
 
-LaTeX Warning: Hyper reference `def:rep-LieAlg' on page 4 undefined on input line 188.
-
-
-LaTeX Warning: Reference `def:gl-alg' on page 4 undefined on input line 196.
+LaTeX Warning: Hyper reference `def:free-mod' on page 4 undefined on input line 177.
 
 [4]
 
-LaTeX Warning: Hyper reference `def:Alg' on page 5 undefined on input line 203.
+LaTeX Warning: Hyper reference `ax.eq' on page 5 undefined on input line 223.
 
 
-LaTeX Warning: Hyper reference `def:Alg' on page 5 undefined on input line 203.
+LaTeX Warning: Hyper reference `prop:quotient-vec' on page 5 undefined on input line 223.
 
 
-LaTeX Warning: Hyper reference `def:rep-LieAlg' on page 5 undefined on input line 204.
+LaTeX Warning: Hyper reference `prop:gen-submodule' on page 5 undefined on input line 242.
+
+(load cache: extra_lmroman7-italic.luc)
+LaTeX Font Info:    Font shape `JT3/mc/m/it' in size <7> not available
+(Font)              Font shape `JT3/mc/m/n' tried instead on input line 242.
+LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
+(Font)              scaled to size 6.47299pt on input line 242.
+LaTeX Font Info:    Font shape `JY3/mc/m/it' in size <7> not available
+(Font)              Font shape `JY3/mc/m/n' tried instead on input line 242.
+LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
+(Font)              scaled to size 6.47299pt on input line 242.
+LaTeX Font Info:    Font shape `JT3/mc/m/it' in size <6> not available
+(Font)              Font shape `JT3/mc/m/n' tried instead on input line 242.
+LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
+(Font)              scaled to size 5.54828pt on input line 242.
+LaTeX Font Info:    Font shape `JY3/mc/m/it' in size <6> not available
+(Font)              Font shape `JY3/mc/m/n' tried instead on input line 242.
+LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
+(Font)              scaled to size 5.54828pt on input line 242.
+
+LaTeX Warning: Hyper reference `prop:quotient-vec' on page 5 undefined on input line 243.
 
 
-LaTeX Warning: Hyper reference `ax:LieAlg' on page 5 undefined on input line 207.
+LaTeX Warning: Hyper reference `prop:quotient-vec' on page 5 undefined on input line 259.
 
 [5]
 
-LaTeX Warning: Hyper reference `def:rep-LieAlg' on page 6 undefined on input line 238.
-
-
-Package tcolorbox Warning: Discard zero height first box part due to break problems (possible loss of zero height content) on input line 258.
+LaTeX Warning: Hyper reference `thm.homo1' on page 6 undefined on input line 284.
 
 [6]
 
-LaTeX Warning: Hyper reference `def:univ-vec-sum' on page 7 undefined on input line 268.
+LaTeX Warning: Hyper reference `def.basisforDVS' on page 7 undefined on input line 358.
 
 
-LaTeX Warning: Reference `col:subvec-directsum' on page 7 undefined on input line 274.
+LaTeX Warning: Hyper reference `cmtd:tensor-vec' on page 7 undefined on input line 363.
 
+[7]
 
-LaTeX Warning: Hyper reference `lem:splitting' on page 7 undefined on input line 293.
-
-[7](load cache: extra_lmroman10-italic.luc)
-LaTeX Font Info:    Font shape `JT3/mc/m/it' in size <10> not available
-(Font)              Font shape `JT3/mc/m/n' tried instead on input line 298.
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 298.
-LaTeX Font Info:    Font shape `JY3/mc/m/it' in size <10> not available
-(Font)              Font shape `JY3/mc/m/n' tried instead on input line 298.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 298.
-(load cache: extra_lmroman10-bolditalic.luc)
-LaTeX Font Info:    Font shape `JT3/mc/b/it' in size <10> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 298.
-LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 298.
-LaTeX Font Info:    Font shape `JY3/mc/b/it' in size <10> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 298.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 298.
-
-
-LaTeX Warning: Hyper reference `col:subvec-directsum' on page 8 undefined on input line 298.
-
-
-LaTeX Warning: Reference `prop:subvec-directsum' on page 8 undefined on input line 315.
+LaTeX Warning: Hyper reference `def.basisforDVS' on page 8 undefined on input line 387.
 
 [8]
+LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
+(Font)              scaled to size 23.00687pt on input line 431.
+LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
+(Font)              scaled to size 23.00687pt on input line 431.
+LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <24.88> not available
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 431.
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 23.00687pt on input line 431.
+LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <24.88> not available
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 431.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 23.00687pt on input line 431.
 
-LaTeX Warning: Hyper reference `lem:splitting' on page 9 undefined on input line 343.
+
+LaTeX Warning: Hyper reference `cmtd:tensor-vec' on page 9 undefined on input line 440.
 
 
-LaTeX Warning: Reference `col:split' on page 9 undefined on input line 343.
+LaTeX Warning: Hyper reference `def.basisforDVS' on page 9 undefined on input line 448.
 
 [9]
 
-LaTeX Warning: Hyper reference `def:univ-vec-tensor' on page 10 undefined on input line 435.
+LaTeX Warning: Hyper reference `def.basisforDVS' on page 10 undefined on input line 488.
 
-[10]
+[10] [11] [12] [13] [14] [15]
 
-LaTeX Warning: Hyper reference `def:hom-vec' on page 11 undefined on input line 467.
-
-[11]
-
-LaTeX Warning: Reference `prop:tensor-hom' on page 12 undefined on input line 493.
+LaTeX Warning: Hyper reference `def:free-mod' on page 16 undefined on input line 825.
 
 
-LaTeX Warning: Hyper reference `def:vec-hom' on page 12 undefined on input line 523.
+LaTeX Warning: Hyper reference `def:ker-module' on page 16 undefined on input line 858.
 
-[12]
+[16] [17]
 
-LaTeX Warning: Hyper reference `def:rep-LieAlg' on page 13 undefined on input line 538.
+LaTeX Warning: Reference `prop.kernel1' on page 18 undefined on input line 939.
 
+[18] [19] [20]
 
-LaTeX Warning: Hyper reference `def:ideal-LieAlg' on page 13 undefined on input line 560.
-
-
-LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 13 undefined on input line 561.
+LaTeX Warning: Hyper reference `def:inj-proj' on page 21 undefined on input line 1094.
 
 
-LaTeX Warning: Hyper reference `def:solvable-LieAlg' on page 13 undefined on input line 561.
+LaTeX Warning: Hyper reference `prop:univ-dp' on page 21 undefined on input line 1098.
 
 
-LaTeX Warning: Hyper reference `de:semisimple-LieAlg' on page 13 undefined on input line 564.
+LaTeX Warning: Hyper reference `prop:univ-dp' on page 21 undefined on input line 1111.
 
-[13]
+[21]
 
-LaTeX Warning: Hyper reference `de:semisimple-LieAlg' on page 14 undefined on input line 622.
+LaTeX Warning: Hyper reference `def:free-mod' on page 22 undefined on input line 1154.
 
-
-LaTeX Warning: Hyper reference `de:semisimple-LieAlg' on page 14 undefined on input line 646.
-
-[14] [15]
-
-LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 16 undefined on input line 700.
-
-
-LaTeX Warning: Reference `lem:semisimple-decomp' on page 16 undefined on input line 700.
-
-
-LaTeX Warning: Hyper reference `def:simple-LieAlg' on page 16 undefined on input line 700.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 712.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leavevmode@ifvmode' on input line 712.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern 1.66702pt
-(hyperref)                removed on input line 712.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 712.
-
-[16] (./out/chap2.aux)
+[22] (./out/appendixA.aux)
 
 LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: File `chap2.out' has not changed.
-(rerunfilecheck)             Checksum: 02668415099998CDF6255D68E0F0600A;737.
+Package rerunfilecheck Info: File `appendixA.out' has not changed.
+(rerunfilecheck)             Checksum: 84F7D6FED914FF9F1D5BE6186D0D0CF8;666.
 )
 
 Here is how much of LuaTeX's memory you used:
- 54339 strings out of 478285
- 195703,1977958 words of node,token memory allocated
- 6313 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 6 glue, 4 kern, 1 glyph, 2570 attribute, 62 glue_spec, 246 attribute_list, 2 write, 14 user_defined, 2 pdf_action nodes
-   avail lists: 1:57,2:49778,3:1205,4:844,5:484,6:69,7:4991,8:75,9:2154,10:19,11:51
- 72442 multiletter control sequences out of 65536+600000
- 135 fonts using 76426599 bytes
- 138i,21n,131p,1815b,1421s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufb10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on chap2.pdf (16 pages, 440471 bytes).
+ 54908 strings out of 478285
+ 244644,1977958 words of node,token memory allocated
+ 8872 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 9 glue, 4 kern, 1 glyph, 3736 attribute, 62 glue_spec, 352 attribute_list, 2 write, 14 user_defined, 1 pdf_action nodes
+   avail lists: 1:44,2:59182,3:1532,4:1184,5:499,6:58,7:5020,8:73,9:2491,10:13,11:33
+ 73027 multiletter control sequences out of 65536+600000
+ 105 fonts using 74652407 bytes
+ 138i,20n,131p,1819b,1542s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on appendixA.pdf (22 pages, 487496 bytes).
 
-PDF statistics: 518 PDF objects out of 1000 (max. 8388607)
- 428 compressed objects within 5 object streams
- 113 named destinations out of 1000 (max. 131072)
- 64 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 499 PDF objects out of 1000 (max. 8388607)
+ 409 compressed objects within 5 object streams
+ 104 named destinations out of 1000 (max. 131072)
+ 56 words of extra memory for PDF output out of 10000 (max. 100000000)
 
