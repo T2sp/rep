@@ -188,7 +188,7 @@ $\mathfrak{g}$ を体 $\mathbb{K}$ 上の\hyperref[ax:LieAlg]{Lie代数}とす�
     \begin{description}
         \item[\textbf{(M1)}] $(\lambda \cdot x_1 + \mu \cdot x_2) \btr v = \lambda \cdot (x_1 \btr v) + \mu \cdot (x_2 \btr v)$
         \item[\textbf{(M2)}] $x \btr (\lambda \cdot v_1 + \mu \cdot v_2) = \lambda \cdot (x \btr v_1) + \mu \cdot (x \btr v_2)$
-        \item[\textbf{(M3)}] $\comm{x}{y} \btr v = x \btr (y \btr v) - y (\btr x \btr v)$
+        \item[\textbf{(M3)}] $\comm{x}{y} \btr v = x \btr (y \btr v) - y \btr (x \btr v)$
     \end{description}
     \tcblower
     同値な定義として，\hyperref[def:rep-LieAlg]{Lie代数の表現}
@@ -230,7 +230,7 @@ $\mathfrak{g}$ を体 $\mathbb{K}$ 上の\hyperref[ax:LieAlg]{Lie代数}とす�
 
 	同値な定義だが，線型写像 $f \colon V \lto W$ が $\mathfrak{g}$-加群の準同型であるとは，\hyperref[def:rep-LieAlg]{Lie代数の表現}
 	\begin{align}
-		\phi_1 \colon \mathfrak{g} &\lto \Lgl (V),\; x \lmto \bigl( v \mapsto x \btr_1 v \bigr) 
+		\phi_1 \colon \mathfrak{g} &\lto \Lgl (V),\; x \lmto \bigl( v \mapsto x \btr_1 v \bigr) \\
 		\phi_2 \colon \mathfrak{g} &\lto \Lgl (W),\; x \lmto \bigl( v \mapsto x \btr_2 v \bigr) 
 	\end{align}
 	に関して
@@ -481,7 +481,7 @@ $\mathfrak{g}$ を体 $\mathbb{K}$ 上の\hyperref[ax:LieAlg]{Lie代数}とす�
 がわかった．
 
 \begin{mydef}[label=def:gmod-dual]{$\mathfrak{g}$-加群の双対}
-	$(V,\, +,\, \cdot\;,\, \btr)$ を\underline{有限次元}\hyperref[ax:g-module]{ $\mathfrak{g}$-加群}とする．このとき
+	$(V,\, +,\, \cdot\;,\, \btr)$ を\underline{有限次元} \hyperref[ax:g-module]{ $\mathfrak{g}$-加群}とする．このとき
 	\begin{itemize}
 		\item \hyperref[def:hom-vec]{双対ベクトル空間} $V^* = \Hom{\mathbb{K}}(V,\, \mathbb{K})$
 		\item $V^*$ への $\mathfrak{g}$ の左作用

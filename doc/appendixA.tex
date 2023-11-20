@@ -394,7 +394,7 @@ $\forall \omega_i \in V_i^*$ に対して，$\bm{\omega_1 \otimes \cdots \otimes
 \begin{proof}
 	$\forall F  \in L(V,\, W;\, \mathbb{K})$ を1つとり，全ての添字の組み合わせ $(\mu,\, \nu)$ に対して
 	\begin{align}
-		F_{\mu\nu} \coloneqq F(e_\mu,\, e_\nu)
+		F_{\mu\nu} \coloneqq F(e_\mu,\, f_\nu)
 	\end{align}
 	とおく．$\forall (v,\, w) \in V \times W$ を $v = v^\mu e_\mu,\; w = w^\nu f_\nu$ と展開すると，
 	\begin{align}
@@ -403,7 +403,7 @@ $\forall \omega_i \in V_i^*$ に対して，$\bm{\omega_1 \otimes \cdots \otimes
 	\end{align}
 	が成り立つ．一方，双線型性から
 	\begin{align}
-		F(v,\, w) = v^\mu w^\nu F(e_\mu,\, e_\nu) = F_{\mu\nu} v^\mu w^\nu
+		F(v,\, w) = v^\mu w^\nu F(e_\mu,\, f_\nu) = F_{\mu\nu} v^\mu w^\nu
 	\end{align}
 	も成り立つので $F = F_{\mu\nu} \varepsilon^\mu \otimes \eta^\nu$ が言えた．i.e. 集合 $\mathcal{B}$ は $L(V,\, W;\, \mathbb{K})$ を生成する．
 
@@ -486,7 +486,7 @@ $\forall \omega_i \in V_i^*$ に対して，$\bm{\omega_1 \otimes \cdots \otimes
 	\end{center}
 	が存在する．
 	$V,\, W$（$\dim V = n,\, \dim W = m$）の基底をそれぞれ $\{e_\mu\},\, \{f_\nu\}$ と書き，その\hyperref[def.basisforDVS]{双対基底}をそれぞれ $\{\varepsilon^\mu\},\, \{\eta^\mu\}$ と書く．
-	命題\ref{prop:basis-tensor}より $V^* \otimes W*$ の基底として
+	命題\ref{prop:basis-tensor}より $V^* \otimes W$ の基底として
 	\begin{align}
 		\mathcal{E} \coloneqq \bigl\{\, \varepsilon^\mu \otimes f_\nu \bigm| 1 \le \mu \le n,\, 1 \le \nu \le m \,\bigr\} 
 	\end{align}
@@ -566,7 +566,7 @@ $\forall \omega_i \in V_i^*$ に対して，$\bm{\omega_1 \otimes \cdots \otimes
 \end{proof}
 
 \begin{marker}
-    系\ref{col:tensor-hom-adj}は，有限次元ベクトル空間の圏がコンパクト圏 (compact category) であることを意味する．
+    系\ref{col:tensor-hom-adj}は，有限次元ベクトル空間の圏が閉圏 (closed category) であることを意味する．
 \end{marker}
 
 
@@ -725,7 +725,7 @@ $A$ を集合とする．集合 $I$ を\textbf{添字集合} (index set) とす�
     命題\ref{prop:hom-sum}の同型は，$\mathbb{K}$-ベクトル空間の圏 $\VEC{\mathbb{K}}$ における（圏論的）極限，余極限に関する同型
     \begin{align}
         \Hom{\mathbb{K}} (W,\, \lim_{i \in I} V_i ) &\cong \lim_{i \in I} \Hom{\mathbb{K}}(W,\, V_i) \\
-        \Hom{\mathbb{K}} (\colim_{i \in I} V_i,\, W) &\cong \lim_{i \in I} \Hom{\mathbb{K}}(V_i,\, W)
+        \Hom{\mathbb{K}} (\underset{i \in I}{\colim} V_i,\, W) &\cong \lim_{i \in I} \Hom{\mathbb{K}}(V_i,\, W)
     \end{align}
     の一例である．
 \end{marker}
