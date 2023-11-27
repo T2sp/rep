@@ -13,37 +13,41 @@
 \contentsline {subsection}{\numberline {2.1.1}Lieの定理}{25}{subsection.2.1.1}%
 \contentsline {subsection}{\numberline {2.1.2}Jordan-Chevalley分解}{25}{subsection.2.1.2}%
 \contentsline {subsection}{\numberline {2.1.3}Cartanの判定条件}{26}{subsection.2.1.3}%
-\contentsline {section}{\numberline {2.2}Killing形式}{26}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}半単純性の判定条件}{26}{subsection.2.2.1}%
+\contentsline {section}{\numberline {2.2}Killing形式}{27}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}半単純性の判定条件}{27}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}単純イデアル}{27}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}内部微分}{27}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}抽象Jordan分解}{27}{subsection.2.2.4}%
-\contentsline {section}{\numberline {2.3}表現の完全可約性}{27}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}$\mathfrak {g}$-加群と表現}{27}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}$\mathfrak {g}$-加群の直和と既約性}{31}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}$\mathfrak {g}$-加群のHomとテンソル積}{34}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4}Casimir演算子}{37}{subsection.2.3.4}%
-\contentsline {subsection}{\numberline {2.3.5}Weylの定理}{41}{subsection.2.3.5}%
-\contentsline {subsection}{\numberline {2.3.6}Jordan分解の保存}{45}{subsection.2.3.6}%
-\contentsline {section}{\numberline {2.4}$\mathfrak {sl}(2,\, \mathbb {K})$ の表現}{45}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}ウエイトと極大ベクトル}{45}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}既約加群の分類}{45}{subsection.2.4.2}%
-\contentsline {section}{\numberline {2.5}ルート空間分解}{45}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}極大トーラスとルート}{45}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}極大トーラスの中心化代数}{45}{subsection.2.5.2}%
-\contentsline {subsection}{\numberline {2.5.3}直交性}{45}{subsection.2.5.3}%
-\contentsline {subsection}{\numberline {2.5.4}整性}{45}{subsection.2.5.4}%
-\contentsline {subsection}{\numberline {2.5.5}有理性}{45}{subsection.2.5.5}%
-\contentsline {chapter}{\numberline {付録A}ベクトル空間の話}{46}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Hom ベクトル空間}{46}{section.A.1}%
-\contentsline {section}{\numberline {A.2}ベクトル空間のテンソル積}{47}{section.A.2}%
-\contentsline {subsection}{\numberline {A.2.1}普遍性による定義}{47}{subsection.A.2.1}%
-\contentsline {subsection}{\numberline {A.2.2}多重線型写像とテンソル積}{51}{subsection.A.2.2}%
-\contentsline {subsection}{\numberline {A.2.3}有限次元ベクトル空間のテンソル積}{52}{subsection.A.2.3}%
-\contentsline {section}{\numberline {A.3}ベクトル空間の直積・直和}{56}{section.A.3}%
-\contentsline {subsection}{\numberline {A.3.1}普遍性による定義}{56}{subsection.A.3.1}%
-\contentsline {subsection}{\numberline {A.3.2}部分ベクトル空間の直和}{59}{subsection.A.3.2}%
-\contentsline {section}{\numberline {A.4}階数・退化次数の定理}{61}{section.A.4}%
-\contentsline {subsection}{\numberline {A.4.1}有限次元の場合}{61}{subsection.A.4.1}%
-\contentsline {subsection}{\numberline {A.4.2}分裂補題と射影的加群}{63}{subsection.A.4.2}%
-\contentsline {chapter}{参考文献}{68}{appendix*.6}%
+\contentsline {subsection}{\numberline {2.2.3}内部微分}{28}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}抽象Jordan分解}{28}{subsection.2.2.4}%
+\contentsline {section}{\numberline {2.3}表現の完全可約性}{29}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}$\mathfrak {g}$-加群と表現}{29}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}$\mathfrak {g}$-加群の直和と既約性}{32}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}$\mathfrak {g}$-加群のHomとテンソル積}{35}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Casimir演算子}{38}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}Weylの定理}{42}{subsection.2.3.5}%
+\contentsline {subsection}{\numberline {2.3.6}Jordan分解の保存}{46}{subsection.2.3.6}%
+\contentsline {section}{\numberline {2.4}$\mathfrak {sl}(2,\, \mathbb {K})$ の表現}{47}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}ウエイトと極大ベクトル}{48}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}既約加群の分類}{48}{subsection.2.4.2}%
+\contentsline {section}{\numberline {2.5}ルート空間分解}{50}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}極大トーラスとルート}{50}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}極大トーラスの中心化代数}{50}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}直交性}{50}{subsection.2.5.3}%
+\contentsline {subsection}{\numberline {2.5.4}整性}{50}{subsection.2.5.4}%
+\contentsline {subsection}{\numberline {2.5.5}有理性}{50}{subsection.2.5.5}%
+\contentsline {chapter}{\numberline {付録A}ベクトル空間の話}{51}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Hom ベクトル空間}{51}{section.A.1}%
+\contentsline {section}{\numberline {A.2}ベクトル空間のテンソル積}{52}{section.A.2}%
+\contentsline {subsection}{\numberline {A.2.1}普遍性による定義}{52}{subsection.A.2.1}%
+\contentsline {subsection}{\numberline {A.2.2}多重線型写像とテンソル積}{56}{subsection.A.2.2}%
+\contentsline {subsection}{\numberline {A.2.3}有限次元ベクトル空間のテンソル積}{57}{subsection.A.2.3}%
+\contentsline {section}{\numberline {A.3}ベクトル空間の直積・直和}{61}{section.A.3}%
+\contentsline {subsection}{\numberline {A.3.1}普遍性による定義}{61}{subsection.A.3.1}%
+\contentsline {subsection}{\numberline {A.3.2}部分ベクトル空間の直和}{65}{subsection.A.3.2}%
+\contentsline {section}{\numberline {A.4}階数・退化次数の定理}{67}{section.A.4}%
+\contentsline {subsection}{\numberline {A.4.1}有限次元の場合}{67}{subsection.A.4.1}%
+\contentsline {subsection}{\numberline {A.4.2}分裂補題と射影的加群}{69}{subsection.A.4.2}%
+\contentsline {section}{\numberline {A.5}Jordan標準形}{73}{section.A.5}%
+\contentsline {subsection}{\numberline {A.5.1}上三角化}{74}{subsection.A.5.1}%
+\contentsline {subsection}{\numberline {A.5.2}広義固有空間分解}{76}{subsection.A.5.2}%
+\contentsline {subsection}{\numberline {A.5.3}多項式環・最小多項式}{77}{subsection.A.5.3}%
+\contentsline {chapter}{参考文献}{85}{appendix*.6}%

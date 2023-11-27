@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.29)  21 NOV 2023 00:58
+This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.29)  27 NOV 2023 14:23
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/takamatoshinori/Desktop/Seminors/rep/doc/appendixA.tex
@@ -1531,53 +1531,105 @@ LaTeX Warning: Hyper reference `def.basisforDVS' on page 9 undefined on input li
 
 LaTeX Warning: Hyper reference `def.basisforDVS' on page 10 undefined on input line 488.
 
-[10] [11] [12] [13] [14] [15]
+[10] [11] [12] [13] [14] [15] [16]
 
-LaTeX Warning: Hyper reference `def:free-mod' on page 16 undefined on input line 825.
-
-
-LaTeX Warning: Hyper reference `def:ker-module' on page 16 undefined on input line 858.
-
-[16] [17]
-
-LaTeX Warning: Reference `prop.kernel1' on page 18 undefined on input line 939.
-
-[18] [19] [20]
-
-LaTeX Warning: Hyper reference `def:inj-proj' on page 21 undefined on input line 1094.
+LaTeX Warning: Hyper reference `def:free-mod' on page 17 undefined on input line 869.
 
 
-LaTeX Warning: Hyper reference `prop:univ-dp' on page 21 undefined on input line 1098.
+LaTeX Warning: Hyper reference `def:ker-module' on page 17 undefined on input line 902.
+
+[17] [18]
+
+LaTeX Warning: Reference `prop.kernel1' on page 19 undefined on input line 983.
+
+[19] [20] [21]
+
+LaTeX Warning: Hyper reference `def:inj-proj' on page 22 undefined on input line 1138.
 
 
-LaTeX Warning: Hyper reference `prop:univ-dp' on page 21 undefined on input line 1111.
+LaTeX Warning: Hyper reference `prop:univ-dp' on page 22 undefined on input line 1142.
 
-[21]
 
-LaTeX Warning: Hyper reference `def:free-mod' on page 22 undefined on input line 1154.
+LaTeX Warning: Hyper reference `prop:univ-dp' on page 22 undefined on input line 1155.
 
-[22] (./out/appendixA.aux)
+[22]
+
+LaTeX Warning: Hyper reference `def:free-mod' on page 23 undefined on input line 1198.
+
+[23]
+
+LaTeX Warning: Hyper reference `def:flag' on page 24 undefined on input line 1239.
+
+
+LaTeX Warning: Hyper reference `def:flag' on page 24 undefined on input line 1280.
+
+
+LaTeX Warning: Hyper reference `def:flag' on page 24 undefined on input line 1280.
+
+[24]
+
+LaTeX Warning: Hyper reference `def:flag' on page 25 undefined on input line 1295.
+
+
+LaTeX Warning: Hyper reference `def:flag' on page 25 undefined on input line 1295.
+
+
+LaTeX Warning: Hyper reference `prop:homo' on page 25 undefined on input line 1303.
+
+
+LaTeX Warning: Hyper reference `def:flag' on page 25 undefined on input line 1311.
+
+
+LaTeX Warning: Hyper reference `prop:homo' on page 25 undefined on input line 1316.
+
+[25]
+LaTeX Font Info:    Trying to load font information for U+dsrom on input line 1348.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/doublestroke/Udsrom.fd
+File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
+) [26](load cache: extra_lmroman8-bold.luc)
+LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <8> not available
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 1385.
+LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
+(Font)              scaled to size 7.3977pt on input line 1385.
+LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <8> not available
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 1385.
+LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
+(Font)              scaled to size 7.3977pt on input line 1385.
+
+Overfull \hbox (23.3477pt too wide) in paragraph at lines 1394--1397
+|\JY3/mc/m/it/10 で |定 |義 |す |る[][][][][][][]|と $\OML/cmm/m/it/10 R\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 t[];  [] ;  t[]\OT1/cmr/m/n/10 ]$ |\JY3/mc/m/it/10 自 |身 |が |環 |に |な |る []  |た |だ |し $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[];  [] ;  t[]\OT1/cmr/m/n/10 ) = [][] \OML/cmm/m/it/10 a[]t[] [] t[];  g\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[];  [] ;  t[]\OT1/cmr/m/n/10 ) =
+ []
+
+[27] [28] [29]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 1554.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+) [30] [31] [32]
+
+LaTeX Warning: Hyper reference `ax:Alg' on page 33 undefined on input line 1680.
+
+[33] [34] (./out/appendixA.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `appendixA.out' has not changed.
-(rerunfilecheck)             Checksum: 84F7D6FED914FF9F1D5BE6186D0D0CF8;666.
+(rerunfilecheck)             Checksum: 52B366FC3F2866902456E552D63B4170;774.
 )
 
 Here is how much of LuaTeX's memory you used:
- 54908 strings out of 478285
+ 55119 strings out of 478285
  244644,1977958 words of node,token memory allocated
- 8872 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 9 glue, 4 kern, 1 glyph, 3736 attribute, 62 glue_spec, 352 attribute_list, 2 write, 14 user_defined, 1 pdf_action nodes
-   avail lists: 1:44,2:59014,3:1532,4:1184,5:499,6:58,7:5020,8:73,9:2479,10:13,11:30
- 73027 multiletter control sequences out of 65536+600000
- 105 fonts using 74652407 bytes
+ 11282 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 13 glue, 4 kern, 1 glyph, 4825 attribute, 62 glue_spec, 451 attribute_list, 2 write, 14 user_defined, 2 pdf_action nodes
+   avail lists: 1:44,2:57826,3:1532,4:1184,5:522,6:68,7:5416,8:86,9:2479,10:23,11:30
+ 73159 multiletter control sequences out of 65536+600000
+ 116 fonts using 75298719 bytes
  138i,20n,131p,1819b,1542s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on appendixA.pdf (22 pages, 487209 bytes).
+</usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on appendixA.pdf (34 pages, 603523 bytes).
 
-PDF statistics: 499 PDF objects out of 1000 (max. 8388607)
- 409 compressed objects within 5 object streams
- 104 named destinations out of 1000 (max. 131072)
- 56 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 695 PDF objects out of 1000 (max. 8388607)
+ 590 compressed objects within 6 object streams
+ 165 named destinations out of 1000 (max. 131072)
+ 64 words of extra memory for PDF output out of 10000 (max. 100000000)
 

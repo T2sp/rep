@@ -28,6 +28,39 @@
 
 \subsection{Jordan-Chevalley分解}
 
+この小節において体 $\mathbb{K}$ は代数閉体で，かつ標数は任意とする．
+
+\begin{mydef}[label=def:semisimple-end]{線型変換の半単純性}
+	$V$ を\underline{有限次元} $\mathbb{K}$-ベクトル空間とし，$x \in \End V$ とする．
+	$x$ が\textbf{半単純} (semisimple) であるとは，$x$ の\hyperref[def:minimal-poly]{最小多項式}が $\mathbb{K}$ 上で重根を持たないことを言う\footnote{$x$ が対角化可能であることと同値である．}．
+\end{mydef}
+
+
+\begin{myprop}[label=prop:Jordan-Chevalley]{Jordan-Chevalley分解}
+	$V$ を\underline{有限次元} $\mathbb{K}$-ベクトル空間とし，$x \in \End V$ を与える．
+	このとき以下が成り立つ：
+	\begin{enumerate}
+		\item \hyperref[def:semisimple-end]{半単純}な $x_s \in \End V$ と冪零な $x_n \in \End V$ が一意的に存在して，
+		\begin{align}
+			x = x_s + x_n
+		\end{align}
+		と書ける．
+		\item 定数項を持たない $p(t),\, q(t) \in \mathbb{K}[t]$ であって，$x_s = p(x),\; x_n = q(x)$ を充たすものが存在する．特に $\comm{x}{x_s} = \comm{x}{x_n} = \comm{x_s}{x_n} = 0$ が成り立つ．
+		\item 部分ベクトル空間 $A \subset B \subset V$ があって $x|_B \colon B \lto A$ であるとき，$x_s|_B,\, x_n|_B$ の値域もまた $A$ に収まる．
+	\end{enumerate}
+\end{myprop}
+
+\begin{mylem}[label=lem:JC-1]{}
+	$V$ を\underline{有限次元} $\mathbb{K}$-ベクトル空間とし，$x \in \End V$ とその\hyperref[prop:Jordan-Chevalley]{Jordan-Chevalley分解} $x = x_s + x_n$ を与える．
+
+	このとき $\ad (x) \in \End (\Lgl (V))$ のJordan-Chevalley分解 $\ad(x) = \ad(x)_s + \ad(x)_n$ は $\ad(x)_s = \ad(x_s),\; \ad(x)_n = \ad(x_n)$ を充たす．
+\end{mylem}
+
+
+\begin{mylem}[label=lem:JC-2]{}
+	$\mathfrak{U}$ を\underline{有限次元} $\mathbb{K}$-\hyperref[ax:Alg]{代数}とする．このとき\hyperref[prop:Der-LieAlg]{微分代数} $\Der \mathfrak{U} \subset \End \mathfrak{U}$ の任意の元 $x \in \Der \mathfrak{U}$ の\hyperref[prop:Jordan-Chevalley]{Jordan-Chevalley分解} $x = x_s + x_n$ に対して $x_s,\, x_n \in \Der \mathfrak{U}$ が成り立つ．
+\end{mylem}
+
 \subsection{Cartanの判定条件}
 
 \begin{mytheo}[label=thm:Cartan-crit]{Cartanの判定条件}
@@ -120,7 +153,30 @@ $\mathfrak{g}$ が $\Familyset[\big]{\mathfrak{i}_i}{i \in I}$ の\textbf{直和
 \end{mycol}
 
 \subsection{内部微分}
+
+\begin{mytheo}[label=thm:semisimple-innerdv]{}
+	\hyperref[def:semisimple-LieAlg]{半単純Lie代数} $\mathfrak{g}$ に対して，
+	\begin{align}
+		\ad(\mathfrak{g}) = \Der \mathfrak{g} \subset \Lgl(\mathfrak{g})
+	\end{align}
+\end{mytheo}
+
+
 \subsection{抽象Jordan分解}
+
+$\mathfrak{g}$ を\hyperref[def:semisimple-LieAlg]{半単純Lie代数}とする．
+このとき $\mathfrak{g}$ の\hyperref[def:center-LieAlg]{中心} $Z(\mathfrak{g})$ は $\mathfrak{g}$ の\hyperref[def:solvable-LieAlg]{可解}イデアルなので $0$ となる．i.e. $\ad \colon \mathfrak{g} \lto \Lgl (\mathfrak{g})$ に関して $\Ker \ad = Z(\mathfrak{g}) = 0$ が言えるので $\ad$ は単射である．
+一方で定理\ref{thm:semisimple-innerdv}より $\ad (\mathfrak{g}) = \Der \mathfrak{g} \subset \Lgl (\mathfrak{g})$ なので，補題\ref{lem:JC-2}を合わせると
+$\forall x \in \mathfrak{g}$ に対して $\ad(x) \in \Lgl(\mathfrak{g})$ の\hyperref[prop:Jordan-Chevalley]{Jordan-Chevalley分解}
+$\ad(x) = \ad(x)_s + \ad(x)_n\;\WHERE \ad(x)_s,\, \ad(x)_n \in \ad(\mathfrak{g})$ が存在する．
+
+\begin{mydef}[label=def:abstruct-JC]{抽象Jordan分解}
+	$\forall x \in \mathfrak{g}$ の\textbf{抽象Jordan分解}とは，
+	$\ad(s_x) = \ad(x)_s,\; \ad(n_x) = \ad(x)_n$ を充たす $s_x,\, n_x \in \mathfrak{g}$ のこと．
+\end{mydef}
+
+$\ad$ が単射なので，$\Lgl(\mathfrak{g})$ における通常のJordan-Chevalley分解の一意性から $s_x,\, n_x$ は一意に決まる．さらに $\ad(x) = \ad(s_x) + \ad(n_x) = \ad(s_x+n_x)$ ということなので $x = s_x + n_x \in \mathfrak{g}$ が成り立つ．
+さらに命題\ref{prop:Jordan-Chevalley}-(2) より $0 = \comm{\ad(s_x)}{\ad(n_x)} = \ad(\comm{s_x}{n_x})$ なので $\comm{s_x}{n_x} = 0$ もわかる．
 
 \section{表現の完全可約性}
 
@@ -999,10 +1055,201 @@ $\phi \colon \mathfrak{g} \lto \Lgl (V)$ が忠実でない場合は次のよう
 
 \subsection{Jordan分解の保存}
 
+この小節でも引き続き $\mathbb{K}$ を標数 $0$ の体とする．
+
+部分Lie代数 $\mathfrak{h} \subset \mathfrak{g}$ に関して
+\begin{align}
+	\ad_{\mathfrak{h}}(x) \colon \mathfrak{h} \lto \mathfrak{g},\; v \lmto \comm{x}{v}
+\end{align}
+と定義する．
+
+\begin{mytheo}[label=thm:JC]{Jordan-Chevalley分解と抽象Jordan分解}
+	$V$ を\underline{有限次元} $\mathbb{K}$-ベクトル空間とし，$\mathfrak{g} \subset \Lgl(V)$ を\hyperref[def:semisimple-LieAlg]{半単純線型Lie代数}とする．
+	
+	このとき $\forall x \in \mathfrak{g}$ の\hyperref[prop:Jordan-Chevalley]{Jordan-Chevalley分解} $x = x_s + x_n$ について $x_s,\, x_n \in \mathfrak{g}$ が成り立つ．
+	特に，$x$ の\hyperref[def:abstruct-JC]{抽象Jordan分解} $s_x,\, n_x \in \mathfrak{g}$ に関して $x_s = s_x,\; x_n = n_x$ が成り立つ．
+\end{mytheo}
+
+\begin{proof}
+	後半の主張はJordan-Chevalley分解および抽象Jordan分解の一意性より従うので，前半を示せば良い．
+
+	$\forall x \in \mathfrak{g}$ を1つ固定し，$x$ のJordan-Chevalley分解 $x = x_s + x_n$ をとる．
+	$\ad_{\Lgl{\mathfrak{g}}}(x) (\mathfrak{g}) \subset \mathfrak{g}$ なので命題\ref{prop:Jordan-Chevalley}-(3) より $\ad_{\Lgl(\mathfrak{g})}(x_s)(\mathfrak{g}) \subset \mathfrak{g},\; \ad_{\Lgl(\mathfrak{g})}(x_n)(\mathfrak{g}) \subset \mathfrak{g}$ が言える．
+	i.e. \hyperref[def:normalizer-LieAlg]{正規化代数}の言葉を使うと
+	$x_s,\, x_n \in N_{\Lgl(V)} (\mathfrak{g}) \eqqcolon N$ が言える\footnote{補題\ref{lem:Weyl}より $\mathfrak{g} \subset \Lsl(V)$ なので $\mathfrak{g} \subsetneq N$ であることに注意}．
+
+	包含準同型 $\mathfrak{g} \hookrightarrow \Lgl (V)$ によって $V$ を\hyperref[ax:g-module]{$\mathfrak{g}$-加群}と見做し，$V$ の任意の\hyperref[def:sub-g-module]{部分 $\mathfrak{g}$-加群} $W$ をとる．このとき部分 $\mathfrak{g}$-加群 $\mathfrak{g}' \subset \Lgl(V)$ を
+	\begin{align}
+		L_W \coloneqq \bigl\{\, y \in \Lgl (V) \bigm| y(W) \subset W \AND \Tr (y|_W) = 0 \,\bigr\}
+	\end{align}
+	と定義する\footnote{例えば $L_V = \Lsl(V)$ である}．
+	仮定より $\mathfrak{g}$ は半単純Lie代数なので系\ref{col:semisimple-decomp}-(1) より $\mathfrak{g} = \comm{\mathfrak{g}}{\mathfrak{g}}$ であり，$\mathfrak{g} \subset L_W$ が言える．さらにこのとき命題\ref{prop:Jordan-Chevalley}-(3) より $x_s,\, x_n \in L_W$ も言える\footnote{$\Tr (x_n) = 0$ なので，$\Tr (x) = \Tr(x_s) = 0$．}．
+
+	ここで
+	\begin{align}
+		\mathfrak{g}' \coloneqq N \cap \left(\bigcap_{\substack{W \subset V, \\ \text{部分} \mathfrak{g}\text{-加群}}} L_W \right)
+	\end{align}
+	とおくと，$\mathfrak{g}'$ は $\mathfrak{g}$ を\hyperref[def:ideal-LieAlg]{イデアル}としてもつ $N$ の部分Lie代数であり，$\forall x \in \mathfrak{g}$ に対して $x_s,\, x_n \in \mathfrak{g}'$ だとわかる．
+	
+	最後に $\mathfrak{g} = \mathfrak{g}'$ が成り立つことを示す．
+	包含準同型 $\mathfrak{g} \hookrightarrow \mathfrak{g}'$ は半単純Lie代数 $\mathfrak{g}$ の有限次元表現なので，\hyperref[thm:Weyl]{Weylの定理}よりある $\mathfrak{g}'$ の部分 $\mathfrak{g}$-加群 $\mathfrak{h}$ が存在して $\mathfrak{g}' = \mathfrak{g} \oplus \mathfrak{h}$ と書ける（命題\ref{prop:reducible-1}）．
+	ここで $W$ を $V$ の任意の\hyperref[def:irr]{既約}な部分 $\mathfrak{g}$-加群とする．もし $y \in \mathfrak{h}$ ならば，$\comm{\mathfrak{g}}{\mathfrak{g}'} \subset \mathfrak{g}$\footnote{$\mathfrak{g}' \subset N$ だから}であることから $\comm{\mathfrak{g}}{y} = 0$，i.e. $y \colon V \lto V$ は\hyperref[def:g-module-hom]{$\mathfrak{g}$-加群の準同型}である．よって\hyperref[col:Schur-closed]{代数閉体上のSchurの補題}から $y|_W \colon W \lto W$ はスカラー倍である．
+	一方で $y \in L_W$ でもあるので $\Tr(y|_W) = 0$ であり，$y|_W = 0$ だと分かった．
+	Weylの定理より $V$ は既約な部分 $\mathfrak{g}$-加群の直和なので $y = 0$ が言えた．i.e. $\mathfrak{h} = 0$ である．
+
+\end{proof}
+
+\begin{mycol}[label=col:JC]{}
+	$\mathfrak{g}$ を\hyperref[def:semisimple-LieAlg]{半単純Lie代数}，$\phi \colon \mathfrak{g} \lto \Lgl(V)$ をその\underline{有限次元}表現とする．
+
+	このとき $\forall x \in \mathfrak{g}$ の\hyperref[def:abstruct-JC]{抽象Jordan分解} $x = s_x + n_x$ に対して，$\phi(x) = \phi(s_x) + \phi(n_x) \in \Lgl(V)$ は\hyperref[prop:Jordan-Chevalley]{Jordan-Chevalley分解}である．i.e. $\phi(x)_s = \phi(s_x),\; \phi(x)/n = \phi(n_x)$ が成り立つ．
+\end{mycol}
+
+\begin{proof}
+	$s_x$ は半単純なので $\ad (s_x) \colon \mathfrak{g} \lto \mathfrak{g}$ も半単純．i.e. $\ad(s_x)$ は対角化可能なので $\ad(s_x)$ の固有ベクトル全体がなす集合は $\mathfrak{g}$ の基底となる．
+	従って $\ad_{\phi(\mathfrak{g})} \bigl( \phi(s_x) \bigr) \colon \phi(\mathfrak{g}) \lto \phi(\mathfrak{g})$ の $\phi(\mathfrak{g})$ の固有ベクトル全体がなす集合は $\phi(\mathfrak{g})$ の基底となる．i.e. $\ad_{\phi(\mathfrak{g})} \bigl( \phi(s_x) \bigr)$ は半単純である．
+	同様に $\ad_{\phi(\mathfrak{g})} \bigl( \phi(n_x) \bigr)$ が冪零であることもわかるので，$\phi(x) = \phi(s_x) + \phi(n_x)$ は半単純Lie代数 $\phi(\mathfrak{g})$ における $\phi(x)$ の\hyperref[def:abstruct-JC]{抽象Jordan分解}である．よって定理\ref{thm:JC}からこれはJordan-Chevalley分解と一致する．
+\end{proof}
+
+
 \section{$\lsl{2}{\mathbb{K}}$ の表現}
 
+この節において常に $\mathfrak{g} = \Lsl(2,\, \mathbb{K})$ とし，$\mathfrak{g}$ の全ての表現は有限次元であるとする．
+\exref{def:typeA}に倣って $\mathfrak{g}$ の基底は
+\begin{align}
+	x &\coloneqq \mqty[0 & 1 \\ 0 & 0], \\
+	y &\coloneqq \mqty[0 & 0 \\ 1 & 0], \\
+	h &\coloneqq \mqty[1 &  \\ 0 & -1]
+\end{align}
+を採用する．このとき
+\begin{align}
+	\label{eq:sl2}
+	\comm{h}{x} &= 2x, \\
+	\comm{h}{y} &= -2y, \\
+	\comm{x}{y} &= h
+\end{align}
+が成り立つ．
+
 \subsection{ウエイトと極大ベクトル}
+
+任意の\hyperref[ax:g-module]{$\mathfrak{g}$ の表現} $\phi \colon \mathfrak{g} \lto \Lgl(V)$ を与える．
+$h$ は\hyperref[def:semisimple-end]{半単純}なので系\ref{col:JC}より $\phi(h)$ を対角化する $V$ の基底がある．よって
+\begin{align}
+	V_\lambda \coloneqq \bigl\{\, v \in V \bigm| \phi(h)(v) = \lambda v \,\bigr\} 
+\end{align}
+とおくと $V$ は異なる $\lambda$ に関する $V_\lambda$ の\hyperref[prop:subvec-directsum]{内部直和}になる（\hyperref[prop:eigen-decomp1]{固有空間分解}）\footnote{$\lambda$ が $h$ の固有値でなければ $V_\lambda = 0$ となる．}：
+\begin{align}
+	V = \bigoplus_{\lambda \in \mathbb{K}} V_\lambda
+\end{align}
+特に $V_\lambda \neq 0$ のとき $\lambda$ を $h$ の\textbf{ウエイト} (weight) と呼び，$V_\lambda$ を\textbf{ウェイト空間} (weight space) と呼ぶ．
+
+\begin{mylem}[label=lem:sl2-1]{}
+	$v \in V_\lambda \IMP x \btr v \in V_{\lambda +2},\; y \btr v \in V_{\lambda - 2}$
+\end{mylem}
+
+\begin{proof}
+	\begin{align}
+		h \btr (x \btr v) = \comm{h}{x} \btr v + x \btr h \btr v = (\lambda + 2) x \btr v
+	\end{align}
+\end{proof}
+
+$\dim V < \infty$ なので，$V_\lambda \neq 0 \AND V_{\lambda + 2} = 0$ を充たす $\lambda \in \mathbb{K}$ が存在する．このとき $v \in V_\lambda \setminus \{0\}$ のことをウエイト $\lambda$ の\textbf{極大ベクトル}と呼ぶ．
+
 \subsection{既約加群の分類}
+
+\underline{$\mathfrak{g}$-加群 $V$ は既約であるとする}．
+極大ベクトル $v_0 \in V_\lambda$ をとり，
+\begin{align}
+	v_i \coloneqq 
+	\begin{cases}
+		0, & i = -1 \\
+		& \\
+		\displaystyle \frac{1}{i!} y^i \btr v_0, & i \ge 0 \\
+	\end{cases}
+\end{align}
+とおく．
+
+\begin{mylem}[label=lem:sl2-2]{}
+	\begin{enumerate}
+		\item $h \btr v_i = (\lambda - 2i) v_i$
+		\item $y \btr v_i = (i+1) v_{i+1}$
+		\item $x \btr v_i = (\lambda - i+1) v_{i-1}\WHERE i \ge 0$
+	\end{enumerate}
+\end{mylem}
+
+\begin{proof}
+	\begin{enumerate}
+		\item 補題\ref{lem:sl2-1}より明らか．
+		\item $v_i$ の定義より
+		\begin{align}
+			y \btr v_i = \frac{1}{i!} y^{i+1} \btr v_0 = (i+1) v_{i+1}
+		\end{align}
+		\item $i$ に関する数学的帰納法により示す．$i=0$ のときは自明．$i > 0$ とする．
+		帰納法の仮定より $x \btr v_{i-1} = (\lambda - i + 2) v_{i-2}$ であるから，
+		\begin{align}
+			x \btr v_{i} 
+			% &= \frac{1}{i!} x \btr y \btr y^{i-1} \btr v_0 \\
+			&= \frac{1}{i} x \btr y \btr v_{i-1} \\
+			&= \frac{1}{i} \comm{x}{y} \btr v_{i-1} + \frac{1}{i} y \btr (x \btr v_{i-1}) \\
+			&= \frac{\lambda-2i+2}{i} v_{i-1} + \frac{(\lambda-i+2)(i-1)}{i} v_{i-1} \\
+			&= (\lambda - i + 1)v_{i-1}
+		\end{align}
+		が言えて帰納法が完成する．
+	\end{enumerate}
+	
+\end{proof}
+
+補題\ref{lem:sl2-2}-(1) より $0$ でない $v_i \in V$ たちは全て線型独立であるが，$\dim V < \infty$ である．
+そこで
+\begin{align}
+	m \coloneqq \min \bigl\{\, m \in \mathbb{Z} \bigm| v_m \neq 0 \AND v_{m+1} = 0 \,\bigr\} 
+\end{align}
+とおく．$\forall i > 0$ に対して $v_{m+i} = 0$ が言えて，$\Span \{v_0,\, \dots,\, v_m\} \subset V$ は非零な部分 $\mathfrak{g}$-加群である．$\mathfrak{g}$ は既約だったので $V = \Span \{v_0,\, \dots,\, v_m\}$ が言えた．
+
+(3) を $i=m+1$ の場合に適用すると $0 = (\lambda - m)v_m$ となり，$\lambda = m = \dim V - 1 \in \mathbb{Z}_{\ge 0}$ がわかる．この $m$ を $\mathfrak{g}$-加群 $V$ の\textbf{最高ウエイト} (highest weight) と呼ぶ．
+
+\begin{mytheo}[label=thm:irr-sl2]{}
+	$V$ を $\mathfrak{g} = \Lsl(2,\, \mathbb{K})$ の\hyperref[def:irr]{既約表現}とする．
+	\begin{enumerate}
+		\item $m \coloneqq \dim V - 1$ とおくと $\mathbb{K}$-ベクトル空間として
+		\begin{align}
+			V = \bigoplus_{\mu = -m}^m V_\mu,\quad \dim V_\mu = 1
+		\end{align}
+		が成り立つ．
+		\item $V$ の極大ベクトルは一意であり，そのウエイトは $m$ である．
+		\item $\mathfrak{g}$ の $V$ への作用は補題\ref{lem:sl2-2}によって完全に決まる．
+	\end{enumerate}
+\end{mytheo}
+
+\begin{mycol}[label=col:sl2]{}
+	$V$ を任意の有限次元 $\mathfrak{g} = \Lsl(2,\, \mathbb{K})$-加群とする．このとき $\phi(h) \colon V \lto V$  の固有値は全て整数で，かつ自身にマイナス符号をつけたものとちょうど同じ回数だけ出現する．
+	さらに，$V$ の任意の既約表現への内部直和分解において，直和因子の個数はちょうど $\dim V_0 + \dim V_1$ 個である．
+\end{mycol}
+
+\begin{proof}
+	$V = 0$ なら明らか．
+	$V \neq 0$ とする．\hyperref[thm:Weyl]{Weylの定理}により $V$ を既約な部分 $\mathfrak{g}$-加群の直和に分解すると，既約な部分 $\mathfrak{g}$-加群は全て定理\ref{thm:irr-sl2}-(1) の形をしているので前半が従う．
+
+	後半を示す．$V$ の既約な部分 $\mathfrak{g}$-加群への直和分解を
+	\begin{align}
+		V = \bigoplus_i W_i
+	\end{align}
+	と書くと，定理\ref{thm:irr-sl2}より $\forall i$ に対して何かしらの $m_i \ge 0$ が存在して $W_i \cong \bigoplus_{\mu = -{m_i}}^{m_i} V_\mu$ と書ける．
+	逆に，$\bigoplus_{\mu = -{m_i}}^{m_i} V_\mu$ と\hyperref[def:gmod-hom]{$\mathfrak{g}$-加群として同型}な全ての $W_i$ の直和を $V^{(m)}$ と書くと，
+	\begin{align}
+		V = \bigoplus_{m=0}^\infty V^{(m)}
+	\end{align}
+	となる．よって $V^{(m)}$ の直和因子の個数を $k_m$ とかくと
+	\begin{align}
+		\dim V_\lambda = \sum_{\substack{m \ge \abs{\lambda}, \\ m \equiv \lambda \mod 2}} k_m
+	\end{align}
+	となる．特に
+	\begin{align}
+		\dim V_0 + \dim V_1 = \sum_{m=0}^\infty k_m
+	\end{align}
+	なので示された．
+\end{proof}
+
 
 \section{ルート空間分解}
 

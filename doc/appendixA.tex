@@ -649,7 +649,7 @@ $A$ を集合とする．集合 $I$ を\textbf{添字集合} (index set) とす�
                 \lambda (v_i)_{i \in I}  &\coloneqq (\lambda v_i)_{i \in I}
             \end{align}
             と定義することで得られる $\mathbb{K}$-ベクトル空間 $\prod_{i \in I} V_i$
-            \item $\forall i \in I$ に対して定まる $\mathbb{K}$-線型写像\footnote{\underline{集合} $\prod_{i \in I} V_i$ に入れたベクトル空間の構造の定義から，自動的に $p_i$ は $\mathbb{K}$-線型写像になる．}
+            \item $\forall i \in I$ に対して定まる $\mathbb{K}$-線型写像\footnote{\underline{集合} $\prod_{i \in I} V_i$ に入れたベクトル空間の構造の定義から，自動的に $\pi_i$ は $\mathbb{K}$-線型写像になる．}
             \begin{align}
                 \pi_i \colon \prod_{j \in I} V_j \lto V_i,\; (v_j)_{j \in I} \lmto v_i
             \end{align}
@@ -666,7 +666,7 @@ $A$ を集合とする．集合 $I$ を\textbf{添字集合} (index set) とす�
                 \lambda (v_i)_{i \in I}  &\coloneqq (\lambda v_i)_{i \in I}
             \end{align}
             と定義することで得られる $\mathbb{K}$-ベクトル空間 $\bigoplus_{i \in I} V_i$
-            \item $\forall i \in I$ に対して定まる $\mathbb{K}$-線型写像\footnote{\underline{集合} $\bigoplus_{i \in I} V_i$ に入れたベクトル空間の構造の定義から，自動的に $i_i$ は $\mathbb{K}$-線型写像になる．}
+            \item $\forall i \in I$ に対して定まる $\mathbb{K}$-線型写像\footnote{\underline{集合} $\bigoplus_{i \in I} V_i$ に入れたベクトル空間の構造の定義から，自動的に $\iota_i$ は $\mathbb{K}$-線型写像になる．}
             \begin{align}
                 &\iota_i \colon V_i \lto \bigoplus_{j \in I} V_j,\; v \lmto (y_j)_{j \in I} \\
                 &\WHERE y_j = \begin{cases}
@@ -686,9 +686,53 @@ $A$ を集合とする．集合 $I$ を\textbf{添字集合} (index set) とす�
 
 \begin{proof}
     \begin{enumerate}
-        \item 
-    \end{enumerate}
-    
+		\item 
+		\begin{description}
+			\item[\textbf{$\textcolor{red}{f}$ の存在}]　
+            
+            任意の $\mathbb{K}$-ベクトル空間 $W$ および任意の $\mathbb{K}$-線型写像の族 $\Familyset[\big]{\, f_\lambda \colon N \to M_\lambda\,}{\lambda\in\Lambda}$ を与える．
+            このとき写像 $\textcolor{red}{f}$ を
+			\begin{align}
+				\textcolor{red}{f} \colon W \lto \prod_{i\in I}V_i,\; w \lmto \Dpmember[\big]{f_i(w)}{i\in I}
+			\end{align}
+			と定義すると，$\textcolor{red}{f}$ は $\prod_{i\in I}V_i$ の $\mathbb{K}$-ベクトル空間としての構造の定義から自動的に $\mathbb{K}$-線型写像になり，
+            $\forall i \in I$ および $\forall w \in W$ に対して
+			\begin{align}
+				(\pi_i \circ \textcolor{red}{f})(w) = f_i(w)
+			\end{align}
+			が成り立つ．i.e. \hyperref[def:univ-vec-sum]{直積の普遍性の可換図式}が成り立つ．
+			\item[\textbf{$\textcolor{red}{f}$ の一意性}]　
+            
+            \hyperref[def:univ-vec-sum]{直積の普遍性の可換図式}を充たす別の $\mathbb{K}$-線型写像 $g \colon W \to \displaystyle \prod_{i\in I}V_i$ が存在したとする．このとき $\forall i \in I$ および $\forall w \in W$ に対して
+			\begin{align}
+				\pi_i \bigl( g(w) \bigr) = f_i(w) = \pi_i \bigl( \textcolor{red}{f}(w) \bigr) 
+			\end{align}
+			が成り立つので $\textcolor{red}{f} = g$ が言える．i.e. $\textcolor{red}{f}$ は一意である．
+		\end{description}
+		\item 
+		\begin{description}
+			\item[\textbf{$\textcolor{red}{f}$ の存在}]　
+            
+            任意の $\mathbb{K}$-ベクトル空間 $W$ および任意の $\mathbb{K}$-線型写像の族 $\Familyset[\big]{\, f_i \colon M_i \to N\,}{i \in I}$ が与えられたとき，写像 $\textcolor{red}{f}$ を
+			\begin{align}
+				\textcolor{red}{f} \colon \bigoplus_{i \in I} V_i \to W,\; \Dpmember{v_i}{i \in I} \mapsto \sum_{i \in I} f_i(v_i)
+			\end{align}
+			と定義する．右辺は有限和なので意味を持ち，$\textcolor{red}{f}$ は $\bigoplus_{i\in I}V_i$ の $\mathbb{K}$-ベクトル空間としての構造の定義から自動的に $\mathbb{K}$-線型写像になる．
+            このとき $\forall i\in I$ および $\forall v \in V_i$ に対して
+			\begin{align}
+				\textcolor{red}{f} \bigl( \iota_i(v) \bigr) = f_i(v) + \sum_{j \in I \setminus \{i\}} f_j(0) = f_i(v)
+			\end{align}
+			が成り立つ．i.e. \hyperref[def:univ-vec-sum]{直和の普遍性の可換図式}が成り立つ．
+
+			\item[\textbf{$\textcolor{red}{f}$ の一意性}]　
+            
+            \hyperref[def:univ-vec-sum]{直和の普遍性の可換図式}を充たす別の $\mathbb{K}$-線型写像 $g \colon \displaystyle \bigoplus_{i \in I}V_i \to W$ が存在したとする．このとき $\forall \Dpmember{v_i}{i \in I} \in \bigoplus_{i \in I} V_i$ に対して
+			\begin{align}
+				g \bigl( \Dpmember{v_i}{i \in I} \bigr) = g \left(\sum_{i \in I} \iota_i (v_i)\right) = \sum_{i \in I} g \bigl( \iota_i(v_i) \bigr) = \sum_{i \in I} f_i(v_i) = \textcolor{red}{f} \bigl( \Dpmember{v_i}{i \in I} \bigr) 
+			\end{align}
+			が成り立つので $\textcolor{red}{f} = g$ が言える．i.e. $\textcolor{red}{f}$ は一意である．
+		\end{description}
+	\end{enumerate}
 \end{proof}
 
 \begin{myprop}[label=prop:hom-sum]{Hom と直積・直和の交換}
@@ -1166,6 +1210,509 @@ $V,\, W$ を任意の（有限次元とは限らない） $\mathbb{K}$ ベクト
 	\end{align}
 	が成り立つ．
 \end{mytheo}
+
+\section{Jordan標準形}
+
+この節では体 $\mathbb{K}$ は\underline{代数閉体}であるとし，$V$ を\underline{有限次元} $\mathbb{K}$-ベクトル空間とする．
+
+\begin{mydef}[label=def:eigen,breakable]{広義固有空間}
+    % $V$ を\underline{有限次元} $\mathbb{K}$-ベクトル空間とし，
+    $x \in \End V$ を与える．
+    $\forall \lambda \in \mathbb{K}$ に対して
+    \begin{align}
+        \bm{V(\lambda)} &\coloneqq \Ker (x - \lambda\, \mathrm{id}_V) = \bigl\{\, v \in V \bigm| (x - \lambda\, \mathrm{id}_V) v = 0 \,\bigr\} \\
+        \bm{W(\lambda)} &\coloneqq \bigl\{\, v \in V \bigm| \exists k > 0,\; (x - \lambda\, \mathrm{id}_V)^k v = 0 \,\bigr\}
+    \end{align}
+    とおく．
+    \begin{itemize}
+        \item $\lambda$ が $x$ の\textbf{固有値} (eigenvalue) であるとは，$V(\lambda) \neq 0$ であることを言う．
+        \item $V(\lambda)$ が固有値 $\lambda$ に属する $x$ の\textbf{固有空間} (eigenspace) であるとは，$V(\lambda) \neq 0$ であることを言う．
+        \item $W(\lambda)$ が固有値 $\lambda$ に属する $x$ の\textbf{広義固有空間} (generalized eigenspace) であるとは，$W(\lambda) \neq 0$ であることを言う．
+    \end{itemize}
+\end{mydef}
+
+$V(\lambda) \subset W(\lambda) \subset V$ が $x$-不変な部分ベクトル空間であることは明らかである．
+
+\subsection{上三角化}
+
+\begin{mylem}[label=lem:flag,breakable]{旗と基底}
+    $V$ の\hyperref[def:flag]{旗}
+    \begin{align}
+        0 = V_0 \subset V_1 \subset \cdots \subset V_{\dim V} = V
+    \end{align}
+    を与え，
+    \begin{align}
+        V_1 &= \mathbb{K}e_1 \\
+        V_2 / V_1 &= \mathbb{K} (e_2 + V_1) \\
+        V_3 / V_2 &= \mathbb{K} (e_3 + V_2) \\
+        &\vdots \\
+        V_{\dim V} / V_{\dim V - 1} &= \mathbb{K} (e_{\dim V} + V_{\dim V - 1})
+    \end{align}
+    を充たす $e_i \in V_i\quad (1 \le i \le \dim V)$ をとる．
+    このとき $1 \le \forall i \le \dim V$ に対して
+    \begin{align}
+        V_i &= \Span \bigl\{\, e_1,\, \dots,\, e_i  \,\bigr\}
+    \end{align}
+    が成り立つ．
+\end{mylem}
+
+\begin{proof}
+    $1 \le i \le \dim V$ に関する数学的帰納法により示す．$i = 1$ のときは明らか．
+
+    $i > 1$ とする．
+    \begin{align}
+        \lambda_{i} e_i + \sum_{j=1}^{i-1} \lambda_j e_j = 0
+    \end{align}
+    を仮定する．両辺に標準的射影 $p_i \colon V_i \lto V_i / V_{i-1}$ を作用させることで
+    \begin{align}
+        \lambda_i  p(e_i) = \lambda_i (e_i + V_{i-1}) = 0
+    \end{align}
+    がわかるが，$e_i \in V_i$ の選び方から $e_i + V_{i-1} \neq 0$ なので $\lambda_i = 0$ が言える．よって
+    \begin{align}
+        \sum_{j=1}^{i-1} \lambda_j e_j = 0 \in V_{i-1}
+    \end{align}
+    となるが，帰納法の仮定より $e_1,\, \dots,\, e_{i-1}$ は線型独立なので $1 \le \forall j \le i,\; \lambda_j = 0$ が言えた．i.e. $e_1,\, \dots,\, e_i$ は線型独立である．
+    旗の定義から $\dim V_i = i$ なので $e_1,\, \dots,\, e_i$ は $V_i$ の基底であり，帰納法が完成した．
+\end{proof}
+
+
+
+$x \in \End V$ が\textbf{上三角化可能}であるとは，$x$ によって\hyperref[def:flag]{安定化される} $V$ の\hyperref[def:flag]{旗}が存在することを言う．
+というのも，このとき補題\ref{lem:flag}の基底をとると
+\begin{align}
+    x(e_1) &= x^1{}_1 e_1 \in V_1, \\
+    x(e_2) &= x^1{}_2 e_1 + x^2{}_2 e_2 \in V_2, \\
+        &\vdots \\
+    x(e_{\dim V}) &= x^1{}_{\dim V} e_1 + \cdots + x^{\dim V}{}_{\dim V} e_{\dim V} \in V_{\dim V}
+\end{align}
+と書けるので，この基底に関する $x$ の表現行列が
+\begin{align}
+    \mqty[x^1{}_1 & x^1{}_2 & \cdots &x^1{}_{\dim V} \\ 0 & x^2{}_2 & \cdots &x^2{}_{\dim V} \\ \vdots &\ddots &\ddots &\vdots \\ 0 & 0 &\cdots &x^{\dim V}{}_{\dim V}]
+\end{align}
+という上三角行列になるのである．
+
+\begin{mytheo}[label=thm:upper-triangle]{上三角化}
+    $\forall x \in \End V$ に対して，$x$ によって\hyperref[def:flag]{安定化される} $V$ の\hyperref[def:flag]{旗}が存在する．i.e. $\forall x \in \End V$ は上三角化可能である．
+\end{mytheo}
+
+\begin{proof}
+    $\dim V$ に関する数学的帰納法により示す．$\dim V = 0$ のときは明らかなので
+    $\dim V > 0$ とする．
+    $\forall x \in \End V$ を1つ固定する．仮定より $\mathbb{K}$ は代数閉体なので，$x$ は重複も込めてちょうど $\dim V$ 個の\hyperref[def:eigen]{固有値}をもつ．それを $\lambda_1,\, \dots,\, \lambda_{\dim V}$ とおこう．
+    $v_1 \in V(\lambda_1) \setminus \{0\}$ をとり，$V_1 \coloneqq \mathbb{K}v_1$ とおく．
+    標準的射影を $p \colon V \lto V/V_1$ と書くと，$\forall v \in V_1$ に対して $p \circ x(v) = p(\lambda_1 v) = 0$ が成り立つので $V_1 \subset \Ker p \circ x$ である．故に\hyperref[prop:homo]{商ベクトル空間の普遍性}を使うことができ，$\mathbb{K}$-ベクトル空間の図式
+    \begin{center}
+        \begin{tikzcd}[row sep=large, column sep=large]
+            V \ar[d, "p"']\ar[r, "x"] &V \ar[r, "p"] &V/V_1 \\
+            V/V_1 \arrow[urr, red, dashed, "\exists!\bar{x}"']& &
+        \end{tikzcd}
+    \end{center}
+    を可換にするような $\mathbb{K}$-線型写像 $\overline{x} \in \End (V/V_1)$ が一意的に存在する．$\dim (V/V_1) = \dim V - 1$ なので帰納法の仮定が使えて，
+    $\overline{x} \in \End (V/V_1)$ によって安定化される $V/V_1$ の\hyperref[def:flag]{旗}
+    \begin{align}
+        0 = W_0 \subset W_1 \subset \cdots \subset W_{\dim V - 1} = V/V_1
+    \end{align}
+    が存在する．このとき $0 \le \forall i \le \dim V - 1$ を1つ固定すると
+    $\forall w + V_1 \in W_i$ に対して $\overline{x} (w+V_1) \in W_i$ が成り立つ．\hyperref[prop:homo]{商ベクトル空間の普遍性}から $\overline{x} (w + V_1) = \overline{x} \circ p(w) = p \circ x(w)$ なので，$\forall v \in p^{-1}(W_i)$ に対して $p \circ x(v) = \overline{x} \circ p(v) \in W_i \IFF x(v) \in p^{-1}(W_i)$ が分かった．i.e. $V$ の部分空間の増大列
+    \begin{align}
+        0 \subset p^{-1}(W_0) \subset p^{-1}(W_1) \subset \cdots \subset p^{-1}(W_{\dim V - 1}) = V
+    \end{align}
+    は $x$ によって安定化される $V$ の旗であり，帰納法が完成する．
+\end{proof}
+
+\begin{marker}
+    定理\ref{thm:upper-triangle}の証明から，もし $\mathbb{K}$ が代数閉体でなくても，$x \in \End V$ の固有値が全て $\mathbb{K}$ に含まれるならば $x$ は上三角化可能である．
+\end{marker}
+
+\subsection{広義固有空間分解}
+
+\begin{mytheo}[label=thm:eigen-decomp-1]{広義固有空間分解-1}
+    $x \in \Mat{n}{\mathbb{K}}$ を与え，
+    \begin{itemize}
+        \item $x$ の相異なる全ての\hyperref[def:eigen]{固有値}を $\lambda_1,\, \dots,\, \lambda_r$
+        \item $\lambda_i$ の重複度を $p_i$
+    \end{itemize} 
+    とおく．このとき $\mathbb{K}^n$ の\hyperref[prop:subvec-directsum]{内部直和}分解
+    \begin{align}
+        \mathbb{K}^n = \bigoplus_{i=1}^r W(\lambda_i)
+    \end{align}
+    が一意的に存在し，かつ $\dim W(\lambda_i) = p_i$ である．
+\end{mytheo}
+
+\begin{proof}
+    \begin{description}
+        \item[$\bm{\dim W(\lambda_i) \ge p_i}$]　
+        
+        仮定より $\mathbb{K}$ は代数閉体なので，定理\ref{thm:upper-triangle}より $u \in \LGL (n,\, \mathbb{K})$ が存在して $u^{-1}xu$ が上三角行列になる．
+        $1 \le i \le r$ を1つ固定し，$u^{-1} x u$ の対角成分の最初の $p_i$ 個が $\lambda_i$ であると仮定しても一般性を失わない．
+        このとき $u^{-1}(x - \lambda_i \, \unity_n) u$ の対角成分の最初の $p_i$ 個は $0$ になるので $u^{-1} (x - \lambda_i \, \unity_n)^{p_i} u$ の第 $1 \le j \le p_i$ 列は全て $0$ となる．よって $u = [e_1\, \dots\, e_n]$ とおいたとき $\Span \{e_1,\, \dots,\, e_{p_i}\} \subset W(\lambda_i)$ である．$u$ は正則行列なので $e_1,\, \dots,\, e_{p_i}$ は線型独立であり，$\dim W(\lambda_i) \ge p_i$ だと分かった．
+
+        \item[\textbf{和空間} $\bm{\sum_{i=1}^r W(\lambda_i)}$ \textbf{が内部直和}]　
+        
+        % 次に，相異なる $r$ 個の固有値 $\lambda_1,\, \dots,\, \lambda_r$ に関して和空間 $\sum_{i=1}^r W(\lambda_i)$ が\hyperref[prop:subvec-directsum]{内部直和}であることを，
+        $r$ に関する数学的帰納法により示す．
+        $r = 1$ のときは明らかなので $r > 1$ とする．
+        $w_i \in W(\lambda_i)$ に対して
+        \begin{align}
+            \label{eq:eigen-1}
+            \sum_{i=1}^r w_i = 0
+        \end{align}
+        が成り立つと仮定する．このとき $w_1 = \cdots = w_r = 0$ であることを示せば良い．
+        \hyperref[def:eigen]{広義固有空間の定義}からある $k_r > 0$ が存在して $(x - \lambda_r \unity_n)^{k_r} w_r = 0$ が成り立つので，
+        \begin{align}
+            (x - \lambda_r \unity_n)^{k_r}\left(\sum_{i=1}^rw_i \right) = \sum_{i=1}^{r-1} (x - \lambda_r \unity_n)^{k_r}w_i = 0
+        \end{align}
+        が言える．$W(\lambda_i)$ は $x$-不変なので，帰納法の仮定から $1 \le \forall i \le r-1$ に対して $(x - \lambda_r \unity_n)^{k_r}w_i = 0$ である．
+        ここである $1 \le j \le r-1$ が存在して $w_j \neq 0$ であると仮定する．このとき $k_j > 0$ を $(x - \lambda_j \unity_n)^{k_j} w_j = 0$ を充たす最小の自然数とする．
+        このとき $x (x - \lambda_j \unity_n)^{k_j-1} w_j = \lambda_j (x - \lambda_j \unity_n)^{k_j-1} w_j$ なので
+        \begin{align}
+            0 
+            &= (x - \lambda_j \unity_n)^{k_j-1} (x - \lambda_r \unity_n)^{k_r}w_j \\
+            &= (x - \lambda_r \unity_n)^{k_r}(x - \lambda_j \unity_n)^{k_j-1} w_j \\
+            &= (\lambda_j - \lambda_r)^{k_r}(x - \lambda_j \unity_n)^{k_j-1} w_j
+        \end{align}
+        が成り立つが，$\lambda_j \neq \lambda_r$ なので $(x - \lambda_j \unity_n)^{k_j-1} w_j = 0$ と言うことになって $k_j$ の最小性に矛盾する．よって背理法から $1 \le \forall j \le r-1$ に対して $w_j = 0$ が言えた．
+        仮定\eqref{eq:eigen-1}より $w_r = 0$ も言えて帰納法が完成する．
+    \end{description}
+
+    代数学の基本定理より $\sum_{i=1}^r p_i = n$ が言える．$\bigoplus_{i=1}^r W(\lambda_i) \subset \mathbb{K}^n$ であることも踏まえると，以上の議論から $\dim (\lambda_i) = p_i$ が分かった．従って $\mathbb{K}^n = \bigoplus_{i=1}^r W(\lambda_i)$ である．\hyperref[def:univ-vec-sum]{直和の普遍性}よりこの内部直和分解は一意である．
+\end{proof}
+
+\subsection{多項式環・最小多項式}
+
+定理\ref{thm:eigen-decomp-1}の証明に多項式環を利用することもできる．
+まず一般論から入る．
+$R$ を環とし，$R$ の\textbf{単元} (unit)\footnote{\textbf{可逆元} (invertible element) と言う場合もある．}全体がなす集合を $\bm{R^\times}$ と書く．$R^\times$ は環の積に関して群となる．
+特に，\underline{$R$ が体ならば $R^\times = R \setminus \{0\}$ となる}．
+
+$n$ 個の変数 $t_1,\, \dots,\, t_n$ を持つ $R$ 係数多項式全体\footnote{\hyperref[prop:sum-vec]{直和の構成}と同様に，非ゼロの係数は有限個であるとする．より厳密には，写像 $\mathbb{Z}_{\ge 0}^n \lto R$ であって有限個の $(i_1,\, \dots,\, i_n) \in \mathbb{Z}_{\ge 0}^n$ を除いて $0$ を返すようなものと変数 $(t_1,\, \dots,\, t_n)$ の組のことである．}の集合を $R[t_1,\, \dots,\, t_n]$ と書く．
+$R[t_1,\, \dots,\, t_n]$ の上の加法と乗法をそれぞれ
+% $f(t_1,\, \dots,\, t_n) = \sum_{i_1,\, \dots,\, i_n} a_{i_1\dots i_n} t_1^{i_1} \cdots t_n^{i_n},\; g(t_1,\, \dots,\, t_n) = \sum_{i_1,\, \dots,\, i_n} b_{i_1\dots i_n} t_1^{i_1} \cdots t_n^{i_n} \in R[t_1,\, \dots,\, t_n]$ の間の加法と乗法を
+\begin{align}
+    f(t_1,\, \dots,\, t_n) + g(t_1,\, \dots,\, t_n)  &\coloneqq \sum_{i_1,\, \dots,\, i_n}(a_{i_1\dots i_n} + b_{i_1\dots i_n}) t_1^{i_1} \cdots t_n^{i_n}, \\
+    f(t_1,\, \dots,\, t_n) g(t_1,\, \dots,\, t_n) &\coloneqq \sum_{i_1,\, \dots,\, i_n}\left(\sum_{j_1 + k_1 = i_1} \cdots \sum_{j_n + k_n = i_n}a_{j_1\dots j_n}b_{k_1\dots k_n}\right) t_1^{i_1} \cdots t_n^{i_n}
+\end{align}
+で定義する\footnote{乗法の記号は慣例に従って省略した．}と $R[t_1,\, \dots,\, t_n]$ 自身が環になる．ただし $f(t_1,\, \dots,\, t_n) = \sum_{i_1,\, \dots,\, i_n} a_{i_1\dots i_n} t_1^{i_1} \cdots t_n^{i_n},\; g(t_1,\, \dots,\, t_n) = \sum_{i_1,\, \dots,\, i_n} b_{i_1\dots i_n} t_1^{i_1} \cdots t_n^{i_n} \in R[t_1,\, \dots,\, t_n]$ とおいた．
+ある1つの変数に注目して項を整理することで，帰納的に自然な（環の）同型 $R[t_1,\, \dots,\, t_n] \cong (R[t_1,\, \dots,\, t_{n-1}])[t_n] \cong \dots \cong (\cdots((R[t_1])[t_2])\cdots [t_{n-1}])[t_n]$ が得られる．
+
+\begin{mydef}[label=def:poly-basic]{多項式の基本概念}
+    $f(t_1,\, \dots,\, t_n) =  \in R[t_1,\, \dots,\, t_n]$ を与える．
+    \begin{itemize}
+        \item $f(t_1,\, \dots,\, t_n) \neq 0$ ならば，$f$ の\textbf{次数} (degree) を
+        \begin{align}
+            \bm{\deg f} \coloneqq \max \bigl\{ i_1 + \cdots + i_n \bigm| a_{i_1 \dots i_n} \neq 0 \bigr\} 
+        \end{align}
+        と定義する．$f(t_1,\, \dots,\, t_n) \neq 0$ ならば $\deg f \coloneqq -\infty$ と定義する．
+        \item $(x_1,\, \dots,\, x_n) \in R^n$ の $f$ への\textbf{代入}とは，値
+        \begin{align}
+            \sum_{i_1,\, \dots,\, i_n} a_{i_1\dots i_n} x_1^{i_1} \cdots x_n^{i_n} \in R
+        \end{align}
+        のこと\footnote{非ゼロな係数は有限個なので，この和は意味を持つ．}．記号としては $f(x_1,\, \dots,\, x_n)$ と書く．
+        \item $f(x_1,\, \dots,\, x_n) = 0$ を充たす $(x_1,\, \dots,\, x_n) \in R^n$ のことを $f$ の\textbf{根} (root) と呼ぶ．
+        \item $n=1$ のとき，$f$ の最高次係数が $1 \in R$ ならば $f$ は\textbf{モニック} (monic) であると呼ばれる．
+    \end{itemize}
+\end{mydef}
+
+最高次係数が単元であるような多項式によって，多項式を割り算することができる：
+
+\begin{myprop}[label=prop:poly-divide,breakable]{多項式の割り算}
+    1変数多項式 $f(t),\, g(t) \in R[t]$ および単元 $u \in R^\times$ を与える．
+
+    このとき $f(t)$ が\hyperref[def:poly-basic]{モニック}ならば，以下を充たす $q(t),\, r(t) \in R[t]$ が一意的に存在する：
+    \begin{align}
+        g(t) = q(t) \bigl( uf(t) \bigr) + r(t),\quad \deg r < \deg f
+    \end{align}
+    
+\end{myprop}
+
+\begin{proof}
+    $f(t)$ はモニックであるとする．
+    \begin{description}
+        \item[\textbf{$\bm{q(t)},\, \bm{r(t)}$ の存在}]　
+        
+        $g(t) = 0$ のときは $q(t) = r(t) = 0$ とすれば良い．
+        $g(t) \neq 0$ のとき，$\deg g$ に関する数学的帰納法により示す．
+        $\deg g < \deg f$ のときは $q(t) = 0,\; r(t) = g(t)$ とおけば良い．
+        
+        　$\deg g \ge \deg f$ とする．
+        \begin{align}
+            f(t) \eqqcolon \sum_{i=0}^{\deg f} a_i t^i,\quad g(t) \eqqcolon \sum_{i=0}^{\deg g} b_i t^i
+        \end{align}
+        とおくと仮定から $a_{\deg f} = 1$ である．このとき
+        \begin{align}
+            q_1(t) \coloneqq b_{\deg g} \bm{u^{-1}} t^{\deg g - \deg f},\quad g_1(t) \coloneqq g(t) - q_1(x) \bigl( uf(t) \bigr)
+        \end{align}
+        と定義すると $\deg g_1 < \deg g$ が成り立つ．$g_1(t) = 0$ ならば $q(t) = q_1(t),\; r(t) = 0$ とすれば良い．
+        $g_1(t) \neq 0$ ならば，帰納法の仮定より $q_2(t),\, r_2(t) \in R[t]$ が存在して
+        \begin{align}
+            g_1(t) = q_2(t) \bigl( u f(t) \bigr) + r_2(t)
+        \end{align}
+        と書け，かつ $\deg r_2 < \deg f$ が成り立つ．すると
+        \begin{align}
+            g(t) = \bigl( q_1(t) + q_2(t) \bigr) \bigl( u f(t) \bigr) + r_2(t)
+        \end{align}
+        であるから，$q(t) = q_1(t) + q_2(t),\; r(t) = r_2(t)$ とすれば良い．
+
+        \item[\textbf{$\bm{q(t)},\, \bm{r(t)}$ の一意性}]　
+        
+        $g(t) = q_1(t) \bigl( u f(t) \bigr) + r_1(t) =  q_2(t) \bigl( u f(t) \bigr) + r_2(t) \AND \deg r_i < \deg f$ が成り立つとする．このとき
+        \begin{align}
+            \bigl( q_1(t) - q_2(t) \bigr) \bigl( uf(t) \bigr) = r_2(t) - r_1(t)
+        \end{align}
+        が成り立つが，$q_1(t) - q_2(t) \neq 0$ だとすると $\deg f \le \max \{\deg r_1,\, \deg r_2\}$ と言うことになり矛盾．よって背理法から $q_1(t) = q_2(t)$ が言えて，$r_1(t) = r_2(t)$ も従う．
+    \end{description}
+\end{proof}
+
+特に $R$ が体ならば $R^\times = R\setminus \{0\}$ なので，任意のゼロでない多項式同士の割り算をすることができる．
+多変数の場合も，ある1つの変数に関する最高次係数が単元ならば割り算ができる．
+
+\begin{mydef}[label=def:ideal-ring]{環のイデアル}
+    $R$ を環とする．
+    \begin{itemize}
+        \item 部分集合 $I \subset R$ が左 (resp. 右)\textbf{イデアル} (ideal) であるとは，$\forall r \in R,\; \forall x \in I$ に対して $rx \in I$（resp. $xr \in I$）が成り立つことを言う．
+        左イデアルかつ右イデアルのとき\textbf{両側イデアル}と呼ぶ．$R$ が可換環のときは左，右イデアルの区別はなく，単に\textbf{イデアル} (ideal) と呼ぶ．
+        \item \underline{可換環} $R$ のイデアル $I\subsetneq R$ が\textbf{素イデアル} (prime ideal) であるとは，
+        \begin{align}
+            r,\, s \not\in I \IMP rs \not\in I
+        \end{align}
+        が成り立つことを言う．
+        \item \underline{可換環} $R$ のイデアル $I \subsetneq R$ が\textbf{極大イデアル} (maximal ideal) であるとは，$I \subset J \subsetneq R$ なる任意のイデアル $J$ に対して $I = J$ が成り立つことを言う．
+    \end{itemize}
+\end{mydef}
+
+\begin{mydef}[label=def:domain-basic,breakable]{整域}
+    $R$ を\underline{可換環}とする．
+    \begin{itemize}
+        \item $R$ が\textbf{整域} (integral domain) であるとは，$\forall a,\, b \in R \setminus \{0\}$ に対して $ab \neq 0$ が成り立つことを言う．
+        \item \textbf{整域} $R$ および $a \in R,\, b \in R \setminus \{0\}$ を与える．$b$ が $a$ の\textbf{約元}であるとは，ある $c \in R$ が存在して $a = bc$ となることを言い，$\bm{b \mid a}$ と書く．
+        \item \textbf{整域} $R$ および $(a_1,\, \dots,\, a_n) \in R^n \setminus \{(0,\, \dots,\, 0)\},\, b \in R$ を与える．
+        $b$ が $a_1,\, \dots,\, a_n$ の\textbf{公約元}であるとは，
+        \begin{align}
+            1 \le \forall i \le n,\; b \mid a_i
+        \end{align}
+        が成り立つことを言う．他の任意の公約元 $c \in R$ に対して $c \mid b$ が成り立つとき，$b$ は\textbf{最大公約元} (greatest common deviser; GCD) と呼ばれ，$\bm{\mathrm{gcd}}\bm{(a_1,\, ...,\, a_n)}$ と書く．
+        \item \textbf{整域} $R$ および $b_1,\, \dots,\, b_n \in R \setminus \{0\},\, a \in R$ を与える．
+        $a$ が $b_1,\, \dots,\, b_n$ の\textbf{公倍元}であるとは，
+        \begin{align}
+            1 \le \forall i \le n,\; b_i \mid a
+        \end{align}
+        が成り立つことを言う．他の任意の公倍元 $c \in R$ に対して $b \mid c$ が成り立つとき，$b$ は\textbf{最小公倍元} (least common multiple; LCM) と呼ばれ，$\bm{\mathrm{lcm}}\bm{(a_1,\, ...,\, a_n)}$ と書く．
+        \item $R$ が\textbf{単項イデアル整域} (principal ideal domain; PID) であるとは，$R$ の任意の\hyperref[def:ideal-ring]{イデアル} $I \subset R$ に対してある $r \in R$ が存在して $I = Rr$ を充たすこと．
+    \end{itemize}
+    \tcblower
+    $R$ を整域とし，$r \in R \setminus \{0\}$ を与える．
+    \begin{itemize}
+        \item $r$ が\textbf{素元}であるとは，$r$ が生成するイデアル $Rr \subset R$ が\hyperref[def:ideal-ring]{素イデアル}であることを言う．
+        \item $r$ が\textbf{既約元}であるとは，$r \not\in R^\times$ で，かつ $\forall a,\, b \in R$ に対して
+        \begin{align}
+            r = ab \IMP a \in R^\times \OR b \in R^\times
+        \end{align}
+        が成り立つことを言う．$r$ が既約でなければ\textbf{可約}と言う．
+        \item 既約元 $r,\, s$ が\textbf{同伴}であるとは，ある $u \in R^\times$ が存在して $r =su$ と書けることを言う．
+    \end{itemize}
+\end{mydef}
+
+
+\begin{myprop}[label=prop:ideal-ring-basic]{素イデアルと極大イデアルの特徴付け}
+    \underline{可換環} $R$ の\hyperref[def:ideal-ring]{イデアル} $I$ に対し，以下が成り立つ：
+    \begin{enumerate}
+        \item $I$ が\hyperref[def:ideal-ring]{素イデアル} $\IFF$ $R/I$ は\hyperref[def:domain-basic]{整域}
+        \item $I$ が\hyperref[def:ideal-ring]{極大イデアル} $\IFF$ $R/I$ は体
+    \end{enumerate}
+\end{myprop}
+
+\begin{proof}
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+\end{proof}
+
+GCD, LCM は存在すれば単元の積を除いて一意である．
+
+
+\begin{mydef}[label=def:domains,breakable]{種々の整域}
+    $R$ を\hyperref[def:domain-basic]{整域}とする．
+    \begin{itemize}
+        \item $R$ が\textbf{Euclid整域} (Euclid domain) であるとは，
+        以下の条件を充たす写像 $\phi \colon R \setminus \{0\} \lto \mathbb{Z}_{\ge 0}$ が存在することを言う：
+        \begin{description}
+            \item[\textbf{(ED)}] $\forall a \in R,\; \forall b \in R \setminus \{0\}$ に対して $q,\, r \in R$ が存在して
+            \begin{align}
+                a = qb + r
+            \end{align}
+            かつ
+            \begin{align}
+                r = 0 \OR \phi(r) < \phi(b)
+            \end{align}
+            が成り立つ．
+        \end{description}
+        
+        \item $R$ が\textbf{単項イデアル整域} (principal ideal domain; PID) であるとは，$R$ の任意の\hyperref[def:ideal-ring]{イデアル} $I \subset R$ に対してある $r \in R$ が存在して $I = Rr$ を充たすこと．
+        \item $R$ が\textbf{一意分解整域} (unique factorization domain: UFD) であるとは，以下の2条件を充たすこと：
+        \begin{description}
+            \item[\textbf{(UFD-1)}] $\forall r \in R \setminus (R^\times \cup \{0\})$ に対して，\hyperref[def:domain-basic]{素元} $p_1,\, \dots,\, p_n \in R$ が存在して $r = p_1 \cdots p_n$ と書ける．このとき $p_1,\, \dots,\, p_n$ を $r$ の\textbf{素因子}，素因子の積 $p_1\cdots p_n$ を $a$ の\textbf{素元分解}と呼ぶ．
+            \item[\textbf{(UFD-2)}] $p_1,\, \dots,\, p_n,\; q_1,\, \dots,\, q_m \in R$ が素元ならば $n = m$ であり，かつある $\sigma \in \mathfrak{S}_n$ が存在して，$1 \le \forall i \le n$ に対して $p_i$ と $q_{\sigma(i)}$ が\hyperref[def:domain-basic]{同伴}となる．
+        \end{description}
+    \end{itemize}
+    
+\end{mydef}
+
+次の定理は整域の理論において極めて重要である：
+
+\begin{mytheo}[label=thm:ED-PID-UFD]{}
+    \hyperref[def:domains]{Euclid整域} $\IMP$ \hyperref[def:domains]{単項イデアル整域} $\IMP$ \hyperref[def:domains]{一意分解整域}
+\end{mytheo}
+
+\begin{proof}
+    \begin{description}
+        \item[\textbf{Euclid整域 $\IMP$ PID}]　
+        
+        $R$ が\hyperref[def:domains]{Euclid整域}であるとする．
+        $R = \{0\}$ ならば $R = R0$ となるのでPIDである．
+        
+        　$R \neq \{0\}$ とする．$R$ の任意の非自明な\hyperref[def:ideal-ring]{イデアル} $I$ をとる．
+        $\mathbb{Z}_{\ge 0}$ は整列集合なので $\phi(x) \coloneqq \min \bigl\{\, \phi(y) \in \mathbb{Z}_{\ge 0} \bigm| y \in I \setminus \{0\} \,\bigr\}$ が存在する．
+        Euclid整域の定義から $\forall z \in I$ に対してある $q,\, r \in R$ が存在して
+        \begin{align}
+            z = qx + r
+        \end{align}
+        かつ $r = 0$ または $\phi(r) < \phi(x)$ が成り立つが，もし $r \neq 0$ ならば $r \in I \setminus \{0\}$ となり $x$ の最小性に矛盾する．よって $r = 0$ であり，$I = Rx$ が言えた．
+
+        \item[\textbf{PID $\IMP$ UFD}]　
+        
+
+    \end{description}
+    
+\end{proof}
+
+\begin{mycol}[label=col:poly-PID]{}
+    任意の体\footnote{定義から可換である．} $\mathbb{K}$ に対して $\mathbb{K}[t]$ は\hyperref[def:domains]{Euclid整域}である．
+    従ってPIDでもありUFDでもある．
+\end{mycol}
+
+\begin{proof}
+    命題\ref{prop:poly-divide}より従う．
+\end{proof}
+
+
+\begin{myprop}[label=prop:PID-prime]{}
+    \underline{可換環} $R$ について以下が成り立つ：
+    \begin{enumerate}
+        \item $R$ が\hyperref[def:domain-basic]{整域}ならば，$R$ の任意の\hyperref[def:domain-basic]{素元}は\hyperref[def:domain-basic]{既約元}である．
+        \item $R$ が\hyperref[def:domains]{UFD}ならば，$R$ の任意の\hyperref[def:domain-basic]{既約元}は\hyperref[def:domain-basic]{素元}である．
+        \item $R$ が\hyperref[def:domains]{PID}ならば，$R$ の任意の $\{0\}$ でない\hyperref[def:ideal-ring]{素イデアル}は\hyperref[def:ideal-ring]{極大イデアル}である．
+    \end{enumerate}
+    
+\end{myprop}
+
+\begin{proof}
+    \begin{enumerate}
+        \item $R$ が整域だとする．このとき任意の素元 $p \in R \setminus \{0\}$ をとると，$Rp \subsetneq R$ なので $p \notin R^\times$ である．$a,\, b \in R$ に対して $p = ab$ が成り立つとする．
+        $Rp$ が\hyperref[def:ideal-ring]{素イデアル}なので $a \in Rp$ または $b \in Rp$ が成り立つ．$R$ は可換なので $a \in Rp$ としても一般性を失わない．このときある $q \in R$ が存在して $a = qp$ と書ける．
+        $ab = p$ なので $qpb = pqb = p \IFF p(qb-1) = 0$ が成り立つ．$R$ は整域で $p \neq 0$ なので $qb-1 = 0 \IFF qb = 1$，i.e. $b \in R^\times$ が分かった．よって $p$ は既約である．
+        \item $R$ がUFDだとする．このとき任意の既約元 $p \in R \setminus (R^\times \cup \{0\})$ をとると，その素元分解 $p = p_1 \cdots p_n\quad (n \ge 1)$ が存在する．$n \ge 2$ だとすると，$p_1 \notin R^\times$ なので $p$ の既約性から $q \coloneqq p_2 \cdots p_n \in R^\times$ となる．然るにこのとき $Rq \subset Rp_2 \subsetneq R$ となり矛盾．よって背理法から $n=1$ が言えた．
+        \item $R$ のゼロでない任意の素イデアル $I$ をとる．$R$ はPIDなので $p \in R$ が存在して $I = Rp$ と書けるが，素元の定義からこのとき $p \in R$ は素元であり，および命題\ref{thm:ED-PID-UFD}-(1) から既約元である．
+        
+        ここで，$I \subset J \subsetneq R$ なる任意のイデアル $J$ をとる．$R$ はPIDなので $q \in R$ が存在して $J = Rq$ と書けるが，$Rq \subsetneq R$ なので $q \notin R^\times$ である．
+        このときある $u \in R$ が存在して $p = qu$ と書けるが，$p$ は既約元なので $u \in R^\times$ でなくてはならない．よって $Rp = Rq$ となり，$Rp$ は極大イデアルである．命題\ref{prop:ideal-ring-basic}-(2) より $R/Rp$ は体である．
+    \end{enumerate}
+\end{proof}
+
+
+\begin{myprop}[label=prop:PID-Bezout]{単項イデアル整域におけるB\'{e}zoutの等式}
+    $R$ を\hyperref[def:domains]{PID}とする．
+    このとき，$\forall (a_1,\, a_2) \in R^2  \setminus \{(0,\, 0)\},\; \forall b \in R$ に対して以下は同値である：
+    \begin{enumerate}
+        \item $Ra_1 + Ra_2 = Rb$
+        \item $\mathrm{\gcd}(a_1,\, a_2) = b$
+    \end{enumerate}
+\end{myprop}
+
+\begin{proof}
+    \item[\textbf{(1) $\bm{\Longrightarrow}$ (2)}]　
+    
+    $Ra_1 + Ra_2 = Rb$ とする．このとき $a_i \in Rb\quad (i = 1,\, 2)$ なのである $q_i \in R$ が存在して $a_i = q_i b$ と書ける．i.e. $b \mid a_i$ である．
+    
+    $c \in R$ を $a_1,\, a_2$ の任意の\hyperref[def:domain-basic]{公約元}とする．このときある $r_i \in R$ が存在して $a_i = r_i c$ と書ける．
+    仮定より $b \in Ra_1 + Ra_2$ なので，
+    $s_i \in R$ が存在して
+    \begin{align}
+        b = s_1a_1 + s_2a_2 = (s_1 r_1 + s_2r_2) c
+    \end{align}
+    と書ける．i.e. $c \mid b$ が言えた．
+    \item[\textbf{(1) $\bm{\Longleftarrow}$ (2)}]　
+    
+    $\mathrm{\gcd}(a_1,\, a_2) = b$ とする．
+    $R$ はPIDなので，ある $c \in R$ が存在して $Ra_1 + Ra_2 = Rc$ と書ける．必要性の証明から $c = \mathrm{gcd}(a_1,\, a_2)$ が言えるので，$u \in R^\times$ が存在して $b = uc$ と書ける．よって $Ra_1 + Ra_2 = Rc = Rb$ である．
+\end{proof}
+
+\begin{mycol}[label=col:PID-Bezout]{単項イデアル整域におけるB\'{e}zoutの等式}
+    $R$ を\hyperref[def:domains]{PID}とする．このとき，$\forall (a_1,\, \dots,\, a_n) \in R^n \setminus \{(0,\, \dots,\, 0)\},\; \forall b \in R$ に対して以下は同値である：
+    \begin{enumerate}
+        \item $Ra_1 + \cdots + Ra_n = Rb$
+        \item $\mathrm{\gcd}(a_1,\, \dots,\, a_n) = b$
+    \end{enumerate}
+\end{mycol}
+
+\begin{mydef}[label=def:field-extention]{体の拡大}
+    \begin{itemize}
+        \item 体 $\mathbb{L}$ が体 $\mathbb{K}$ の\textbf{拡大体} (extention field) であるとは，$\mathbb{K}$ が $\mathbb{L}$ の部分体になっていることを言う．
+        このことを記号で $\bm{\mathbb{L}/\mathbb{K}}$ と書き，\textbf{体の拡大} (field extention) であると言う．
+        \item $\mathbb{L} / \mathbb{K}$ を体の拡大とするとき，部分体 $\mathbb{M} \subset \mathbb{L}$ であって $\mathbb{K} \subset \mathbb{M}$ を充たすものを $\mathbb{L}/\mathbb{K}$ の\textbf{中間体}と呼ぶ．
+        \item $\mathbb{L} / \mathbb{K}$ を体の拡大とするとき，$\mathbb{L}$ を $\mathbb{K}$-ベクトル空間と見做したときの次元を $\mathbb{L}$ の $\mathbb{K}$ 上の\textbf{拡大次数}と呼び，$\bm{[\mathbb{L}:\mathbb{K}]}$ と書く．
+        \item $\mathbb{L} / \mathbb{K}$ を体の拡大とする．$x \in \mathbb{L}$ が $\mathbb{K}$ 上\textbf{代数的}であるとは，$x$ がある $\mathbb{K}$-係数多項式 $f(t) \in \mathbb{K}[t] \setminus \{0\}$ の\hyperref[def:poly-basic]{根}となっていること\footnote{$x \in \mathbb{K}$ とは限らないので，先ほど採用した定義によると厳密には根とは呼べない．}を言う．
+        $\forall x \in \mathbb{L}$ が $\mathbb{K}$ 上代数的ならば，体の拡大 $\mathbb{L}/\mathbb{K}$ は\textbf{代数拡大}であるという．
+    \end{itemize}
+\end{mydef}
+
+\begin{myprop}[label=prop:minimal-poly]{最小多項式の存在}
+    $\mathbb{L}/\mathbb{K}$ を\hyperref[def:field-extention]{体の代数拡大}とし，$\forall \alpha \in \mathbb{L}$ を1つ与える．
+    このとき $I_\alpha \coloneqq \bigl\{\, f(t) \in \mathbb{K}[t] \bigm| f(\alpha) = 0 \,\bigr\}$ とおくと，以下の条件を充たす $f(t) \in I_\alpha$ が定数倍を除いて一意的に存在する：
+    \begin{enumerate}
+        \item $f(t) \neq 0$
+        \item $f(t)$ は $I_\alpha$ の元のうち $\deg f$ が最小のものの1つである．
+        \item $f(t)$ は $I_\alpha$ の全ての元の\hyperref[def:domains]{約元}である．
+        \item $f(t)$ は\hyperref[def:domain-basic]{既約}
+    \end{enumerate}
+\end{myprop}
+
+\begin{proof}
+    $\mathbb{K}$-\hyperref[ax:Alg]{結合代数}の準同型
+    \begin{align}
+        \phi \colon \mathbb{K}[t] \lto \mathbb{L},\; g(t) \lmto g(\alpha)
+    \end{align}
+    に関して $\Ker \phi = I_\alpha$ であり，従って $I_\alpha$ は $\mathbb{K}[t]$ の\hyperref[def:ideal-ring]{イデアル}である．
+    $\alpha$ は $\mathbb{K}$ 上代数的なので $I_\alpha \neq \{0\}$ であり，
+    系\ref{col:poly-PID}より $\mathbb{K}[t]$ は\hyperref[def:domains]{PID}なので，ある $f(t) \in \mathbb{K}[t]$ が存在して $I_\alpha = \mathbb{K}[t] f(t)$ と書ける．このとき定理\ref{thm:ED-PID-UFD}の証明から $f(t)$ は $I_\alpha\setminus \{0\}$ の元のうち次数が最小であり，
+    $\mathbb{K}[t]^\times = \mathbb{K} \setminus \{0\}$ なので定数倍を除いて一意に定まる．
+
+    あとは $f(x)$ の既約性を示す．実際，準同型定理から $\mathbb{K}[t]/I_\alpha \cong \Im \phi = \mathbb{K}[\alpha]$ が言えるが，$\mathbb{K}[\alpha]$ は体なので命題\ref{prop:ideal-ring-basic}-(2) より $I_\alpha = \mathbb{K}[t] f(t)$ は\hyperref[def:ideal-ring]{素イデアル}であり，\hyperref[def:domain-basic]{素元の定義}から $f(t)$ は素元．よって命題\ref{prop:PID-prime}-(1) から $f(x)$ は既約元である．
+\end{proof}
+
+\begin{mydef}[label=def:minimal-poly]{最小多項式}
+    命題\ref{prop:minimal-poly}の $f(t) \in I_\alpha$ が\hyperref[def:poly-basic]{モニック}ならば，$f(t)$ のことを $\alpha$ の $\mathbb{K}$ 上の\textbf{最小多項式} (minimal polynomial) と呼ぶ．
+\end{mydef}
+
+命題\ref{prop:minimal-poly}では $\mathbb{L}/\mathbb{K}$ を体の代数拡大としたが，$\mathbb{L}$ を $\Mat{n}{\mathbb{K}}$ に置き換えても (1)-(3) はほぼ同じ証明により成り立つ\footnote{$I_\alpha \neq \{0\}$ の証明のみ変更を要する．}．このようなときも $f(t) \in I_\alpha$ のことを $\alpha \in \Mat{n}{\mathbb{K}}$ の\textbf{最小多項式}と呼ぶ．
+では，定理\ref{thm:eigen-decomp-1}の別証明を与えよう：
+
+\begin{mytheo}[label=thm:eigen-decomp-2]{広義固有空間分解-2}
+    $x \in \Mat{n}{\mathbb{K}}$ を与え，
+    \begin{itemize}
+        \item $x$ の相異なる全ての\hyperref[def:eigen]{固有値}を $\lambda_1,\, \dots,\, \lambda_r$
+        \item $\lambda_i$ の重複度を $p_i$
+    \end{itemize} 
+    とおく．このとき $\mathbb{K}^n$ の\hyperref[prop:subvec-directsum]{内部直和}分解
+    \begin{align}
+        \mathbb{K}^n = \bigoplus_{i=1}^r W(\lambda_i)
+    \end{align}
+    が一意的に存在し，かつ $\dim W(\lambda_i) = p_i$ である．
+\end{mytheo}
+
+\begin{proof}
+    $1 \le \forall i \le k$ に対して $\phi_i (t) \coloneqq \prod_{j \neq i} (t-\lambda_i)^{p_i} \in \mathbb{K}[t]$ とおく．
+\end{proof}
+
 
 % \section{旗と上三角行列}
 
