@@ -1375,7 +1375,7 @@ $x \in \End V$ が\textbf{上三角化可能}であるとは，$x$ によって\
         仮定\eqref{eq:eigen-1}より $w_r = 0$ も言えて帰納法が完成する．
     \end{description}
 
-    代数学の基本定理より $\sum_{i=1}^r p_i = n$ が言える．$\bigoplus_{i=1}^r W(\lambda_i) \subset \mathbb{K}^n$ であることも踏まえると，以上の議論から $\dim (\lambda_i) = p_i$ が分かった．従って $\mathbb{K}^n = \bigoplus_{i=1}^r W(\lambda_i)$ である．\hyperref[def:univ-vec-sum]{直和の普遍性}よりこの内部直和分解は一意である．
+    代数学の基本定理より $\sum_{i=1}^r p_i = n$ が言える．$\bigoplus_{i=1}^r W(\lambda_i) \subset \mathbb{K}^n$ であることも踏まえると，以上の議論から $\dim W(\lambda_i) = p_i$ が分かった．従って $\mathbb{K}^n = \bigoplus_{i=1}^r W(\lambda_i)$ である．\hyperref[def:univ-vec-sum]{直和の普遍性}よりこの内部直和分解は一意である．
 \end{proof}
 
 \subsection{多項式環・最小多項式}
@@ -1396,7 +1396,7 @@ $R[t_1,\, \dots,\, t_n]$ の上の加法と乗法をそれぞれ
 ある1つの変数に注目して項を整理することで，帰納的に自然な（環の）同型 $R[t_1,\, \dots,\, t_n] \cong (R[t_1,\, \dots,\, t_{n-1}])[t_n] \cong \dots \cong (\cdots((R[t_1])[t_2])\cdots [t_{n-1}])[t_n]$ が得られる．
 
 \begin{mydef}[label=def:poly-basic]{多項式の基本概念}
-    $f(t_1,\, \dots,\, t_n) =  \in R[t_1,\, \dots,\, t_n]$ を与える．
+    $f(t_1,\, \dots,\, t_n) = \sum_{i_1,\, \dots,\, i_n} a_{i_1 \dots i_n} t_1^{i_1} \cdots t_n^{i_n}  \in R[t_1,\, \dots,\, t_n]$ を与える．
     \begin{itemize}
         \item $f(t_1,\, \dots,\, t_n) \neq 0$ ならば，$f$ の\textbf{次数} (degree) を
         \begin{align}

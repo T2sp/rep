@@ -824,7 +824,7 @@ $\mathfrak{g}$ を体 $\mathbb{K}$ 上の\hyperref[ax:LieAlg]{Lie代数}とす�
 		\begin{align}
 			\Tr c_\phi 
 			&= \sum_{\mu}^{\dim \mathfrak{g}} \Tr \bigl(\phi(e_\mu) \circ \phi(e^\mu) \bigr) \\
-			&= \sum_{\mu}^{\dim \mathfrak{g}} \beta (e_\mu,\, e^\nu) \\
+			&= \sum_{\mu}^{\dim \mathfrak{g}} \beta (e_\mu,\, e^\mu) \\
 			&= \dim \mathfrak{g}
 		\end{align}
 		\item $\mathbb{K}$ が代数閉体でかつ $\phi$ が既約なので，(1), (2) と\hyperref[col:Schur-closed]{代数閉体上のSchurの補題}から $c_\phi \colon V \lto V$ は $(\dim \mathfrak{g} / \dim V) \, \mathrm{id}_V$ に等しい．
@@ -834,7 +834,7 @@ $\mathfrak{g}$ を体 $\mathbb{K}$ 上の\hyperref[ax:LieAlg]{Lie代数}とす�
 
 
 $\phi \colon \mathfrak{g} \lto \Lgl (V)$ が忠実でない場合は次のように考える：
-まず，$\mathfrak{g}$ が\hyperref[def:semisimple-LieAlg]{半単純}なので，$\Ker \phi$（$\mathfrak{g}$ のイデアルである）は系\ref{lem:semisimple-decomp}から $\mathfrak{g}$ の\hyperref[def:simple-LieAlg]{単純}イデアルの直和である．
+まず，$\mathfrak{g}$ が\hyperref[def:semisimple-LieAlg]{半単純}なので，$\Ker \phi$（$\mathfrak{g}$ のイデアルである）は系\ref{col:semisimple-decomp}から $\mathfrak{g}$ の\hyperref[def:simple-LieAlg]{単純}イデアルの直和である．
 定理\ref{thm:semisimple-decomp}を使って $\mathfrak{g}^\perp$ を $\mathfrak{g} \eqqcolon \Ker \phi \oplus \mathfrak{g}^\perp$ で定義すると，$\mathfrak{g}^\perp \cong \mathfrak{g}/\Ker \phi$ なので，制限
 \begin{align}
 	\phi|_{\mathfrak{g}^\perp} \colon \mathfrak{g}^\perp \lto \Lgl (V)
@@ -942,7 +942,7 @@ $\phi \colon \mathfrak{g} \lto \Lgl (V)$ が忠実でない場合は次のよう
 		\begin{center}
 			\begin{tikzcd}[row sep=large, column sep=large]
 				\mathfrak{g} \ar[d, "p"']\ar[r, "\phi"] &\Lgl (V) \\
-				\mathfrak{g}/\Ker \phi \arrow[ur, red, dashed, "\exists!\bar{f}"']&
+				\mathfrak{g}/\Ker \phi \arrow[ur, red, dashed, "\exists!\bar{\phi}"']&
 			\end{tikzcd}
 		\end{center}
 		このとき $\overline{\phi}$ は $\mathfrak{g} / \Ker \phi$ の忠実な既約表現であり，$\overline{f} \in \Hom{\mathbb{K}}(\mathfrak{g}/\Ker \phi,\, V)$ は\eqref{eq:cocycle}を充たす．
@@ -959,7 +959,7 @@ $\phi \colon \mathfrak{g} \lto \Lgl (V)$ が忠実でない場合は次のよう
 		\eqref{eq:cocycle}を充たす任意の $f \in \Hom{\mathbb{K}}(\mathfrak{g},\, V)$ を1つ固定する．
 		このときある $v \in V$ が存在して $\forall x \in \mathfrak{g},\; f(x) = \phi(x)(v)$ が成り立つことを $\dim V$ に関する数学的帰納法により示す．$\dim V = 1$ のとき，補題\ref{lem:Weyl}より $\phi$ が零写像なので $\forall v \in V$ に対して $\forall x \in \mathfrak{g},\; f(x) = \phi(x)(v)$ が成り立つ．
 		
-		　$\dim V > 0$ とする．\hyperref[ax:g-module]{$\mathfrak{g}$-加群} $V$ が\hyperref[def:irr]{既約}でないならば，\hyperref[def:sub-g-module]{部分 $\mathfrak{g}$-加群} $0 \subsetneq W \subsetneq V$ が存在する．標準的射影\footnote{このとき $V$ の $\mathbb{K}$-ベクトル空間としての構造しか見ない．} $p \colon V \lto V/W$ および $\forall x \in \mathfrak{g}$ について $W \subset \Ker p \circ \phi(x)$ であるから，\hyperref[prop:homo]{商代数の普遍性}より $\forall \phi(x) \in \phi(\mathfrak{g})$ に対して以下の図式を可換にする $\overline{\phi}(x) \in \Lgl(V/W)$ が一意的に存在する：
+		　$\dim V > 1$ とする．\hyperref[ax:g-module]{$\mathfrak{g}$-加群} $V$ が\hyperref[def:irr]{既約}でないならば，\hyperref[def:sub-g-module]{部分 $\mathfrak{g}$-加群} $0 \subsetneq W \subsetneq V$ が存在する．標準的射影\footnote{このとき $V$ の $\mathbb{K}$-ベクトル空間としての構造しか見ない．} $p \colon V \lto V/W$ および $\forall x \in \mathfrak{g}$ について $W \subset \Ker \bigl( p \circ \phi(x)\bigr)$ であるから，\hyperref[prop:homo]{商代数の普遍性}より $\forall \phi(x) \in \phi(\mathfrak{g})$ に対して以下の図式を可換にする $\overline{\phi}(x) \in \Lgl(V/W)$ が一意的に存在する：
 		\begin{center}
 			\begin{tikzcd}[row sep=large, column sep=large]
 				V \ar[d, "p"']\ar[r, "p \circ \phi(x)"] &V/W \\
@@ -980,7 +980,7 @@ $\phi \colon \mathfrak{g} \lto \Lgl (V)$ が忠実でない場合は次のよう
 		\begin{align}
 			f_2 (x) \coloneqq f(x) - \phi(x)(v_1)
 		\end{align}
-		と定義すると，$f_2$ は\hyperref[def:sub-g-module]{部分表現} $\phi|_W \colon \mathfrak{g} \lto \Lgl(W)$ に関して\eqref{eq:cocycle}を充たす．よって帰納法の仮定から\footnote{$\dim W < \dim V$ なので帰納法の仮定が使える．}ある $v_2 \in V$ が存在して
+		と定義すると，$f_2$ は\hyperref[def:sub-g-module]{部分表現} $\phi|_W \colon \mathfrak{g} \lto \Lgl(W)$ に関して\eqref{eq:cocycle}を充たす．よって帰納法の仮定から\footnote{$\dim W < \dim V$ なので帰納法の仮定が使える．}ある $v_2 \in W$ が存在して
 		\begin{align}
 			\forall x \in \mathfrak{g},\; f_2(x) = \phi|_W (x)(v_2)
 		\end{align}
@@ -1074,7 +1074,7 @@ $\phi \colon \mathfrak{g} \lto \Lgl (V)$ が忠実でない場合は次のよう
 	後半の主張はJordan-Chevalley分解および抽象Jordan分解の一意性より従うので，前半を示せば良い．
 
 	$\forall x \in \mathfrak{g}$ を1つ固定し，$x$ のJordan-Chevalley分解 $x = x_s + x_n$ をとる．
-	$\ad_{\Lgl{\mathfrak{g}}}(x) (\mathfrak{g}) \subset \mathfrak{g}$ なので命題\ref{prop:Jordan-Chevalley}-(3) より $\ad_{\Lgl(\mathfrak{g})}(x_s)(\mathfrak{g}) \subset \mathfrak{g},\; \ad_{\Lgl(\mathfrak{g})}(x_n)(\mathfrak{g}) \subset \mathfrak{g}$ が言える．
+	$\ad_{\Lgl(\mathfrak{g})}(x) (\mathfrak{g}) \subset \mathfrak{g}$ なので命題\ref{prop:Jordan-Chevalley}-(3) より $\ad_{\Lgl(\mathfrak{g})}(x_s)(\mathfrak{g}) \subset \mathfrak{g},\; \ad_{\Lgl(\mathfrak{g})}(x_n)(\mathfrak{g}) \subset \mathfrak{g}$ が言える．
 	i.e. \hyperref[def:normalizer-LieAlg]{正規化代数}の言葉を使うと
 	$x_s,\, x_n \in N_{\Lgl(V)} (\mathfrak{g}) \eqqcolon N$ が言える\footnote{補題\ref{lem:Weyl}より $\mathfrak{g} \subset \Lsl(V)$ なので $\mathfrak{g} \subsetneq N$ であることに注意}．
 
@@ -1102,7 +1102,7 @@ $\phi \colon \mathfrak{g} \lto \Lgl (V)$ が忠実でない場合は次のよう
 \begin{mycol}[label=col:JC]{}
 	$\mathfrak{g}$ を\hyperref[def:semisimple-LieAlg]{半単純Lie代数}，$\phi \colon \mathfrak{g} \lto \Lgl(V)$ をその\underline{有限次元}表現とする．
 
-	このとき $\forall x \in \mathfrak{g}$ の\hyperref[def:abstruct-JC]{抽象Jordan分解} $x = s_x + n_x$ に対して，$\phi(x) = \phi(s_x) + \phi(n_x) \in \Lgl(V)$ は\hyperref[prop:Jordan-Chevalley]{Jordan-Chevalley分解}である．i.e. $\phi(x)_s = \phi(s_x),\; \phi(x)/n = \phi(n_x)$ が成り立つ．
+	このとき $\forall x \in \mathfrak{g}$ の\hyperref[def:abstruct-JC]{抽象Jordan分解} $x = s_x + n_x$ に対して，$\phi(x) = \phi(s_x) + \phi(n_x) \in \Lgl(V)$ は\hyperref[prop:Jordan-Chevalley]{Jordan-Chevalley分解}である．i.e. $\phi(x)_s = \phi(s_x),\; \phi(x)_n = \phi(n_x)$ が成り立つ．
 \end{mycol}
 
 \begin{proof}
@@ -1110,6 +1110,10 @@ $\phi \colon \mathfrak{g} \lto \Lgl (V)$ が忠実でない場合は次のよう
 	従って $\ad_{\phi(\mathfrak{g})} \bigl( \phi(s_x) \bigr) \colon \phi(\mathfrak{g}) \lto \phi(\mathfrak{g})$ の $\phi(\mathfrak{g})$ の固有ベクトル全体がなす集合は $\phi(\mathfrak{g})$ の基底となる．i.e. $\ad_{\phi(\mathfrak{g})} \bigl( \phi(s_x) \bigr)$ は半単純である．
 	同様に $\ad_{\phi(\mathfrak{g})} \bigl( \phi(n_x) \bigr)$ が冪零であることもわかるので，$\phi(x) = \phi(s_x) + \phi(n_x)$ は半単純Lie代数 $\phi(\mathfrak{g})$ における $\phi(x)$ の\hyperref[def:abstruct-JC]{抽象Jordan分解}である．よって定理\ref{thm:JC}からこれはJordan-Chevalley分解と一致する．
 \end{proof}
+
+\begin{marker}
+	定理\ref{thm:JC}および系\ref{col:JC}の意味で\hyperref[prop:Jordan-Chevalley]{Jordan-Chevalley分解}と\hyperref[def:abstruct-JC]{抽象Jordan分解}は同一視できるので，以後抽象Jordan分解のことも $x = s_x + n_x$ の代わりに $x = \bm{x_s} + \bm{x_n}$ と表記する．
+\end{marker}
 
 
 \section{$\lsl{2}{\mathbb{K}}$ の表現}
@@ -1119,7 +1123,7 @@ $\phi \colon \mathfrak{g} \lto \Lgl (V)$ が忠実でない場合は次のよう
 \begin{align}
 	x &\coloneqq \mqty[0 & 1 \\ 0 & 0], \\
 	y &\coloneqq \mqty[0 & 0 \\ 1 & 0], \\
-	h &\coloneqq \mqty[1 &  \\ 0 & -1]
+	h &\coloneqq \mqty[1 & 0 \\ 0 & -1]
 \end{align}
 を採用する．このとき
 \begin{align}
@@ -1135,9 +1139,9 @@ $\phi \colon \mathfrak{g} \lto \Lgl (V)$ が忠実でない場合は次のよう
 任意の\hyperref[ax:g-module]{$\mathfrak{g}$ の表現} $\phi \colon \mathfrak{g} \lto \Lgl(V)$ を与える．
 $h$ は\hyperref[def:semisimple-end]{半単純}なので系\ref{col:JC}より $\phi(h)$ を対角化する $V$ の基底がある．よって
 \begin{align}
-	V_\lambda \coloneqq \bigl\{\, v \in V \bigm| \phi(h)(v) = \lambda v \,\bigr\} 
+	V_\lambda \coloneqq \bigl\{\, v \in V \bigm| h \btr v = \lambda v \,\bigr\} 
 \end{align}
-とおくと $V$ は異なる $\lambda$ に関する $V_\lambda$ の\hyperref[prop:subvec-directsum]{内部直和}になる（\hyperref[prop:eigen-decomp1]{固有空間分解}）\footnote{$\lambda$ が $h$ の固有値でなければ $V_\lambda = 0$ となる．}：
+とおくと $V$ は異なる $\lambda$ に関する $V_\lambda$ の\hyperref[prop:subvec-directsum]{内部直和}になる（\hyperref[thm:eigen-decomp1]{固有空間分解}）\footnote{$\lambda$ が $h$ の固有値でなければ $V_\lambda = 0$ となる．}：
 \begin{align}
 	V = \bigoplus_{\lambda \in \mathbb{K}} V_\lambda
 \end{align}
@@ -1153,11 +1157,11 @@ $h$ は\hyperref[def:semisimple-end]{半単純}なので系\ref{col:JC}より $\
 	\end{align}
 \end{proof}
 
-$\dim V < \infty$ なので，$V_\lambda \neq 0 \AND V_{\lambda + 2} = 0$ を充たす $\lambda \in \mathbb{K}$ が存在する．このとき $v \in V_\lambda \setminus \{0\}$ のことをウエイト $\lambda$ の\textbf{極大ベクトル}と呼ぶ．
+$\dim V < \infty$ なので，$V_\lambda \neq 0 \AND V_{\lambda + 2} = 0$ を充たす $\lambda \in \mathbb{K}$ が存在する．このとき $v \in V_\lambda \setminus \{0\}$ のことをウエイト $\lambda$ の\textbf{極大ベクトル} (maximal vector) と呼ぶ．
 
-\subsection{既約加群の分類}
+\subsection{既約表現の分類}
 
-\underline{$\mathfrak{g}$-加群 $V$ は既約であるとする}．
+\underline{$\mathfrak{g}$-加群 $V$ は\hyperref[def:irr]{既約}であるとする}．
 極大ベクトル $v_0 \in V_\lambda$ をとり，
 \begin{align}
 	v_i \coloneqq 
@@ -1202,21 +1206,24 @@ $\dim V < \infty$ なので，$V_\lambda \neq 0 \AND V_{\lambda + 2} = 0$ を充
 補題\ref{lem:sl2-2}-(1) より $0$ でない $v_i \in V$ たちは全て線型独立であるが，$\dim V < \infty$ である．
 そこで
 \begin{align}
-	m \coloneqq \min \bigl\{\, m \in \mathbb{Z} \bigm| v_m \neq 0 \AND v_{m+1} = 0 \,\bigr\} 
+	m \coloneqq \min \bigl\{\, m \in \mathbb{Z}_{\ge 0} \bigm| v_m \neq 0 \AND v_{m+1} = 0 \,\bigr\} 
 \end{align}
-とおく．$\forall i > 0$ に対して $v_{m+i} = 0$ が言えて，$\Span \{v_0,\, \dots,\, v_m\} \subset V$ は非零な部分 $\mathfrak{g}$-加群である．$\mathfrak{g}$ は既約だったので $V = \Span \{v_0,\, \dots,\, v_m\}$ が言えた．
+とおく．$\forall i > 0$ に対して帰納的に $v_{m+i} = 0$ がわかるので，補題\ref{lem:sl2-2}-(1), (2), (3) より $\Span \{v_0,\, \dots,\, v_m\} \subset V$ は非零な\hyperref[def:def:sub-g-module]{部分 $\mathfrak{g}$-加群}である．$\mathfrak{g}$ は既約だったので $V = \Span \{v_0,\, \dots,\, v_m\}$ が言えた．
 
-(3) を $i=m+1$ の場合に適用すると $0 = (\lambda - m)v_m$ となり，$\lambda = m = \dim V - 1 \in \mathbb{Z}_{\ge 0}$ がわかる．この $m$ を $\mathfrak{g}$-加群 $V$ の\textbf{最高ウエイト} (highest weight) と呼ぶ．
+補題\ref{lem:sl2-2}-(3) を $i=m+1$ の場合に適用すると $0 = (\lambda - m)v_m$ となり，$\lambda = m = \dim V - 1 \in \mathbb{Z}_{\ge 0}$ がわかる．この $m$ を $\mathfrak{g}$-加群 $V$ の\textbf{最高ウエイト} (highest weight) と呼ぶ．
+さらに，補題\ref{lem:sl2-2}-(1) より $h$ のウエイトは全て異なる．i.e. $0 \le \forall \mu \le m$ に対して，対応するウエイト空間の次元 $\dim V_{m - 2\mu} = 1$ である．特に最高ウエイトは $\dim V$ によって一意に決まるので，$v_0 \in V_m$ は零でないスカラー倍を除いて一意に定まる．
 
-\begin{mytheo}[label=thm:irr-sl2]{}
+以上の考察をまとめて次の定理を得る：
+
+\begin{mytheo}[label=thm:irr-sl2,breakable]{}
 	$V$ を $\mathfrak{g} = \Lsl(2,\, \mathbb{K})$ の\hyperref[def:irr]{既約表現}とする．
 	\begin{enumerate}
 		\item $m \coloneqq \dim V - 1$ とおくと $\mathbb{K}$-ベクトル空間として
 		\begin{align}
-			V = \bigoplus_{\mu = -m}^m V_\mu,\quad \dim V_\mu = 1
+			V = \bigoplus_{\mu = 0}^m V_{m-2\mu}\quad \WHERE 0 \le \forall \mu \le m,\; \dim V_{m - 2\mu} = 1
 		\end{align}
 		が成り立つ．
-		\item $V$ の極大ベクトルは一意であり，そのウエイトは $m$ である．
+		\item $V$ の極大ベクトルは零でないスカラー倍を除いて一意に決まり，そのウエイトは $m$ である．
 		\item $\mathfrak{g}$ の $V$ への作用は補題\ref{lem:sl2-2}によって完全に決まる．
 	\end{enumerate}
 \end{mytheo}
@@ -1234,8 +1241,8 @@ $\dim V < \infty$ なので，$V_\lambda \neq 0 \AND V_{\lambda + 2} = 0$ を充
 	\begin{align}
 		V = \bigoplus_i W_i
 	\end{align}
-	と書くと，定理\ref{thm:irr-sl2}より $\forall i$ に対して何かしらの $m_i \ge 0$ が存在して $W_i \cong \bigoplus_{\mu = -{m_i}}^{m_i} V_\mu$ と書ける．
-	逆に，$\bigoplus_{\mu = -{m_i}}^{m_i} V_\mu$ と\hyperref[def:gmod-hom]{$\mathfrak{g}$-加群として同型}な全ての $W_i$ の直和を $V^{(m)}$ と書くと，
+	と書くと，定理\ref{thm:irr-sl2}より $\forall i$ に対して何かしらの $m_i \ge 0$ が存在して $W_i \cong \bigoplus_{\mu = 0}^{m_i} V_{m_i - 2\mu}$ と書ける．
+	逆に $\forall m \ge 0$ に対して，$\bigoplus_{\mu = 0}^{m} V_{m - 2\mu}$ と\hyperref[def:gmod-hom]{$\mathfrak{g}$-加群として同型}な全ての $W_i$ の直和を $V^{(m)}$ と書くと，
 	\begin{align}
 		V = \bigoplus_{m=0}^\infty V^{(m)}
 	\end{align}

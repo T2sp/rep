@@ -27,27 +27,27 @@
 \contentsline {subsection}{\numberline {2.3.6}Jordan分解の保存}{46}{subsection.2.3.6}%
 \contentsline {section}{\numberline {2.4}$\mathfrak {sl}(2,\, \mathbb {K})$ の表現}{47}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}ウエイトと極大ベクトル}{48}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}既約加群の分類}{48}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.2}既約表現の分類}{48}{subsection.2.4.2}%
 \contentsline {section}{\numberline {2.5}ルート空間分解}{50}{section.2.5}%
 \contentsline {subsection}{\numberline {2.5.1}極大トーラスとルート}{50}{subsection.2.5.1}%
 \contentsline {subsection}{\numberline {2.5.2}極大トーラスの中心化代数}{50}{subsection.2.5.2}%
 \contentsline {subsection}{\numberline {2.5.3}直交性}{50}{subsection.2.5.3}%
-\contentsline {subsection}{\numberline {2.5.4}整性}{50}{subsection.2.5.4}%
-\contentsline {subsection}{\numberline {2.5.5}有理性}{50}{subsection.2.5.5}%
-\contentsline {chapter}{\numberline {付録A}ベクトル空間の話}{51}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Hom ベクトル空間}{51}{section.A.1}%
-\contentsline {section}{\numberline {A.2}ベクトル空間のテンソル積}{52}{section.A.2}%
-\contentsline {subsection}{\numberline {A.2.1}普遍性による定義}{52}{subsection.A.2.1}%
-\contentsline {subsection}{\numberline {A.2.2}多重線型写像とテンソル積}{56}{subsection.A.2.2}%
-\contentsline {subsection}{\numberline {A.2.3}有限次元ベクトル空間のテンソル積}{57}{subsection.A.2.3}%
-\contentsline {section}{\numberline {A.3}ベクトル空間の直積・直和}{61}{section.A.3}%
-\contentsline {subsection}{\numberline {A.3.1}普遍性による定義}{61}{subsection.A.3.1}%
-\contentsline {subsection}{\numberline {A.3.2}部分ベクトル空間の直和}{65}{subsection.A.3.2}%
-\contentsline {section}{\numberline {A.4}階数・退化次数の定理}{67}{section.A.4}%
-\contentsline {subsection}{\numberline {A.4.1}有限次元の場合}{67}{subsection.A.4.1}%
-\contentsline {subsection}{\numberline {A.4.2}分裂補題と射影的加群}{69}{subsection.A.4.2}%
-\contentsline {section}{\numberline {A.5}Jordan標準形}{73}{section.A.5}%
-\contentsline {subsection}{\numberline {A.5.1}上三角化}{74}{subsection.A.5.1}%
-\contentsline {subsection}{\numberline {A.5.2}広義固有空間分解}{76}{subsection.A.5.2}%
-\contentsline {subsection}{\numberline {A.5.3}多項式環・最小多項式}{77}{subsection.A.5.3}%
-\contentsline {chapter}{参考文献}{85}{appendix*.6}%
+\contentsline {subsection}{\numberline {2.5.4}整性}{51}{subsection.2.5.4}%
+\contentsline {subsection}{\numberline {2.5.5}有理性}{51}{subsection.2.5.5}%
+\contentsline {chapter}{\numberline {付録A}ベクトル空間の話}{52}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Hom ベクトル空間}{52}{section.A.1}%
+\contentsline {section}{\numberline {A.2}ベクトル空間のテンソル積}{53}{section.A.2}%
+\contentsline {subsection}{\numberline {A.2.1}普遍性による定義}{53}{subsection.A.2.1}%
+\contentsline {subsection}{\numberline {A.2.2}多重線型写像とテンソル積}{57}{subsection.A.2.2}%
+\contentsline {subsection}{\numberline {A.2.3}有限次元ベクトル空間のテンソル積}{58}{subsection.A.2.3}%
+\contentsline {section}{\numberline {A.3}ベクトル空間の直積・直和}{62}{section.A.3}%
+\contentsline {subsection}{\numberline {A.3.1}普遍性による定義}{62}{subsection.A.3.1}%
+\contentsline {subsection}{\numberline {A.3.2}部分ベクトル空間の直和}{66}{subsection.A.3.2}%
+\contentsline {section}{\numberline {A.4}階数・退化次数の定理}{68}{section.A.4}%
+\contentsline {subsection}{\numberline {A.4.1}有限次元の場合}{68}{subsection.A.4.1}%
+\contentsline {subsection}{\numberline {A.4.2}分裂補題と射影的加群}{70}{subsection.A.4.2}%
+\contentsline {section}{\numberline {A.5}Jordan標準形}{74}{section.A.5}%
+\contentsline {subsection}{\numberline {A.5.1}上三角化}{75}{subsection.A.5.1}%
+\contentsline {subsection}{\numberline {A.5.2}広義固有空間分解}{77}{subsection.A.5.2}%
+\contentsline {subsection}{\numberline {A.5.3}多項式環・最小多項式}{78}{subsection.A.5.3}%
+\contentsline {chapter}{参考文献}{86}{appendix*.6}%
