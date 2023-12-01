@@ -255,7 +255,18 @@ title=系~\thetcbcounter: #2,#1}
 \date{\today}
 \maketitle
 
-本資料ではベクトル空間を英大文字で表記し，係数体をblackboardbold\footnote{\LaTeX コマンドは\texttt{\textbackslash mathbb}}で表記する（e.g. 体 $\mathbb{K}$ 上のベクトル空間 $L$）．
+本文中で
+\begin{itemize}
+    \item 「章」と言ったら \LaTeX コマンド \texttt{\textbackslash chapter\{\}} によって区切られる1部分を，
+    \item 「節」と言ったら \LaTeX コマンド \texttt{\textbackslash section\{\}} によって区切られる1部分を，
+    \item 「小節」と言ったら \LaTeX コマンド \texttt{\textbackslash subsection\{\}} によって区切られる1部分を
+\end{itemize}
+表すことにする．節，小節の見た目は以下の通りである：
+
+\section{節の例}
+\subsection{小節の例}
+
+本資料ではベクトル空間を英大文字で表記し，係数体をblackboardbold\footnote{\LaTeX コマンドは\texttt{\textbackslash mathbb}}で表記する（e.g. 体 $\mathbb{K}$ 上のベクトル空間 $V$）．
 
 \setcounter{tocdepth}{2}
 \tableofcontents

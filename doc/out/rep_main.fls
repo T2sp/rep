@@ -867,6 +867,10 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
 INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman7-regular.luc
 INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmroman7-regular.luc
+INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmmono10-regular.luc
+INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmmono10-regular.luc
+INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-bold.luc
+INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmroman12-bold.luc
 INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman6-regular.luc
 INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmroman6-regular.luc
 INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmmono8-regular.luc
@@ -887,10 +891,6 @@ INPUT ./chap1.tex
 INPUT ./chap1.tex
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm7.tfm
-INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman12-bold.luc
-INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmroman12-bold.luc
-INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmmono10-regular.luc
-INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmmono10-regular.luc
 INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc
 INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmroman10-bold.luc
 INPUT /Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman7-italic.luc

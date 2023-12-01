@@ -1061,7 +1061,7 @@ $\phi \colon \mathfrak{g} \lto \Lgl (V)$ が忠実でない場合は次のよう
 \begin{align}
 	\ad_{\mathfrak{h}}(x) \colon \mathfrak{h} \lto \mathfrak{g},\; v \lmto \comm{x}{v}
 \end{align}
-と定義する．
+と定義する\footnote{$x \in \mathfrak{h}$ ならば，\hyperref[def:sub-LieAlg]{部分Lie代数の定義}から $\Im \ad_\mathfrak{h}(x) \subset \mathfrak{h}$ となる．この意味で $\ad_{\mathfrak{h}} \in \Lgl(\mathfrak{h})$ と書いても良い．}．
 
 \begin{mytheo}[label=thm:JC]{Jordan-Chevalley分解と抽象Jordan分解}
 	$V$ を\underline{有限次元} $\mathbb{K}$-ベクトル空間とし，$\mathfrak{g} \subset \Lgl(V)$ を\hyperref[def:semisimple-LieAlg]{半単純線型Lie代数}とする．
@@ -1260,7 +1260,68 @@ $\dim V < \infty$ なので，$V_\lambda \neq 0 \AND V_{\lambda + 2} = 0$ を充
 
 \section{ルート空間分解}
 
+この節では体 $\mathbb{K}$ を\underline{標数 $0$ の代数閉体}とし，
+$\mathfrak{g}$ を体 $\mathbb{K}$-上の\hyperref[def:semisimple-LieAlg]{半単純Lie代数}とする．
+
 \subsection{極大トーラスとルート}
+
+$\forall x \in \mathfrak{g}$ が冪零ならば $\ad(x) \in \Lgl (\mathfrak{g})$ もまた冪零であり\footnote{$\ad \colon \mathfrak{g} \lto \Lgl(\mathfrak{g})$ はLie代数の準同型なので．}，従って\hyperref[thm:Engel]{Engelの定理}から $\mathfrak{g}$ は\hyperref[def:nilpotent-LieAlg]{冪零Lie代数}となる．
+一方，もし冪零でない $x \in \mathfrak{g}$ が存在すれば，$x$ の\hyperref[def:abstruct-JC]{抽象Jordan分解}\footnote{系\ref{col:JC}の注意に従って抽象Jordan分解をこのように表記する．} $x = x_s + x_n\WHERE x_s,\, x_n \in \mathfrak{g}$ において $x_s \neq 0$ である．
+このことは，\hyperref[def:semisimple-end]{半単純}成分のみで構成される $\mathfrak{g}$ の\underline{自明でない}部分Lie代数の存在を示唆する．
+
+\begin{mydef}[label=def:toral-subLieAlg]{トーラス}
+	$\mathfrak{g}$ の \underline{$0$ でない}部分Lie代数 $\mathfrak{t}$ が\textbf{トーラス} (toral subalgebra) であるとは，$\forall x \in \mathfrak{t}$ の\hyperref[def:abstruct-JC]{抽象Jordan分解} $x = x_s + x_n$ において $x_n = 0$ であることを言う．
+\end{mydef}
+
+\begin{mylem}[label=lem:torus]{トーラスは可換}
+	$\mathfrak{g}$ の任意の\hyperref[def:toral-subLieAlg]{トーラス} $\mathfrak{t} \subset \mathfrak{g}$ はLieブラケットについて可換である．
+\end{mylem}
+
+\begin{proof}
+	$\mathfrak{t}$ を $\mathfrak{g}$ のトーラスとする．
+	$\forall x \in \mathfrak{t}$ を1つ固定する．示すべきは $\ad_{\mathfrak{t}} (x) = 0$ が成り立つことであるが，
+	$\mathfrak{t}$ がトーラスであるという仮定より $\ad (x) \in \Lgl (\mathfrak{g})$ は\hyperref[def:semisimple-end]{半単純} $\IFF$ 対角化可能だから，$\ad_{\mathfrak{t}}(x)$ の固有値が全て $0$ であることを背理法により示す．
+
+	$\exists y \in \mathfrak{t} \setminus \{0\},\; \exists \lambda \in \mathbb{K} \setminus \{0\},\; \comm{x}{y} = \lambda y$ を仮定する．このとき $\ad_{\mathfrak{t}}(y)(x) = -\lambda y$ は $\ad_{\mathfrak{t}}(y)$ の固有値 $0$ に属する固有ベクトルである．
+	一方で $y \in \mathfrak{t}$ なので $\ad_{\mathfrak{t}}(y) \in \Lgl(\mathfrak{t})$ は対角化可能であり，$\ad_{\mathfrak{t}}(y)$ の固有ベクトル $v_1,\, \dots,\, v_{\dim \mathfrak{t}} \in \mathfrak{t} \setminus \{0\}$ は $\mathfrak{t}$ の基底をなす\footnote{固有ベクトル $v_\mu$ は固有値 $\lambda_\mu$ に属するとする．なお，以下ではEinsteinの規約を使わない．}． 
+	従って $x = \sum_{\mu=1}^{\dim \mathfrak{t}} x^\mu v_\mu$ と書けるが，このとき
+	\begin{align}
+		0 = \ad_{\mathfrak{t}} (y) \bigl(\ad_{\mathfrak{t}}(y)(x)\bigr) &= \sum_{\mu=1}^{\dim \mathfrak{t}} (\lambda_\mu)^2 x^\mu v_\mu 
+	\end{align}
+	が成り立つので $\lambda_1 = \cdots = \lambda_{\dim \mathfrak{t}} = 0$，i.e. $\ad_{\mathfrak{t}}(y) = 0$ が分かった．然るにこれは仮定に矛盾し，背理法が完成した．
+\end{proof}
+
+% \begin{mydef}[label=def:maximal-toral-subLieAlg]{極大トーラス}
+	
+% \end{mydef}
+
+$\mathfrak{g}$ の\hyperref[def:toral-subLieAlg]{トーラス}のうち極大なもの\footnote{トーラス $\mathfrak{t} \subsetneq \mathfrak{g}$ が存在して $\mathfrak{h} \subset \mathfrak{t}$ が成り立つならば $\mathfrak{t} = \mathfrak{h}$．}を1つ固定し，それを $\mathfrak{h} \subset \mathfrak{g}$ と書こう．
+$\mathfrak{h}$ は\textbf{極大トーラス} (maximal toral subalgebra) と呼ばれる．
+\begin{marker}
+	極大トーラスを $\mathfrak{t}$ ではなく $\mathfrak{h}$ と書くのは慣習である．
+	後述する\textbf{Cartan部分代数} (Cartan subalgebra; CSA) を $\mathfrak{h}$ と書く慣習と対応しているように思われる？
+\end{marker}
+
+補題\ref{lem:torus}より $\forall x,\, y \in \mathfrak{h}$ に対して $\comm{\ad_{\mathfrak{g}}(x)}{\ad_{\mathfrak{g}}(y)} = \ad_{\mathfrak{g}}(\comm{x}{y}) = \ad_{\mathfrak{g}}(0) = 0$ が成り立つ\footnote{i.e. 交換子が $0$}ので，$\forall \ad_{\mathfrak{g}}(x) \in \ad_{\mathfrak{g}}(\mathfrak{h}) \subset \Lgl(\mathfrak{g})$ は\underline{同時対角化可能}である．
+従って $\alpha \in \mathfrak{h}^*$（$\mathfrak{h}$ の\hyperref[def:hom-vec]{双対ベクトル空間} $\mathfrak{h}^*$ の元）に対して
+\begin{align}
+	\mathfrak{g}_\alpha \coloneqq \bigl\{\, x \in \mathfrak{g} \bigm| \forall h \in \mathfrak{h},\; \ad_{\mathfrak{g}}(h)(x) = \alpha(h) x \,\bigr\} 
+\end{align}
+とおくと，$\mathfrak{g}$ の\hyperref[thm:eigen-decomp-1]{固有空間分解}
+\begin{align}
+	\mathfrak{g} = \bigoplus_{\alpha \in \mathfrak{h}^*} \mathfrak{g}_\alpha
+\end{align}
+が成り立つ．特に $\dim \mathfrak{g} < \infty$ であることから，
+$\mathfrak{g}$ の\textbf{ルート} (roots) と呼ばれる集合
+\begin{align}
+	\Phi \coloneqq \bigl\{\, \alpha \in \mathfrak{h}^* \setminus \{0\} \bigm| \mathfrak{g}_\alpha \neq 0 \,\bigr\} 
+\end{align}
+は\underline{有限集合}となり，\hyperref[def:normalizer-LieAlg]{中心化代数の定義}を思い出して $\mathfrak{g}_0 = C_{\mathfrak{g}}(\mathfrak{h})$ が成り立つことも踏まえると，有限個の直和として
+\begin{align}
+	\mathfrak{g} = C_{\mathfrak{g}}(\mathfrak{h}) \oplus \bigoplus_{\alpha \in \Phi} \mathfrak{g}_\alpha
+\end{align}
+と書くこともできる．
+
 \subsection{極大トーラスの中心化代数}
 \subsection{直交性}
 \subsection{整性}
