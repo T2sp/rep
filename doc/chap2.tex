@@ -1578,9 +1578,16 @@ $\dim \mathfrak{h} = \dim \mathfrak{h}^*$ なので，補題\ref{lem:finvec-basi
 
 \begin{proof}
 	\begin{enumerate}
-		\item 背理法により示す．$\mathfrak{h}^* \supsetneq \Span \Phi$ ならば非零な $\beta \in \mathfrak{h}^* \setminus \Span \Phi$ が存在する．
-		従って\underline{非零な}\footnote{$\beta \colon \mathfrak{h} \lto \mathbb{K}$ は $\mathbb{K}$-線型写像なので，もし $h = 0$ ならば $h \in \Ker \beta$ となって矛盾．} $h \in \Bigl(\bigcap_{\alpha \in \Phi} \Ker \alpha \Bigr)\setminus \Ker \beta$ が存在する．
-		このとき\hyperref[def:ga]{$\mathfrak{g}_\alpha$ の定義}から，$\forall \alpha \in \Phi$ に対して $\comm{h}{\mathfrak{g}_\alpha} = 0$ が成り立つ．
+		\item 背理法により示す．
+		$\mathfrak{h}^* \supsetneq \Span \Phi$ を仮定する．
+		このとき $\Span \Phi$ の基底 $\bigl\{\,\varepsilon^\mu\,\bigr\}_{1 \le \mu \le r}\quad (r < \dim \mathfrak{h})$ を1つ固定すると，線型独立な $\dim \mathfrak{h} - r > 0$ 個の元 $\varepsilon^{r+1},\, \dots,\, \varepsilon^{\dim \mathfrak{h}} \in \mathfrak{h}^* \setminus \Phi$ が存在して $\bigl\{\,\varepsilon^\mu\,\bigr\}_{1 \le \mu \le r} \cup \bigl\{\, \varepsilon^\nu\,\bigr\}_{r+1 \le \nu \le \dim \mathfrak{h}}$ が $\mathfrak{h}^*$ の基底になる．
+		さらに $\dim \mathfrak{h} < \infty$ なので $\mathfrak{h}^*$ の基底 $\bigl\{\, \varepsilon^\mu\,\bigr\}_{1 \le \mu \le \dim \mathfrak{h}}$ の\hyperref[prop:dual-basis]{双対基底} $\bigl\{\, e_\mu \in \mathfrak{h} \,\bigr\}_{1 \le \mu \le \dim \mathfrak{h}}$ をとることができるが，
+		このとき $r + 1\le \nu \le \dim \mathfrak{h}$ を充たす $\nu$ が少なくとも1つ存在して $e_\nu \in \mathfrak{h} \setminus \{0\}$ が $\forall \alpha = \sum_{\mu = 1}^r\alpha_\mu \varepsilon^\mu \in \Phi$ に対して $\alpha(e_\nu) = \sum_{\mu = 1}^r\alpha_\mu　\varepsilon^\mu(e_\nu) = 0$ を充たす．
+		このような $e_\nu$ のうちのどれか1つを $h$ とおこう．
+
+		% ならば非零な $\beta \in \mathfrak{h}^* \setminus \Span \Phi$ が存在する．
+		% 従って\underline{非零な}\footnote{$\beta \colon \mathfrak{h} \lto \mathbb{K}$ は $\mathbb{K}$-線型写像なので，もし $h = 0$ ならば $h \in \Ker \beta$ となって矛盾．} $h \in \Bigl(\bigcap_{\alpha \in \Phi} \Ker \alpha \Bigr)\setminus \Ker \beta$ が存在する．
+		　このとき\hyperref[def:ga]{$\mathfrak{g}_\alpha$ の定義}から，$\forall \alpha \in \Phi$ に対して $\comm{h}{\mathfrak{g}_\alpha} = 0$ が成り立つ．
 		一方で，補題\ref{lem:torus}より $\comm{h}{\mathfrak{h}} = 0$ であるから，命題\ref{prop:torus-centralize}より $\comm{h}{\mathfrak{g}} = \comm{h}{\mathfrak{h} \oplus \bigoplus_{\alpha \in \Phi} \mathfrak{g}_\alpha} = \comm{h}{\mathfrak{h}} \oplus \bigoplus_{\alpha \in \Phi} \comm{h}{\mathfrak{g}_\alpha} = 0 \IFF h \in Z(\mathfrak{g})$ がわかる．然るに $\mathfrak{g}$ が\hyperref[def:semisimple-LieAlg]{半単純Lie代数}であることから $Z(\mathfrak{g}) = 0$ であり $h = 0$ と言うことになって矛盾．
 
 		\item $\alpha \in \Phi$ とする．背理法により $-\alpha \in \Phi$ を示す．
