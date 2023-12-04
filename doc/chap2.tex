@@ -1116,7 +1116,8 @@ $\phi \colon \mathfrak{g} \lto \Lgl (V)$ が忠実でない場合は次のよう
 	とおくと，$\mathfrak{g}'$ は $\mathfrak{g}$ を\hyperref[def:ideal-LieAlg]{イデアル}としてもつ $N$ の部分Lie代数であり，$\forall x \in \mathfrak{g}$ に対して $x_s,\, x_n \in \mathfrak{g}'$ だとわかる．
 	
 	最後に $\mathfrak{g} = \mathfrak{g}'$ が成り立つことを示す．
-	包含準同型 $\mathfrak{g} \hookrightarrow \mathfrak{g}'$ は半単純Lie代数 $\mathfrak{g}$ の有限次元表現なので，\hyperref[thm:Weyl]{Weylの定理}よりある $\mathfrak{g}'$ の部分 $\mathfrak{g}$-加群 $\mathfrak{h}$ が存在して $\mathfrak{g}' = \mathfrak{g} \oplus \mathfrak{h}$ と書ける（命題\ref{prop:reducible-1}）．
+	随伴表現 $\ad_{\mathfrak{g}'} \colon \mathfrak{g}' \lto \Lgl (\mathfrak{g}')$ の $\mathfrak{g} \subset \mathfrak{g}'$ への制限 $\ad_{\mathfrak{g}'}|_{\mathfrak{g}} \colon \mathfrak{g} \lto \Lgl(\mathfrak{g}')$ によって $\mathfrak{g}'$ を有限次元 $\mathfrak{g}$-加群と見做す．
+	すると $\mathfrak{g} \subset \mathfrak{g}'$ 自身は $\mathfrak{g}'$ の部分 $\mathfrak{g}$-加群なので，\hyperref[thm:Weyl]{Weylの定理}よりある $\mathfrak{g}'$ の部分 $\mathfrak{g}$-加群 $\mathfrak{h}$ が存在して $\mathfrak{g}' = \mathfrak{g} \oplus \mathfrak{h}$ と書ける（命題\ref{prop:reducible-1}）．
 	ここで $W$ を $V$ の任意の\hyperref[def:irr]{既約}な部分 $\mathfrak{g}$-加群とする．もし $y \in \mathfrak{h}$ ならば，$\comm{\mathfrak{g}}{\mathfrak{g}'} \subset \mathfrak{g}$\footnote{$\mathfrak{g}' \subset N$ だから}であることから $\comm{\mathfrak{g}}{y} = 0$，i.e. $y \colon V \lto V$ は\hyperref[def:g-module-hom]{$\mathfrak{g}$-加群の準同型}である．よって\hyperref[col:Schur-closed]{代数閉体上のSchurの補題}から $y|_W \colon W \lto W$ はスカラー倍である．
 	一方で $y \in L_W$ でもあるので $\Tr(y|_W) = 0$ であり，$y|_W = 0$ だと分かった．
 	Weylの定理より $V$ は既約な部分 $\mathfrak{g}$-加群の直和なので $y = 0$ が言えた．i.e. $\mathfrak{h} = 0$ である．
@@ -1771,8 +1772,8 @@ $\dim \mathfrak{h} = \dim \mathfrak{h}^*$ なので，補題\ref{lem:finvec-basi
 		が成り立つ．i.e. $\mathfrak{s}_\alpha$ は $\Ker \alpha$ に自明に作用するので，$\Ker \alpha$ は $\dim \mathfrak{h} - 1$ 個の自明な（従ってウエイト $0$ の）既約 $\mathfrak{s}_\alpha$-部分加群の直和である．
 		一方，$\mathfrak{s}_\alpha \subset \mathfrak{g}$ 自身もまた $\mathfrak{g}$ の既約な部分 $\mathfrak{s}_\alpha$-加群であり，命題\ref{prop:root-decomp-ortho}-(6) より
 		\begin{align}
-			h_\alpha \btr x_\alpha &= \ad_{\mathfrak{g}}(h_\alpha)(x_\alpha) = \comm{h_\alpha}{x_\alpha} = 2x_\alpha, \\
-			h_\alpha \btr y_\alpha &= \ad_{\mathfrak{g}}(h_\alpha)(x_\alpha) = \comm{h_\alpha}{x_\alpha} = -2y_\alpha, \\
+			x_\alpha \btr x_\alpha &= \ad_{\mathfrak{g}}(h_\alpha)(x_\alpha) = \comm{h_\alpha}{x_\alpha} = 2x_\alpha, \\
+			y_\alpha \btr y_\alpha &= \ad_{\mathfrak{g}}(h_\alpha)(x_\alpha) = \comm{h_\alpha}{x_\alpha} = -2y_\alpha, \\
 			h_\alpha \btr h_\alpha &= \ad_{\mathfrak{g}}(h_\alpha)(h_\alpha) = 0
 		\end{align}
 		が成り立つのでウエイト $0,\, \pm 2$ を持つ．i.e. $\mathfrak{g}_{\pm \alpha} \subset \mathfrak{s}_\alpha$ である．従って $\Ker \alpha \oplus \mathfrak{s}_\alpha$ は\footnote{$\mathfrak{h} = \Ker \alpha \oplus \mathbb{K}h_\alpha$ なので $\Ker \alpha \cap \mathfrak{s}_\alpha = 0$ である．} 
@@ -1890,9 +1891,9 @@ $\dim \mathfrak{h} = \dim \mathfrak{h}^*$ なので，補題\ref{lem:finvec-basi
 		&= \sum_{\nu = 1}^{\dim \mathfrak{h}} c^\nu \frac{2(\alpha_\mu,\, \alpha_\nu)}{(\alpha_\mu,\, \alpha_\mu)}
 	\end{align}
 	命題\ref{prop:root-decomp-ortho}-(7), 命題\ref{prop:root-decomp-int}-(3) より $\frac{2(\alpha_\mu,\, \beta) }{(\alpha_\mu,\, \alpha_\mu)} = \frac{2}{\kappa(t_{\alpha_\mu},\, t_{\alpha_\mu})}\beta(t_{\alpha_\mu}) = \beta(h_{a_\mu}) \in \mathbb{Z}$ などが成り立つので，
-	\eqref{eq:LE}は $(c^\nu) \in \mathbb{K}^{\dim \mathfrak{h}}$ に関する $\mathbb{Z}$-係数線型連立方程式である．特に $\alpha_\mu$ は線型独立なので $\det \bigl[ (\alpha_\mu,\, \alpha_\nu) \bigr] \neq 0$ であり，
+	\eqref{eq:LE}は $(c^\nu) \in \mathbb{K}^{\dim \mathfrak{h}}$ に関する $\mathbb{Z}$-係数線型連立方程式である．特に $\alpha_\mu$ は線型独立なので $\det \bigl[ (\alpha_\mu,\, \alpha_\nu) \bigr]_{1 \le \mu,\, \nu \le \dim \mathfrak{h}} \neq 0$ であり，
 	\begin{align}
-		\det \left[ \frac{2(\alpha_\mu,\, \alpha_\nu)}{(\alpha_\mu,\, \alpha_\mu)} \right] = \left( \prod_{\nu = 1}^{\dim \mathfrak{h}} \frac{2}{(\alpha_\mu,\, \alpha_\mu)}\right)  \det \bigl[ (\alpha_\mu,\, \alpha_\nu) \bigr] \neq 0
+		\det \left[ \frac{2(\alpha_\mu,\, \alpha_\nu)}{(\alpha_\mu,\, \alpha_\mu)} \right]_{1 \le \mu,\, \nu \le \dim \mathfrak{h}} = \left( \prod_{\nu = 1}^{\dim \mathfrak{h}} \frac{2}{(\alpha_\mu,\, \alpha_\mu)}\right)  \det \bigl[ (\alpha_\mu,\, \alpha_\nu) \bigr] \neq 0
 	\end{align}
 	i.e. \eqref{eq:LE} は $\mathbb{Q}^{\dim \mathfrak{h}}$ に一意的な解を持つ．
 \end{proof}
