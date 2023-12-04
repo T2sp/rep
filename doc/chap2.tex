@@ -25,6 +25,23 @@
 	このとき $\forall x \in \mathfrak{g}$ は $V$ のある\underline{共通の}\hyperref[def:flag]{旗を安定化}する．i.e. $\forall x \in \mathfrak{g}$ の表現行列を同時に上三角行列にするような $V$ の基底が存在する．
 \end{mycol}
 
+\begin{mycol}[label=col:Lie-1]{}
+	$\mathfrak{g}$ を\hyperref[def:solvable-LieAlg]{可解Lie代数}とする．このとき $\mathfrak{g}$ の\hyperref[def:ideal-LieAlg]{イデアル}の上昇列
+	\begin{align}
+		0 = \mathfrak{g}_0 \subset \mathfrak{g}_1 \subset \cdots \subset \mathfrak{g}_n = \mathfrak{g}
+	\end{align}
+	であって，$0 \le \forall i \le n$ に対して $\dim \mathfrak{g}_i = i$ を充たすようなものが存在する．
+\end{mycol}
+
+
+\begin{mycol}[label=col:Lie-2]{}
+	$\mathfrak{g}$ を\hyperref[def:solvable-LieAlg]{可解Lie代数}とする．
+	このとき
+	\begin{align}
+		x \in \comm{\mathfrak{g}}{\mathfrak{g}} \IMP \ad(x) \in \Lgl(\mathfrak{g})\; \text{が冪零}
+	\end{align}
+	が成り立つ．特に，$\comm{\mathfrak{g}}{\mathfrak{g}}$ は\hyperref[def:nilpotent-LieAlg]{冪零Lie代数}である．
+\end{mycol}
 
 \subsection{Jordan-Chevalley分解}
 
@@ -100,14 +117,21 @@
 	\begin{align}
 		\beta \colon \mathfrak{g} \times \mathfrak{g} \lto \mathbb{K}
 	\end{align}
-	を与える．
+	および任意の\underline{部分集合} $\textcolor{blue}{W} \subset \mathfrak{g}$ を与える．
 	\begin{itemize}
 		\item $\mathfrak{g}$ の\underline{部分ベクトル空間}
 		\begin{align}
-			S_\beta \coloneqq \bigl\{\, x \in \mathfrak{g} \bigm| \forall y \in \mathfrak{g},\; \beta(x,\, y) = 0 \,\bigr\} 
+			\textcolor{blue}{W}^\perp \coloneqq \bigl\{\, x \in \mathfrak{g} \bigm| \forall \textcolor{blue}{w} \in \textcolor{blue}{W},\; \beta(x,\, \textcolor{blue}{w}) = 0 \,\bigr\} 
+		\end{align}
+		のことを $\textcolor{blue}{W}$ の $\beta$ に関する\textbf{直交補空間} (orthogonal complement) と呼ぶ．
+		\item $\mathfrak{g}$ の部分ベクトル空間
+		\begin{align}
+			S_\beta \coloneqq \mathfrak{g}^\perp = \bigl\{\, x \in \mathfrak{g} \bigm| \forall \textcolor{blue}{y} \in \mathfrak{g},\; \beta(x,\, \textcolor{blue}{y}) = 0 \,\bigr\} 
 		\end{align}
 		のことを $\beta$ の\textbf{radical}と呼ぶ．
-		\item $\beta$ が\textbf{非退化} (nondegenerate) であるとは，$S_\beta = 0$ であることを言う．
+		\item $\beta$ が\textbf{非退化} (nondegenerate) であるとは，$S_\beta = 0$ であることを言う
+		\footnote{$\textcolor{blue}{W}$ が $\mathfrak{g}$ の\underline{部分ベクトル空間}のとき，$\beta$ の $\textcolor{blue}{W}$ への制限 $\beta|_{\textcolor{blue}{W} \times \textcolor{blue}{W}}$ が\textbf{非退化} (nondegenerate) であるとは，$\textcolor{blue}{W} \cap \textcolor{blue}{W}^\perp = 0$ であることを言う．}
+		．
 	\end{itemize}
 	
 \end{mydef}
@@ -1139,10 +1163,12 @@ $\phi \colon \mathfrak{g} \lto \Lgl (V)$ が忠実でない場合は次のよう
 任意の\hyperref[ax:g-module]{$\mathfrak{g}$ の表現} $\phi \colon \mathfrak{g} \lto \Lgl(V)$ を与える．
 $h$ は\hyperref[def:semisimple-end]{半単純}なので系\ref{col:JC}より $\phi(h)$ を対角化する $V$ の基底がある．よって
 \begin{align}
+	\label{def:weight-space}
 	V_\lambda \coloneqq \bigl\{\, v \in V \bigm| h \btr v = \lambda v \,\bigr\} 
 \end{align}
 とおくと $V$ は異なる $\lambda$ に関する $V_\lambda$ の\hyperref[prop:subvec-directsum]{内部直和}になる（\hyperref[thm:eigen-decomp1]{固有空間分解}）\footnote{$\lambda$ が $h$ の固有値でなければ $V_\lambda = 0$ となる．}：
 \begin{align}
+	\label{def:weight-space-decomp}
 	V = \bigoplus_{\lambda \in \mathbb{K}} V_\lambda
 \end{align}
 特に $V_\lambda \neq 0$ のとき $\lambda$ を $h$ の\textbf{ウエイト} (weight) と呼び，$V_\lambda$ を\textbf{ウェイト空間} (weight space) と呼ぶ．
@@ -1206,6 +1232,7 @@ $\dim V < \infty$ なので，$V_\lambda \neq 0 \AND V_{\lambda + 2} = 0$ を充
 補題\ref{lem:sl2-2}-(1) より $0$ でない $v_i \in V$ たちは全て線型独立であるが，$\dim V < \infty$ である．
 そこで
 \begin{align}
+	\label{eq:maximal-weight}
 	m \coloneqq \min \bigl\{\, m \in \mathbb{Z}_{\ge 0} \bigm| v_m \neq 0 \AND v_{m+1} = 0 \,\bigr\} 
 \end{align}
 とおく．$\forall i > 0$ に対して帰納的に $v_{m+i} = 0$ がわかるので，補題\ref{lem:sl2-2}-(1), (2), (3) より $\Span \{v_0,\, \dots,\, v_m\} \subset V$ は非零な\hyperref[def:def:sub-g-module]{部分 $\mathfrak{g}$-加群}である．$\mathfrak{g}$ は既約だったので $V = \Span \{v_0,\, \dots,\, v_m\}$ が言えた．
@@ -1261,16 +1288,24 @@ $\dim V < \infty$ なので，$V_\lambda \neq 0 \AND V_{\lambda + 2} = 0$ を充
 \section{ルート空間分解}
 
 この節では体 $\mathbb{K}$ を\underline{標数 $0$ の代数閉体}とし，
-$\mathfrak{g}$ を体 $\mathbb{K}$-上の\hyperref[def:semisimple-LieAlg]{半単純Lie代数}とする．
+$\mathfrak{g} \neq 0$ を体 $\mathbb{K}$-上の\hyperref[def:semisimple-LieAlg]{半単純Lie代数}とする．
 
 \subsection{極大トーラスとルート}
 
-$\forall x \in \mathfrak{g}$ が冪零ならば $\ad(x) \in \Lgl (\mathfrak{g})$ もまた冪零であり\footnote{$\ad \colon \mathfrak{g} \lto \Lgl(\mathfrak{g})$ はLie代数の準同型なので．}，従って\hyperref[thm:Engel]{Engelの定理}から $\mathfrak{g}$ は\hyperref[def:nilpotent-LieAlg]{冪零Lie代数}となる．
-一方，もし冪零でない $x \in \mathfrak{g}$ が存在すれば，$x$ の\hyperref[def:abstruct-JC]{抽象Jordan分解}\footnote{系\ref{col:JC}の注意に従って抽象Jordan分解をこのように表記する．} $x = x_s + x_n\WHERE x_s,\, x_n \in \mathfrak{g}$ において $x_s \neq 0$ である．
+もし $\forall x \in \mathfrak{g}$ が冪零ならば $\ad(x) \in \Lgl (\mathfrak{g})$ もまた冪零であり\footnote{$\ad \colon \mathfrak{g} \lto \Lgl(\mathfrak{g})$ はLie代数の準同型なので．}，従って\hyperref[thm:Engel]{Engelの定理}から $\mathfrak{g}$ は\hyperref[def:nilpotent-LieAlg]{冪零Lie代数}となる．
+然るにこれは $\mathfrak{g}$ が\hyperref[def:semisimple-LieAlg]{半単純Lie代数}であることに矛盾する
+\footnote{
+	一般に\hyperref[def:nilpotent-LieAlg]{冪零Lie代数} $\IMP$ \hyperref[def:solvable-LieAlg]{可解Lie代数}だが，系\ref{col:semisimple-decomp}-(1) より $\mathfrak{g}$ が半単純Lie代数 $\IMP$ $\mathfrak{g}$ は可解Lie代数でない $\IMP$ $\mathfrak{g}$ は冪零Lie代数でない．
+	
+	もしくは，命題\ref{prop:nilpo-basic}-(4)から $\mathfrak{g} \neq 0$ かつ $\mathfrak{g}$ が冪零Lie代数 $\IMP$ $\mathfrak{g}$ は半単純Lie代数でない
+}
+．
+
+従って冪零でない $x \in \mathfrak{g}$ が存在するが，このとき $x$ の\hyperref[def:abstruct-JC]{抽象Jordan分解}\footnote{系\ref{col:JC}の注意に従って抽象Jordan分解をこのように表記する．} $x = x_s + x_n\WHERE x_s,\, x_n \in \mathfrak{g}$ において $x_s \neq 0$ である．
 このことは，\hyperref[def:semisimple-end]{半単純}成分のみで構成される $\mathfrak{g}$ の\underline{自明でない}部分Lie代数の存在を示唆する．
 
 \begin{mydef}[label=def:toral-subLieAlg]{トーラス}
-	$\mathfrak{g}$ の \underline{$0$ でない}部分Lie代数 $\mathfrak{t}$ が\textbf{トーラス} (toral subalgebra) であるとは，$\forall x \in \mathfrak{t}$ の\hyperref[def:abstruct-JC]{抽象Jordan分解} $x = x_s + x_n$ において $x_n = 0$ であることを言う．
+	$\mathfrak{g}$ の \underline{$0$ でない}部分Lie代数 $\mathfrak{t} \subset \mathfrak{g}$ が\textbf{トーラス} (toral subalgebra) であるとは，$\forall x \in \mathfrak{t}$ の\hyperref[def:abstruct-JC]{抽象Jordan分解} $x = x_s + x_n$ において $x_n = 0$ であることを言う．
 \end{mydef}
 
 \begin{mylem}[label=lem:torus]{トーラスは可換}
@@ -1302,29 +1337,652 @@ $\mathfrak{h}$ は\textbf{極大トーラス} (maximal toral subalgebra) と呼�
 	後述する\textbf{Cartan部分代数} (Cartan subalgebra; CSA) を $\mathfrak{h}$ と書く慣習と対応しているように思われる？
 \end{marker}
 
-補題\ref{lem:torus}より $\forall x,\, y \in \mathfrak{h}$ に対して $\comm{\ad_{\mathfrak{g}}(x)}{\ad_{\mathfrak{g}}(y)} = \ad_{\mathfrak{g}}(\comm{x}{y}) = \ad_{\mathfrak{g}}(0) = 0$ が成り立つ\footnote{i.e. 交換子が $0$}ので，$\forall \ad_{\mathfrak{g}}(x) \in \ad_{\mathfrak{g}}(\mathfrak{h}) \subset \Lgl(\mathfrak{g})$ は\underline{同時対角化可能}である．
-従って $\alpha \in \mathfrak{h}^*$（$\mathfrak{h}$ の\hyperref[def:hom-vec]{双対ベクトル空間} $\mathfrak{h}^*$ の元）に対して
+ここで，与えられた $h \in \mathfrak{h}$ に対して線型変換 $\ad_{\mathfrak{g}}(h) \in \Lgl(\mathfrak{g})$ の固有値のうちのどれか1つを返す写像
 \begin{align}
+	\alpha \colon \mathfrak{h} \lto \mathbb{K},\; h \lmto \alpha(h) \WHERE \exists x \in \mathfrak{g}\setminus \{0\},\; \alpha(h)x \coloneqq \ad_{\mathfrak{g}}(h)(x)
+\end{align}
+を考えよう．このとき $\mathfrak{g}_\alpha$ の\underline{部分ベクトル空間}\footnote{$\alpha \neq 0$ のとき $\mathfrak{g}_\alpha$ は部分Lie代数\underline{ではない}．実際，$\forall x,\, y \in \mathfrak{g}_\alpha$ および $\forall h \in \mathfrak{h}$ に対して $\ad_{\mathfrak{g}}(h)(\comm{x}{y}) = \comm{\ad_{\mathfrak{g}}(h)(x)}{y} + \comm{x}{\ad_{\mathfrak{g}}(h)(y)} = 2\alpha(h) \comm{x}{y}$ となり，$\alpha(h) \neq 0$ ならば $\comm{x}{y} \not\in \mathfrak{g}_\alpha$ である．} $\mathfrak{g}_\alpha$ を
+\begin{align}
+	\label{def:ga}
 	\mathfrak{g}_\alpha \coloneqq \bigl\{\, x \in \mathfrak{g} \bigm| \forall h \in \mathfrak{h},\; \ad_{\mathfrak{g}}(h)(x) = \alpha(h) x \,\bigr\} 
 \end{align}
-とおくと，$\mathfrak{g}$ の\hyperref[thm:eigen-decomp-1]{固有空間分解}
+と定義すると，$\mathfrak{g}_\alpha \neq 0$ ならば $\alpha \in \mathfrak{h}^*$ だとわかる．
+\footnote{
+	% まず\hyperref[def:eigen]{固有値の定義}から $x \in \mathfrak{g}_\alpha \setminus \{0\}$ が存在する．
+	$\mathfrak{g}_\alpha \neq 0$ なので $x \in \mathfrak{g}_\alpha \setminus \{0\}$ が存在する．
+	このとき $\forall h,\, h_1,\, h_2 \in \mathfrak{h},\; \forall \lambda \in \mathbb{K}$ に対して $\alpha(h)x = \ad_{\mathfrak{g}}(h)(x),\; \alpha(h_i)x = \ad_{\mathfrak{g}}(h_i)(x)$ が成り立つが，$\mathfrak{h}$ は $\mathfrak{g}$ の部分Lie代数なので $h_1 + h_2,\, \lambda h \in \mathfrak{h}$ であること，および $\ad_{\mathfrak{g}} \colon \mathfrak{g} \lto \Lgl(\mathfrak{g})$ の線型性から
+	\begin{align}
+		\alpha(h_1 + h_2)x &= \ad_{\mathfrak{g}}(h_1 + h_2)(x) = \ad_{\mathfrak{g}}(h_1)(x) + \ad_{\mathfrak{g}}(h_2)(x) = \bigl(\alpha(h_1) + \alpha(h_2)\bigr)x, \\
+		\alpha(\lambda h)x &= \ad_{\mathfrak{g}}(\lambda h)(x) = \lambda \ad_{\mathfrak{g}}(h)(x) = \bigl(\lambda \alpha(h)\bigr)x
+	\end{align}
+	が言える．$x \neq 0$ なので $\alpha(h_1 + h_2) = \alpha(h_1) + \alpha(h_2),\; \alpha(\lambda h) = \lambda \alpha(h)$，i.e. $\alpha \colon \mathfrak{h} \lto \mathbb{K}$ が線型写像であることが分かった．
+}
+一方，補題\ref{lem:torus}より $\forall h,\, k \in \mathfrak{h}$ に対して $\comm{\ad_{\mathfrak{g}}(h)}{\ad_{\mathfrak{g}}(k)} = \ad_{\mathfrak{g}}(\comm{h}{k}) = \ad_{\mathfrak{g}}(0) = 0$ が成り立つ，i.e. $\ad_{\mathfrak{g}}(h),\; \ad_{\mathfrak{g}} (k) \in \Lgl(\mathfrak{g})$ は互いに可換な線型変換なので，$\forall \ad_{\mathfrak{g}}(h) \in \ad_{\mathfrak{g}}(\mathfrak{h})$ は\underline{同時対角化可能}である．
+従って $\mathfrak{g}$ の\hyperref[thm:eigen-decomp-1]{固有空間分解}
 \begin{align}
+	\label{eq:root-decomp1}
 	\mathfrak{g} = \bigoplus_{\alpha \in \mathfrak{h}^*} \mathfrak{g}_\alpha
 \end{align}
-が成り立つ．特に $\dim \mathfrak{g} < \infty$ であることから，
-$\mathfrak{g}$ の\textbf{ルート} (roots) と呼ばれる集合
+が成り立つ．特に $\dim \mathfrak{g} < \infty$ であることから
+% $\mathfrak{g}$ の\textbf{ルート} (roots) と呼ばれる
+集合
 \begin{align}
 	\Phi \coloneqq \bigl\{\, \alpha \in \mathfrak{h}^* \setminus \{0\} \bigm| \mathfrak{g}_\alpha \neq 0 \,\bigr\} 
 \end{align}
-は\underline{有限集合}となり，\hyperref[def:normalizer-LieAlg]{中心化代数の定義}を思い出して $\mathfrak{g}_0 = C_{\mathfrak{g}}(\mathfrak{h})$ が成り立つことも踏まえると，有限個の直和として
+は有限集合になるので，\eqref{eq:root-decomp1}は有限個の直和として
 \begin{align}
+	\label{eq:root-decomp}
 	\mathfrak{g} = C_{\mathfrak{g}}(\mathfrak{h}) \oplus \bigoplus_{\alpha \in \Phi} \mathfrak{g}_\alpha
 \end{align}
-と書くこともできる．
+と書くこともできる\footnote{\hyperref[def:normalizer-LieAlg]{中心化代数の定義}を思い出すと $\mathfrak{g}_0 = C_{\mathfrak{g}}(\mathfrak{h})$ である．}．
+$\Phi$ の元のことを $\mathfrak{g}$ の\textbf{ルート} (root) と呼び，\eqref{eq:root-decomp}のことを $\mathfrak{g}$ の\textbf{ルート空間分解} (root space decomposition)\footnote{\textbf{Cartan分解} (Cartan decomposition) と呼ぶこともある．} と呼ぶ．
+
+\begin{myprop}[label=prop:root-decomp-basic1]{}
+	$\kappa \in L(\mathfrak{g},\, \mathfrak{g};\, \mathbb{K})$ を $\mathfrak{g}$ の\hyperref[def:Killing-form]{Killing形式}とする．
+	$\forall \alpha,\, \beta \in \mathfrak{h}^*$ に対して以下が成り立つ：
+	\begin{enumerate}
+		\item $\comm{\mathfrak{g}_\alpha}{\mathfrak{g}_\beta} \subset \mathfrak{g}_{\alpha + \beta}$
+		\item $\alpha \neq 0 \IMP \forall x \in \mathfrak{g}_\alpha$ に対して $\ad_{\mathfrak{g}}(x) \in \Lgl(\mathfrak{g})$ は冪零である．
+		\item $\alpha + \beta \neq 0 \IMP \kappa$ について $\mathfrak{g}_\alpha$ と $\mathfrak{g}_\beta$ は直交する．i.e. $\kappa|_{\mathfrak{g}_\alpha \times \mathfrak{g}_\beta} = 0$
+		\item $\kappa$ に関する $\mathfrak{g}_\alpha$ の\hyperref[def:radical-bilinear]{直交補空間}は
+		\begin{align}
+			\mathfrak{g}_\alpha{}^\perp = \bigoplus_{\gamma \in \mathfrak{h}^* \setminus \{-\alpha\}} \mathfrak{g}_{\gamma}
+		\end{align}
+		と書ける．
+	\end{enumerate}
+\end{myprop}
+
+\begin{proof}
+	\begin{enumerate}
+		\item $\forall x \in \mathfrak{g}_\alpha,\; \forall y \in \mathfrak{g}_\beta$ をとる．このとき $\ad_{\mathfrak{g}} \colon \mathfrak{g} \lto \Lgl(\mathfrak{g})$ の像が\hyperref[def:derivation-Alg]{微分}であることから，$\forall h \in \mathfrak{h}$ に対して
+		\begin{align}
+			\ad_{\mathfrak{g}}(h)(\comm{x}{y}) 
+			&= \comm{\ad_{\mathfrak{g}}(h)(x)}{y} + \comm{x}{\ad_{\mathfrak{g}}(h)(y)} \\
+			&= \bigl(\alpha(h) + \beta(h)\bigr) \comm{x}{y} \\
+			&= (\alpha + \beta)(h) \comm{x}{y}
+		\end{align}
+		が成り立つ．i.e. $\comm{x}{y} \in \mathfrak{g}_{\alpha + \beta}$ である．
+		\item $\alpha \neq 0$ とし，$\forall x \in \mathfrak{g}_\alpha$ を1つとる．\eqref{eq:root-decomp1}が $\mathfrak{g}$ の直和分解なので，$\forall \beta \in \mathfrak{h}^*$ に対してある $n \in \mathbb{N}$ が存在して $\bigl(\ad_{\mathfrak{g}}(x)\bigr)^n (\mathfrak{g}_\beta) = 0$ を充たすことを示せばよい．
+		
+		　$\forall n \in \mathbb{N}$ に対して $\bigl(\ad_{\mathfrak{g}}(x)\bigr)^n (\mathfrak{g}_\beta) \neq 0$ が成り立つと仮定する．
+		ところが (1) よりこれは
+		$0 \subsetneq \bigl(\ad_{\mathfrak{g}}(x) \bigr)^n(\mathfrak{g}_\beta) \subset \mathfrak{g}_{n\alpha + \beta}$ を意味し，$\Phi \subset \mathfrak{h}^*$ が有限集合であることに矛盾する．従って背理法により示された．
+		\item 仮定より $\alpha + \beta \neq 0 \in \mathfrak{h}^*$ なので，ある $h \in \mathfrak{h}$ が存在して $(\alpha + \beta)(h) \neq 0$ を充たす．
+		このとき $\forall (x,\, y) \in \mathfrak{g}_\alpha \times \mathfrak{g}_{\beta}$ をとると
+		\begin{align}
+			\alpha(h) \kappa(x,\, y)
+			&= \kappa\bigl(\ad_{\mathfrak{g}}(h)(x),\, y\bigr) \\
+			&= -\kappa(\comm{x}{h},\, y) \\
+			&= -\kappa(x,\, \comm{h}{y}) \\
+			&= -\kappa\bigl(x,\, \ad_{\mathfrak{g}}(h)(y)\bigr) \\
+			&= -\beta(h) \kappa(x,\, y)
+		\end{align}
+		が成り立つので $\kappa(x,\, y) = 0$ が言えた．
+		\item (3) より
+		\begin{align}
+			\label{eq:perp-inclusion1}
+			\mathfrak{g}_\alpha{}^\perp \supset \bigoplus_{\gamma \in \mathfrak{h}^* \setminus \{-\alpha\}} \mathfrak{g}_{\gamma}
+		\end{align}
+		がわかる．
+		定理\ref{thm:semisimple-LieAlg-iff}より $\kappa$ は\hyperref[def:radical-bilinear]{非退化}なので，$\mathfrak{g}$ が有限次元であることから
+		\begin{align}
+			\dim \mathfrak{g}_\alpha{}^\perp = \dim \mathfrak{g} - \dim \mathfrak{g}_\alpha
+		\end{align}
+		が成り立つ．よって\eqref{eq:perp-inclusion1}から $\dim \mathfrak{g} - \dim \mathfrak{g}_{-\alpha} \le \dim \mathfrak{g} - \dim \mathfrak{g}_\alpha \IFF \dim \mathfrak{g}_\alpha \le \dim \mathfrak{g}_{-\alpha}$ が言える．$\alpha \in \mathfrak{h}^*$ は任意だったので $\dim \mathfrak{g}_{-\alpha} \le \dim \mathfrak{g}_{\alpha}$ も言えて $\dim \mathfrak{g}_\alpha = \dim \mathfrak{g}_{-\alpha}$ が従う．
+		故に
+		\begin{align}
+			\dim \mathfrak{g}_\alpha{}^\perp = \dim \mathfrak{g} - \dim \mathfrak{g}_{\alpha} = \dim \mathfrak{g} - \dim \mathfrak{g}_{-\alpha} = \dim \bigoplus_{\gamma \in \mathfrak{h}^* \setminus \{-\alpha\}} \mathfrak{g}_{\gamma}
+		\end{align}
+		が成り立ち，\eqref{eq:perp-inclusion1}の包含が等号だと分かった．
+	\end{enumerate}
+	
+\end{proof}
+
+\begin{mycol}[label=col:c-Killing]{}
+	$\kappa|_{\mathfrak{g}_0 \times \mathfrak{g}_0}$ は\hyperref[def:radical-bilinear]{非退化}である．
+\end{mycol}
+
+\begin{proof}
+	命題\ref{prop:root-decomp-basic1}-(4) より $\mathfrak{g}_0 \cap \mathfrak{g}_0{}^\perp = 0$，i.e. $\kappa|_{\mathfrak{g}_0 \times \mathfrak{g}_0}$ は非退化である．
+\end{proof}
+
 
 \subsection{極大トーラスの中心化代数}
+
+\begin{mylem}[label=lem:8-2]{}
+	$V$ を有限次元 $\mathbb{K}$-ベクトル空間とし，$x,\, y \in \End V$ は $\comm{x}{y} = 0$ を充たす（i.e. 互いに可換）とする．
+
+	このとき，$x,\, y$ のどちらか一方が冪零ならば $x \circ y$ も冪零である．特に $\Tr (x \circ y) = 0$ が成り立つ．
+\end{mylem}
+
+\begin{proof}
+	$x$ が冪零であるとする．このときある $n > 0$ が存在して $x^n = 0$ となるので，$\comm{x}{y} = 0 \IFF x \circ y = y \circ x$ より $(x \circ y)^n = y^{n} \circ x^n = 0$ が言える．
+	特に $x\circ y$ の表現行列を $\mathfrak{n}(\dim V,\, \mathbb{K})$ の元にするような $V$ の基底が存在するので $\Tr(x\circ y) = 0$ である．
+\end{proof}
+
+
+\begin{myprop}[label=prop:torus-centralize]{}
+	$\mathfrak{g}$ の\hyperref[def:toral-subLieAlg]{極大トーラス} $\mathfrak{h}$ に対して，
+	\begin{align}
+		\mathfrak{h} = C_{\mathfrak{g}}(\mathfrak{h}) \; (= \mathfrak{g}_0)
+	\end{align}
+\end{myprop}
+
+\begin{proof}
+	$C \coloneqq  C_{\mathfrak{g}}(\mathfrak{h})$ とおく．命題\ref{lem:torus}より $\mathfrak{h}$ は可換なので $\mathfrak{h} \subset C$ が成り立つ．
+	$x \in \mathfrak{g}$ の\hyperref[def:abstruct-JC]{抽象Jordan分解}を $x = x_s + x_n$ と書く．
+	\begin{description}
+		\item[\textbf{step1: $\bm{\forall x = x_s + x_n \in C}$ に対して $\bm{x_s},\, \bm{x_n \in C}$}]　
+		
+		$x \in C \IFF \ad_{\mathfrak{g}}(x)(\mathfrak{h}) = 0$ である．このとき命題\ref{prop:Jordan-Chevalley}-(3) より $\ad_{\mathfrak{g}}(x)_s(\mathfrak{h}) = \ad_{\mathfrak{g}}(x)_n(\mathfrak{h}) = 0$ が言える．系\ref{col:JC}より $\ad_{\mathfrak{g}}(x)_s = \ad_{\mathfrak{g}}(x_s),\; \ad_{\mathfrak{g}}(x)_n = \ad_{\mathfrak{g}}(x_n)$ なので示された．
+		
+		\item[\textbf{step2: $\bm{\forall x = x_s + x_n \in C}$ に対して $\bm{x_s \in \mathfrak{h}}$}]　
+		
+		$\forall x = x_s + x_n \in C$ をとる．このとき $\forall h \in \mathfrak{h}$ に対して $0 = \ad_{\mathfrak{g}}(0) = \ad_{\mathfrak{g}}(\comm{h}{x}) = \comm{\ad_{\mathfrak{g}}(h)}{\ad_{\mathfrak{g}}(x)} = 0$ が成り立つので $\ad_{\mathfrak{g}}(h),\, \ad_{\mathfrak{g}}(x),\,  \ad_{\mathfrak{g}}(x_s) \in \Lgl(\mathfrak{g})$ は同時対角化可能であり，従って $\ad_{\mathfrak{g}}(h+x_s) = \ad_{\mathfrak{g}}(h) + \ad_{\mathfrak{g}}(x_s) \in \Lgl(\mathfrak{g})$ もまた半単純だとわかる．
+		従って $\mathfrak{h} + \mathbb{K}x_s$ は $\mathfrak{h}$ を含む $\mathfrak{g}$ のトーラスだが，$\mathfrak{h}$ の極大性より $\mathfrak{h} + \mathbb{K} x_s = \mathfrak{h}$，i.e. $x \in \mathfrak{h}$ が言えた．
+
+		\item[\textbf{step3: $\bm{\kappa}|_{\bm{\mathfrak{h} \times \mathfrak{h}}}$ が非退化}]　
+		
+		$\forall h \in \mathfrak{h} \cap \mathfrak{h}^\perp$ をとる．このとき $\kappa(h,\, \mathfrak{h}) = 0$ が成り立つ．示すべきは $h = 0$ である．
+
+		　ところで，$x \in C$ が冪零ならば，$\comm{x}{\mathfrak{h}} = 0$ かつ $\ad_{\mathfrak{g}}(x) \in \Lgl(\mathfrak{g})$ が冪零であることから
+		補題\ref{lem:8-2}が使えて $\kappa(x,\, y) = \Tr \bigl( \ad_{\mathfrak{g}}(x) \circ \ad_{\mathfrak{g}}(y) \bigr) = 0$ が言える．i.e. $\kappa(x,\, \mathfrak{h}) = 0$ が成り立つ．
+		ここで $\forall y = y_s + y_n \in C$ をとると，\textsf{\textbf{(step2)}}から $y_s \in \mathfrak{h}$ なので $h$ の取り方から $\kappa(y_s,\, h) = 0$ がわかり，\textsf{\textbf{(step1)}}から $y_n \in C$ がわかるが，$y_n$ は冪零なので結局 $\kappa(y,\, h) = \kappa(y_n,\, h) = 0$ だと分かった．
+		$y \in C$ は任意だったのでこのことは $h \in C^\perp$ を意味するが，系\ref{col:c-Killing}より $\kappa|_{C \times C}$ は\hyperref[def:radical-bilinear]{非退化}なので $h = 0$ が言えた\footnote{$\mathfrak{h} \subset C$ より $h \in C \cap C^\perp$．}．
+		
+		\item[\textbf{step4: $\bm{C}$ は冪零Lie代数}]　
+		
+		$\forall x = x_s + x_n\in C$ をとる．
+		\textsf{\textbf{(step2)}}より $x_s \in \mathfrak{h}$ であり，$\ad_C(x) = 0$ は冪零である．
+		一方 $\ad_C(x_n)$ は定義から冪零なので，$\ad_C(x) = \ad_C(x_s) + \ad_C(x_n)$ も冪零である．よって\hyperref[thm:Engel]{Engelの定理}から $C$ は\hyperref[def:nilpotent-LieAlg]{冪零Lie代数}である．
+
+		\item[\textbf{step5: $\bm{\mathfrak{h} \cap [C,\, C] = 0}$}]　
+		
+		$\kappa$ はLieブラケットについて結合的なので，$\comm{\mathfrak{h}}{C} = 0$ と併せて $\kappa(\mathfrak{h},\, \comm{C}{C}) = 0$ を得る．従って\textsf{\textbf{(step3)}}より $\mathfrak{h} \cap \comm{C}{C} = 0$ が言えた．
+
+		\item[\textbf{step6: $\bm{C}$ は可換}]　
+		
+		背理法により示す．$\comm{C}{C} \neq 0$ とする．\textsf{\textbf{(step4)}}より $C$ は冪零Lie代数で，かつ $\comm{C}{C} \subset C$ はその\hyperref[def:ideal-LieAlg]{イデアル}であるから，このとき補題\ref{lem:nilpo-ideal}が使えて $Z(C)\cap \comm{C}{C} \neq 0$ が言える．i.e. $z = z_s + z_n \in (Z(C)\cap \comm{C}{C}) \setminus \{0\}$ が存在する．\textsf{\textbf{(step2)}}, \textsf{\textbf{(step5)}}より $z_n \neq 0$ でなくてはならない．
+		よって \textsf{\textbf{(step1)}} から $z_n \in C \setminus \{0\}$ と言うことになる．
+		一方，命題\ref{prop:Jordan-Chevalley}-(2) より $\forall c \in C$ に対して $0 = \comm{z}{c} = \comm{z_s}{c} + \comm{z_n}{c}$ だが，\textsf{\textbf{(step2)}}より $z_s \in \mathfrak{h}$ なので $\comm{z_s}{c} = 0$ であり，$\comm{z_n}{c} = 0$，i.e. $z_n \in Z(C)$ となる．よって補題\ref{lem:8-2}から $\kappa(z_n,\, C) = 0$ が言えて，系\ref{col:c-Killing}から $z_n = 0$ ということになり，$z_n \neq 0$ と矛盾する．
+
+		\item[\textbf{step7: $\bm{C = \mathfrak{h}}$}]　
+		
+		背理法により示す．$C \neq \mathfrak{h}$ とすると，ある $x = x_s + x_n \in C$ が存在して $x_n \neq 0$ となる．
+		このとき \textsf{\textbf{(step1)}} より $x_n \in C \setminus \{0\}$ であり，\textsf{\textbf{(step6)}} および補題\ref{lem:8-2}から $\forall y \in C$ に対して $\kappa(x_n,\, y) = \Tr \bigl( \ad(x_n) \circ  \ad(y)\bigr) = 0$ を充たすことになり，系\ref{col:c-Killing}に矛盾する．
+	\end{description}
+\end{proof}
+
+\begin{mycol}[label=col:torus-centralizer]{}
+	$\kappa|_{\mathfrak{h} \times \mathfrak{h}}$ は\hyperref[def:radical-bilinear]{非退化}である．
+\end{mycol}
+
+\begin{proof}
+	系\ref{col:c-Killing}に命題\ref{prop:torus-centralize}を用いるだけである．
+\end{proof}
+
+$\mathbb{K}$-線型写像
+\begin{align}
+	\label{eq:isom-h}
+	\tilde{\kappa} \colon \mathfrak{h} \lto \mathfrak{h}^*,\; h \lmto \bigl( x \lmto \kappa(h,\, x) \bigr) 
+\end{align}
+を考える．すると $\kappa$ に関する $\mathfrak{h}$ の\hyperref[def:radical-bilinear]{直交補空間}の定義を思い出して
+\begin{align}
+	\Ker \tilde{\kappa} = \bigl\{\, h \in \mathfrak{h} \bigm| \forall x \in \mathfrak{h},\; \kappa(h,\, x) = 0 \,\bigr\} = \mathfrak{h} \cap \mathfrak{h}^\perp
+\end{align}
+となることがわかるが，系\ref{col:torus-centralizer}より $\Ker \tilde{\kappa} = 0$ が言える．i.e. $\tilde{\kappa}$ は単射である．
+$\dim \mathfrak{h} = \dim \mathfrak{h}^*$ なので，補題\ref{lem:finvec-basic}-(3) から $\bm{\tilde{\kappa}}$ \textbf{は} $\bm{\mathbb{K}}$\textbf{-ベクトル空間の同型写像である．}
+従って $\forall \alpha \in \mathfrak{h}^*$ が与えられたとき，$\forall h \in \mathfrak{h}$  に対して $\alpha(h) = \kappa(\bm{t_\alpha},\, h) = \tilde{\kappa}(\bm{t_\alpha})(h)$ を充たすような $\bm{t_\alpha} \in \mathfrak{h}$ が存在する．
+% \footnote{
+% 	系\ref{col:torus-centralizer}より $\kappa|_{\mathfrak{h} \times \mathfrak{h}} \in L(\mathfrak{h},\, \mathfrak{h};\, \mathbb{K})$ は対称かつ非退化なので，
+% 	$\mathfrak{h}$ の基底 $\{e_\mu\}$ を1つ固定すると補題\ref{lem:Casimir}-(1) の方法によって $\kappa(e_\mu,\, e^\nu) = \delta_\mu^\nu$ を充たす $\mathfrak{h}$ の基底 $\{e^\mu\}$ を一意的に構成できる．このとき $1 \le \forall \mu \le \dim \mathfrak{h}$ について $\alpha(e^\mu) = \alpha(e^\nu) \delta^\mu_\nu = \kappa \bigl( \alpha(e^\nu) e_\nu,\, e^\mu \bigr)$ が成り立つので，$t_\alpha \coloneqq \alpha(e^\nu) e_\nu \in \mathfrak{h}$ とおけば良い．
+% }．i.e. $\bm{\tilde{\kappa}}$ \textbf{は} $\bm{\mathbb{K}}$\textbf{-ベクトル空間の同型写像である．}
+
 \subsection{直交性}
+
+\begin{myprop}[label=prop:root-decomp-ortho,breakable]{ルートの直交性}
+	\begin{itemize}
+		\item 体 $\mathbb{K}$ 上の有限次元\hyperref[def:semisimple-LieAlg]{半単純Lie代数} $\mathfrak{g}$
+		\item $\mathfrak{g}$ の\hyperref[def:toral-subLieAlg]{極大トーラス} $\mathfrak{h} \subset \mathfrak{g}$
+		\item $\mathfrak{h}$ のルート全体の集合 $\Phi \subset \mathfrak{h}^*$ 
+	\end{itemize}
+	を与える．$\mathfrak{g}$ の\hyperref[eq:root-decomp]{ルート空間分解}を命題\ref{prop:torus-centralize}によって
+	\begin{align}
+		\mathfrak{g} = \mathfrak{h} \oplus \bigoplus_{\alpha \in \Phi} \mathfrak{g}_\alpha
+	\end{align}
+	と書く．
+	このとき，以下が成り立つ：
+	\begin{enumerate}
+		\item $\mathfrak{h}^* = \Span \Phi$
+		\item $\alpha \in \Phi \IMP -\alpha \in \Phi$
+		\item $\forall \alpha \in \Phi$ および $\forall x \in \mathfrak{g}_\alpha,\; \forall y \in \mathfrak{g}_{-\alpha}$ に対して，$\comm{x}{y} = \kappa(x,\, y) t_\alpha$
+		\item $\alpha \in \Phi \IMP \comm{\mathfrak{g}_\alpha}{\mathfrak{g}_{-\alpha}} = \Span \{t_\alpha\}$
+		\item $\alpha \in \Phi \IMP \alpha(t_\alpha) = \kappa(t_\alpha,\, t_\alpha) \neq 0$
+		\item $\forall \alpha \in \Phi$ および $\forall x_\alpha \in \mathfrak{g}_\alpha \setminus \{0\}$ に対して $y_\alpha \in \mathfrak{g}_{-\alpha}$ が存在し，$h_\alpha \coloneqq \comm{x_\alpha}{y_\alpha} \in \mathfrak{h}$ とおくと
+		\begin{align}
+			x_\alpha &\lmto \mqty[0 & 1 \\ 0 & 0], & y_\alpha &\lmto \mqty[0 & 0 \\ 1 & 0], & h_\alpha &\lmto \mqty[1 & 0 \\ 0 & -1]
+		\end{align}
+		を線型に拡張することで定義される $\mathbb{K}$-線型写像
+		\begin{align}
+			\Span \bigl\{\, x_\alpha,\, y_\alpha,\, h_\alpha\,\bigr\} \lto \Lsl(2,\, \mathbb{K})
+		\end{align}
+		がLie代数の同型写像になる．
+		\item 
+		\begin{align}
+			h_\alpha = \frac{2}{\kappa(t_\alpha,\, t_\alpha)} t_\alpha,\quad h_\alpha = - h_{-\alpha}
+		\end{align}
+	\end{enumerate}
+	
+\end{myprop}
+
+\begin{proof}
+	\begin{enumerate}
+		\item 背理法により示す．$\mathfrak{h}^* \supsetneq \Span \Phi$ ならば非零な $\beta \in \mathfrak{h}^* \setminus \Span \Phi$ が存在する．
+		従って\underline{非零な}\footnote{$\beta \colon \mathfrak{h} \lto \mathbb{K}$ は $\mathbb{K}$-線型写像なので，もし $h = 0$ ならば $h \in \Ker \beta$ となって矛盾．} $h \in \Bigl(\bigcap_{\alpha \in \Phi} \Ker \alpha \Bigr)\setminus \Ker \beta$ が存在する．
+		このとき\hyperref[def:ga]{$\mathfrak{g}_\alpha$ の定義}から，$\forall \alpha \in \Phi$ に対して $\comm{h}{\mathfrak{g}_\alpha} = 0$ が成り立つ．
+		一方で，補題\ref{lem:torus}より $\comm{h}{\mathfrak{h}} = 0$ であるから，命題\ref{prop:torus-centralize}より $\comm{h}{\mathfrak{g}} = \comm{h}{\mathfrak{h} \oplus \bigoplus_{\alpha \in \Phi} \mathfrak{g}_\alpha} = \comm{h}{\mathfrak{h}} \oplus \bigoplus_{\alpha \in \Phi} \comm{h}{\mathfrak{g}_\alpha} = 0 \IFF h \in Z(\mathfrak{g})$ がわかる．然るに $\mathfrak{g}$ が\hyperref[def:semisimple-LieAlg]{半単純Lie代数}であることから $Z(\mathfrak{g}) = 0$ であり $h = 0$ と言うことになって矛盾．
+
+		\item $\alpha \in \Phi$ とする．背理法により $-\alpha \in \Phi$ を示す．
+		$-\alpha \notin \Phi$ を仮定する．このとき $\mathfrak{g}_{-\alpha} = 0$ であるから $\kappa|_{\mathfrak{g}_\alpha \times \mathfrak{g}_{-\alpha}} = 0$ であり，命題\ref{prop:root-decomp-basic1}-(3) と併せると $\forall \beta \in \mathfrak{h}^*$ に対して $\kappa|_{\mathfrak{g}_\alpha \times \mathfrak{g}_\beta} = 0$ がわかる．
+		よって $\kappa$ の双線型性から $\kappa|_{\mathfrak{g}_\alpha \times \mathfrak{g}} = 0$，i.e. $\kappa$ の\hyperref[def:radical-bilinear]{radical} $S_\kappa$ について $0 \subsetneq \mathfrak{g}_\alpha \subset S_\kappa$ と言うことになって $\mathfrak{g}$ が半単純Lie代数であることに矛盾（定理\ref{thm:semisimple-LieAlg-iff}）．
+
+		\item $\forall \alpha \in \Phi$ および $\forall x \in \mathfrak{g}_\alpha,\; \forall y \in \mathfrak{g}_{-\alpha}$ を1つずつとる．
+		$\forall h \in \mathfrak{h}$ を1つ固定しよう．$\kappa \in L(\mathfrak{g},\, \mathfrak{g};\, \mathbb{K})$ は対称かつLieブラケットについて結合的なので
+		\begin{align}
+			\kappa (h,\, \comm{x}{y}) 
+			&= \kappa (\comm{h}{x},\, y) \\
+			&= \kappa \bigl(\ad_{\mathfrak{g}}(h)(x),\, y\bigr) \\
+			&= \alpha(h) \kappa(x,\, y) \\
+			&= \kappa(t_\alpha,\, h) \kappa(x,\, y) \\
+			&= \kappa \bigl( \kappa(x,\, y) t_\alpha,\, h \bigr) \\
+			&= \kappa \bigl( h,\, \kappa(x,\, y) t_\alpha\bigr) \\
+		\end{align}
+		がわかる．$h \in \mathfrak{h}$ は任意だったので $\kappa \bigl( h,\, \comm{x}{y} - \kappa(x,\, y) t_\alpha \bigr) = 0$，i.e. \hyperref[def:radical-bilinear]{$\kappa$ に関する直交補空間}の意味で $\comm{x}{y} - \kappa(x,\, y) t_\alpha \in \mathfrak{h}^\perp$ だと分かった．
+		一方で，命題\ref{prop:root-decomp-basic1}-(1)，命題\ref{prop:torus-centralize}より $\comm{x}{y} \in \mathfrak{g}_0 = \mathfrak{h}$ が言えて，かつ定義より $t_\alpha \in \mathfrak{h}$ なので，$\comm{x}{y} - \kappa(x,\, y) t_\alpha \in \mathfrak{h}$ である．
+		以上より $\comm{x}{y} - \kappa(x,\, y) t_\alpha \in \mathfrak{h} \cap \mathfrak{h}^\perp$ が分かったが，系\ref{col:torus-centralizer}より $\mathfrak{h} \cap \mathfrak{h}^\perp = 0$ なので $\comm{x}{y} - \kappa(x,\, y) t_\alpha = 0 \IFF \comm{x}{y} = \kappa(x,\, y) t_\alpha$ が示された．
+		
+		\item $\alpha \in \Phi$ とする．(3) より，$\comm{\mathfrak{g}_\alpha}{\mathfrak{g}_{-\alpha}} \neq 0$ を示せば十分である．
+		$\alpha \in \Phi$ なので，$x \in \mathfrak{g}_\alpha \setminus \{0\}$ が存在する．
+		もし $\kappa|_{\{x\} \times \mathfrak{g}_{-\alpha}} = 0$ ならば (2) の証明と同様の議論により $\kappa|_{\{x\} \times \mathfrak{g}} = 0$，i.e. $x \in S_\kappa$ と言う事になり定理\ref{thm:semisimple-LieAlg-iff}に矛盾．よって背理法からある $y \in \mathfrak{g}_{-\alpha}$ が存在して $\kappa(x,\, y) \neq 0$ を充たす．従って (3) から $\comm{x}{y} \in \comm{\mathfrak{g}_\alpha}{\mathfrak{g}_{-\alpha}} \setminus \{0\}$ が言えた．
+
+		\item $\alpha \in \Phi$ とする．背理法により $\alpha(t_\alpha) \neq 0$ を示す．
+		$\alpha(t_\alpha) = 0$ を仮定すると，$\forall x \in \mathfrak{g}_\alpha,\; \forall y \in \mathfrak{g}_{-\alpha}$ に対して $\comm{t_\alpha}{x} = 0 = \comm{t_\alpha}{y}$ となる．
+		(4) と同様の議論により $\kappa(x,\, y) \neq 0$ であるような $x \in \mathfrak{g}_\alpha \setminus \{0\},\; y \in \mathfrak{g}_{-\alpha}$ が存在する．$x,\, y$ のどちらか一方を $\kappa(x,\, y)^{-1}$ 倍することで，(3) において $\comm{x}{y} = t_\alpha \in \mathfrak{h}$ となるようにできる．
+		このとき $\mathfrak{g}$ の部分Lie代数 $\mathfrak{s} \coloneqq \Span \{x,\, y,\, t_\alpha\}$ は3次元の\hyperref[def:solvable-LieAlg]{可解Lie代数}であり，$\mathfrak{s} \cong \ad_{\mathfrak{g}}(\mathfrak{s}) \subset \Lgl(\mathfrak{g})$ である\footnote{\hyperref[def:abstruct-JC]{抽象Jordan分解の定義}の直前で述べたように，$\mathfrak{g}$ が\hyperref[def:semisimple-LieAlg]{半単純Lie代数}ならば $\ad_{\mathfrak{g}} \colon \mathfrak{g} \lto \Lgl(\mathfrak{g})$ は単射である．}．
+		従って系\ref{col:Lie-2}が使えて，$\forall s \in \comm{\mathfrak{s}}{\mathfrak{s}}$ に対して $\ad_{\mathfrak{g}}(s) \in \Lgl(\mathfrak{g})$ は冪零である．$t_\alpha \in \comm{\mathfrak{s}}{\mathfrak{s}}$ なので $\ad_{\mathfrak{g}}(t_\alpha)$ は冪零である．
+		一方で $t_\alpha \in \mathfrak{h}$ なので $\ad_{\mathfrak{g}}(t_\alpha)$ は\hyperref[def:semisimple-end]{半単純}でもあるから $\ad_{\mathfrak{g}}(t_\alpha) = 0 \IFF t_\alpha \in \Ker \ad_{\mathfrak{g}} = 0 \IMP t_\alpha = 0$ となるが，これは $\alpha \in \Phi$ （従って $\alpha \neq 0$）であることに矛盾する．
+
+		\item $\forall \alpha \in \Phi$ および $\forall x_\alpha \in \mathfrak{g}_\alpha \setminus \{0\}$ を与える．
+		このとき (4) の証明と同様の議論によりある $y \in \mathfrak{g}_{-\alpha}$ が存在して $\kappa(x_\alpha,\, y) \neq 0$ を充たす．さらに (5) から $\kappa(t_\alpha,\, t_\alpha) \neq 0$ なので，
+		\begin{align}
+			y_\alpha \coloneqq \frac{2}{\kappa(t_\alpha,\, t_\alpha)\kappa(x_\alpha,\, y)} y
+		\end{align}
+		とおけば
+		\begin{align}
+			\kappa(x_\alpha,\, y_\alpha) = \frac{2}{\kappa(t_\alpha,\, t_\alpha)}
+		\end{align}
+		を充たす．よってさらに
+		\begin{align}
+			h_\alpha \coloneqq \frac{2}{\kappa(t_\alpha,\, t_\alpha)} t_\alpha \in \mathfrak{h}
+		\end{align}
+		とおけば (3) より
+		\begin{align}
+			\comm{x_\alpha}{y_\alpha} &= \kappa(x_\alpha,\, y_\alpha) t_\alpha = h_\alpha, \\
+			\comm{h_\alpha}{x_\alpha} &= \frac{2}{\alpha(t_\alpha)} \comm{t_\alpha}{x_\alpha} = \frac{2}{\alpha(t_\alpha)}\alpha(t_\alpha) x_\alpha = 2x_\alpha, \\
+			\comm{h_\alpha}{y_\alpha} &= \frac{2}{\alpha(t_\alpha)} \comm{t_\alpha}{y_\alpha} = \frac{2}{\alpha(t_\alpha)}\bigl(-\alpha(t_\alpha)\bigr) y_\alpha = -2y_\alpha
+		\end{align}
+		が成り立ち，$\Span \bigl\{x_\alpha,\, y_\alpha,\, h_\alpha\bigr\} \subset \mathfrak{g}$ は $\Lsl (2,\, \mathbb{K})$ とLie代数として同型になる．
+
+		\item (6) の証明から即座に
+		\begin{align}
+			h_\alpha = \frac{2}{\kappa(t_\alpha,\, t_\alpha)} t_\alpha
+		\end{align}
+		が従う．$\kappa(t_\alpha,\, h) \coloneqq \alpha(h)\quad (\forall h \in \mathfrak{h})$ が $t_\alpha$ の定義だったので，
+		\begin{align}
+			\forall h \in \mathfrak{h},\; \kappa(t_{-\alpha},\, h) = -\alpha(h) = \kappa(-t_{\alpha},\, h)
+		\end{align}
+		が言える．よって系\ref{col:torus-centralizer}から $t_{-\alpha} = -t_\alpha$ であり，
+		\begin{align}
+			h_\alpha = -h_{-\alpha}
+		\end{align}
+		が言えた．
+	\end{enumerate}
+	
+\end{proof}
+
 \subsection{整性}
+
+命題\ref{prop:root-decomp-ortho}-(6) で構成した $(x_\alpha,\, y_\alpha,\, h_\alpha) \in \mathfrak{g}_\alpha \times \mathfrak{g}_{-\alpha} \times \mathfrak{h}$ について，
+\begin{align}
+	\mathfrak{s}_\alpha \coloneqq \Span \bigl\{\, x_\alpha,\, y_\alpha,\, h_\alpha \,\bigr\} \cong \Lsl(2,\, \mathbb{K})
+\end{align}
+とおく．
+
+\begin{myprop}[label=prop:root-decomp-int,breakable]{}
+	\begin{itemize}
+		\item 体 $\mathbb{K}$ 上の有限次元\hyperref[def:semisimple-LieAlg]{半単純Lie代数} $\mathfrak{g}$
+		\item $\mathfrak{g}$ の\hyperref[def:toral-subLieAlg]{極大トーラス} $\mathfrak{h} \subset \mathfrak{g}$
+		\item $\mathfrak{h}$ のルート全体の集合 $\Phi \subset \mathfrak{h}^*$ 
+	\end{itemize}
+	を与える．$\mathfrak{g}$ の\hyperref[eq:root-decomp]{ルート空間分解}を命題\ref{prop:torus-centralize}によって
+	\begin{align}
+		\mathfrak{g} = \mathfrak{h} \oplus \bigoplus_{\alpha \in \Phi} \mathfrak{g}_\alpha
+	\end{align}
+	と書く．このとき，$\forall \alpha,\, \beta \in \Phi$ に対して以下が成り立つ：
+	\begin{enumerate}
+		\item $\dim \mathfrak{g}_\alpha = 1$．
+		特に $\mathfrak{h}_\alpha \coloneqq \comm{\mathfrak{g}_\alpha}{\mathfrak{g}_{-\alpha}}$ とおくと
+		\begin{align}
+			\mathfrak{s}_\alpha = \mathfrak{g}_\alpha \oplus \mathfrak{g}_{-\alpha} \oplus \mathfrak{h}_{\alpha}
+		\end{align}
+		が成り立ち，$\forall x_\alpha \in \mathfrak{g}_{\alpha}$ に対して $\comm{x_\alpha}{y_\alpha} = h_\alpha \in \mathfrak{h}_\alpha$ を充たす $y_\alpha \in \mathfrak{g}_{-\alpha}$ が一意的に存在する．
+		\item $\lambda \alpha \in \Phi \IMP \lambda = +1 \OR \lambda = -1$
+		\item $\beta(h_\alpha) \in \mathbb{Z}$ で，かつ $\beta - \beta(h_\alpha)\alpha \in \Phi$
+		\item $\alpha + \beta \in \Phi \IMP \comm{\mathfrak{g}_\alpha}{\mathfrak{g}_\beta} = \mathfrak{g}_{\alpha+\beta}$
+		\item $\beta \neq \pm \alpha$ ならば，
+		\begin{align}
+			r &\coloneqq \max \bigl\{\, \lambda \in \mathbb{Z} \bigm| \beta - \lambda \alpha \in \Phi \,\bigr\}, \\
+			q &\coloneqq \max \bigl\{\, \lambda \in \mathbb{Z} \bigm| \beta + \lambda \alpha \in \Phi \,\bigr\}
+		\end{align}
+		とおいたとき $-r \le \forall \lambda \le q$ に対して
+		\begin{align}
+			\beta + \lambda\alpha \in \Phi \AND \beta(h_\alpha) = r-q \in \mathbb{Z}
+		\end{align}
+		が成り立つ．
+		% \item Lie代数としての同型
+		% \begin{align}
+		% 	\mathfrak{g} \cong \mathbb{K}^{\oplus \mathfrak{g}_\alpha}
+		% \end{align}
+		% が成り立つ．
+	\end{enumerate}
+	
+\end{myprop}
+
+\begin{marker}
+	(3) の $\beta(h_\alpha) \in \mathbb{Z}$ は\textbf{Cartan数} (Cartan integer) と呼ばれる．(5) で得られた系列 $\{\beta + \lambda\alpha \in \Phi\}_{-r \le \lambda \le q}$ のことを\textbf{$\bm{\alpha}$-string through $\bm{\beta}$}と呼ぶ．
+\end{marker}
+
+
+\begin{proof}
+	$\forall \alpha \in \Phi$ を1つ固定する．
+	$\mathfrak{s}_\alpha$ の随伴表現
+	\begin{align}
+		\ad_{\mathfrak{g}}|_{\mathfrak{s}_\alpha} \colon \mathfrak{s}_\alpha \lto \Lgl (\mathfrak{g}),\; x \lmto \ad_{\mathfrak{g}}(x)
+	\end{align}
+	によって $\mathfrak{g}$ を\hyperref[ax:g-module]{$\mathfrak{s}_\alpha$-加群}と見做す．
+	このとき $h \in \mathfrak{s}_\alpha$ の，\underline{$\mathfrak{g}$ における}ウエイト $\mu$ の\hyperref[def:weight-space]{ウエイト空間}を $V_\mu \subset \mathfrak{g}$ と書く．
+	\hyperref[thm:Weyl]{Weylの定理}から $\mathfrak{s}_\alpha$-加群 $\mathfrak{g}$ は\hyperref[def:irr]{既約}な部分 $\mathfrak{s}_\alpha$-加群の族 $\Familyset[\big]{\mathfrak{w}_i}{i \in I}$ の（$\mathfrak{s}_\alpha$-加群としての）\hyperref[def:gmod-directsum]{直和}
+	\begin{align}
+		\label{eq:prop2.5.4-Weyl}
+		\mathfrak{g} = \bigoplus_{i \in I} \mathfrak{w}_i
+	\end{align}
+	に分解し，それぞれの直和因子 $\mathfrak{w}_i$ の既約な部分 $\mathfrak{s}_\alpha \cong \Lsl(2,\, \mathbb{K})$-加群としての構造は定理\ref{thm:irr-sl2}より定まる．
+	% \begin{itemize}
+	% 	\item ある $m_i \in \mathbb{Z}_{\ge 0}$ が存在して，\underline{$\mathbb{K}$-ベクトル空間としての}直和
+	% 	\begin{align}
+	% 		\mathfrak{w}_i = \bigoplus_{\mu = 0}^{m_i} V_{m_i - 2\mu}
+	% 	\end{align}
+	% 	が成り立つ．
+	% 	\item 
+	% \end{itemize}
+	特に
+	% $\ad_{\mathfrak{g}}(h_\alpha) \in \Lgl(\mathfrak{g})$ の固有ベクトル全体は $\mathfrak{g}$ の基底を成し，
+	系\ref{col:sl2}より 
+	\begin{itemize}
+		\item $\ad_{\mathfrak{g}}(h_\alpha)$ の固有値（i.e. 随伴表現 $\ad_{\mathfrak{g}}|_{\mathfrak{s}_\alpha}$ における $h_\alpha \in \mathfrak{s}_\alpha$ のウエイト）は全て整数
+		\item 偶数ウエイトのウエイト空間の直和として書ける $\mathfrak{w}_i$ の個数は $\dim V_0$ 個
+		\item 奇数ウエイトのウエイト空間の直和として書ける $\mathfrak{w}_i$ の個数は $\dim V_1$ 個
+	\end{itemize}
+	が成り立つ．
+	% 命題\ref{prop:root-decomp-ortho}-(6) で構成した同型写像 $f \colon \Lsl(2,\, \mathbb{K}) \xrightarrow{\cong} \mathfrak{s}_\alpha$ を用いて $\ad_{\mathfrak{g}}|_{\mathfrak{s}_\alpha} \circ f$ を考えることでこれは $\Lsl(2,\, \mathbb{K})$-加群と見做せるので，
+
+	\begin{description}
+		\item[(1), (2)]　
+		
+		$\mathfrak{g}$ の\underline{部分ベクトル空間}
+		\begin{align}
+			\label{eq:prop2.5.4-1}
+			\mathfrak{m} \coloneqq \mathfrak{h} \oplus \bigoplus_{\lambda \in \mathbb{K}^*} \mathfrak{g}_{\lambda\alpha} \subset \mathfrak{g}
+		\end{align}
+		を考える\footnote{$\mathbb{K}^*$ の元は $\mathbb{K} \lto \mathbb{K}$ なる $\mathbb{K}$-線型写像ということなので，要するにスカラー倍である．}．
+		命題\ref{prop:root-decomp-basic1}-(1) より $\forall \lambda \in \mathbb{K}^*$ に対して
+		\begin{align}
+			x_\alpha \btr \mathfrak{g}_{\lambda\alpha} &= \ad_{\mathfrak{g}}(x_\alpha) (\mathfrak{g}_{\lambda\alpha}) = \comm{x_\alpha}{\mathfrak{g}_{\lambda\alpha}} \subset \mathfrak{g}_{(\lambda+1)\alpha}, \\
+			y_\alpha \btr \mathfrak{g}_{\lambda\alpha} &= \ad_{\mathfrak{g}}(y_\alpha) (\mathfrak{g}_{\lambda\alpha}) = \comm{y_\alpha}{\mathfrak{g}_{\lambda\alpha}} \subset \mathfrak{g}_{(\lambda-1)\alpha}, \\
+			h_\alpha \btr \mathfrak{g}_{\lambda\alpha} &= \ad_{\mathfrak{g}}(h_\alpha) (\mathfrak{g}_{\lambda\alpha}) = \comm{h_\alpha}{\mathfrak{g}_{\lambda\alpha}} \subset \mathfrak{g}_{\lambda\alpha}
+		\end{align}
+		が成り立つので，$\mathfrak{m}$ は $\mathfrak{g}$ の\hyperref[def:sub-g-module]{部分 $\mathfrak{s}_\alpha$-加群}である．
+		また，\hyperref[def:ga]{$\mathfrak{g}_\alpha$ の定義}および命題\ref{prop:root-decomp-ortho}-(5), (7) から，$\lambda\alpha \in \Phi$ を充たす任意の $\lambda \in \mathbb{K}^*$ に対して
+		\begin{align}
+			\forall x \in \mathfrak{g}_{\lambda \alpha},\; h_\alpha \btr x = \ad_{\mathfrak{g}}(h_\alpha)(x) = \lambda \alpha(h_\alpha) x = 2\lambda x
+		\end{align}
+		が成り立つ．i.e. $\mathfrak{g}_{\lambda\alpha} = V_{2\lambda} \cap \mathfrak{m}$ である．
+		さらに補題\ref{lem:torus}より $h_\alpha \btr \mathfrak{h} = \ad_{\mathfrak{g}}(h_\alpha)(\mathfrak{h}) = \comm{h_\alpha}{\mathfrak{h}} = 0$ 
+		% \hyperref[def:ga]{$\mathfrak{g}_\alpha$ の定義}および命題\ref{prop:root-decomp-ortho}-(5), (7) から $\mathfrak{g}_{\lambda\alpha} \neq 0$ を充たす任意の $\lambda \in \mathbb{K}^* \setminus \{0\}$ および $\forall x \in \mathfrak{g}_{\lambda\alpha}$ に対して $h_\alpha \btr x = \ad_{\mathfrak{g}}(h_\alpha)(x) = \lambda \alpha(h_\alpha) x = 2\lambda x$ が
+		が言えるので，$\mathfrak{h} = \mathfrak{g}_0 = V_0 \cap \mathfrak{m}$ である．
+		% 言えるので，$\mathfrak{g}_{\lambda\alpha} \neq 0 \IMP \lambda \in \frac{1}{2} \mathbb{Z}$ が分かった．
+
+		　ここで $\dim (\Ker \alpha) = \dim \mathfrak{h} - 1$ であり\footnote{$\alpha \neq 0$ なので $\dim (\Im \alpha) = 1$ である．よって\hyperref[col:rank-nullity]{階数・退化次元の定理}から $\dim (\Ker \alpha) = \dim \mathfrak{h} - 1$．}，$\forall h \in \Ker \alpha$ に対して
+		\begin{align}
+			x_\alpha \btr h &= -\ad_{\mathfrak{g}}(h)(x_\alpha) = \alpha(h)x_\alpha = 0, \\
+			y_\alpha \btr h &= -\ad_{\mathfrak{g}}(h)(y_\alpha) = -\alpha(h)x_\alpha = 0, \\
+			h_\alpha \btr h &= -\ad_{\mathfrak{g}}(h)(h_\alpha) = 0
+		\end{align}
+		が成り立つ．i.e. $\mathfrak{s}_\alpha$ は $\Ker \alpha$ に自明に作用するので，$\Ker \alpha$ は $\dim \mathfrak{h} - 1$ 個の自明な（従ってウエイト $0$ の）既約 $\mathfrak{s}_\alpha$-部分加群の直和である．
+		一方，$\mathfrak{s}_\alpha \subset \mathfrak{g}$ 自身もまた $\mathfrak{g}$ の既約な部分 $\mathfrak{s}_\alpha$-加群であり，命題\ref{prop:root-decomp-ortho}-(6) より
+		\begin{align}
+			h_\alpha \btr x_\alpha &= \ad_{\mathfrak{g}}(h_\alpha)(x_\alpha) = \comm{h_\alpha}{x_\alpha} = 2x_\alpha, \\
+			h_\alpha \btr y_\alpha &= \ad_{\mathfrak{g}}(h_\alpha)(x_\alpha) = \comm{h_\alpha}{x_\alpha} = -2y_\alpha, \\
+			h_\alpha \btr h_\alpha &= \ad_{\mathfrak{g}}(h_\alpha)(h_\alpha) = 0
+		\end{align}
+		が成り立つのでウエイト $0,\, \pm 2$ を持つ．i.e. $\mathfrak{g}_{\pm \alpha} \subset \mathfrak{s}_\alpha$ である．従って $\Ker \alpha \oplus \mathfrak{s}_\alpha$ は\footnote{$\mathfrak{h} = \Ker \alpha \oplus \mathbb{K}h_\alpha$ なので $\Ker \alpha \cap \mathfrak{s}_\alpha = 0$ である．} 
+		$(\dim \mathfrak{h} - 1) + 1 = \dim \mathfrak{h}$ 個の，偶数ウエイトを持つ既約な部分 $\mathfrak{s}_\alpha$-加群の直和に分解するが，系\ref{col:sl2}よりこのような既約部分 $\mathfrak{s}_\alpha$-加群の $\mathfrak{m}$ 内における総数は $\dim (V_0 \cap \mathfrak{m}) = \dim \mathfrak{h}$ 個なので，
+		結局 $\mathfrak{m}$ 内の $h_\alpha$ の偶数ウエイトは $0,\, \pm 2$ 以外に出現しないことが分かった．
+		従って $2\alpha,\, \frac{1}{2}\alpha \notin \Phi$ である\footnote{議論の冒頭で $\alpha \in \Phi$ は任意にとっていたので，もし $2\alpha \in \Phi$ ならば，$\beta \coloneqq 2\alpha \in \Phi$ とおいたときに $2\beta = 4\alpha \in \Phi$ という事になり矛盾．$\alpha = 2 (\frac{1}{2}\alpha) \in \Phi$ なので $\frac{1}{2}\alpha \notin \Phi$ も言えた．}．
+		このことから $V_1 \cap \mathfrak{m} = 0$ がわかり，系\ref{col:sl2}から $\mathfrak{m}$ 内に奇数ウエイトが出現しないこともわかった．
+		以上の考察より
+		\begin{align}
+			\mathfrak{m} = \Ker \alpha \oplus \mathfrak{s}_\alpha
+		\end{align}
+		なので $\mathbb{K}h_\alpha \subset \mathfrak{s}_\alpha$ であり，$\dim \mathfrak{s}_\alpha = 3$ であることから $\dim \mathfrak{g}_{\alpha} = 1$ が言えた．特に命題\ref{prop:root-decomp-ortho}-(4) より $\mathbb{K}h_\alpha = \comm{\mathfrak{g}_{\alpha}}{\mathfrak{g}_{-\alpha}} \eqqcolon \mathfrak{h}_\alpha$ であり，
+		\begin{align}
+			\mathfrak{s}_\alpha = \mathfrak{g}_{\alpha} \oplus \mathfrak{g}_{-\alpha} \oplus \mathfrak{h}_{\alpha}
+		\end{align}
+		も言えた．
+		\item[(3), (4), (5)]　
+		
+		$\beta = \pm \alpha$ のとき，$\alpha(h_\alpha) = 2$ なので (3) が成り立つ．
+		よって以下では $\forall \beta \in \Phi \setminus \{\pm \alpha\}$ を1つとる．
+		$\mathfrak{g}$ の\underline{部分ベクトル空間}
+		\begin{align}
+			\mathfrak{k} \coloneqq \bigoplus_{\lambda \in \mathbb{Z}} \mathfrak{g}_{\beta + \lambda \alpha}
+		\end{align}
+		を考える．命題\ref{prop:root-decomp-basic1}-(1) より $\forall \lambda \in \mathbb{Z}$ に対して
+		\begin{align}
+			x_\alpha \btr \mathfrak{g}_{\beta + \lambda\alpha} &= \comm{x_\alpha}{\mathfrak{g}_{\beta + \lambda\alpha}} \subset \mathfrak{g}_{\beta + (\lambda+1)\alpha}, \\
+			y_\alpha \btr \mathfrak{g}_{\beta + \lambda\alpha} &= \comm{y_\alpha}{\mathfrak{g}_{\beta + \lambda\alpha}} \subset \mathfrak{g}_{\beta + (\lambda-1)\alpha}, \\
+			h_\alpha \btr \mathfrak{g}_{\beta + \lambda\alpha} &= \comm{h_\alpha}{\mathfrak{g}_{\beta + \lambda\alpha}} \subset \mathfrak{g}_{\beta + \lambda\alpha}
+		\end{align}
+		が成り立つので，$\mathfrak{k}$ は $\mathfrak{g}$ の\hyperref[def:sub-g-module]{部分 $\mathfrak{s}_\alpha$-加群}である．
+		(1) において $\alpha$ は任意だったので $\forall \lambda \in \mathbb{Z}$ に対して $\dim \mathfrak{g}_{\beta + \lambda \alpha} = 1$ である．
+		\hyperref[def:ga]{$\mathfrak{g}_\alpha$ の定義}および命題\ref{prop:root-decomp-ortho}-(5), (7) から，$\beta + \lambda\alpha \in \Phi$ を充たす任意の $\lambda \in \mathbb{Z}$ に対して
+		% さらに $\beta + \lambda\alpha \neq 0$ なので，
+		\begin{align}
+			\forall x \in \mathfrak{g}_{\beta + \lambda\alpha},\; h_\alpha \btr x = \bigl(\beta(h_\alpha) + 2\lambda\bigr)x
+		\end{align}
+		が成り立つ．i.e. $\mathfrak{g}_{\beta + \lambda\alpha} = V_{\beta(h_\alpha) + 2\lambda} \cap \mathfrak{k}$ である．特に $\beta(h_\alpha) + 2\lambda \in \mathbb{Z}$ なので $\beta(h_\alpha) \in \mathbb{Z}$ でなくてはならない（\textbf{(3) の前半}）．
+		% (2) より $-\beta = \beta - \beta(h_\alpha)\alpha \in \Phi$
+		
+		　$\alpha,\, \beta$ を固定したとき，$\beta(h_\alpha) \in \mathbb{Z}$ だと分かったので $\beta(h_\alpha) \equiv 0,\, 1 \mod 2$ のどちらかである．
+		$\beta(h_\alpha) \equiv 0 \mod 2$ ならば
+		\begin{align}
+			V_0 \cap \mathfrak{k} = \mathfrak{g}_{\beta - \frac{\beta(h_\alpha)}{2}\alpha},\quad V_1 \cap \mathfrak{k}= 0
+		\end{align}
+		$\beta(h_\alpha) \equiv 1 \mod 2$ ならば
+		\begin{align}
+			V_0 \cap \mathfrak{k} = 0,\quad  V_1 \cap \mathfrak{k}= \mathfrak{g}_{\beta - \frac{\beta(h_\alpha) - 1}{2}\alpha}
+		\end{align}
+		なので，いずれの場合も $\dim (V_0 \cap \mathfrak{k}) + \dim (V_1 \cap \mathfrak{k}) = 1$ であり，系\ref{col:sl2}より $\mathfrak{k}$ は\hyperref[def:irr]{既約}な $\mathfrak{s}_\alpha \cong \Lsl(2,\, \mathbb{K})$-加群であることが分かった．
+		従って $\mathfrak{k}$ の\hyperref[eq:maximal-weight]{最高（resp. 最低）ウエイト} $m$（resp. $l$）が存在し，
+		\begin{align}
+			\beta(h_\alpha) + 2q &\coloneqq m, \\
+			\beta(h_\alpha) - 2r &\coloneqq l
+		\end{align}
+		とおけば
+		\begin{align}
+			q &= \max \bigl\{\, \lambda \in \mathbb{Z} \bigm| \beta + \lambda\alpha \in \Phi \,\bigr\}, \\
+			r &= \max \bigl\{\, \lambda \in \mathbb{Z} \bigm| \beta - \lambda\alpha \in \Phi \,\bigr\} 
+		\end{align}
+		が成り立ち，さらに定理\ref{thm:irr-sl2}-(1) より $-r \le \forall \lambda \le q$ に対して $\beta(h_\alpha) + 2\lambda = (\beta + \lambda\alpha)(h_\alpha)$ は $\mathfrak{k}$ のウエイトなので
+		\begin{align}
+			\beta + \lambda\alpha \in \Phi
+		\end{align}
+		である．特に $l = -m$ なので
+		\begin{align}
+			\beta(h_\alpha) = r-q \in \mathbb{Z}
+		\end{align}
+		が言えた（\textbf{(5)}）．さらに $q,\, r \ge 0$ なので $-r \le q-r \le q$ が成り立ち，
+		\begin{align}
+			\beta - \beta(h_\alpha)\alpha = \beta + (q-r)\alpha \in \Phi
+		\end{align}
+		が分かった（\textbf{(3)の後半}）．
+
+		　(2) および $0 \notin \Phi$ であることから $\alpha + \beta \in \Phi$ ならば $\beta \neq \pm \alpha$ である．よって補題\ref{lem:sl2-2}より $x_\alpha \btr \mathfrak{g}_\beta = \comm{x_\alpha}{\mathfrak{g}_\beta} \neq 0$ である．(1) より $\dim \mathfrak{g}_{\alpha+\beta} = 1$ なので，命題\ref{prop:root-decomp-basic1}-(1) から $\comm{\mathfrak{g}_\alpha}{\mathfrak{g}_\beta} = \mathfrak{g}_{\alpha+\beta}$ が言えた（\textbf{(4)}）．
+
+		% \item[(6)]　
+		
+
+		\end{description}
+\end{proof}
+
 \subsection{有理性}
+
+\begin{itemize}
+	\item 体 $\mathbb{K}$ 上の有限次元\hyperref[def:semisimple-LieAlg]{半単純Lie代数} $\mathfrak{g}$
+	\item $\mathfrak{g}$ の\hyperref[def:toral-subLieAlg]{極大トーラス} $\mathfrak{h} \subset \mathfrak{g}$
+	\item $\mathfrak{h}$ のルート全体の集合 $\Phi \subset \mathfrak{h}^*$ 
+\end{itemize}
+を与える．$\mathfrak{g}$ の\hyperref[eq:root-decomp]{ルート空間分解}を命題\ref{prop:torus-centralize}によって
+\begin{align}
+	\mathfrak{g} = \mathfrak{h} \oplus \bigoplus_{\alpha \in \Phi} \mathfrak{g}_\alpha
+\end{align}
+と書く．系\ref{col:torus-centralizer}から得られる同型\eqref{eq:isom-h}によって，$\mathfrak{h}^*$ 上に\hyperref[def:radical-bilinear]{非退化}かつ対称な双線型形式
+\begin{align}
+	(\; ,\, ) \colon \mathfrak{h}^* \times \mathfrak{h}^* \lto \mathbb{K},\; (\alpha,\, \beta) \lmto \kappa\bigl(\tilde{\kappa}^{-1}(\alpha),\, \tilde{\kappa}^{-1}(\beta)\bigr) = \kappa(t_\alpha,\, t_\beta)
+\end{align}
+を定義する．
+
+命題\ref{prop:root-decomp-ortho}-(1) より，$\dim \mathfrak{h}$ 個のルート $\alpha_1,\, \dots,\, \alpha_{\dim \mathfrak{h}} \in \Phi$ であって $\mathfrak{h}$ の \underline{$\mathbb{K}$-ベクトル空間として}の基底となるようなものが存在する．
+
+\begin{mylem}[label=lem:root-Q]{}
+	$\forall \beta \in \mathfrak{h}^*$ を基底 $\alpha_1,\, \dots,\, \alpha_{\dim \mathfrak{h}} \in \Phi$ で
+	\begin{align}
+		\beta = c^\mu \alpha_\mu
+	\end{align}
+	と展開すると，$1 \le \forall \mu \le \dim \mathfrak{h}$ に対して $c^\mu \in \mathbb{Q}$ が成り立つ．
+\end{mylem}
+
+\begin{proof}
+	$1 \le \forall \mu \le \dim \mathfrak{h}$ に対して
+	\begin{align}
+		\label{eq:LE}
+		\frac{2(\alpha_\mu,\, \beta) }{(\alpha_\mu,\, \alpha_\mu)}
+		&= \sum_{\nu = 1}^{\dim \mathfrak{h}} c^\nu \frac{2(\alpha_\mu,\, \alpha_\nu)}{(\alpha_\mu,\, \alpha_\mu)}
+	\end{align}
+	命題\ref{prop:root-decomp-ortho}-(7), 命題\ref{prop:root-decomp-int}-(3) より $\frac{2(\alpha_\mu,\, \beta) }{(\alpha_\mu,\, \alpha_\mu)} = \frac{2}{\kappa(t_{\alpha_\mu},\, t_{\alpha_\mu})}\beta(t_{\alpha_\mu}) = \beta(h_{a_\mu}) \in \mathbb{Z}$ などが成り立つので，
+	\eqref{eq:LE}は $(c^\nu) \in \mathbb{K}^{\dim \mathfrak{h}}$ に関する $\mathbb{Z}$-係数線型連立方程式である．特に $\alpha_\mu$ は線型独立なので $\det \bigl[ (\alpha_\mu,\, \alpha_\nu) \bigr] \neq 0$ であり，
+	\begin{align}
+		\det \left[ \frac{2(\alpha_\mu,\, \alpha_\nu)}{(\alpha_\mu,\, \alpha_\mu)} \right] = \left( \prod_{\nu = 1}^{\dim \mathfrak{h}} \frac{2}{(\alpha_\mu,\, \alpha_\mu)}\right)  \det \bigl[ (\alpha_\mu,\, \alpha_\nu) \bigr] \neq 0
+	\end{align}
+	i.e. \eqref{eq:LE} は $\mathbb{Q}^{\dim \mathfrak{h}}$ に一意的な解を持つ．
+\end{proof}
+
+補題\ref{lem:root-Q}により，$\Span_{\mathbb{Q}} \Phi \subset \mathfrak{h}^*$ の次元が $\dim_{\mathbb{K}} \mathfrak{h}^*$ だと分かった．
+
+$\forall \alpha,\, \beta \in \mathfrak{h}^*$ をとる．
+このとき\hyperref[def:ga]{$\mathfrak{g}_\alpha$ の定義}を思い出すと，$\forall x \in \mathfrak{g}$ をルート空間分解することで $x = x_0 + \sum_{\gamma \in \Phi} x_\gamma \WHERE x_0 \in \mathfrak{h},\; x_\gamma \in \mathfrak{g}_\gamma$ と書けるので
+\begin{align}
+	\ad_{\mathfrak{g}}(t_\alpha) \circ \ad_{\mathfrak{g}}(t_\beta)(x)
+	&= \sum_{\gamma \in \Phi} \ad_{\mathfrak{g}}(t_\alpha)\circ \ad_{\mathfrak{g}}(t_\beta)(x_\gamma) \\
+	&= \sum_{\gamma \in \Phi} \gamma(t_\alpha)\gamma(t_\beta)\, \mathrm{id}_{\mathfrak{g}}|_{\mathfrak{g}_{\gamma}}(x_\gamma)
+\end{align}
+となる．さらに命題\ref{prop:root-decomp-int}-(1) より $\dim \mathfrak{g}_\gamma = 1$ なので $\Tr( \mathrm{id}_{\mathfrak{g}}|_{\mathfrak{g}_{\gamma}}) = 1$ であり，
+\begin{align}
+	\kappa(t_\alpha,\, t_\beta)
+	&= \Tr \bigl( \ad_{\mathfrak{g}}(t_\alpha) \circ \ad_{\mathfrak{g}}(t_\beta)(x) \bigr) \\
+	&= \sum_{\gamma \in \Phi} \gamma(t_\alpha)\gamma(t_\beta)
+\end{align}
+が分かった．従って
+\begin{align}
+	(\alpha,\, \beta) 
+	&= \kappa(t_\alpha,\, t_\beta) \\
+	&= \sum_{\gamma \in \Phi} \gamma(t_\alpha) \gamma(t_\beta) \\
+	&= \sum_{\gamma \in \Phi} (\gamma,\, \alpha)(\gamma,\, \beta)
+\end{align}
+が成り立つ．特に
+\begin{align}
+	(\beta,\, \beta) 
+	&= \sum_{\gamma \in \Phi} (\gamma,\, \beta)^2 \\
+	&= (\beta,\, \beta)^2 \left(\sum_{\gamma \in \Phi} \frac{1}{4} \left( \frac{2(\gamma,\, \beta)}{(\beta,\, \beta)} \right)^2\right) \ge 0
+\end{align}
+で $\frac{2(\gamma,\, \beta)}{(\beta,\, \beta)} \in \mathbb{Z}$ であるから $(\beta,\, \beta) \in \mathbb{Q}$ であり，従って $(\alpha,\, \beta) \in \mathbb{Q}$ であることもわかった．
+このことから，
+\begin{align}
+	\mathbb{E}_{\mathbb{Q}} \coloneqq \Span_{\mathbb{Q}} \Phi
+\end{align}
+とおけば，制限
+\begin{align}
+	(\;,\, )|_{\mathbb{E}_{\mathbb{Q}} \times \mathbb{E}_{\mathbb{Q}}} \colon \mathbb{E}_{\mathbb{Q}} \times \mathbb{E}_{\mathbb{Q}} \lto \mathbb{Q}
+\end{align}
+は \underline{$\mathbb{Q}$-ベクトル空間} $\mathbb{E}_{\mathbb{Q}}$ 上の\underline{正定値内積}を定める．
+
+\hyperref[def:field-extention]{体の拡大} $\mathbb{R}/\mathbb{Q}$ によってベクトル空間の係数拡大 $\mathbb{E} \coloneqq \mathbb{R} \otimes_{\mathbb{Q}} \mathbb{E}_{\mathbb{Q}}$ を行うことで，$(\;,\, )|_{\mathbb{E}_{\mathbb{Q}}}$ は $\mathbb{E} \cong \mathbb{R}^{\dim \mathfrak{h}}$ 上の正定値内積へと自然に拡張される．i.e. 組 $\bigl(\mathbb{E},\, (\;,\, )\bigr)$ はEuclid空間である！
+
+本章の考察をまとめて次の定理を得る：
+
+\begin{mytheo}[label=thm:root-decomp-Q,breakable]{}
+	\begin{itemize}
+		\item 体 $\mathbb{K}$ 上の有限次元\hyperref[def:semisimple-LieAlg]{半単純Lie代数} $\mathfrak{g}$
+		\item $\mathfrak{g}$ の\hyperref[def:toral-subLieAlg]{極大トーラス} $\mathfrak{h} \subset \mathfrak{g}$
+		\item $\mathfrak{h}$ のルート全体の集合 $\Phi \subset \mathfrak{h}^*$ 
+		\item \hyperref[def:field-extention]{体の拡大} $\mathbb{R}/\mathbb{Q}$ による $\Span_{\mathbb{Q}}\Phi$ の係数拡大 $\mathbb{E}$
+		\item $\mathbb{E}$-上の正定値内積
+		\begin{align}
+			(\; ,\, ) \colon \mathbb{E} \times \mathbb{E} \lto \mathbb{R},\; (\alpha,\, \beta) \lmto \kappa(t_\alpha,\, t_\beta)
+		\end{align}
+	\end{itemize}
+	を与える．このとき以下が成り立つ：
+	\begin{enumerate}
+		\item $\mathbb{E} = \Span_{\mathbb{R}}\Phi,\quad 0 \notin \Phi$
+		\item $\lambda \alpha \in \Phi \IMP \lambda = \pm 1$
+		\item $\alpha,\, \beta \in \Phi \IMP \beta - \frac{2(\beta,\, \alpha)}{(\alpha,\, \alpha)} \alpha \in \Phi$
+		\item $\alpha,\, \beta \in \Phi \IMP \frac{2(\beta,\, \alpha)}{(\alpha,\, \alpha)} \in \mathbb{Z}$
+	\end{enumerate}
+\end{mytheo}
+
+定理\ref{thm:root-decomp-Q}によって，\hyperref[def:semisimple-LieAlg]{半単純Lie代数} $\mathfrak{g}$ とその\hyperref[def:toral-subLieAlg]{極大トーラス} $\mathfrak{h}$ の組 $(\mathfrak{g},\, \mathfrak{h})$ 
+から，Euclid空間とその上の\hyperref[eq:root-decomp1]{ルート} $\Phi$ の組 $(\Phi,\, \mathbb{E})$ の間の対応
+\begin{align}
+	(\mathfrak{g},\, \mathfrak{h}) \lto (\Phi,\, \mathbb{E})
+\end{align}
+が得られた事になる．
+定理\ref{thm:root-decomp-Q}の条件を充たす組 $(\Phi,\, \mathbb{E})$ は\textbf{ルート系} (root system) と呼ばれる：
+
+\begin{myaxiom}[label=ax:root-system,breakable]{ルート系}
+	\begin{itemize}
+		\item 有限次元Euclid空間\footnote{有限次元 $\mathbb{R}$-ベクトル空間であって，対称かつ正定値な双線型形式 $(\;,\, ) \colon \mathbb{E} \times \mathbb{E} \lto \mathbb{R}$ を持つもののこと．} $\bigl(\mathbb{E},\, (\;,\, )\bigr)$ 
+		\item $\mathbb{E}$ の部分集合 $\Phi \subset \mathbb{E}$
+	\end{itemize}
+	の組 $(\Phi,\, \mathbb{E})$ が\textbf{ルート系} (root system) であるとは，以下の条件を充たすことを言う：
+	\begin{description}
+		\item[\textbf{(Root-1)}] $\Phi$ は $0$ を含まない有限集合で，かつ $\mathbb{E} = \Span_{\mathbb{R}} \Phi$ を充たす．
+		\item[\textbf{(Root-2)}] $\lambda \alpha \in \Phi \IMP \lambda = \pm 1$
+		\item[\textbf{(Root-3)}] $\alpha,\, \beta \in \Phi \IMP \beta - \frac{2(\beta,\, \alpha)}{(\alpha,\, \alpha)} \alpha \in \Phi$
+		\item[\textbf{(Root-4)}] $\alpha,\, \beta \in \Phi \IMP \frac{2(\beta,\, \alpha)}{(\alpha,\, \alpha)} \in \mathbb{Z}$
+	\end{description}
+\end{myaxiom}
+
+実は，勝手なルート系が与えられると，それに対応する $(\mathfrak{g},\, \mathfrak{h})$ がLie代数の同型を除いて一意に決まることが後に明らかになる．
+差し当たって，まず次の章ではルート系 $(\Phi,\, \mathbb{E})$ の完全な分類を行う．
 
 \end{document}
