@@ -1079,7 +1079,7 @@ $\phi \colon \mathfrak{g} \lto \Lgl (V)$ が忠実でない場合は次のよう
 
 \subsection{Jordan分解の保存}
 
-この小節でも引き続き $\mathbb{K}$ を標数 $0$ の体とする．
+この小節でも引き続き $\mathbb{K}$ を\underline{標数 $0$ の代数閉体}とする．
 
 部分Lie代数 $\mathfrak{h} \subset \mathfrak{g}$ に関して
 \begin{align}
@@ -1098,11 +1098,11 @@ $\phi \colon \mathfrak{g} \lto \Lgl (V)$ が忠実でない場合は次のよう
 	後半の主張はJordan-Chevalley分解および抽象Jordan分解の一意性より従うので，前半を示せば良い．
 
 	$\forall x \in \mathfrak{g}$ を1つ固定し，$x$ のJordan-Chevalley分解 $x = x_s + x_n$ をとる．
-	$\ad_{\Lgl(\mathfrak{g})}(x) (\mathfrak{g}) \subset \mathfrak{g}$ なので命題\ref{prop:Jordan-Chevalley}-(3) より $\ad_{\Lgl(\mathfrak{g})}(x_s)(\mathfrak{g}) \subset \mathfrak{g},\; \ad_{\Lgl(\mathfrak{g})}(x_n)(\mathfrak{g}) \subset \mathfrak{g}$ が言える．
+	$\ad_{\Lgl(V)}(x) (\mathfrak{g}) = \comm{x}{\mathfrak{g}} \subset \mathfrak{g}$ なので命題\ref{prop:Jordan-Chevalley}-(3) より $\ad_{\Lgl(V)}(x_s)(\mathfrak{g}) \subset \mathfrak{g},\; \ad_{\Lgl(V)}(x_n)(\mathfrak{g}) \subset \mathfrak{g}$ が言える．
 	i.e. \hyperref[def:normalizer-LieAlg]{正規化代数}の言葉を使うと
 	$x_s,\, x_n \in N_{\Lgl(V)} (\mathfrak{g}) \eqqcolon N$ が言える\footnote{補題\ref{lem:Weyl}より $\mathfrak{g} \subset \Lsl(V)$ なので $\mathfrak{g} \subsetneq N$ であることに注意}．
 
-	包含準同型 $\mathfrak{g} \hookrightarrow \Lgl (V)$ によって $V$ を\hyperref[ax:g-module]{$\mathfrak{g}$-加群}と見做し，$V$ の任意の\hyperref[def:sub-g-module]{部分 $\mathfrak{g}$-加群} $W$ をとる．このとき部分 $\mathfrak{g}$-加群 $\mathfrak{g}' \subset \Lgl(V)$ を
+	包含準同型 $\iota\colon \mathfrak{g} \lto \Lgl (V),\; x \lmto x$ によって $V$ を\hyperref[ax:g-module]{$\mathfrak{g}$-加群}と見做し，$V$ の任意の\hyperref[def:sub-g-module]{部分 $\mathfrak{g}$-加群} $W$ をとる．このとき $\Lgl(V)$ の部分Lie代数 $L_W \subset \Lgl(V)$ を
 	\begin{align}
 		L_W \coloneqq \bigl\{\, y \in \Lgl (V) \bigm| y(W) \subset W \AND \Tr (y|_W) = 0 \,\bigr\}
 	\end{align}
@@ -1116,11 +1116,12 @@ $\phi \colon \mathfrak{g} \lto \Lgl (V)$ が忠実でない場合は次のよう
 	とおくと，$\mathfrak{g}'$ は $\mathfrak{g}$ を\hyperref[def:ideal-LieAlg]{イデアル}としてもつ $N$ の部分Lie代数であり，$\forall x \in \mathfrak{g}$ に対して $x_s,\, x_n \in \mathfrak{g}'$ だとわかる．
 	
 	最後に $\mathfrak{g} = \mathfrak{g}'$ が成り立つことを示す．
-	随伴表現 $\ad_{\mathfrak{g}'} \colon \mathfrak{g}' \lto \Lgl (\mathfrak{g}')$ の $\mathfrak{g} \subset \mathfrak{g}'$ への制限 $\ad_{\mathfrak{g}'}|_{\mathfrak{g}} \colon \mathfrak{g} \lto \Lgl(\mathfrak{g}')$ によって $\mathfrak{g}'$ を有限次元 $\mathfrak{g}$-加群と見做す．
-	すると $\mathfrak{g} \subset \mathfrak{g}'$ 自身は $\mathfrak{g}'$ の部分 $\mathfrak{g}$-加群なので，\hyperref[thm:Weyl]{Weylの定理}よりある $\mathfrak{g}'$ の部分 $\mathfrak{g}$-加群 $\mathfrak{h}$ が存在して $\mathfrak{g}' = \mathfrak{g} \oplus \mathfrak{h}$ と書ける（命題\ref{prop:reducible-1}）．
-	ここで $W$ を $V$ の任意の\hyperref[def:irr]{既約}な部分 $\mathfrak{g}$-加群とする．もし $y \in \mathfrak{h}$ ならば，$\comm{\mathfrak{g}}{\mathfrak{g}'} \subset \mathfrak{g}$\footnote{$\mathfrak{g}' \subset N$ だから}であることから $\comm{\mathfrak{g}}{y} = 0$，i.e. $y \colon V \lto V$ は\hyperref[def:g-module-hom]{$\mathfrak{g}$-加群の準同型}である．よって\hyperref[col:Schur-closed]{代数閉体上のSchurの補題}から $y|_W \colon W \lto W$ はスカラー倍である．
+	随伴表現 $\ad_{\mathfrak{g}'} \colon \mathfrak{g}' \lto \Lgl (\mathfrak{g}')$ の $\mathfrak{g} \subset \mathfrak{g}'$ への制限 $\ad_{\mathfrak{g}'}|_{\mathfrak{g}} \colon \mathfrak{g} \lto \Lgl(\mathfrak{g}')$ によって $\mathfrak{g}'$ を有限次元 $\mathfrak{g}$-加群と見做すと $\mathfrak{g} \subset \mathfrak{g}'$ 自身は $\mathfrak{g}'$ の部分 $\mathfrak{g}$-加群なので\footnote{$\forall x \in \mathfrak{g}$ に対して $\ad_{\mathfrak{g}'}|_{\mathfrak{g}}(x)(\mathfrak{g}) = \comm{x}{\mathfrak{g}} \subset \mathfrak{g}$．}，命題\ref{prop:reducible-1}および\hyperref[thm:Weyl]{Weylの定理}よりある $\mathfrak{g}'$ の部分 $\mathfrak{g}$-加群 $\mathfrak{h}$ が存在して $\mathfrak{g}' = \mathfrak{g} \oplus \mathfrak{h}$ と書ける．
+	示すべきは $\mathfrak{h} = 0$ である．
+	ここで $V$ の任意の\hyperref[def:irr]{既約}な部分 $\mathfrak{g}$-加群 $W$ をとる\footnote{ここでは包含準同型 $\iota \colon \mathfrak{g} \lto \Lgl(V)$ によって $V$ を $\mathfrak{g}$ 加群と見做している．}．
+	$\forall y \in \mathfrak{h}$ を1つとると，$\comm{\mathfrak{g}}{\mathfrak{g}'} \subset \mathfrak{g}$\footnote{$\mathfrak{g}' \subset N$ だから}であることから $\comm{\iota(\mathfrak{g})}{y} = \comm{\mathfrak{g}}{y} = 0$，i.e. $y \colon V \lto V$ は\hyperref[def:g-module-hom]{$\mathfrak{g}$-加群の準同型}である．よって\hyperref[col:Schur-closed]{代数閉体上のSchurの補題}から $y|_W \colon W \lto W$ はスカラー倍である．
 	一方で $y \in L_W$ でもあるので $\Tr(y|_W) = 0$ であり，$y|_W = 0$ だと分かった．
-	Weylの定理より $V$ は既約な部分 $\mathfrak{g}$-加群の直和なので $y = 0$ が言えた．i.e. $\mathfrak{h} = 0$ である．
+	Weylの定理より $V$ は既約な部分 $\mathfrak{g}$-加群の直和であり，$W$ は任意だったので $y = 0$ が言えた．i.e. $\mathfrak{h} = 0$ が示された．
 
 \end{proof}
 
@@ -1324,7 +1325,7 @@ $\mathfrak{g} \neq 0$ を体 $\mathbb{K}$-上の\hyperref[def:semisimple-LieAlg]
 	\begin{align}
 		0 = \ad_{\mathfrak{t}} (y) \bigl(\ad_{\mathfrak{t}}(y)(x)\bigr) &= \sum_{\mu=1}^{\dim \mathfrak{t}} (\lambda_\mu)^2 x^\mu v_\mu 
 	\end{align}
-	が成り立つので $\lambda_1 = \cdots = \lambda_{\dim \mathfrak{t}} = 0$，i.e. $\ad_{\mathfrak{t}}(y) = 0$ が分かった．然るにこれは仮定に矛盾し，背理法が完成した．
+	が成り立つ．$v_\mu$ の線型独立性から $(\lambda_\mu)^2 x^\mu = 0$ だが，$x$ は任意だったので $\lambda_1 = \cdots = \lambda_{\dim \mathfrak{t}} = 0$\footnote{体は\hyperref[def:domain-basic]{整域}なので．}，i.e. $\ad_{\mathfrak{t}}(y) = 0$ が分かった．然るにこれは仮定に矛盾し，背理法が完成した．
 \end{proof}
 
 % \begin{mydef}[label=def:maximal-toral-subLieAlg]{極大トーラス}
@@ -1480,7 +1481,7 @@ $\Phi$ の元のことを $\mathfrak{g}$ の\textbf{ルート} (root) と呼び�
 		\item[\textbf{step2: $\bm{\forall x = x_s + x_n \in C}$ に対して $\bm{x_s \in \mathfrak{h}}$}]　
 		
 		$\forall x = x_s + x_n \in C$ をとる．このとき $\forall h \in \mathfrak{h}$ に対して $0 = \ad_{\mathfrak{g}}(0) = \ad_{\mathfrak{g}}(\comm{h}{x}) = \comm{\ad_{\mathfrak{g}}(h)}{\ad_{\mathfrak{g}}(x)} = 0$ が成り立つので $\ad_{\mathfrak{g}}(h),\, \ad_{\mathfrak{g}}(x),\,  \ad_{\mathfrak{g}}(x_s) \in \Lgl(\mathfrak{g})$ は同時対角化可能であり，従って $\ad_{\mathfrak{g}}(h+x_s) = \ad_{\mathfrak{g}}(h) + \ad_{\mathfrak{g}}(x_s) \in \Lgl(\mathfrak{g})$ もまた半単純だとわかる．
-		従って $\mathfrak{h} + \mathbb{K}x_s$ は $\mathfrak{h}$ を含む $\mathfrak{g}$ のトーラスだが，$\mathfrak{h}$ の極大性より $\mathfrak{h} + \mathbb{K} x_s = \mathfrak{h}$，i.e. $x \in \mathfrak{h}$ が言えた．
+		従って $\mathfrak{h} + \mathbb{K}x_s$ は $\mathfrak{h}$ を含む $\mathfrak{g}$ のトーラスだが，$\mathfrak{h}$ の極大性より $\mathfrak{h} + \mathbb{K} x_s = \mathfrak{h}$，i.e. $x_s \in \mathfrak{h}$ が言えた．
 
 		\item[\textbf{step3: $\bm{\kappa}|_{\bm{\mathfrak{h} \times \mathfrak{h}}}$ が非退化}]　
 		
@@ -1718,7 +1719,7 @@ $\dim \mathfrak{h} = \dim \mathfrak{h}^*$ なので，補題\ref{lem:finvec-basi
 		\ad_{\mathfrak{g}}|_{\mathfrak{s}_\alpha} \colon \mathfrak{s}_\alpha \lto \Lgl (\mathfrak{g}),\; x \lmto \ad_{\mathfrak{g}}(x)
 	\end{align}
 	によって $\mathfrak{g}$ を\hyperref[ax:g-module]{$\mathfrak{s}_\alpha$-加群}と見做す．
-	このとき $h \in \mathfrak{s}_\alpha$ の，\underline{$\mathfrak{g}$ における}ウエイト $\mu$ の\hyperref[def:weight-space]{ウエイト空間}を $V_\mu \subset \mathfrak{g}$ と書く．
+	このとき $h_\alpha \in \mathfrak{s}_\alpha$ の，\underline{$\mathfrak{g}$ における}ウエイト $\mu$ の\hyperref[def:weight-space]{ウエイト空間}を $V_\mu \subset \mathfrak{g}$ と書く．
 	\hyperref[thm:Weyl]{Weylの定理}から $\mathfrak{s}_\alpha$-加群 $\mathfrak{g}$ は\hyperref[def:irr]{既約}な部分 $\mathfrak{s}_\alpha$-加群の族 $\Familyset[\big]{\mathfrak{w}_i}{i \in I}$ の（$\mathfrak{s}_\alpha$-加群としての）\hyperref[def:gmod-directsum]{直和}
 	\begin{align}
 		\label{eq:prop2.5.4-Weyl}
@@ -1880,27 +1881,27 @@ $\dim \mathfrak{h} = \dim \mathfrak{h}^*$ なので，補題\ref{lem:finvec-basi
 \end{align}
 を定義する．
 
-命題\ref{prop:root-decomp-ortho}-(1) より，$\dim \mathfrak{h}$ 個のルート $\alpha_1,\, \dots,\, \alpha_{\dim \mathfrak{h}} \in \Phi$ であって $\mathfrak{h}$ の \underline{$\mathbb{K}$-ベクトル空間として}の基底となるようなものが存在する．
+命題\ref{prop:root-decomp-ortho}-(1) より，$\dim \mathfrak{h}$ 個のルート $\alpha^1,\, \dots,\, \alpha^{\dim \mathfrak{h}} \in \Phi$ であって $\mathfrak{h}$ の \underline{$\mathbb{K}$-ベクトル空間として}の基底となるようなものが存在する．
 
 \begin{mylem}[label=lem:root-Q]{}
-	$\forall \beta \in \mathfrak{h}^*$ を基底 $\alpha_1,\, \dots,\, \alpha_{\dim \mathfrak{h}} \in \Phi$ で
+	$\forall \beta \in \mathfrak{h}^*$ を基底 $\alpha^1,\, \dots,\, \alpha^{\dim \mathfrak{h}} \in \Phi$ で
 	\begin{align}
-		\beta = c^\mu \alpha_\mu
+		\beta = c_\mu \alpha^\mu
 	\end{align}
-	と展開すると，$1 \le \forall \mu \le \dim \mathfrak{h}$ に対して $c^\mu \in \mathbb{Q}$ が成り立つ．
+	と展開すると，$1 \le \forall \mu \le \dim \mathfrak{h}$ に対して $c_\mu \in \mathbb{Q}$ が成り立つ．
 \end{mylem}
 
 \begin{proof}
-	$1 \le \forall \mu \le \dim \mathfrak{h}$ に対して
+	この証明ではEinsteinの規約を使わない．$1 \le \forall \mu \le \dim \mathfrak{h}$ に対して
 	\begin{align}
 		\label{eq:LE}
-		\frac{2(\alpha_\mu,\, \beta) }{(\alpha_\mu,\, \alpha_\mu)}
-		&= \sum_{\nu = 1}^{\dim \mathfrak{h}} c^\nu \frac{2(\alpha_\mu,\, \alpha_\nu)}{(\alpha_\mu,\, \alpha_\mu)}
+		\frac{2(\alpha^\mu,\, \beta) }{(\alpha^\mu,\, \alpha^\mu)}
+		&= \sum_{\nu = 1}^{\dim \mathfrak{h}} c_\nu \frac{2(\alpha^\mu,\, \alpha^\nu)}{(\alpha^\mu,\, \alpha^\mu)}
 	\end{align}
-	命題\ref{prop:root-decomp-ortho}-(7), 命題\ref{prop:root-decomp-int}-(3) より $\frac{2(\alpha_\mu,\, \beta) }{(\alpha_\mu,\, \alpha_\mu)} = \frac{2}{\kappa(t_{\alpha_\mu},\, t_{\alpha_\mu})}\beta(t_{\alpha_\mu}) = \beta(h_{a_\mu}) \in \mathbb{Z}$ などが成り立つので，
-	\eqref{eq:LE}は $(c^\nu) \in \mathbb{K}^{\dim \mathfrak{h}}$ に関する $\mathbb{Z}$-係数線型連立方程式である．特に $\alpha_\mu$ は線型独立なので $\det \bigl[ (\alpha_\mu,\, \alpha_\nu) \bigr]_{1 \le \mu,\, \nu \le \dim \mathfrak{h}} \neq 0$ であり，
+	命題\ref{prop:root-decomp-ortho}-(7), 命題\ref{prop:root-decomp-int}-(3) より $\frac{2(\alpha^\mu,\, \beta) }{(\alpha^\mu,\, \alpha^\mu)} = \frac{2}{\kappa(t_{\alpha^\mu},\, t_{\alpha^\mu})}\beta(t_{\alpha^\mu}) = \beta(h_{\alpha^\mu}) \in \mathbb{Z}$ などが成り立つので，
+	\eqref{eq:LE}は $(c_\nu) \in \mathbb{K}^{\dim \mathfrak{h}}$ に関する $\mathbb{Z}$-係数線型連立方程式である．特に $\alpha^\mu$ は線型独立なので $\det \bigl[ (\alpha^\mu,\, \alpha^\nu) \bigr]_{1 \le \mu,\, \nu \le \dim \mathfrak{h}} \neq 0$ であり，
 	\begin{align}
-		\det \left[ \frac{2(\alpha_\mu,\, \alpha_\nu)}{(\alpha_\mu,\, \alpha_\mu)} \right]_{1 \le \mu,\, \nu \le \dim \mathfrak{h}} = \left( \prod_{\nu = 1}^{\dim \mathfrak{h}} \frac{2}{(\alpha_\mu,\, \alpha_\mu)}\right)  \det \bigl[ (\alpha_\mu,\, \alpha_\nu) \bigr] \neq 0
+		\det \left[ \frac{2(\alpha^\mu,\, \alpha^\nu)}{(\alpha^\mu,\, \alpha^\mu)} \right]_{1 \le \mu,\, \nu \le \dim \mathfrak{h}} = \left( \prod_{\nu = 1}^{\dim \mathfrak{h}} \frac{2}{(\alpha^\mu,\, \alpha^\mu)}\right)  \det \bigl[ (\alpha^\mu,\, \alpha^\nu) \bigr]_{1 \le \mu,\, \nu \le \dim \mathfrak{h}} \neq 0
 	\end{align}
 	i.e. \eqref{eq:LE} は $\mathbb{Q}^{\dim \mathfrak{h}}$ に一意的な解を持つ．
 \end{proof}
