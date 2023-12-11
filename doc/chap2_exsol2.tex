@@ -265,7 +265,7 @@ title=系~\thetcbcounter: #2,#1}
 
 \setcounter{section}{1}
 
-\cite[p.30, Exercise1]{Humphreys1972introduction}
+\cite[p.34, Exercise1, 2; p.40, Exercise1, 2, 10]{Humphreys1972introduction}
 % と\cite[p.14, Exercise 2]{Humphreys1972introduction}
 の解答例です．
 
@@ -274,7 +274,6 @@ title=系~\thetcbcounter: #2,#1}
 
 \section{$\Lsl(2)$ の表現論}
 
-$\Lsl(2,\, \mathbb{K})$ の $m+1$ 次元既約表現を $V(m)$ と書く．
 $\Lsl(2,\, \mathbb{K})$ の基底として
 \begin{align}
     x &\coloneqq \mqty[0 & 1 \\ 0&0], & y &\coloneqq \mqty[0&0 \\ 1 &0], & h &\coloneqq \mqty[1 & 0 \\ 0 & -1]
@@ -286,18 +285,80 @@ $\Lsl(2,\, \mathbb{K})$ の基底として
 \end{align}
 と計算できる．
 
+$\Lsl(2,\, \mathbb{K})$ の任意の有限次元表現 $\phi \colon \Lsl(2,\, \mathbb{K}) \lto \Lgl(V)$ 
+（同じことだが，有限次元 $\Lsl(2,\, \mathbb{K})$-加群 $V$\footnote{$\Lsl(2,\, \mathbb{K})$ の $V$ への左作用を $\btr \colon \Lsl(2,\, \mathbb{K}) \times V \lto V,\; (x,\, v) \lmto x \btr v \coloneqq \phi(x)(v)$ と書く．}）において，
+\begin{itemize}
+    \item $\mathbb{K}$-ベクトル空間 $V$ のことを\textbf{表現空間}
+    \item 表現空間 $V$ の部分 $\mathbb{K}$-ベクトル空間 
+    \begin{align}
+        \bm{V_\lambda} \coloneqq \bigl\{\, v \in V \bigm| \phi(h)(v)\; (= h \btr v) = \lambda v \,\bigr\} 
+    \end{align}
+    が $0$ でないとき，\textbf{ウエイト $\bm{\lambda}$ のウエイト空間}
+    \item ウエイト $\lambda$ のウエイト空間 $V_\lambda$ の非零な元 $v \in V_\lambda \setminus \{0\}$ であって，
+    \begin{align}
+        \phi(x)(v) \; (= x \btr v) = 0 \in V_{\lambda+2}
+    \end{align}
+    を充たすもののことを\textbf{ウエイト $\bm{\lambda}$ の極大ベクトル}
+\end{itemize}
+と呼ぶのだった．以下の補題は\underline{任意の}\footnote{既約表現でなくとも良い} $\Lsl(2,\, \mathbb{K})$ の有限次元に対して成り立つ：
+
+\begin{mylem}[label=lem:sl2-1]{}
+	$v \in V_\lambda \IMP x \btr v \in V_{\lambda +2},\; y \btr v \in V_{\lambda - 2}$
+\end{mylem}
+
+特に，$\Lsl(2,\, \mathbb{K})$ の $m+1$ 次元\underline{既約}表現は構造が完全に分かっている：
+
+\begin{mylem}[label=lem:sl2-2]{}
+    \underline{既約} $\Lsl(2,\, \mathbb{K})$ 加群 $V$ において
+    ウエイト $\lambda$ の極大ベクトル $v_0 \in V_\lambda$ をとり\footnote{極大ベクトルの存在証明が第1問である．}，
+    \begin{align}
+        v_i \coloneqq 
+        \begin{cases}
+            0, & i = -1 \\
+            & \\
+            \displaystyle \frac{1}{i!} y^i \btr v_0, & i \ge 0 \\
+        \end{cases}
+    \end{align}
+    とおく．このとき以下が成り立つ：
+	\begin{enumerate}
+		\item $h \btr v_i = (\lambda - 2i) v_i$
+		\item $y \btr v_i = (i+1) v_{i+1}$
+		\item $x \btr v_i = (\lambda - i+1) v_{i-1}\WHERE i \ge 0$
+	\end{enumerate}
+\end{mylem}
+
+\begin{mytheo}[label=thm:irr-sl2,breakable]{}
+	$V$ を\underline{既約} $\Lsl(2,\, \mathbb{K})$ 加群とする．
+	\begin{enumerate}
+		\item $m \coloneqq \dim V - 1$ とおくと \underline{$\mathbb{K}$-ベクトル空間として}
+		\begin{align}
+			V = \bigoplus_{\mu = 0}^m V_{m-2\mu}\quad \WHERE 0 \le \forall \mu \le m,\; \dim V_{m - 2\mu} = 1
+		\end{align}
+		が成り立つ．
+		\item $V$ の極大ベクトルは零でないスカラー倍を除いて一意に決まり，そのウエイトは $m$ である．
+		\item $\Lsl(2,\, \mathbb{K})$ の $V$ への左作用は補題\ref{lem:sl2-2}によって完全に決まる．
+	\end{enumerate}
+\end{mytheo}
+
+定理\ref{thm:irr-sl2}を鑑みて，$\Lsl(2,\, \mathbb{K})$ の $m+1$ 次元既約表現を常に $\bm{V(m)}$ と書くことにする．これはLie代数の準同型と $\mathbb{K}$-ベクトル空間の組
+\begin{align}
+    \Bigl(\, \bm{\phi_m} \colon \Lsl(2,\, \mathbb{K}) \lto \Lgl \bigl( \bm{V(m)} \bigr),\, \bm{V(m)}\, \Bigr)
+\end{align}
+の略記である．
+
 \begin{myproblem}[label=ex:2-7-1]{p.34 の Exercise 1}
     % \setcounter{\tcbcounter}{7}
-    任意の有限次元 $\Lsl(2,\, \mathbb{K})$-加群 $V$ に対して極大ベクトルが存在する．
+    任意の有限次元 $\Lsl(2,\, \mathbb{K})$-加群 $V$ に対して極大ベクトルが存在することを示せ．
 \end{myproblem}
 
-% \begin{proof}
-%     $\phi \colon \Lsl(2,\, \mathbb{K}) \lto \Lgl(V)$ を与えられた $\Lsl(2,\, \mathbb{K})$ の表現とする．
-%     $\mathfrak{b} \coloneqq \Span_{\mathbb{K}}\{x,\, h\}\subset \Lsl(2,\, \mathbb{K})$ とおくと，\eqref{eq:comm-sl2}よりこれは $\Lsl(2,\, \mathbb{K})$ の部分Lie代数になる．
-%     さらに $\comm{\comm{\mathfrak{b}}{\mathfrak{b}}}{\comm{\mathfrak{b}}{\mathfrak{b}}} = \comm{\mathbb{K}x}{\mathbb{K}x} = 0$ が成り立つので $\mathfrak{b}$ は可解である．よって部分Lie代数 $\phi(\mathfrak{b}) \subset \Lgl(V)$ もまた可解である．
-%     よって定理2.1.1を使うことができ，$\phi(\mathfrak{b})$ の任意の元は共通の固有ベクトル $v \in V\setminus \{0\}$ を持つ．
-%     $x$ は冪零なので $\phi(x)$ もまた冪零であり，$\phi(x)(v) = x \btr v = 0$ が言える．i.e. $\phi(h)(v) = h \btr v = \lambda v$ とおくと $v \in V_\lambda \setminus \{0\}$ かつ $0 = x \btr v \in V_{\lambda + 2}$ が成り立つ．
-% \end{proof}
+\begin{proof}
+    $\phi \colon \Lsl(2,\, \mathbb{K}) \lto \Lgl(V)$ を与えられた $\Lsl(2,\, \mathbb{K})$ の表現とする．
+    $\mathfrak{b} \coloneqq \Span_{\mathbb{K}}\{x,\, h\}\subset \Lsl(2,\, \mathbb{K})$ とおくと，\eqref{eq:comm-sl2}よりこれは $\Lsl(2,\, \mathbb{K})$ の部分Lie代数になる．
+    さらに $\comm{\comm{\mathfrak{b}}{\mathfrak{b}}}{\comm{\mathfrak{b}}{\mathfrak{b}}} = \comm{\mathbb{K}x}{\mathbb{K}x} = 0$ が成り立つので $\mathfrak{b}$ は可解である．よって部分Lie代数 $\phi(\mathfrak{b}) \subset \Lgl(V)$ もまた可解である．
+    よって定理2.1.1（資料 p.25）を使うことができ，$\phi(\mathfrak{b})$ の任意の元は共通の固有ベクトル $v \in V\setminus \{0\}$ を持つ．
+    $x$ は冪零なので $\phi(x)$ もまた冪零であり，$\phi(x)(v) = x \btr v = 0$ が言える．
+    i.e. $\phi(h)(v) = h \btr v = \lambda v$ とおくと $v \in V_\lambda \setminus \{0\}$ かつ $0 = x \btr v$ が成り立ち，$v$ はウエイト $\lambda$ の極大ベクトルである．
+\end{proof}
 
 
 \begin{myproblem}[label=ex:2-7-6]{p.34 の Exercise 6}
@@ -306,67 +367,88 @@ $\Lsl(2,\, \mathbb{K})$ の基底として
     $\Lsl(2,\, \mathbb{K})$-加群のテンソル積 $V(m) \otimes V(n)$ は既約部分 $\Lsl(2,\, \mathbb{K})$-加群の直和に分解する．この直和分解を求めよ．
 \end{myproblem}
 
-% \begin{proof}
-    
-%     \underline{$V(m) \otimes V(n)$ の}ウエイト $\lambda$ のウエイト空間を $V_\lambda$ と書く．系2.4.2より，ある $\Phi \subset \mathbb{Z}$ が存在して
-%     \begin{align}
-%         \label{eq:tensor-decomp}
-%         V(m) \otimes V(n) = \bigoplus_{\lambda \in \Phi} V_\lambda
-%     \end{align}
-%     と書ける．この $\Phi$ を求めよう．
+テンソル積表現 $\phi \colon \Lsl(2,\, \mathbb{K}) \lto \Lgl\bigl(V(m) \otimes V(n)\bigr)$ のウエイト $\lambda$ のウエイト空間を $\bigl(V(m) \otimes V(n)\bigr)_\lambda$ と書く代わりに $V_\lambda$ と略記する．
+線型変換 $\phi(h) \in \Lgl\bigl(V(m) \otimes V(n)\bigr)$ の固有空間分解を考えることで，ある $\Phi \subset \mathbb{K}$ が存在して
+\begin{align}
+    V(m) \otimes V(n) = \bigoplus_{\lambda \in \Phi} V_\lambda
+\end{align}
+が成り立つことがわかる．
+一方，Weylの定理と定理\ref{thm:irr-sl2}-(1)より添字集合 $I \subset \bm{\mathbb{Z}}$ および $V(m) \otimes V(n)$ の\underline{既約}部分 $\Lsl(2,\, \mathbb{K})$-加群の族 $\Familyset[\big]{V(k)}{k \in I}$ が存在して
+\begin{align}
+    V(m) \otimes V(n) = \bigoplus_{k \in I} V(k) = \bigoplus_{k \in I} \bigoplus_{\mu = 0}^{k} V(k)_{k - 2\mu}
+\end{align}
+と書けるので，
+\begin{align}
+    \label{eq:sl2-Weyl}
+    V(m) \otimes V(n) &= \bigoplus_{\lambda \in \Phi} V_\lambda
+    % =  \bigoplus_{k \in I} V(k)
+    =  \bigoplus_{k \in I} \bigoplus_{\mu = 0}^{k} V(k)_{k - 2\mu}
+\end{align}
+が成り立つ\footnote{従って $V(k)_{k-2\mu} = V_{k-2\mu} \cap V(k)$ と書くこともできる．}．このことから即座に $\Phi \subset \mathbb{Z}$ がわかる．
+求めるべきなのは集合 $I \subset \mathbb{Z}$ であるが，まず手始めに $\Phi$ を求め，次に $\Phi$ と $I$ の関係を調べることにする．
 
-%     $V(m),\, V(n)$ の定理2.4.1に基づく基底をそれぞれ $\{e_\mu\}_{0 \le \mu \le m},\; \{f_\nu\}_{0 \le \nu \le n}$ とおく．i.e.
-%     \begin{align}
-%         h \btr_{V(m)} e_\mu &= (m - 2\mu)e_\mu, \\
-%         h \btr_{V(n)} f_\nu &= (n - 2\nu)f_\nu
-%     \end{align}
-%     が成り立つとする．
-%     このとき $\Lsl(2,\, \mathbb{K})$-加群のテンソル積の定義より
-%     \begin{align}
-%         h \btr (e_\mu \otimes f_\nu) &= ( h \btr_{V(m)} e_\mu) \otimes f_\nu + e_\mu \otimes ( h \btr_{V(n)} f_\nu) \\
-%         &= \bigl(m+n - 2(\mu + \nu)\bigr) e_\mu \otimes f_\nu
-%     \end{align}
-%     が成り立つ．i.e. $e_\mu \otimes f_\nu \in V_{m+n-2(\mu+\nu)}$ である． 
-%     $\Lsl(2,\, \mathbb{K})$-加群 $V(m) \otimes V(n)$ の\underline{$\mathbb{K}$-ベクトル空間としての}基底は $\{e_\mu \otimes f_\nu\}_{0 \le \mu \le m,\, 0 \le \nu \le n}$ なので，
-%     \begin{align}
-%         V_{m+n-2k} 
-%         &= \Span_{\mathbb{K}} \bigl\{\, e_\mu \otimes f_{\nu} \bigm| 0 \le \mu \le m,\, 0 \le \nu \le n,\, \mu + \nu = k \,\bigr\}
-%     \end{align}
-%     であり，かつ $\Phi = \bigl\{\, m+n-2k \bigm| 0 \le \mu \le m+n\,\bigr\}$ がわかった．
-    
-%     　次に，既約な部分 $\Lsl(2,\, \mathbb{K})$-加群への直和分解を求める．
-%     $0 \le k \le n$ に対して $v = \sum_{\mu=0}^k \lambda_\mu e_\mu \otimes f_{k - \mu} \in V_{m+n-2k}$ が極大ベクトルであるとする．このとき補題2.4.2より
-%     \begin{align}
-%         0 &= x \btr v \\
-%         &= \sum_{\mu=0}^k \lambda_\mu \bigl( x \btr_{V(m)} e_\mu \otimes f_{k-\mu} + e_\mu \otimes (x \btr_{V(n)} f_{k-\mu}) \bigr) \\
-%         &= \sum_{\mu=1}^k \lambda_\mu (m-\mu+1) e_{\mu-1} \otimes f_{k-\mu} + \sum_{\mu=0}^{k-1} \lambda_\mu (n-k+\mu+1) e_\mu \otimes f_{k-\mu-1} \\
-%         &= \sum_{\mu=1}^k \bigl( \lambda_\mu(m-\mu+1) + \lambda_{\mu-1}(n-k+\mu) \bigr) e_{\mu-1} \otimes f_{k-\mu}
-%     \end{align}
-%     が成り立つので
-%     \begin{align}
-%         1 \le \forall \mu \le k,\; \lambda_\mu(m-\mu+1) + \lambda_{\mu-1}(n-k+\mu) = 0
-%     \end{align}
-%     がわかった．
-%     今 $k \le n$ なので $m-\mu+1 \ge m-n+1 > 0,\; n-k+\mu \ge \mu > 0$ であり，
-%     \begin{align}
-%         \lambda_\mu = (-1)^\mu \frac{(n-k+\mu)! (m-\mu)!}{(n-k)! m!} \lambda_0
-%     \end{align}
-%     が言える．よって $\lambda_0 \neq 0$ ならば $v \neq 0$ が言える．i.e. $V_{m+n-2k}$ は実際に極大ベクトルを持つ．
-%     定理2.4.1-(2) から，ウエイト $m+n-2k$ の極大ベクトル $v$ は既約な $\Lsl(2,\, \mathbb{K})$-加群 $V(m+n-2k)$ を作る．
-%     よって
-%     \begin{align}
-%         \bigoplus_{k=0}^n V(m+n-2k) \subset V(m) \otimes V(n)
-%     \end{align}
-%     が言えた．左辺の次元を計算すると
-%     \begin{align}
-%         \sum_{k=0}^n (m+n-2k + 1) = (m+n+1)(n+1) - n(n+1) = (m+1)(n+1)
-%     \end{align}
-%     であり右辺の次元と一致するので
-%     \begin{align}
-%         \bigoplus_{k=0}^n V(m+n-2k) = V(m) \otimes V(n)
-%     \end{align}
-%     が得られた．
-% \end{proof}
+
+% 系2.4.2より，ある $\Phi \subset \mathbb{Z}$ が存在して
+% \begin{align}
+%     \label{eq:tensor-decomp}
+%     V(m) \otimes V(n) = \bigoplus_{\lambda \in \Phi} V_\lambda
+% \end{align}
+% と書ける．この $\Phi$ を求めよう．
+
+$V(m),\, V(n)$ の定理\ref{thm:irr-sl2}に基づく基底をそれぞれ $\{e_\mu\}_{0 \le \mu \le m},\; \{f_\nu\}_{0 \le \nu \le n}$ とおく．
+このとき補題\ref{lem:sl2-2}から
+\begin{align}
+    h \btr_{V(m)} e_\mu &= (m - 2\mu)e_\mu, \\
+    h \btr_{V(n)} f_\nu &= (n - 2\nu)f_\nu, \\
+    x \btr_{V(n)} e_{\mu} &= (m - \mu + 1)e_{\mu-1}, \\
+    x \btr_{V(n)} f_\nu &= (n - \nu + 1)f_{\nu-1}, \\
+\end{align}
+が成り立つ．
+このとき $\Lsl(2,\, \mathbb{K})$-加群のテンソル積の定義より
+\begin{align}
+    h \btr (e_\mu \otimes f_\nu) &= ( h \btr_{V(m)} e_\mu) \otimes f_\nu + e_\mu \otimes ( h \btr_{V(n)} f_\nu) \\
+    &= \bigl(m+n - 2(\mu + \nu)\bigr) e_\mu \otimes f_\nu
+\end{align}
+が成り立つ．i.e. $e_\mu \otimes f_\nu \in V_{m+n-2(\mu+\nu)}$ である． 
+$\Lsl(2,\, \mathbb{K})$-加群 $V(m) \otimes V(n)$ の\underline{$\mathbb{K}$-ベクトル空間としての}基底は $\{e_\mu \otimes f_\nu\}_{0 \le \mu \le m,\, 0 \le \nu \le n}$ なので，
+\begin{align}
+    V_{m+n-2k} 
+    &= \Span_{\mathbb{K}} \bigl\{\, e_\mu \otimes f_{\nu} \bigm| 0 \le \mu \le m,\, 0 \le \nu \le n,\, \mu + \nu = k \,\bigr\}
+\end{align}
+であり，かつ式\eqref{eq:sl2-Weyl}において $\Phi = \bigl\{\, m+n-2k \bigm| 0 \le \mu \le m+n\,\bigr\}$ がわかった．
+
+　次に，式\eqref{eq:sl2-Weyl}の添字集合 $I \subset \mathbb{Z}$ を求める．
+$0 \le k \le n$ に対して $v = \sum_{\mu=0}^k \lambda_\mu e_\mu \otimes f_{k - \mu} \in V_{m+n-2k}$ がウエイト $m+n-2k$ の極大ベクトルであるとする\footnote{当たり前だが，極大ベクトルのウエイトとしてあり得るのは $\Phi$ の元だけである．}．このとき補題\ref{lem:sl2-2}-(3)より
+\begin{align}
+    0 &= x \btr v \\
+    &= \sum_{\mu=0}^k \lambda_\mu \bigl( x \btr_{V(m)} e_\mu \otimes f_{k-\mu} + e_\mu \otimes (x \btr_{V(n)} f_{k-\mu}) \bigr) \\
+    &= \sum_{\mu=1}^k \lambda_\mu (m-\mu+1) e_{\mu-1} \otimes f_{k-\mu} + \sum_{\mu=0}^{k-1} \lambda_\mu (n-k+\mu+1) e_\mu \otimes f_{k-\mu-1} \\
+    &= \sum_{\mu=1}^k \bigl( \lambda_\mu(m-\mu+1) + \lambda_{\mu-1}(n-k+\mu) \bigr) e_{\mu-1} \otimes f_{k-\mu}
+\end{align}
+が成り立つので
+\begin{align}
+    1 \le \forall \mu \le k,\; \lambda_\mu(m-\mu+1) + \lambda_{\mu-1}(n-k+\mu) = 0
+\end{align}
+がわかった．
+今 $k \le n$ なので $m-\mu+1 \ge m-n+1 > 0,\; n-k+\mu \ge \mu > 0$ であり，
+\begin{align}
+    \lambda_\mu = (-1)^\mu \frac{(n-k+\mu)! (m-\mu)!}{(n-k)! m!} \lambda_0
+\end{align}
+が言える．よって $\lambda_0 \neq 0$ ならば $v \neq 0$ であり，ウエイト $m+n-2k$ の極大ベクトルが存在することが分かった．
+定理\ref{thm:irr-sl2}-(2) から，ウエイト $m+n-2k$ の極大ベクトル $v$ は既約な $\Lsl(2,\, \mathbb{K})$-加群 $V(m+n-2k)$ を作る．
+よって
+\begin{align}
+    \bigoplus_{k=0}^n V(m+n-2k) \subset V(m) \otimes V(n)
+\end{align}
+が言えた．左辺の次元を計算すると
+\begin{align}
+    \sum_{k=0}^n (m+n-2k + 1) = (m+n+1)(n+1) - n(n+1) = (m+1)(n+1)
+\end{align}
+であり右辺の次元と一致するので
+\begin{align}
+    \bigoplus_{k=0}^n V(m+n-2k) = V(m) \otimes V(n)
+\end{align}
+が得られた．i.e. $I = \bigl\{\, m + n -2k \bigm| 0 \le k \le n \,\bigr\} \subset \Phi$ と求まった．
 
 \section{ルート空間分解}
 
@@ -404,13 +486,13 @@ $D_l$ 型Lie代数の基底は
     このとき，$\mathfrak{g}$ の対角行列全体が成す部分Lie代数 $\mathfrak{h}$ は次元 $l$ の極大トーラスであることを示せ．
 \end{myproblem}
 
-% \begin{proof}
-%     $\mathfrak{h}$ はLieブラケットについて可換である．
+\begin{proof}
+    $\mathfrak{h}$ はLieブラケットについて可換である．
 
-%     半単純成分のみからなる可換な部分Lie代数 $\mathfrak{k} \subsetneq \mathfrak{g}$ が $\mathfrak{h} \subset \mathfrak{k}$ を充たすとする．
-%     このとき $\forall x \in \mathfrak{k}$ は同時対角化可能なので結局 $x \in \mathfrak{h}$，i.e. $\mathfrak{h} = \mathfrak{k}$ である．
-%     上記の基底の対角成分の個数を数えることで，全ての場合に次元が $l$ だとわかる．
-% \end{proof}
+    $\mathfrak{g}$ のトーラス $\mathfrak{k} \subsetneq \mathfrak{g}$ が $\mathfrak{h} \subset \mathfrak{k}$ を充たすとする．
+    このとき $\forall x \in \mathfrak{k}$ は同時対角化可能なので結局 $x \in \mathfrak{h}$，i.e. $\mathfrak{h} = \mathfrak{k}$ である．
+    上記の基底の対角成分の個数を数えることで，全ての場合に次元が $l$ だとわかる．
+\end{proof}
 
 \begin{myproblem}[label=ex:2-8-2A]{p.40 の Exercise 2}
     % \setcounter{\tcbcounter}{7}
@@ -422,32 +504,32 @@ $D_l$ 型Lie代数の基底は
     に付随するルート系を求めよ．
 \end{myproblem}
 
-% $\forall h = \mqty[\dmat{h_1,\ddots,h_{l+1}}] \in \mathfrak{h}$ に対して（Einsteinの規約を使わない）
-% \begin{align}
-%     \ad(h)(e_{ij}) &= he_{ij} - e_{ij}h = (h_i - h_j) e_{ij}
-% \end{align}
-% が成り立つので，$\alpha_{ij} \in \mathfrak{h}^*$ を
-% \begin{align}
-%     \alpha_{ij}(h) \coloneqq h_i - h_j
-% \end{align}
-% で定義すれば
-% \begin{align}
-%     A_l \coloneqq \bigl\{\, \alpha_{ij} \in \mathfrak{h}^* \setminus \{0\} \bigm| 1 \le i\neq j \le l+1\,\bigr\} 
-% \end{align}
-% がルート全体の集合となる．実際，上述の $A_l$ 型の基底の取り方から
-% \begin{align}
-%     \label{eq:Al}
-%     \mathfrak{g} = \Span_{\mathbb{K}} \bigl\{\, e_{ii} - e_{i+1,i+1} \bigm| 1\le i \le l \,\bigr\} \oplus \bigoplus_{1 \le i \neq j \le l+1} \mathbb{K}e_{ij}
-% \end{align}
-% が言えるが，明らかに $\Span_{\mathbb{K}} \bigl\{\, e_{ii} - e_{i+1,i+1} \bigm| 1\le i \le l \,\bigr\} = \mathfrak{h}$ なので
-% \begin{align}
-%     \mathfrak{g}_{\alpha_{ij}} \coloneqq \bigl\{\, x \in \mathfrak{g} \bigm| \forall h \in \mathfrak{h},\; \ad(h)(x) = \alpha_{ij}(h)x \,\bigr\} = \mathbb{K}e_{ij}
-% \end{align}
-% と併せると\eqref{eq:Al}がルート空間分解
-% \begin{align}
-%     \mathfrak{g} = \mathfrak{h} \oplus \bigoplus_{\alpha_{ij} \in A_l} \mathfrak{g}_{\alpha_{ij}}
-% \end{align}
-% になっていることがわかった．
+$\forall h = \mqty[\dmat{h_1,\ddots,h_{l+1}}] \in \mathfrak{h}$ に対して（Einsteinの規約を使わない）
+\begin{align}
+    \ad(h)(e_{ij}) &= he_{ij} - e_{ij}h = (h_i - h_j) e_{ij}
+\end{align}
+が成り立つので，$\alpha_{ij} \in \mathfrak{h}^*$ を
+\begin{align}
+    \alpha_{ij}(h) \coloneqq h_i - h_j
+\end{align}
+で定義すれば
+\begin{align}
+    A_l \coloneqq \bigl\{\, \alpha_{ij} \in \mathfrak{h}^* \setminus \{0\} \bigm| 1 \le i\neq j \le l+1\,\bigr\} 
+\end{align}
+がルート全体の集合となる．実際，上述の $A_l$ 型の基底の取り方から
+\begin{align}
+    \label{eq:Al}
+    \mathfrak{g} = \Span_{\mathbb{K}} \bigl\{\, e_{ii} - e_{i+1,i+1} \bigm| 1\le i \le l \,\bigr\} \oplus \bigoplus_{1 \le i \neq j \le l+1} \mathbb{K}e_{ij}
+\end{align}
+が言えるが，明らかに $\Span_{\mathbb{K}} \bigl\{\, e_{ii} - e_{i+1,i+1} \bigm| 1\le i \le l \,\bigr\} = \mathfrak{h}$ なので
+\begin{align}
+    \mathfrak{g}_{\alpha_{ij}} \coloneqq \bigl\{\, x \in \mathfrak{g} \bigm| \forall h \in \mathfrak{h},\; \ad(h)(x) = \alpha_{ij}(h)x \,\bigr\} = \mathbb{K}e_{ij}
+\end{align}
+と併せると\eqref{eq:Al}がルート空間分解
+\begin{align}
+    \mathfrak{g} = \mathfrak{h} \oplus \bigoplus_{\alpha_{ij} \in A_l} \mathfrak{g}_{\alpha_{ij}}
+\end{align}
+になっていることがわかった．
 
 \begin{myproblem}[label=ex:2-8-2D]{p.40 の Exercise 2}
     % \setcounter{\tcbcounter}{7}
@@ -583,29 +665,30 @@ $D_l$ 型Lie代数の基底は
 \end{myproblem}
 
 \begin{proof}
-    % 半単純Lie代数 $\mathfrak{g}$ とその極大トーラス $\mathfrak{h} \subset \mathfrak{g}$ をとる．
-    % $\mathfrak{h} \neq 0$ なので $\dim \mathfrak{h} > 0$ である．
-    % このときルート空間分解
-    % \begin{align}
-    %     \mathfrak{g} = \mathfrak{h} \oplus \bigoplus_{\alpha \in \Phi} \mathfrak{g}_\alpha
-    % \end{align}
-    % が成り立つ．
+    半単純Lie代数 $\mathfrak{g}$ とその極大トーラス $\mathfrak{h} \subset \mathfrak{g}$ をとる．
+    $\mathfrak{h} \neq 0$ なので $\dim \mathfrak{h} > 0$ である．
+    このときルート空間分解
+    \begin{align}
+        \mathfrak{g} = \mathfrak{h} \oplus \bigoplus_{\alpha \in \Phi} \mathfrak{g}_\alpha
+    \end{align}
+    が成り立つ．
 
-    % ところで，$\alpha \in \Phi \IMP -\alpha \in \Phi$ かつ $\forall \alpha \in \Phi$ に対して $\dim \mathfrak{g}_\alpha = 1$ なのである整数 $k$ が存在して
-    % \begin{align}
-    %     0 < \dim \mathfrak{h} = \dim \mathfrak{g} - \sum_{\alpha \in \Phi} \dim \mathfrak{g}_\alpha = \dim \mathfrak{g} - 2k
-    % \end{align}
-    % と書ける．一方で $\mathfrak{h}^* = \Span_{\mathbb{K}} \Phi = \Span_{\mathbb{K}} \{\pm \alpha_1,\, \dots,\, \pm\alpha_k\}$ であるから $\dim \mathfrak{h} = \dim \mathfrak{h}^* \le k$ である．よって
-    % \begin{align}
-    %     \frac{1}{3} \dim \mathfrak{g} \le k \le \frac{1}{2} \dim \mathfrak{g}
-    % \end{align}
-    % が成り立たねばならない．
-    % \begin{itemize}
-    %     \item $\dim \mathfrak{g} = 4$ だとすると $k \notin \mathbb{Z}$ となる矛盾．
-    %     \item $\dim \mathfrak{g} = 5$ だとすると $k=2$ に確定する．すると $\dim \mathfrak{h} = \dim \mathfrak{h}^* = 1$ だが，$\alpha_1,\, \alpha_2 \in \Phi$ に対して $\alpha_1 = \pm \alpha_2$ ということになり矛盾
-    %     \item $\dim \mathfrak{g} = 7$ だとすると $k=3$ に確定する．すると $\dim \mathfrak{h} = \dim \mathfrak{h}^* = 1$ となり $\dim \mathfrak{g} = 5$ のときと同様．
-    % \end{itemize}
-    
+    ところで，$\alpha \in \Phi \IMP -\alpha \in \Phi$ かつ $\forall \alpha \in \Phi$ に対して $\dim \mathfrak{g}_\alpha = 1$ なのである整数 $k$ が存在して
+    \begin{align}
+        0 < \dim \mathfrak{h} = \dim \mathfrak{g} - \sum_{\alpha \in \Phi} \dim \mathfrak{g}_\alpha = \dim \mathfrak{g} - 2k
+    \end{align}
+    と書ける．一方で $\mathfrak{h}^* = \Span_{\mathbb{K}} \Phi = \Span_{\mathbb{K}} \{\pm \alpha_1,\, \dots,\, \pm\alpha_k\}$ であるから $\dim \mathfrak{h} = \dim \mathfrak{h}^* \le k$ である．よって
+    \begin{align}
+        \frac{1}{3} \dim \mathfrak{g} \le k < \frac{1}{2} \dim \mathfrak{g}
+    \end{align}
+    が成り立たねばならない．
+    \begin{itemize}
+        \item $\dim \mathfrak{g} = 4$ だとすると $k \notin \mathbb{Z}$ となり矛盾．
+        \item $\dim \mathfrak{g} = 5$ だとすると $k=2$ に確定する．このとき $\pm \alpha_1 \neq \pm \alpha_2$（複合任意）を充たす $\alpha_1,\, \alpha_2 \in \Phi$ が取れるが，$\dim \mathfrak{h} = \dim \mathfrak{h}^* = 1$ となるのである $\lambda \in \mathbb{K}$ が存在して $\alpha_2 = \lambda \alpha_1$ と書ける．
+        すると $\lambda \alpha_1 \in \Phi$ なので $\lambda = \pm 1$ のどちらかでなくてはいけず，$\pm \alpha_1 \neq \pm\alpha_2$ に矛盾する．
+        \item $\dim \mathfrak{g} = 7$ だとすると $k=3$ に確定する．すると $\dim \mathfrak{h} = \dim \mathfrak{h}^* = 1$ となり $\dim \mathfrak{g} = 5$ のときと同様の議論から矛盾する．
+    \end{itemize}
+    よって背理法から $\dim \mathfrak{g} \neq 4,\, 5,\, 7$ が示された．
 \end{proof}
 
 

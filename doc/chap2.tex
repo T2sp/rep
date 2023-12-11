@@ -1147,15 +1147,15 @@ $\phi \colon \mathfrak{g} \lto \Lgl (V)$ が忠実でない場合は次のよう
 この節において常に $\mathfrak{g} = \Lsl(2,\, \mathbb{K})$ とし，$\mathfrak{g}$ の全ての表現は有限次元であるとする．
 \exref{def:typeA}に倣って $\mathfrak{g}$ の基底は
 \begin{align}
-	x &\coloneqq \mqty[0 & 1 \\ 0 & 0], \\
-	y &\coloneqq \mqty[0 & 0 \\ 1 & 0], \\
+	x &\coloneqq \mqty[0 & 1 \\ 0 & 0], &
+	y &\coloneqq \mqty[0 & 0 \\ 1 & 0], &
 	h &\coloneqq \mqty[1 & 0 \\ 0 & -1]
 \end{align}
 を採用する．このとき
 \begin{align}
 	\label{eq:sl2}
-	\comm{h}{x} &= 2x, \\
-	\comm{h}{y} &= -2y, \\
+	\comm{h}{x} &= 2x, &
+	\comm{h}{y} &= -2y, &
 	\comm{x}{y} &= h
 \end{align}
 が成り立つ．
@@ -1173,7 +1173,7 @@ $h$ は\hyperref[def:semisimple-end]{半単純}なので系\ref{col:JC}より $\
 	\label{def:weight-space-decomp}
 	V = \bigoplus_{\lambda \in \mathbb{K}} V_\lambda
 \end{align}
-特に $V_\lambda \neq 0$ のとき $\lambda$ を $h$ の\textbf{ウエイト} (weight) と呼び，$V_\lambda$ を\textbf{ウェイト空間} (weight space) と呼ぶ．
+特に $V_\lambda \neq 0$ のとき $\lambda$ を $h$ の\textbf{ウエイト} (weight) と呼び，$V_\lambda$ を\textbf{ウエイト $\bm{\lambda}$ のウェイト空間} (weight space of weight $\lambda$) と呼ぶ．
 
 \begin{mylem}[label=lem:sl2-1]{}
 	$v \in V_\lambda \IMP x \btr v \in V_{\lambda +2},\; y \btr v \in V_{\lambda - 2}$
@@ -1185,7 +1185,9 @@ $h$ は\hyperref[def:semisimple-end]{半単純}なので系\ref{col:JC}より $\
 	\end{align}
 \end{proof}
 
-$\dim V < \infty$ なので，$V_\lambda \neq 0 \AND V_{\lambda + 2} = 0$ を充たす $\lambda \in \mathbb{K}$ が存在する．このとき $v \in V_\lambda \setminus \{0\}$ のことをウエイト $\lambda$ の\textbf{極大ベクトル} (maximal vector) と呼ぶ．
+$\dim V < \infty$ なので，$V_\lambda \neq 0 \AND V_{\lambda + 2} = 0$ を充たす $\lambda \in \mathbb{K}$ が存在する．
+% このとき $v \in V_\lambda \setminus \{0\}$ のことをウエイト $\lambda$ の\textbf{極大ベクトル} (maximal vector) と呼ぶ．
+一般に，ウエイト $\lambda$ のウエイト空間 $V_\lambda$ の非零な元 $v \in V_\lambda \setminus \{0\}$ であって，$x \btr v = 0 \in V_{\lambda+2}$ を充たすものは\textbf{ウエイト $\bm{\lambda}$ の極大ベクトル} (maximal vector of weight $\lambda$) と呼ばれる．
 
 \subsection{既約表現の分類}
 
