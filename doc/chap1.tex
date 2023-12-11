@@ -497,7 +497,26 @@ i.e. $\character \mathbb{K} \neq 2$ ならば\footnote{体 $\mathbb{K}$ の\text
 \end{mydef}
 
 \begin{myexample}[label=ex:sl2]{単純Lie代数：$\Lsl (2)$}
-    
+    $\character \mathbb{K} \neq 2$ とする．\exref{def:typeA}に倣って $\Lsl(2,\, \mathbb{K})$ の基底を
+    \begin{align}
+        x &\coloneqq \mqty[0 & 1 \\ 0&0], & y &\coloneqq \mqty[0&0 \\ 1 &0], & h &\coloneqq \mqty[1 & 0 \\ 0 & -1]
+    \end{align}
+    とする．この基底同士のLieブラケットは
+    \begin{align}
+        \label{eq:comm-sl2}
+        \comm{x}{y} &= h, & \comm{h}{x} &= 2x, & \comm{h}{y} &= -2y
+    \end{align}
+    と計算できる．よって $\comm{\Lsl(2,\, \mathbb{K})}{\Lsl(2,\, \mathbb{K})} = \Lsl(2,\, \mathbb{K}) \neq \{o\}$ である．
+
+    　ここで $\Lsl(2,\, \mathbb{K})$ の任意の\hyperref[def:ideal-LieAlg]{イデアル} $\mathfrak{i} \subset \Lsl(2,\, \mathbb{K})$ をとる．
+    $\mathfrak{i} \neq 0$ ならば $ax + by + ch \in \mathfrak{i} \setminus \{o\}$ が存在し，
+    \begin{align}
+        \ad(x) \circ \ad(x) (ax + by + ch) &= \comm{x}{\comm{x}{ax + by + ch}} = -2bx \in \mathfrak{i}, \\
+        \ad(y) \circ \ad(y) (ax + by + ch) &= \comm{y}{\comm{y}{ax + by + ch}} = -2ay \in \mathfrak{i}
+    \end{align}
+    が成り立つ．故にもし $(a,\, b) \neq (0, 0)$ ならば $x \in \mathfrak{i}$ または $y \in \mathfrak{i}$ だが\footnote{$\character \mathbb{K} \neq 2$ なので $2 \neq 0$．}，イデアルの定義と\eqref{eq:comm-sl2}から $\mathfrak{i} = \Lsl(2,\, \mathbb{K})$ が言える．
+    もし $(a,\, b) = (0, 0)$ ならば $ch \in \Lsl(2,\, \mathbb{K}) \setminus \{o\}$ だが，このときもイデアルの定義と\eqref{eq:comm-sl2}から $x,\, y \in \Lsl(2,\, \mathbb{K})$ が従う．
+    i.e. $\Lsl(2,\, \mathbb{K})$ は\hyperref[def:simple-LieAlg]{単純Lie代数}である．
 \end{myexample}
 
 \hyperref[ax:LieAlg]{Lie代数} $\mathfrak{g}$ の\hyperref[def:ideal-LieAlg]{イデアル} $\mathfrak{i}$ が与えられたとき，商群のときと同じ要領で商代数を構成できる．このことを復習しよう：
