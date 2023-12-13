@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex out/chap1_exsol"] 1697560491 "out/chap1_exsol.aux" "out/chap1_exsol.bbl" "out/chap1_exsol" 1697562643 0
+["bibtex out/chap1_exsol"] 1702370599 "out/chap1_exsol.aux" "out/chap1_exsol.bbl" "out/chap1_exsol" 1702370619 0
   "./myh-physrev.bst" 1687527611 17141 2e35e7d2990544349d72280dee109834 ""
-  "./repref.bib" 1697289017 1991 7eaf8f9a4fa44beb4954d4157a56f2cf ""
-  "out/chap1_exsol.aux" 1697562641 1544 c8e99519882862af4a08bbd93cbca15a "lualatex"
+  "./repref.bib" 1700442901 2389 fa15a2f7100194b14e7b6f1c2ccca26a ""
+  "out/chap1_exsol.aux" 1702370617 1544 f93234c21d0dd7eee4d406be8dd0604c "lualatex"
   (generated)
   "out/chap1_exsol.bbl"
   "out/chap1_exsol.blg"
   (rewritten before read)
-["lualatex"] 1697562630 "/Users/takamatoshinori/Desktop/Seminors/rep/doc/chap1_exsol.tex" "out/chap1_exsol.pdf" "chap1_exsol" 1697562643 0
-  "/Users/takamatoshinori/Desktop/Seminors/rep/doc/chap1_exsol.tex" 1697562628 24010 9ee9a4285dc4108349efbd505e6f7cc0 ""
+["lualatex"] 1702370599 "/Users/takamatoshinori/Desktop/Seminors/rep/doc/chap1_exsol.tex" "out/chap1_exsol.pdf" "chap1_exsol" 1702370619 0
+  "/Users/takamatoshinori/Desktop/Seminors/rep/doc/chap1_exsol.tex" 1702370581 24072 a87dedbfb261f2704be9b4dc6270d5ef ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/haranoajigothic-medium.luc" 1680092069 1875369 563a49d56453118cc2bc098475a23186 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/haranoajimincho-regular.luc" 1680092052 1961878 305e540f3545673854903467c3d18712 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmmono9-regular.luc" 1680092053 81875 4186f491346ae8e27e9de854d6400326 ""
@@ -48,8 +48,8 @@
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/ltj-jisx0208.luc" 1680092053 93919 1f6dc76354e6e3b148c06f9f9254f22e ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/ltj-kinsoku_default.luc" 1680091971 17654 e3e3c85f63c77f4caa824d338e2428e0 ""
   "/Users/takamatoshinori/Library/texmf/tex/latex/myQM/myQM.sty" 1666922311 911 5c87313d86ce1a64a77d90503c96ce7c ""
-  "/Users/takamatoshinori/Library/texmf/tex/latex/myalgebra/myalgebra.sty" 1696761281 3864 d0e97e653d13cdfd347812612b1e38bf ""
-  "/Users/takamatoshinori/Library/texmf/tex/latex/mygeometry/mygeometry.sty" 1695307654 1387 2c0c69e6f956e02b45d0e8fe7a20f820 ""
+  "/Users/takamatoshinori/Library/texmf/tex/latex/myalgebra/myalgebra.sty" 1701057208 4003 d3be183922487c59039b4f9abd068308 ""
+  "/Users/takamatoshinori/Library/texmf/tex/latex/mygeometry/mygeometry.sty" 1699859674 1589 cc468a612f29a6c3a714e6fcd7fe5819 ""
   "/Users/takamatoshinori/Library/texmf/tex/latex/mylogics/mylogics.sty" 1690527392 1426 70e6644af870eb1122a25027d1b960bb ""
   "/usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf" 1677185994 4690004 f38d025815e65462ac61ddc6a192e733 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf" 1677185994 6355816 b639bf61ed5bcdb176671541b66519c7 ""
@@ -592,10 +592,10 @@
   "/usr/local/texlive/2023/texmf-dist/tex/platex/jsclasses/jslogo.sty" 1601931076 5585 8e4615c54073c390d14154b29cee89cb ""
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1680072210 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/luahbtex/lualatex.fmt" 1680072074 11876436 fe019cd16c56b2a02a7f439a19527237 ""
-  "chap1_exsol.tex" 1697562628 24010 9ee9a4285dc4108349efbd505e6f7cc0 ""
-  "out/chap1_exsol.aux" 1697562641 1544 c8e99519882862af4a08bbd93cbca15a "lualatex"
-  "out/chap1_exsol.bbl" 1697560491 193 3c05e4e77a6f9a87096a7bf430dfe9d1 "bibtex out/chap1_exsol"
-  "out/chap1_exsol.out" 1697562638 0 d41d8cd98f00b204e9800998ecf8427e "lualatex"
+  "chap1_exsol.tex" 1702370581 24072 a87dedbfb261f2704be9b4dc6270d5ef ""
+  "out/chap1_exsol.aux" 1702370617 1544 f93234c21d0dd7eee4d406be8dd0604c "lualatex"
+  "out/chap1_exsol.bbl" 1702370599 193 3c05e4e77a6f9a87096a7bf430dfe9d1 "bibtex out/chap1_exsol"
+  "out/chap1_exsol.out" 1702370614 0 d41d8cd98f00b204e9800998ecf8427e "lualatex"
   (generated)
   "out/chap1_exsol.aux"
   "out/chap1_exsol.log"

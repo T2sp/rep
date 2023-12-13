@@ -186,16 +186,18 @@ title=系~\thetcbcounter: #2,#1}
     % empty,
     outer arc=0pt,
     arc=0pt,
+    enhanced,
     attach boxed title to top left={
     %     % empty,
         xshift=-2mm,
         yshift=-2mm
     },
-    % coltitle=black,
-    % colframe=black,
+    coltitle=black,
+    colbacktitle=white,
+    colframe=black,
     colback=white,
     fonttitle=\bfseries,
-    title=問題~\thetcbcounter #2,#1,
+    title=【問題~\thetcbcounter】#2,#1
 }
 \newcommand{\probref}[1]{\textbf{【問題\ref{#1}】}}
 
@@ -261,7 +263,7 @@ title=系~\thetcbcounter: #2,#1}
 \date{\today}
 \maketitle
 
-\setcounter{section}{1}
+\setcounter{section}{5}
 
 \cite[p.24, Exercise1, 2]{Humphreys1972introduction}
 % と\cite[p.14, Exercise 2]{Humphreys1972introduction}

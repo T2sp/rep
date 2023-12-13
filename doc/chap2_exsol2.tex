@@ -186,16 +186,18 @@ title=系~\thetcbcounter: #2,#1}
     % empty,
     outer arc=0pt,
     arc=0pt,
+    enhanced,
     attach boxed title to top left={
     %     % empty,
         xshift=-2mm,
         yshift=-2mm
     },
-    % coltitle=black,
-    % colframe=black,
+    coltitle=black,
+    colbacktitle=white,
+    colframe=black,
     colback=white,
     fonttitle=\bfseries,
-    title=問題~\thetcbcounter #2,#1,
+    title=【問題~\thetcbcounter】#2,#1
 }
 \newcommand{\probref}[1]{\textbf{【問題\ref{#1}】}}
 
@@ -263,7 +265,7 @@ title=系~\thetcbcounter: #2,#1}
 \date{\today}
 \maketitle
 
-\setcounter{section}{1}
+\setcounter{section}{6}
 
 \cite[p.34, Exercise1, 2; p.40, Exercise1, 2, 10]{Humphreys1972introduction}
 % と\cite[p.14, Exercise 2]{Humphreys1972introduction}
@@ -310,7 +312,7 @@ $\Lsl(2,\, \mathbb{K})$ の任意の有限次元表現 $\phi \colon \Lsl(2,\, \m
 
 \begin{mylem}[label=lem:sl2-2]{}
     \underline{既約} $\Lsl(2,\, \mathbb{K})$ 加群 $V$ において
-    ウエイト $\lambda$ の極大ベクトル $v_0 \in V_\lambda$ をとり\footnote{極大ベクトルの存在証明が第1問である．}，
+    ウエイト $\lambda$ の極大ベクトル $v_0 \in V_\lambda$ をとり\footnote{極大ベクトルの存在証明が\probref{ex:2-7-1}である．}，
     \begin{align}
         v_i \coloneqq 
         \begin{cases}
@@ -367,7 +369,7 @@ $\Lsl(2,\, \mathbb{K})$ の任意の有限次元表現 $\phi \colon \Lsl(2,\, \m
     $\Lsl(2,\, \mathbb{K})$-加群のテンソル積 $V(m) \otimes V(n)$ は既約部分 $\Lsl(2,\, \mathbb{K})$-加群の直和に分解する．この直和分解を求めよ．
 \end{myproblem}
 
-テンソル積表現 $\phi \colon \Lsl(2,\, \mathbb{K}) \lto \Lgl\bigl(V(m) \otimes V(n)\bigr)$ のウエイト $\lambda$ のウエイト空間を $\bigl(V(m) \otimes V(n)\bigr)_\lambda$ と書く代わりに $V_\lambda$ と略記する．
+テンソル積表現 $\phi\colon \Lsl(2,\, \mathbb{K}) \lto \Lgl\bigl(V(m) \otimes V(n)\bigr)$ のウエイト $\lambda$ のウエイト空間を $\bigl(V(m) \otimes V(n)\bigr)_\lambda$ と書く代わりに $V_\lambda$ と略記する．
 線型変換 $\phi(h) \in \Lgl\bigl(V(m) \otimes V(n)\bigr)$ の固有空間分解を考えることで，ある $\Phi \subset \mathbb{K}$ が存在して
 \begin{align}
     V(m) \otimes V(n) = \bigoplus_{\lambda \in \Phi} V_\lambda
@@ -404,7 +406,7 @@ $V(m),\, V(n)$ の定理\ref{thm:irr-sl2}に基づく基底をそれぞれ $\{e_
     x \btr_{V(n)} f_\nu &= (n - \nu + 1)f_{\nu-1}, \\
 \end{align}
 が成り立つ．
-このとき $\Lsl(2,\, \mathbb{K})$-加群のテンソル積の定義より
+よって $\Lsl(2,\, \mathbb{K})$-加群のテンソル積の定義から
 \begin{align}
     h \btr (e_\mu \otimes f_\nu) &= ( h \btr_{V(m)} e_\mu) \otimes f_\nu + e_\mu \otimes ( h \btr_{V(n)} f_\nu) \\
     &= \bigl(m+n - 2(\mu + \nu)\bigr) e_\mu \otimes f_\nu
@@ -415,7 +417,24 @@ $\Lsl(2,\, \mathbb{K})$-加群 $V(m) \otimes V(n)$ の\underline{$\mathbb{K}$-�
     V_{m+n-2k} 
     &= \Span_{\mathbb{K}} \bigl\{\, e_\mu \otimes f_{\nu} \bigm| 0 \le \mu \le m,\, 0 \le \nu \le n,\, \mu + \nu = k \,\bigr\}
 \end{align}
-であり，かつ式\eqref{eq:sl2-Weyl}において $\Phi = \bigl\{\, m+n-2k \bigm| 0 \le \mu \le m+n\,\bigr\}$ がわかった．
+であり，かつ式\eqref{eq:sl2-Weyl}において $\Phi = \bigl\{\, m+n-2k \in \mathbb{Z} \bigm| 0 \le k \le m+n\,\bigr\}$ であること，
+および
+\begin{align}
+    \dim V_{m+n-k} 
+    =
+    \begin{cases}
+        k+1, &0 \le k < n \\
+        n+1, &n \le k \le m \\
+        m+n-k+1, &m < k \le m+n
+    \end{cases}
+\end{align}
+がわかった\footnote{次元を求めると
+\begin{align}
+    \dim V(m) \otimes V(n) &= (m+1)(n+1),\\
+    \dim \bigoplus_{\lambda \in \Phi} V_\lambda &= \sum_{k=0}^{n-1} (k+1) + \sum_{k=n}^{m} (n+1) + \sum_{k=m+1}^{m+n} (m+n-k+1) = (m+1)(n+1)
+\end{align}
+となり，整合的である．
+}．
 
 　次に，式\eqref{eq:sl2-Weyl}の添字集合 $I \subset \mathbb{Z}$ を求める．
 $0 \le k \le n$ に対して $v = \sum_{\mu=0}^k \lambda_\mu e_\mu \otimes f_{k - \mu} \in V_{m+n-2k}$ がウエイト $m+n-2k$ の極大ベクトルであるとする\footnote{当たり前だが，極大ベクトルのウエイトとしてあり得るのは $\Phi$ の元だけである．}．このとき補題\ref{lem:sl2-2}-(3)より
@@ -434,7 +453,7 @@ $0 \le k \le n$ に対して $v = \sum_{\mu=0}^k \lambda_\mu e_\mu \otimes f_{k 
 \begin{align}
     \lambda_\mu = (-1)^\mu \frac{(n-k+\mu)! (m-\mu)!}{(n-k)! m!} \lambda_0
 \end{align}
-が言える．よって $\lambda_0 \neq 0$ ならば $v \neq 0$ であり，ウエイト $m+n-2k$ の極大ベクトルが存在することが分かった．
+が言える．よって $\lambda_0 \neq 0$ ならば $v \neq 0$ であり，ウエイト $m+n-2k$ の極大ベクトルがスカラー倍を除いて一意的に存在することが分かった．
 定理\ref{thm:irr-sl2}-(2) から，ウエイト $m+n-2k$ の極大ベクトル $v$ は既約な $\Lsl(2,\, \mathbb{K})$-加群 $V(m+n-2k)$ を作る．
 よって
 \begin{align}
@@ -448,7 +467,7 @@ $0 \le k \le n$ に対して $v = \sum_{\mu=0}^k \lambda_\mu e_\mu \otimes f_{k 
 \begin{align}
     \bigoplus_{k=0}^n V(m+n-2k) = V(m) \otimes V(n)
 \end{align}
-が得られた．i.e. $I = \bigl\{\, m + n -2k \bigm| 0 \le k \le n \,\bigr\} \subset \Phi$ と求まった．
+が得られた．i.e. $I = \bigl\{\, m + n -2k \in \mathbb{Z} \bigm| 0 \le k \le n \,\bigr\} \subset \Phi$ と求まった．
 
 \section{ルート空間分解}
 
@@ -504,17 +523,19 @@ $D_l$ 型Lie代数の基底は
     に付随するルート系を求めよ．
 \end{myproblem}
 
-$\forall h = \mqty[\dmat{h_1,\ddots,h_{l+1}}] \in \mathfrak{h}$ に対して（Einsteinの規約を使わない）
+$1 \le \forall i \le l+1$ に対して定義できる写像
 \begin{align}
-    \ad(h)(e_{ij}) &= he_{ij} - e_{ij}h = (h_i - h_j) e_{ij}
+    \varepsilon^i \colon \mathfrak{h} \lto \mathbb{K},\; \mqty[\dmat{\lambda_1,\ddots,\lambda_{l+1}}] \lmto \lambda_i
 \end{align}
-が成り立つので，$\alpha_{ij} \in \mathfrak{h}^*$ を
+は $\mathbb{K}$-線型写像なので，$\varepsilon^i \in \mathfrak{h}^*$ である．
+$\forall h = \mqty[\dmat{h_1,\ddots,h_{l+1}}] \in \mathfrak{h}$ に対して
+（Einsteinの規約を使わない）
 \begin{align}
-    \alpha_{ij}(h) \coloneqq h_i - h_j
+    \ad(h)(e_{ij}) &= he_{ij} - e_{ij}h = (h_i - h_j) e_{ij} = \bigl(\varepsilon^i(h) - \varepsilon^j(h)\bigr)\, e_{ij}
 \end{align}
-で定義すれば
+が成り立つので，
 \begin{align}
-    A_l \coloneqq \bigl\{\, \alpha_{ij} \in \mathfrak{h}^* \setminus \{0\} \bigm| 1 \le i\neq j \le l+1\,\bigr\} 
+    A_l \coloneqq \bigl\{\, \varepsilon^i - \varepsilon^j \in \mathfrak{h}^* \setminus \{0\} \bigm| 1 \le i\neq j \le l+1\,\bigr\} 
 \end{align}
 がルート全体の集合となる．実際，上述の $A_l$ 型の基底の取り方から
 \begin{align}
@@ -523,11 +544,11 @@ $\forall h = \mqty[\dmat{h_1,\ddots,h_{l+1}}] \in \mathfrak{h}$ に対して（E
 \end{align}
 が言えるが，明らかに $\Span_{\mathbb{K}} \bigl\{\, e_{ii} - e_{i+1,i+1} \bigm| 1\le i \le l \,\bigr\} = \mathfrak{h}$ なので
 \begin{align}
-    \mathfrak{g}_{\alpha_{ij}} \coloneqq \bigl\{\, x \in \mathfrak{g} \bigm| \forall h \in \mathfrak{h},\; \ad(h)(x) = \alpha_{ij}(h)x \,\bigr\} = \mathbb{K}e_{ij}
+    \mathfrak{g}_{\varepsilon^i - \varepsilon^j} \coloneqq \bigl\{\, x \in \mathfrak{g} \bigm| \forall h \in \mathfrak{h},\; \ad(h)(x) = (\varepsilon^{i} - \varepsilon^{j})(h)\, x \,\bigr\} = \mathbb{K}e_{ij}
 \end{align}
 と併せると\eqref{eq:Al}がルート空間分解
 \begin{align}
-    \mathfrak{g} = \mathfrak{h} \oplus \bigoplus_{\alpha_{ij} \in A_l} \mathfrak{g}_{\alpha_{ij}}
+    \mathfrak{g} = \mathfrak{h} \oplus \bigoplus_{\alpha \in A_l} \mathfrak{g}_{\alpha}
 \end{align}
 になっていることがわかった．
 
@@ -541,43 +562,53 @@ $\forall h = \mqty[\dmat{h_1,\ddots,h_{l+1}}] \in \mathfrak{h}$ に対して（E
     に付随するルート系を求めよ．
 \end{myproblem}
 
-% $\forall h = \mqty[\dmat{h_1,\ddots,h_{l},-h_{1},\ddots,-h_{l}}] \in \mathfrak{h}$ に対して，
-% $1 \le i \neq j \le l$ ならば
-% \begin{align}
-%     \ad(h)(e_{l+i,j}) &= -(h_i + h_j) e_{l+i,j}, \\
-%     \ad(h)(e_{i,l+j}) &= (h_i + h_j) e_{i,l+j}, \\
-%     \ad(h)(e_{i,j}) &= - \ad(h)(e_{l+i,l+j}) = (h_i - h_j) e_{i,j}
-% \end{align}
-% が成り立つので，
-% \begin{align}
-%     \ad(h)(e_{l+i,j} - e_{l+j,i}) &= -(h_i + h_j) (e_{l+i,j} - e_{l+j,i}), \\
-%     \ad(h)(e_{i,l+j} - e_{j,l+i}) &= (h_i + h_j) (e_{i,l+j} - e_{j,l+i}), \\
-%     \ad(h)(e_{i,j} - e_{l+j,l+i}) &= (h_i - h_j) e_{i,j} + (h_j - h_i) e_{l+j,l+i} = (h_i - h_j) (e_{i,j} - e_{l+j,l+i})
-% \end{align}
-% がわかった．故に
+
+$1 \le \forall i \le l$ に対して定義できる写像
+\begin{align}
+    \varepsilon^i \colon \mathfrak{h} \lto \mathbb{K},\; \mqty[\dmat{\lambda_1,\ddots,\lambda_{l},-\lambda_{1},\ddots,-\lambda_{l}}] \lmto \lambda_i
+\end{align}
+は $\mathbb{K}$-線型写像なので，$\varepsilon^i \in \mathfrak{h}^*$ である．
+
+$\forall h = \mqty[\dmat{h_1,\ddots,h_{l},-h_{1},\ddots,-h_{l}}] \in \mathfrak{h}$ に対して，
+$1 \le i \neq j \le l$ ならば
+\begin{align}
+    \ad(h)(e_{l+i,j}) &= -(h_i + h_j) e_{l+i,j} = -\bigl(\varepsilon^i(h) + \varepsilon^j(h)\bigr)\, e_{l+i,j}, \\
+    \ad(h)(e_{i,l+j}) &= (h_i + h_j) e_{i,l+j} = \bigl(\varepsilon^i(h) + \varepsilon^j(h)\bigr)\, e_{i,l+j}, \\
+    \ad(h)(e_{i,j}) &= - \ad(h)(e_{l+i,l+j}) = (h_i - h_j) e_{i,j} = \bigl(\varepsilon^i(h) - \varepsilon^j(h)\bigr)\,e_{i,j}
+\end{align}
+が成り立つので，
+\begin{align}
+    \ad(h)(e_{l+i,j} - e_{l+j,i}) &= -(\varepsilon^i + \varepsilon^j)(h)\, (e_{l+i,j} - e_{l+j,i}), \\
+    \ad(h)(e_{i,l+j} - e_{j,l+i}) &= (\varepsilon^i + \varepsilon^j)(h)\, (e_{i,l+j} - e_{j,l+i}), \\
+    \ad(h)(e_{i,j} - e_{l+j,l+i}) &= (\varepsilon^i - \varepsilon^j)(h)\, (e_{i,j} - e_{l+j,l+i})
+\end{align}
+がわかった．故に
 % $\alpha^{\pm}_{ij} \in \mathfrak{h}^*$ を
 % \begin{align}
 %     \alpha^+_{ij}(h) &\coloneqq h_i + h_j \\
 %     \alpha^-_{ij}(h) &\coloneqq h_i - h_j
 % \end{align}
 % と定義すれば
-% \begin{align}
-%     D_l
-%     &\coloneqq \bigl\{\, \alpha^{\pm}_{ij} \in \mathfrak{h}^* \setminus \{0\} \bigm| 1 \le i \neq j \le l \,\bigr\} \\
-%     &= \bigl\{\, \pm\alpha^{\pm}_{ij} \in \mathfrak{h}^* \setminus \{0\} \bigm| 1 \le i < j \le l \,\bigr\}
-% \end{align}
-% がルート系となる．実際 $i < j$ ならば
-% \begin{align}
-%     \mathfrak{g}_{-\alpha^+_{ij}} &= \mathbb{K}(e_{l+i,j} - e_{l+j,i}), \\
-%     \mathfrak{g}_{\alpha^+_{ij}} &= \mathbb{K}(e_{i,l+j} - e_{j,l+i}) \\
-%     \mathfrak{g}_{\alpha^{-}_{ij}} &= \mathbb{K}(e_{i,j} - e_{l+j,l+i}) \\
-%     \mathfrak{g}_{-\alpha^{-}_{ij}} &= \mathbb{K}(e_{j,i} - e_{l+i,l+j})
-% \end{align}
-% なので，$D_l$ 型の基底の取り方からルート空間分解
-% \begin{align}
-%     \mathfrak{g} = \mathfrak{h} \oplus \bigoplus_{\pm \alpha_{ij}^{\pm} \in D_l} \mathfrak{g}_{\pm \alpha^{\pm}_{ij}}
-% \end{align}
-% が再現される．
+\begin{align}
+    D_l
+    &\coloneqq 
+    \bigl\{\, \varepsilon^i + \varepsilon^j \in \mathfrak{h}^* \setminus \{0\} \bigm| 1 \le i \neq j \le l \,\bigr\} \\
+    &\quad \cup \bigl\{\, \varepsilon^i - \varepsilon^j \in \mathfrak{h}^* \setminus \{0\} \bigm| 1 \le i \neq j \le l \,\bigr\} \\
+    &= \bigl\{\, \pm \varepsilon^i \pm \varepsilon^j \in \mathfrak{h}^* \setminus \{0\} \bigm| 1 \le i < j \le l \,\bigr\}
+\end{align}
+がルート系となる．ただし最右辺は複号任意である．
+実際 $i < j$ ならば
+\begin{align}
+    \mathfrak{g}_{-\varepsilon^i-\varepsilon^j} &= \mathbb{K}(e_{l+i,j} - e_{l+j,i}), \\
+    \mathfrak{g}_{\varepsilon^i+\varepsilon^j} &= \mathbb{K}(e_{i,l+j} - e_{j,l+i}) \\
+    \mathfrak{g}_{\varepsilon^i-\varepsilon^j} &= \mathbb{K}(e_{i,j} - e_{l+j,l+i}) \\
+    \mathfrak{g}_{-\varepsilon^i+\varepsilon^j} &= \mathbb{K}(e_{j,i} - e_{l+i,l+j})
+\end{align}
+なので，$D_l$ 型の基底の取り方からルート空間分解
+\begin{align}
+    \mathfrak{g} = \mathfrak{h} \oplus \bigoplus_{\alpha \in D_l} \mathfrak{g}_{\alpha}
+\end{align}
+が再現される．
 
 \begin{myproblem}[label=ex:2-8-2C]{p.40 の Exercise 2}
     % \setcounter{\tcbcounter}{7}
@@ -589,33 +620,39 @@ $\forall h = \mqty[\dmat{h_1,\ddots,h_{l+1}}] \in \mathfrak{h}$ に対して（E
     に付随するルート系を求めよ．
 \end{myproblem}
 
-% $\forall h = \mqty[\dmat{h_1,\ddots,h_{l},-h_{1},\ddots,-h_{l}}] \in \mathfrak{h}$ に対して，
-% $1 \le i \neq j \le l$ ならば
-% \begin{align}
-%     \ad(h)(e_{l+i,i}) &= -2h_i e_{l+i,i}, \\
-%     \ad(h)(e_{l+i,j}) &= -(h_i + h_j) e_{l+i,j}, \\
-%     \ad(h)(e_{i,l+i}) &= 2h_i e_{i,l+i}, \\
-%     \ad(h)(e_{i,l+j}) &= (h_i + h_j) e_{i,l+j}, \\
-%     \ad(h)(e_{i,j}) &= - \ad(h)(e_{l+i,l+j}) = (h_i - h_j) e_{i,j}
-% \end{align}
-% が成り立つので，
-% \begin{align}
-%     \ad(h)(e_{l+i,i}) &= -2h_i e_{l+i,i}, \\
-%     \ad(h)(e_{l+i,j} + e_{l+j,i}) &= -(h_i + h_j) (e_{l+i,j} + e_{l+j,i}), \\
-%     \ad(h)(e_{i,l+j} + e_{j,l+i}) &= (h_i + h_j) (e_{i,l+j} + e_{j,l+i}), \\
-%     \ad(h)(e_{i,j} - e_{l+j,l+i}) &= (h_i - h_j) (e_{i,j} - e_{l+j,l+i})
-% \end{align}
-% がわかった．故に
+
+$1 \le \forall i \le l$ に対して定義できる写像
+\begin{align}
+    \varepsilon^i \colon \mathfrak{h} \lto \mathbb{K},\; \mqty[\dmat{\lambda_1,\ddots,\lambda_{l},-\lambda_{1},\ddots,-\lambda_{l}}] \lmto \lambda_i
+\end{align}
+は $\mathbb{K}$-線型写像なので，$\varepsilon^i \in \mathfrak{h}^*$ である．
+$\forall h = \mqty[\dmat{h_1,\ddots,h_{l},-h_{1},\ddots,-h_{l}}] \in \mathfrak{h}$ に対して，
+$1 \le i \neq j \le l$ ならば
+\begin{align}
+    \ad(h)(e_{l+i,i}) &= -2h_i e_{l+i,i} = -2\varepsilon^i(h)\, e_{l+i,i}, \\
+    \ad(h)(e_{l+i,j}) &= -(h_i + h_j) e_{l+i,j} = - \bigl( \varepsilon^i(h) + \varepsilon^j(h) \bigr)\, e_{l+i,j} , \\
+    \ad(h)(e_{i,l+i}) &= 2h_i e_{i,l+i} = 2\varepsilon^i(h)\, e_{i,l+i}, \\
+    \ad(h)(e_{i,l+j}) &= (h_i + h_j) e_{i,l+j} = \bigl( \varepsilon^i(h) + \varepsilon^j(h) \bigr)\, e_{i,l+j}, \\
+    \ad(h)(e_{i,j}) &= - \ad(h)(e_{l+i,l+j}) = (h_i - h_j) e_{i,j} = \bigl( \varepsilon^i(h) - \varepsilon^j(h) \bigr)\, e_{i,j}
+\end{align}
+が成り立つので，
+\begin{align}
+    \ad(h)(e_{l+i,i}) &= -2\varepsilon^i(h)\, e_{l+i,i}, \\
+    \ad(h)(e_{l+i,j} + e_{l+j,i}) &= -(\varepsilon^i + \varepsilon^j)(h)\, (e_{l+i,j} + e_{l+j,i}), \\
+    \ad(h)(e_{i,l+j} + e_{j,l+i}) &= (\varepsilon^i + \varepsilon^j)(h)\, (e_{i,l+j} + e_{j,l+i}), \\
+    \ad(h)(e_{i,j} - e_{l+j,l+i}) &= (\varepsilon^i - \varepsilon^j)(h)\, (e_{i,j} - e_{l+j,l+i})
+\end{align}
+がわかった．故に
 % $\alpha_{i} \in \mathfrak{h}^*$ を
 % \begin{align}
 %     \alpha_{i}(h) &\coloneqq 2h_i \\
 % \end{align}
 % と定義すれば
-% \begin{align}
-%     C_l
-%     &\coloneqq D_l \cup \bigl\{\, \pm \alpha_i \in \mathfrak{h}^* \setminus \{0\}\bigm| 1 \le i \le l \,\bigr\}
-% \end{align}
-% がルート系となる．
+\begin{align}
+    C_l
+    &\coloneqq D_l \cup \bigl\{\, \pm 2\varepsilon^i \in \mathfrak{h}^* \setminus \{0\}\bigm| 1 \le i \le l \,\bigr\}
+\end{align}
+がルート系となる．
 
 \begin{myproblem}[label=ex:2-8-2B]{p.40 の Exercise 2}
     % \setcounter{\tcbcounter}{7}
@@ -627,37 +664,41 @@ $\forall h = \mqty[\dmat{h_1,\ddots,h_{l+1}}] \in \mathfrak{h}$ に対して（E
     に付随するルート系を求めよ．
 \end{myproblem}
 
-
-% $\forall h = \mqty[\dmat{0,h_1,\ddots,h_{l},-h_{1},\ddots,-h_{l}}] \in \mathfrak{h}$ に対して，
-% $1 \le i \neq j \le l$ ならば
-% \begin{align}
-%     \ad(h)(e_{1+i,1}) &= h_i e_{1,1+i}, \\
-%     \ad(h)(e_{1,1+i}) &= -h_i e_{1,1+i}, \\
-%     \ad(h)(e_{1+l+i,1}) &= -h_i e_{1+l+i,1}, \\
-%     \ad(h)(e_{1,1+l+i}) &= h_i e_{1,1+l+i}, \\
-%     \ad(h)(e_{1+l+i,1+j}) &= -(h_i + h_j) e_{1+l+i,1+j}, \\
-%     \ad(h)(e_{1+i,1+l+j}) &= (h_i + h_j) e_{1+i,1+l+j}, \\
-%     \ad(h)(e_{1+i,1+j}) &= - \ad(h)(e_{1+l+i,1+l+j}) = (h_i - h_j) e_{i,j}
-% \end{align}
-% が成り立つので，
-% \begin{align}
-%     \ad(h)(e_{1,1+i} - e_{1+l+i,1}) &= -h_i (e_{1,1+i} - e_{1+l+i,1}), \\
-%     \ad(h)(e_{1+i,1} - e_{1,1+l+i}) &= h_i(e_{1+i,1} - e_{1,1+l+i}), \\
-%     \ad(h)(e_{1+l+i,1+j} + e_{1+l+j,1+i}) &= -(h_i + h_j) (e_{1+l+i,1+j} + e_{1+l+j,1+i}), \\
-%     \ad(h)(e_{1+i,1+l+j} + e_{1+j,1+l+i}) &= (h_i + h_j) (e_{1+i,1+l+j} + e_{1+j,1+l+i}), \\
-%     \ad(h)(e_{1+i,1+j} - e_{1+l+j,1+l+i}) &= (h_i - h_j) (e_{1+i,1+j} - e_{1+l+j,1+l+i})
-% \end{align}
-% がわかった．故に
+$1 \le \forall i \le l$ に対して定義できる写像
+\begin{align}
+    \varepsilon^i \colon \mathfrak{h} \lto \mathbb{K},\; \mqty[\dmat{0,\lambda_1,\ddots,\lambda_{l},-\lambda_{1},\ddots,-\lambda_{l}}] \lmto \lambda_i
+\end{align}
+は $\mathbb{K}$-線型写像なので，$\varepsilon^i \in \mathfrak{h}^*$ である．
+$\forall h = \mqty[\dmat{0,h_1,\ddots,h_{l},-h_{1},\ddots,-h_{l}}] \in \mathfrak{h}$ に対して，
+$1 \le i \neq j \le l$ ならば
+\begin{align}
+    \ad(h)(e_{1+i,1}) &= h_i e_{1,1+i} = \varepsilon^i(h)\, e_{1,1+i}, \\
+    \ad(h)(e_{1,1+i}) &= -h_i e_{1,1+i} = -\varepsilon^i(h)\, e_{1,1+i}, \\
+    \ad(h)(e_{1+l+i,1}) &= -h_i e_{1+l+i,1} = -\varepsilon^i(h)\, e_{1+l+i,1}, \\
+    \ad(h)(e_{1,1+l+i}) &= h_i e_{1,1+l+i} = \varepsilon^i(h)\, e_{1,1+l+i}, \\
+    \ad(h)(e_{1+l+i,1+j}) &= -(h_i + h_j) e_{1+l+i,1+j} = -\bigl( \varepsilon^i(h) + \varepsilon^j(h) \bigr)\, e_{1+l+i,1+j} , \\
+    \ad(h)(e_{1+i,1+l+j}) &= (h_i + h_j) e_{1+i,1+l+j} = \bigl( \varepsilon^i(h) + \varepsilon^j(h) \bigr)\,  e_{1+i,1+l+j}, \\
+    \ad(h)(e_{1+i,1+j}) &= - \ad(h)(e_{1+l+i,1+l+j}) = (h_i - h_j) e_{i,j} = \bigl( \varepsilon^i(h) - \varepsilon^j(h) \bigr)\, e_{i,j}
+\end{align}
+が成り立つので，
+\begin{align}
+    \ad(h)(e_{1,1+i} - e_{1+l+i,1}) &= -\varepsilon^i(h)\, (e_{1,1+i} - e_{1+l+i,1}), \\
+    \ad(h)(e_{1+i,1} - e_{1,1+l+i}) &= \varepsilon^i(h)\,(e_{1+i,1} - e_{1,1+l+i}), \\
+    \ad(h)(e_{1+l+i,1+j} + e_{1+l+j,1+i}) &= -(\varepsilon^i + \varepsilon^j)(h)\, (e_{1+l+i,1+j} + e_{1+l+j,1+i}), \\
+    \ad(h)(e_{1+i,1+l+j} + e_{1+j,1+l+i}) &= (\varepsilon^i + \varepsilon^j)(h)\, (e_{1+i,1+l+j} + e_{1+j,1+l+i}), \\
+    \ad(h)(e_{1+i,1+j} - e_{1+l+j,1+l+i}) &= (\varepsilon^i - \varepsilon^j)(h)\, (e_{1+i,1+j} - e_{1+l+j,1+l+i})
+\end{align}
+がわかった．故に
 % $\beta_{i} \in \mathfrak{h}^*$ を
 % \begin{align}
 %     \beta_{i}(h) &\coloneqq h_i \\
 % \end{align}
 % と定義すれば
-% \begin{align}
-%     B_l
-%     &\coloneqq D_l \cup \bigl\{\, \pm \beta_i \in \mathfrak{h}^* \setminus \{0\}\bigm| 1 \le i \le l \,\bigr\}
-% \end{align}
-% がルート系となる．
+\begin{align}
+    B_l
+    &\coloneqq D_l \cup \bigl\{\, \pm \varepsilon^i \in \mathfrak{h}^* \setminus \{0\}\bigm| 1 \le i \le l \,\bigr\}
+\end{align}
+がルート系となる．
 
 \begin{myproblem}[label=ex:2-8-10B]{p.40 の Exercise 10}
     % \setcounter{\tcbcounter}{7}

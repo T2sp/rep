@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex out/chap2_exsol2"] 1702308104 "out/chap2_exsol2.aux" "out/chap2_exsol2.bbl" "out/chap2_exsol2" 1702309727 0
+["bibtex out/chap2_exsol2"] 1702444210 "out/chap2_exsol2.aux" "out/chap2_exsol2.bbl" "out/chap2_exsol2" 1702444461 0
   "./myh-physrev.bst" 1687527611 17141 2e35e7d2990544349d72280dee109834 ""
   "./repref.bib" 1700442901 2389 fa15a2f7100194b14e7b6f1c2ccca26a ""
-  "out/chap2_exsol2.aux" 1702309726 2098 feff116fa0b4cc4da1ea3e6ad0a945ba "lualatex"
+  "out/chap2_exsol2.aux" 1702444457 2100 a09c786d417d777b8e761c138e29113c "lualatex"
   (generated)
   "out/chap2_exsol2.bbl"
   "out/chap2_exsol2.blg"
   (rewritten before read)
-["lualatex"] 1702309712 "/Users/takamatoshinori/Desktop/Seminors/rep/doc/chap2_exsol2.tex" "out/chap2_exsol2.pdf" "chap2_exsol2" 1702309727 0
-  "/Users/takamatoshinori/Desktop/Seminors/rep/doc/chap2_exsol2.tex" 1702309711 31301 469979ae5c8e3dd70ba116a7270db33b ""
+["lualatex"] 1702444442 "/Users/takamatoshinori/Desktop/Seminors/rep/doc/chap2_exsol2.tex" "out/chap2_exsol2.pdf" "chap2_exsol2" 1702444461 0
+  "/Users/takamatoshinori/Desktop/Seminors/rep/doc/chap2_exsol2.tex" 1702444441 34237 65357aea24c50932643ab53c0651cb25 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/haranoajigothic-medium.luc" 1680092069 1875369 563a49d56453118cc2bc098475a23186 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/haranoajimincho-regular.luc" 1680092052 1961878 305e540f3545673854903467c3d18712 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmmono9-regular.luc" 1680092053 81875 4186f491346ae8e27e9de854d6400326 ""
@@ -21,6 +21,7 @@
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman6-regular.luc" 1680092074 128516 129865335dafee035eee3eb06f58266d ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman7-italic.luc" 1680092076 135991 9c3ec1dcd29fd08f5e9a42115935c256 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman7-regular.luc" 1680092073 128375 2e5afeca06d39c45f5cf763b222e39ce ""
+  "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman8-bold.luc" 1680092088 128298 30e60536ed92e8439ed9a12394c6d9a6 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman8-regular.luc" 1680092053 128146 9841d77998bd3eccd22be1610d882f44 ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/fonts/otl/lmsans12-regular.luc" 1681820532 128165 4e0429a412cc05a9da3167fe83b730ba ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz" 1680092026 370146 01f5474d7ccb01b90c94bd21587853a3 ""
@@ -36,6 +37,7 @@
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmroman6-regular.luc" 1680092074 17367 5d9781175aaedca190236e4b16a936ee ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmroman7-italic.luc" 1680092076 17367 5d9781175aaedca190236e4b16a936ee ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmroman7-regular.luc" 1680092073 17367 5d9781175aaedca190236e4b16a936ee ""
+  "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmroman8-bold.luc" 1680092088 17367 5d9781175aaedca190236e4b16a936ee ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmroman8-regular.luc" 1680092053 17367 5d9781175aaedca190236e4b16a936ee ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/extra_lmsans12-regular.luc" 1681820532 17367 5d9781175aaedca190236e4b16a936ee ""
   "/Users/takamatoshinori/Library/texlive/2023/texmf-var/luatexja/ltj-cid-auto-adobe-japan1.luc" 1680091968 1643631 91cfe6be2985e96c1aa98a60c52fbe03 ""
@@ -55,7 +57,7 @@
   "/usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf" 1255129361 112212 f133bf18e62239f8946eb96eb60e2777 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf" 1255129361 117960 0d66730bd21e5e084f11b2b3f18ea9e1 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf" 1255129361 110792 5c4b6a3d7f194f073a529b5124a181af ""
-  "/usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf" 1255129361 111948 cee9e390fd6d23cfb4d6871ba2a9ee5b ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf" 1255129361 112404 bd8026cc46bc23039d2282e4eb9db13a ""
   "/usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans12-regular.otf" 1255129361 95160 a298a0c894450a41822166397e6bc032 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1246382020 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -123,6 +125,7 @@
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1248133631 32587 1788b0c1c5b39540c96f5e42ccd6dae8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb" 1248133631 30273 87a352d78b6810ae5cfdc68d2fb827b2 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb" 1248133631 39386 0bb525d495ceab21fe797301a586e0d7 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb" 1336858727 21098 d4aee7c0aac232caac5688b586b9363c ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1248133631 31764 459c573c03a4949a528c2cc7f557e217 ""
@@ -572,10 +575,10 @@
   "/usr/local/texlive/2023/texmf-dist/tex/platex/jsclasses/jslogo.sty" 1601931076 5585 8e4615c54073c390d14154b29cee89cb ""
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1680072210 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/luahbtex/lualatex.fmt" 1680072074 11876436 fe019cd16c56b2a02a7f439a19527237 ""
-  "chap2_exsol2.tex" 1702309711 31301 469979ae5c8e3dd70ba116a7270db33b ""
-  "out/chap2_exsol2.aux" 1702309726 2098 feff116fa0b4cc4da1ea3e6ad0a945ba "lualatex"
-  "out/chap2_exsol2.bbl" 1702308104 193 3c05e4e77a6f9a87096a7bf430dfe9d1 "bibtex out/chap2_exsol2"
-  "out/chap2_exsol2.out" 1702309726 213 7af752864e7cfce76ee4f1f6074c7167 "lualatex"
+  "chap2_exsol2.tex" 1702444441 34237 65357aea24c50932643ab53c0651cb25 ""
+  "out/chap2_exsol2.aux" 1702444457 2100 a09c786d417d777b8e761c138e29113c "lualatex"
+  "out/chap2_exsol2.bbl" 1702444210 193 3c05e4e77a6f9a87096a7bf430dfe9d1 "bibtex out/chap2_exsol2"
+  "out/chap2_exsol2.out" 1702444457 213 a54751f0614a52c93ab0b37cd920ca09 "lualatex"
   (generated)
   "out/chap2_exsol2.aux"
   "out/chap2_exsol2.log"

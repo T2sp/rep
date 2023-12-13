@@ -186,16 +186,18 @@ title=系~\thetcbcounter: #2,#1}
     % empty,
     outer arc=0pt,
     arc=0pt,
+    enhanced,
     attach boxed title to top left={
     %     % empty,
         xshift=-2mm,
         yshift=-2mm
     },
-    % coltitle=black,
-    % colframe=black,
+    coltitle=black,
+    colbacktitle=white,
+    colframe=black,
     colback=white,
     fonttitle=\bfseries,
-    title=問題~\thetcbcounter #2,#1,
+    title=【問題~\thetcbcounter】#2,#1
 }
 \newcommand{\probref}[1]{\textbf{【問題\ref{#1}】}}
 
@@ -485,6 +487,7 @@ title=系~\thetcbcounter: #2,#1}
     である．
 \end{description}
 
+\setcounter{section}{3}
 
 \begin{myproblem}[label=ex:1-3-8]{p.14 の Exercise 2}
     % \setcounter{\tcbcounter}{7}
