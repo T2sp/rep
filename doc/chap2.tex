@@ -1337,8 +1337,8 @@ $\mathfrak{g} \neq 0$ を体 $\mathbb{K}$-上の\hyperref[def:semisimple-LieAlg]
 $\mathfrak{g}$ の\hyperref[def:toral-subLieAlg]{トーラス}のうち極大なもの\footnote{トーラス $\mathfrak{t} \subsetneq \mathfrak{g}$ が存在して $\mathfrak{h} \subset \mathfrak{t}$ が成り立つならば $\mathfrak{t} = \mathfrak{h}$．}を1つ固定し，それを $\mathfrak{h} \subset \mathfrak{g}$ と書こう．
 $\mathfrak{h}$ は\textbf{極大トーラス} (maximal toral subalgebra) と呼ばれる．
 \begin{marker}
-	極大トーラスを $\mathfrak{t}$ ではなく $\mathfrak{h}$ と書くのは慣習である．
-	後述する\textbf{Cartan部分代数} (Cartan subalgebra; CSA) を $\mathfrak{h}$ と書く慣習と対応しているように思われる？
+	$\mathfrak{g}$ が\hyperref[def:semisimple-LieAlg]{半単純Lie代数}なので， $\mathfrak{g}$ の極大トーラスは後述する\textbf{Cartan部分代数} (Cartan subalgebra; CSA) と一致する．
+	極大トーラスを $\mathfrak{t}$ ではなく $\mathfrak{h}$ と書くのは慣習であり，CSAを $\mathfrak{h}$ と書くことに対応していると思われる．
 \end{marker}
 
 ここで，与えられた $h \in \mathfrak{h}$ に対して線型変換 $\ad_{\mathfrak{g}}(h) \in \Lgl(\mathfrak{g})$ の固有値のうちのどれか1つを返す写像
@@ -1966,34 +1966,34 @@ $\forall \alpha,\, \beta \in \mathfrak{h}^*$ をとる．
 	\begin{enumerate}
 		\item $\mathbb{E} = \Span_{\mathbb{R}}\Phi,\quad 0 \notin \Phi$
 		\item $\lambda \alpha \in \Phi \IMP \lambda = \pm 1$
-		\item $\alpha,\, \beta \in \Phi \IMP \beta - \frac{2(\beta,\, \alpha)}{(\alpha,\, \alpha)} \alpha \in \Phi$
-		\item $\alpha,\, \beta \in \Phi \IMP \frac{2(\beta,\, \alpha)}{(\alpha,\, \alpha)} \in \mathbb{Z}$
+		\item $\alpha,\, \beta \in \Phi \IMP \beta - 2\displaystyle\frac{(\beta,\, \alpha)}{(\alpha,\, \alpha)} \alpha \in \Phi$
+		\item $\alpha,\, \beta \in \Phi \IMP 2\displaystyle\frac{(\beta,\, \alpha)}{(\alpha,\, \alpha)} \in \mathbb{Z}$
 	\end{enumerate}
 \end{mytheo}
 
 定理\ref{thm:root-decomp-Q}によって，\hyperref[def:semisimple-LieAlg]{半単純Lie代数} $\mathfrak{g}$ とその\hyperref[def:toral-subLieAlg]{極大トーラス} $\mathfrak{h}$ の組 $(\mathfrak{g},\, \mathfrak{h})$ 
-から，Euclid空間とその上の\hyperref[eq:root-decomp1]{ルート} $\Phi$ の組 $(\Phi,\, \mathbb{E})$ の間の対応
+から，Euclid空間とその上の\hyperref[eq:root-decomp1]{ルート} $\Phi$ の組 $(\mathbb{E},\, \Phi)$ の間の対応
 \begin{align}
-	(\mathfrak{g},\, \mathfrak{h}) \lto (\Phi,\, \mathbb{E})
+	(\mathfrak{g},\, \mathfrak{h}) \lto (\mathbb{E},\, \Phi)
 \end{align}
 が得られた事になる．
-定理\ref{thm:root-decomp-Q}の条件を充たす組 $(\Phi,\, \mathbb{E})$ は\textbf{ルート系} (root system) と呼ばれる：
+定理\ref{thm:root-decomp-Q}の条件を充たす組 $(\mathbb{E},\, \Phi)$ は\textbf{ルート系} (root system) と呼ばれる：
 
-\begin{myaxiom}[label=ax:root-system,breakable]{ルート系}
+\begin{myaxiom}[label=ax:root-system-2,breakable]{ルート系}
 	\begin{itemize}
 		\item 有限次元Euclid空間\footnote{有限次元 $\mathbb{R}$-ベクトル空間であって，対称かつ正定値な双線型形式 $(\;,\, ) \colon \mathbb{E} \times \mathbb{E} \lto \mathbb{R}$ を持つもののこと．} $\bigl(\mathbb{E},\, (\;,\, )\bigr)$ 
 		\item $\mathbb{E}$ の部分集合 $\Phi \subset \mathbb{E}$
 	\end{itemize}
-	の組 $(\Phi,\, \mathbb{E})$ が\textbf{ルート系} (root system) であるとは，以下の条件を充たすことを言う：
+	の組 $(\mathbb{E},\, \Phi)$ が\textbf{ルート系} (root system) であるとは，以下の条件を充たすことを言う：
 	\begin{description}
 		\item[\textbf{(Root-1)}] $\Phi$ は $0$ を含まない有限集合で，かつ $\mathbb{E} = \Span_{\mathbb{R}} \Phi$ を充たす．
 		\item[\textbf{(Root-2)}] $\lambda \alpha \in \Phi \IMP \lambda = \pm 1$
-		\item[\textbf{(Root-3)}] $\alpha,\, \beta \in \Phi \IMP \beta - \frac{2(\beta,\, \alpha)}{(\alpha,\, \alpha)} \alpha \in \Phi$
-		\item[\textbf{(Root-4)}] $\alpha,\, \beta \in \Phi \IMP \frac{2(\beta,\, \alpha)}{(\alpha,\, \alpha)} \in \mathbb{Z}$
+		\item[\textbf{(Root-3)}] $\alpha,\, \beta \in \Phi \IMP \beta - 2\displaystyle\frac{(\beta,\, \alpha)}{(\alpha,\, \alpha)} \alpha \in \Phi$
+		\item[\textbf{(Root-4)}] $\alpha,\, \beta \in \Phi \IMP 2\displaystyle\frac{(\beta,\, \alpha)}{(\alpha,\, \alpha)} \in \mathbb{Z}$
 	\end{description}
 \end{myaxiom}
 
 実は，勝手なルート系が与えられると，それに対応する $(\mathfrak{g},\, \mathfrak{h})$ がLie代数の同型を除いて一意に決まることが後に明らかになる．
-差し当たって，まず次の章ではルート系 $(\Phi,\, \mathbb{E})$ の完全な分類を行う．
+差し当たって，まず次の章ではルート系 $(\mathbb{E},\, \Phi)$ の完全な分類を行う．
 
 \end{document}

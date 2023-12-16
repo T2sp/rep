@@ -1,0 +1,598 @@
+\documentclass[rep_main]{subfiles}
+
+\newcommand{\Euc}[1]{\bigl(\, #1,\, (\;,\,)_{#1}\,\bigr)}
+\newcommand{\Weyl}[2]{\mathscr{W}_{#1}(#2)}
+
+\begin{document}
+
+\setcounter{chapter}{2}
+
+\chapter{ルート系}
+
+この章において，特に断らない限り体 $\mathbb{K}$ は代数閉体\footnote{つまり，定数でない任意の1変数多項式 $f(x) \in \mathbb{K}[x]$ に対してある $\alpha \in \mathbb{K}$ が存在して $f(\alpha) = 0$ を充たす．}で，かつ $\character \mathbb{K} = 0$ であるとする．
+また，\hyperref[ax:LieAlg]{Lie代数} $\mathfrak{g}$ は常に\underline{有限次元}であるとする．
+
+\section{公理的方法}
+
+\label{def:Euclid-space}\textbf{Euclid空間} (Euclid space) とは，
+\begin{itemize}
+	\item 体 $\mathbb{R}$ 上の\underline{有限次元}ベクトル空間 $\mathbb{E}$
+	\item 対称かつ正定値な双線型形式 $\rpair{\;}{\,}_{\mathbb{E}}\colon \mathbb{E} \times \mathbb{E} \lto \mathbb{R}$
+\end{itemize}
+の組 $\Euc{\mathbb{E}}$ のことを言う
+\footnote{Euclid空間と言って位相空間のことを指す場合があるが，そのときは双線型形式 $\rpair{\;}{\,}_{\mathbb{E}}$ を使って $\mathbb{E}$ 上の距離関数を $d_{\mathbb{E}} \colon \mathbb{E} \times \mathbb{E} \lto \mathbb{R}_{\ge 0},\; (x,\, y) \lmto \rpair{x-y}{x-y}_{\mathbb{E}}$ と定義し（これは通常\textbf{Euclid距離}と呼ばれる），$\mathbb{E}$ に $d_{\mathbb{E}}$ による距離位相を入れる．}．
+Euclid空間 $\Euc{\mathbb{E}}$ の任意の元 $\alpha \in \mathbb{E}$ に対して，
+\begin{itemize}
+    \item \textbf{鏡映面} (reflecting hyperplane)\footnote{余次元 $1$ の部分 $\mathbb{R}$-ベクトル空間．最右辺は\hyperref[def:radical-bilinear]{対称かつ非退化な双線型形式 $(\;,\,)_{\mathbb{E}}$ による直交補空間}の意味である．}
+    \begin{align}
+        \label{def:hyperplane}
+        \bm{P_\alpha} \coloneqq \bigl\{\, \beta \in \mathbb{E} \bigm| \rpair{\beta}{\alpha}_{\mathbb{E}} = 0 \,\bigr\} = (\mathbb{R}\alpha)^\perp
+    \end{align}
+    \item 鏡映面 $P_\alpha$ に関する\textbf{鏡映} (reflecting)
+    \begin{align}
+        \bm{\sigma_\alpha} \colon \mathbb{E} \lto \mathbb{E},\; \beta \lmto \beta - 2 \frac{\rpair{\beta}{\alpha}_{\mathbb{E}}}{\rpair{\alpha}{\alpha}_{\mathbb{E}}} \alpha
+    \end{align}
+\end{itemize}
+を考える．
+
+
+\begin{marker}
+    $2 \frac{(\beta,\, \alpha)}{(\alpha,\, \alpha)} \in \mathbb{R}$ が頻繁に登場するので，
+    \begin{align}
+		\sspair{\beta}{\alpha} \coloneqq 2\frac{(\beta,\, \alpha)_{\mathbb{E}}}{(\alpha,\, \alpha)_{\mathbb{E}}}
+	\end{align}
+	と略記することにする．写像 $\sspair{\;}{\,} \colon \mathbb{E} \times \mathbb{E} \lto \mathbb{R}$ は記号的には内積のように見えるかもしれないが，あくまで第一引数についてのみ線型なのであって，\underline{対称でも双線型でもない}ことに注意．
+\end{marker}
+
+$\sigma_\alpha$ は $\mathbb{R}$-線型でかつ $\forall \beta \in \mathbb{E}$ に対して
+\begin{align}
+	\sigma_\alpha \circ \sigma_\alpha (\beta) 
+	&= \bigl(\beta - \sspair{\beta}{\alpha} \alpha\bigr) - \sspair[\Big]{\bigl(\beta - \sspair{\beta}{\alpha} \alpha\bigr)}{\alpha}\alpha \\
+	&= \beta - \sspair{\beta}{\alpha} \alpha - \sspair{\beta}{\alpha}\alpha + \sspair{\beta}{\alpha}\sspair{\alpha}{\alpha} \alpha \\
+	&= \beta - 2\sspair{\beta}{\alpha}\alpha + 2\sspair{\beta}{\alpha}\alpha \\
+	&= \beta
+\end{align}
+を充たす，i.e. $\sigma_\alpha^{-1} = \sigma_\alpha$ なので，$\sigma_\alpha \in \LGL(\mathbb{E})$ である．
+
+\begin{mylem}[label=lem:refrect]{鏡映の特徴付け}
+	Euclid空間 $\mathbb{E}$ と，
+	\begin{itemize}
+		\item $\mathbb{E} = \Span_{\mathbb{R}}\Phi$ 
+		\item $\forall \alpha \in \Phi,\; \sigma_\alpha(\Phi) = \Phi$ 
+	\end{itemize}
+	を充たす $\mathbb{E}$ の有限部分集合 $\Phi \subset \mathbb{E}$ を与える．
+
+	このとき，$\sigma \in \LGL(\mathbb{E})$ が
+	\begin{description}
+		\item[\textbf{(RF-1)}]  $\sigma(\Phi) = \Phi$
+		\item[\textbf{(RF-2)}]  余次元 $1$ の部分ベクトル空間 $P \subset \mathbb{R}$ が存在して，$\forall \beta \in P,\; \sigma(\beta) = \beta$ が成り立つ
+		\item[\textbf{(RF-3)}]  $\exists \alpha \in \Phi \setminus \{0\},\; \sigma(\alpha) = -\alpha$
+	\end{description}
+	の3条件を満たすならば $\sigma = \sigma_\alpha$ （かつ $P = P_\alpha$）である．
+\end{mylem}
+
+\begin{proof}
+	$\tau \coloneqq \sigma \circ \sigma_\alpha \, (= \sigma \circ \sigma_\alpha^{-1})$ とおき，$\tau = \mathrm{id}_{\mathbb{E}}$ であることを示す．
+
+	\textsf{\textbf{(RF-1)}} より $\tau(\Phi) = \Phi,\; \tau(\alpha) = \alpha$ が成り立つので $\tau|_{\mathbb{R}\alpha} = \mathrm{id}_{\mathbb{R}\alpha}$ である．
+	さらに $\mathbb{R}$-線型写像
+	\begin{align}
+		\overline{\tau} \colon \mathbb{E}/\mathbb{R}\alpha \lto \mathbb{E}/\mathbb{R}\alpha,\; \beta + \mathbb{R}\alpha \lmto \tau(\beta) + \mathbb{R}\alpha
+	\end{align}
+	はwell-definedだが，\textsf{\textbf{(RF-2)}}より $\overline{\tau} = \mathrm{id}_{ \mathbb{E}/\mathbb{R}\alpha}$ である．よって $\tau$ の固有値は全て $1$ であり，$\tau$ の\hyperref[def:minimal-poly]{最小多項式} $f(t)$ は $(t-1)^{\dim \mathbb{E}}$ の\hyperref[def:domain-basic]{約元}である．
+	一方，$\Phi$ は有限集合なので，$\forall \beta \in \Phi$ に対してある $k_\beta \in \mathbb{N}$ が存在して $\tau^{k_\beta}(\beta) = \beta$ を充たす．ここで $k \coloneqq \max \{k_\beta\mid \beta \in \Phi\}$ とおくと，\textsf{\textbf{(RF-1)}} より $\tau^k = \mathrm{id}_{\mathbb{E}}$ が言える．よって $f(t)$ は $t^k - 1$ の約元でもある．
+	従って，$f(t) = \GCD \bigl( (t-1)^{\dim \mathbb{E}},\, t^k - 1 \bigr) = t-1$ だと分かった．故に $\tau = \mathrm{id}_{\mathbb{E}}$ である．
+\end{proof}
+
+
+\subsection{ルート系}
+
+前章で与えたルート系の公理を再掲するところから始めよう：
+
+\begin{myaxiom}[label=ax:root-system,breakable]{ルート系}
+	\begin{itemize}
+		\item 有限次元Euclid空間 $\Euc{\mathbb{E}}$ 
+		\item $\mathbb{E}$ の部分集合 $\Phi \subset \mathbb{E}$
+	\end{itemize}
+	の組 $(\mathbb{E},\, \Phi)$ が\textbf{ルート系} (root system) であるとは，以下の条件を充たすことを言う：
+	\begin{description}
+		\item[\textbf{(Root-1)}] $\Phi$ は $0$ を含まない有限集合で，かつ $\mathbb{E} = \Span_{\mathbb{R}} \Phi$ を充たす．
+		\item[\textbf{(Root-2)}] $\lambda \alpha \in \Phi \IMP \lambda = \pm 1$
+		\item[\textbf{(Root-3)}] $\alpha,\, \beta \in \Phi \IMP \sigma_\alpha(\beta) \in \Phi$
+		\item[\textbf{(Root-4)}] $\alpha,\, \beta \in \Phi \IMP \sspair{\beta}{\alpha} \in \mathbb{Z}$
+	\end{description}
+	\tcblower
+	$\Phi$ の元のことを\textbf{ルート} (root) と呼ぶ．
+\end{myaxiom}
+
+\begin{marker}
+	本資料の以降では，文脈上直積集合の要素との混同が起きる恐れがないときは\hyperref[def:Euclid-space]{Euclid空間} $\Euc{\mathbb{E}}$ に備わっている双線型形式を $\rpair{\;}{\,}_{\mathbb{E}}$ と書く代わりに $\rpair{\;}{\,}$ と略記する．
+\end{marker}
+
+
+ルート系と言ったときに，\textsf{\textbf{(Root-2)}} を除外する場合がある．その場合我々が採用した定義に該当するものは\textbf{簡約ルート系} (reduced root system) と呼ばれる．
+
+\begin{mydef}[label=def:rank-root]{}
+	\hyperref[ax:root-system]{ルート系} $(\mathbb{E},\, \Phi)$ の\textbf{ランク} (rank) とは，$\dim \mathbb{E} \in \mathbb{N}$ のことを言う．
+\end{mydef}
+
+公理 \textsf{\textbf{(Root-4)}} は，任意のルートの2つ組の配位に非常に強い制約を与える．
+というのも，2つのベクトルのなす角の定義を思い出すと，$\forall \alpha,\, \beta \in \Phi$ に対してある $\theta \in [0,\, \pi]$ が存在して
+\begin{align}
+	\sspair{\beta}{\alpha} 
+	&= 2 \frac{\norm*{\beta}}{\norm*{\alpha}} \cos \theta \in \mathbb{Z} \label{eq:root4-1} \\
+	\sspair{\alpha}{\beta}\sspair{\beta}{\alpha} 
+	&= 4 \cos^2 \theta \in \mathbb{Z} \label{eq:root4-2}
+\end{align}
+が成り立たねばならないのである．$\sspair{\alpha}{\beta},\,\sspair{\beta}{\alpha} \in \mathbb{Z}$ かつ $0 \le \cos^2 \theta \le 1$ なので，\eqref{eq:root4-2}から
+\begin{align}
+	\cos^2 \theta = 0,\, \frac{(\pm 1) \cdot (\pm 1)}{4},\, \frac{(\pm 1) \cdot (\pm 2)}{4},\, \frac{(\pm 1) \cdot (\pm 3)}{4},\, \frac{ (\pm 1) \cdot (\pm 4)}{4},\, \frac{(\pm 2) \cdot (\pm 2)}{4} \quad (\text{複号同順})
+\end{align}
+しかあり得ないとわかる．\textsf{\textbf{(Root-2)}}も考慮すると，$\norm*{\alpha} \le \norm*{\beta}$ ならば\footnote{このとき\eqref{eq:root4-1}より $\sspair{\alpha}{\beta} \le \sspair{\beta}{\alpha}$}あり得る可能性は以下の通り\footnote{表\ref{tab:rootsystem}の最後の2段は $\beta = \pm \alpha$ の場合に相当する．}：
+
+\begin{table}[H]
+	\centering
+	\caption[]{可能なルートの2つ組 $\alpha,\, \beta$}
+	\label{tab:rootsystem}
+	\begin{tabular}{cc|cc}
+		\multicolumn{1}{c}{$\sspair{\alpha}{\beta}$} 
+		&\multicolumn{1}{c}{$\sspair{\beta}{\alpha}$} 
+		&\multicolumn{1}{|c}{$\theta$} 
+		&\multicolumn{1}{c}{$\norm*{\beta}^2/\norm*{\alpha}^2$} \\
+		\hhline{--|--}
+		$0 $ &$0 $ &$\frac{\pi}{2}$ 	&- \\
+		$1 $ &$1 $ &$\frac{\pi}{3}$ 	&$1$ \\
+		$-1$ &$-1$ &$\frac{2\pi}{3}$ 	&$1$ \\
+		$1 $ &$2 $ &$\frac{\pi}{4}$ 	&$2$ \\
+		$-1$ &$-2$ &$\frac{3\pi}{4}$ 	&$2$ \\
+		$1 $ &$3 $ &$\frac{\pi}{6}$ 	&$3$ \\
+		$-1$ &$-3$ &$\frac{5\pi}{6}$ 	&$3$ \\
+		$2 $ &$2 $ &$0$ 				&$1$ \\
+		$-2$ &$-2$ &$\pi$ 				&$1$ \\
+	\end{tabular}
+\end{table}%
+
+\begin{mylem}[label=lem:root-basic]{}
+	$(\mathbb{E},\, \Phi)$ を\hyperref[ax:root-system]{ルート系}とする．
+	$\alpha \neq \pm \beta$ を充たす任意の $\alpha,\, \beta \in \Phi$ に対して以下が成り立つ：
+	\begin{enumerate}
+		\item $\rpair{\alpha}{\beta} > 0 \IMP \alpha - \beta \in \Phi$
+		\item $\rpair{\alpha}{\beta} < 0 \IMP \alpha + \beta \in \Phi$
+	\end{enumerate}
+\end{mylem}
+
+\begin{proof}
+	$\rpair{\alpha}{\beta} > 0$ とする．このとき $\sspair{\alpha}{\beta} > 0$ であるから，表\ref{tab:rootsystem}より $\sspair{\alpha}{\beta},\, \sspair{\beta}{\alpha}$ の少なくとも一方は $1$ に等しい．$\sspair{\alpha}{\beta} = 1$ だとすると，\textsf{\textbf{(Root-3)}}から $\sigma_\beta(\alpha) = \alpha - \beta \in \Phi$ がいえる．$\sspair{\beta}{\alpha} = 1$ ならば $\sigma_\alpha(\beta) = \beta - \alpha \in \Phi$ であり，$\sigma_{\beta-\alpha}(\beta-\alpha) = \alpha - \beta \in \Phi$ が従う．
+	(2) は (1) において $\beta$ の代わりに $-\beta = \sigma_\beta(\beta) \in \Phi$ を用いて同じ議論をすれば良い．
+\end{proof}
+
+\begin{mydef}[label=def:a-sting]{$\alpha$-string through $\beta$}
+	$(\mathbb{E},\, \Phi)$ を\hyperref[ax:root-system]{ルート系}とする．
+	$\alpha \neq \pm \beta$ を充たす任意の $\alpha,\, \beta \in \Phi$ に対して，$\Phi$ の部分集合
+	\begin{align}
+		\bigl\{\, \beta + \lambda \alpha \in \mathbb{E} \bigm| \lambda \in \mathbb{Z} \,\bigr\} \cap \Phi
+	\end{align}
+	のことを\textbf{$\bm{\alpha}$-string through $\bm{\beta}$} と呼ぶ．
+\end{mydef}
+
+\begin{myprop}[label=prop:a-string-basic]{$\alpha$-string through $\beta$ の性質}
+	$(\mathbb{E},\, \Phi)$ を\hyperref[ax:root-system]{ルート系}とする．
+	$\alpha \neq \pm \beta$ を充たす任意の $\alpha,\, \beta \in \Phi$ に対して
+	\begin{align}
+		r &\coloneqq \max \bigl\{\, \lambda \in \mathbb{Z}_{\ge 0} \bigm| \beta - \lambda \alpha \in \Phi \,\bigr\}, \\
+		q &\coloneqq \max \bigl\{\, \lambda \in \mathbb{Z}_{\ge 0} \bigm| \beta + \lambda \alpha \in \Phi \,\bigr\} 
+	\end{align}
+	とおく．このとき以下が成り立つ：
+	\begin{enumerate}
+		\item 
+		\hyperref[def:a-sting]{$\alpha$-string through $\beta$}は $\mathbb{E}$ の部分集合
+		\begin{align}
+			\label{eq:a-string}
+			\bigl\{\, \beta + \lambda\alpha \in \mathbb{E} \bigm| -r \le \lambda \le q \,\bigr\} 
+		\end{align}
+		に等しい．i.e. $-r \le \forall \lambda \le q$ に対して $\beta + \lambda\alpha \in \Phi$ である．
+		\item \hyperref[def:a-sting]{$\alpha$-string through $\beta$}は鏡映 $\sigma_\alpha$ の作用の下で不変である．
+		\item $r-q = \sspair{\beta}{\alpha}$．特に\hyperref[def:a-sting]{$\alpha$-string through $\beta$}の長さは $4$ 以下である．
+	\end{enumerate}
+\end{myprop}
+
+\begin{proof}
+	\begin{enumerate}
+		\item 背理法により示す．ある $-r < \lambda < q$ に対して $\beta + \lambda\alpha \notin \Phi$ であるとする．
+		このときある $-r \le s < p \le q$ が存在して $\beta + s\alpha \in \Phi,\, \beta + (s-1)\alpha \notin \Phi,\, \beta + (p-1)\alpha \notin \Phi,\, \beta + p\alpha \in \Phi$ を充たすが，補題\ref{lem:root-basic}の対偶よりこのとき $\rpair{\alpha}{\beta + s\alpha} \le 0 \le \rpair{\alpha}{\beta + p\alpha}$ が成り立つ．
+		よって $(p-s) \rpair{\alpha}{\alpha} \ge 0$ である．
+		然るに $p < s$ かつ $\rpair{\alpha}{\alpha} > 0$ なのでこれは矛盾である．
+		\item $-r \le \forall \lambda \le q$ に対して
+		\begin{align}
+			\sigma_\alpha(\beta + \lambda\alpha) 
+			&= \beta + \lambda\alpha - \sspair{\beta}{\alpha}\alpha - \lambda \sspair{\alpha}{\alpha}\alpha \\
+			&= \beta - \bigl( \sspair{\beta}{\alpha} + \lambda \bigr) \alpha
+		\end{align}
+		が成り立つ．\textsf{\textbf{(Root-3)}} より最右辺は $\Phi$ の元であり，かつ \textsf{\textbf{(Root-4)}}より $\sspair{\beta}{\alpha} + \lambda \in \mathbb{Z}$ なので，(1) より $-r \le \sspair{\beta}{\alpha} + \lambda \le q$ だと分かった．
+		\item $r,\, q$ の定義より，(2) の証明において
+		\begin{align}
+			\sigma_\alpha(\beta + q\alpha) = \beta - \bigl( \sspair{\beta}{\alpha} + q \bigr) \alpha = \beta - r \alpha
+		\end{align}
+		が成り立たねばならない．よって
+		\begin{align}
+			r-q = \sspair{\beta}{\alpha}
+		\end{align}
+		である．表\ref{tab:rootsystem}より $\abs{r-q} \le 3$ であるから， 集合\eqref{eq:a-string}の要素数は $4$ 以下である．
+	\end{enumerate}
+	
+\end{proof}
+
+\subsection{Weyl群}
+
+\begin{mydef}[label=def:Weylgroup]{Weyl群}
+	$(\mathbb{E},\, \Phi)$ を\hyperref[ax:root-system]{ルート系}とする．
+	$\LGL (\mathbb{E})$ の部分集合 $\bigl\{\, \sigma_\alpha \in \LGL(\mathbb{E}) \bigm| \alpha \in \Phi \,\bigr\}$ が生成する $\LGL(\mathbb{E})$ の部分群のことをルート系 $(\mathbb{E},\, \Phi)$ の\textbf{Weyl群} (Weyl group) と呼び，$\bm{\Weyl{\mathbb{E}}{\Phi}}$ と書く．
+	\tcblower
+	本資料の以降では，文脈上考えているルート系が明らかな場合 $\Weyl{\mathbb{E}}{\Phi}$ を $\bm{\mathscr{W}}$ と略記する．
+\end{mydef}
+
+\textsf{\textbf{(Root3)}}より，$\forall \tau \in \Weyl{\mathbb{E}}{\Phi}$ の $\Phi$ への制限は全単射である．その上 \textsf{\textbf{(Root-1)}} から $\Phi$ は有限集合でかつ $\mathbb{E} = \Span_{\mathbb{R}} \Phi$ が成り立つので，$\Weyl{\mathbb{E}}{\Phi}$ を $\Phi$ に作用する対称群 $\mathfrak{S}_{\abs{\Phi}}$ の部分群と同一視できる．特に $\Weyl{\mathbb{E}}{\Phi}$ は\underline{有限群}である．
+
+\begin{mylem}[label=lem:Weylgroup]{}
+	$(\mathbb{E},\, \Phi)$ を\hyperref[ax:root-system]{ルート系}とする．
+	$\tau \in \LGL(\mathbb{E})$ が $\tau(\Phi) = \Phi$ を充たすならば，$\forall \alpha,\, \beta \in \Phi$ に対して以下が成り立つ：
+	\begin{enumerate}
+		\item $\tau \circ \sigma_\alpha \circ \tau^{-1} = \sigma_{\tau(\alpha)}$
+		\item $\sspair{\beta}{\alpha} = \sspair{\tau(\beta)}{\tau(\alpha)}$
+	\end{enumerate}
+\end{mylem}
+
+\begin{proof}
+	$\forall \alpha,\, \beta \in \Phi$ をとる．\textsf{\textbf{(Root-3)}} より $\sigma_\alpha(\beta) \in \Phi$ なので，$\tau \circ \sigma_\alpha \circ \tau^{-1}\bigl(\tau(\beta)\bigr) = \sigma \circ \sigma_\alpha(\beta) \in \Phi$ が成り立つ．
+	一方で
+	\begin{align}
+		\label{eq:lemWeylgroup1}
+		\tau \circ \sigma_\alpha \circ \tau^{-1}\bigl(\tau(\beta)\bigr) = \tau \bigl( \beta - \sspair{\beta}{\alpha}\alpha \bigr) = \tau(\beta) - \sspair{\beta}{\alpha}\tau(\alpha)
+	\end{align}
+	である．$\beta \in \Phi$ は任意で $\tau \in \LGL(\mathbb{E})$ は全単射なので 
+	\begin{description}
+		\item[\textbf{(RF-1)}] $\tau \circ \sigma_\alpha \circ \tau^{-1} (\Phi) = \Phi$
+		\item[\textbf{(RF-2)}] $\forall \beta \in P_\alpha,\; \tau \circ \sigma_\alpha \circ \tau^{-1}(\beta) = \beta$
+		\item[\textbf{(RF-3)}] $\tau(\alpha) \in \Phi \setminus \{0\},\; \tau \circ \sigma_\alpha \circ \tau^{-1} \bigl( \tau(\alpha) \bigr) = -\tau(\alpha)$
+	\end{description}
+	が成り立つことが分かった．よって補題\ref{lem:refrect}より $\tau \circ \sigma_\alpha \circ \tau^{-1} = \sigma_{\tau(\alpha)}$ である．
+	
+	さらに\eqref{eq:lemWeylgroup1}から
+	\begin{align}
+		\tau(\beta) - \sspair{\beta}{\alpha}\tau(\alpha) = \sigma_{\tau(\alpha)} \bigl(\tau(\beta)\bigr) = \tau(\beta) - \sspair{\tau(\beta)}{\tau(\alpha)} \tau(\alpha)
+	\end{align}
+	が分かるので (2) が従う．
+\end{proof}
+
+\begin{mydef}[label=def:isom-root]{ルート系の同型}
+	2つの\hyperref[ax:root-system]{ルート系} $(\mathbb{E},\, \Phi),\; (\mathbb{E}',\, \Phi')$ を与える．
+	写像
+	\begin{align}
+		\phi \colon \mathbb{E} \lto \mathbb{E}'
+	\end{align}
+	が\textbf{ルート系の同型写像} (isomorphism) であるとは，以下の3条件を満たすことを言う：
+	\begin{enumerate}
+		\item $\phi$ は $\mathbb{R}$-ベクトル空間の同型写像
+		\item $\phi(\Phi) = \Phi'$
+		\item $\forall \alpha,\, \beta \in \Phi$ に対して $\sspair{\phi(\beta)}{\phi(\alpha)} = \sspair{\beta}{\alpha}$
+	\end{enumerate}
+	\tcblower
+	\hyperref[ax:root-system]{ルート系} $(\mathbb{E},\, \Phi)$ の\textbf{自己同型} (automorphism) とは，$\phi \in \LGL(\mathbb{E})$ であって $\phi(\Phi) = \Phi$ を充たすもののことを言う．これは補題\ref{lem:Weylgroup}-(2) により自動的にルート系の同型となる．
+	ルート系の自己同型全体が写像の合成に関してなす群のことを\textbf{ルート系の自己同型群}と呼び，$\bm{\Aut \Phi}$ と書く．
+\end{mydef}
+
+\hyperref[def:isom-root]{ルート系の同型}
+\begin{align}
+	\phi \colon (\mathbb{E},\, \Phi) \lto (\mathbb{E}',\, \Phi')
+\end{align}
+について，$\forall \alpha,\, \beta \in \Phi$ に対して
+\begin{align}
+	\sigma_{\phi(\alpha)} \circ \phi(\beta) = \phi(\beta) - \sspair{\phi(\beta)}{\phi(\alpha)} \phi(\alpha) = \phi\bigl(\beta - \sspair{\beta}{\alpha} \alpha\bigr) = \phi \circ \sigma_\alpha(\beta)
+\end{align}
+が成り立つ．i.e. ルート系の図式
+\begin{center}
+	\begin{tikzcd}[row sep=large, column sep=large]
+		&\Phi \ar[d, "\sigma_\alpha"']\ar[r, "\phi"] &\Phi' \ar[d, "\sigma_{\phi(\alpha)}"]\\
+		&\Phi \ar[r, "\phi"'] &\Phi'
+	\end{tikzcd}
+\end{center}
+は可換である．よってルート系の同型は\hyperref[def:Weylgroup]{Weyl群}の自然な（群の）同型
+\begin{align}
+	\label{eq:induced-Weyl-isom}
+	\overline{\phi} \colon \Weyl{\mathbb{E}}{\Phi} &\lto \Weyl{\mathbb{E}'}{\Phi'}, \\
+	\sigma &\lmto \phi \circ \sigma \circ \phi^{-1}
+\end{align}
+を引き起こす．
+
+\begin{mylem}[label=lem:Weylgroup-basic]{}
+	\hyperref[ax:root-system]{ルート系} $(\mathbb{E},\, \Phi)$ の\hyperref[def:Weylgroup]{Weyl群} $\Weyl{\mathbb{E}}{\Phi}$ は，\hyperref[def:isom-root]{ルート系の自己同型群} $\Aut \Phi$ の正規部分群である．
+\end{mylem}
+
+\begin{proof}
+	$\forall \sigma \in \Weyl{\mathbb{E}}{\Phi}$ を1つとる．このときある $\alpha_1,\, \dots,\, \alpha_k \in \Phi$ が存在して $\sigma = \sigma_{\alpha_1} \circ \cdots \circ \sigma_{\alpha_k}$ と書ける\footnote{$\sigma_{\alpha_i}^{-1} = \sigma_{\alpha_i}$ なのでこれで良い．}． 
+	従って $\forall \tau \in \Aut \Phi$ に対して，補題\ref{lem:Weylgroup}-(1) より
+	\begin{align}
+		\tau \circ \sigma \circ \tau^{-1} = (\tau \circ \sigma_{\alpha_1} \circ \tau^{-1}) \circ \cdots \circ (\tau \circ \sigma_{\alpha_k} \circ \tau^{-1}) = \sigma_{\tau(\alpha_1)} \circ \cdots \circ \sigma_{\tau(\alpha_k)} \in \Weyl{\mathbb{E}}{\Phi}
+	\end{align}
+	が成り立つ．i.e. $\Weyl{\mathbb{E}}{\Phi} \triangleleft \Aut \Phi$ である．
+\end{proof}
+
+\begin{mydef}[label=def:dual-root]{双対ルート系}
+	\hyperref[ax:root-system]{ルート系} $(\mathbb{E},\, \Phi)$ に対して
+	\begin{align}
+		\bm{\Phi^{\vee}} \coloneqq \biggl\{\, \frac{2}{(\alpha,\, \alpha)} \alpha \in \mathbb{E} \biggm| \alpha \in \Phi \,\biggr\} 
+	\end{align}
+	とおき，組 $\bm{(\mathbb{E},\, \Phi^\vee)}$ のことを $(\mathbb{E},\, \Phi)$ の\textbf{双対ルート系} (dual root system) と呼ぶ．
+	
+	\tcblower
+	
+	$\alpha \in \Phi$ に対して
+	\begin{align}
+		\bm{\alpha^\vee} \coloneqq \frac{2}{(\alpha,\, \alpha)} \alpha \in \Phi^\vee
+	\end{align}
+	と書く．
+\end{mydef}
+
+双対ルート系が\hyperref[ax:root-system]{ルート系の公理}を充たすことを確認しよう：
+\begin{description}
+	\item[\textbf{(Root-1,2)}] $(\mathbb{E},\, \Phi)$ がルート系なので明らか．
+	\item[\textbf{(Root-3)}] $\forall \alpha^\vee,\, \beta^\vee \in \Phi^\vee$ をとる．このとき
+	\begin{align}
+		\label{eq:dual-root3}
+		\sigma_{\alpha^\vee} \left( \beta^\vee  \right) 
+		&= \frac{2}{(\beta,\, \beta)} \beta - \sspair*{\frac{2}{(\beta,\, \beta)} \beta}{\frac{2}{(\alpha,\, \alpha)} \alpha } \frac{2}{(\alpha,\, \alpha)} \alpha \\
+		&= \frac{2}{(\beta,\, \beta)} \beta - \frac{\frac{2}{(\beta,\, \beta)}}{\frac{2}{(\alpha,\, \alpha)}} \sspair*{\beta}{\alpha} \frac{2}{(\alpha,\, \alpha)} \alpha \\
+		&= \frac{2}{(\beta,\, \beta)} \sigma_{\alpha}(\beta)
+	\end{align}
+	だが，
+	\begin{align}
+		\rpair[\big]{\sigma_\alpha(\beta)}{\sigma_\alpha(\beta)}
+		&= \rpair{\beta}{\beta} - 2 \sspair{\beta}{\alpha} \rpair{\beta}{\alpha} + \sspair{\beta}{\alpha}^2 \rpair{\alpha}{\alpha} \\
+		&= \rpair{\beta}{\beta} - 2 \sspair{\beta}{\alpha} \rpair{\beta}{\alpha} + 2\sspair{\beta}{\alpha}\rpair{\beta}{\alpha} \\
+		&= \rpair{\beta}{\beta}
+	\end{align}
+	なので
+	\begin{align}
+		\sigma_{\alpha^\vee} \left( \beta^\vee  \right) = \sigma_\alpha(\beta)^\vee \in \Phi^\vee
+	\end{align}
+	だと分かった．
+	\item[\textbf{(Root-4)}] $\forall \frac{2}{(\alpha,\, \alpha)} \alpha,\, \frac{2}{(\beta,\, \beta)} \beta \in \Phi^\vee$ をとる．このとき
+	\begin{align}
+		\sspair{\beta^\vee}{\alpha^\vee}
+		&= \sspair*{\frac{2}{(\beta,\, \beta)} \beta}{\frac{2}{(\alpha,\, \alpha)} \alpha} \\
+		&= \frac{\frac{2}{(\beta,\, \beta)}}{\frac{2}{(\alpha,\, \alpha)}} \sspair{\beta}{\alpha} \\
+		&= \frac{\frac{2(\alpha,\, \beta)}{(\beta,\, \beta)}}{\frac{2(\beta,\, \alpha)}{(\alpha,\, \alpha)}} \sspair{\beta}{\alpha} \\
+		&= \frac{\sspair{\alpha}{\beta}}{\sspair{\beta}{\alpha}} \sspair{\beta}{\alpha} \\
+		&= \sspair{\alpha}{\beta} \in \mathbb{Z}
+	\end{align}
+	が言えた．
+\end{description}
+
+
+\begin{mylem}[label=lem:Weylgroup-dual]{}
+	\begin{align}
+		\Weyl{\mathbb{E}}{\Phi} \cong \Weyl{\mathbb{E}}{\Phi^\vee}
+	\end{align}
+\end{mylem}
+
+\begin{proof}
+	\eqref{eq:dual-root3}より，写像 $\sigma_\alpha \lmto \sigma_{\alpha^\vee}$ は同型写像である．
+\end{proof}
+
+
+\section{単純ルートとWeyl群}
+
+この節では $(\mathbb{E},\, \Phi)$ を任意の\hyperref[def:rank-root]{ランク $l$} の\hyperref[ax:root-system]{ルート系}とし，その\hyperref[def:Weylgroup]{Weyl群}を $\mathscr{W}$ と略記する． 
+
+\subsection{ルート系の底とWeylの区画}
+
+\begin{mydef}[label=def:base-root,breakable]{ルート系の底}
+	$\Phi$ の部分集合 $\Delta \subset \Phi$ が\textbf{底} (base) であるとは，以下を充たすことをいう：
+	\begin{description}
+		\item[\textbf{(B-1)}] $\Delta$ は $\mathbb{R}$-ベクトル空間 $\mathbb{E}$ の基底である．
+		\item[\textbf{(B-2)}] $\forall \beta \in \Phi$ に対して\underline{整数}の族 $\Familyset[\big]{\beta_\alpha}{\alpha \in \Delta} \in \prod_{\alpha \in \Delta} \textcolor{red}{\mathbb{Z}}$ が一意的に存在して
+		\begin{align}
+			\beta = \sum_{\alpha \in \Delta} \beta_\alpha \alpha
+		\end{align}
+		を充たし，$\forall \alpha \in \Delta,\; \beta_\alpha \ge 0$ であるか $\forall \alpha \in \Delta,\; \beta_\alpha \le 0$ であるかのどちらかである．
+	\end{description}
+	\tcblower
+	\begin{itemize}
+		\item $\Delta$ の元のことを\textbf{単純ルート} (simple root) と呼ぶ．
+		\item $\beta = \sum_{\alpha \in \Delta} \beta_\alpha \alpha \in \Phi$ に対して
+		\begin{align}
+			\bm{\hight \beta} \coloneqq \sum_{\alpha \in \Delta} \beta_\alpha \in \mathbb{Z}
+		\end{align}
+		と定義し，底 $\Delta$ に関するルート $\beta$ の\textbf{高さ} (height) と呼ぶ． 
+		\item $\beta = \sum_{\alpha \in \Delta} \beta_\alpha \alpha \in \Phi$ が\textbf{正}（resp. \textbf{負}）であるとは，$\forall \alpha \in \Delta,\; \beta_\alpha \ge 0$ （resp. $\forall \alpha \in \Delta,\; \beta_\alpha \le 0$）が成り立つことを言い，$\bm{\beta \succ 0}$（resp. $\bm{\beta \prec 0}$）と書く\footnote{\LaTeX コマンドは $\succ$ が \texttt{\textbackslash succ} ， $\prec$ が \texttt{\textbackslash prec} である．}．
+		\item 正（resp. 負）のルート全体の集合のことを $\bm{\Phi^+}$ （resp. $\bm{\Phi^-}$）と書く\footnote{明らかに $\Phi^- = - \Phi^+$ である．}．
+		\item \underline{$\mathbb{E}$ 上の}半順序 $\bm{\prec}\; \subset \mathbb{E} \times \mathbb{E}$を
+		\begin{align}
+			\mu \prec \lambda \DEF  \exists! \Familyset[\big]{k_\alpha}{\alpha \in \Delta} \in \prod_{\alpha \in \Delta} \mathbb{R}_{\textcolor{red}{\ge 0}},\; \lambda - \mu = \sum_{\alpha \in \Delta} k_\alpha \alpha
+		\end{align}
+		と定義する．
+	\end{itemize}
+\end{mydef}
+
+$\prec$ が半順序になっていることを確認しておこう：
+\begin{description}
+	\item[\textbf{(反射律)}] $\forall \mu \in \mathbb{E}$ に対して $\mu - \mu = 0$ が成り立つので $\mu \prec \mu$ である．
+	\item[\textbf{(反対称律)}] $\mu \prec \lambda \AND \lambda \prec \mu$ だとする．
+	このとき $\Familyset[\big]{k_\alpha}{\alpha \in \Delta},\; \Familyset[\big]{l_\alpha}{\alpha \in \Delta} \in \prod_{\alpha \in \Delta} \mathbb{R}_{\ge 0}$ が一意的に存在して
+	\begin{align}
+		\lambda - \mu &= \sum_{\alpha \in \Delta} k_\alpha \alpha, & \mu - \lambda &= \sum_{\alpha \in \Delta} l_\alpha \alpha
+	\end{align}
+	と書ける．辺々足すと\hyperref[def:base-root]{\textsf{\textbf{(B-1)}}}より $\forall \alpha \in \Delta$ に対して $k_\alpha + l_\alpha = 0$ だと分かるが，$k_\alpha \ge 0 \AND l_\alpha \ge 0$ なので $k_\alpha = l_\alpha = 0$，i.e. $\mu - \lambda = 0 \IFF \mu  = \lambda$ が言えた．
+	\item[\textbf{(推移律)}] $\mu \prec \lambda \AND \lambda \prec \nu$ だとする．このとき $\nu - \mu = (\nu - \lambda) + (\lambda - \mu)$ なので明らかに $\mu \prec \nu$ である．
+\end{description}
+
+ルート系 $(\mathbb{E},\, \Phi)$ の\hyperref[def:base-root]{底}を定義したのは良いが，存在しなくては意味がない．
+
+\begin{mylem}[label=lem:base]{}
+	$\Delta$ が $\Phi$ の\hyperref[def:base-root]{底}ならば，
+	相異なる任意の2つの単純ルート $\alpha,\, \beta \in \Delta$ に対して $\rpair{\alpha}{\beta} \le 0$ であり，$\alpha - \beta \notin \Delta$ である．
+\end{mylem}
+
+\begin{proof}
+	背理法により示す．$\rpair{\alpha}{\beta} > 0$ だとする．仮定より $\alpha \neq \beta$ であり，かつ $\Delta$ の元の線型独立性から $\beta \neq -\alpha$ なので，補題\ref{lem:root-basic}から $\alpha - \beta \in \Delta$ と言うことになる．
+	然るにこのとき $\alpha - \beta \in \Phi$ が $\alpha,\, \beta \in \Delta$ の係数 $1,\, -1$ の線型結合で書けていることになり \textsf{\textbf{(B-2)}} に矛盾する．
+\end{proof}
+
+\begin{mydef}[label=def:decomposable]{}
+	$\forall \gamma \in \mathbb{E}$ に対して以下を定義する：
+	\begin{itemize}
+		\item $\Phi$ の部分集合
+		\begin{align}
+			\bm{\Phi^+(\gamma)} \coloneqq \bigl\{\, \alpha \in \Phi \bigm| \rpair{\gamma}{\alpha} > 0 \,\bigr\} 
+		\end{align}
+		\item \begin{align}
+			\gamma \in \mathbb{E} \setminus \bigcup_{\alpha \in \Phi} P_\alpha
+		\end{align}
+		のとき，$\gamma$ は\textbf{正則} (regular) であるという．$\gamma$ が正則でないとき\textbf{特異} (sigular) であると言う．
+		\item $\alpha \in \Phi^+ (\gamma)$ が
+		\begin{align}
+			\exists \beta_1,\, \beta_2 \in \Phi^+(\gamma),\; \alpha = \beta_1 + \beta_2
+		\end{align}
+		を充たすとき，$\alpha$ は\textbf{分割可能} (decomposable) であると言う．分割可能でないとき\textbf{分割不可能} (indecomposable) であると言う．
+	\end{itemize}
+\end{mydef}
+
+$\gamma$ が正則ならば $\forall \alpha \in \Phi$ に対して $\rpair{\gamma}{\alpha} \neq 0$ なので，$\Phi = \Phi^+(\gamma) \amalg \bigl( -\Phi^+(\gamma) \bigr)$ （disjoint union）が成り立つ．
+
+\begin{mytheo}[label=thm:base-exist]{底の存在}
+	\hyperref[def:decomposable]{正則}な任意の $\gamma \in \mathbb{E}$ を与える．このとき集合
+	\begin{align}
+		\Delta(\gamma) \coloneqq \bigl\{\, \alpha \in \Phi^+(\gamma) \bigm| \text{\hyperref[def:decomposable]{分割不可能}} \,\bigr\} 
+	\end{align}
+	は $\Phi$ の\hyperref[def:base-root]{底}である．
+	逆に $\Phi$ の任意の底 $\Delta$ に対してある正則な $\gamma \in \mathbb{E}$ が存在して $\Delta = \Delta(\gamma)$ となる．
+\end{mytheo}
+
+\begin{proof}
+	\begin{description}
+		\item[\textbf{step1: $\bm{\Phi^+(\gamma)}$ の任意の元は $\bm{\Delta (\gamma)}$ の $\bm{\mathbb{Z}_{\ge 0}}$-係数線型結合で書ける}]　
+		
+		背理法により示す．$\Delta (\gamma)$ の $\mathbb{Z}_{\ge 0}$-係数線型結合で書けない $\alpha \in \Phi^+(\gamma)$ が存在するとする．
+		このとき，そのような $\alpha$ のうち $\rpair{\gamma}{\alpha}$ が最小であるようなものが存在するのでそれを $\alpha_0$ とおく．$\alpha_0 \notin \Delta(\gamma)$ なので\footnote{$\alpha_0 \in \Delta(\gamma)$ だとすると，$\alpha_0 \in \Delta(\gamma)$ の係数 $1 \in \mathbb{Z}_{\ge 0}$ の線型結合として書けていることになり矛盾．}$\alpha_0$ は分割可能であり，ある $\beta_1,\, \beta_2 \in \Phi^+(\gamma)$ が存在して $\alpha = \beta_1 + \beta_2$ と書ける．このとき
+		\begin{align}
+			\rpair{\gamma}{\alpha_0} = \rpair{\gamma}{\beta_1} + \rpair{\gamma}{\beta_2} > \rpair{\gamma}{\beta_i}
+		\end{align}
+		が成り立つので，$\alpha_0$ の最小性から $\beta_1,\, \beta_2$ はどちらも $\Delta(\gamma)$ の元の $\mathbb{Z}_{\ge 0}$-係数線型結合で書ける．然るにこのとき $\alpha$ も $\Delta(\gamma)$ の元の $\mathbb{Z}_{\ge 0}$-係数線型結合で書けることになって矛盾．
+
+		\item[\textbf{step2: $\bm{\alpha,\, \beta \in \Delta(\gamma)}$ かつ $\bm{\alpha \neq \beta}$ ならば，$\bm{(\alpha,\, \beta) \le 0}$}]　
+		
+		背理法により示す．$\rpair{\alpha}{\beta} > 0$ を仮定する．このとき補題\ref{lem:root-basic}-(1) より $\alpha - \beta \in \Phi$ であり，$\beta - \alpha = \sigma_{\alpha-\beta}(\alpha - \beta) \in \Phi$ もわかる．よって $\alpha - \beta \in \Phi^+(\gamma)$ または $\beta - \alpha \in \Phi^+(\gamma)$ である．
+		然るに前者の場合 $\alpha = \beta + (\alpha - \beta)$ なので $\alpha \in \Delta(\gamma)$ が分割可能ということになって矛盾し，後者の場合は $\beta = \alpha + (\beta - \alpha)$ なので $\beta \in \Delta(\gamma)$ が分割可能ということになって矛盾である．
+
+		\item[\textbf{step3: $\bm{\Delta(\gamma)}$ の元は互いに線型独立}]　
+		
+		$\Familyset[\big]{k_\alpha}{\alpha \in \Delta (\gamma)} \in \prod_{\alpha \in \Delta} \mathbb{R}$ に対して $\sum_{\alpha \in \Delta (\gamma)} k_\alpha \alpha = 0$ を仮定する．$\forall \alpha \in \Delta(\gamma)$ に対して
+		\begin{align}
+			s_\alpha &\coloneqq
+			\begin{cases}
+				k_\alpha, & k_\alpha > 0 \\
+				0, & k_\alpha \le 0
+			\end{cases}
+			& t_\alpha &\coloneqq
+			\begin{cases}
+				-k_\alpha, & k_\alpha < 0 \\
+				0, & k_\alpha \ge 0
+			\end{cases}
+		\end{align}
+		とおくと，仮定より
+		\begin{align}
+			\sum_{\alpha \in \Delta(\gamma)} s_\alpha \alpha = \sum_{\alpha \in \Delta(\gamma)} t_\alpha \alpha
+		\end{align}
+		が成り立つ．$\varepsilon \coloneqq \sum_{\alpha \in \Delta} s_\alpha \alpha$ とおくと，
+		\textsf{\textbf{step2}}から
+		\begin{align}
+			0 \le \rpair{\varepsilon}{\varepsilon} = \sum_{\alpha,\, \beta \in \Delta(\gamma),\; \alpha \neq \beta} s_\alpha t_\beta \rpair{\alpha}{\beta} \le 0
+		\end{align}
+		が成り立つので $\varepsilon = 0$ だとわかる．よって
+		\begin{align}
+			0 &= \rpair{\gamma}{\varepsilon}
+			= \sum_{\alpha \in \Delta(\gamma)} s_\alpha \rpair{\gamma}{\alpha}
+			= \sum_{\alpha \in \Delta(\gamma)} t_\alpha \rpair{\gamma}{\alpha}
+		\end{align}
+		であり，$\forall \alpha \in \Delta(\gamma),\; s_\alpha = t_\alpha = 0$ が言えた．
+		\item[\textbf{step4: $\bm{\Delta(\gamma)}$ は $\bm{\Phi}$ の底}]　
+		
+		$\Phi = \Phi^+ (\gamma) \amalg \bigl( -\Phi^+ (\gamma) \bigr)$ なので，
+		\textsf{\textbf{step1}}と併せて\hyperref[def:base-root]{\textsf{\textbf{(B-2)}}}が，
+		\textsf{\textbf{step3}}と併せて\hyperref[def:base-root]{\textsf{\textbf{(B-1)}}}が従う．
+
+		\item[\textbf{step5: 任意の底 $\bm{\Delta}$ に対してある正則な $\bm{\gamma \in \mathbb{E}}$ が存在して $\bm{\Delta = \Delta(\gamma)}$ となる}]　
+		
+		$\Phi$ の\hyperref[def:base-root]{底} $\Delta$ が与えられたとき，$\forall \alpha \in \Delta$ に対して $\rpair{\gamma}{\alpha} > 0$ を充たす $\gamma \in \mathbb{E}$ をとる
+		\footnote{
+			このような $\gamma$ が存在することを示そう．\textsf{\textbf{(B-1)}} より $\Delta$ は $\mathbb{E}$ の基底だから，$\forall \alpha$ に対して $\gamma_\alpha \in \mathbb{E}$ を，$\mathbb{E}$ の部分ベクトル空間 $\Span_{\mathbb{K}} \bigl(\Delta \setminus \{\alpha\}\bigr)$ の $\rpair{\;}{\,}$ に関する\hyperref[def:radical-bilinear]{直交補空間} $\Bigl(\Span_{\mathbb{K}} \bigl(\Delta \setminus \{\alpha\}\bigr)\Bigr)^\perp$ への $\alpha$ の射影とする．$\Delta$ の元は全て互いに線型独立なので $\gamma_\alpha \neq 0$ である．このとき，$\Familyset[\big]{k_\alpha}{\alpha \in \Delta} \in \prod_{\alpha \in \Delta} \mathbb{R}_{\textcolor{red}{> 0}} $ に対して $\gamma \coloneqq \sum_{\alpha \in \Delta} k_\alpha \gamma_\alpha$ とおけば，$\forall \alpha \in \Delta$ に対して $\rpair{\gamma}{\alpha} = k_\alpha \rpair{\gamma_\alpha}{\alpha} > 0$ が成り立つ．}．
+		\textsf{\textbf{(B-2)}} より $\gamma$ は\hyperref[def:decomposable]{正則}であり，かつ $\forall \beta = \sum_{\alpha \in \Delta} \beta_\alpha \alpha \in \Phi^+$ に対して
+		\begin{align}
+			\rpair{\gamma}{\beta} = \sum_{\alpha \in \Delta} \beta_\alpha \rpair{\gamma}{\alpha} > 0
+		\end{align}
+		が成り立つので $\beta \in \Phi^+(\gamma)$，i.e. $\Phi^+ \subset \Phi^+(\gamma),\; \Phi^-  = - \Phi^- \subset -\Phi^+(\gamma)$ も分かる．
+		ところが \textsf{\textbf{step4}}　より $\Phi = \Phi^+ \amalg \Phi^- = \Phi^+(\gamma) \amalg \bigl( -\Phi^+(\gamma) \bigr)$ なので，$\Phi^+ = \Phi^+(\gamma)$ でなくてはいけない．
+		従って $\forall \alpha \in \Delta$ は\hyperref[def:decomposable]{分割不可能}であり
+		\footnote{$\beta_1 = \sum_{\alpha \in \Delta} \beta_1{}_\alpha \alpha,\, \beta_2 = \sum_{\alpha \in \Delta} \beta_2{}_\alpha \alpha \in \Phi^+ = \Phi^+(\gamma)$ を用いて $\alpha = \beta_1 + \beta_2$ と書けたとする．このとき $\Delta$ の元の線型独立性から $\beta_1{}_\alpha + \beta_2{}_\alpha = 1 \AND \forall \gamma \in \Delta \setminus \{\alpha\},\; \beta_1{}_\gamma + \beta_2{}_\gamma = 0$ が成り立つが，\textsf{\textbf{(B-2)}}より $(\beta_1{}_\alpha,\, \beta_2{}_\alpha) = (1,\, 0) \OR (0,\, 1) \AND \forall \gamma \in \Delta \setminus \{\alpha\},\; \beta_1{}_\gamma = \beta_2{}_\gamma = 0$，i.e. $(\beta_1,\, \beta_2) = (\alpha,\, 0)\OR (0,\, \alpha)$ でなくてはならず，$0 \notin \Phi^+$ に矛盾．}
+		，$\Delta \subset \Delta(\gamma)$ だと分かった．
+		\textsf{\textbf{(B-1)}}および\textsf{\textbf{step4}}より $\abs{\Delta} = \abs{\Delta(\gamma)} = l$ なので\footnote{~\cite{Humphreys1972introduction}では集合の\textbf{濃度} (cardinality) の意味で $\Card \Delta$ と書かれていた．} $\Delta = \Delta(\gamma)$ が言えた．
+	\end{description}
+\end{proof}
+
+\begin{mydef}[label=def:Weylchamber]{Weylの区画}
+	\begin{itemize}
+		\item 位相空間\footnote{\hyperref[def:Euclid-space]{Euclid空間の定義}の脚注を参照．} $\mathbb{E}$ の部分空間 $\mathbb{E} \setminus \bigcup_{\alpha \in \Phi} P_\alpha$ の連結成分の1つのことを（開な）\textbf{Weylの区画} (Weyl chamber) \footnote{この訳語は筆者が勝手につけたものである．~\cite{Satake1987LieAlg}では\textbf{Weylの部屋}と呼ばれていた．}と呼ぶ．
+		\item \hyperref[def:decomposable]{正則}な $\gamma \in \mathbb{E}$ が属するWeylの区画のことを $\bm{\mathfrak{C}(\gamma)}$ と書く\footnote{\LaTeX コマンドは \texttt{\textbackslash mathfrak\{C\}}}．
+		\item $\Phi$ の\hyperref[def:base-root]{底} $\Delta$ に対して定理\ref{thm:base-exist}の意味で $\Delta = \Delta(\gamma)$ ならば $\bm{\mathfrak{C}(\Delta)} \coloneqq \mathfrak{C}(\gamma)$ とおき，\textbf{$\bm{\Delta}$ に関するWeylの基本区画} (fundamental Weyl chamber relative to $\Delta$)\footnote{これの訳語は全く普及していない気がする．\textbf{$\bm{\Delta}$ に関する基本Weylの部屋}だと語感が悪いと思ったのでこのような訳語を充てた．} と呼ぶ．
+	\end{itemize}
+\end{mydef}
+
+\begin{mylem}[label=lem:Weylchamber-basic]{Weylの区画の基本性質}
+	\hyperref[def:decomposable]{正則}な任意の $\gamma,\, \gamma' \in \mathbb{E}$ および任意の $\Phi$ の\hyperref[def:base-root]{底} $\Delta$ を与える．定理\ref{thm:base-exist}によって得られる $\Phi$ の\hyperref[def:base-root]{底}を $\Delta(\gamma)$ と書く．
+	\begin{enumerate}
+		\item $\mathfrak{C}(\gamma) = \mathfrak{C}(\gamma') \IFF \Delta(\gamma) = \Delta(\gamma')$
+		\item 写像
+		\begin{align}
+			\{\, \text{\hyperref[def:base-root]{底}全体の集合}\, \} &\lto \{\, \text{\hyperref[def:Weylchamber]{Weylの区画}全体の集合}\, \}, \\
+			\Delta &\lmto \mathfrak{C}(\Delta)
+		\end{align}
+		は全単射である．
+		\item $\mathfrak{C}(\Delta) = \bigl\{\, \gamma \in \mathbb{E} \bigm| \forall \alpha \in \Delta,\; \rpair{\gamma}{\alpha} > 0 \,\bigr\}$
+	\end{enumerate}
+\end{mylem}
+
+\begin{proof}
+	\begin{enumerate}
+		\item 
+	\end{enumerate}
+	
+\end{proof}
+
+
+\begin{mylem}[label=lem:Weylchamber-Weylgroup]{Weylの区画とWeyl群の関係}
+	\hyperref[def:decomposable]{正則}な任意の $\gamma \in \mathbb{E}$ および任意の $\Phi$ の\hyperref[def:base-root]{底} $\Delta$ を与える．このとき以下が成り立つ：
+	\begin{enumerate}
+		\item $\forall \sigma \in \mathscr{W}$ に対して $\sigma\bigl(\Delta(\gamma)\bigr) = \Delta \bigl( \sigma(\gamma) \bigr)$
+		\item $\forall \sigma \in \mathscr{W}$ に対して $\sigma(\Delta)$ もまた $\Phi$ の\hyperref[def:base-root]{底}である．
+		\item $\sigma \bigl( \mathfrak{C}(\gamma) \bigr) = \mathfrak{C} \bigl( \sigma(\gamma) \bigr)$
+		\item $\sigma \bigl( \mathfrak{C}(\Delta) \bigr) = \mathfrak{C} \bigl( \sigma(\Delta) \bigr)$
+	\end{enumerate}
+\end{mylem}
+
+\begin{proof}
+	\begin{enumerate}
+		\item 
+	\end{enumerate}
+	
+\end{proof}
+
+
+\subsection{単純ルートの性質}
+
+\subsection{Weyl群の性質}
+
+\subsection{既約なルート系}
+
+\section{ルート系の分類}
+
+\end{document}
