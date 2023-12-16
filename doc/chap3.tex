@@ -222,14 +222,76 @@ $\sigma_\alpha$ は $\mathbb{R}$-線型でかつ $\forall \beta \in \mathbb{E}$ 
 	
 \end{proof}
 
+\begin{mydef}[label=def:dual-root]{双対ルート系}
+	\hyperref[ax:root-system]{ルート系} $(\mathbb{E},\, \Phi)$ に対して
+	\begin{align}
+		\bm{\Phi^{\vee}} \coloneqq \biggl\{\, \frac{2}{(\alpha,\, \alpha)} \alpha \in \mathbb{E} \biggm| \alpha \in \Phi \,\biggr\} 
+	\end{align}
+	とおき，組 $\bm{(\mathbb{E},\, \Phi^\vee)}$ のことを $(\mathbb{E},\, \Phi)$ の\textbf{双対ルート系} (dual root system) と呼ぶ．
+	
+	\tcblower
+	
+	$\alpha \in \Phi$ に対して
+	\begin{align}
+		\bm{\alpha^\vee} \coloneqq \frac{2}{(\alpha,\, \alpha)} \alpha \in \Phi^\vee
+	\end{align}
+	と書く．
+\end{mydef}
+
+双対ルート系が\hyperref[ax:root-system]{ルート系の公理}を充たすことを確認しよう：
+\begin{description}
+	\item[\textbf{(Root-1,2)}] $(\mathbb{E},\, \Phi)$ がルート系なので明らか．
+	\item[\textbf{(Root-3)}] $\forall \alpha^\vee,\, \beta^\vee \in \Phi^\vee$ をとる．このとき
+	\begin{align}
+		\label{eq:dual-root3}
+		\sigma_{\alpha^\vee} \left( \beta^\vee  \right) 
+		&= \frac{2}{(\beta,\, \beta)} \beta - \sspair*{\frac{2}{(\beta,\, \beta)} \beta}{\frac{2}{(\alpha,\, \alpha)} \alpha } \frac{2}{(\alpha,\, \alpha)} \alpha \\
+		&= \frac{2}{(\beta,\, \beta)} \beta - \frac{\frac{2}{(\beta,\, \beta)}}{\frac{2}{(\alpha,\, \alpha)}} \sspair*{\beta}{\alpha} \frac{2}{(\alpha,\, \alpha)} \alpha \\
+		&= \frac{2}{(\beta,\, \beta)} \sigma_{\alpha}(\beta)
+	\end{align}
+	だが，
+	\begin{align}
+		\rpair[\big]{\sigma_\alpha(\beta)}{\sigma_\alpha(\beta)}
+		&= \rpair{\beta}{\beta} - 2 \sspair{\beta}{\alpha} \rpair{\beta}{\alpha} + \sspair{\beta}{\alpha}^2 \rpair{\alpha}{\alpha} \\
+		&= \rpair{\beta}{\beta} - 2 \sspair{\beta}{\alpha} \rpair{\beta}{\alpha} + 2\sspair{\beta}{\alpha}\rpair{\beta}{\alpha} \\
+		&= \rpair{\beta}{\beta}
+	\end{align}
+	なので
+	\begin{align}
+		\sigma_{\alpha^\vee} \left( \beta^\vee  \right) = \sigma_\alpha(\beta)^\vee \in \Phi^\vee
+	\end{align}
+	だと分かった．
+	\item[\textbf{(Root-4)}] $\forall \frac{2}{(\alpha,\, \alpha)} \alpha,\, \frac{2}{(\beta,\, \beta)} \beta \in \Phi^\vee$ をとる．このとき
+	\begin{align}
+		\sspair{\beta^\vee}{\alpha^\vee}
+		&= \sspair*{\frac{2}{(\beta,\, \beta)} \beta}{\frac{2}{(\alpha,\, \alpha)} \alpha} \\
+		&= \frac{\frac{2}{(\beta,\, \beta)}}{\frac{2}{(\alpha,\, \alpha)}} \sspair{\beta}{\alpha} \\
+		&= \frac{\frac{2(\alpha,\, \beta)}{(\beta,\, \beta)}}{\frac{2(\beta,\, \alpha)}{(\alpha,\, \alpha)}} \sspair{\beta}{\alpha} \\
+		&= \frac{\sspair{\alpha}{\beta}}{\sspair{\beta}{\alpha}} \sspair{\beta}{\alpha} \\
+		&= \sspair{\alpha}{\beta} \in \mathbb{Z}
+	\end{align}
+	が言えた．
+\end{description}
+
 \subsection{Weyl群}
 
 \begin{mydef}[label=def:Weylgroup]{Weyl群}
 	$(\mathbb{E},\, \Phi)$ を\hyperref[ax:root-system]{ルート系}とする．
 	$\LGL (\mathbb{E})$ の部分集合 $\bigl\{\, \sigma_\alpha \in \LGL(\mathbb{E}) \bigm| \alpha \in \Phi \,\bigr\}$ が生成する $\LGL(\mathbb{E})$ の部分群のことをルート系 $(\mathbb{E},\, \Phi)$ の\textbf{Weyl群} (Weyl group) と呼び，$\bm{\Weyl{\mathbb{E}}{\Phi}}$ と書く．
+	
 	\tcblower
-	本資料の以降では，文脈上考えているルート系が明らかな場合 $\Weyl{\mathbb{E}}{\Phi}$ を $\bm{\mathscr{W}}$ と略記する．
+	
+	$\forall \sigma \in \mathscr{W}$ に対して，
+	\begin{align}
+		\bm{\len (\sigma)} \coloneqq \min \bigl\{\, t \in \mathbb{Z}_{\ge 0} \bigm| \sigma = \sigma_{\alpha_1} \circ \cdots\circ \sigma_{\alpha_t} \WHERE \alpha_i \in \Phi \,\bigr\} 
+	\end{align}
+	を $\sigma$ の\textbf{長さ} (length) と呼ぶ．ただし $\len (\mathrm{id}_{\mathbb{E}}) \coloneqq 0$ と定義する．
 \end{mydef}
+
+\begin{marker}
+	本資料の以降では，文脈上考えているルート系が明らかな場合 $\Weyl{\mathbb{E}}{\Phi}$ を $\bm{\mathscr{W}}$ と略記する．
+\end{marker}
+
 
 \textsf{\textbf{(Root3)}}より，$\forall \tau \in \Weyl{\mathbb{E}}{\Phi}$ の $\Phi$ への制限は全単射である．その上 \textsf{\textbf{(Root-1)}} から $\Phi$ は有限集合でかつ $\mathbb{E} = \Span_{\mathbb{R}} \Phi$ が成り立つので，$\Weyl{\mathbb{E}}{\Phi}$ を $\Phi$ に作用する対称群 $\mathfrak{S}_{\abs{\Phi}}$ の部分群と同一視できる．特に $\Weyl{\mathbb{E}}{\Phi}$ は\underline{有限群}である．
 
@@ -317,59 +379,7 @@ $\sigma_\alpha$ は $\mathbb{R}$-線型でかつ $\forall \beta \in \mathbb{E}$ 
 	が成り立つ．i.e. $\Weyl{\mathbb{E}}{\Phi} \triangleleft \Aut \Phi$ である．
 \end{proof}
 
-\begin{mydef}[label=def:dual-root]{双対ルート系}
-	\hyperref[ax:root-system]{ルート系} $(\mathbb{E},\, \Phi)$ に対して
-	\begin{align}
-		\bm{\Phi^{\vee}} \coloneqq \biggl\{\, \frac{2}{(\alpha,\, \alpha)} \alpha \in \mathbb{E} \biggm| \alpha \in \Phi \,\biggr\} 
-	\end{align}
-	とおき，組 $\bm{(\mathbb{E},\, \Phi^\vee)}$ のことを $(\mathbb{E},\, \Phi)$ の\textbf{双対ルート系} (dual root system) と呼ぶ．
-	
-	\tcblower
-	
-	$\alpha \in \Phi$ に対して
-	\begin{align}
-		\bm{\alpha^\vee} \coloneqq \frac{2}{(\alpha,\, \alpha)} \alpha \in \Phi^\vee
-	\end{align}
-	と書く．
-\end{mydef}
-
-双対ルート系が\hyperref[ax:root-system]{ルート系の公理}を充たすことを確認しよう：
-\begin{description}
-	\item[\textbf{(Root-1,2)}] $(\mathbb{E},\, \Phi)$ がルート系なので明らか．
-	\item[\textbf{(Root-3)}] $\forall \alpha^\vee,\, \beta^\vee \in \Phi^\vee$ をとる．このとき
-	\begin{align}
-		\label{eq:dual-root3}
-		\sigma_{\alpha^\vee} \left( \beta^\vee  \right) 
-		&= \frac{2}{(\beta,\, \beta)} \beta - \sspair*{\frac{2}{(\beta,\, \beta)} \beta}{\frac{2}{(\alpha,\, \alpha)} \alpha } \frac{2}{(\alpha,\, \alpha)} \alpha \\
-		&= \frac{2}{(\beta,\, \beta)} \beta - \frac{\frac{2}{(\beta,\, \beta)}}{\frac{2}{(\alpha,\, \alpha)}} \sspair*{\beta}{\alpha} \frac{2}{(\alpha,\, \alpha)} \alpha \\
-		&= \frac{2}{(\beta,\, \beta)} \sigma_{\alpha}(\beta)
-	\end{align}
-	だが，
-	\begin{align}
-		\rpair[\big]{\sigma_\alpha(\beta)}{\sigma_\alpha(\beta)}
-		&= \rpair{\beta}{\beta} - 2 \sspair{\beta}{\alpha} \rpair{\beta}{\alpha} + \sspair{\beta}{\alpha}^2 \rpair{\alpha}{\alpha} \\
-		&= \rpair{\beta}{\beta} - 2 \sspair{\beta}{\alpha} \rpair{\beta}{\alpha} + 2\sspair{\beta}{\alpha}\rpair{\beta}{\alpha} \\
-		&= \rpair{\beta}{\beta}
-	\end{align}
-	なので
-	\begin{align}
-		\sigma_{\alpha^\vee} \left( \beta^\vee  \right) = \sigma_\alpha(\beta)^\vee \in \Phi^\vee
-	\end{align}
-	だと分かった．
-	\item[\textbf{(Root-4)}] $\forall \frac{2}{(\alpha,\, \alpha)} \alpha,\, \frac{2}{(\beta,\, \beta)} \beta \in \Phi^\vee$ をとる．このとき
-	\begin{align}
-		\sspair{\beta^\vee}{\alpha^\vee}
-		&= \sspair*{\frac{2}{(\beta,\, \beta)} \beta}{\frac{2}{(\alpha,\, \alpha)} \alpha} \\
-		&= \frac{\frac{2}{(\beta,\, \beta)}}{\frac{2}{(\alpha,\, \alpha)}} \sspair{\beta}{\alpha} \\
-		&= \frac{\frac{2(\alpha,\, \beta)}{(\beta,\, \beta)}}{\frac{2(\beta,\, \alpha)}{(\alpha,\, \alpha)}} \sspair{\beta}{\alpha} \\
-		&= \frac{\sspair{\alpha}{\beta}}{\sspair{\beta}{\alpha}} \sspair{\beta}{\alpha} \\
-		&= \sspair{\alpha}{\beta} \in \mathbb{Z}
-	\end{align}
-	が言えた．
-\end{description}
-
-
-\begin{mylem}[label=lem:Weylgroup-dual]{}
+\begin{mylem}[label=lem:Weylgroup-dual]{双対ルートのWeyl群}
 	\begin{align}
 		\Weyl{\mathbb{E}}{\Phi} \cong \Weyl{\mathbb{E}}{\Phi^\vee}
 	\end{align}
@@ -457,7 +467,7 @@ $\prec$ が半順序になっていることを確認しておこう：
 	\end{itemize}
 \end{mydef}
 
-$\gamma$ が正則ならば $\forall \alpha \in \Phi$ に対して $\rpair{\gamma}{\alpha} \neq 0$ なので，$\Phi = \Phi^+(\gamma) \amalg \bigl( -\Phi^+(\gamma) \bigr)$ （disjoint union）が成り立つ．
+$\gamma$ が正則ならば $\forall \alpha \in \Phi$ に対して $\rpair{\gamma}{\alpha} \neq 0$ なので，\hyperref[ax:root-system]{\textsf{\textbf{(Root-2)}}}から $\Phi = \Phi^+(\gamma) \amalg \bigl( -\Phi^+(\gamma) \bigr)$ （disjoint union）が成り立つ．
 
 \begin{mytheo}[label=thm:base-exist]{底の存在}
 	\hyperref[def:decomposable]{正則}な任意の $\gamma \in \mathbb{E}$ を与える．このとき集合
@@ -488,33 +498,36 @@ $\gamma$ が正則ならば $\forall \alpha \in \Phi$ に対して $\rpair{\gamm
 		
 		$\Familyset[\big]{k_\alpha}{\alpha \in \Delta (\gamma)} \in \prod_{\alpha \in \Delta} \mathbb{R}$ に対して $\sum_{\alpha \in \Delta (\gamma)} k_\alpha \alpha = 0$ を仮定する．$\forall \alpha \in \Delta(\gamma)$ に対して
 		\begin{align}
-			s_\alpha &\coloneqq
-			\begin{cases}
-				k_\alpha, & k_\alpha > 0 \\
-				0, & k_\alpha \le 0
-			\end{cases}
-			& t_\alpha &\coloneqq
-			\begin{cases}
-				-k_\alpha, & k_\alpha < 0 \\
-				0, & k_\alpha \ge 0
-			\end{cases}
+			% s_\alpha &\coloneqq
+			% \begin{cases}
+			% 	k_\alpha, & k_\alpha > 0 \\
+			% 	0, & k_\alpha \le 0
+			% \end{cases}
+			% & t_\alpha &\coloneqq
+			% \begin{cases}
+			% 	-k_\alpha, & k_\alpha < 0 \\
+			% 	0, & k_\alpha \ge 0
+			% \end{cases}
+			\Delta^+(\gamma) &\coloneqq \bigl\{\, \alpha \in \Delta(\gamma) \bigm| k_\alpha > 0 \,\bigr\}, &
+			\Delta^-(\gamma) &\coloneqq \bigl\{\, \alpha \in \Delta(\gamma) \bigm| k_\alpha < 0 \,\bigr\}
 		\end{align}
-		とおくと，仮定より
+		とおくと $\Delta^+(\gamma) \cap \Delta^-(\gamma) = \emptyset$ で，仮定は
 		\begin{align}
-			\sum_{\alpha \in \Delta(\gamma)} s_\alpha \alpha = \sum_{\alpha \in \Delta(\gamma)} t_\alpha \alpha
+			\sum_{\alpha \in \Delta^+(\gamma)} k_\alpha \alpha = \sum_{\alpha \in \Delta^-(\gamma)} (-k_\alpha) \alpha
 		\end{align}
-		が成り立つ．$\varepsilon \coloneqq \sum_{\alpha \in \Delta} s_\alpha \alpha$ とおくと，
+		と同値である．
+		$\varepsilon \coloneqq \sum_{\alpha \in \Delta^+ (\gamma)} k_\alpha \alpha$ とおくと，
 		\textsf{\textbf{step2}}から
 		\begin{align}
-			0 \le \rpair{\varepsilon}{\varepsilon} = \sum_{\alpha,\, \beta \in \Delta(\gamma),\; \alpha \neq \beta} s_\alpha t_\beta \rpair{\alpha}{\beta} \le 0
+			0 \le \rpair{\varepsilon}{\varepsilon} = \sum_{\alpha \in \Delta^+(\gamma),\, \beta \in \Delta^-(\gamma)} k_\alpha (-k_\beta) \rpair{\alpha}{\beta} \le 0
 		\end{align}
 		が成り立つので $\varepsilon = 0$ だとわかる．よって
 		\begin{align}
 			0 &= \rpair{\gamma}{\varepsilon}
-			= \sum_{\alpha \in \Delta(\gamma)} s_\alpha \rpair{\gamma}{\alpha}
-			= \sum_{\alpha \in \Delta(\gamma)} t_\alpha \rpair{\gamma}{\alpha}
+			= \sum_{\alpha \in \Delta^+(\gamma)} k_\alpha \rpair{\gamma}{\alpha}
+			= \sum_{\alpha \in \Delta^-(\gamma)} (-k_\alpha) \rpair{\gamma}{\alpha}
 		\end{align}
-		であり，$\forall \alpha \in \Delta(\gamma),\; s_\alpha = t_\alpha = 0$ が言えた．
+		であり，$\forall \alpha \in \Delta(\gamma),\; k_\alpha = 0$ が言えた．
 		\item[\textbf{step4: $\bm{\Delta(\gamma)}$ は $\bm{\Phi}$ の底}]　
 		
 		$\Phi = \Phi^+ (\gamma) \amalg \bigl( -\Phi^+ (\gamma) \bigr)$ なので，
@@ -543,7 +556,7 @@ $\gamma$ が正則ならば $\forall \alpha \in \Phi$ に対して $\rpair{\gamm
 	\begin{itemize}
 		\item 位相空間\footnote{\hyperref[def:Euclid-space]{Euclid空間の定義}の脚注を参照．} $\mathbb{E}$ の部分空間 $\mathbb{E} \setminus \bigcup_{\alpha \in \Phi} P_\alpha$ の連結成分の1つのことを（開な）\textbf{Weylの区画} (Weyl chamber) \footnote{この訳語は筆者が勝手につけたものである．~\cite{Satake1987LieAlg}では\textbf{Weylの部屋}と呼ばれていた．}と呼ぶ．
 		\item \hyperref[def:decomposable]{正則}な $\gamma \in \mathbb{E}$ が属するWeylの区画のことを $\bm{\mathfrak{C}(\gamma)}$ と書く\footnote{\LaTeX コマンドは \texttt{\textbackslash mathfrak\{C\}}}．
-		\item $\Phi$ の\hyperref[def:base-root]{底} $\Delta$ に対して定理\ref{thm:base-exist}の意味で $\Delta = \Delta(\gamma)$ ならば $\bm{\mathfrak{C}(\Delta)} \coloneqq \mathfrak{C}(\gamma)$ とおき，\textbf{$\bm{\Delta}$ に関するWeylの基本区画} (fundamental Weyl chamber relative to $\Delta$)\footnote{これの訳語は全く普及していない気がする．\textbf{$\bm{\Delta}$ に関する基本Weylの部屋}だと語感が悪いと思ったのでこのような訳語を充てた．} と呼ぶ．
+		\item $\Phi$ の\hyperref[def:base-root]{底} $\Delta$ に対して定理\ref{thm:base-exist}の意味で $\Delta = \Delta(\gamma)$ ならば $\bm{\mathfrak{C}(\Delta)} \coloneqq \mathfrak{C}(\gamma)$ とおき，\textbf{$\bm{\Delta}$ に関するWeylの基本区画} (fundamental Weyl chamber relative to $\Delta$)\footnote{これの訳語は全く普及していない気がする．\textbf{$\bm{\Delta}$ に関する基本的Weylの部屋}だと語感が悪いと思ったのでこのような訳語を充てた．} と呼ぶ．
 	\end{itemize}
 \end{mydef}
 
@@ -553,41 +566,107 @@ $\gamma$ が正則ならば $\forall \alpha \in \Phi$ に対して $\rpair{\gamm
 		\item $\mathfrak{C}(\gamma) = \mathfrak{C}(\gamma') \IFF \Delta(\gamma) = \Delta(\gamma')$
 		\item 写像
 		\begin{align}
-			\{\, \text{\hyperref[def:base-root]{底}全体の集合}\, \} &\lto \{\, \text{\hyperref[def:Weylchamber]{Weylの区画}全体の集合}\, \}, \\
+			\{\,\Phi\; \text{の\hyperref[def:base-root]{底}全体の集合}\, \} &\lto \{\, \text{\hyperref[def:Weylchamber]{Weylの区画}全体の集合}\, \}, \\
 			\Delta &\lmto \mathfrak{C}(\Delta)
 		\end{align}
 		は全単射である．
-		\item $\mathfrak{C}(\Delta) = \bigl\{\, \gamma \in \mathbb{E} \bigm| \forall \alpha \in \Delta,\; \rpair{\gamma}{\alpha} > 0 \,\bigr\}$
+		\item $\mathfrak{C}(\Delta) = \bigl\{\, \beta \in \mathbb{E} \bigm| \forall \alpha \in \Delta,\; \rpair{\beta}{\alpha} > 0 \,\bigr\}$
 	\end{enumerate}
 \end{mylem}
 
 \begin{proof}
 	\begin{enumerate}
-		\item 
+		\item $\alpha \in \Phi$ に関する鏡映面 $P_\alpha$ に関して
+		\begin{align}
+			P_\alpha^+ &\coloneqq \bigl\{\, \beta \in \mathbb{E} \bigm| \rpair{\beta}{\alpha} > 0 \,\bigr\}, &P_\alpha^- &\coloneqq \bigl\{\, \beta \in \mathbb{E} \bigm| \rpair{\beta}{\alpha} < 0 \,\bigr\} 
+		\end{align}
+		とおく．すると $\mathbb{E} \setminus P_\alpha = P_\alpha^+ \cup P_\alpha^-$ （disjoint union）となるから，
+		\begin{align}
+			\mathbb{E} \setminus \bigcup_{\alpha \in \Phi} P_\alpha
+			&= \bigcap_{\alpha \in \Phi} (\mathbb{E} \setminus P_\alpha) \\
+			&= \bigcap_{\alpha \in \Phi} (P_\alpha^+ \cup P_\alpha^-) \\
+			&= \bigcup_{\Familyset{\mu_\alpha}{\alpha \in \Phi} \in \prod_{\alpha \in \Phi}\{\pm\}} \bigcap_{\alpha \in \Phi} P_\alpha^{\mu_\alpha}
+		\end{align}
+		である．最右辺の $\bigcap_{\alpha \in \Phi} P_\alpha^{\mu_\alpha}$ は凸集合の共通部分なので凸集合であり，従って連結である．さらに $\Familyset{\mu_\alpha}{\alpha \in \Phi} \in \prod_{\alpha \in \Phi}\{\pm\}$ に関する重複を除いて位相空間の意味でdisjointであるからWeylの区画である
+		\footnote{より厳密には，$\mathbb{E} \setminus \bigcup_{\alpha \in \Phi} P_\alpha$ の部分空間として開かつ閉 (clopen) であり，かつそれ自身連結なので，連結成分の1つだと分かる．}
+		．
+		従って $\mathfrak{C}(\gamma)$ は，$\forall \alpha \in \Phi$ に対して
+		\begin{align}
+			\mu_\alpha(\gamma) \coloneqq 
+			\begin{cases}
+				+, & \rpair{\gamma}{\alpha} > 0, \\
+				-, & \rpair{\gamma}{\alpha} < 0
+			\end{cases}
+		\end{align}
+		とおけば
+		\begin{align}
+			\label{eq:Weylchamber}
+			\mathfrak{C}(\gamma) = \bigcap_{\alpha \in \Phi} P_\alpha^{\mu_\alpha(\gamma)} = \bigl\{\, \beta \in \mathbb{E} \bigm| \forall \alpha \in \Phi,\; \rpair{\gamma}{\alpha}\rpair{\beta}{\alpha} > 0 \,\bigr\} 
+		\end{align}
+		と書ける．よって
+		\begin{align}
+			\mathfrak{C}(\gamma) = \mathfrak{C}(\gamma') 
+			&\IFF \forall \alpha \in \Phi,\; \mu_\alpha(\gamma) = \mu_\alpha(\gamma') \\
+			&\IFF \Phi^+(\gamma) = \Phi^+(\gamma') \\
+			&\IFF \Delta(\gamma) = \Delta(\gamma')
+		\end{align}
+		が言える．
+		\item (1)，定理\ref{thm:base-exist}，および\hyperref[def:Weylchamber]{Weylの基本区画の定義}から従う．
+		\item $\Delta = \Delta(\gamma)$ を充たす正則な $\gamma \in \mathbb{E}$ を1つとる．すると\eqref{eq:Weylchamber}より
+		\begin{align}
+			\mathfrak{C}(\Delta) 
+			&= \bigl\{\, \beta \in \mathbb{E} \bigm| \forall \alpha \in \Phi,\; \rpair{\gamma}{\alpha}\rpair{\beta}{\alpha} > 0 \,\bigr\}
+		\end{align}
+		だが，$\Phi = \Phi^+(\gamma) \amalg \bigl(-\Phi^+(\gamma)\bigr)$ でかつ\hyperref[def:decomposable]{$\Phi^+(\gamma)$ の定義}より $\forall \alpha \in \Phi^+(\gamma)$ に対して $\rpair{\gamma}{\alpha} > 0$ が成り立つので
+		\begin{align}
+			\mathfrak{C}(\Delta) 
+			&= \bigl\{\, \beta \in \mathbb{E} \bigm| \forall \alpha \in \Phi^+(\gamma),\; \rpair{\beta}{\alpha} > 0 \,\bigr\} \\
+			&= \bigl\{\, \beta \in \mathbb{E} \bigm| \forall \alpha \in \Delta(\gamma),\; \rpair{\beta}{\alpha} > 0 \,\bigr\}
+		\end{align}
+		だと分かった．
 	\end{enumerate}
 	
 \end{proof}
 
 
 \begin{mylem}[label=lem:Weylchamber-Weylgroup]{Weylの区画とWeyl群の関係}
-	\hyperref[def:decomposable]{正則}な任意の $\gamma \in \mathbb{E}$ および任意の $\Phi$ の\hyperref[def:base-root]{底} $\Delta$ を与える．このとき以下が成り立つ：
+	\hyperref[def:decomposable]{正則}な任意の $\gamma \in \mathbb{E}$ および任意の $\Phi$ の\hyperref[def:base-root]{底} $\Delta$ を与える．このとき$\forall \sigma \in \mathscr{W}$ に対して以下が成り立つ：
 	\begin{enumerate}
-		\item $\forall \sigma \in \mathscr{W}$ に対して $\sigma\bigl(\Delta(\gamma)\bigr) = \Delta \bigl( \sigma(\gamma) \bigr)$
-		\item $\forall \sigma \in \mathscr{W}$ に対して $\sigma(\Delta)$ もまた $\Phi$ の\hyperref[def:base-root]{底}である．
+		\item $\sigma\bigl(\Delta(\gamma)\bigr) = \Delta \bigl( \sigma(\gamma) \bigr)$
+		\item $\sigma(\Delta)$ もまた $\Phi$ の\hyperref[def:base-root]{底}である．
 		\item $\sigma \bigl( \mathfrak{C}(\gamma) \bigr) = \mathfrak{C} \bigl( \sigma(\gamma) \bigr)$
 		\item $\sigma \bigl( \mathfrak{C}(\Delta) \bigr) = \mathfrak{C} \bigl( \sigma(\Delta) \bigr)$
 	\end{enumerate}
 \end{mylem}
 
 \begin{proof}
+	鏡映は等長変換（isometry）なので $\rpair[\big]{\sigma(\alpha)}{\sigma(\beta)} = \rpair{\alpha}{\beta}$ が成り立つ．
 	\begin{enumerate}
 		\item 
+		\begin{align}
+			\sigma\bigl(\Phi^+ (\gamma)\bigr) 
+			&= \bigl\{\, \sigma(\alpha) \in \Phi \bigm| \rpair{\gamma}{\gamma} = \rpair[\big]{\sigma(\gamma)}{\sigma(\alpha)} > 0 \,\bigr\} \\
+			&= \bigl\{\, \beta \in \Phi \bigm| \rpair[\big]{\sigma(\gamma)}{\beta} > 0 \,\bigr\} \\
+			&=\Phi^+ \bigl( \sigma(\gamma) \bigr) 
+		\end{align}
+		が分かる．従って $\sigma\bigl(\Delta (\gamma)\bigr) = \sigma\bigl(\Delta (\gamma)\bigr) $ である．
+		\item 定理\ref{thm:base-exist}より，ある正則な $\gamma \in \mathbb{E}$ が存在して $\Delta = \Delta(\gamma)$ と書ける．よって (1) から $\sigma(\Delta) = \Delta \bigl( \sigma(\gamma) \bigr)$ であるが，再度定理\ref{thm:base-exist}より右辺は $\Phi$ の底である．
+		\item \eqref{eq:Weylchamber}，および $\sigma (\Phi) = \Phi$ より
+		\begin{align}
+			\sigma \bigl( \mathfrak{C}(\gamma) \bigr) 
+			&= \bigl\{\, \sigma(\beta) \in \mathbb{E} \bigm| \forall \alpha \in \Phi,\; \rpair{\gamma}{\alpha}\rpair{\beta}{\alpha} = \rpair[\big]{\sigma(\gamma)}{\sigma(\alpha)} \rpair[\big]{\sigma(\beta)}{\sigma(\alpha)} > 0 \,\bigr\} \\
+			&= \bigl\{\, \beta \in \mathbb{E} \bigm| \forall \alpha \in \Phi,\; \rpair[\big]{\sigma(\gamma)}{\alpha} \rpair[\big]{\beta}{\alpha} > 0 \,\bigr\} \\
+			&= \mathfrak{C} \bigl( \sigma(\gamma) \bigr) 
+		\end{align}
+		\item (4) および定理\ref{thm:base-exist}より従う．
 	\end{enumerate}
 	
 \end{proof}
 
 
-\subsection{単純ルートの性質}
+\subsection{単純ルートに関する補題}
+
+
 
 \subsection{Weyl群の性質}
 
