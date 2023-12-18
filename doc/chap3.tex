@@ -62,7 +62,7 @@ $\sigma_\alpha$ は $\mathbb{R}$-線型でかつ $\forall \beta \in \mathbb{E}$ 
 	このとき，$\sigma \in \LGL(\mathbb{E})$ が
 	\begin{description}
 		\item[\textbf{(RF-1)}]  $\sigma(\Phi) = \Phi$
-		\item[\textbf{(RF-2)}]  余次元 $1$ の部分ベクトル空間 $P \subset \mathbb{R}$ が存在して，$\forall \beta \in P,\; \sigma(\beta) = \beta$ が成り立つ
+		\item[\textbf{(RF-2)}]  余次元 $1$ の部分ベクトル空間 $P \subset \mathbb{E}$ が存在して，$\forall \beta \in P,\; \sigma(\beta) = \beta$ が成り立つ
 		\item[\textbf{(RF-3)}]  $\exists \alpha \in \Phi \setminus \{0\},\; \sigma(\alpha) = -\alpha$
 	\end{description}
 	の3条件を満たすならば $\sigma = \sigma_\alpha$ （かつ $P = P_\alpha$）である．
@@ -187,7 +187,11 @@ $\sigma_\alpha$ は $\mathbb{R}$-線型でかつ $\forall \beta \in \mathbb{E}$ 
 			\label{eq:a-string}
 			\bigl\{\, \beta + \lambda\alpha \in \mathbb{E} \bigm| -r \le \lambda \le q \,\bigr\} 
 		\end{align}
-		に等しい．i.e. $-r \le \forall \lambda \le q$ に対して $\beta + \lambda\alpha \in \Phi$ である．
+		に等しい．i.e. 
+		\begin{align}
+			\lambda \in \mathbb{Z} \AND \beta + \lambda\alpha \in \Phi \IMP -r \le \lambda \le q
+		\end{align}
+		である．
 		\item \hyperref[def:a-sting]{$\alpha$-string through $\beta$}は鏡映 $\sigma_\alpha$ の作用の下で不変である．
 		\item $r-q = \sspair{\beta}{\alpha}$．特に\hyperref[def:a-sting]{$\alpha$-string through $\beta$}の長さは $4$ 以下である．
 	\end{enumerate}
@@ -196,16 +200,23 @@ $\sigma_\alpha$ は $\mathbb{R}$-線型でかつ $\forall \beta \in \mathbb{E}$ 
 \begin{proof}
 	\begin{enumerate}
 		\item 背理法により示す．ある $-r < \lambda < q$ に対して $\beta + \lambda\alpha \notin \Phi$ であるとする．
-		このときある $-r \le s < p \le q$ が存在して $\beta + s\alpha \in \Phi,\, \beta + (s-1)\alpha \notin \Phi,\, \beta + (p-1)\alpha \notin \Phi,\, \beta + p\alpha \in \Phi$ を充たすが，補題\ref{lem:root-basic}の対偶よりこのとき $\rpair{\alpha}{\beta + s\alpha} \le 0 \le \rpair{\alpha}{\beta + p\alpha}$ が成り立つ．
-		よって $(p-s) \rpair{\alpha}{\alpha} \ge 0$ である．
-		然るに $p < s$ かつ $\rpair{\alpha}{\alpha} > 0$ なのでこれは矛盾である．
+		このときある $-r \le s < p \le q$ が存在して
+		\begin{align}
+			\beta + s\alpha &\in \Phi, & \beta + (s+1)\alpha &\notin \Phi, & \beta + (p-1)\alpha &\notin \Phi, & \beta + p\alpha &\in \Phi
+		\end{align}
+		を充たすが，
+		補題\ref{lem:root-basic}の対偶より $\rpair{\alpha}{\beta + p\alpha} \le 0 \le \rpair{\alpha}{\beta + s\alpha}$ が成り立つ．
+		よって $(s-p) \rpair{\alpha}{\alpha} \ge 0$ である．
+		然るに $s-p < 0$ かつ $\rpair{\alpha}{\alpha} > 0$ なのでこれは矛盾である．
 		\item $-r \le \forall \lambda \le q$ に対して
 		\begin{align}
 			\sigma_\alpha(\beta + \lambda\alpha) 
 			&= \beta + \lambda\alpha - \sspair{\beta}{\alpha}\alpha - \lambda \sspair{\alpha}{\alpha}\alpha \\
-			&= \beta - \bigl( \sspair{\beta}{\alpha} + \lambda \bigr) \alpha
+			&= \beta + \bigl( - \sspair{\beta}{\alpha} - \lambda \bigr) \alpha
 		\end{align}
-		が成り立つ．\textsf{\textbf{(Root-3)}} より最右辺は $\Phi$ の元であり，かつ \textsf{\textbf{(Root-4)}}より $\sspair{\beta}{\alpha} + \lambda \in \mathbb{Z}$ なので，(1) より $-r \le \sspair{\beta}{\alpha} + \lambda \le q$ だと分かった．
+		が成り立つ．\textsf{\textbf{(Root-3)}} より $\beta + \bigl( - \sspair{\beta}{\alpha} - \lambda \bigr) \alpha \in \Phi$ が言える．
+		さらに\textsf{\textbf{(Root-4)}}より $- \sspair{\beta}{\alpha} - \lambda \in \mathbb{Z}$ なので，(1) より $-r \le -\sspair{\beta}{\alpha} - \lambda \le q$ だと分かった．
+		i.e. $\sigma_\alpha(\beta + \lambda\alpha)$ は\hyperref[def:a-sting]{$\alpha$-string through $\beta$}の元である．
 		\item $r,\, q$ の定義より，(2) の証明において
 		\begin{align}
 			\sigma_\alpha(\beta + q\alpha) = \beta - \bigl( \sspair{\beta}{\alpha} + q \bigr) \alpha = \beta - r \alpha
@@ -302,7 +313,7 @@ $\sigma_\alpha$ は $\mathbb{R}$-線型でかつ $\forall \beta \in \mathbb{E}$ 
 \end{mylem}
 
 \begin{proof}
-	$\forall \alpha,\, \beta \in \Phi$ をとる．\textsf{\textbf{(Root-3)}} より $\sigma_\alpha(\beta) \in \Phi$ なので，$\tau \circ \sigma_\alpha \circ \tau^{-1}\bigl(\tau(\beta)\bigr) = \sigma \circ \sigma_\alpha(\beta) \in \Phi$ が成り立つ．
+	$\forall \alpha,\, \beta \in \Phi$ をとる．\textsf{\textbf{(Root-3)}} より $\sigma_\alpha(\beta) \in \Phi$ なので，$\tau \circ \sigma_\alpha \circ \tau^{-1}\bigl(\tau(\beta)\bigr) = \tau \circ \sigma_\alpha(\beta) \in \Phi$ が成り立つ．
 	一方で
 	\begin{align}
 		\label{eq:lemWeylgroup1}
@@ -441,7 +452,7 @@ $\prec$ が半順序になっていることを確認しておこう：
 \end{mylem}
 
 \begin{proof}
-	背理法により示す．$\rpair{\alpha}{\beta} > 0$ だとする．仮定より $\alpha \neq \beta$ であり，かつ $\Delta$ の元の線型独立性から $\beta \neq -\alpha$ なので，補題\ref{lem:root-basic}から $\alpha - \beta \in \Delta$ と言うことになる．
+	背理法により示す．$\rpair{\alpha}{\beta} > 0$ だとする．仮定より $\alpha \neq \beta$ であり，かつ $\Delta$ の元の線型独立性から $\beta \neq -\alpha$ なので，補題\ref{lem:root-basic}から $\alpha - \beta \in \Phi$ と言うことになる．
 	然るにこのとき $\alpha - \beta \in \Phi$ が $\alpha,\, \beta \in \Delta$ の係数 $1,\, -1$ の線型結合で書けていることになり \textsf{\textbf{(B-2)}} に矛盾する．
 \end{proof}
 
@@ -525,6 +536,7 @@ $\gamma$ が正則ならば $\forall \alpha \in \Phi$ に対して $\rpair{\gamm
 			= \sum_{\alpha \in \Delta^-(\gamma)} (-k_\alpha) \rpair{\gamma}{\alpha}
 		\end{align}
 		であり，$\forall \alpha \in \Delta(\gamma),\; k_\alpha = 0$ が言えた．
+		
 		\item[\textbf{step4: $\bm{\Delta(\gamma)}$ は $\bm{\Phi}$ の底}]　
 		
 		$\Phi = \Phi^+ (\gamma) \amalg \bigl( -\Phi^+ (\gamma) \bigr)$ なので，
@@ -642,11 +654,11 @@ $\gamma$ が正則ならば $\forall \alpha \in \Phi$ に対して $\rpair{\gamm
 		\item 
 		\begin{align}
 			\sigma\bigl(\Phi^+ (\gamma)\bigr) 
-			&= \bigl\{\, \sigma(\alpha) \in \Phi \bigm| \rpair{\gamma}{\gamma} = \rpair[\big]{\sigma(\gamma)}{\sigma(\alpha)} > 0 \,\bigr\} \\
+			&= \bigl\{\, \sigma(\alpha) \in \Phi \bigm| \rpair{\gamma}{\alpha} = \rpair[\big]{\sigma(\gamma)}{\sigma(\alpha)} > 0 \,\bigr\} \\
 			&= \bigl\{\, \beta \in \Phi \bigm| \rpair[\big]{\sigma(\gamma)}{\beta} > 0 \,\bigr\} \\
 			&=\Phi^+ \bigl( \sigma(\gamma) \bigr) 
 		\end{align}
-		が分かる．従って $\sigma\bigl(\Delta (\gamma)\bigr) = \sigma\bigl(\Delta (\gamma)\bigr) $ である．
+		が分かる．従って $\sigma\bigl(\Delta (\gamma)\bigr) = \Delta \bigl(\sigma(\gamma)\bigr) $ である．
 		\item 定理\ref{thm:base-exist}より，ある正則な $\gamma \in \mathbb{E}$ が存在して $\Delta = \Delta(\gamma)$ と書ける．よって (1) から $\sigma(\Delta) = \Delta \bigl( \sigma(\gamma) \bigr)$ であるが，再度定理\ref{thm:base-exist}より右辺は $\Phi$ の底である．
 		\item \eqref{eq:Weylchamber}，および $\sigma (\Phi) = \Phi$ より
 		\begin{align}
@@ -677,7 +689,9 @@ $\gamma$ が正則ならば $\forall \alpha \in \Phi$ に対して $\rpair{\gamm
 \end{mylem}
 
 \begin{proof}
-	$\forall \beta \in \Delta$ に対して $\rpair{\alpha}{\beta} \le 0$ が成り立つと仮定すると，定理\ref{thm:base-exist}の \textsf{\textbf{step3}} の証明から $\Delta \cup \{\alpha\}$ が線型独立となり，$\Delta$ が $\mathbb{E}$ の基底であることに矛盾．
+	$\forall \beta \in \Delta$ に対して $\rpair{\alpha}{\beta} \le 0$ が成り立つと仮定すると，
+	定理\ref{thm:base-exist}の \textsf{\textbf{step3}} の証明と同様の議論により
+	$\Delta \cup \{\alpha\}$ が線型独立となり，$\Delta$ が $\mathbb{E}$ の基底であることに矛盾．
 	よってある $\beta \in \Delta$ が存在して $\rpair{\alpha}{\beta} > 0$ となる．$\alpha \notin \Delta$ なので $\alpha \neq \pm \beta$ であることと併せると，補題\ref{lem:root-basic}が使えて $\alpha - \beta \in \Phi$ だと分かる．
 
 	仮定より $\alpha \succ 0$ なので $\Familyset[\big]{\alpha_\gamma}{\gamma \in \Delta} \in \prod_{\gamma \in \Delta} \mathbb{Z}_{\ge 0}$ が一意的に存在して $\alpha = \sum_{\gamma \in \Delta} \alpha_\gamma \gamma$ と書ける．
@@ -692,7 +706,7 @@ $\gamma$ が正則ならば $\forall \alpha \in \Phi$ に対して $\rpair{\gamm
 	\end{align}
 	かつ $1 \le \forall i \le k$ に対して 
 	\begin{align}
-		\sum_{j=1}^i \alpha_i \in \Phi
+		\sum_{j=1}^i \alpha_j \in \Phi
 	\end{align}
 	を充たす．
 \end{mycol}
@@ -759,7 +773,7 @@ $\gamma$ が正則ならば $\forall \alpha \in \Phi$ に対して $\rpair{\gamm
 		s \coloneqq \min \bigl\{\, i \in \mathbb{N} \bigm| \beta_i \succ 0  \,\bigr\} 
 	\end{align}
 	が存在する．このとき $\beta_s \in \Phi^+ \AND \sigma_s(\beta_s) = \beta_{s-1} \prec 0$ なので補題\ref{lem:simpleroot-B}より $\beta_s = \alpha_s$ でなくてはならない．
-	$\sigma_{s+1} \cdots \sigma_{t-1} \in \mathscr{W}$ なので，このとき補題\ref{lem:Weylgroup-basic}より
+	$\sigma_{s+1} \cdots \sigma_{t-1} \in \mathscr{W}$ なので，このとき補題\ref{lem:Weylgroup}-(1) より
 	\begin{align}
 		\sigma_s = \sigma_{\beta_s} = (\sigma_{s+1} \cdots \sigma_{t-1}) \sigma_t (\sigma_{t-1} \cdots \sigma_{s+1})
 	\end{align}
@@ -853,7 +867,7 @@ $\gamma$ が正則ならば $\forall \alpha \in \Phi$ に対して $\rpair{\gamm
 		，$\alpha \in \Delta(\gamma')$ が言えた．
 		\item $\mathscr{W} = \mathscr{W}'$ を言うには，$\forall \alpha \in \Phi$ に対して $\sigma_\alpha \in \mathscr{W}'$ が成り立つことを示せば十分である．
 		ここで (3) よりある $\sigma \in \mathscr{W}'$ が存在して $\sigma(\alpha) \in \Delta$ を充たすようにできる．
-		このとき補題\ref{lem:Weylgroup-basic}-(1) より $\sigma_{\sigma(\alpha)} = \sigma \circ \sigma_\alpha \circ \sigma^{-1}$ であるので，$\sigma_{\alpha(\alpha)} \in \mathscr{W}'$ より $\sigma_\alpha = \sigma^{-1} \circ \sigma_{\sigma(\alpha)} \circ \sigma \in \mathscr{W}'$ が言えた．
+		このとき補題\ref{lem:Weylgroup}-(1) より $\sigma_{\sigma(\alpha)} = \sigma \circ \sigma_\alpha \circ \sigma^{-1}$ であるので，$\sigma_{\alpha(\alpha)} \in \mathscr{W}'$ より $\sigma_\alpha = \sigma^{-1} \circ \sigma_{\sigma(\alpha)} \circ \sigma \in \mathscr{W}'$ が言えた．
 		\item 背理法により示す．$\sigma(\Delta) = \Delta$ でかつ $\sigma \neq \mathrm{id}_{\mathbb{E}}$ を仮定する．
 		このとき (4) よりある $\alpha_1,\, \dots,\, \alpha_{t} \in \Delta$ が存在して $\sigma = \sigma_{\alpha_1} \circ \cdots \circ \sigma_{\alpha_{t}}$ と表示できる．このような $\sigma$ の表示のうち，$t$ が最小のものをとる．
 		然るにこのとき仮定より $\sigma (\alpha_{t}) \succ 0$ と言うことになって系\ref{col:simpleroot-C}に矛盾．
@@ -881,7 +895,7 @@ $\gamma$ が正則ならば $\forall \alpha \in \Phi$ に対して $\rpair{\gamm
 	$\Phi$ の\hyperref[def:base-root]{底} $\Delta$ を任意に与える．
 	このとき $\forall \sigma \in \mathscr{W}$ に対して
 	\begin{align}
-		\len (\sigma) = \abs{\bigl\{\, \alpha \in \Phi \bigm| \alpha \succ 0 \AND \sigma(\alpha) \prec 0 \,\bigr\}}
+		\len (\sigma) = \abs{\bigl\{\, \beta \in \Phi \bigm| \beta \succ 0 \AND \sigma(\beta) \prec 0 \,\bigr\}}
 	\end{align}
 	が成り立つ．右辺を $\bm{n(\sigma)}$ とおく．
 \end{mylem}
@@ -892,7 +906,30 @@ $\gamma$ が正則ならば $\forall \alpha \in \Phi$ に対して $\rpair{\gamm
 
 	$\len (\sigma) > \len (\tau)$ を充たす任意の $\tau \in \mathscr{W}$ に対して補題が成り立っているとする．
 	$\sigma = \sigma_{\alpha_1} \circ \cdots \circ \sigma_{\alpha_{t}}$ を $\Delta$ に関する $\sigma$ の\hyperref[def:Weylgroup-presentation]{簡約表示}とし，$\alpha \coloneqq \alpha_t \in \Delta$ とおく．
-	すると系\ref{col:simpleroot-C}より $\sigma(\alpha) \prec 0$ である．よって補題\ref{lem:simpleroot-B}から $n(\sigma \circ \sigma_\alpha) = n(\sigma) - 1$ となる．一方で $\len(\sigma \circ \sigma_\alpha) = \len(\sigma_{\alpha_1} \circ \cdots \circ \sigma_{\alpha_{t-1}}) = \len(\sigma) - 1 < \len (\sigma)$ であるから，帰納法の仮定より $\len (\sigma \circ \sigma_\alpha) = n(\sigma \circ \sigma_\alpha)$ であり，$n(\sigma) = \len (\sigma)$ が言えた．
+	すると系\ref{col:simpleroot-C}より $\sigma(\alpha) \prec 0$ であるから
+	\begin{align}
+		\alpha \in \bigl\{\, \beta \in \Phi \bigm| \beta \succ 0 \AND \sigma(\beta) \prec 0 \,\bigr\}
+	\end{align}
+	がわかる．一方で $\sigma \circ \sigma_\alpha(\alpha) =  \sigma(-\alpha) \succ 0$ なので
+	\begin{align}
+		\bigl\{\, \beta \in \Phi \bigm| \beta \succ 0 \AND \sigma \circ \sigma_\alpha(\beta) \prec 0 \,\bigr\}
+		&= \bigl\{\, \beta \in \Phi^+ \setminus \{\alpha\} \bigm| \sigma \bigl(\sigma_\alpha(\beta)\bigr) \prec 0 \,\bigr\}
+	\end{align}
+	であるが，補題\ref{lem:simpleroot-B}から最右辺は
+	\begin{align}
+		\bigl\{\, \beta \in \Phi \bigm| \beta \succ 0 \AND \sigma(\beta) \prec 0 \,\bigr\} \setminus \{\alpha\}
+	\end{align}
+	に等しい．よって
+	\begin{align}
+		n(\sigma \circ \sigma_\alpha) 
+		&= \abs{\bigl\{\, \beta \in \Phi \bigm| \beta \succ 0 \AND \sigma \circ \sigma_\alpha(\beta) \prec 0 \,\bigr\}} \\
+		&= \abs{\bigl\{\, \beta \in \Phi \bigm| \beta \succ 0 \AND \sigma(\beta) \prec 0 \,\bigr\} \setminus \{\alpha\}} \\
+		&= \abs{\bigl\{\, \beta \in \Phi \bigm| \beta \succ 0 \AND \sigma(\beta) \prec 0 \,\bigr\}} - 1 \\
+		&= n(\sigma) - 1
+	\end{align}
+	だと分かった．
+	ところで $\len(\sigma \circ \sigma_\alpha) = \len(\sigma_{\alpha_1} \circ \cdots \circ \sigma_{\alpha_{t-1}}) = \len(\sigma) - 1 < \len (\sigma)$ であるから，
+	帰納法の仮定より $\len (\sigma) - 1 = \len (\sigma \circ \sigma_\alpha) = n(\sigma \circ \sigma_\alpha) = n(\sigma) - 1$ であり，$n(\sigma) = \len (\sigma)$ が言えた．
 \end{proof}
 
 位相空間 $X$ の部分空間 $A \subset X$ の閉包\footnote{$\overline{A} \coloneqq \bigcap_{F:\, \text{closed},\;A \subset F} F$}を $\overline{A}$ と書く．

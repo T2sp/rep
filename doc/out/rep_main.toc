@@ -46,7 +46,7 @@
 \contentsline {subsection}{\numberline {3.2.3}Weyl群の性質}{82}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}既約なルート系}{85}{subsection.3.2.4}%
 \contentsline {section}{\numberline {3.3}ルート系の分類}{88}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Cartan行列}{88}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.1}Cartan行列}{89}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2}CoxeterグラフとDynkin図形}{90}{subsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.3.3}ルート系の既約成分}{91}{subsection.3.3.3}%
 \contentsline {subsection}{\numberline {3.3.4}ルート系の分類定理}{92}{subsection.3.3.4}%
