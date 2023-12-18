@@ -3,45 +3,45 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: rep_main.aux
 The style file: myh-physrev.bst
 Database file #1: repref.bib
-You've used 3 entries,
+You've used 4 entries,
             1990 wiz_defined-function locations,
-            630 strings with 5059 characters,
-and the built_in function-call counts, 463 in all, are:
-= -- 25
-> -- 22
+            636 strings with 5307 characters,
+and the built_in function-call counts, 624 in all, are:
+= -- 34
+> -- 32
 < -- 0
-+ -- 7
-- -- 4
-* -- 40
-:= -- 63
-add.period$ -- 3
-call.type$ -- 3
++ -- 11
+- -- 6
+* -- 53
+:= -- 83
+add.period$ -- 4
+call.type$ -- 4
 change.case$ -- 0
 chr.to.int$ -- 0
-cite$ -- 3
-duplicate$ -- 24
-empty$ -- 58
-format.name$ -- 7
-if$ -- 105
+cite$ -- 4
+duplicate$ -- 32
+empty$ -- 77
+format.name$ -- 10
+if$ -- 143
 int.to.chr$ -- 0
-int.to.str$ -- 3
-missing$ -- 6
-newline$ -- 15
-num.names$ -- 3
-pop$ -- 20
+int.to.str$ -- 4
+missing$ -- 8
+newline$ -- 19
+num.names$ -- 4
+pop$ -- 27
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 12
+skip$ -- 17
 stack$ -- 0
 substring$ -- 0
-swap$ -- 9
+swap$ -- 12
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 3
-width$ -- 4
-write$ -- 23
+while$ -- 4
+width$ -- 5
+write$ -- 30
 is.kanji.str$ -- 0

@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.29)  18 DEC 2023 13:17
+This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.29)  18 DEC 2023 15:04
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/takamatoshinori/Desktop/Seminors/rep/doc/rep_main.tex
@@ -1692,94 +1692,94 @@ LaTeX Warning: Hyper reference `def:def:sub-g-module' on page 51 undefined on in
 第3章
 [67
 
-] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81] [82] [83] [84] [85] [86] [87] [88] [89] [90](load cache: extra_lmroman7-bold.luc)(load cache: extra_lmroman5-bold.luc) [91]) (./appendixA.tex [92]
+] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81] [82] [83] [84] [85] [86] [87] [88] [89] [90](load cache: extra_lmroman7-bold.luc)(load cache: extra_lmroman5-bold.luc) [91] [92]) (./appendixA.tex [93]
 付録A
-[93
+[94
 
-] [94]
+] [95]
 
-LaTeX Warning: Hyper reference `def:commutative' on page 95 undefined on input line 94.
+LaTeX Warning: Hyper reference `def:commutative' on page 96 undefined on input line 94.
 
 
-LaTeX Warning: Hyper reference `ax.ring' on page 95 undefined on input line 141.
-
-[95]
-
-LaTeX Warning: Hyper reference `def:free-mod' on page 96 undefined on input line 177.
+LaTeX Warning: Hyper reference `ax.ring' on page 96 undefined on input line 141.
 
 [96]
 
-LaTeX Warning: Hyper reference `ax.eq' on page 97 undefined on input line 223.
-
-
-LaTeX Warning: Hyper reference `prop:quotient-vec' on page 97 undefined on input line 223.
-
-
-LaTeX Warning: Hyper reference `prop:gen-submodule' on page 97 undefined on input line 242.
-
-
-LaTeX Warning: Hyper reference `prop:quotient-vec' on page 97 undefined on input line 243.
-
-
-LaTeX Warning: Hyper reference `prop:quotient-vec' on page 97 undefined on input line 259.
+LaTeX Warning: Hyper reference `def:free-mod' on page 97 undefined on input line 177.
 
 [97]
 
-LaTeX Warning: Hyper reference `thm.homo1' on page 98 undefined on input line 284.
+LaTeX Warning: Hyper reference `ax.eq' on page 98 undefined on input line 223.
+
+
+LaTeX Warning: Hyper reference `prop:quotient-vec' on page 98 undefined on input line 223.
+
+
+LaTeX Warning: Hyper reference `prop:gen-submodule' on page 98 undefined on input line 242.
+
+
+LaTeX Warning: Hyper reference `prop:quotient-vec' on page 98 undefined on input line 243.
+
+
+LaTeX Warning: Hyper reference `prop:quotient-vec' on page 98 undefined on input line 259.
 
 [98]
 
-LaTeX Warning: Hyper reference `def.basisforDVS' on page 99 undefined on input line 358.
-
-
-LaTeX Warning: Hyper reference `cmtd:tensor-vec' on page 99 undefined on input line 363.
+LaTeX Warning: Hyper reference `thm.homo1' on page 99 undefined on input line 284.
 
 [99]
 
-LaTeX Warning: Hyper reference `def.basisforDVS' on page 100 undefined on input line 387.
+LaTeX Warning: Hyper reference `def.basisforDVS' on page 100 undefined on input line 358.
+
+
+LaTeX Warning: Hyper reference `cmtd:tensor-vec' on page 100 undefined on input line 363.
 
 [100]
 
-LaTeX Warning: Hyper reference `cmtd:tensor-vec' on page 101 undefined on input line 440.
-
-
-LaTeX Warning: Hyper reference `def.basisforDVS' on page 101 undefined on input line 448.
+LaTeX Warning: Hyper reference `def.basisforDVS' on page 101 undefined on input line 387.
 
 [101]
 
-LaTeX Warning: Hyper reference `def.basisforDVS' on page 102 undefined on input line 488.
-
-[102] [103] [104] [105] [106] [107] [108]
-
-LaTeX Warning: Hyper reference `def:free-mod' on page 109 undefined on input line 869.
+LaTeX Warning: Hyper reference `cmtd:tensor-vec' on page 102 undefined on input line 440.
 
 
-LaTeX Warning: Hyper reference `def:ker-module' on page 109 undefined on input line 902.
+LaTeX Warning: Hyper reference `def.basisforDVS' on page 102 undefined on input line 448.
 
-[109] [110]
+[102]
 
-LaTeX Warning: Reference `prop.kernel1' on page 111 undefined on input line 983.
+LaTeX Warning: Hyper reference `def.basisforDVS' on page 103 undefined on input line 488.
 
-[111] [112] [113]
+[103] [104] [105] [106] [107] [108] [109]
 
-LaTeX Warning: Hyper reference `def:inj-proj' on page 114 undefined on input line 1138.
-
-
-LaTeX Warning: Hyper reference `prop:univ-dp' on page 114 undefined on input line 1142.
+LaTeX Warning: Hyper reference `def:free-mod' on page 110 undefined on input line 869.
 
 
-LaTeX Warning: Hyper reference `prop:univ-dp' on page 114 undefined on input line 1155.
+LaTeX Warning: Hyper reference `def:ker-module' on page 110 undefined on input line 902.
 
-[114]
+[110] [111]
 
-LaTeX Warning: Hyper reference `def:free-mod' on page 115 undefined on input line 1198.
+LaTeX Warning: Reference `prop.kernel1' on page 112 undefined on input line 983.
 
-[115] [116] [117] [118]
+[112] [113] [114]
+
+LaTeX Warning: Hyper reference `def:inj-proj' on page 115 undefined on input line 1138.
+
+
+LaTeX Warning: Hyper reference `prop:univ-dp' on page 115 undefined on input line 1142.
+
+
+LaTeX Warning: Hyper reference `prop:univ-dp' on page 115 undefined on input line 1155.
+
+[115]
+
+LaTeX Warning: Hyper reference `def:free-mod' on page 116 undefined on input line 1198.
+
+[116] [117] [118] [119]
 Overfull \hbox (23.3477pt too wide) in paragraph at lines 1394--1397
 |\JY3/mc/m/it/10 で |定 |義 |す |る[][][][][][][]|と $\OML/cmm/m/it/10 R\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 t[];  [] ;  t[]\OT1/cmr/m/n/10 ]$ |\JY3/mc/m/it/10 自 |身 |が |環 |に |な |る []  |た |だ |し $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[];  [] ;  t[]\OT1/cmr/m/n/10 ) = [][] \OML/cmm/m/it/10 a[]t[] [] t[];  g\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[];  [] ;  t[]\OT1/cmr/m/n/10 ) =
  []
 
-[119] [120] [121] [122] [123] [124] [125]) (./out/rep_main.bbl [126]
+[120] [121] [122] [123] [124] [125] [126]) (./out/rep_main.bbl [127]
 LaTeX Font Info:    Font shape `JT3/gt/m/it' in size <10> not available
 (Font)              Font shape `JT3/gt/m/n' tried instead on input line 5.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
@@ -1788,7 +1788,7 @@ LaTeX Font Info:    Font shape `JY3/gt/m/it' in size <10> not available
 (Font)              Font shape `JY3/gt/m/n' tried instead on input line 5.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 9.24713pt on input line 5.
-) [127
+) [128
 
 ] (./out/rep_main.aux)
 
@@ -1802,21 +1802,21 @@ Package rerunfilecheck Info: File `rep_main.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 59149 strings out of 478285
- 597279,2373549 words of node,token memory allocated
- 45878 words of node memory still in use:
-   27 hlist, 2 vlist, 13 rule, 90 glue, 4 kern, 1 glyph, 20213 attribute, 63 glue_spec, 1863 attribute_list, 2 write, 30 user_defined, 16 pdf_literal, 12 pdf_action, 16 pdf_colorstack nodes
-   avail lists: 1:40,2:151860,3:6874,4:4063,5:762,6:109,7:7971,8:117,9:3747,10:31,11:48
- 76536 multiletter control sequences out of 65536+600000
+ 59158 strings out of 478285
+ 597282,2373549 words of node,token memory allocated
+ 46262 words of node memory still in use:
+   27 hlist, 2 vlist, 13 rule, 90 glue, 4 kern, 1 glyph, 20389 attribute, 63 glue_spec, 1879 attribute_list, 2 write, 30 user_defined, 16 pdf_literal, 12 pdf_action, 16 pdf_colorstack nodes
+   avail lists: 1:41,2:156979,3:6867,4:4053,5:762,6:109,7:8276,8:117,9:3735,10:31,11:49
+ 76539 multiletter control sequences out of 65536+600000
  165 fonts using 82449359 bytes
- 118i,21n,115p,1794b,1834s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 118i,21n,115p,1794b,1838s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-warning  (pdf backend): unreferenced destination with name 'Hfootnote.130'
+warning  (pdf backend): unreferenced destination with name 'Hfootnote.131'
 </usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmmono8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufb10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufb7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/rsfs/rsfs7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/stmaryrd/stmary8.pfb>
-Output written on rep_main.pdf (128 pages, 1370961 bytes).
+Output written on rep_main.pdf (129 pages, 1377565 bytes).
 
-PDF statistics: 2952 PDF objects out of 2984 (max. 8388607)
- 2639 compressed objects within 27 object streams
- 747 named destinations out of 1000 (max. 131072)
+PDF statistics: 2969 PDF objects out of 2984 (max. 8388607)
+ 2655 compressed objects within 27 object streams
+ 753 named destinations out of 1000 (max. 131072)
  720 words of extra memory for PDF output out of 10000 (max. 100000000)
 

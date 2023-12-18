@@ -797,10 +797,28 @@ $\gamma$ が正則ならば $\forall \alpha \in \Phi$ に対して $\rpair{\gamm
 	\begin{enumerate}
 		\item $\gamma \in \mathbb{E}$ が\hyperref[def:decomposable]{正則}ならば，
 		ある $\sigma \in \mathscr{W}$ が存在して，$\forall \alpha \in \Delta,\; \rpair[\big]{\sigma(\gamma)}{\alpha} > 0$ を充たす．
+
+		特に，Weyl群の作用\eqref{def:Weylgroup-action-Weylchamber}
+		\begin{align}
+			\irm{\pi}{W} \colon \mathscr{W} &\lto \Isom (\{\text{Weylの区画}\}),\; \sigma \lmto \Bigl(\, \mathfrak{C}(\gamma) \mapsto \mathfrak{C}\bigl(\sigma(\gamma)\bigr)\, \Bigr)
+		\end{align}
+		は\textbf{推移的} (transitive)
+		\footnote{i.e. 任意のWeylの区画 $\mathfrak{C}(\gamma),\, \mathfrak{C}(\gamma')$ に対してある $\sigma \in \mathscr{W}$ が存在して $\irm{\pi}{W} (\sigma)(\mathfrak{C}(\gamma)) = \mathfrak{C}(\gamma')$ を充たす．}
+		である．
 		\item $\Delta'$ が $\Phi$ のもう1つの底ならば，ある $\sigma \in \mathscr{W}$ が存在して $\sigma (\Delta') = \Delta$ を充たす．
+		
+		i.e. Weyl群の作用\eqref{def:Weylgroup-action-base}
+		\begin{align}
+			\irm{\pi}{b} \colon \mathscr{W} &\lto \Isom (\{\Phi\;\text{の底}\}),\; \sigma \lmto \Bigl(\, \Delta \mapsto \sigma(\Delta)\, \Bigr)
+		\end{align}
+		は\textbf{推移的} (transitive)
+		% \footnote{i.e. 任意の $\Phi$ の底 $\Delta,\, \Delta'$ に対してある $\sigma \in \mathscr{W}$ が存在して $\irm{\pi}{b} (\sigma)(\Delta) = \Delta'$ を充たす．}
+		である．
 		\item $\forall \alpha \in \Phi$ に対してある $\sigma \in \mathscr{W}$ が存在して $\sigma(\alpha) \in \Delta$ を充たす．
 		\item $\mathscr{W}$ は集合 $\bigl\{\, \sigma_\alpha \bigm| \alpha \in \Delta \,\bigr\} \subset \bigl\{\, \sigma_\alpha \bigm| \alpha \in \Phi \,\bigr\} $ によって生成される．
 		\item $\sigma \in \mathscr{W}$ が $\sigma (\Delta) = \Delta$ を充たすならば $\sigma = \mathrm{id}_{\mathbb{E}}$ である．
+		i.e. Weyl群の作用\eqref{def:Weylgroup-action-Weylchamber}
+		は\textbf{自由} (free) である．
 	\end{enumerate}
 	
 \end{mytheo}
@@ -818,6 +836,9 @@ $\gamma$ が正則ならば $\forall \alpha \in \Phi$ に対して $\rpair{\gamm
 			\rpair[\big]{\sigma(\gamma)}{\delta} \ge \rpair[\big]{\sigma_\alpha\circ \sigma(\gamma)}{\delta} = \rpair[\big]{\sigma(\gamma)}{\sigma_\alpha(\delta)} = \rpair[\big]{\sigma(\gamma)}{\delta - \alpha} = \rpair[\big]{\sigma(\gamma)}{\delta} - \rpair[\big]{\sigma(\gamma)}{\alpha}
 		\end{align}
 		が分かる．よって $\rpair[\big]{\sigma(\gamma)}{\alpha} \ge 0$ が分かった．$\gamma$ は\hyperref[def:decomposable]{正則}なので $\rpair[\big]{\sigma(\gamma)}{\alpha} = \rpair[\big]{\gamma}{\sigma^{-1}(\alpha)} > 0$ が言えた．
+		
+		補題\ref{lem:Weylchamber-basic}-(3) より，このことは $\sigma(\gamma) \in \mathfrak{C}(\Delta)$ を意味する．従って $\irm{\pi}{W}(\sigma) \bigl( \mathfrak{C}(\gamma) \bigr) = \mathfrak{C}\bigl(\sigma(\gamma)\bigr) = \mathfrak{C}(\Delta)$ であり，$\gamma,\, \Delta$ は任意だったので補題\ref{lem:Weylchamber-basic}-(2) より $\irm{\pi}{W}$ が推移的であることが分かった．
+
 		\item 定理\ref{thm:base-exist}より，$\Delta' = \Delta(\gamma')$ を充たす正則な $\gamma' \in \mathbb{E}$ が存在する．
 		このとき (1) および補題\ref{lem:Weylchamber-basic}-(3) よりある $\sigma \in \mathscr{W}'$ が存在して $\sigma (\gamma') \in \mathfrak{C}(\Delta)$ が成り立つから，再度補題\ref{lem:Weylchamber-Weylgroup}より $\sigma \bigl( \mathfrak{C}(\Delta') \bigr) = \sigma \bigl(\mathfrak{C}(\gamma')\bigr) = \mathfrak{C} \bigl( \sigma(\gamma') \bigr) = \mathfrak{C}(\Delta)$ が分かる．
 		従って補題\ref{lem:Weylchamber-basic}-(2) より $\sigma(\Delta') = \Delta$ である．
@@ -875,6 +896,7 @@ $\gamma$ が正則ならば $\forall \alpha \in \Phi$ に対して $\rpair{\gamm
 \end{proof}
 
 位相空間 $X$ の部分空間 $A \subset X$ の閉包\footnote{$\overline{A} \coloneqq \bigcap_{F:\, \text{closed},\;A \subset F} F$}を $\overline{A}$ と書く．
+一般に，群 $G$ の作用 $\btr \colon G \times X \lto X$ の\textbf{基本領域} (fundamental domain) とは，$X$ の部分空間 $A \subset X$ であって $\forall x \in X$ に対して $A \cap (G \btr \{x\})$ が1点集合になるようなもののことを言う．
 
 \begin{mylem}[label=lem:Weylgroup-FD]{Weyl群の作用の基本領域}
 	$\Phi$ の\hyperref[def:base-root]{底} $\Delta$ を任意に与え，$\forall \lambda,\, \mu \in \overline{\mathfrak{C}(\Delta)}$ をとる．
@@ -1157,7 +1179,11 @@ $\Delta = \{\alpha_1,\, \dots,\, \alpha_l\}$ と書こう．
 
 \begin{mydef}[label=def:Coxeter-Dynkin,breakable]{CoxeterグラフとDynkin図形}
 	\hyperref[def:rank-root]{ランク $l$} の\hyperref[ax:root-system]{ルート系} $\Phi$ の\hyperref[def:Cartan-matrix]{Cartan行列} $\bigl[\, \sspair{\alpha_\mu}{\alpha_\nu} \,\bigr]_{1 \le \mu,\, \nu \le l}$ を与える．
-	$\Phi$ の\textbf{Dynkin図形} (Dynkin diagram) $\Gamma = \bigl( \mathcal{V}(\Gamma),\, \mathcal{E}(\Gamma) \bigr)$ とは，以下のデータからなる：
+	$\Phi$ の\textbf{Dynkin図形} (Dynkin diagram)
+	\footnote{~\cite[p.8]{Etingof2011introduction}では "In fact, if we needed to make contact
+	with an alien civilization and show them how sophisticated our civilization is, perhaps showing
+	them Dynkin diagrams would be the best choice!" とまで言っている．実際，Dynkin図形はルート系の分類以外にも様々な分類問題の文脈で登場する．詳細は箙の表現の章で述べよう．} 
+	$\Gamma = \bigl( \mathcal{V}(\Gamma),\, \mathcal{E}(\Gamma) \bigr)$ とは，以下のデータからなる：
 	\begin{itemize}
 		\item 頂点集合 $\mathcal{V}(\Gamma)$ は添字付きの $l$ 個の点 $\bullet_\mu\quad (1 \le \mu \le l)$ からなる．
 		\item 辺集合 $\mathcal{E}(\Gamma)$ は以下を充たす：
@@ -1216,7 +1242,6 @@ $\Delta = \{\alpha_1,\, \dots,\, \alpha_l\}$ と書こう．
 		0 & 0 & -1 & 2
 	]
 \end{align}
-である．
 
 \subsection{ルート系の既約成分}
 
