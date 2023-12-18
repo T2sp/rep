@@ -1,8 +1,5 @@
 \documentclass[rep_main]{subfiles}
 
-\newcommand{\Euc}[1]{\bigl(\, #1,\, (\;,\,)_{#1}\,\bigr)}
-\newcommand{\Weyl}[2]{\mathscr{W}_{#1}(#2)}
-
 \begin{document}
 
 \setcounter{chapter}{2}
@@ -279,13 +276,13 @@ $\sigma_\alpha$ は $\mathbb{R}$-線型でかつ $\forall \beta \in \mathbb{E}$ 
 	$(\mathbb{E},\, \Phi)$ を\hyperref[ax:root-system]{ルート系}とする．
 	$\LGL (\mathbb{E})$ の部分集合 $\bigl\{\, \sigma_\alpha \in \LGL(\mathbb{E}) \bigm| \alpha \in \Phi \,\bigr\}$ が生成する $\LGL(\mathbb{E})$ の部分群のことをルート系 $(\mathbb{E},\, \Phi)$ の\textbf{Weyl群} (Weyl group) と呼び，$\bm{\Weyl{\mathbb{E}}{\Phi}}$ と書く．
 	
-	\tcblower
+	% \tcblower
 	
-	$\forall \sigma \in \mathscr{W}$ に対して，
-	\begin{align}
-		\bm{\len (\sigma)} \coloneqq \min \bigl\{\, t \in \mathbb{Z}_{\ge 0} \bigm| \sigma = \sigma_{\alpha_1} \circ \cdots\circ \sigma_{\alpha_t} \WHERE \alpha_i \in \Phi \,\bigr\} 
-	\end{align}
-	を $\sigma$ の\textbf{長さ} (length) と呼ぶ．ただし $\len (\mathrm{id}_{\mathbb{E}}) \coloneqq 0$ と定義する．
+	% $\forall \sigma \in \mathscr{W}$ に対して，
+	% \begin{align}
+	% 	\bm{\len (\sigma)} \coloneqq \min \bigl\{\, t \in \mathbb{Z}_{\ge 0} \bigm| \sigma = \sigma_{\alpha_1} \circ \cdots\circ \sigma_{\alpha_t} \WHERE \alpha_i \in \Phi \,\bigr\} 
+	% \end{align}
+	% を $\sigma$ の\textbf{長さ} (length) と呼ぶ．ただし $\len (\mathrm{id}_{\mathbb{E}}) \coloneqq 0$ と定義する．
 \end{mydef}
 
 \begin{marker}
@@ -663,15 +660,669 @@ $\gamma$ が正則ならば $\forall \alpha \in \Phi$ に対して $\rpair{\gamm
 	
 \end{proof}
 
+補題\ref{lem:Weylchamber-Weylgroup}より，写像\footnote{$\Isom (X)$ は距離空間 $X$ 上の全単射な等長変換全体が写像の合成に関して成す群（\textbf{等長変換群}; isometry group）を意味する．}
+\begin{align}
+	\irm{\pi}{W} \colon \mathscr{W} &\lto \Isom (\{\text{Weylの区画}\}),\; \sigma \lmto \Bigl(\, \mathfrak{C}(\gamma) \mapsto \mathfrak{C}\bigl(\sigma(\gamma)\bigr)\, \Bigr) \label{def:Weylgroup-action-Weylchamber} \\
+	\irm{\pi}{b} \colon \mathscr{W} &\lto \Isom (\{\Phi\;\text{の底}\}),\; \sigma \lmto \Bigl(\, \Delta \mapsto \sigma(\Delta)\, \Bigr) \label{def:Weylgroup-action-base}
+\end{align}
+が群準同型であることが分かった．i.e. \hyperref[def:Weylgroup]{Weyl群} $\mathscr{W}$ は\hyperref[def:Weylchamber]{Weylの区画}全体の集合，および $\Phi$ の\hyperref[def:base-root]{底}全体の集合に群として左作用する．
 
 \subsection{単純ルートに関する補題}
 
+この小節では $\Phi$ の任意の\hyperref[def:base-root]{底} $\Delta$ を1つ固定する．
 
+\begin{mylem}[label=lem:simpleroot-A]{}
+	$\alpha \in \Phi \setminus \Delta$ が\hyperref[def:base-root]{正ルート}ならば，ある $\beta \in \Delta$ が存在して $\alpha - \beta \in \Phi$ となる．
+	特に，$\alpha - \beta \succ 0$ である．
+\end{mylem}
+
+\begin{proof}
+	$\forall \beta \in \Delta$ に対して $\rpair{\alpha}{\beta} \le 0$ が成り立つと仮定すると，定理\ref{thm:base-exist}の \textsf{\textbf{step3}} の証明から $\Delta \cup \{\alpha\}$ が線型独立となり，$\Delta$ が $\mathbb{E}$ の基底であることに矛盾．
+	よってある $\beta \in \Delta$ が存在して $\rpair{\alpha}{\beta} > 0$ となる．$\alpha \notin \Delta$ なので $\alpha \neq \pm \beta$ であることと併せると，補題\ref{lem:root-basic}が使えて $\alpha - \beta \in \Phi$ だと分かる．
+
+	仮定より $\alpha \succ 0$ なので $\Familyset[\big]{\alpha_\gamma}{\gamma \in \Delta} \in \prod_{\gamma \in \Delta} \mathbb{Z}_{\ge 0}$ が一意的に存在して $\alpha = \sum_{\gamma \in \Delta} \alpha_\gamma \gamma$ と書ける．
+	$\alpha \notin \Delta$ なのである $\gamma \in \Delta \setminus \{\beta\}$ が存在して $\alpha_\gamma > 0$ を充たす．よって $\alpha - \beta \in \Phi$ を単純ルートで展開した $\mathbb{Z}$-係数のうち少なくとも1つは正である．よって\hyperref[def:base-root]{(B-2)}から $\alpha - \beta \succ 0$ が言える．
+\end{proof}
+
+
+\begin{mycol}[label=col:simpleroot-A]{}
+	$\forall \beta \in \Phi^+$ に対して $\alpha_1,\, \dots,\, \alpha_k \in \Delta$ が存在して（重複も許す），
+	\begin{align}
+		\beta = \sum_{j=1}^k \alpha_j
+	\end{align}
+	かつ $1 \le \forall i \le k$ に対して 
+	\begin{align}
+		\sum_{j=1}^i \alpha_i \in \Phi
+	\end{align}
+	を充たす．
+\end{mycol}
+
+\begin{proof}
+	仮定より $\Familyset[\big]{\beta_\gamma}{\gamma \in \Delta} \in \prod_{\gamma \in \Delta} \mathbb{Z}_{\ge 0}$ が一意的に存在して $\beta = \sum_{\gamma \in \Delta} \beta_\gamma \gamma$ と書ける．
+	$\hight \beta$ に関する数学的帰納法により示す．$\hight \beta = 1$ のときは $\beta \in \Delta \subset \Phi$ なので明らか．
+
+	$\hight \beta > 1$ とする．このとき $\beta \notin \Delta$ である．
+	% もしこのような $\gamma \in \Delta$ がただ1つならば $\beta = \hight \beta \gamma \in \Phi$ と言うことになり\hyperref[ax:root-system]{\textsf{\textbf{(Root-2)}}}に矛盾．よって $\beta \notin \Delta$ である．
+	従って補題\ref{lem:simpleroot-A}が使えて $\beta - \gamma \in \Phi^+$ となる．よって帰納法の仮定から示された．
+\end{proof}
+
+\begin{mylem}[label=lem:simpleroot-B]{}
+	任意の\hyperref[def:base-root]{単純ルート} $\alpha \in \Delta$ に対して，
+	$\sigma_\alpha \in \LGL(\mathbb{E})$ は $\sigma_\alpha\bigl(\Phi^+ \setminus \{\alpha\}\bigr) = \Phi^+ \setminus \{\alpha\}$ を充たす．
+\end{mylem}
+
+\begin{proof}
+	$\forall \beta \in \Phi^+ \setminus \{\alpha\}$ を1つとる．このとき  $\Familyset[\big]{\beta_\gamma}{\gamma \in \Delta} \in \prod_{\gamma \in \Delta} \mathbb{Z}_{\ge 0}$ が一意的に存在して $\beta = \sum_{\gamma \in \Delta} \beta_\gamma \gamma$ と書ける．$\beta \neq \pm \alpha$ だから，ある $\gamma \in \Delta \setminus \{\alpha\}$ が存在して $\beta_\gamma > 0$ となる．このとき $\sigma_\alpha(\beta) = \beta - \sspair{\beta}{\alpha} \alpha$ の $\gamma$ の係数は $k_\gamma > 0$ のままである．
+	よって\hyperref[ax:root-system]{\textsf{\textbf{(B-2)}}}から $\sigma_\alpha(\beta) \in \Phi^+$ が言える．$\alpha = \sigma_\alpha (-\alpha) \neq \sigma_\alpha(\beta)$ なので $\sigma_\alpha(\beta) \in \Phi^+ \setminus \{\alpha\}$ が言えた．
+\end{proof}
+
+\begin{mycol}[label=col:simpleroot-B]{}
+	\begin{align}
+		\delta \coloneqq \frac{1}{2} \sum_{\beta \in \Phi^+} \beta
+	\end{align}
+	とおくと，$\forall \alpha \in \Delta$ に対して
+	\begin{align}
+		\sigma_\alpha(\delta) = \delta -\alpha
+	\end{align}
+	が成り立つ．
+\end{mycol}
+
+\begin{proof}
+	補題\ref{lem:simpleroot-B}より
+	\begin{align}
+		\sigma_\alpha(\delta) = \sigma_\alpha \left( \sum_{\beta \in \Phi^+ \setminus \{\alpha\}} \beta\right) + \sigma_\alpha(\alpha) = \delta - \alpha
+	\end{align}
+	
+\end{proof}
+
+\begin{mylem}[label=lem:simpleroot-C]{}
+	重複を許して $\alpha_1,\, \dots,\, \alpha_t \in \Delta$ を任意にとる．
+
+	このとき，もし $\sigma_{\alpha_1} \circ \cdots \circ \sigma_{\alpha_{t-1}}(\alpha_t) \prec 0$ ならば，ある $1 \le s < t$ が存在して
+	\begin{align}
+		\sigma_{\alpha_1} \circ \cdots \circ \sigma_{\alpha_{t}} = \sigma_{\alpha_1} \circ \cdots \circ \sigma_{\alpha_{s-1}} \circ \sigma_{\alpha_{s+1}} \circ \cdots \circ \sigma_{\alpha_{t-1}}
+	\end{align}
+	が成り立つ．
+\end{mylem}
+
+\begin{proof}
+	$\circ$ を省略し，$\sigma_i \coloneqq \sigma_{\alpha_i}$ と略記する．
+	\begin{align}
+		\beta_i \coloneqq 
+		\begin{cases}
+			\sigma_{i+1} \cdots \sigma_{t-1}(\alpha_t), &0 \le i \le t-2 \\
+			\alpha_t, &i = t-1 
+		\end{cases}
+	\end{align}
+	とおく．$\beta_0 \prec 0$ かつ $\beta_{t-1} \succ 0$ なので，
+	\begin{align}
+		s \coloneqq \min \bigl\{\, i \in \mathbb{N} \bigm| \beta_i \succ 0  \,\bigr\} 
+	\end{align}
+	が存在する．このとき $\beta_s \in \Phi^+ \AND \sigma_s(\beta_s) = \beta_{s-1} \prec 0$ なので補題\ref{lem:simpleroot-B}より $\beta_s = \alpha_s$ でなくてはならない．
+	$\sigma_{s+1} \cdots \sigma_{t-1} \in \mathscr{W}$ なので，このとき補題\ref{lem:Weylgroup-basic}より
+	\begin{align}
+		\sigma_s = \sigma_{\beta_s} = (\sigma_{s+1} \cdots \sigma_{t-1}) \sigma_t (\sigma_{t-1} \cdots \sigma_{s+1})
+	\end{align}
+	だと分かる．よって
+	\begin{align}
+		\sigma_{1} \cdots \sigma_{s-1} \sigma_s \sigma_{s+1} \cdots \sigma_{t}
+		&= \sigma_{1} \cdots \sigma_{s-1} (\sigma_{s+1} \cdots \sigma_{t-1}) \sigma_t (\sigma_{t-1} \cdots \sigma_{s+1}) \sigma_{s+1} \cdots \sigma_{t} \\
+		&= \sigma_{1} \cdots \sigma_{s-1} \sigma_{s+1} \cdots \sigma_t
+	\end{align}
+\end{proof}
+
+\begin{mycol}[label=col:simpleroot-C]{}
+	$\sigma \in \mathscr{W}$ が，$\alpha_1,\, \dots,\, \alpha_{t} \in \Delta$ を用いて $\sigma = \sigma_{\alpha_1} \circ \cdots \circ \sigma_{\alpha_t}$ と表示されているとする．
+	このような $\sigma$ の表示のうち $t$ が最小のものに対しては $\sigma(\alpha_{t}) \prec 0$ である．
+\end{mycol}
+
+\begin{proof}
+	\begin{align}
+		\sigma(\alpha_{t}) = \sigma_{\alpha_1} \circ \cdots \circ \sigma_{\alpha_{t - 1}} (-\alpha_{t})
+	\end{align}
+	なので，もし $\sigma(\alpha_{t}) \succ 0$ ならば $\sigma_{\alpha_1} \circ \cdots \circ \sigma_{\alpha_{t - 1}}(\alpha_{t}) \prec 0$ となる．
+	然るにこのとき補題\ref{lem:simpleroot-C}からある $1 \le s < \len (\sigma)$ が存在して
+	\begin{align}
+		\sigma_{\alpha_1} \circ \cdots \circ \sigma_{\alpha_{t}} = \sigma_{\alpha_1} \circ \cdots \circ \sigma_{\alpha_{s-1}} \circ \sigma_{\alpha_{s+1}} \circ \cdots \circ \sigma_{\alpha_{t -1}}
+	\end{align}
+	が成り立ち，$t$ の最小性に矛盾する．よって背理法から $\sigma(\alpha_{t}) \prec 0$ である．
+\end{proof}
 
 \subsection{Weyl群の性質}
 
+準備が整ったので，\hyperref[def:Weylgroup]{Weyl群}の極めて重要な性質を示す．
+
+\begin{mytheo}[label=thm:Weylgroup-basic]{Weyl群の性質}
+	$\Phi$ の\hyperref[def:base-root]{底} $\Delta$ を任意に与える．
+	\begin{enumerate}
+		\item $\gamma \in \mathbb{E}$ が\hyperref[def:decomposable]{正則}ならば，
+		ある $\sigma \in \mathscr{W}$ が存在して，$\forall \alpha \in \Delta,\; \rpair[\big]{\sigma(\gamma)}{\alpha} > 0$ を充たす．
+		\item $\Delta'$ が $\Phi$ のもう1つの底ならば，ある $\sigma \in \mathscr{W}$ が存在して $\sigma (\Delta') = \Delta$ を充たす．
+		\item $\forall \alpha \in \Phi$ に対してある $\sigma \in \mathscr{W}$ が存在して $\sigma(\alpha) \in \Delta$ を充たす．
+		\item $\mathscr{W}$ は集合 $\bigl\{\, \sigma_\alpha \bigm| \alpha \in \Delta \,\bigr\} \subset \bigl\{\, \sigma_\alpha \bigm| \alpha \in \Phi \,\bigr\} $ によって生成される．
+		\item $\sigma \in \mathscr{W}$ が $\sigma (\Delta) = \Delta$ を充たすならば $\sigma = \mathrm{id}_{\mathbb{E}}$ である．
+	\end{enumerate}
+	
+\end{mytheo}
+
+\begin{proof}
+	集合 $\bigl\{\, \sigma_\alpha \bigm| \alpha \in \Delta \,\bigr\}$ によって生成される $\mathscr{W}$ の部分群を $\mathscr{W}'$ とする．まず (1)-(3) を $\mathscr{W}'$ において示してから $\mathscr{W}' = \mathscr{W}$ を示す．
+	\begin{enumerate}
+		\item 正則な $\gamma \in \mathbb{E}$ を任意にとる．
+		$\delta \coloneqq \frac{1}{2} \sum_{\beta \in \Phi^+} \beta$ とおき，
+		$\sigma \in \argmax_{\sigma \in \mathscr{W}'} \rpair[\big]{\sigma(\gamma)}{\delta}$
+		を1つとる\footnote{$\mathscr{W}' \subset \mathscr{W}$ は有限群なのでこのような $\sigma$ は少なくとも1つ存在する．}．
+		ここで $\forall \alpha \in \Delta$ を1つとると， 
+		$\sigma_\alpha \circ \sigma \in \mathscr{W}$ であるから系\ref{col:simpleroot-B}より
+		\begin{align}
+			\rpair[\big]{\sigma(\gamma)}{\delta} \ge \rpair[\big]{\sigma_\alpha\circ \sigma(\gamma)}{\delta} = \rpair[\big]{\sigma(\gamma)}{\sigma_\alpha(\delta)} = \rpair[\big]{\sigma(\gamma)}{\delta - \alpha} = \rpair[\big]{\sigma(\gamma)}{\delta} - \rpair[\big]{\sigma(\gamma)}{\alpha}
+		\end{align}
+		が分かる．よって $\rpair[\big]{\sigma(\gamma)}{\alpha} \ge 0$ が分かった．$\gamma$ は\hyperref[def:decomposable]{正則}なので $\rpair[\big]{\sigma(\gamma)}{\alpha} = \rpair[\big]{\gamma}{\sigma^{-1}(\alpha)} > 0$ が言えた．
+		\item 定理\ref{thm:base-exist}より，$\Delta' = \Delta(\gamma')$ を充たす正則な $\gamma' \in \mathbb{E}$ が存在する．
+		このとき (1) および補題\ref{lem:Weylchamber-basic}-(3) よりある $\sigma \in \mathscr{W}'$ が存在して $\sigma (\gamma') \in \mathfrak{C}(\Delta)$ が成り立つから，再度補題\ref{lem:Weylchamber-Weylgroup}より $\sigma \bigl( \mathfrak{C}(\Delta') \bigr) = \sigma \bigl(\mathfrak{C}(\gamma')\bigr) = \mathfrak{C} \bigl( \sigma(\gamma') \bigr) = \mathfrak{C}(\Delta)$ が分かる．
+		従って補題\ref{lem:Weylchamber-basic}-(2) より $\sigma(\Delta') = \Delta$ である．
+		\item $\forall \alpha \in \Phi$ を1つとる．(2) より，$\alpha$ が少なくとも1つの（$\Delta$ とは限らない） $\Phi$ の\hyperref[def:base-root]{底}に属することを言えば良い．
+		
+		　\hyperref[ax:root-system]{\textsf{\textbf{(Root-2)}}}より $\forall \beta \in \Phi \setminus \{\pm \alpha\}$ に対して $\beta \notin \mathbb{K}\alpha$ であるから $\mathbb{K}\alpha \cap \mathbb{K}\beta = 0$ である．
+		よって $P_\alpha \cap P_\beta = (\mathbb{K}\alpha)^\perp \cap (\mathbb{K}\beta)^\perp = (\mathbb{K}\alpha \oplus \mathbb{K}\beta)^\perp$ となる\footnote{${}^\perp$ は\hyperref[def:Euclid-space]{Euclid空間}に備わっている双線型形式 $\rpair{\;}{\,}$ に関する\hyperref[def:radical-bilinear]{直交補空間}の意味である．}が，$\mathbb{K}\alpha \subsetneq \mathbb{K} \alpha \oplus \mathbb{K} \beta$ なので $P_\alpha \cap P_\beta = (\mathbb{K}\alpha \oplus \mathbb{K}\beta)^\perp \subsetneq (\mathbb{K}\alpha)^\perp = P_\alpha$ が成り立ち， 
+		$\exists \gamma \in P_\alpha \setminus (P_\alpha \cap P_\beta)$ が言える．
+		ここで $\gamma$ にEuclid距離の意味で十分近い\hyperref[def:decomposable]{正則}な $\gamma' \in \mathbb{E}$ を取れば，ある $\varepsilon > 0$ に対して $\rpair{\gamma'}{\alpha} = \varepsilon \AND \abs{\rpair{\gamma'}{\beta}} > \varepsilon$ を充たすようにできる．
+		すると $\alpha \in \Phi^+(\gamma)$ で，かつ $\beta \in \Phi \setminus \{\pm \alpha\}$ は任意だったので $\alpha$ は\hyperref[def:decomposable]{分割不可能}であり，
+		\footnote{$\alpha$ が分割可能とする．このときある $\beta_1,\, \beta_2 \in \Phi^+(\gamma')$ が存在して $\alpha = \beta_1 + \beta_2$ と書ける．ところが今 $\rpair{\gamma'}{\beta_i} > \varepsilon$ であるから，$\varepsilon = \rpair{\gamma'}{\alpha} = \rpair{\gamma'}{\beta_1} + \rpair{\gamma'}{\beta_2} > 2\varepsilon$ と言うことになり，$\varepsilon > 0$ に矛盾．}
+		，$\alpha \in \Delta(\gamma')$ が言えた．
+		\item $\mathscr{W} = \mathscr{W}'$ を言うには，$\forall \alpha \in \Phi$ に対して $\sigma_\alpha \in \mathscr{W}'$ が成り立つことを示せば十分である．
+		ここで (3) よりある $\sigma \in \mathscr{W}'$ が存在して $\sigma(\alpha) \in \Delta$ を充たすようにできる．
+		このとき補題\ref{lem:Weylgroup-basic}-(1) より $\sigma_{\sigma(\alpha)} = \sigma \circ \sigma_\alpha \circ \sigma^{-1}$ であるので，$\sigma_{\alpha(\alpha)} \in \mathscr{W}'$ より $\sigma_\alpha = \sigma^{-1} \circ \sigma_{\sigma(\alpha)} \circ \sigma \in \mathscr{W}'$ が言えた．
+		\item 背理法により示す．$\sigma(\Delta) = \Delta$ でかつ $\sigma \neq \mathrm{id}_{\mathbb{E}}$ を仮定する．
+		このとき (4) よりある $\alpha_1,\, \dots,\, \alpha_{t} \in \Delta$ が存在して $\sigma = \sigma_{\alpha_1} \circ \cdots \circ \sigma_{\alpha_{t}}$ と表示できる．このような $\sigma$ の表示のうち，$t$ が最小のものをとる．
+		然るにこのとき仮定より $\sigma (\alpha_{t}) \succ 0$ と言うことになって系\ref{col:simpleroot-C}に矛盾．
+	\end{enumerate}
+	
+\end{proof}
+
+\begin{mydef}[label=def:Weylgroup-presentation]{Weyl群の簡約表示}
+	$\Phi$ の\hyperref[def:base-root]{底} $\Delta$ を任意に与える．
+	\begin{itemize}
+		\item $\forall \sigma \in \mathscr{W}$ に対して一意に定まる非負整数
+		\begin{align}
+			\bm{\len (\sigma)} \coloneqq \min \bigl\{\, t \in \mathbb{Z}_{\ge 0} \bigm| \exists \alpha_1,\, \dots,\, \alpha_t \in \Delta,\; \sigma = \sigma_{\alpha_1} \circ \cdots \circ \sigma_{\alpha_t} \,\bigr\} 
+		\end{align}
+		を $\Delta$ に関する $\sigma$ の\textbf{長さ} (length) と呼ぶ．ただし $\len (\mathrm{id}_{\mathbb{E}}) \coloneqq 0$ と定義する．
+		\item $\sigma \in \mathscr{W}$ の表示
+		\begin{align}
+			\sigma = \sigma_{\alpha_1} \circ \cdots \circ \sigma_{\alpha_{\len(\sigma)}} \WHERE \alpha_{i} \in \Delta
+		\end{align}
+		のことを $\Delta$ に関する $\sigma$ の\textbf{簡約表示} (reduced presentation) と呼ぶ．
+	\end{itemize}
+\end{mydef}
+
+\begin{mylem}[label=lem:reduced-basic]{簡約表示の長さ}
+	$\Phi$ の\hyperref[def:base-root]{底} $\Delta$ を任意に与える．
+	このとき $\forall \sigma \in \mathscr{W}$ に対して
+	\begin{align}
+		\len (\sigma) = \abs{\bigl\{\, \alpha \in \Phi \bigm| \alpha \succ 0 \AND \sigma(\alpha) \prec 0 \,\bigr\}}
+	\end{align}
+	が成り立つ．右辺を $\bm{n(\sigma)}$ とおく．
+\end{mylem}
+
+\begin{proof}
+	$\forall \sigma \in \mathscr{W}$ を1つ固定する．$\len (\sigma)$ に関する数学的帰納法により示す．
+	$\len (\sigma)= 0$ のときは $\sigma = \mathrm{id}$ なので良い\footnote{\hyperref[ax:root-system]{\textsf{\textbf{(Root-1)}}}より $0 \notin \Phi$ である．}．
+
+	$\len (\sigma) > \len (\tau)$ を充たす任意の $\tau \in \mathscr{W}$ に対して補題が成り立っているとする．
+	$\sigma = \sigma_{\alpha_1} \circ \cdots \circ \sigma_{\alpha_{t}}$ を $\Delta$ に関する $\sigma$ の\hyperref[def:Weylgroup-presentation]{簡約表示}とし，$\alpha \coloneqq \alpha_t \in \Delta$ とおく．
+	すると系\ref{col:simpleroot-C}より $\sigma(\alpha) \prec 0$ である．よって補題\ref{lem:simpleroot-B}から $n(\sigma \circ \sigma_\alpha) = n(\sigma) - 1$ となる．一方で $\len(\sigma \circ \sigma_\alpha) = \len(\sigma_{\alpha_1} \circ \cdots \circ \sigma_{\alpha_{t-1}}) = \len(\sigma) - 1 < \len (\sigma)$ であるから，帰納法の仮定より $\len (\sigma \circ \sigma_\alpha) = n(\sigma \circ \sigma_\alpha)$ であり，$n(\sigma) = \len (\sigma)$ が言えた．
+\end{proof}
+
+位相空間 $X$ の部分空間 $A \subset X$ の閉包\footnote{$\overline{A} \coloneqq \bigcap_{F:\, \text{closed},\;A \subset F} F$}を $\overline{A}$ と書く．
+
+\begin{mylem}[label=lem:Weylgroup-FD]{Weyl群の作用の基本領域}
+	$\Phi$ の\hyperref[def:base-root]{底} $\Delta$ を任意に与え，$\forall \lambda,\, \mu \in \overline{\mathfrak{C}(\Delta)}$ をとる．
+
+	このとき $\exists \sigma \in \mathscr{W},\; \sigma(\lambda) = \mu$ ならば，$\sigma$ は点 $\lambda$ を固定する鏡映の積で書ける．特に $\lambda = \mu$ である．
+\end{mylem}
+
+\begin{proof}
+	$\len (\sigma)$ に関する数学的帰納法により示す．$\len (\sigma) = 0$ ならば明らか．
+
+	$\len (\sigma) >0$ とする．補題\ref{lem:reduced-basic}より $\sigma$ はある\hyperref[def:base-root]{正ルート}を負ルートに移す．
+	% i.e. $\sigma (\Delta) \not\subset \Phi^+$ である．
+	よって $\sigma(\alpha) \prec 0$ を充たす $\alpha \in \Delta$ が存在する．このとき $\lambda,\, \mu \in \overline{\mathfrak{C}(\Delta)}$ であることから
+	\begin{align}
+		0 \ge \rpair[\big]{\mu}{\sigma(\alpha)} = \rpair[\big]{\sigma^{-1}(\mu)}{\alpha} = \rpair{\lambda}{\alpha} \ge 0
+	\end{align}
+	となって $\rpair{\lambda}{\alpha} = 0$ が分かった．従って $\sigma_\alpha(\lambda) = \lambda,\; \sigma \circ \sigma_\alpha(\lambda) = \mu$ が言える．i.e. $\sigma_\alpha$ は $\lambda$ を固定する鏡映である．
+	さらに補題\ref{lem:simpleroot-B}, \ref{lem:reduced-basic}から $\len (\sigma \circ \sigma_\alpha) = \len(\sigma) -1$ であり，帰納法の仮定が使えて $\sigma = (\sigma \circ \sigma_\alpha) \circ \sigma_\alpha$ は $\lambda$ を固定する鏡映の積で書ける．
+\end{proof}
+
 \subsection{既約なルート系}
 
+\begin{mydef}[label=def:irr-root]{ルート系の既約性}
+	\hyperref[ax:root-system]{ルート系} $(\mathbb{E},\, \Phi)$ が\textbf{既約} (irreducible) であるとは，$\Phi$ が以下の条件を満たすことを言う：
+	
+	\begin{description}
+		\item[\textbf{(Root-irr)}]　
+		
+		$\Phi$ の部分集合 $\Phi_1,\, \Phi_2 \subset \Phi$ が $\Phi = \Phi_1 \amalg \Phi_2 \AND \rpair{\Phi_1}{\Phi_2} = 0$ を充たす $\IMP \Phi_1 = \emptyset$ または $\Phi_2 = \emptyset$
+	\end{description}
+	
+\end{mydef}
+
+\begin{myprop}[label=prop:irr-root]{ルート系の既約性の特徴付け}
+	\hyperref[ax:root-system]{ルート系} $(\mathbb{E},\, \Phi)$ を与え，$\Phi$ の\hyperref[def:base-root]{底} $\Delta$ を1つ固定する．
+	
+	このとき，以下の2つは同値である：
+	\begin{enumerate}
+		\item $\Phi$ は\hyperref[def:irr-root]{既約}
+		\item $\Delta$ の部分集合 $\Delta_1,\, \Delta_2 \subset \Delta$ が $\Delta = \Delta_1 \amalg \Delta_2 \AND \rpair{\Delta_1}{\Delta_2} = 0$ を充たす $\IMP \Delta_1 = \emptyset \OR \Delta_2 = \emptyset$
+	\end{enumerate}
+\end{myprop}
+
+\begin{proof}
+	\begin{description}
+		\item[\textbf{(1) $\bm{\Longleftarrow}$ (2)}]　
+		
+		対偶を示す．$\Phi$ の空でない2つの部分集合 $\Phi_1,\, \Phi_2 \subset \Phi$ であって $\Phi = \Phi_1 \amalg \Phi_2 \AND \rpair{\Phi_1}{\Phi_2} = 0$ を充たすものが存在するとする．
+		このとき $\Delta_i \coloneqq \Delta \cap \Phi_i \; (i = 1,\, 2)$ とおくと $\Delta = \Delta_1 \amalg \Delta_2$ かつ $\rpair{\Delta_1}{\Delta_2} = 0$ が成り立つ．
+		あとは $\Delta_1 \neq \emptyset \AND \Delta_2 \neq \emptyset$ を背理法により示す．
+		$\Delta_1,\, \Delta_2$ のどちらかが空だと仮定する．議論は全く同様なので $\Delta_2 = \emptyset$ としよう．このとき $\Delta \subset \Phi_1$ なので仮定より $\rpair{\Delta}{\Phi_2} = 0$ だが，\hyperref[def:base-root]{\textsf{\textbf{(B-1)}}}よりこのことは $\rpair{\mathbb{E}}{\Phi_2} = 0$ を意味する．よって $\Phi_2 = \emptyset$ となり $\Phi_2 \neq \emptyset$ に矛盾．
+
+		\item[\textbf{(1) $\bm{\Longrightarrow}$ (2)}]　
+		
+		$\Phi$ が既約だとする．このとき背理法によって (2) を示す．
+		$\Delta$ の空でない2つの部分集合 $\Delta_1,\, \Delta_2 \subset \Delta$ であって $\Delta = \Delta_1 \amalg \Delta_2 \AND \rpair{\Delta_1}{\Delta_2} = 0$ を充たすものが存在するとする．
+		このとき定理\ref{thm:Weylgroup-basic}-(3) より，
+		\begin{align}
+			\Phi_i \coloneqq \bigl\{\, \alpha \in \Phi \bigm| \exists \sigma \in \mathscr{W},\; \sigma(\alpha) \in \Delta_i \,\bigr\} 
+		\end{align}
+		とおくと $\Phi = \Phi_1 \cup \Phi_2$ となる．
+		ここで $\forall \alpha_i \in \Delta_i$ に対して仮定より $\sspair{\alpha_i}{\alpha_j} = 0 \quad (i \neq j)$ であるから
+		\begin{align}
+			(\sigma_{\alpha_1} \circ \sigma_{\alpha_2} - \sigma_{\alpha_2} \circ \sigma_{\alpha_1})(\beta) 
+			= \sspair{\beta}{\alpha_2} \sspair{\alpha_2}{\alpha_1} \alpha_1
+			-\sspair{\beta}{\alpha_1} \sspair{\alpha_1}{\alpha_2} \alpha_2 = 0
+		\end{align}
+		i.e. $\sigma_{\alpha_1} \circ \sigma_{\alpha_2} = \sigma_{\alpha_2} \circ \sigma_{\alpha_1}$ である．さらに $\sigma_{\alpha_i}(\alpha_j) = \alpha_j \quad (i \neq j)$ であるから
+		$\Phi_1 \cap \Phi_2 = \emptyset$ であり，$\Phi_i = \Span_{\mathbb{Z}} \Delta_i$ である．よって背理法の仮定から $\rpair{\Phi_1}{\Phi_2} = 0$ となるが，仮定より $\Phi$ は既約なので $\Phi_1 = \emptyset$ または $\Phi_2 = \emptyset$ である．従って $\Delta_i$ のどちらかが空集合ということになって矛盾．
+	\end{description}
+\end{proof}
+
+\begin{mylem}[label=lem:irr-root-A]{}
+	\hyperref[ax:root-system]{ルート系} $(\mathbb{E},\, \Phi)$ を与え，$\Phi$ の\hyperref[def:base-root]{底} $\Delta$ を任意にとる．
+
+	このとき $\Phi$ が\hyperref[def:irr-root]{既約}ならば，\hyperref[def:base-root]{半順序 $\prec$} に関して $\Phi$ は唯一の極大元 $\beta_0 \in \Phi$ を持つ
+	\footnote{i.e. $\forall \alpha \in \Phi,\;\alpha \neq \beta_0 \IMP \hight \alpha < \hight \beta_0$．さらに，$\forall \alpha \in \Delta,\; \rpair{\beta_0}{\alpha} \ge 0$}
+	．特に $\beta_0 = \sum_{\alpha \in \Delta} k_\alpha \alpha$ と書いたときに $\forall \alpha \in \Delta,\; k_\alpha \; \textcolor{red}{>}\; 0$ である．
+\end{mylem}
+
+\begin{proof}
+	\hyperref[ax:root-system]{\textsf{\textbf{(Root-1)}}}より $(\Phi,\, \prec)$ は有限な半順序集合だから極大元 $\beta_0 = \sum_{\alpha \in \Delta} k_\alpha \alpha \in \Phi$ を少なくとも1つ持つ．$\beta_0 \prec 0$ だとすると任意の\hyperref[def:base-root]{単純ルート} $\alpha$ に対して $\beta_0 \prec \alpha$ となり $\beta_0$ の極大性に矛盾．よって $\beta_0 \succ 0$ である．
+	% この $\beta_0$ が唯一であることを示そう．
+	
+	まず $\forall \alpha \in \Delta,\; k_\alpha\; \textcolor{red}{>}\; 0$ を示そう．
+	\begin{align}
+		\Delta_1 &\coloneqq \bigl\{\, \alpha \in \Delta \bigm| k_\alpha > 0 \,\bigr\}, \\
+		\Delta_2 &\coloneqq \bigl\{\, \alpha \in \Delta \bigm| k_\alpha = 0 \,\bigr\}
+	\end{align}
+	とおくと $\Delta = \Delta_1 \amalg \Delta_2$ が成り立つ．
+	% 仮定より $\Phi$ は既約なので，命題\ref{prop:irr-root}より $\Delta_1 = \emptyset$ または $\Delta_2 = \emptyset$ である．
+	$\Delta_2 = \emptyset$ を背理法により示す．
+	$\Delta_2 \neq \emptyset$ を仮定する．
+	% このとき補題\ref{lem:base}より $\forall \alpha \in \Delta_2$ に対して $\rpair{\alpha}{\beta_0} = \sum_{\gamma \in \Delta} k_\gamma \rpair{\alpha}{\gamma} \le 0$ が成り立つ\footnote{$\beta_0 \succ 0$ なので $\forall \gamma \in \Delta,\; k_\gamma \ge 0$ である．}．
+	$\beta_0 \neq 0$ なので $\Delta_1 \neq \emptyset$ だが，仮定より $\Phi$ が既約なので命題\ref{prop:irr-root}から $\rpair{\Delta_1}{\Delta_2} \neq 0$，i.e. ある $\alpha_1 \in \Delta_1,\, \alpha_2 \in \Delta_2$ が存在して $\rpair{\alpha_1}{\alpha_2} < 0$ を満たす．従って 
+	\begin{align}
+		\rpair{\alpha_2}{\beta_0} = k_{\alpha_1} \rpair{\alpha_2}{\alpha_1} + \sum_{\gamma \in \Delta_1 \setminus \{\alpha_1\}} k_\gamma \underbrace{\rpair{\alpha_2}{\gamma}}_{\le 0\; (\because\; \text{補題\ref{lem:base}})} < 0
+	\end{align}
+	ということになる．
+	然るにこのとき補題\ref{lem:root-basic}から $\alpha_2 + \beta_0 \in \Phi$ となり $\beta_0$ の極大性に矛盾する．
+
+	次に，$\forall \alpha \in \Delta$ に対して $\rpair{\alpha}{\beta_0} \ge 0$ であることを背理法により示す．実際ある $\alpha \in \Delta$ に対して $\rpair{\alpha}{\beta_0} < 0$ だとすると補題\ref{lem:base}から $\alpha + \beta_0 \in \Phi$ となり $\beta_0$ の極大性に矛盾する．
+	次に，ある $\alpha_0 \in \Delta$ が存在して $\rpair{\alpha_0}{\beta_0} > 0$ となることを背理法により示す．実際 $\forall \alpha \in \Delta$ に対して $\rpair{\alpha}{\beta_0} = 0$ だとすると $\beta_0 \in (\Span_{\mathbb{R}} \Delta)^\perp = \mathbb{E}^\perp = \emptyset$ ということになり矛盾する．
+	% $\Delta_2 = \emptyset$ が分かったので $\forall \alpha \in \Delta,\, k_\alpha > 0$ が言えた．このとき 
+	
+	最後に $\beta_0$ の一意性を示す．別の極大元 $\beta = \sum_{\gamma \in \Delta} \beta_\gamma \gamma \in \Phi$ をとる．上の議論は $\beta'$ にも当てはまるので $\forall \gamma \in \Delta,\; \beta_\gamma > 0$ であり，
+	\begin{align}
+		\rpair{\beta}{\beta_0} = \beta_{\alpha_0} \rpair{\alpha_0}{\beta_0} + \sum_{\gamma \in \Delta \setminus \{\alpha_0\}} \beta_\gamma \rpair{\gamma}{\beta_0} > 0
+	\end{align}
+	だと分かった．従って補題\ref{lem:root-basic}から $\beta = \beta_0$ または $\beta - \beta_0 \in \Phi$ である．後者だと $\beta,\, \beta_0$ のどちらかの極大性に矛盾するので，背理法から証明が完成した．
+\end{proof}
+
+
+\begin{mylem}[label=lem:irr-root-B]{}
+	$\Phi$ が\hyperref[def:irr-root]{既約}ならば，\hyperref[def:Weylgroup]{Weyl群}の表現
+	\begin{align}
+		\pi \colon \mathscr{W} \lto \LGL(\mathbb{E}),\; \sigma \lmto \bigl( \gamma \mapsto \sigma(\gamma) \bigr) 
+	\end{align}
+	は既約である．特に，$\forall \alpha \in \Phi$ に対して
+	\begin{align}
+		\mathbb{E} = \Span_{\mathbb{R}} \bigl(\mathscr{W} \btr \{\alpha\}\bigr)
+	\end{align}
+	が成り立つ\footnote{$\btr \colon \mathscr{W} \times \mathbb{E} \lto \mathbb{E},\; (\sigma,\, \gamma) \lmto \pi(\sigma)(\gamma)$ と定義した．}．
+\end{mylem}
+
+\begin{proof}
+	$\mathbb{E}$ の $0$ でない $\mathscr{W}$-不変な部分ベクトル空間 $W \subset \mathbb{E}$ を任意にとる．
+	このとき $W$ の\hyperref[def:radical-bilinear]{直交補空間} $W^\perp$ について $\mathbb{E} = W \oplus W^\perp$ が成り立つ．
+	$\forall \gamma \in W,\, \forall \delta \in W^\perp,\, \forall \sigma \in \mathscr{W}$ に対して $\rpair[\big]{\gamma}{\sigma (\delta)} =  \rpair[\big]{\sigma^{-1}(\gamma)}{\delta} = 0$ が成り立つので $\sigma(\delta) \in W^\perp$ であり，$W^\perp$ もまた $\mathscr{W}$-不変である．
+	
+	さて，$W$ は $\mathscr{W}$-不変なので $\forall \alpha \in \Phi$ に対して $\sigma_\alpha (W) = W$ が成り立つ．
+	このときもし $\alpha \notin W$ かつ $W \not\subset P_\alpha$ だとすると $\gamma \in W \setminus P_\alpha$ が存在して $\sigma_\alpha(\gamma) = \gamma - \sspair{\gamma}{\alpha}\alpha \in W$ が成り立つが $\sspair{\gamma}{\alpha} \neq 0$ なので $\alpha \in W$ ということになり矛盾．よって $\alpha \in W$ または $W \subset P_\alpha = (\mathbb{K}\alpha)^\perp$ である．
+	i.e. $\forall \alpha \in \Phi$ は $W$ か $W^\perp$ のどちらか一方に含まれ，$\Phi = (\Phi \cap W) \amalg (\Phi \cap W^\perp)$ が成り立つ．然るに $\rpair[\big]{\Phi \cap W}{\Phi \cap W^\perp} = 0$ かつ $W$ は $0$ でないので，$\Phi$ の既約性から $\Phi \cap W^\perp = \emptyset$ だと分かる．$\mathbb{E} = \Span_{\mathbb{R}}\Phi$ なので $W^\perp = 0$ が言えた．
+
+	$\Span_{\mathbb{R}} \bigl(\mathscr{W} \btr \{\alpha\}\bigr)$ は $0$ でない $\mathscr{W}$-不変な部分ベクトル空間なので，$\pi$ が既約表現であることから $\mathbb{E} = \Span_{\mathbb{R}} \bigl(\mathscr{W} \btr \{\alpha\}\bigr)$ である．
+\end{proof}
+
+
+\begin{mylem}[label=lem:irr-root-C]{}
+	$\Phi$ が\hyperref[def:irr-root]{既約}ならば，ルートの長さがとりうる値は高々2通りである．
+	さらに，同じ長さのルートは互いに\hyperref[def:Weylgroup]{Weyl群}の作用により移り合う．
+\end{mylem}
+
+\begin{proof}
+	$\forall \alpha,\, \beta \in \Phi$ をとる．補題\ref{lem:irr-root-B}より $\mathbb{E} = \Span_{\mathbb{R}} \bigl\{\, \sigma(\alpha) \bigm| \sigma \in \mathscr{W} \,\bigr\}$ なので，ある $\sigma \in \mathscr{W}$ が存在して $\rpair[\big]{\sigma(\alpha)}{\beta} \neq 0$ を充たす
+	\footnote{$\forall \sigma \in \mathscr{W}$ に対して $\rpair{\sigma(\alpha)}{\beta} = 0$ だとすると $\beta \in (\Span_{\mathbb{R}} \bigl\{\, \sigma(\alpha) \bigm| \sigma \in \mathscr{W} \,\bigr\})^\perp = 0$ となり矛盾}．$\alpha$ と $\sigma(\alpha)$ を取り替えることで
+	$\rpair{\alpha}{\beta} \neq 0$ として良い．
+	このとき表\ref{tab:rootsystem}より $\norm*{\beta}^2 / \norm*{\alpha}^2 = 1,\, 2,\, 3,\, 1/2,\, 1/3$ しかあり得ない．
+
+	さて，長さの異なるルート $\alpha,\, \beta,\, \gamma \in \Phi$ が存在したとする．冒頭の議論からこのとき $\rpair{\alpha}{\beta} \neq 0,\; \rpair{\gamma}{\beta} \neq 0$ を仮定してよく，$\norm*{\beta}^2 / \norm*{\alpha}^2,\, \norm*{\gamma}^2 / \norm*{\beta}^2 = 2,\, 3,\, 1/2,\, 1/3$ かつ $\norm*{\beta}^2 / \norm*{\alpha}^2 \neq \norm*{\gamma}^2 / \norm*{\beta}^2$ である．然るにこのときどの組み合わせであっても $\norm*{\gamma}^2 / \norm*{\alpha}^2 = (\norm*{\beta}^2 / \norm*{\alpha}^2) (\norm*{\gamma}^2 / \norm*{\beta}^2) \neq 2,\, 3,\, 1/2,\, 1/3$ となり矛盾．故に前半が示された．
+
+	後半を示す．$\norm*{\alpha}	= \norm*{\beta}$ とする．冒頭の議論から $\rpair{\alpha}{\beta} \neq 0$ を仮定して良い．
+	このとき表\ref{tab:rootsystem}から $\sspair{\alpha}{\beta} = \sspair{\beta}{\alpha} = \pm 1$ となる．必要ならば $\beta$ を $-\beta = \sigma_\beta(\beta)$ に置き換えることで $\sspair{\alpha}{\beta} = 1$ にできる．すると
+	\begin{align}
+		\sigma_\alpha \circ \sigma_\beta \circ \sigma_\alpha (\beta)
+		= \sigma_\alpha \circ \sigma_\beta (\beta - \alpha) = \sigma_\alpha(- \beta - \alpha + \beta) = \alpha
+	\end{align}
+	であることが分かった．
+\end{proof}
+
+
+\begin{mylem}[label=lem:irr-root-D]{}
+	$\Phi$ が\hyperref[def:irr-root]{既約}ならば，補題\ref{lem:irr-root-A}で得た極大ルート $\beta_0 \in \Phi$ の長さの値は，あり得る2通りのうち大きい方である．
+\end{mylem}
+
+\begin{proof}
+	$\Phi$ の\hyperref[def:base-root]{底} $\Delta$ および $\forall \alpha \in \Phi$ をとる．
+	$\rpair{\beta_0}{\beta_0} \ge \rpair{\alpha}{\alpha}$ を示せば十分である．
+
+	さて，定理\ref{thm:Weylgroup-basic}-(3) より，$\mathscr{W}$ の作用によって移すことで $\alpha \in \overline{\mathfrak{C}(\Delta)}$ を仮定して良い．補題\ref{lem:irr-root-A}より $\beta_0 -\alpha \succ 0$ なので，$\forall \gamma \in \overline{\mathfrak{C}(\Delta)}$ に対して $\rpair{\gamma}{\beta_0 - \alpha} \ge 0$ である．$\gamma = \beta_0,\, \alpha$ の場合を考えることで $\rpair{\beta_0}{\beta_0} \ge \rpair{\beta_0}{\alpha} \ge \rpair{\alpha}{\alpha}$ が言えた．
+\end{proof}
+
 \section{ルート系の分類}
+
+この節では $(\mathbb{E},\, \Phi)$ を任意の\hyperref[def:rank-root]{ランク $l$} の\hyperref[ax:root-system]{ルート系}とし，その\hyperref[def:Weylgroup]{Weyl群}を $\mathscr{W}$ と略記する． 
+さらに $\Phi$ の\hyperref[def:base-root]{底} $\Delta$ を1つ固定する．
+
+\subsection{Cartan行列}
+
+$\Delta = \{\alpha_1,\, \dots,\, \alpha_l\}$ と書こう．
+
+\begin{mydef}[label=def:Cartan-matrix]{Cartan行列}
+	\hyperref[ax:root-system]{ルート系} $\Phi$ の\textbf{Cartan行列} (Cartan matrix) とは，
+	\begin{align}
+		\mqty[\sspair{\alpha_1}{\alpha_1} &\cdots &\sspair{\alpha_1}{\alpha_l} \\ \vdots &\ddots &\vdots \\ \sspair{\alpha_l}{\alpha_1} &\cdots & \sspair{\alpha_l}{\alpha_l}] \in \LGL(l,\, \mathbb{Z})
+	\end{align}
+	のこと\footnote{$\Delta$ は $\mathbb{E}$ の基底なのでCartan行列は $\LGL(l,\, \mathbb{Z})$ の元である．}．$\sspair{\alpha_\mu}{\alpha_\nu} \in \mathbb{Z}$ のことを\textbf{Cartan整数} (Cartan integer) と呼ぶ．
+\end{mydef}
+
+定理\ref{thm:Weylgroup-basic}-(2) および補題\ref{lem:root-basic}-(2) より，Cartan行列は\underline{底 $\Delta$ の取り方によらずに定まる}\footnote{\hyperref[def:base-root]{単純ルート}のラベル付けの任意性を除く．}！
+
+\begin{myprop}[label=prop:Cartan-matrix-basic]{Cartan行列によるルート系の特徴付け}
+	\begin{itemize}
+		\item \hyperref[def:rank-root]{ランク $l$} の\hyperref[ax:root-system]{ルート系} $(\mathbb{E},\, \Phi),\, (\mathbb{E}',\, \Phi')$ 
+		\item $\Phi$ の\hyperref[def:base-root]{底} $\Delta = \{\alpha_1,\, \dots,\, \alpha_l\}$
+		\item $\Phi'$ の\hyperref[def:base-root]{底} $\Delta' = \{\alpha'_1,\, \dots,\, \alpha'_l\}$
+	\end{itemize}
+	を与える．
+	このとき以下の2つは同値である：
+	\begin{enumerate}
+		\item $1 \le \forall \mu,\, \nu \le l$ に対して $\sspair{\alpha_\mu}{\alpha_\nu} = \sspair{\alpha'_\mu}{\alpha'_\nu}$
+		\item \hyperref[def:isom-root]{ルート系の同型写像}
+			\begin{align}
+				\phi \colon (\mathbb{E},\, \Phi) \lto (\mathbb{E}',\, \Phi')
+			\end{align}
+			が存在する．
+	\end{enumerate}
+\end{myprop}
+
+\begin{proof}
+	\begin{description}
+		\item[\textbf{(1) $\bm{\Longrightarrow}$ (2)}]　
+		
+		写像
+		\begin{align}
+			\phi \colon \mathbb{E} \lto \mathbb{E}',\; \alpha_\mu \lmto \alpha_\mu'
+		\end{align}
+		が\hyperref[def:isom-root]{ルート系の同型写像}となることを示す．
+		まず $\Delta,\, \Delta'$ はそれぞれ $\mathbb{E},\, \mathbb{E}'$ の基底なので，写像 $\phi \colon \mathbb{E} \lto \mathbb{E}'$ はベクトル空間の同型写像である．
+
+		次に，仮定より
+		\begin{align}
+			\phi \circ \sigma_{\alpha_\mu} \circ \phi^{-1}(\alpha'_\nu)
+			&=  \phi \circ \sigma_{\alpha_\mu}(\alpha_\nu) \\
+			&= \phi (\alpha_\nu - \sspair{\alpha_\nu}{\alpha_\mu} \alpha_\mu) \\
+			&= \alpha'_\nu - \sspair{\alpha'_\nu}{\alpha'_\mu} \alpha'_\mu \\
+			&= \sigma_{\alpha'_\mu}(\alpha'_\nu)
+		\end{align}
+		が成り立つので $\phi \circ \sigma_{\alpha_\mu} \circ \phi^{-1} = \sigma_{\alpha'_\mu}$ が言える．$\Weyl{\mathbb{E}}{\Phi},\, \Weyl{\mathbb{E}'}{\Phi'}$ はそれぞれ $\bigl\{\, \sigma_{\alpha_\mu} \in \LGL(\mathbb{E}) \bigm| \alpha_\mu \in \Delta \,\bigr\},\; \bigl\{\, \sigma_{\alpha'_\mu} \in \LGL(\mathbb{E}) \bigm| \alpha'_\mu \in \Delta' \,\bigr\} $ により生成されるので
+		\begin{align}
+			\phi \circ \Weyl{\mathbb{E}}{\Phi} \circ \phi^{-1} = \Weyl{\mathbb{E}'}{\Phi'}
+		\end{align}
+		だと分かった．よって定理\ref{thm:Weylgroup-basic}-(3) より
+		\begin{align}
+			\phi(\Phi) = \phi \bigl( \Weyl{\mathbb{E}}{\Phi} \btr \Delta  \bigr) = \phi \circ \Weyl{\mathbb{E}}{\Phi} \circ \phi^{-1} \circ \phi(\Delta) = \Weyl{\mathbb{E}'}{\Phi'} \btr \Delta' = \Phi'
+		\end{align}
+		が言えた．
+
+		\item[\textbf{(1) $\bm{\Longleftarrow}$ (2)}]　
+		
+		\hyperref[def:isom-root]{ルート系の同型写像}
+		\begin{align}
+			\phi \colon (\mathbb{E},\, \Phi) \lto (\mathbb{E}',\, \Phi')
+		\end{align}
+		が存在するとする．このとき $\phi(\Delta)$ もまた $\Phi'$ の底になるので，補題\ref{lem:Weylchamber-Weylgroup}-(1) よりある $\sigma' \in \Weyl{\mathbb{E}'}{\Phi'}$ が存在して $\sigma' \bigl( \phi(\Delta)\bigr) = \Delta'$ を充たす．
+		よって $\phi$ を $\sigma' \circ \phi$ に置き換えることで $\phi(\Delta) = \Delta'$ であるとして良い．さらに $\Delta,\, \Delta'$ の添字を付け替えることで $\phi (\alpha_\mu) = \alpha'_\mu$ が成り立つとして良い．
+		すると $\phi$ が\hyperref[def:isom-root]{ルート系の同型写像}であることから
+		\begin{align}
+			\sspair{\alpha'_\mu}{\alpha'_\nu} = \sspair{\phi(\alpha_\mu)}{\phi(\alpha_\nu)} = \sspair{\alpha_\mu}{\alpha_\nu}
+		\end{align}
+		が言える．
+	\end{description}
+\end{proof}
+
+つまり，\underline{任意の\hyperref[ax:root-system]{ルート系}はその\hyperref[def:Cartan-matrix]{Cartan行列}が与えれれれば完全に\footnote{\hyperref[def:isom-root]{ルート系の同型}の不定性を除いて}復元できる}！
+従って，ルート系を分類するにはCartain行列としてあり得るものを全て列挙できれば十分である．
+
+\subsection{CoxeterグラフとDynkin図形}
+
+まず，\hyperref[def:Cartan-matrix]{Cartan行列} $\bigl[ \sspair{\alpha_\mu}{\alpha_\nu} \bigr]_{1 \le \mu,\, \nu \le l}$ について
+\begin{description}
+	\item[\textbf{(CM-1)}] \label{Cartan-matrix-classification}
+	$1 \le \forall \mu \le l$ に対して
+	\begin{align}
+		\sspair{\alpha_\mu}{\alpha_\mu} = 2\frac{\rpair{\alpha_\mu}{\alpha_\mu}}{\rpair{\alpha_\mu}{\alpha_\mu}} = 2
+	\end{align}
+	なので，対角成分は常に $2$ である．
+	\item[\textbf{(CM-2)}] 補題\ref{lem:base}より $\forall 1 \le \mu \neq \nu \le l$ について
+	\begin{align}
+		\sspair{\alpha_\mu}{\alpha_\nu} \le 0
+	\end{align}
+	なので，非対角成分は常に非正である．
+	\item[\textbf{(CM-3)}] 表\ref{tab:rootsystem}より $\forall 1 \le \mu \neq \nu \le l$ について
+	\begin{align}
+		\sspair{\alpha_\mu}{\alpha_\nu}\sspair{\alpha_\nu}{\alpha_\mu} = 0,\, 1,\, 2,\, 3
+	\end{align}
+	のいずれかである．とくに $\sspair{\alpha_\mu}{\alpha_\nu} = -1$ であるか $\sspair{\alpha_\nu}{\alpha_\mu} = -1$ であるかのどちらかである．
+\end{description}
+が即座にわかる．\textsf{\textbf{(CM-1)}}より，Cartan行列を知りたければその非対角成分を完全に決定できれば十分である．
+
+\begin{mydef}[label=def:Coxeter-Dynkin,breakable]{CoxeterグラフとDynkin図形}
+	\hyperref[def:rank-root]{ランク $l$} の\hyperref[ax:root-system]{ルート系} $\Phi$ の\hyperref[def:Cartan-matrix]{Cartan行列} $\bigl[\, \sspair{\alpha_\mu}{\alpha_\nu} \,\bigr]_{1 \le \mu,\, \nu \le l}$ を与える．
+	$\Phi$ の\textbf{Dynkin図形} (Dynkin diagram) $\Gamma = \bigl( \mathcal{V}(\Gamma),\, \mathcal{E}(\Gamma) \bigr)$ とは，以下のデータからなる：
+	\begin{itemize}
+		\item 頂点集合 $\mathcal{V}(\Gamma)$ は添字付きの $l$ 個の点 $\bullet_\mu\quad (1 \le \mu \le l)$ からなる．
+		\item 辺集合 $\mathcal{E}(\Gamma)$ は以下を充たす：
+		\begin{description}
+			\item[\textbf{(Dynkin-0')}]  $\{\bullet_\mu,\, \bullet_\mu\} \notin \mathcal{E}(\Gamma)$
+			\item[\textbf{(Dynkin-0)}]  $\mu \neq \nu$ に対して，
+			\begin{align}
+				\sspair{\alpha_\mu}{\alpha_\nu}\sspair{\alpha_\nu}{\alpha_\mu} = 0 \IMP \{\bullet_\mu,\, \bullet_\nu\} \notin \mathcal{E}(\Gamma)
+			\end{align}
+			\item[\textbf{(Dynkin-1)}]  $\mu \neq \nu$ に対して，
+			\begin{align}
+				\sspair{\alpha_\mu}{\alpha_\nu}\sspair{\alpha_\nu}{\alpha_\mu} = 1 \IMP 
+				\dynkin[%
+					labels={\mu,\nu},
+					edge length=1.25cm
+				]A{2} 
+				\in \mathcal{E}(\Gamma)
+			\end{align}
+			\item[\textbf{(Dynkin-2)}]  $\mu \neq \nu$ に対して，
+			\begin{align}
+				\sspair{\alpha_\mu}{\alpha_\nu}\sspair{\alpha_\nu}{\alpha_\mu} = 2 \AND \norm*{\alpha_\nu} < \norm*{\alpha_\mu} \IMP 
+				\dynkin[%
+					labels={\mu,\nu},
+					edge length=1.25cm
+				]B{2} 
+				\in \mathcal{E}(\Gamma)
+			\end{align}
+			\item[\textbf{(Dynkin-3)}]  $\mu \neq \nu$ に対して，
+			\begin{align}
+				\sspair{\alpha_\mu}{\alpha_\nu}\sspair{\alpha_\nu}{\alpha_\mu} = 3 \AND \norm*{\alpha_\nu} < \norm*{\alpha_\mu} \IMP 
+				\dynkin[%
+					labels={\mu,\nu},
+					edge length=1.25cm
+				]G2 
+				\in \mathcal{E}(\Gamma)
+			\end{align}
+		\end{description}
+	\end{itemize}
+	\tcblower 
+	Dynkin図形から矢印（i.e. \hyperref[lem:irr-root-D]{単純ルートの長さ}に関する情報）を取り除いたものを\textbf{Coxeterグラフ} (Coxeter graph) と呼ぶ．
+\end{mydef}
+
+与えられたDynkin図形からCartain行列を一意に復元できる．例えば
+\begin{align}
+	\dynkin[%
+					labels={1,...,4},
+					edge length=1.25cm
+				]F4
+\end{align}
+（これは $F_4$ と呼ばれるルート系を表す）に対応するCartan行列は
+\begin{align}
+	\mqty[ 
+		2 & -1 & 0 & 0 \\
+		-1 & 2 & -2 & 0 \\
+		0 & -1 & 2 & -1 \\
+		0 & 0 & -1 & 2
+	]
+\end{align}
+である．
+
+\subsection{ルート系の既約成分}
+
+命題\ref{prop:irr-root}より，$\Phi$ が\hyperref[def:irr-root]{既約}であることと 
+$\Delta$ が互いに直交する2つの真部分集合のdisjoint unionに分解しないことは同値である．このことから，
+\begin{align}
+	\Phi\;\text{が\hyperref[def:irr-root]{既約}} \IFF \textbf{対応する\hyperref[def:Coxeter-Dynkin]{Dynkin図形}が連結}
+\end{align}
+である．
+
+\begin{myprop}[label=prop:root-irrdecomp]{}
+	任意のルート系 $(\mathbb{E},\, \Phi)$ は\hyperref[def:irr-root]{既約なルート系} $\Phi_1,\, \dots,\, \Phi_t$ のdisjoint unionに分解し，
+	$\mathbb{E}_i \coloneqq \Span_{\mathbb{R}} \Phi_i$ とおくと直交直和の意味で
+	\begin{align}
+		\mathbb{E} = \mathbb{E}_1 \oplus \cdots \oplus \mathbb{E}_t
+	\end{align}
+	が成り立つ．
+\end{myprop}
+
+\begin{proof}
+	
+\end{proof}
+
+従って，\hyperref[def:irr-root]{既約なルート系} $\IFF$ 連結な\hyperref[def:Coxeter-Dynkin]{Dynkin図形}を分類すれば十分である．
+
+\subsection{ルート系の分類定理}
+
+\begin{mytheo}[label=thm:root-classification,breakable]{既約なルート系の分類定理}
+	\hyperref[def:rank-root]{ランク $l$} の\hyperref[def:irr-root]{既約}な\hyperref[ax:root-system]{ルート系} $\Phi$ を与える．このとき $\Phi$ の\hyperref[def:Coxeter-Dynkin]{Dynkin図形}は以下のいずれかである：
+	\begin{description}
+		\item[$\bm{A_l}\quad (l \ge 1)$ \textbf{型:}] 
+		\begin{align}
+			\dynkin[%
+					labels={1,2,l-1,l},
+					edge length=1.25cm
+				] A{}
+		\end{align}
+		
+		\item[$\bm{B_l}\quad (l \ge 2)$ \textbf{型:}] 
+		\begin{align}
+			\dynkin[%
+					labels={1,2,l-2,l-1,l},
+					edge length=1.25cm
+				] B{}
+		\end{align}
+
+		\item[$\bm{C_l}\quad (l \ge 3)$ \textbf{型:}] 
+		\begin{align}
+			\dynkin[%
+					labels={1,2,l-2,l-1,l},
+					edge length=1.25cm
+				] C{}
+		\end{align}
+
+		\item[$\bm{D_l}\quad (l \ge 4)$ \textbf{型:}] 
+		\begin{align}
+			\dynkin[%
+					labels={1,2,l-3,l-2,l-1,l},
+					edge length=1.25cm
+				] D{}
+		\end{align}
+
+		\item[$\bm{E_6}$ \textbf{型:}] 
+		\begin{align}
+			\dynkin[%
+					labels={1,...,6},
+					edge length=1.25cm
+				] E6
+		\end{align}
+
+		\item[$\bm{E_7}$ \textbf{型:}] 
+		\begin{align}
+			\dynkin[%
+					labels={1,...,7},
+					edge length=1.25cm
+				] E7
+		\end{align}
+
+		\item[$\bm{E_8}$ \textbf{型:}] 
+		\begin{align}
+			\dynkin[%
+					labels={1,...,8},
+					edge length=1.25cm
+				] E8
+		\end{align}
+		\item[$\bm{F_4}$ \textbf{型:}] 
+		\begin{align}
+			\dynkin[%
+					labels={1,...,4},
+					edge length=1.25cm
+				] F4
+		\end{align}
+		\item[$\bm{G_2}$ \textbf{型:}] 
+		\begin{align}
+			\dynkin[%
+					labels={1,...,2},
+					edge length=1.25cm
+				] G2
+		\end{align}
+	\end{description}
+\end{mytheo}
+
+\begin{proof}
+	
+\end{proof}
+
+
 
 \end{document}

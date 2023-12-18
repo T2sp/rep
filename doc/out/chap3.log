@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.29)  17 DEC 2023 00:42
+This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.29)  18 DEC 2023 13:10
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/takamatoshinori/Desktop/Seminors/rep/doc/chap3.tex
@@ -1034,7 +1034,72 @@ File: pgflibrarygraphdrawing.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@gd@edge@box=\box100
 \pgf@gd@prekind@box=\box101
 \pgf@gd@postkind@box=\box102
-)) (/usr/local/texlive/2023/texmf-dist/tex/latex/tikz-feynman/tikzfeynman.keys.code.tex))) (/usr/local/texlive/2023/texmf-dist/tex/latex/pgfplots/pgfplots.sty (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+)) (/usr/local/texlive/2023/texmf-dist/tex/latex/tikz-feynman/tikzfeynman.keys.code.tex))) (/usr/local/texlive/2023/texmf-dist/tex/latex/dynkin-diagrams/dynkin-diagrams.sty
+Package: dynkin-diagrams 2021/04/04 Dynkin diagrams
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/xstring/xstring.sty (/usr/local/texlive/2023/texmf-dist/tex/generic/xstring/xstring.tex
+\integerpart=\count367
+\decimalpart=\count368
+)
+Package: xstring 2023/01/14 v1.85 String manipulations (CT)
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfit.code.tex
+File: tikzlibraryfit.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshadows.code.tex
+File: tikzlibraryshadows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfadings.code.tex
+File: tikzlibraryfadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryfadings.code.tex
+File: pgflibraryfadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)))
+\pgf@layerbox@Dynkin behind=\box103
+\pgf@layerboxsaved@Dynkin behind=\box104
+\dynkinOverrideRoot=\count369
+\dynkin@rpo=\count370
+\c@dynkinRootNo=\count371
+\dynkin@onesbit=\count372
+\dynkin@twosbit=\count373
+\dynkin@rank=\count374
+\dynkin@rank@minus@one=\count375
+\dynkin@rank@minus@two=\count376
+\dynkin@rank@minus@three=\count377
+\dynkin@nodes=\count378
+\dynkin@ply=\count379
+\dynkin@drpo=\count380
+\dynkin@where=\count381
+\dynkin@first@root@no=\count382
+\dynkin@second@root@no=\count383
+\dynkin@Root@Numbr=\count384
+\dynkin@string@length=\count385
+\dynkin@Root@Numbrpo=\count386
+\defaultpgflinewidth=\skip76
+\dynkin@lenny=\count387
+\dynkin@Root@Number=\count388
+\@dynkin@from@root=\count389
+\@dynkin@to@root=\count390
+\dynkin@r=\count391
+\dynkin@root@no=\count392
+\dynkin@order@temp=\count393
+\dynkin@order@temp@b=\count394
+\tempDynkinReorder=\count395
+\test@bit@a=\count396
+\test@bit@b=\count397
+\replaceNthCounter=\count398
+\replacementN=\count399
+\dynkin@where=\count400
+\dynkin@nodes@minus@one=\count401
+\pipebmo=\count402
+\pipefpo=\count403
+\pipe@end=\count404
+\start@pipe=\count405
+\dynkin@h=\count406
+\dynkin@hpo=\count407
+\dynkin@afterfold=\count408
+\dynkin@nrts=\count409
+\dynkin@countdown=\count410
+\dynkin@bmo=\count411
+\dynkin@bmo=\count412
+\dynkin@height@minus@one=\count413
+\dynkin@nodes@minus@one=\count414
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/pgfplots/pgfplots.sty (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
 Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
  (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
 Package pgfplots info on input line 124: Initializing with LUA version Lua 5.3
@@ -1044,9 +1109,10 @@ pgfplots.lua: loading complementary lua code for your pgf version...
 \t@pgfplots@tokb=\toks55
 \t@pgfplots@tokc=\toks56
 \pgfplots@tmpa=\dimen340
-\c@pgfplots@coordindex=\count367
-\c@pgfplots@scanlineindex=\count368
- (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex
+\c@pgfplots@coordindex=\count415
+\c@pgfplots@scanlineindex=\count416
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex
 Package pgfplots: loading complementary utilities for your pgf version...
 \t@pgf@toka=\toks57
 \t@pgf@tokb=\toks58
@@ -1056,14 +1122,14 @@ Package pgfplots info on input line 290: luamath library shipped with pgf 3.1.10
 ) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex
 Package pgfplots info on input line 82: Found new luatex: initializing lua commands instead of write18 (shell-escape)
  (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
-\c@pgfplotsarray@tmp=\count369
+\c@pgfplotsarray@tmp=\count417
 ) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
-\c@pgfplotstable@counta=\count370
+\c@pgfplotstable@counta=\count418
 \t@pgfplotstable@a=\toks60
 ) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
-\c@pgfplotslibrarysurf@no=\count371
+\c@pgfplotslibrarysurf@no=\count419
  (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-luatex.def))) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex)
-\pgfplots@numplots=\count372
+\pgfplots@numplots=\count420
 \pgfplots@xmin@reg=\dimen341
 \pgfplots@xmax@reg=\dimen342
 \pgfplots@ymin@reg=\dimen343
@@ -1076,9 +1142,9 @@ File: tikzlibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.patchplots.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2021/07/05 v2.14 Sectioning titles
-\ttl@box=\box103
-\beforetitleunit=\skip76
-\aftertitleunit=\skip77
+\ttl@box=\box105
+\beforetitleunit=\skip77
+\aftertitleunit=\skip78
 \ttl@plus=\dimen347
 \ttl@minus=\dimen348
 \ttl@toksa=\toks61
@@ -1092,9 +1158,9 @@ Package picture Info: Calculation method: calc.
 Package: fancybox 2010/05/15 1.4
 
 Style option: `fancybox' v1.4 <2010/05/15> (tvz)
-\@fancybox=\box104
+\@fancybox=\box106
 \shadowsize=\dimen352
-\@Sbox=\box105
+\@Sbox=\box107
 \do@VerbBox=\toks62
 \the@fancyput=\toks63
 \this@fancyput=\toks64
@@ -1104,9 +1170,9 @@ Style option: `fancybox' v1.4 <2010/05/15> (tvz)
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/boites/boites.sty
 File: boites.sty 
 Package: boites 2013/11/21 v1.1 Colored, framed and breakable across pages boxes
-\bk@bxb=\box106
-\bk@bxa=\box107
-\bk@lcnt=\count373
+\bk@bxb=\box108
+\bk@bxa=\box109
+\bk@lcnt=\count421
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 Package: tcolorbox 2023/02/12 version 6.0.1 text color boxes
  (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/verbatim.sty
@@ -1119,17 +1185,17 @@ Package: environ 2014/05/04 v0.3 A new way to define environments
  (/usr/local/texlive/2023/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
-\tcb@titlebox=\box108
-\tcb@upperbox=\box109
-\tcb@lowerbox=\box110
-\tcb@phantombox=\box111
-\c@tcbbreakpart=\count374
-\c@tcblayer=\count375
-\c@tcolorbox@number=\count376
-\tcb@temp=\box112
-\tcb@temp=\box113
+\tcb@titlebox=\box110
+\tcb@upperbox=\box111
+\tcb@lowerbox=\box112
+\tcb@phantombox=\box113
+\c@tcbbreakpart=\count422
+\c@tcblayer=\count423
+\c@tcolorbox@number=\count424
 \tcb@temp=\box114
 \tcb@temp=\box115
+\tcb@temp=\box116
+\tcb@temp=\box117
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
 Library (tcolorbox): 'tcbskins.code.tex' version '6.0.1'
 (/usr/local/texlive/2023/texmf-dist/tex/latex/tikzfill/tikzfill.image.sty
@@ -1138,7 +1204,7 @@ Package: tikzfill.image 2022/07/20 v1.0.0 Image filling library for TikZ
 Package: tikzfill-common 2022/07/20 v1.0.0 Auxiliary code for tikzfill
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/tikzfill/tikzlibraryfill.image.code.tex
 File: tikzlibraryfill.image.code.tex 2022/07/20 v1.0.0 Image filling library
-\l__tikzfill_img_box=\box116
+\l__tikzfill_img_box=\box118
 )) (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.0.1'
 )) (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbtheorems.code.tex
@@ -1149,9 +1215,9 @@ Library (tcolorbox): 'tcbbreakable.code.tex' version '6.0.1'
 Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
 )
 Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
-\tcb@testbox=\box117
-\tcb@totalupperbox=\box118
-\tcb@totallowerbox=\box119
+\tcb@testbox=\box119
+\tcb@totalupperbox=\box120
+\tcb@totallowerbox=\box121
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/cite/cite.sty
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
@@ -1165,39 +1231,39 @@ Package: tascmac 2020/01/15 v2.1 ascmac package (community edition)
 Package tascmac Info: Patch from LuaTeX-ja will be applied on input line 44.
 \@savetbaselineshift=\dimen353
 \@saveybaselineshift=\dimen354
-\scb@x=\box120
-\scscb@x=\box121
+\scb@x=\box122
+\scscb@x=\box123
 \@bw=\dimen355
-\@nbox=\box122
-\@nbody=\box123
+\@nbox=\box124
+\@nbody=\box125
 \@scw=\dimen356
-\ascmac@hoboxa=\box124
-\ascmac@hoboxb=\box125
+\ascmac@hoboxa=\box126
+\ascmac@hoboxb=\box127
 \@itemh=\dimen357
 \@iboxpos=\toks68
-\@iboxstr=\box126
-\@bwsp=\box127
-\@@bwsp=\box128
-\@bcal=\count377
+\@iboxstr=\box128
+\@bwsp=\box129
+\@@bwsp=\box130
+\@bcal=\count425
 \shaderule=\dimen358
 )) (/usr/local/texlive/2023/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count378
-\lst@gtempboxa=\box129
+\lst@mode=\count426
+\lst@gtempboxa=\box131
 \lst@token=\toks69
-\lst@length=\count379
+\lst@length=\count427
 \lst@currlwidth=\dimen359
-\lst@column=\count380
-\lst@pos=\count381
+\lst@column=\count428
+\lst@pos=\count429
 \lst@lostspace=\dimen360
 \lst@width=\dimen361
-\lst@newlines=\count382
-\lst@lineno=\count383
+\lst@newlines=\count430
+\lst@lineno=\count431
 \lst@maxwidth=\dimen362
  (/usr/local/texlive/2023/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
-\c@lstnumber=\count384
-\lst@skipnumbers=\count385
-\lst@framebox=\box130
+\c@lstnumber=\count432
+\lst@skipnumbers=\count433
+\lst@framebox=\box132
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2023/02/27 1.9 listings configuration
 ))
@@ -1205,7 +1271,7 @@ Package: listings 2023/02/27 1.9 (Carsten Heinz)
  (/usr/local/texlive/2023/texmf-dist/tex/luatex/luatexja/patches/lltjp-listings.sty (/usr/local/texlive/2023/texmf-dist/tex/luatex/luatexbase/luatexbase-cctb.sty
 Package: luatexbase-cctb 2015/10/04 v1.3 luatexbase interface to LuaTeX (legacy subpackage) 
 )
-\ltj@lst@japanese@min=\count386
+\ltj@lst@japanese@min=\count434
 \CatcodeTableLTJlistings=\catcodetable16
 \ltj@lst@frame@lslimit=\dimen363
  (/usr/local/texlive/2023/texmf-dist/tex/latex/listings/lstmisc.sty
@@ -1213,22 +1279,22 @@ File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 \lst@WFtoken=\toks70
 \lst@WF=\write6
 )) (/Users/takamatoshinori/Library/texmf/tex/latex/mylogics/mylogics.sty) (/Users/takamatoshinori/Library/texmf/tex/latex/myalgebra/myalgebra.sty) (/Users/takamatoshinori/Library/texmf/tex/latex/mygeometry/mygeometry.sty) (/Users/takamatoshinori/Library/texmf/tex/latex/myQM/myQM.sty)
-\c@theorem=\count387
-\c@definition=\count388
-\c@tcb@cnt@myaxiom=\count389
-\c@tcb@cnt@mytheo=\count390
-\c@tcb@cnt@myprop=\count391
-\c@tcb@cnt@mylem=\count392
-\c@tcb@cnt@mydef=\count393
-\c@tcb@cnt@myproblem=\count394
-\c@tcb@cnt@myexample=\count395
+\c@theorem=\count435
+\c@definition=\count436
+\c@tcb@cnt@myaxiom=\count437
+\c@tcb@cnt@mytheo=\count438
+\c@tcb@cnt@myprop=\count439
+\c@tcb@cnt@mylem=\count440
+\c@tcb@cnt@mydef=\count441
+\c@tcb@cnt@myproblem=\count442
+\c@tcb@cnt@myexample=\count443
  (/usr/local/texlive/2023/texmf-dist/tex/latex/blkarray/blkarray.sty
 Package: blkarray 2015/02/27 v0.07 Block array (dpc)
-\c@BAenumi=\count396
-\BA@col=\count397
-\BA@block@cnt=\count398
-\BA@final@box=\box131
-\BA@first@box=\box132
+\c@BAenumi=\count444
+\BA@col=\count445
+\BA@block@cnt=\count446
+\BA@final@box=\box133
+\BA@first@box=\box134
 \BA@colsep=\dimen364
 \BA@ftn=\toks71
 \BAextrarowheight=\dimen365
@@ -1236,8 +1302,8 @@ Package: blkarray 2015/02/27 v0.07 Block array (dpc)
 \BAarrayrulewidth=\dimen367
 \BAdoublerulesep=\dimen368
 \BAfootskip=\dimen369
-\BA@dashbox=\box133
-\BA@ddashbox=\box134
+\BA@dashbox=\box135
+\BA@ddashbox=\box136
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/subfiles/subfiles.sty
 Package: subfiles 2020/11/14 v2.2 Multi-file projects (package)
 ))) (/usr/local/texlive/2023/texmf-dist/tex/luatex/luatexja/patches/lltjp-tascmac.sty
@@ -1247,50 +1313,50 @@ warning  (map file): entry for 'ascgrp' already exists, duplicates ignored
 ) (/usr/local/texlive/2023/texmf-dist/tex/luatex/luatexja/patches/lltjp-array.sty
 Package: lltjp-array 2019-07-18 Patch to array for LuaTeX-ja
 )
-Package translations Info: No language package found. I am going to use `english' as default language. on input line 6.
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 3.
  (./out/chap3.aux)
 \openout1 = chap3.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 6.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 6.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 3.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 3.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
  (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count399
+\scratchcounter=\count447
 \scratchdimen=\dimen370
-\scratchbox=\box135
-\nofMPsegments=\count400
-\nofMParguments=\count401
+\scratchbox=\box137
+\nofMPsegments=\count448
+\nofMParguments=\count449
 \everyMPshowfont=\toks72
-\MPscratchCnt=\count402
+\MPscratchCnt=\count450
 \MPscratchDim=\dimen371
-\MPnumerator=\count403
-\makeMPintoPDFobject=\count404
+\MPnumerator=\count451
+\makeMPintoPDFobject=\count452
 \everyMPtoPDFconversion=\toks73
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1298,7 +1364,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 6.
+Package hyperref Info: Link coloring ON on input line 3.
  (./out/chap3.out) (./out/chap3.out)
 \@outlinefile=\write7
 
@@ -1318,225 +1384,233 @@ Package siunitx Warning: Detected the "physics" package:
 (/usr/local/texlive/2023/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 6.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 3.
 
-Package chemgreek Info: Activating mapping `default' on line 6.
+Package chemgreek Info: Activating mapping `default' on line 3.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 
-Package tikz-feynman Warning: Consider loading TikZ-Feynman with \usepackage[compat=1.1.0]{tikz-feynman} so that you can be warned if TikZ-Feynman changes. on input line 6.
+Package tikz-feynman Warning: Consider loading TikZ-Feynman with \usepackage[compat=1.1.0]{tikz-feynman} so that you can be warned if TikZ-Feynman changes. on input line 3.
 
 Package pgfplots notification 'compat/show suggested version=true': you might benefit from \pgfplotsset{compat=1.18} (current compat level: 1.15).
 
-\c@lstlisting=\count405
+\c@lstlisting=\count453
 第3章
 (load cache: extra_lmroman17-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 19.17854pt on input line 10.
+(Font)              scaled to size 19.17854pt on input line 7.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 19.17854pt on input line 10.
+(Font)              scaled to size 19.17854pt on input line 7.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 19.17854pt on input line 10.
+(Font)              scaled to size 19.17854pt on input line 7.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 19.17854pt on input line 10.
+(Font)              scaled to size 19.17854pt on input line 7.
 (load cache: extra_haranoajigothic-medium.luc)(load cache: extra_lmsans17-regular.luc)
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 10.
+(Font)              scaled to size 23.00687pt on input line 7.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 10.
+(Font)              scaled to size 23.00687pt on input line 7.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 6.47299pt on input line 12.
+(Font)              scaled to size 6.47299pt on input line 9.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 12.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 12.
+(Font)              scaled to size 4.62357pt on input line 9.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 9.
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 12.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 9.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 12.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 9.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 12.
+(Font)              scaled to size 9.24713pt on input line 9.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 6.47299pt on input line 12.
+(Font)              scaled to size 6.47299pt on input line 9.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 12.
-LaTeX Font Info:    Trying to load font information for U+stmry on input line 12.
+(Font)              scaled to size 4.62357pt on input line 9.
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 9.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)(load cache: extra_lmroman7-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 6.47299pt on input line 12.
+(Font)              scaled to size 6.47299pt on input line 9.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 5.54828pt on input line 12.
+(Font)              scaled to size 5.54828pt on input line 9.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 7.3977pt on input line 12.
+(Font)              scaled to size 7.3977pt on input line 9.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 5.54828pt on input line 12.
+(Font)              scaled to size 5.54828pt on input line 9.
 (load cache: extra_lmroman6-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 5.54828pt on input line 12.
+(Font)              scaled to size 5.54828pt on input line 9.
 
 
-LaTeX Warning: Hyper reference `ax:LieAlg' on page 1 undefined on input line 13.
+LaTeX Warning: Hyper reference `ax:LieAlg' on page 1 undefined on input line 10.
 
-LaTeX Font Info:    Trying to load font information for U+euf on input line 13.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 10.
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )(load cache: extra_lmroman12-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 15.
+(Font)              scaled to size 13.31586pt on input line 12.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 15.
+(Font)              scaled to size 13.31586pt on input line 12.
 (load cache: extra_lmroman12-bold.luc)
 LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <14.4> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 15.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 12.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 15.
+(Font)              scaled to size 13.31586pt on input line 12.
 LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <14.4> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 15.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 12.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 15.
+(Font)              scaled to size 13.31586pt on input line 12.
 (load cache: extra_lmroman10-bold.luc)
 LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <10> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 17.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 14.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 17.
+(Font)              scaled to size 9.24713pt on input line 14.
 LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <10> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 17.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 14.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 17.
+(Font)              scaled to size 9.24713pt on input line 14.
 (load cache: extra_lmroman8-bold.luc)
 LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <8> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 23.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 20.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 7.3977pt on input line 23.
+(Font)              scaled to size 7.3977pt on input line 20.
 LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <8> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 23.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 20.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 7.3977pt on input line 23.
+(Font)              scaled to size 7.3977pt on input line 20.
 
 
-LaTeX Warning: Hyper reference `def:radical-bilinear' on page 1 undefined on input line 26.
+LaTeX Warning: Hyper reference `def:radical-bilinear' on page 1 undefined on input line 23.
 
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 45.
+(Font)              scaled to size 23.00687pt on input line 42.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 45.
+(Font)              scaled to size 23.00687pt on input line 42.
 LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <24.88> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 45.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 42.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 45.
+(Font)              scaled to size 23.00687pt on input line 42.
 LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <24.88> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 45.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 42.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 45.
+(Font)              scaled to size 23.00687pt on input line 42.
 [1
 
 
 ]
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 67.
+(Font)              scaled to size 9.24713pt on input line 64.
 (load cache: extra_lmsans10-regular.luc)(load cache: extra_lmsans10-bold.luc)
 LaTeX Font Info:    Font shape `JT3/gt/b/n' in size <10> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 67.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 64.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 67.
+(Font)              scaled to size 9.24713pt on input line 64.
 LaTeX Font Info:    Font shape `JY3/gt/b/n' in size <10> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 67.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 64.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 67.
+(Font)              scaled to size 9.24713pt on input line 64.
 (load cache: extra_lmroman10-italic.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/it' in size <10> not available
-(Font)              Font shape `JT3/mc/m/n' tried instead on input line 75.
+(Font)              Font shape `JT3/mc/m/n' tried instead on input line 72.
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 75.
+(Font)              scaled to size 9.24713pt on input line 72.
 LaTeX Font Info:    Font shape `JY3/mc/m/it' in size <10> not available
-(Font)              Font shape `JY3/mc/m/n' tried instead on input line 75.
+(Font)              Font shape `JY3/mc/m/n' tried instead on input line 72.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 75.
+(Font)              scaled to size 9.24713pt on input line 72.
 (load cache: extra_lmroman10-bolditalic.luc)
 LaTeX Font Info:    Font shape `JT3/mc/b/it' in size <10> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 75.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 72.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 75.
+(Font)              scaled to size 9.24713pt on input line 72.
 LaTeX Font Info:    Font shape `JY3/mc/b/it' in size <10> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 75.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 72.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 75.
+(Font)              scaled to size 9.24713pt on input line 72.
 
 
-LaTeX Warning: Hyper reference `def:minimal-poly' on page 2 undefined on input line 82.
+LaTeX Warning: Hyper reference `def:minimal-poly' on page 2 undefined on input line 79.
 
 
-LaTeX Warning: Hyper reference `def:domain-basic' on page 2 undefined on input line 82.
+LaTeX Warning: Hyper reference `def:domain-basic' on page 2 undefined on input line 79.
 
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 88.
+(Font)              scaled to size 11.09656pt on input line 85.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 88.
+(Font)              scaled to size 11.09656pt on input line 85.
 LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <12> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 88.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 85.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 88.
+(Font)              scaled to size 11.09656pt on input line 85.
 LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <12> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 88.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 85.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 88.
+(Font)              scaled to size 11.09656pt on input line 85.
 [2](load cache: extra_lmroman5-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 130.
+(Font)              scaled to size 4.62357pt on input line 127.
  [3] [4]
 
 LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
-(Font)              using `U/stmry/m/n' instead on input line 229.
+(Font)              using `U/stmry/m/n' instead on input line 226.
 
 [5] [6] [7](load cache: extra_lmroman7-italic.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/it' in size <7> not available
-(Font)              Font shape `JT3/mc/m/n' tried instead on input line 417.
+(Font)              Font shape `JT3/mc/m/n' tried instead on input line 414.
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 6.47299pt on input line 417.
+(Font)              scaled to size 6.47299pt on input line 414.
 LaTeX Font Info:    Font shape `JY3/mc/m/it' in size <7> not available
-(Font)              Font shape `JY3/mc/m/n' tried instead on input line 417.
+(Font)              Font shape `JY3/mc/m/n' tried instead on input line 414.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 6.47299pt on input line 417.
+(Font)              scaled to size 6.47299pt on input line 414.
 LaTeX Font Info:    Font shape `JT3/mc/m/it' in size <6> not available
-(Font)              Font shape `JT3/mc/m/n' tried instead on input line 417.
+(Font)              Font shape `JT3/mc/m/n' tried instead on input line 414.
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 5.54828pt on input line 417.
+(Font)              scaled to size 5.54828pt on input line 414.
 LaTeX Font Info:    Font shape `JY3/mc/m/it' in size <6> not available
-(Font)              Font shape `JY3/mc/m/n' tried instead on input line 417.
+(Font)              Font shape `JY3/mc/m/n' tried instead on input line 414.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 5.54828pt on input line 417.
+(Font)              scaled to size 5.54828pt on input line 414.
 (load cache: extra_lmmono8-regular.luc)
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 7.3977pt on input line 417.
+(Font)              scaled to size 7.3977pt on input line 414.
  [8] [9] [10](load cache: extra_lmsans8-regular.luc)
 LaTeX Font Info:    Font shape `JT3/gt/b/n' in size <8> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 541.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 538.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 7.3977pt on input line 541.
+(Font)              scaled to size 7.3977pt on input line 538.
 LaTeX Font Info:    Font shape `JY3/gt/b/n' in size <8> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 541.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 538.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 7.3977pt on input line 541.
+(Font)              scaled to size 7.3977pt on input line 538.
 
 
-LaTeX Warning: Hyper reference `def:radical-bilinear' on page 11 undefined on input line 541.
+LaTeX Warning: Hyper reference `def:radical-bilinear' on page 11 undefined on input line 538.
 
 
-LaTeX Warning: Citation `Humphreys1972introduction' on page 11 undefined on input line 551.
+LaTeX Warning: Citation `Humphreys1972introduction' on page 11 undefined on input line 548.
 
 
-LaTeX Warning: Citation `Satake1987LieAlg' on page 11 undefined on input line 557.
+LaTeX Warning: Citation `Satake1987LieAlg' on page 11 undefined on input line 554.
 
-[11] [12] [13] [14] (./out/chap3.aux)
+[11] [12] [13] [14] [15] [16]
+
+LaTeX Warning: Hyper reference `def:radical-bilinear' on page 17 undefined on input line 827.
+
+[17] [18] [19] [20]
+
+LaTeX Warning: Hyper reference `def:radical-bilinear' on page 21 undefined on input line 1005.
+
+[21] [22] [23] [24](load cache: extra_lmroman7-bold.luc)(load cache: extra_lmroman5-bold.luc) [25] [26] (./out/chap3.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1548,19 +1622,21 @@ Package rerunfilecheck Info: File `chap3.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 54701 strings out of 478285
- 195708,1977958 words of node,token memory allocated
- 8174 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 13 glue, 4 kern, 1 glyph, 3406 attribute, 62 glue_spec, 322 attribute_list, 2 write, 14 user_defined nodes
-   avail lists: 1:38,2:49836,3:1138,4:890,5:477,6:67,7:5383,8:80,9:2385,10:21,11:28
- 72802 multiletter control sequences out of 65536+600000
- 122 fonts using 75938231 bytes
- 138i,16n,131p,1815b,1190s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmmono8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufb10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/stmaryrd/stmary8.pfb>
-Output written on chap3.pdf (14 pages, 452294 bytes).
+ 57139 strings out of 478285
+ 477789,2373549 words of node,token memory allocated
+ 13986 words of node memory still in use:
+   27 hlist, 2 vlist, 13 rule, 22 glue, 4 kern, 1 glyph, 5847 attribute, 63 glue_spec, 557 attribute_list, 2 write, 30 user_defined, 16 pdf_literal, 16 pdf_colorstack nodes
+   avail lists: 1:38,2:156852,3:6872,4:4063,5:489,6:66,7:7982,8:117,9:3747,10:25,11:35
+ 75126 multiletter control sequences out of 65536+600000
+ 124 fonts using 76202247 bytes
+ 138i,20n,131p,1815b,1658s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-PDF statistics: 512 PDF objects out of 1000 (max. 8388607)
- 399 compressed objects within 4 object streams
- 95 named destinations out of 1000 (max. 131072)
- 48 words of extra memory for PDF output out of 10000 (max. 100000000)
+warning  (pdf backend): unreferenced destination with name 'Hfootnote.29'
+</usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmmono8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufb10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/rsfs/rsfs7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/stmaryrd/stmary8.pfb>
+Output written on chap3.pdf (26 pages, 584605 bytes).
+
+PDF statistics: 805 PDF objects out of 1000 (max. 8388607)
+ 637 compressed objects within 7 object streams
+ 158 named destinations out of 1000 (max. 131072)
+ 208 words of extra memory for PDF output out of 10000 (max. 100000000)
 

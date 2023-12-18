@@ -38,6 +38,7 @@
 \usepackage{tikz}
 \usetikzlibrary{intersections,calc,patterns,through,positioning,arrows,backgrounds,cd,tqft,braids}
 \usepackage{tikz-feynman}
+\usepackage{dynkin-diagrams}
 \usepackage{pgfplots}
 \usepgfplotslibrary{patchplots}
 \pgfplotsset{compat=1.15}
@@ -245,6 +246,9 @@ title=系~\thetcbcounter: #2,#1}
 \newcommand{\lmto}{\longmapsto}
 \newcommand{\btl}{\blacktriangleleft}
 \newcommand{\btr}{\blacktriangleright}
+\newcommand{\Euc}[1]{\bigl(\, #1,\, (\;,\,)_{#1}\,\bigr)}
+\newcommand{\Weyl}[2]{\mathscr{W}_{#1}(#2)}
+
 \DeclarePairedDelimiterX{\sspair}[2]{\llbracket}{\rrbracket}{#1, #2}
 \mathchardef\mhyphen="2D
 
