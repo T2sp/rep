@@ -1307,7 +1307,8 @@ $\Delta$ が互いに直交する2つの真部分集合のdisjoint unionに分�
 \subsection{ルート系の分類定理}
 
 \begin{mytheo}[label=thm:root-classification,breakable]{既約なルート系の分類定理}
-	\hyperref[def:rank-root]{ランク $l$} の\hyperref[def:irr-root]{既約}な\hyperref[ax:root-system]{ルート系} $\Phi$ を与える．このとき $\Phi$ の\hyperref[def:Coxeter-Dynkin]{Dynkin図形}は以下のいずれかである：
+	\hyperref[def:rank-root]{ランク $l$} の\hyperref[def:irr-root]{既約}な\hyperref[ax:root-system]{ルート系} $\Phi$ を与える．
+	このとき $\Phi$ の\hyperref[def:Coxeter-Dynkin]{Dynkin図形}は以下のいずれかである：
 	\begin{description}
 		\item[$\bm{A_l}\quad (l \ge 1)$ \textbf{型:}] 
 		\begin{align}
@@ -1382,7 +1383,323 @@ $\Delta$ が互いに直交する2つの真部分集合のdisjoint unionに分�
 \end{mytheo}
 
 \begin{proof}
+	まずは可能な\hyperref[def:Coxeter-Dynkin]{Coxeterグラフ}を分類する．
+	\begin{itemize}
+		\item 任意次元の\hyperref[def:Euclid-space]{Euclid空間} $\bigl(\, \mathbb{E},\, (\;,\,)\,\bigr)$
+		\item 互いに線型独立な\underline{単位ベクトル}の集合 $\mathfrak{U} \coloneqq \{e_1,\, \dots,\, e_n\} \subset \mathbb{E}$ であって，
+		$1 \le \forall i \neq j \le n$ に対して
+		\begin{align}
+			\rpair{e_i}{e_j} \le 0 \AND 4 \rpair{e_i}{e_j}^2 \in \{0,\, 1,\, 2,\, 3\}
+		\end{align}
+		を充たすもの（この条件を充たす $\mathbb{E}$ の部分集合は\textbf{許容できる} (admissible) と言うことにする）
+	\end{itemize}
+	を与える．任意の許容できる $\mathfrak{U} \subset \mathbb{E}$ にグラフ $\Gamma(\mathfrak{U})$ を割り当てる操作を次のように定義する：
+	\begin{itemize}
+		\item $\forall e_i \in \mathfrak{U}$ に対して頂点
+		\begin{align}
+			\Gamma(e_i) = \bullet_i
+		\end{align}
+		を対応付ける
+		\item $\forall e_i,\, e_j \in \mathfrak{U}$ に対して辺集合
+		\begin{align}
+			\Gamma(e_i,\, e_j)
+			= \begin{cases}
+				\emptyset, &i = j \OR 4 \rpair{e_i}{e_j}^2 = 0 \\
+				\{ \dynkin[labels={i,j}, edge length=1.25cm]A{2} \}, &i \neq j \AND 4 \rpair{e_i}{e_j}^2 = 1 \\
+				\{ \dynkin[arrows=false,labels={i,j}, edge length=1.25cm]B{2} \}, &i \neq j \AND 4 \rpair{e_i}{e_j}^2 = 2 \\
+				\{ \dynkin[arrows=false,labels={i,j}, edge length=1.25cm]G2 \}, &i \neq j \AND 4 \rpair{e_i}{e_j}^2 = 3
+			\end{cases}
+		\end{align}
+		を対応付ける
+		\footnote{$\abs{\{\dynkin[labels={i,j}, edge length=1.25cm]A{2}\}} = 1,\; \abs{\{ \dynkin[arrows=false,labels={i,j}, edge length=1.25cm]B{2} \}} = 2,\, \abs{\{ \dynkin[arrows=false,labels={i,j}, edge length=1.25cm]G2 \}} = 3$ と言うことである．}．
+	\end{itemize}
 	
+	i.e. $\Gamma(\mathfrak{U})$ の頂点集合は $n$ 点集合 $\{\, \bullet_1,\, \dots,\, \bullet_n \,\}$ であり，$\Gamma(\mathfrak{U})$ の辺集合に自己ループはなく，かつ $\bullet_i$ と $\bullet_j$ の間には $4 \rpair{e_i}{e_j}^2$ 重辺が存在する．
+
+	\begin{mylem}[label=lem:classification-step-1]{step 1}
+		$\forall e_i \in \mathfrak{U}$ に対して，$\mathfrak{U} \setminus \{e_i\}$ もまた許容できる．
+	\end{mylem}
+	
+	\begin{proof}
+		許容できることの定義から明らか．
+	\end{proof}
+	
+	\begin{mylem}[label=lem:classification-step-2]{step 2}
+		\begin{align}
+			\abs{\bigl\{\, (e_i,\, e_j) \in \mathfrak{U} \times \mathfrak{U} \bigm| i < j,\; \Gamma(e_i,\, e_j) \neq \emptyset \,\bigr\} } < n
+		\end{align}
+	\end{mylem}
+	
+	\begin{proof}
+		$e \coloneqq \sum_{i=1}^n e_i$ とおく．$e_i$ の線型独立性から $e \neq 0$ が言える．よって
+		\begin{align}
+			\label{ineq:classification-step2}
+			0 < \rpair{e}{e} = n + \sum_{i < j} 2\rpair{e_i}{e_j}
+		\end{align}
+		が成り立つ．
+		さて，$\rpair{e_i}{e_j} \neq 0 \IFF \Gamma(e_i,\, e_j) \neq \emptyset$ を充たす任意の $1 \le i < j \le n$ をとる．すると，$\mathfrak{U}$ が許容できるので $2 \rpair{e_i}{e_j} \le -1$ が成り立つ．
+		よって不等式\eqref{ineq:classification-step2}からこのような $(i,\, j)$ の総数は $n-1$ 以下でなくてはいけない．
+	\end{proof}
+
+	\begin{mylem}[label=lem:classification-step-3]{step 3}
+		$\Gamma(\mathfrak{U})$ はサイクルを含まない．
+	\end{mylem}
+	
+	\begin{proof}
+		補題\ref{lem:classification-step-1}より $\mathfrak{U}$ の任意の空でない部分集合 $\mathfrak{C}$ もまた許容できるので，グラフ $\Gamma(\mathfrak{C})$ が定まる．
+		今 $\{f_1,\, \cdots,\, f_k\} \coloneqq \mathfrak{C}$ とおき，$\Gamma(\mathfrak{C})$ がサイクルになっている，i.e. 
+		\begin{align}
+			\Gamma(f_i,\, f_j) 
+			\begin{cases}
+				\neq \emptyset, &\abs{i - j} = 1 \OR \{i,\, j\} = \{1,\, k\} \\
+				= \emptyset, &\mathrm{otherwise}
+			\end{cases}
+		\end{align}
+		であるとしよう．然るにこのとき
+		\begin{align}
+			\abs{\bigl\{\, (f_i,\, f_j) \in \mathfrak{C} \times \mathfrak{C} \bigm| i < j,\; \Gamma(f_i,\, f_j) \neq \emptyset \,\bigr\} } = k
+		\end{align}
+		となり\hyperref[lem:classification-step-2]{\textsf{\textbf{step 2}}}に矛盾．
+	\end{proof}
+
+	\begin{mylem}[label=lem:classification-step-4]{step 4}
+		$\forall e_i \in \mathfrak{U}$ に対して
+		\begin{align}
+			\abs{\bigcup_{e_j \in \mathfrak{U} \setminus \{e_i\}} \Gamma(e_i,\, e_j)} \le 3
+		\end{align}
+	\end{mylem}
+	
+	\begin{proof}
+		$\forall e \in \mathfrak{U}$ をとり，$\Gamma(e,\, e_j) \neq \emptyset$ を充たす $e_j \in \mathfrak{U}$ 全体の集合を $\{f_1,\, \dots,\, f_k\} \subset \mathfrak{U}$ と書く．
+		このとき $1 \le \forall j \le k$ に対して $\rpair{e}{f_j} < 0$ が成り立つ．
+		さらに補題\ref{lem:classification-step-3}より $\Gamma(f_i)$ たちは非連結なので $1 \le \forall i \neq j \le k$ に対して $\rpair{f_i}{f_j} = 0$ が成り立つ．i.e. $f_i$ たちは直交する．
+
+		$\mathfrak{U}$ は線型独立なので，$\exists f_0 \in \Span_{\mathbb{R}} \{e,\, f_1,\, \dots,\, f_k\} \cap \bigl(\Span_{\mathbb{R}} \{f_1,\, \dots,\, f_k\}\bigr)^\perp \setminus \{0\}$ である．
+		このとき $f_0$ を適当に規格化して単位ベクトルにすることで $0 < \rpair{e}{f_0} < 1$ を充たすようにできる． 
+		$f_i$ の直交性から $e = \sum_{i=0}^k \rpair{e}{f_i} f_i$ が成り立つので，
+		\begin{align}
+			1 = \rpair{e}{e} = \sum_{i=0}^k \rpair{e}{f_i}^2 = \rpair{e}{f_0} + \sum_{i=1}^k \rpair{e}{f_i}^2
+		\end{align}
+		が従い，
+		\begin{align}
+			\sum_{i=1}^k 4\rpair{e}{f_i}^2 < 4
+		\end{align}
+		でなくてはいけない．$4\rpair{e}{f_i}^2 = \abs{\Gamma(e,\, f_i)}$ なので左辺は
+		$\abs{\bigcup_{e \in \mathfrak{U} \setminus \{e\}} \Gamma(e,\, e_j)}$ に等しい．
+	\end{proof}
+
+	\begin{mylem}[label=lem:classification-step-5]{step 5}
+		3重辺を含む $\Gamma(\mathfrak{U})$ としてあり得るのは
+		\begin{align}
+			\dynkin[arrows=false,edge length=1.25cm]G2
+		\end{align}
+		のみである．
+	\end{mylem}
+	
+	\begin{proof}
+		\hyperref[lem:classification-step-4]{\textsf{\textbf{step 4}}}より明らか．
+	\end{proof}
+
+	\begin{mylem}[label=lem:classification-step-6]{step 6}
+		部分集合 $\{e_{i_1},\, \dots,\, e_{i_k}\} \subset \mathfrak{U}$ に対して
+		\begin{align}
+			\Gamma(\{e_{i_1},\, \dots,\, e_{i_k}\}) = \dynkin[arrows=false,edge length=1.25cm,labels={i_1,i_2,i_{k-1},i_k}] A{}
+		\end{align}
+		が成り立つならば，集合
+		\begin{align}
+			\mathfrak{U}' \coloneqq \bigl(\mathfrak{U} \setminus \{e_{i_1},\, \dots,\, e_{i_k}\}\bigr) \cup \left\{ \sum_{\mu=1}^k e_{i_\mu} \right\} 
+		\end{align}
+		もまた許容できる．
+	\end{mylem}
+	
+	\begin{proof}
+		仮定より $1 \le \forall \mu < \nu \le k$ に対して
+		\begin{align}
+			2\rpair{e_{i_\mu}}{e_{i_\nu}}
+			=
+			\begin{cases}
+				-1, &\nu = \mu+1 \\
+				0, &\mathrm{otherwise}
+			\end{cases}
+		\end{align}
+		が成り立つので，$e \coloneqq \sum_{\mu=1}^k e_{i_\mu}$ とおくと
+		\begin{align}
+			\rpair{e}{e} = k + \sum_{\mu < \nu} 2 \rpair{e_{i_\mu}}{e_{i_\nu}} = k - (k - 1)
+		\end{align}
+		だとわかる．i.e. $e \in \mathfrak{U}'$ は単位ベクトルである．\hyperref[lem:classification-step-3]{\textsf{\textbf{step 3}}}より，$\forall f \in \mathfrak{U}' \setminus \{e\}$ に対して $\Gamma(f)$ は $\Gamma(e_{i_1}),\, \dots,\,\Gamma(e_{i_k})$ の高々1つのみと連結になり得るので，
+		$\rpair{e}{f} = 0$ であるか，$1 \le \exists ! \mu \le k,\; \rpair{e}{f} = \rpair{e_{i_\mu}}{f} \neq 0$ であるかのどちらかである．いずれの場合も $4\rpair{e}{f}^2 \in \{0,\, 1,\, 2,\, 3\}$ なので $\mathfrak{U}'$ は許容できる．
+	\end{proof}
+
+
+	\begin{mylem}[label=lem:classification-step-7]{step 7}
+		$\Gamma(\mathfrak{U})$ は以下の形をした部分グラフを含まない：
+		\begin{enumerate}
+			\item 
+			\begin{align}
+				\dynkin[arrows=false,extended,edge length=1.25cm,] A[2]{even}
+			\end{align}
+			\item 
+			\begin{align}
+				\dynkin[arrows=false,extended,edge length=1.25cm,] A[2]{odd}
+			\end{align}
+			\item \begin{align}
+				\dynkin [extended,edge length=1.25cm,] D{}
+			\end{align}
+			
+		\end{enumerate}
+	\end{mylem}
+	
+	\begin{proof}
+		$\Gamma(\mathfrak{U})$ が (1), (2), (3) の形をした部分グラフを含むとする．
+		このとき\hyperref[lem:classification-step-6]{\textsf{\textbf{step 1}}}, \hyperref[lem:classification-step-6]{\textsf{\textbf{step 6}}}より4つの辺に繋がった頂点を持つグラフが許容されることになって\hyperref[lem:classification-step-4]{\textsf{\textbf{step 4}}}に矛盾．
+	\end{proof}
+
+	\begin{mylem}[label=lem:classification-step-8,breakable]{step 8}
+		連結なグラフ $\Gamma(\mathfrak{U})$ としてあり得るのは以下の4つの形のみである：
+		\begin{description}
+			\item[\textbf{$\bm{A_n}$}] 
+			\begin{align}
+				\dynkin[arrows=false,edge length=1.25cm] A{}
+			\end{align}
+			\item[\textbf{$\bm{G_2}$}] 
+			\begin{align}
+				\dynkin[arrows=false,edge length=1.25cm] G2
+			\end{align}
+		\end{description}
+		
+		\begin{enumerate}
+			\item 
+			\begin{align}
+				\dynkin[edge length=1.25cm,labels={\Gamma(e_1),\Gamma(e_2)}] A{2} \cdots \dynkin[arrows=false,edge length=1.25cm,labels={\Gamma(e_{p-1}),\Gamma(e_{p}),\Gamma(f_{q}),\Gamma(f_{q-1})}] F4 \cdots \dynkin[edge length=1.25cm,labels={f_2,f_1}] A{2}
+			\end{align}
+			\item 
+			\begin{align}
+				\dynkin [make indefinite edge/.list={1-3,0-2,5-6},extended,edge length=1.25cm,labels={\Gamma(h_1),\Gamma(e_1),\Gamma(h_{r-1}),\Gamma(e_{p-1}),\Gamma(g),\Gamma(f_{q-1}),\Gamma(f_1)}] E6
+			\end{align}
+		\end{enumerate}
+	\end{mylem}
+	
+	\begin{proof}
+		% \hyperref[lem:classification-step-4]{\textsf{\textbf{step 4}}}より，
+		\hyperref[lem:classification-step-5]{\textsf{\textbf{step 5}}}より，3重辺を含む $\Gamma(\mathfrak{U})$ の形としてあり得るのは $\bm{G_2}$ のみである．
+		
+		$\Gamma(\mathfrak{U})$ が2重辺を2つ以上含む場合，\hyperref[lem:classification-step-1]{\textsf{\textbf{step 1}}}により\hyperref[lem:classification-step-7]{\textsf{\textbf{step 7}}}-(1) の形に帰着されてしまうので矛盾．
+		よって $\Gamma(\mathfrak{U})$ は2重辺を高々1つしか含まない．
+		$\Gamma(\mathfrak{U})$ が2重辺を1つ持つ場合，\hyperref[lem:classification-step-1]{\textsf{\textbf{step 1}}}により\hyperref[lem:classification-step-7]{\textsf{\textbf{step 7}}}-(2) の形に帰着されてしまうので
+		\begin{align}
+			\label{eq:node}
+			\dynkin[arrows=false,edge length=1.25cm] D{4}
+		\end{align}
+		の形の部分グラフを持たない．よって (1) の形のみがあり得る．
+
+		$\Gamma (\mathfrak{U})$ が1重辺しか持たないとする．
+		\hyperref[lem:classification-step-3]{\textsf{\textbf{step 3}}}によりサイクルを持たないので，\eqref{eq:node}の形をした部分グラフを含まないならばあり得る形は $\bm{A_n}$ のみである．
+		\hyperref[lem:classification-step-1]{\textsf{\textbf{step 1}}}により\hyperref[lem:classification-step-7]{\textsf{\textbf{step 7}}}-(3) の形に帰着されてしまうので\eqref{eq:node}の形をした部分グラフを2つ以上持つことはできない．よって (2) のみがあり得る．
+	\end{proof}
+	
+	\begin{mylem}[label=lem:classification-step-9]{step 9}
+		\hyperref[lem:classification-step-8]{\textsf{\textbf{step 8}}}-(1) の形としてあり得るのは
+		\begin{description}
+			\item[\textbf{$\bm{F_4}$}] 
+			\begin{align}
+				\dynkin[arrows=false,edge length=1.25cm] F4
+			\end{align}
+			
+			\item[\textbf{$\bm{B_n},\, \bm{C_n}$}]
+			\begin{align}
+				\dynkin[edge length=1.25cm] B{}
+			\end{align}
+		\end{description}
+		のみである．
+	\end{mylem}
+	
+	\begin{proof}
+		$e \coloneqq \sum_{i = 1}^{p} ie_i,\; f \coloneqq \sum_{j=1}^q jf_j$ とおく．頂点へのラベルの付け方から
+		$1 \le \forall i \le p-1,\; 2\rpair{e_i}{e_{i+1}} = -1$ かつ $1 \le \forall j \le q-1,\l 2\rpair{f_j}{f_{j+1}} = -1$ で，他の場合は $\rpair{e_k}{e_l} = \rpair{f_k}{f_l} = 0$ になる．よって
+		\begin{align}
+			\rpair{e}{e} &= \sum_{i=1}^p i^2 - \sum_{i=1}^{p-1} i(i+1) = \frac{p(p+1)}{2},\\
+			\rpair{f}{f} &= \sum_{j=1}^q j^2 - \sum_{j=1}^{q-1} j(j+1) = \frac{q(q+1)}{2}
+		\end{align}
+		が成り立つ．$4\rpair{e_p}{f_q}^2 = 2$ かつ $1 \le \forall i \le p-1,\, 1 \le \forall j \le q-1,\; \rpair{e_i}{f_j} = 0$ であるから
+		\begin{align}
+			\rpair{e}{f}^2 = p^2q^2 \rpair{e_p}{f_q}^2 = \frac{p^2q^2}{2}
+		\end{align}
+		も成り立つ．従って，$e,\, f$ は明らかに線型独立なのでCauchy-Schwartzの不等式から
+		\begin{align}
+			\rpair{e}{f}^2 < \rpair{e}{e}\rpair{f}{f} \IFF \frac{p^2q^2}{2} < \frac{p(p+1)q(q+1)}{4} \IMP (p-1)(q-1) < 2
+		\end{align}
+		でなくてはいけない．よってあり得るのは $(p,\, q) = (2,\, 2),\, (1,\, r),\, (r, 1)\WHERE r \in \mathbb{N}$ のみである．
+	\end{proof}
+
+	\begin{mylem}[label=lem:classification-step-10,breakable]{step 10}
+		\hyperref[lem:classification-step-8]{\textsf{\textbf{step 8}}}-(2) の形としてあり得るのは
+		\begin{description}
+			\item[$\bm{D_n}$] 
+			\begin{align}
+				\dynkin[%
+						labels={1,2,l-3,l-2,l-1,l},
+						edge length=1.25cm
+					] D{}
+			\end{align}
+
+			\item[$\bm{E_6}$] 
+			\begin{align}
+				\dynkin[%
+						labels={1,...,6},
+						edge length=1.25cm
+					] E6
+			\end{align}
+
+			\item[$\bm{E_7}$] 
+			\begin{align}
+				\dynkin[%
+						labels={1,...,7},
+						edge length=1.25cm
+					] E7
+			\end{align}
+
+			\item[$\bm{E_8}$] 
+			\begin{align}
+				\dynkin[%
+						labels={1,...,8},
+						edge length=1.25cm
+					] E8
+			\end{align}
+		\end{description}
+		のみである．
+	\end{mylem}
+	
+	\begin{proof}
+		$e \coloneqq \sum_{i = 1}^{p-1} ie_i,\; f \coloneqq \sum_{j=1}^{q-1} jf_j,\; h \coloneqq \sum_{k=1}^{r-1} kh_k$ とおく．
+		$\mathfrak{U}$ の元の線型独立性から，$e,\, f,\, h$ は互いに正規直交し，$g \notin \Span_{\mathbb{R}} \{e,\, f,\, h\}$ である．\hyperref[lem:classification-step-4]{\textsf{\textbf{step 4}}}の証明から，
+		$\cos \theta_1 \coloneqq \frac{\rpair{e}{g}}{\norm*{e}\norm*{g}},\; \cos \theta_2 \coloneqq \frac{\rpair{f}{g}}{\norm*{f}\norm*{g}},\, \cos \theta_3 \coloneqq \frac{\rpair{h}{g}}{\norm*{h}\norm*{g}}$ について
+		\begin{align}
+			\label{ineq:step10}
+			\cos^2\theta_1 + \cos^2 \theta_2 + \cos^2 \theta_3 < 1
+		\end{align}
+		が成り立ち，\hyperref[lem:classification-step-9]{\textsf{\textbf{step 9}}}の証明と全く同じ計算をすることで
+		\begin{align}
+			\rpair{e}{e} &= \frac{p(p-1)}{2}, & \rpair{f}{f} &= \frac{q(q-1)}{2}, & \rpair{h}{h} &= \frac{r(r-1)}{2}
+		\end{align}
+		がわかる．従って
+		\begin{align}
+			\cos^2 \theta_1 
+			&= \frac{\rpair{e}{g}^2}{\rpair{e}{e} \rpair{g}{g}} \\
+			&= (p-1)^2\frac{\rpair{e_{p-1}}{g}^2}{\rpair{g}{g}} \\
+			&= \frac{1}{4} \frac{2(p-1)^2}{p(p-1)} \\
+			&= \frac{1}{2} \left( 1 - \frac{1}{p}\right) 
+		\end{align}
+		だと分かった．同様の計算により
+		\begin{align}
+			\cos^2 \theta_2 &= \frac{1}{2} \left( 1 - \frac{1}{q}\right), &\cos^2 \theta_3 &= \frac{1}{2} \left( 1 - \frac{1}{r}\right)
+		\end{align}
+		が従い，不等式\eqref{ineq:step10}は
+		\begin{align}
+			1 < \frac{1}{p} + \frac{1}{q} + \frac{1}{r}
+		\end{align}
+		に帰着する．
+	\end{proof}
+
 \end{proof}
 
 
