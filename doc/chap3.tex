@@ -1475,10 +1475,10 @@ $\Delta$ が互いに直交する2つの真部分集合のdisjoint unionに分�
 		さらに補題\ref{lem:classification-step-3}より $\Gamma(f_i)$ たちは非連結なので $1 \le \forall i \neq j \le k$ に対して $\rpair{f_i}{f_j} = 0$ が成り立つ．i.e. $f_i$ たちは直交する．
 
 		$\mathfrak{U}$ は線型独立なので，$\exists f_0 \in \Span_{\mathbb{R}} \{e,\, f_1,\, \dots,\, f_k\} \cap \bigl(\Span_{\mathbb{R}} \{f_1,\, \dots,\, f_k\}\bigr)^\perp \setminus \{0\}$ である．
-		このとき $f_0$ を適当に規格化して単位ベクトルにすることで $0 < \rpair{e}{f_0} < 1$ を充たすようにできる． 
+		このとき $f_0$ を適当に規格化して単位ベクトルにすることができる． 
 		$f_i$ の直交性から $e = \sum_{i=0}^k \rpair{e}{f_i} f_i$ が成り立つので，
 		\begin{align}
-			1 = \rpair{e}{e} = \sum_{i=0}^k \rpair{e}{f_i}^2 = \rpair{e}{f_0} + \sum_{i=1}^k \rpair{e}{f_i}^2
+			1 = \rpair{e}{e} = \sum_{i=0}^k \rpair{e}{f_i}^2 = \rpair{e}{f_0}^2 + \sum_{i=1}^k \rpair{e}{f_i}^2
 		\end{align}
 		が従い，
 		\begin{align}
@@ -1628,7 +1628,12 @@ $\Delta$ が互いに直交する2つの真部分集合のdisjoint unionに分�
 		\begin{align}
 			\rpair{e}{f}^2 < \rpair{e}{e}\rpair{f}{f} \IFF \frac{p^2q^2}{2} < \frac{p(p+1)q(q+1)}{4} \IMP (p-1)(q-1) < 2
 		\end{align}
-		でなくてはいけない．よってあり得るのは $(p,\, q) = (2,\, 2),\, (1,\, r),\, (r, 1)\WHERE r \in \mathbb{N}$ のみである．
+		でなくてはいけない．よってあり得るのは
+		\begin{itemize}
+			\item $(p,\, q) = (2,\, 2)$（$F_4$ 型）
+			\item $(p,\, q) = (1,\, q),\, (p,\, 1)$（$B_n,\, C_n$ 型）
+		\end{itemize}
+		のみである．
 	\end{proof}
 
 	\begin{mylem}[label=lem:classification-step-10,breakable]{step 10}
@@ -1671,35 +1676,60 @@ $\Delta$ が互いに直交する2つの真部分集合のdisjoint unionに分�
 	
 	\begin{proof}
 		$e \coloneqq \sum_{i = 1}^{p-1} ie_i,\; f \coloneqq \sum_{j=1}^{q-1} jf_j,\; h \coloneqq \sum_{k=1}^{r-1} kh_k$ とおく．
-		$\mathfrak{U}$ の元の線型独立性から，$e,\, f,\, h$ は互いに正規直交し，$g \notin \Span_{\mathbb{R}} \{e,\, f,\, h\}$ である．\hyperref[lem:classification-step-4]{\textsf{\textbf{step 4}}}の証明から，
+		$e,\, f,\, h$ は互いに直交し，$\mathfrak{U}$ の元の線型独立性から $g \notin \Span_{\mathbb{R}} \{e,\, f,\, h\}$ である．
+		このとき $\exists g_0 \in \Span_{\mathbb{R}} \{g,\, e,\, f,\, h\} \cap \bigl(\Span_{\mathbb{R}} \{e,\, f,\, h\}\bigr)^\perp \setminus \{0\}$ である．
+		$g_0,\, e,\, f,\, h$ の直交性から
+		\begin{align}
+			g = \frac{\rpair{g}{g_0}}{\rpair{g_0}{g_0}} g_0 + \frac{\rpair{g}{e}}{\rpair{e}{e}} e + \frac{\rpair{g}{f}}{\rpair{f}{f}} f + \frac{\rpair{g}{h}}{\rpair{h}{h}} h 
+		\end{align}
+		が成り立つので
+		\begin{align}
+			1 = \frac{\rpair{g}{g_0}^2}{\rpair{g_0}{g_0} \rpair{g}{g}} + \frac{\rpair{g}{e}^2}{\rpair{e}{e} \rpair{g}{g}} + \frac{\rpair{g}{f}^2}{\rpair{f}{f} \rpair{g}{g}} + \frac{\rpair{g}{h}^2}{\rpair{h}{h} \rpair{g}{g}}
+		\end{align}
+		であり，$g_0$ の定義から $\rpair{g}{g_0} \neq 0$ なので，
+		% \hyperref[lem:classification-step-4]{\textsf{\textbf{step 4}}}の証明から，
 		$\cos \theta_1 \coloneqq \frac{\rpair{e}{g}}{\norm*{e}\norm*{g}},\; \cos \theta_2 \coloneqq \frac{\rpair{f}{g}}{\norm*{f}\norm*{g}},\, \cos \theta_3 \coloneqq \frac{\rpair{h}{g}}{\norm*{h}\norm*{g}}$ について
 		\begin{align}
-			\label{ineq:step10}
+			\label{ineq:step10-1}
 			\cos^2\theta_1 + \cos^2 \theta_2 + \cos^2 \theta_3 < 1
 		\end{align}
-		が成り立ち，\hyperref[lem:classification-step-9]{\textsf{\textbf{step 9}}}の証明と全く同じ計算をすることで
+		が成り立つ．
+		また，\hyperref[lem:classification-step-9]{\textsf{\textbf{step 9}}}の証明と全く同じ計算をすることで
 		\begin{align}
 			\rpair{e}{e} &= \frac{p(p-1)}{2}, & \rpair{f}{f} &= \frac{q(q-1)}{2}, & \rpair{h}{h} &= \frac{r(r-1)}{2}
 		\end{align}
-		がわかる．従って
+		が言えるので
 		\begin{align}
 			\cos^2 \theta_1 
-			&= \frac{\rpair{e}{g}^2}{\rpair{e}{e} \rpair{g}{g}} \\
-			&= (p-1)^2\frac{\rpair{e_{p-1}}{g}^2}{\rpair{g}{g}} \\
-			&= \frac{1}{4} \frac{2(p-1)^2}{p(p-1)} \\
-			&= \frac{1}{2} \left( 1 - \frac{1}{p}\right) 
+			&= \frac{\rpair{e}{g}^2}{\rpair{e}{e} \rpair{g}{g}} 
+			= (p-1)^2\frac{\rpair{e_{p-1}}{g}^2}{\rpair{e}{e}}
+			= (p-1)^2 \frac{1/4}{p(p-1)/2}
+			= \frac{1}{2} \left( 1 - \frac{1}{p}\right) 
 		\end{align}
-		だと分かった．同様の計算により
+		が成り立つ\footnote{$\abs{\Gamma(e_{p-1},\, g)} = 1$ なので $\rpair{e_{p-1}}{g}^2 = 1/4$ である．}．同様の計算により
 		\begin{align}
 			\cos^2 \theta_2 &= \frac{1}{2} \left( 1 - \frac{1}{q}\right), &\cos^2 \theta_3 &= \frac{1}{2} \left( 1 - \frac{1}{r}\right)
 		\end{align}
-		が従い，不等式\eqref{ineq:step10}は
+		が従い，不等式\eqref{ineq:step10-1}は
 		\begin{align}
+			\label{ineq:step10-2}
 			1 < \frac{1}{p} + \frac{1}{q} + \frac{1}{r}
 		\end{align}
-		に帰着する．
+		に帰着する．頂点のラベルを適当に入れ替えることで $1/p \le 1/q \le 1/r \le 1/2$ が成り立つようにできる．すると，不等式\eqref{ineq:step10-2}から $1 < 3/r \le 3/2$ であり，$r = 2$ が確定する．
+		このとき不等式\eqref{ineq:step10-2}から
+		$1/2 < 1/p + 1/q \le 2/q \le 1$ 
+		なので $2 \le q < 4$ だとわかる．$q = 2$ ならば不等式\eqref{ineq:step10-2}は $0 < 1/p$ となるので $p$ は任意の自然数値を取り得る．$q = 3$ ならば不等式\eqref{ineq:step10-2}より $1/6 < 1/p \IFF p < 6$ でなくてはならない．
+		纏めると，
+		\begin{itemize}
+			\item $(p,\, q,\, r) = (p,\, 2,\, 2)$（$D_n$ 型）
+			\item $(p,\, q,\, r) = (3,\, 3,\, 2)$（$E_{6}$-型）
+			\item $(p,\, q,\, r) = (4,\, 3,\, 2)$（$E_{7}$-型）
+			\item $(p,\, q,\, r) = (5,\, 3,\, 2)$（$E_{8}$-型）
+		\end{itemize}
+		のみがあり得る．
 	\end{proof}
-
+	これでCoxeterグラフの分類が完了した．
+	$B_l,\, C_l$ 型以外のDynkin図形は，対応するCoxeterグラフから頂点へのラベルの付け方の不定性を除いて一意に定まるので証明が完了した．
 \end{proof}
 
 
