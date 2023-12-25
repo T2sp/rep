@@ -1081,9 +1081,9 @@ $\gamma$ が正則ならば $\forall \alpha \in \Phi$ に対して $\rpair{\gamm
 	$\forall \alpha,\, \beta \in \Phi$ をとる．補題\ref{lem:irr-root-B}より $\mathbb{E} = \Span_{\mathbb{R}} \bigl\{\, \sigma(\alpha) \bigm| \sigma \in \mathscr{W} \,\bigr\}$ なので，ある $\sigma \in \mathscr{W}$ が存在して $\rpair[\big]{\sigma(\alpha)}{\beta} \neq 0$ を充たす
 	\footnote{$\forall \sigma \in \mathscr{W}$ に対して $\rpair{\sigma(\alpha)}{\beta} = 0$ だとすると $\beta \in (\Span_{\mathbb{R}} \bigl\{\, \sigma(\alpha) \bigm| \sigma \in \mathscr{W} \,\bigr\})^\perp = 0$ となり矛盾}．$\alpha$ と $\sigma(\alpha)$ を取り替えることで
 	$\rpair{\alpha}{\beta} \neq 0$ として良い．
-	このとき表\ref{tab:rootsystem}より $\norm*{\beta}^2 / \norm*{\alpha}^2 = 1,\, 2,\, 3,\, 1/2,\, 1/3$ しかあり得ない．
+	このとき表\ref{tab:rootsystem}より $\frac{\norm*{\beta}^2}{\norm*{\alpha}^2} \in \bigl\{ 1,\, 2,\, 3,\, \frac{1}{2},\, \frac{1}{3} \bigr\}$ である．
 
-	さて，長さの異なるルート $\alpha,\, \beta,\, \gamma \in \Phi$ が存在したとする．冒頭の議論からこのとき $\rpair{\alpha}{\beta} \neq 0,\; \rpair{\gamma}{\beta} \neq 0$ を仮定してよく，$\norm*{\beta}^2 / \norm*{\alpha}^2,\, \norm*{\gamma}^2 / \norm*{\beta}^2 = 2,\, 3,\, 1/2,\, 1/3$ かつ $\norm*{\beta}^2 / \norm*{\alpha}^2 \neq \norm*{\gamma}^2 / \norm*{\beta}^2$ である．然るにこのときどの組み合わせであっても $\norm*{\gamma}^2 / \norm*{\alpha}^2 = (\norm*{\beta}^2 / \norm*{\alpha}^2) (\norm*{\gamma}^2 / \norm*{\beta}^2) \neq 2,\, 3,\, 1/2,\, 1/3$ となり矛盾．故に前半が示された．
+	さて，互いに長さの異なる3つのルート $\alpha,\, \beta,\, \gamma \in \Phi$ が存在したとする．冒頭の議論からこのとき $\rpair{\alpha}{\beta} \neq 0,\; \rpair{\gamma}{\beta} \neq 0$ を仮定してよく，$\frac{\norm*{\beta}^2}{\norm*{\alpha}^2},\, \frac{\norm*{\gamma}^2}{\norm*{\beta}^2} \in \bigl\{ 2,\, 3,\, \frac{1}{2},\, \frac{1}{3}\bigr\}$ である．然るにこのときどの組み合わせであっても $\frac{\norm*{\gamma}^2}{\norm*{\alpha}^2} = \frac{\norm*{\beta}^2}{\norm*{\alpha}^2} \frac{\norm*{\gamma}^2}{\norm*{\beta}^2} \notin \bigl\{ 2,\, 3,\, \frac{1}{2},\, \frac{1}{3}\bigr\}$ となり矛盾．故に前半が示された．
 
 	後半を示す．$\norm*{\alpha}	= \norm*{\beta}$ とする．冒頭の議論から $\rpair{\alpha}{\beta} \neq 0$ を仮定して良い．
 	このとき表\ref{tab:rootsystem}から $\sspair{\alpha}{\beta} = \sspair{\beta}{\alpha} = \pm 1$ となる．必要ならば $\beta$ を $-\beta = \sigma_\beta(\beta)$ に置き換えることで $\sspair{\alpha}{\beta} = 1$ にできる．すると
@@ -1246,7 +1246,7 @@ $\Delta = \{\alpha_1,\, \dots,\, \alpha_l\}$ と書こう．
 	$\Phi$ の\textbf{Dynkin図形} (Dynkin diagram)
 	\footnote{~\cite[p.8]{Etingof2011introduction}では "In fact, if we needed to make contact
 	with an alien civilization and show them how sophisticated our civilization is, perhaps showing
-	them Dynkin diagrams would be the best choice!" とまで言っている．実際，Dynkin図形はルート系の分類以外にも様々な分類問題の文脈で登場する．詳細は箙の表現の章で述べよう．} 
+	them Dynkin diagrams would be the best choice!" とまで言っている．実際，Dynkin図形はルート系の分類以外にも様々な分類問題の文脈で登場する．例えば\url{https://ncatlab.org/nlab/show/ADE+classification}など．詳細は後の章で述べよう．} 
 	$\Gamma (\Phi)$ とは，以下のデータからなる：
 	\begin{itemize}
 		\item $\forall \alpha_\mu \in \Delta$ に対して頂点 
