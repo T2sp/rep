@@ -448,7 +448,7 @@ $\prec$ が半順序になっていることを確認しておこう：
 
 \begin{mylem}[label=lem:base]{}
 	$\Delta$ が $\Phi$ の\hyperref[def:base-root]{底}ならば，
-	相異なる任意の2つの単純ルート $\alpha,\, \beta \in \Delta$ に対して $\rpair{\alpha}{\beta} \le 0$ であり，$\alpha - \beta \notin \Delta$ である．
+	相異なる任意の2つの単純ルート $\alpha,\, \beta \in \Delta$ に対して $\rpair{\alpha}{\beta} \le 0$ であり，$\alpha - \beta \notin \Phi$ である．
 \end{mylem}
 
 \begin{proof}
@@ -1189,6 +1189,33 @@ $\Delta = \{\alpha_1,\, \dots,\, \alpha_l\}$ と書こう．
 \end{proof}
 
 つまり，\underline{任意の\hyperref[ax:root-system]{ルート系}はその\hyperref[def:Cartan-matrix]{Cartan行列}が与えれれれば完全に\footnote{\hyperref[def:isom-root]{ルート系の同型}の不定性を除いて}復元できる}！
+実際，例えば次の手順に従えば良い~\cite[p.56]{Humphreys1972introduction}：
+\begin{enumerate}
+	\item 相異なる任意の\hyperref[def:base-root]{単純ルート} $\alpha_\mu,\, \alpha_\nu \in \Delta$ をとってくる．
+	すると補題\ref{lem:base}から 
+	\begin{align}
+		\max \bigl\{\, \lambda \in \mathbb{Z}_{\ge 0} \bigm| \alpha_\mu - \lambda \alpha_\nu \in \Phi \,\bigr\} = 0
+	\end{align}
+	なので，命題\ref{prop:a-string-basic}-(4) から
+	\hyperref[def:a-sting]{$\alpha_\nu$-string through $\alpha_\mu$}は
+	\begin{align}
+		\bigl\{\, \alpha_\mu + \lambda \alpha_\nu \bigm| 0 \le \lambda \le -\sspair{\alpha_\mu}{\alpha_\nu} \,\bigr\} \subset \Phi
+	\end{align}
+	と求まる．
+	\item (1) を全ての $1 \le \mu \neq \nu \le l$ について繰り返せば，\hyperref[def:base-root]{高さ} $2$ のルート全体の集合 $\Phi_{\hight = 2} \coloneqq \bigl\{\, \alpha \in \Phi \bigm| \hight \alpha = 2\,\bigr\}$ が求まる．このとき $\forall \alpha_\mu \in \Delta,\; \forall \alpha \in \Phi_{\hight = 2}$ に対して $\sspair{\alpha}{\alpha_\mu} \in \mathbb{Z}$ を計算しておく．
+	\item $\forall \alpha_\mu \in \Delta$ および $\forall \alpha \in \Phi_{\hight = 2}$ に対して，補題\ref{lem:base}から
+	\begin{align}
+		r \coloneqq \max \bigl\{\, \lambda \in \mathbb{Z}_{\ge 0} \bigm| \alpha - \lambda \alpha_\mu \in \Phi \,\bigr\} = 0,\, 1
+	\end{align}
+	である．よって\hyperref[def:a-sting]{$\alpha_\mu$-string through $\alpha$}は (2) で計算しておいた $\sspair{\alpha}{\alpha_\mu} \in \mathbb{Z}$ を使って
+	\begin{align}
+		\bigl\{\, \alpha + \lambda \alpha_\mu \bigm| -r \le \lambda \le r-\rpair{\alpha}{\alpha_\mu} \,\bigr\} \subset \Phi
+	\end{align}
+	と求まる．
+	\item (3) を全ての $1 \le \mu \neq \nu \le l$ について繰り返せば，\hyperref[def:base-root]{高さ} $3$ のルート全体の集合 $\Phi_{\hight = 3} \coloneqq \bigl\{\, \alpha \in \Phi \bigm| \hight \alpha = 3\,\bigr\}$ が求まる．このとき $\forall \alpha_\mu \in \Delta,\; \forall \alpha \in \Phi_{\hight = 3}$ に対して $\sspair{\alpha}{\alpha_\mu} \in \mathbb{Z}$ を計算しておく．
+	\item 補題\ref{lem:simpleroot-A}より任意の\hyperref[def:base-root]{正ルート} $\alpha$ は正ルートと単純ルートの和の形で書けるので，(1)-(4) までの手順を十分な回数繰り返せば全ての正ルートが得られる．
+\end{enumerate}
+
 従って，ルート系を分類するにはCartain行列としてあり得るものを全て列挙できれば十分である．
 
 \subsection{CoxeterグラフとDynkin図形}
@@ -1220,44 +1247,26 @@ $\Delta = \{\alpha_1,\, \dots,\, \alpha_l\}$ と書こう．
 	\footnote{~\cite[p.8]{Etingof2011introduction}では "In fact, if we needed to make contact
 	with an alien civilization and show them how sophisticated our civilization is, perhaps showing
 	them Dynkin diagrams would be the best choice!" とまで言っている．実際，Dynkin図形はルート系の分類以外にも様々な分類問題の文脈で登場する．詳細は箙の表現の章で述べよう．} 
-	$\Gamma = \bigl( \mathcal{V}(\Gamma),\, \mathcal{E}(\Gamma) \bigr)$ とは，以下のデータからなる：
+	$\Gamma (\Phi)$ とは，以下のデータからなる：
 	\begin{itemize}
-		\item 頂点集合 $\mathcal{V}(\Gamma)$ は添字付きの $l$ 個の点 $\bullet_\mu\quad (1 \le \mu \le l)$ からなる．
-		\item 辺集合 $\mathcal{E}(\Gamma)$ は以下を充たす：
-		\begin{description}
-			\item[\textbf{(Dynkin-0')}]  $\{\bullet_\mu,\, \bullet_\mu\} \notin \mathcal{E}(\Gamma)$
-			\item[\textbf{(Dynkin-0)}]  $\mu \neq \nu$ に対して，
-			\begin{align}
-				\sspair{\alpha_\mu}{\alpha_\nu}\sspair{\alpha_\nu}{\alpha_\mu} = 0 \IMP \{\bullet_\mu,\, \bullet_\nu\} \notin \mathcal{E}(\Gamma)
-			\end{align}
-			\item[\textbf{(Dynkin-1)}]  $\mu \neq \nu$ に対して，
-			\begin{align}
-				\sspair{\alpha_\mu}{\alpha_\nu}\sspair{\alpha_\nu}{\alpha_\mu} = 1 \IMP 
-				\dynkin[%
-					labels={\mu,\nu},
-					edge length=1.25cm
-				]A{2} 
-				\in \mathcal{E}(\Gamma)
-			\end{align}
-			\item[\textbf{(Dynkin-2)}]  $\mu \neq \nu$ に対して，
-			\begin{align}
-				\sspair{\alpha_\mu}{\alpha_\nu}\sspair{\alpha_\nu}{\alpha_\mu} = 2 \AND \norm*{\alpha_\nu} < \norm*{\alpha_\mu} \IMP 
-				\dynkin[%
-					labels={\mu,\nu},
-					edge length=1.25cm
-				]B{2} 
-				\in \mathcal{E}(\Gamma)
-			\end{align}
-			\item[\textbf{(Dynkin-3)}]  $\mu \neq \nu$ に対して，
-			\begin{align}
-				\sspair{\alpha_\mu}{\alpha_\nu}\sspair{\alpha_\nu}{\alpha_\mu} = 3 \AND \norm*{\alpha_\nu} < \norm*{\alpha_\mu} \IMP 
-				\dynkin[%
-					labels={\mu,\nu},
-					edge length=1.25cm
-				]G2 
-				\in \mathcal{E}(\Gamma)
-			\end{align}
-		\end{description}
+		\item $\forall \alpha_\mu \in \Delta$ に対して頂点 
+		\begin{align}
+			\Gamma(\alpha_\mu) \coloneqq \dynkin[labels={\mu}, edge length=1.25cm]A{1}
+		\end{align}
+		を持つ．i.e. $\Gamma(\Phi)$ は $l$ 個の頂点を持つ．
+		\item $\forall \alpha_\mu,\, \alpha_\nu \in \Delta$ に対して辺集合
+		\begin{align}
+			\Gamma(\alpha_\mu,\, \alpha_\nu) 
+			\coloneqq 
+			\begin{cases}
+				\emptyset, &\mu = \nu \OR \sspair{\alpha_\mu}{\alpha_\nu}\sspair{\alpha_\nu}{\alpha_\mu} = 0 \\
+				\{ \dynkin[labels={\mu,\nu}, edge length=1.25cm]A{2} \}, &\mu \neq \nu \AND \sspair{\alpha_\mu}{\alpha_\nu}\sspair{\alpha_\nu}{\alpha_\mu} = 1 \\
+				\{ \dynkin[labels={\mu,\nu}, edge length=1.25cm]B{2} \}, &\mu \neq \nu \AND \sspair{\alpha_\mu}{\alpha_\nu}\sspair{\alpha_\nu}{\alpha_\mu} = 2 \AND \norm*{\alpha_\nu} < \norm*{\alpha_\mu} \\
+				\{ \dynkin[labels={\mu,\nu}, edge length=1.25cm]G2 \}, &\mu \neq \nu \AND \sspair{\alpha_\mu}{\alpha_\nu}\sspair{\alpha_\nu}{\alpha_\mu} = 3 \AND \norm*{\alpha_\nu} < \norm*{\alpha_\mu}
+			\end{cases}
+		\end{align}
+		を持つ．i.e. $\Gamma(\Gamma)$ の辺集合に自己ループはなく，かつ $\dynkin[labels={\mu}, edge length=1.25cm]A{1}$ と $\dynkin[labels={\nu}, edge length=1.25cm]A{1}$ の間には $\sspair{\alpha_\mu}{\alpha_\nu}\sspair{\alpha_\nu}{\alpha_\mu}$ 重辺が存在する．
+		特に $n \ge 2$ 重辺の場合，$\norm*{\alpha_\nu} < \norm*{\alpha_\mu}$（resp. $\norm*{\alpha_\nu} > \norm*{\alpha_\mu}$）ならば辺の上に右（resp. 左）向きの矢印が描かれる．
 	\end{itemize}
 	\tcblower 
 	Dynkin図形から矢印（i.e. \hyperref[lem:irr-root-D]{単純ルートの長さ}に関する情報）を取り除いたものを\textbf{Coxeterグラフ} (Coxeter graph) と呼ぶ．
@@ -1299,7 +1308,10 @@ $\Delta$ が互いに直交する2つの真部分集合のdisjoint unionに分�
 \end{myprop}
 
 \begin{proof}
-	
+	$\Phi$ の\hyperref[def:base-root]{底} $\Delta$ に対応する\hyperref[def:Coxeter-Dynkin]{Coxeterグラフ}が連結成分を $t$ 個持つとする．このときCoxeterグラフの各連結成分に対応して $\Delta = \Delta_1 \amalg \cdots \amalg \Delta_t$ と分解するとCoxeterグラフの定義から $i \neq j \IMP \rpair{\Delta_i}{\Delta_j} = 0$ である．よって $\mathbb{E}_i \coloneqq \Span_{\mathbb{R}} \Delta_i$ とおくと直交直和の意味で $\mathbb{E} = \mathbb{E}_1 \oplus \cdots \oplus \mathbb{E}_t$ が成り立つ．さらに\hyperref[ax:root-system]{ルート系の公理}を充たす $\Phi_i \subset \Span_{\mathbb{Z}} \Delta_i$ は明らかに $\mathbb{E}_i$ のルート系になる．
+	$\Phi_i$ の\hyperref[def:Weylgroup]{Weyl群} $\Weyl{\mathbb{E}_i}{\Phi_i}$ は $\bigl\{\, \sigma_\alpha \in \LGL(\mathbb{E}) \bigm| \alpha \in \Delta_i \,\bigr\}$ によって生成される $\Weyl{\mathbb{E}}{\Phi}$ の部分群の定義域を $\mathbb{E}_i$ に制限したものに等しい．
+	さらに，$\alpha \notin \Delta_i \IMP \rpair{\alpha}{\Delta_i} = 0 \IFF \Delta_i \subset P_\alpha \IMP \sigma_\alpha|_{\mathbb{E}_i} = \mathrm{id}_{\mathbb{E}_i}$ なので $\mathbb{E}_i$ たちは $\Weyl{\mathbb{E}}{\Phi}$-不変である．
+	よって $\forall \alpha \in \Phi$ に対して $\sigma_\alpha(\mathbb{E}_i) = \mathbb{E}_i$ なので，$\alpha \in \mathbb{E}_i \OR \mathbb{E}_i \subset P_\alpha$ である．よってある $1\le \exists i \le t$ が存在して $\alpha \in \Phi_i$ となる\footnote{$1 \le \forall i \le t$ に対して $\mathbb{E}_i \subset P_\alpha \IFF \rpair{\alpha}{\mathbb{E}_i} = 0$ だとすると $\alpha \in (\mathbb{E}_1 \oplus \cdots \oplus \mathbb{E}_t)^\perp = 0$ となって $\alpha \in \Phi$ に矛盾．}．i.e. $\Phi = \Phi_1 \amalg \cdots \amalg \Phi_t$ である．
 \end{proof}
 
 従って，\hyperref[def:irr-root]{既約なルート系} $\IFF$ 連結な\hyperref[def:Coxeter-Dynkin]{Dynkin図形}を分類すれば十分である．
@@ -1475,12 +1487,12 @@ $\Delta$ が互いに直交する2つの真部分集合のdisjoint unionに分�
 		さらに補題\ref{lem:classification-step-3}より $\Gamma(f_i)$ たちは非連結なので $1 \le \forall i \neq j \le k$ に対して $\rpair{f_i}{f_j} = 0$ が成り立つ．i.e. $f_i$ たちは直交する．
 
 		$\mathfrak{U}$ は線型独立なので，$\exists f_0 \in \Span_{\mathbb{R}} \{e,\, f_1,\, \dots,\, f_k\} \cap \bigl(\Span_{\mathbb{R}} \{f_1,\, \dots,\, f_k\}\bigr)^\perp \setminus \{0\}$ である．
-		このとき $f_0$ を適当に規格化して単位ベクトルにすることができる． 
-		$f_i$ の直交性から $e = \sum_{i=0}^k \rpair{e}{f_i} f_i$ が成り立つので，
+		$f_0$ を適当に規格化して単位ベクトルにすることができる． 
+		すると $f_0,\, \dots,\, f_k$ の正規直交性から $e = \sum_{i=0}^k \rpair{e}{f_i} f_i$ が成り立つので，
 		\begin{align}
 			1 = \rpair{e}{e} = \sum_{i=0}^k \rpair{e}{f_i}^2 = \rpair{e}{f_0}^2 + \sum_{i=1}^k \rpair{e}{f_i}^2
 		\end{align}
-		が従い，
+		が従い，$f_0$ の定義から $\rpair{e}{f_0} \neq 0$ なので\footnote{$\rpair{e}{f_0} = 0$ だとすると $f_0 \in \Span\{e,\, f_1,\, \dots,\, f_k\} \cap (\Span_{\mathbb{R}}\{e\})^\perp \cap (\Span_{\mathbb{R}}\{f_1,\, \dots,\, f_k\})^\perp = \Span\{e,\, f_1,\, \dots,\, f_k\} \cap (\Span_{\mathbb{R}}\{e,\, f_1,\, \dots,\, f_k\})^\perp = 0$，i.e. $f_0 = 0$ となり矛盾．}
 		\begin{align}
 			\sum_{i=1}^k 4\rpair{e}{f_i}^2 < 4
 		\end{align}
@@ -1503,7 +1515,7 @@ $\Delta$ が互いに直交する2つの真部分集合のdisjoint unionに分�
 	\begin{mylem}[label=lem:classification-step-6]{step 6}
 		部分集合 $\{e_{i_1},\, \dots,\, e_{i_k}\} \subset \mathfrak{U}$ に対して
 		\begin{align}
-			\Gamma(\{e_{i_1},\, \dots,\, e_{i_k}\}) = \dynkin[arrows=false,edge length=1.25cm,labels={i_1,i_2,i_{k-1},i_k}] A{}
+			\Gamma(\{e_{i_1},\, \dots,\, e_{i_k}\}) = \dynkin[arrows=false,edge length=1.25cm,labels={\Gamma(e_{i_1}),\Gamma(e_{i_2}),\Gamma(e_{i_{k-1}}),\Gamma(e_{i_k})}] A{}
 		\end{align}
 		が成り立つならば，集合
 		\begin{align}
@@ -1607,7 +1619,7 @@ $\Delta$ が互いに直交する2つの真部分集合のdisjoint unionに分�
 			
 			\item[\textbf{$\bm{B_n},\, \bm{C_n}$}]
 			\begin{align}
-				\dynkin[edge length=1.25cm] B{}
+				\dynkin[arrows=false,edge length=1.25cm] B{}
 			\end{align}
 		\end{description}
 		のみである．
@@ -1684,7 +1696,7 @@ $\Delta$ が互いに直交する2つの真部分集合のdisjoint unionに分�
 		\end{align}
 		が成り立つので
 		\begin{align}
-			1 = \frac{\rpair{g}{g_0}^2}{\rpair{g_0}{g_0} \rpair{g}{g}} + \frac{\rpair{g}{e}^2}{\rpair{e}{e} \rpair{g}{g}} + \frac{\rpair{g}{f}^2}{\rpair{f}{f} \rpair{g}{g}} + \frac{\rpair{g}{h}^2}{\rpair{h}{h} \rpair{g}{g}}
+			1 = \frac{\rpair{g_0}{g}^2}{\rpair{g_0}{g_0} \rpair{g}{g}} + \frac{\rpair{e}{g}^2}{\rpair{e}{e} \rpair{g}{g}} + \frac{\rpair{f}{g}^2}{\rpair{f}{f} \rpair{g}{g}} + \frac{\rpair{h}{g}^2}{\rpair{h}{h} \rpair{g}{g}}
 		\end{align}
 		であり，$g_0$ の定義から $\rpair{g}{g_0} \neq 0$ なので，
 		% \hyperref[lem:classification-step-4]{\textsf{\textbf{step 4}}}の証明から，
