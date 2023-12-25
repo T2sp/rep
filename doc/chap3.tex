@@ -1002,7 +1002,7 @@ $\gamma$ が正則ならば $\forall \alpha \in \Phi$ に対して $\rpair{\gamm
 			-\sspair{\beta}{\alpha_1} \sspair{\alpha_1}{\alpha_2} \alpha_2 = 0
 		\end{align}
 		i.e. $\sigma_{\alpha_1} \circ \sigma_{\alpha_2} = \sigma_{\alpha_2} \circ \sigma_{\alpha_1}$ である．さらに $\sigma_{\alpha_i}(\alpha_j) = \alpha_j \quad (i \neq j)$ であるから
-		$\Phi_1 \cap \Phi_2 = \emptyset$ であり，$\Phi_i = \Span_{\mathbb{Z}} \Delta_i$ である．よって背理法の仮定から $\rpair{\Phi_1}{\Phi_2} = 0$ となるが，仮定より $\Phi$ は既約なので $\Phi_1 = \emptyset$ または $\Phi_2 = \emptyset$ である．従って $\Delta_i$ のどちらかが空集合ということになって矛盾．
+		$\Phi_1 \cap \Phi_2 = \emptyset$ であり，$\Phi_i \subset \Span_{\mathbb{Z}} \Delta_i$ である．よって背理法の仮定から $\rpair{\Phi_1}{\Phi_2} = 0$ となるが，仮定より $\Phi$ は既約なので $\Phi_1 = \emptyset$ または $\Phi_2 = \emptyset$ である．従って $\Delta_i$ のどちらかが空集合ということになって矛盾．
 	\end{description}
 \end{proof}
 
@@ -1035,11 +1035,11 @@ $\gamma$ が正則ならば $\forall \alpha \in \Phi$ に対して $\rpair{\gamm
 	ということになる．
 	然るにこのとき補題\ref{lem:root-basic}から $\alpha_2 + \beta_0 \in \Phi$ となり $\beta_0$ の極大性に矛盾する．
 
-	次に，$\forall \alpha \in \Delta$ に対して $\rpair{\alpha}{\beta_0} \ge 0$ であることを背理法により示す．実際ある $\alpha \in \Delta$ に対して $\rpair{\alpha}{\beta_0} < 0$ だとすると補題\ref{lem:base}から $\alpha + \beta_0 \in \Phi$ となり $\beta_0$ の極大性に矛盾する．
-	次に，ある $\alpha_0 \in \Delta$ が存在して $\rpair{\alpha_0}{\beta_0} > 0$ となることを背理法により示す．実際 $\forall \alpha \in \Delta$ に対して $\rpair{\alpha}{\beta_0} = 0$ だとすると $\beta_0 \in (\Span_{\mathbb{R}} \Delta)^\perp = \mathbb{E}^\perp = \emptyset$ ということになり矛盾する．
+	次に，$\forall \alpha \in \Delta$ に対して $\rpair{\alpha}{\beta_0} \ge 0$ であることを背理法により示す．実際ある $\alpha \in \Delta$ に対して $\rpair{\alpha}{\beta_0} < 0$ だとすると補題\ref{lem:root-basic}から $\alpha + \beta_0 \in \Phi$ となり $\beta_0$ の極大性に矛盾する．
+	次に，ある $\alpha_0 \in \Delta$ が存在して $\rpair{\alpha_0}{\beta_0} > 0$ となることを背理法により示す．実際 $\forall \alpha \in \Delta$ に対して $\rpair{\alpha}{\beta_0} = 0$ だとすると $\beta_0 \in (\Span_{\mathbb{R}} \Delta)^\perp = \mathbb{E}^\perp = 0$ ということになり矛盾する．
 	% $\Delta_2 = \emptyset$ が分かったので $\forall \alpha \in \Delta,\, k_\alpha > 0$ が言えた．このとき 
 	
-	最後に $\beta_0$ の一意性を示す．別の極大元 $\beta = \sum_{\gamma \in \Delta} \beta_\gamma \gamma \in \Phi$ をとる．上の議論は $\beta'$ にも当てはまるので $\forall \gamma \in \Delta,\; \beta_\gamma > 0$ であり，
+	最後に $\beta_0$ の一意性を示す．別の極大元 $\beta = \sum_{\gamma \in \Delta} \beta_\gamma \gamma \in \Phi$ をとる．上の議論は $\beta$ にも当てはまるので $\forall \gamma \in \Delta,\; \beta_\gamma > 0$ であり，
 	\begin{align}
 		\rpair{\beta}{\beta_0} = \beta_{\alpha_0} \rpair{\alpha_0}{\beta_0} + \sum_{\gamma \in \Delta \setminus \{\alpha_0\}} \beta_\gamma \rpair{\gamma}{\beta_0} > 0
 	\end{align}
@@ -1083,7 +1083,7 @@ $\gamma$ が正則ならば $\forall \alpha \in \Phi$ に対して $\rpair{\gamm
 	$\rpair{\alpha}{\beta} \neq 0$ として良い．
 	このとき表\ref{tab:rootsystem}より $\frac{\norm*{\beta}^2}{\norm*{\alpha}^2} \in \bigl\{ 1,\, 2,\, 3,\, \frac{1}{2},\, \frac{1}{3} \bigr\}$ である．
 
-	さて，互いに長さの異なる3つのルート $\alpha,\, \beta,\, \gamma \in \Phi$ が存在したとする．冒頭の議論からこのとき $\rpair{\alpha}{\beta} \neq 0,\; \rpair{\gamma}{\beta} \neq 0$ を仮定してよく，$\frac{\norm*{\beta}^2}{\norm*{\alpha}^2},\, \frac{\norm*{\gamma}^2}{\norm*{\beta}^2} \in \bigl\{ 2,\, 3,\, \frac{1}{2},\, \frac{1}{3}\bigr\}$ である．然るにこのときどの組み合わせであっても $\frac{\norm*{\gamma}^2}{\norm*{\alpha}^2} = \frac{\norm*{\beta}^2}{\norm*{\alpha}^2} \frac{\norm*{\gamma}^2}{\norm*{\beta}^2} \notin \bigl\{ 2,\, 3,\, \frac{1}{2},\, \frac{1}{3}\bigr\}$ となり矛盾．故に前半が示された．
+	さて，互いに長さの異なる3つのルート $\alpha,\, \beta,\, \gamma \in \Phi$ が存在したとする．冒頭の議論からこのとき $\rpair{\alpha}{\beta} \neq 0,\; \rpair{\gamma}{\beta} \neq 0$ を仮定してよく，$\frac{\norm*{\beta}^2}{\norm*{\alpha}^2},\, \frac{\norm*{\gamma}^2}{\norm*{\beta}^2},\, \frac{\norm*{\gamma}^2}{\norm*{\alpha}^2} \in \bigl\{ 2,\, 3,\, \frac{1}{2},\, \frac{1}{3}\bigr\}$ である．然るにこのときどの組み合わせであっても $\frac{\norm*{\gamma}^2}{\norm*{\alpha}^2} = \frac{\norm*{\beta}^2}{\norm*{\alpha}^2} \frac{\norm*{\gamma}^2}{\norm*{\beta}^2} \notin \bigl\{ 2,\, 3,\, \frac{1}{2},\, \frac{1}{3}\bigr\}$ となり矛盾．故に前半が示された．
 
 	後半を示す．$\norm*{\alpha}	= \norm*{\beta}$ とする．冒頭の議論から $\rpair{\alpha}{\beta} \neq 0$ を仮定して良い．
 	このとき表\ref{tab:rootsystem}から $\sspair{\alpha}{\beta} = \sspair{\beta}{\alpha} = \pm 1$ となる．必要ならば $\beta$ を $-\beta = \sigma_\beta(\beta)$ に置き換えることで $\sspair{\alpha}{\beta} = 1$ にできる．すると
@@ -1265,7 +1265,7 @@ $\Delta = \{\alpha_1,\, \dots,\, \alpha_l\}$ と書こう．
 				\{ \dynkin[labels={\mu,\nu}, edge length=1.25cm]G2 \}, &\mu \neq \nu \AND \sspair{\alpha_\mu}{\alpha_\nu}\sspair{\alpha_\nu}{\alpha_\mu} = 3 \AND \norm*{\alpha_\nu} < \norm*{\alpha_\mu}
 			\end{cases}
 		\end{align}
-		を持つ．i.e. $\Gamma(\Gamma)$ の辺集合に自己ループはなく，かつ $\dynkin[labels={\mu}, edge length=1.25cm]A{1}$ と $\dynkin[labels={\nu}, edge length=1.25cm]A{1}$ の間には $\sspair{\alpha_\mu}{\alpha_\nu}\sspair{\alpha_\nu}{\alpha_\mu}$ 重辺が存在する．
+		を持つ．i.e. $\Gamma(\Phi)$ の辺集合に自己ループはなく，かつ $\dynkin[labels={\mu}, edge length=1.25cm]A{1}$ と $\dynkin[labels={\nu}, edge length=1.25cm]A{1}$ の間には $\sspair{\alpha_\mu}{\alpha_\nu}\sspair{\alpha_\nu}{\alpha_\mu}$ 重辺が存在する．
 		特に $n \ge 2$ 重辺の場合，$\norm*{\alpha_\nu} < \norm*{\alpha_\mu}$（resp. $\norm*{\alpha_\nu} > \norm*{\alpha_\mu}$）ならば辺の上に右（resp. 左）向きの矢印が描かれる．
 	\end{itemize}
 	\tcblower 
@@ -1484,7 +1484,7 @@ $\Delta$ が互いに直交する2つの真部分集合のdisjoint unionに分�
 	\begin{proof}
 		$\forall e \in \mathfrak{U}$ をとり，$\Gamma(e,\, e_j) \neq \emptyset$ を充たす $e_j \in \mathfrak{U}$ 全体の集合を $\{f_1,\, \dots,\, f_k\} \subset \mathfrak{U}$ と書く．
 		このとき $1 \le \forall j \le k$ に対して $\rpair{e}{f_j} < 0$ が成り立つ．
-		さらに補題\ref{lem:classification-step-3}より $\Gamma(f_i)$ たちは非連結なので $1 \le \forall i \neq j \le k$ に対して $\rpair{f_i}{f_j} = 0$ が成り立つ．i.e. $f_i$ たちは直交する．
+		さらに補題\ref{lem:classification-step-3}より $\Gamma(f_i)$ たちは非連結なので $1 \le \forall i \neq j \le k$ に対して $\rpair{f_i}{f_j} = 0$ が成り立つ．i.e. $f_i$ たちは正規直交する．
 
 		$\mathfrak{U}$ は線型独立なので，$\exists f_0 \in \Span_{\mathbb{R}} \{e,\, f_1,\, \dots,\, f_k\} \cap \bigl(\Span_{\mathbb{R}} \{f_1,\, \dots,\, f_k\}\bigr)^\perp \setminus \{0\}$ である．
 		$f_0$ を適当に規格化して単位ベクトルにすることができる． 
@@ -1536,7 +1536,7 @@ $\Delta$ が互いに直交する2つの真部分集合のdisjoint unionに分�
 		\end{align}
 		が成り立つので，$e \coloneqq \sum_{\mu=1}^k e_{i_\mu}$ とおくと
 		\begin{align}
-			\rpair{e}{e} = k + \sum_{\mu < \nu} 2 \rpair{e_{i_\mu}}{e_{i_\nu}} = k - (k - 1)
+			\rpair{e}{e} = k + \sum_{\mu < \nu} 2 \rpair{e_{i_\mu}}{e_{i_\nu}} = k - (k - 1) = 1
 		\end{align}
 		だとわかる．i.e. $e \in \mathfrak{U}'$ は単位ベクトルである．\hyperref[lem:classification-step-3]{\textsf{\textbf{step 3}}}より，$\forall f \in \mathfrak{U}' \setminus \{e\}$ に対して $\Gamma(f)$ は $\Gamma(e_{i_1}),\, \dots,\,\Gamma(e_{i_k})$ の高々1つのみと連結になり得るので，
 		$\rpair{e}{f} = 0$ であるか，$1 \le \exists ! \mu \le k,\; \rpair{e}{f} = \rpair{e_{i_\mu}}{f} \neq 0$ であるかのどちらかである．いずれの場合も $4\rpair{e}{f}^2 \in \{0,\, 1,\, 2,\, 3\}$ なので $\mathfrak{U}'$ は許容できる．
