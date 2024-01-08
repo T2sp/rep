@@ -1,0 +1,563 @@
+\documentclass{ltjsarticle}
+
+%%%%%%%%%%packages%%%%%%%%%%
+%% colors and links
+\usepackage[svgnames]{xcolor}
+\usepackage[colorlinks,citecolor=DarkGreen,linkcolor=DeepPink,linktocpage,unicode]{hyperref} 
+
+%% equations
+%%%% math
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{cancel}
+\usepackage{dsfont}
+\usepackage{stmaryrd}
+%%%% physics
+\usepackage{siunitx}
+\usepackage{physics}
+%%%% chemistry
+\usepackage[version=3]{mhchem}
+
+%% positioning
+\usepackage{array}
+\usepackage{arydshln}
+\usepackage{float}
+
+%% table
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{caption}
+\captionsetup{format=hang}
+\usepackage{subcaption}
+
+%% figure
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{intersections,calc,patterns,through,positioning,arrows,backgrounds,cd,tqft,braids}
+\usepackage{tikz-feynman}
+\usepackage{pgfplots}
+\usepgfplotslibrary{patchplots}
+\pgfplotsset{compat=1.15}
+
+%% decorations
+\usepackage{titlesec}
+\usepackage{picture}
+
+%% framing
+\usepackage{fancybox}
+\usepackage{boites}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,theorems,breakable}
+
+%% citation
+\usepackage{cite}
+
+%% miscellaneous
+%%%% comment
+\usepackage{comment}
+%%%% Japanese
+\usepackage{ascmac}
+\usepackage{listings} %日本語のコメントアウトをする場合jlisting（もしくはjvlisting）が必要
+\lstset{
+    basicstyle={\ttfamily},
+    identifierstyle={\small},
+    commentstyle={\smallitshape},
+    keywordstyle={\small\bfseries},
+    ndkeywordstyle={\small},
+    stringstyle={\small	tfamily},
+    frame={tb},
+    breaklines=true,
+    columns=[l]{fullflexible},
+    numbers=left,
+    xrightmargin=0pt,
+    xleftmargin=27pt,
+    numberstyle={\scriptsize},
+    stepnumber=1,
+    lineskip=-0.5ex
+}
+
+%%macros
+\usepackage{mylogics}
+\usepackage{myalgebra}
+\usepackage{mygeometry}
+\usepackage{myQM}
+
+%%%%%%%%%%optional settings%%%%%%%%%%
+
+%%%%%図表並列%%%%%
+\makeatletter
+\newcommand{\figcaption}[1]{\def\@captype{figure}\caption{#1}}
+\newcommand{\tblcaption}[1]{\def\@captype{table}\caption{#1}}
+\makeatother
+
+%%%%%itemization%%%%%
+\renewcommand{\labelenumi}{\theenumi}
+\renewcommand{\theenumi}{(\arabic{enumi})} % 箇条書きをローマ数字に
+
+%%%%%%theorem environments%%%%%
+\newtheoremstyle{mystyle}%   % スタイル名
+    {}%                      % 上部スペース
+    {}%                      % 下部スペース
+    {\normalfont}%          % 本文フォント
+    {}%                      % インデント量
+    {\bf}%                  % 見出しフォント
+    {.}%                      % 見出し後の句読点
+    {\newline}%                     % 見出し後のスペース
+    {\underline{\thmname{#1}\thmnumber{#2}\thmnote{（#3）}}}%
+    % 見出しの書式 (can be left empty, meaning `normal')
+\theoremstyle{mystyle} % スタイルの適用
+
+\newtheorem{theorem}{定理}[section]
+\newtheorem{definition}{定義}[section]
+\newtheorem{proposition}[definition]{命題}
+\newtheorem{corollary}[theorem]{系}
+\renewcommand{\proofname}{証明}
+
+%proof
+\makeatletter % use at mark
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\renewenvironment{proof}[1][\proofname]{\par
+    \pushQED{\qed}%
+    \normalfont \topsep6\p@\@plus6\p@\relax
+    \trivlist
+    \item[\hskip\labelsep
+        \itshape
+    \textbf{\underline{#1}}]\ignorespaces
+    % {\bf\underline{#1}\@addpunct{.}}]\ignorespaces % ピリオドあり
+}{%
+    \popQED\endtrivlist\@endpefalse
+}
+\makeatother % end at mark
+
+%%%%%%mathtools%%%%%
+\mathtoolsset{showonlyrefs=true} % 被参照数式のみ数式番号割り振り
+\numberwithin{equation}{section}
+
+\makeatletter
+\@addtoreset{equation}{section}
+\makeatother
+
+%%%%%%framing%%%%%
+
+\newtcolorbox[auto counter,number within=section]{myaxiom}[2][]{%
+colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,
+title=公理~\thetcbcounter: #2,#1}
+
+\newtcolorbox[auto counter,number within=section]{mytheo}[2][]{%
+colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,
+title=定理~\thetcbcounter: #2,#1}
+
+\newtcolorbox[auto counter,number within=section]{myprop}[2][]{%
+colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,
+title=命題~\thetcbcounter: #2,#1}
+
+\newtcolorbox[auto counter,number within=section]{mylem}[2][]{%
+colback=blue!5!white,colframe=blue!75!black,fonttitle=\bfseries,
+title=補題~\thetcbcounter: #2,#1}
+
+\newtcolorbox[auto counter,number within=section]{mydef}[2][]{%
+colback=green!5!white,colframe=green!75!black,fonttitle=\bfseries,
+title=定義~\thetcbcounter: #2,#1}
+
+\newtcolorbox[use counter from=mytheo]{mycol}[2][]{%
+fonttitle=\bfseries,enhanced,
+attach boxed title to top left=
+{xshift=-2mm,yshift=-2mm},
+title=系~\thetcbcounter: #2,#1}
+
+\newtcolorbox{marker}[1][breakable]{enhanced,
+  	before skip=2mm,after skip=3mm,
+  	boxrule=0.4pt,left=5mm,right=2mm,top=1mm,bottom=1mm,
+  	colback=yellow!50,
+  	colframe=yellow!20!black,
+  	sharp corners,rounded corners=southeast,arc is angular,arc=3mm,
+  	underlay={%
+  	  	\path[fill=tcbcolback!80!black] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+  	  	\path[draw=tcbcolframe,shorten <=-0.05mm,shorten >=-0.05mm] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+  	  	\path[fill=yellow!50!black,draw=none] (interior.south west) rectangle node[white]{\Huge\bfseries !} ([xshift=4mm]interior.north west);
+  	  	},
+  	drop fuzzy shadow,#1}
+
+
+\newtcolorbox[auto counter, number within=section]{myproblem}[2][]{
+    breakable,
+    % empty,
+    outer arc=0pt,
+    arc=0pt,
+    enhanced,
+    attach boxed title to top left={
+    %     % empty,
+        xshift=-2mm,
+        yshift=-2mm
+    },
+    coltitle=black,
+    colbacktitle=white,
+    colframe=black,
+    colback=white,
+    fonttitle=\bfseries,
+    title=【問題~\thetcbcounter】#2,#1
+}
+\newcommand{\probref}[1]{\textbf{【問題\ref{#1}】}}
+
+
+%%%%%title decorations%%%%%
+
+%% section
+% \titleformat{\section}[block]
+% {}{}{0pt}
+% {
+%     \colorbox{teal}{\begin{picture}(0,20)\end{picture}}
+%     \hspace{0pt}
+%     \normalfont \Huge\bfseries \thesection
+%     \hspace{0.5em}
+% }
+% [
+% \begin{picture}(100,0)
+%     \put(3,30){\color{teal}\line(1,0){400}}
+% \end{picture}
+% \
+% \vspace{-50pt}
+% ]
+
+% % subsection
+% \titleformat{\subsection}[block]
+% {}{}{0pt}
+% {
+%     \colorbox{blue}{\begin{picture}(0,10)\end{picture}}
+%     \hspace{0pt}
+%     \normalfont \Large\bfseries \thesubsection
+%     \hspace{0.5em}
+% }
+% [
+% \begin{picture}(100,0)
+%     \put(3,18){\color{blue}\line(1,0){300}}
+% \end{picture}
+% \
+% \vspace{-30pt}
+% ]
+
+% % subsubsection
+% \titleformat{\subsubsection}[block]
+% {}{}{0pt}
+% {
+%     \normalfont \large\bfseries \thesubsubsection
+%     \hspace{0.5em}
+% }
+% [
+% \begin{picture}(100,0)
+%     \put(3,15){\color{black}\line(1,0){200}}
+% \end{picture}
+% \
+% \vspace{-25pt}
+% ]
+\newcommand{\lto}{\longrightarrow}
+\newcommand{\lmto}{\longmapsto}
+\newcommand{\btl}{\blacktriangleleft}
+\newcommand{\btr}{\blacktriangleright}
+\usepackage{blkarray}
+\DeclarePairedDelimiterX{\sspair}[2]{\llbracket}{\rrbracket}{#1, #2}
+\newcommand{\Euc}[1]{\bigl(\, #1,\, (\;,\,)_{#1}\,\bigr)}
+\newcommand{\Weyl}[2]{\mathscr{W}_{#1}(#2)}
+
+\begin{document}
+
+\title{Humphreys Chapter III Exercises \\ 問題（2024/1/8 実施分）}
+\author{高間俊至}
+\date{\today}
+\maketitle
+
+\setcounter{section}{6}
+
+\cite[p.63, Exercise1, 3]{Humphreys1972introduction}
+% と\cite[p.14, Exercise 2]{Humphreys1972introduction}
+の解答例です．
+
+何の断りもない場合，体 $\mathbb{K}$ は代数閉体でかつ $\character \mathbb{K} = 0$ であるとする．
+% また，$\mathbb{E}$ を有限次元Euclid空間であるとする．
+% また，$\mathfrak{g}$ は\underline{零でない}体 $\mathbb{K}$ 上の\underline{有限次元} Lie代数とする．
+
+% \section{$\Lsl(2)$ の表現論}
+
+% \footnote{Euclid空間と言って位相空間のことを指す場合があるが，そのときは双線型形式 $\rpair{\;}{\,}_{\mathbb{E}}$ を使って $\mathbb{E}$ 上の距離関数を $d_{\mathbb{E}} \colon \mathbb{E} \times \mathbb{E} \lto \mathbb{R}_{\ge 0},\; (x,\, y) \lmto \rpair{x-y}{x-y}_{\mathbb{E}}$ と定義し（これは通常\textbf{Euclid距離}と呼ばれる），$\mathbb{E}$ に $d_{\mathbb{E}}$ による距離位相を入れる．}．
+Euclid空間 $\Euc{\mathbb{E}}$ の任意の元 $\alpha \in \mathbb{E}$ に対して，
+\begin{itemize}
+    \item \textbf{鏡映面} (reflecting hyperplane)\footnote{余次元 $1$ の部分 $\mathbb{R}$-ベクトル空間．最右辺は\hyperref[def:radical-bilinear]{対称かつ非退化な双線型形式 $(\;,\,)_{\mathbb{E}}$ による直交補空間}の意味である．}
+    \begin{align}
+        \label{def:hyperplane}
+        \bm{P_\alpha} \coloneqq \bigl\{\, \beta \in \mathbb{E} \bigm| \rpair{\beta}{\alpha}_{\mathbb{E}} = 0 \,\bigr\} = (\mathbb{R}\alpha)^\perp
+    \end{align}
+    \item 鏡映面 $P_\alpha$ に関する\textbf{鏡映} (reflecting)
+    \begin{align}
+        \bm{\sigma_\alpha} \colon \mathbb{E} \lto \mathbb{E},\; \beta \lmto \beta - 2 \frac{\rpair{\beta}{\alpha}_{\mathbb{E}}}{\rpair{\alpha}{\alpha}_{\mathbb{E}}} \alpha
+    \end{align}
+\end{itemize}
+を考える．
+
+\begin{marker}
+    $2 \frac{(\beta,\, \alpha)}{(\alpha,\, \alpha)} \in \mathbb{R}$ が頻繁に登場するので，
+    \begin{align}
+		\sspair{\beta}{\alpha} \coloneqq 2\frac{(\beta,\, \alpha)_{\mathbb{E}}}{(\alpha,\, \alpha)_{\mathbb{E}}}
+	\end{align}
+	と略記することにする．写像 $\sspair{\;}{\,} \colon \mathbb{E} \times \mathbb{E} \lto \mathbb{R}$ は記号的には内積のように見えるかもしれないが，あくまで第一引数についてのみ線型なのであって，\underline{対称でも双線型でもない}ことに注意．
+\end{marker}
+
+\begin{myaxiom}[label=ax:root-system,breakable]{ルート系}
+	\begin{itemize}
+		\item 有限次元Euclid空間 $\Euc{\mathbb{E}}$ 
+		\item $\mathbb{E}$ の部分集合 $\Phi \subset \mathbb{E}$
+	\end{itemize}
+	の組 $(\mathbb{E},\, \Phi)$ が\textbf{ルート系} (root system) であるとは，以下の条件を充たすことを言う：
+	\begin{description}
+		\item[\textbf{(Root-1)}] $\Phi$ は $0$ を含まない有限集合で，かつ $\mathbb{E} = \Span_{\mathbb{R}} \Phi$ を充たす．
+		\item[\textbf{(Root-2)}] $\lambda \alpha \in \Phi \IMP \lambda = \pm 1$
+		\item[\textbf{(Root-3)}] $\alpha,\, \beta \in \Phi \IMP \sigma_\alpha(\beta) \in \Phi$
+		\item[\textbf{(Root-4)}] $\alpha,\, \beta \in \Phi \IMP \sspair{\beta}{\alpha} \in \mathbb{Z}$
+	\end{description}
+	\tcblower
+	$\Phi$ の元のことを\textbf{ルート} (root) と呼ぶ．
+\end{myaxiom}
+
+
+\begin{mydef}[label=def:Weylgroup]{Weyl群}
+	$(\mathbb{E},\, \Phi)$ を\hyperref[ax:root-system]{ルート系}とする．
+	$\LGL (\mathbb{E})$ の部分集合 $\bigl\{\, \sigma_\alpha \in \LGL(\mathbb{E}) \bigm| \alpha \in \Phi \,\bigr\}$ が生成する $\LGL(\mathbb{E})$ の部分群のことをルート系 $(\mathbb{E},\, \Phi)$ の\textbf{Weyl群} (Weyl group) と呼び，$\bm{\Weyl{\mathbb{E}}{\Phi}}$ と書く．
+	
+	% \tcblower
+	
+	% $\forall \sigma \in \mathscr{W}$ に対して，
+	% \begin{align}
+	% 	\bm{\len (\sigma)} \coloneqq \min \bigl\{\, t \in \mathbb{Z}_{\ge 0} \bigm| \sigma = \sigma_{\alpha_1} \circ \cdots\circ \sigma_{\alpha_t} \WHERE \alpha_i \in \Phi \,\bigr\} 
+	% \end{align}
+	% を $\sigma$ の\textbf{長さ} (length) と呼ぶ．ただし $\len (\mathrm{id}_{\mathbb{E}}) \coloneqq 0$ と定義する．
+\end{mydef}
+
+\begin{mydef}[label=def:dual-root]{双対ルート系}
+	\hyperref[ax:root-system]{ルート系} $(\mathbb{E},\, \Phi)$ に対して
+	\begin{align}
+		\bm{\Phi^{\vee}} \coloneqq \biggl\{\, \frac{2}{(\alpha,\, \alpha)} \alpha \in \mathbb{E} \biggm| \alpha \in \Phi \,\biggr\} 
+	\end{align}
+	とおき，組 $\bm{(\mathbb{E},\, \Phi^\vee)}$ のことを $(\mathbb{E},\, \Phi)$ の\textbf{双対ルート系} (dual root system) と呼ぶ．
+	
+	\tcblower
+	
+	$\alpha \in \Phi$ に対して
+	\begin{align}
+		\bm{\alpha^\vee} \coloneqq \frac{2}{(\alpha,\, \alpha)} \alpha \in \Phi^\vee
+	\end{align}
+	と書く．
+\end{mydef}
+
+\begin{myproblem}[label=ex:3-9-2]{p.46 の Exercise 2}
+    % \setcounter{\tcbcounter}{7}
+    \begin{enumerate}
+        \item ルート系 $\Phi$ を与えたとき，$\Phi$ の\hyperref[def:dual-root]{双対ルート系} $\Phi^\vee$ もまたルート系であることを示せ．
+        \item $\Phi^\vee$ のWeyl群は $\Phi$ のWeyl群と同型であることを示せ．
+        \item $\sspair{\alpha^\vee}{\beta^\vee} = \sspair{\beta}{\alpha}$ を示せ．
+    \end{enumerate}
+\end{myproblem}
+
+
+\begin{myproblem}[label=ex:3-sp]{}
+    ノートでは分類定理の $A_l,\, B_l,\, C_l,\, D_l$ 型の $l$ に条件をつけたが，これは $l$ が小さいところでは同型があるからである．
+    この同型をできるだけ多く見つけてみよう．
+\end{myproblem}
+
+\begin{myproblem}[label=ex:3-11-1]{p.63 の Exercise 1}
+    Dynkin図形からCartan行列を復元せよ．
+\end{myproblem}
+
+\begin{myproblem}[label=ex:3-11-3]{p.63 の Exercise 3}
+    % \setcounter{\tcbcounter}{7}
+    $G_2$ のCartan行列から $G_2$ のルート系を復元し，\cite[p.44]{Humphreys1972introduction}の図と整合しているかどうか確認せよ．
+\end{myproblem}
+
+\begin{myproblem}[label=ex:3-11-5]{p.63 の Exercise 5}
+    % \setcounter{\tcbcounter}{7}
+    \begin{enumerate}
+        \item 
+        $B_l,\, C_l$ 以外の既約なルート系はその\hyperref[def:dual-root]{双対ルート系}とルート系として同型であることを示せ．
+        \item 
+        $B_l,\, C_l$ は互いに双対ルート系であることを示せ．
+    \end{enumerate}
+\end{myproblem}
+
+
+% $1 \le \forall i \le l$ に対して定義できる写像
+% \begin{align}
+%     \varepsilon^i \colon \mathfrak{h} \lto \mathbb{K},\; \mqty[\dmat{\lambda_1,\ddots,\lambda_{l},-\lambda_{1},\ddots,-\lambda_{l}}] \lmto \lambda_i
+% \end{align}
+% は $\mathbb{K}$-線型写像なので，$\varepsilon^i \in \mathfrak{h}^*$ である．
+
+% $\forall h = \mqty[\dmat{h_1,\ddots,h_{l},-h_{1},\ddots,-h_{l}}] \in \mathfrak{h}$ に対して，
+% $1 \le i \neq j \le l$ ならば
+% \begin{align}
+%     \ad(h)(e_{l+i,j}) &= -(h_i + h_j) e_{l+i,j} = -\bigl(\varepsilon^i(h) + \varepsilon^j(h)\bigr)\, e_{l+i,j}, \\
+%     \ad(h)(e_{i,l+j}) &= (h_i + h_j) e_{i,l+j} = \bigl(\varepsilon^i(h) + \varepsilon^j(h)\bigr)\, e_{i,l+j}, \\
+%     \ad(h)(e_{i,j}) &= - \ad(h)(e_{l+i,l+j}) = (h_i - h_j) e_{i,j} = \bigl(\varepsilon^i(h) - \varepsilon^j(h)\bigr)\,e_{i,j}
+% \end{align}
+% が成り立つので，
+% \begin{align}
+%     \ad(h)(e_{l+i,j} - e_{l+j,i}) &= -(\varepsilon^i + \varepsilon^j)(h)\, (e_{l+i,j} - e_{l+j,i}), \\
+%     \ad(h)(e_{i,l+j} - e_{j,l+i}) &= (\varepsilon^i + \varepsilon^j)(h)\, (e_{i,l+j} - e_{j,l+i}), \\
+%     \ad(h)(e_{i,j} - e_{l+j,l+i}) &= (\varepsilon^i - \varepsilon^j)(h)\, (e_{i,j} - e_{l+j,l+i})
+% \end{align}
+% がわかった．故に
+% % $\alpha^{\pm}_{ij} \in \mathfrak{h}^*$ を
+% % \begin{align}
+% %     \alpha^+_{ij}(h) &\coloneqq h_i + h_j \\
+% %     \alpha^-_{ij}(h) &\coloneqq h_i - h_j
+% % \end{align}
+% % と定義すれば
+% \begin{align}
+%     D_l
+%     &\coloneqq 
+%     \bigl\{\, \varepsilon^i + \varepsilon^j \in \mathfrak{h}^* \setminus \{0\} \bigm| 1 \le i \neq j \le l \,\bigr\} \\
+%     &\quad \cup \bigl\{\, \varepsilon^i - \varepsilon^j \in \mathfrak{h}^* \setminus \{0\} \bigm| 1 \le i \neq j \le l \,\bigr\} \\
+%     &= \bigl\{\, \pm \varepsilon^i \pm \varepsilon^j \in \mathfrak{h}^* \setminus \{0\} \bigm| 1 \le i < j \le l \,\bigr\}
+% \end{align}
+% がルート系となる．ただし最右辺は複号任意である．
+% 実際 $i < j$ ならば
+% \begin{align}
+%     \mathfrak{g}_{-\varepsilon^i-\varepsilon^j} &= \mathbb{K}(e_{l+i,j} - e_{l+j,i}), \\
+%     \mathfrak{g}_{\varepsilon^i+\varepsilon^j} &= \mathbb{K}(e_{i,l+j} - e_{j,l+i}) \\
+%     \mathfrak{g}_{\varepsilon^i-\varepsilon^j} &= \mathbb{K}(e_{i,j} - e_{l+j,l+i}) \\
+%     \mathfrak{g}_{-\varepsilon^i+\varepsilon^j} &= \mathbb{K}(e_{j,i} - e_{l+i,l+j})
+% \end{align}
+% なので，$D_l$ 型の基底の取り方からルート空間分解
+% \begin{align}
+%     \mathfrak{g} = \mathfrak{h} \oplus \bigoplus_{\alpha \in D_l} \mathfrak{g}_{\alpha}
+% \end{align}
+% が再現される．
+
+% \begin{myproblem}[label=ex:2-8-2C]{p.40 の Exercise 2}
+%     % \setcounter{\tcbcounter}{7}
+%     $\mathfrak{g}$ を $C_l$ 型Lie代数とする．
+%     極大トーラス
+%     \begin{align}
+%         \mathfrak{h} \coloneqq \Biggl\{\, \mqty[\dmat{\lambda_1,\ddots,\lambda_{l},-\lambda_{1},\ddots,-\lambda_{l}}] \in \Mat{2l}{\mathbb{K}} \,\Biggr\} 
+%     \end{align}
+%     に付随するルート系を求めよ．
+% \end{myproblem}
+
+
+% $1 \le \forall i \le l$ に対して定義できる写像
+% \begin{align}
+%     \varepsilon^i \colon \mathfrak{h} \lto \mathbb{K},\; \mqty[\dmat{\lambda_1,\ddots,\lambda_{l},-\lambda_{1},\ddots,-\lambda_{l}}] \lmto \lambda_i
+% \end{align}
+% は $\mathbb{K}$-線型写像なので，$\varepsilon^i \in \mathfrak{h}^*$ である．
+% $\forall h = \mqty[\dmat{h_1,\ddots,h_{l},-h_{1},\ddots,-h_{l}}] \in \mathfrak{h}$ に対して，
+% $1 \le i \neq j \le l$ ならば
+% \begin{align}
+%     \ad(h)(e_{l+i,i}) &= -2h_i e_{l+i,i} = -2\varepsilon^i(h)\, e_{l+i,i}, \\
+%     \ad(h)(e_{l+i,j}) &= -(h_i + h_j) e_{l+i,j} = - \bigl( \varepsilon^i(h) + \varepsilon^j(h) \bigr)\, e_{l+i,j} , \\
+%     \ad(h)(e_{i,l+i}) &= 2h_i e_{i,l+i} = 2\varepsilon^i(h)\, e_{i,l+i}, \\
+%     \ad(h)(e_{i,l+j}) &= (h_i + h_j) e_{i,l+j} = \bigl( \varepsilon^i(h) + \varepsilon^j(h) \bigr)\, e_{i,l+j}, \\
+%     \ad(h)(e_{i,j}) &= - \ad(h)(e_{l+i,l+j}) = (h_i - h_j) e_{i,j} = \bigl( \varepsilon^i(h) - \varepsilon^j(h) \bigr)\, e_{i,j}
+% \end{align}
+% が成り立つので，
+% \begin{align}
+%     \ad(h)(e_{l+i,i}) &= -2\varepsilon^i(h)\, e_{l+i,i}, \\
+%     \ad(h)(e_{l+i,j} + e_{l+j,i}) &= -(\varepsilon^i + \varepsilon^j)(h)\, (e_{l+i,j} + e_{l+j,i}), \\
+%     \ad(h)(e_{i,l+j} + e_{j,l+i}) &= (\varepsilon^i + \varepsilon^j)(h)\, (e_{i,l+j} + e_{j,l+i}), \\
+%     \ad(h)(e_{i,j} - e_{l+j,l+i}) &= (\varepsilon^i - \varepsilon^j)(h)\, (e_{i,j} - e_{l+j,l+i})
+% \end{align}
+% がわかった．故に
+% % $\alpha_{i} \in \mathfrak{h}^*$ を
+% % \begin{align}
+% %     \alpha_{i}(h) &\coloneqq 2h_i \\
+% % \end{align}
+% % と定義すれば
+% \begin{align}
+%     C_l
+%     &\coloneqq D_l \cup \bigl\{\, \pm 2\varepsilon^i \in \mathfrak{h}^* \setminus \{0\}\bigm| 1 \le i \le l \,\bigr\}
+% \end{align}
+% がルート系となる．
+
+% \begin{myproblem}[label=ex:2-8-2B]{p.40 の Exercise 2}
+%     % \setcounter{\tcbcounter}{7}
+%     $\mathfrak{g}$ を $B_l$ 型Lie代数とする．
+%     極大トーラス
+%     \begin{align}
+%         \mathfrak{h} \coloneqq \Biggl\{\, \mqty[\dmat{0,\lambda_1,\ddots,\lambda_{l},-\lambda_{1},\ddots,-\lambda_{l}}] \in \Mat{2l+1}{\mathbb{K}} \,\Biggr\} 
+%     \end{align}
+%     に付随するルート系を求めよ．
+% \end{myproblem}
+
+% $1 \le \forall i \le l$ に対して定義できる写像
+% \begin{align}
+%     \varepsilon^i \colon \mathfrak{h} \lto \mathbb{K},\; \mqty[\dmat{0,\lambda_1,\ddots,\lambda_{l},-\lambda_{1},\ddots,-\lambda_{l}}] \lmto \lambda_i
+% \end{align}
+% は $\mathbb{K}$-線型写像なので，$\varepsilon^i \in \mathfrak{h}^*$ である．
+% $\forall h = \mqty[\dmat{0,h_1,\ddots,h_{l},-h_{1},\ddots,-h_{l}}] \in \mathfrak{h}$ に対して，
+% $1 \le i \neq j \le l$ ならば
+% \begin{align}
+%     \ad(h)(e_{1+i,1}) &= h_i e_{1,1+i} = \varepsilon^i(h)\, e_{1,1+i}, \\
+%     \ad(h)(e_{1,1+i}) &= -h_i e_{1,1+i} = -\varepsilon^i(h)\, e_{1,1+i}, \\
+%     \ad(h)(e_{1+l+i,1}) &= -h_i e_{1+l+i,1} = -\varepsilon^i(h)\, e_{1+l+i,1}, \\
+%     \ad(h)(e_{1,1+l+i}) &= h_i e_{1,1+l+i} = \varepsilon^i(h)\, e_{1,1+l+i}, \\
+%     \ad(h)(e_{1+l+i,1+j}) &= -(h_i + h_j) e_{1+l+i,1+j} = -\bigl( \varepsilon^i(h) + \varepsilon^j(h) \bigr)\, e_{1+l+i,1+j} , \\
+%     \ad(h)(e_{1+i,1+l+j}) &= (h_i + h_j) e_{1+i,1+l+j} = \bigl( \varepsilon^i(h) + \varepsilon^j(h) \bigr)\,  e_{1+i,1+l+j}, \\
+%     \ad(h)(e_{1+i,1+j}) &= - \ad(h)(e_{1+l+i,1+l+j}) = (h_i - h_j) e_{i,j} = \bigl( \varepsilon^i(h) - \varepsilon^j(h) \bigr)\, e_{i,j}
+% \end{align}
+% が成り立つので，
+% \begin{align}
+%     \ad(h)(e_{1,1+i} - e_{1+l+i,1}) &= -\varepsilon^i(h)\, (e_{1,1+i} - e_{1+l+i,1}), \\
+%     \ad(h)(e_{1+i,1} - e_{1,1+l+i}) &= \varepsilon^i(h)\,(e_{1+i,1} - e_{1,1+l+i}), \\
+%     \ad(h)(e_{1+l+i,1+j} + e_{1+l+j,1+i}) &= -(\varepsilon^i + \varepsilon^j)(h)\, (e_{1+l+i,1+j} + e_{1+l+j,1+i}), \\
+%     \ad(h)(e_{1+i,1+l+j} + e_{1+j,1+l+i}) &= (\varepsilon^i + \varepsilon^j)(h)\, (e_{1+i,1+l+j} + e_{1+j,1+l+i}), \\
+%     \ad(h)(e_{1+i,1+j} - e_{1+l+j,1+l+i}) &= (\varepsilon^i - \varepsilon^j)(h)\, (e_{1+i,1+j} - e_{1+l+j,1+l+i})
+% \end{align}
+% がわかった．故に
+% % $\beta_{i} \in \mathfrak{h}^*$ を
+% % \begin{align}
+% %     \beta_{i}(h) &\coloneqq h_i \\
+% % \end{align}
+% % と定義すれば
+% \begin{align}
+%     B_l
+%     &\coloneqq D_l \cup \bigl\{\, \pm \varepsilon^i \in \mathfrak{h}^* \setminus \{0\}\bigm| 1 \le i \le l \,\bigr\}
+% \end{align}
+% がルート系となる．
+
+% \begin{myproblem}[label=ex:2-8-10B]{p.40 の Exercise 10}
+%     % \setcounter{\tcbcounter}{7}
+%     $4,\, 5,\, 7$ 次元の半単純Lie代数が存在しないことを示せ
+% \end{myproblem}
+
+% \begin{proof}
+%     半単純Lie代数 $\mathfrak{g}$ とその極大トーラス $\mathfrak{h} \subset \mathfrak{g}$ をとる．
+%     $\mathfrak{h} \neq 0$ なので $\dim \mathfrak{h} > 0$ である．
+%     このときルート空間分解
+%     \begin{align}
+%         \mathfrak{g} = \mathfrak{h} \oplus \bigoplus_{\alpha \in \Phi} \mathfrak{g}_\alpha
+%     \end{align}
+%     が成り立つ．
+
+%     ところで，$\alpha \in \Phi \IMP -\alpha \in \Phi$ かつ $\forall \alpha \in \Phi$ に対して $\dim \mathfrak{g}_\alpha = 1$ なのである整数 $k$ が存在して
+%     \begin{align}
+%         0 < \dim \mathfrak{h} = \dim \mathfrak{g} - \sum_{\alpha \in \Phi} \dim \mathfrak{g}_\alpha = \dim \mathfrak{g} - 2k
+%     \end{align}
+%     と書ける．一方で $\mathfrak{h}^* = \Span_{\mathbb{K}} \Phi = \Span_{\mathbb{K}} \{\pm \alpha_1,\, \dots,\, \pm\alpha_k\}$ であるから $\dim \mathfrak{h} = \dim \mathfrak{h}^* \le k$ である．よって
+%     \begin{align}
+%         \frac{1}{3} \dim \mathfrak{g} \le k < \frac{1}{2} \dim \mathfrak{g}
+%     \end{align}
+%     が成り立たねばならない．
+%     \begin{itemize}
+%         \item $\dim \mathfrak{g} = 4$ だとすると $k \notin \mathbb{Z}$ となり矛盾．
+%         \item $\dim \mathfrak{g} = 5$ だとすると $k=2$ に確定する．このとき $\pm \alpha_1 \neq \pm \alpha_2$（複合任意）を充たす $\alpha_1,\, \alpha_2 \in \Phi$ が取れるが，$\dim \mathfrak{h} = \dim \mathfrak{h}^* = 1$ となるのである $\lambda \in \mathbb{K}$ が存在して $\alpha_2 = \lambda \alpha_1$ と書ける．
+%         すると $\lambda \alpha_1 \in \Phi$ なので $\lambda = \pm 1$ のどちらかでなくてはいけず，$\pm \alpha_1 \neq \pm\alpha_2$ に矛盾する．
+%         \item $\dim \mathfrak{g} = 7$ だとすると $k=3$ に確定する．すると $\dim \mathfrak{h} = \dim \mathfrak{h}^* = 1$ となり $\dim \mathfrak{g} = 5$ のときと同様の議論から矛盾する．
+%     \end{itemize}
+%     よって背理法から $\dim \mathfrak{g} \neq 4,\, 5,\, 7$ が示された．
+% \end{proof}
+
+
+%参考文献のスタイル（style.bstを参照）
+\bibliographystyle{myh-physrev}
+%参考文献（reference.bibを参照）
+\bibliography{repref}
+
+\end{document}
