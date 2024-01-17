@@ -1,0 +1,34 @@
+\newcommand{\relmiddle}[1]{\mathrel{} \middle#1 \mathrel{}}
+\newcommand{\FRAC}[2]{\leavevmode\kern.1em 
+    \raise.5ex\hbox{\the\scriptfont0 #1}\kern-.1em
+    /\kern-.15em\lower.25ex\hbox{\the\scriptfont0 #2}}
+\newcommand{\transpose}[1]{#1^{\mathsf{T}}}
+\newcommand{\iunit}{\mathrm{i}}
+\newcommand{\Identity}[1]{\mathrm{id}_{#1}}
+\newcommand{\const}{\mathrm{const.}}
+\newcommand{\irm}[2]{#1{}_{\mathrm{#2}}}
+\newcommand{\uirm}[2]{#1{}^{\mathrm{#2}}}
+\newcommand{\AND}{\mathrel{} \text{かつ} \mathrel{}}
+\newcommand{\OR}{\mathrel{} \text{または} \mathrel{}}
+\newcommand{\IFF}{\quad \Longleftrightarrow \quad}
+\newcommand{\IMP}{\quad \Longrightarrow \quad}
+\newcommand{\MIP}{\quad \Longleftarrow \quad}
+\newcommand{\WHERE}{\mathrel{} {}^{\mathrm{w}/} \mathrel{}}
+\newcommand{\IE}{\quad \mathrm{i.e.} \quad}
+\newcommand{\ST}{\mathrel{} \mathrm{s.t.} \mathrel}
+\newcommand{\Map}[2]{\mathrm{Map}(#1,\, #2)}
+\newcommand{\DEF}{\quad\stackrel{\mathrm{def}}{\Longleftrightarrow}\quad}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\arcosh}{arcosh}
+\DeclareMathOperator{\artanh}{artanh}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Card}{Card}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclarePairedDelimiter{\floorf}{\lfloor}{\rfloor}
+\DeclarePairedDelimiter{\ceilf}{\lceil}{\rceil}
+\DeclarePairedDelimiterX{\rpair}[2]{\lparen}{\rparen}{#1, #2}
+\DeclarePairedDelimiterX{\apair}[2]{\langle}{\rangle}{#1, #2}
+\DeclarePairedDelimiterXPP{\Familyset}[2]{}{\lbrace}{\rbrace}{_{#2}}{#1}
+\DeclarePairedDelimiterXPP{\Dpmember}[2]{}{\lparen}{\rparen}{_{#2}}{#1}
+\DeclarePairedDelimiterXPP{\Rstr}[2]{}{.}{|}{_{#2}}{#1}
