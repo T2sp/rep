@@ -419,7 +419,7 @@ $\sigma_\alpha$ は $\mathbb{R}$-線型でかつ $\forall \beta \in \mathbb{E}$ 
 		\item $\Delta$ の元のことを\textbf{単純ルート} (simple root) と呼ぶ．
 		\item $\beta = \sum_{\alpha \in \Delta} \beta_\alpha \alpha \in \Phi$ に対して
 		\begin{align}
-			\bm{\hight \beta} \coloneqq \sum_{\alpha \in \Delta} \beta_\alpha \in \mathbb{Z}
+			\bm{\height \beta} \coloneqq \sum_{\alpha \in \Delta} \beta_\alpha \in \mathbb{Z}
 		\end{align}
 		と定義し，底 $\Delta$ に関するルート $\beta$ の\textbf{高さ} (height) と呼ぶ． 
 		\item $\beta = \sum_{\alpha \in \Delta} \beta_\alpha \alpha \in \Phi$ が\textbf{正}（resp. \textbf{負}）であるとは，$\forall \alpha \in \Delta,\; \beta_\alpha \ge 0$ （resp. $\forall \alpha \in \Delta,\; \beta_\alpha \le 0$）が成り立つことを言い，$\bm{\beta \succ 0}$（resp. $\bm{\beta \prec 0}$）と書く\footnote{\LaTeX コマンドは $\succ$ が \texttt{\textbackslash succ} ， $\prec$ が \texttt{\textbackslash prec} である．}．
@@ -713,10 +713,10 @@ $\gamma$ が正則ならば $\forall \alpha \in \Phi$ に対して $\rpair{\gamm
 
 \begin{proof}
 	仮定より $\Familyset[\big]{\beta_\gamma}{\gamma \in \Delta} \in \prod_{\gamma \in \Delta} \mathbb{Z}_{\ge 0}$ が一意的に存在して $\beta = \sum_{\gamma \in \Delta} \beta_\gamma \gamma$ と書ける．
-	$\hight \beta$ に関する数学的帰納法により示す．$\hight \beta = 1$ のときは $\beta \in \Delta \subset \Phi$ なので明らか．
+	$\height \beta$ に関する数学的帰納法により示す．$\height \beta = 1$ のときは $\beta \in \Delta \subset \Phi$ なので明らか．
 
-	$\hight \beta > 1$ とする．このとき $\beta \notin \Delta$ である．
-	% もしこのような $\gamma \in \Delta$ がただ1つならば $\beta = \hight \beta \gamma \in \Phi$ と言うことになり\hyperref[ax:root-system]{\textsf{\textbf{(Root-2)}}}に矛盾．よって $\beta \notin \Delta$ である．
+	$\height \beta > 1$ とする．このとき $\beta \notin \Delta$ である．
+	% もしこのような $\gamma \in \Delta$ がただ1つならば $\beta = \height \beta \gamma \in \Phi$ と言うことになり\hyperref[ax:root-system]{\textsf{\textbf{(Root-2)}}}に矛盾．よって $\beta \notin \Delta$ である．
 	従って補題\ref{lem:simpleroot-A}が使えて $\beta - \gamma \in \Phi^+$ となる．よって帰納法の仮定から示された．
 \end{proof}
 
@@ -1010,7 +1010,7 @@ $\gamma$ が正則ならば $\forall \alpha \in \Phi$ に対して $\rpair{\gamm
 	\hyperref[ax:root-system]{ルート系} $(\mathbb{E},\, \Phi)$ を与え，$\Phi$ の\hyperref[def:base-root]{底} $\Delta$ を任意にとる．
 
 	このとき $\Phi$ が\hyperref[def:irr-root]{既約}ならば，\hyperref[def:base-root]{半順序 $\prec$} に関して $\Phi$ は唯一の極大元 $\beta_0 \in \Phi$ を持つ
-	\footnote{i.e. $\forall \alpha \in \Phi,\;\alpha \neq \beta_0 \IMP \hight \alpha < \hight \beta_0$．さらに，$\forall \alpha \in \Delta,\; \rpair{\beta_0}{\alpha} \ge 0$}
+	\footnote{i.e. $\forall \alpha \in \Phi,\;\alpha \neq \beta_0 \IMP \height \alpha < \height \beta_0$．さらに，$\forall \alpha \in \Delta,\; \rpair{\beta_0}{\alpha} \ge 0$}
 	．特に $\beta_0 = \sum_{\alpha \in \Delta} k_\alpha \alpha$ と書いたときに $\forall \alpha \in \Delta,\; k_\alpha \; \textcolor{red}{>}\; 0$ である．
 \end{mylem}
 
@@ -1202,8 +1202,8 @@ $\Delta = \{\alpha_1,\, \dots,\, \alpha_l\}$ と書こう．
 		\bigl\{\, \alpha_\mu + \lambda \alpha_\nu \bigm| 0 \le \lambda \le -\sspair{\alpha_\mu}{\alpha_\nu} \,\bigr\} \subset \Phi
 	\end{align}
 	と求まる．
-	\item (1) を全ての $1 \le \mu \neq \nu \le l$ について繰り返せば，\hyperref[def:base-root]{高さ} $2$ のルート全体の集合 $\Phi_{\hight = 2} \coloneqq \bigl\{\, \alpha \in \Phi \bigm| \hight \alpha = 2\,\bigr\}$ が求まる．このとき $\forall \alpha_\mu \in \Delta,\; \forall \alpha \in \Phi_{\hight = 2}$ に対して $\sspair{\alpha}{\alpha_\mu} \in \mathbb{Z}$ を計算しておく．
-	\item $\forall \alpha_\mu \in \Delta$ および $\forall \alpha \in \Phi_{\hight = 2}$ に対して，補題\ref{lem:base}から
+	\item (1) を全ての $1 \le \mu \neq \nu \le l$ について繰り返せば，\hyperref[def:base-root]{高さ} $2$ のルート全体の集合 $\Phi_{\height = 2} \coloneqq \bigl\{\, \alpha \in \Phi \bigm| \height \alpha = 2\,\bigr\}$ が求まる．このとき $\forall \alpha_\mu \in \Delta,\; \forall \alpha \in \Phi_{\height = 2}$ に対して $\sspair{\alpha}{\alpha_\mu} \in \mathbb{Z}$ を計算しておく．
+	\item $\forall \alpha_\mu \in \Delta$ および $\forall \alpha \in \Phi_{\height = 2}$ に対して，補題\ref{lem:base}から
 	\begin{align}
 		r \coloneqq \max \bigl\{\, \lambda \in \mathbb{Z}_{\ge 0} \bigm| \alpha - \lambda \alpha_\mu \in \Phi \,\bigr\} = 0,\, 1
 	\end{align}
@@ -1212,7 +1212,7 @@ $\Delta = \{\alpha_1,\, \dots,\, \alpha_l\}$ と書こう．
 		\bigl\{\, \alpha + \lambda \alpha_\mu \bigm| -r \le \lambda \le r-\rpair{\alpha}{\alpha_\mu} \,\bigr\} \subset \Phi
 	\end{align}
 	と求まる．
-	\item (3) を全ての $1 \le \mu \neq \nu \le l$ について繰り返せば，\hyperref[def:base-root]{高さ} $3$ のルート全体の集合 $\Phi_{\hight = 3} \coloneqq \bigl\{\, \alpha \in \Phi \bigm| \hight \alpha = 3\,\bigr\}$ が求まる．このとき $\forall \alpha_\mu \in \Delta,\; \forall \alpha \in \Phi_{\hight = 3}$ に対して $\sspair{\alpha}{\alpha_\mu} \in \mathbb{Z}$ を計算しておく．
+	\item (3) を全ての $1 \le \mu \neq \nu \le l$ について繰り返せば，\hyperref[def:base-root]{高さ} $3$ のルート全体の集合 $\Phi_{\height = 3} \coloneqq \bigl\{\, \alpha \in \Phi \bigm| \height \alpha = 3\,\bigr\}$ が求まる．このとき $\forall \alpha_\mu \in \Delta,\; \forall \alpha \in \Phi_{\height = 3}$ に対して $\sspair{\alpha}{\alpha_\mu} \in \mathbb{Z}$ を計算しておく．
 	\item 補題\ref{lem:simpleroot-A}より任意の\hyperref[def:base-root]{正ルート} $\alpha$ は正ルートと単純ルートの和の形で書けるので，(1)-(4) までの手順を十分な回数繰り返せば全ての正ルートが得られる．
 \end{enumerate}
 

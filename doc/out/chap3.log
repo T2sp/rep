@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.29)  26 DEC 2023 23:53
+This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.29)  17 JAN 2024 13:11
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/takamatoshinori/Desktop/Seminors/rep/doc/chap3.tex
@@ -1278,7 +1278,7 @@ Package: luatexbase-cctb 2015/10/04 v1.3 luatexbase interface to LuaTeX (legacy 
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 \lst@WFtoken=\toks70
 \lst@WF=\write6
-)) (/Users/takamatoshinori/Library/texmf/tex/latex/mylogics/mylogics.sty) (/Users/takamatoshinori/Library/texmf/tex/latex/myalgebra/myalgebra.sty) (/Users/takamatoshinori/Library/texmf/tex/latex/mygeometry/mygeometry.sty) (/Users/takamatoshinori/Library/texmf/tex/latex/myQM/myQM.sty)
+)) (./mylogics.sty) (./myalgebra.sty) (./mygeometry.sty) (/Users/takamatoshinori/Library/texmf/tex/latex/myQM/myQM.sty)
 \c@theorem=\count435
 \c@definition=\count436
 \c@tcb@cnt@myaxiom=\count437
@@ -1635,12 +1635,12 @@ Package rerunfilecheck Info: File `chap3.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 57912 strings out of 478285
+ 57911 strings out of 478285
  477794,1977958 words of node,token memory allocated
  17332 words of node memory still in use:
    27 hlist, 2 vlist, 13 rule, 26 glue, 4 kern, 1 glyph, 7365 attribute, 63 glue_spec, 695 attribute_list, 2 write, 30 user_defined, 16 pdf_literal, 1 pdf_action, 16 pdf_colorstack nodes
    avail lists: 1:35,2:126597,3:6048,4:3547,5:493,6:67,7:7702,8:148,9:3533,10:25,11:46
- 75858 multiletter control sequences out of 65536+600000
+ 75857 multiletter control sequences out of 65536+600000
  124 fonts using 76202247 bytes
  138i,22n,131p,1815b,1729s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
