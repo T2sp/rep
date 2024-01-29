@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.29)  16 DEC 2023 11:49
+This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.3.29)  29 JAN 2024 22:41
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/takamatoshinori/Desktop/Seminors/rep/doc/chap2.tex
@@ -1034,7 +1034,72 @@ File: pgflibrarygraphdrawing.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@gd@edge@box=\box100
 \pgf@gd@prekind@box=\box101
 \pgf@gd@postkind@box=\box102
-)) (/usr/local/texlive/2023/texmf-dist/tex/latex/tikz-feynman/tikzfeynman.keys.code.tex))) (/usr/local/texlive/2023/texmf-dist/tex/latex/pgfplots/pgfplots.sty (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+)) (/usr/local/texlive/2023/texmf-dist/tex/latex/tikz-feynman/tikzfeynman.keys.code.tex))) (/usr/local/texlive/2023/texmf-dist/tex/latex/dynkin-diagrams/dynkin-diagrams.sty
+Package: dynkin-diagrams 2021/04/04 Dynkin diagrams
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/xstring/xstring.sty (/usr/local/texlive/2023/texmf-dist/tex/generic/xstring/xstring.tex
+\integerpart=\count367
+\decimalpart=\count368
+)
+Package: xstring 2023/01/14 v1.85 String manipulations (CT)
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfit.code.tex
+File: tikzlibraryfit.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshadows.code.tex
+File: tikzlibraryshadows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfadings.code.tex
+File: tikzlibraryfadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryfadings.code.tex
+File: pgflibraryfadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)))
+\pgf@layerbox@Dynkin behind=\box103
+\pgf@layerboxsaved@Dynkin behind=\box104
+\dynkinOverrideRoot=\count369
+\dynkin@rpo=\count370
+\c@dynkinRootNo=\count371
+\dynkin@onesbit=\count372
+\dynkin@twosbit=\count373
+\dynkin@rank=\count374
+\dynkin@rank@minus@one=\count375
+\dynkin@rank@minus@two=\count376
+\dynkin@rank@minus@three=\count377
+\dynkin@nodes=\count378
+\dynkin@ply=\count379
+\dynkin@drpo=\count380
+\dynkin@where=\count381
+\dynkin@first@root@no=\count382
+\dynkin@second@root@no=\count383
+\dynkin@Root@Numbr=\count384
+\dynkin@string@length=\count385
+\dynkin@Root@Numbrpo=\count386
+\defaultpgflinewidth=\skip76
+\dynkin@lenny=\count387
+\dynkin@Root@Number=\count388
+\@dynkin@from@root=\count389
+\@dynkin@to@root=\count390
+\dynkin@r=\count391
+\dynkin@root@no=\count392
+\dynkin@order@temp=\count393
+\dynkin@order@temp@b=\count394
+\tempDynkinReorder=\count395
+\test@bit@a=\count396
+\test@bit@b=\count397
+\replaceNthCounter=\count398
+\replacementN=\count399
+\dynkin@where=\count400
+\dynkin@nodes@minus@one=\count401
+\pipebmo=\count402
+\pipefpo=\count403
+\pipe@end=\count404
+\start@pipe=\count405
+\dynkin@h=\count406
+\dynkin@hpo=\count407
+\dynkin@afterfold=\count408
+\dynkin@nrts=\count409
+\dynkin@countdown=\count410
+\dynkin@bmo=\count411
+\dynkin@bmo=\count412
+\dynkin@height@minus@one=\count413
+\dynkin@nodes@minus@one=\count414
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/pgfplots/pgfplots.sty (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
 Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
  (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
 Package pgfplots info on input line 124: Initializing with LUA version Lua 5.3
@@ -1044,9 +1109,10 @@ pgfplots.lua: loading complementary lua code for your pgf version...
 \t@pgfplots@tokb=\toks55
 \t@pgfplots@tokc=\toks56
 \pgfplots@tmpa=\dimen340
-\c@pgfplots@coordindex=\count367
-\c@pgfplots@scanlineindex=\count368
- (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex
+\c@pgfplots@coordindex=\count415
+\c@pgfplots@scanlineindex=\count416
+
+(/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex
 Package pgfplots: loading complementary utilities for your pgf version...
 \t@pgf@toka=\toks57
 \t@pgf@tokb=\toks58
@@ -1056,14 +1122,14 @@ Package pgfplots info on input line 290: luamath library shipped with pgf 3.1.10
 ) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex
 Package pgfplots info on input line 82: Found new luatex: initializing lua commands instead of write18 (shell-escape)
  (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
-\c@pgfplotsarray@tmp=\count369
+\c@pgfplotsarray@tmp=\count417
 ) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
-\c@pgfplotstable@counta=\count370
+\c@pgfplotstable@counta=\count418
 \t@pgfplotstable@a=\toks60
 ) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
-\c@pgfplotslibrarysurf@no=\count371
+\c@pgfplotslibrarysurf@no=\count419
  (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-luatex.def))) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex)
-\pgfplots@numplots=\count372
+\pgfplots@numplots=\count420
 \pgfplots@xmin@reg=\dimen341
 \pgfplots@xmax@reg=\dimen342
 \pgfplots@ymin@reg=\dimen343
@@ -1076,9 +1142,9 @@ File: tikzlibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.patchplots.code.tex) (/usr/local/texlive/2023/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2021/07/05 v2.14 Sectioning titles
-\ttl@box=\box103
-\beforetitleunit=\skip76
-\aftertitleunit=\skip77
+\ttl@box=\box105
+\beforetitleunit=\skip77
+\aftertitleunit=\skip78
 \ttl@plus=\dimen347
 \ttl@minus=\dimen348
 \ttl@toksa=\toks61
@@ -1092,9 +1158,9 @@ Package picture Info: Calculation method: calc.
 Package: fancybox 2010/05/15 1.4
 
 Style option: `fancybox' v1.4 <2010/05/15> (tvz)
-\@fancybox=\box104
+\@fancybox=\box106
 \shadowsize=\dimen352
-\@Sbox=\box105
+\@Sbox=\box107
 \do@VerbBox=\toks62
 \the@fancyput=\toks63
 \this@fancyput=\toks64
@@ -1104,9 +1170,9 @@ Style option: `fancybox' v1.4 <2010/05/15> (tvz)
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/boites/boites.sty
 File: boites.sty 
 Package: boites 2013/11/21 v1.1 Colored, framed and breakable across pages boxes
-\bk@bxb=\box106
-\bk@bxa=\box107
-\bk@lcnt=\count373
+\bk@bxb=\box108
+\bk@bxa=\box109
+\bk@lcnt=\count421
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 Package: tcolorbox 2023/02/12 version 6.0.1 text color boxes
  (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/verbatim.sty
@@ -1119,17 +1185,17 @@ Package: environ 2014/05/04 v0.3 A new way to define environments
  (/usr/local/texlive/2023/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
-\tcb@titlebox=\box108
-\tcb@upperbox=\box109
-\tcb@lowerbox=\box110
-\tcb@phantombox=\box111
-\c@tcbbreakpart=\count374
-\c@tcblayer=\count375
-\c@tcolorbox@number=\count376
-\tcb@temp=\box112
-\tcb@temp=\box113
+\tcb@titlebox=\box110
+\tcb@upperbox=\box111
+\tcb@lowerbox=\box112
+\tcb@phantombox=\box113
+\c@tcbbreakpart=\count422
+\c@tcblayer=\count423
+\c@tcolorbox@number=\count424
 \tcb@temp=\box114
 \tcb@temp=\box115
+\tcb@temp=\box116
+\tcb@temp=\box117
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
 Library (tcolorbox): 'tcbskins.code.tex' version '6.0.1'
 (/usr/local/texlive/2023/texmf-dist/tex/latex/tikzfill/tikzfill.image.sty
@@ -1138,7 +1204,7 @@ Package: tikzfill.image 2022/07/20 v1.0.0 Image filling library for TikZ
 Package: tikzfill-common 2022/07/20 v1.0.0 Auxiliary code for tikzfill
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/tikzfill/tikzlibraryfill.image.code.tex
 File: tikzlibraryfill.image.code.tex 2022/07/20 v1.0.0 Image filling library
-\l__tikzfill_img_box=\box116
+\l__tikzfill_img_box=\box118
 )) (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.0.1'
 )) (/usr/local/texlive/2023/texmf-dist/tex/latex/tcolorbox/tcbtheorems.code.tex
@@ -1149,9 +1215,9 @@ Library (tcolorbox): 'tcbbreakable.code.tex' version '6.0.1'
 Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
 )
 Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
-\tcb@testbox=\box117
-\tcb@totalupperbox=\box118
-\tcb@totallowerbox=\box119
+\tcb@testbox=\box119
+\tcb@totalupperbox=\box120
+\tcb@totallowerbox=\box121
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/cite/cite.sty
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
@@ -1165,39 +1231,39 @@ Package: tascmac 2020/01/15 v2.1 ascmac package (community edition)
 Package tascmac Info: Patch from LuaTeX-ja will be applied on input line 44.
 \@savetbaselineshift=\dimen353
 \@saveybaselineshift=\dimen354
-\scb@x=\box120
-\scscb@x=\box121
+\scb@x=\box122
+\scscb@x=\box123
 \@bw=\dimen355
-\@nbox=\box122
-\@nbody=\box123
+\@nbox=\box124
+\@nbody=\box125
 \@scw=\dimen356
-\ascmac@hoboxa=\box124
-\ascmac@hoboxb=\box125
+\ascmac@hoboxa=\box126
+\ascmac@hoboxb=\box127
 \@itemh=\dimen357
 \@iboxpos=\toks68
-\@iboxstr=\box126
-\@bwsp=\box127
-\@@bwsp=\box128
-\@bcal=\count377
+\@iboxstr=\box128
+\@bwsp=\box129
+\@@bwsp=\box130
+\@bcal=\count425
 \shaderule=\dimen358
 )) (/usr/local/texlive/2023/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count378
-\lst@gtempboxa=\box129
+\lst@mode=\count426
+\lst@gtempboxa=\box131
 \lst@token=\toks69
-\lst@length=\count379
+\lst@length=\count427
 \lst@currlwidth=\dimen359
-\lst@column=\count380
-\lst@pos=\count381
+\lst@column=\count428
+\lst@pos=\count429
 \lst@lostspace=\dimen360
 \lst@width=\dimen361
-\lst@newlines=\count382
-\lst@lineno=\count383
+\lst@newlines=\count430
+\lst@lineno=\count431
 \lst@maxwidth=\dimen362
  (/usr/local/texlive/2023/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
-\c@lstnumber=\count384
-\lst@skipnumbers=\count385
-\lst@framebox=\box130
+\c@lstnumber=\count432
+\lst@skipnumbers=\count433
+\lst@framebox=\box132
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2023/02/27 1.9 listings configuration
 ))
@@ -1205,30 +1271,30 @@ Package: listings 2023/02/27 1.9 (Carsten Heinz)
  (/usr/local/texlive/2023/texmf-dist/tex/luatex/luatexja/patches/lltjp-listings.sty (/usr/local/texlive/2023/texmf-dist/tex/luatex/luatexbase/luatexbase-cctb.sty
 Package: luatexbase-cctb 2015/10/04 v1.3 luatexbase interface to LuaTeX (legacy subpackage) 
 )
-\ltj@lst@japanese@min=\count386
+\ltj@lst@japanese@min=\count434
 \CatcodeTableLTJlistings=\catcodetable16
 \ltj@lst@frame@lslimit=\dimen363
  (/usr/local/texlive/2023/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 \lst@WFtoken=\toks70
 \lst@WF=\write6
-)) (/Users/takamatoshinori/Library/texmf/tex/latex/mylogics/mylogics.sty) (/Users/takamatoshinori/Library/texmf/tex/latex/myalgebra/myalgebra.sty) (/Users/takamatoshinori/Library/texmf/tex/latex/mygeometry/mygeometry.sty) (/Users/takamatoshinori/Library/texmf/tex/latex/myQM/myQM.sty)
-\c@theorem=\count387
-\c@definition=\count388
-\c@tcb@cnt@myaxiom=\count389
-\c@tcb@cnt@mytheo=\count390
-\c@tcb@cnt@myprop=\count391
-\c@tcb@cnt@mylem=\count392
-\c@tcb@cnt@mydef=\count393
-\c@tcb@cnt@myproblem=\count394
-\c@tcb@cnt@myexample=\count395
+)) (./mylogics.sty) (./myalgebra.sty) (./mygeometry.sty) (/Users/takamatoshinori/Library/texmf/tex/latex/myQM/myQM.sty)
+\c@theorem=\count435
+\c@definition=\count436
+\c@tcb@cnt@myaxiom=\count437
+\c@tcb@cnt@mytheo=\count438
+\c@tcb@cnt@myprop=\count439
+\c@tcb@cnt@mylem=\count440
+\c@tcb@cnt@mydef=\count441
+\c@tcb@cnt@myproblem=\count442
+\c@tcb@cnt@myexample=\count443
  (/usr/local/texlive/2023/texmf-dist/tex/latex/blkarray/blkarray.sty
 Package: blkarray 2015/02/27 v0.07 Block array (dpc)
-\c@BAenumi=\count396
-\BA@col=\count397
-\BA@block@cnt=\count398
-\BA@final@box=\box131
-\BA@first@box=\box132
+\c@BAenumi=\count444
+\BA@col=\count445
+\BA@block@cnt=\count446
+\BA@final@box=\box133
+\BA@first@box=\box134
 \BA@colsep=\dimen364
 \BA@ftn=\toks71
 \BAextrarowheight=\dimen365
@@ -1236,8 +1302,8 @@ Package: blkarray 2015/02/27 v0.07 Block array (dpc)
 \BAarrayrulewidth=\dimen367
 \BAdoublerulesep=\dimen368
 \BAfootskip=\dimen369
-\BA@dashbox=\box133
-\BA@ddashbox=\box134
+\BA@dashbox=\box135
+\BA@ddashbox=\box136
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/subfiles/subfiles.sty
 Package: subfiles 2020/11/14 v2.2 Multi-file projects (package)
 ))) (/usr/local/texlive/2023/texmf-dist/tex/luatex/luatexja/patches/lltjp-tascmac.sty
@@ -1281,16 +1347,16 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
  (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count399
+\scratchcounter=\count447
 \scratchdimen=\dimen370
-\scratchbox=\box135
-\nofMPsegments=\count400
-\nofMParguments=\count401
+\scratchbox=\box137
+\nofMPsegments=\count448
+\nofMParguments=\count449
 \everyMPshowfont=\toks72
-\MPscratchCnt=\count402
+\MPscratchCnt=\count450
 \MPscratchDim=\dimen371
-\MPnumerator=\count403
-\makeMPintoPDFobject=\count404
+\MPnumerator=\count451
+\makeMPintoPDFobject=\count452
 \everyMPtoPDFconversion=\toks73
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1331,7 +1397,7 @@ Package tikz-feynman Warning: Consider loading TikZ-Feynman with \usepackage[com
 
 Package pgfplots notification 'compat/show suggested version=true': you might benefit from \pgfplotsset{compat=1.18} (current compat level: 1.15).
 
-\c@lstlisting=\count405
+\c@lstlisting=\count453
 第2章
 (load cache: extra_lmroman17-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
@@ -1613,277 +1679,276 @@ LaTeX Warning: Hyper reference `def:univ-vec-sum' on page 9 undefined on input l
 
 LaTeX Warning: Reference `col:subvec-directsum' on page 9 undefined on input line 373.
 
+[9]
 
-LaTeX Warning: Hyper reference `lem:splitting' on page 9 undefined on input line 392.
+LaTeX Warning: Hyper reference `lem:splitting' on page 10 undefined on input line 393.
 
-[9](load cache: extra_lmroman10-italic.luc)
+(load cache: extra_lmroman10-italic.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/it' in size <10> not available
-(Font)              Font shape `JT3/mc/m/n' tried instead on input line 397.
+(Font)              Font shape `JT3/mc/m/n' tried instead on input line 398.
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 397.
+(Font)              scaled to size 9.24713pt on input line 398.
 LaTeX Font Info:    Font shape `JY3/mc/m/it' in size <10> not available
-(Font)              Font shape `JY3/mc/m/n' tried instead on input line 397.
+(Font)              Font shape `JY3/mc/m/n' tried instead on input line 398.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 397.
+(Font)              scaled to size 9.24713pt on input line 398.
 (load cache: extra_lmroman10-bolditalic.luc)
 LaTeX Font Info:    Font shape `JT3/mc/b/it' in size <10> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 397.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 398.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 397.
+(Font)              scaled to size 9.24713pt on input line 398.
 LaTeX Font Info:    Font shape `JY3/mc/b/it' in size <10> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 397.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 398.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 397.
+(Font)              scaled to size 9.24713pt on input line 398.
+
+LaTeX Warning: Hyper reference `col:subvec-directsum' on page 10 undefined on input line 398.
 
 
-LaTeX Warning: Hyper reference `col:subvec-directsum' on page 10 undefined on input line 397.
-
-
-LaTeX Warning: Reference `prop:subvec-directsum' on page 10 undefined on input line 414.
+LaTeX Warning: Reference `prop:subvec-directsum' on page 10 undefined on input line 415.
 
 [10]
 
-LaTeX Warning: Hyper reference `lem:splitting' on page 11 undefined on input line 442.
+LaTeX Warning: Hyper reference `lem:splitting' on page 11 undefined on input line 443.
 
 
-LaTeX Warning: Reference `col:split' on page 11 undefined on input line 442.
+LaTeX Warning: Reference `col:split' on page 11 undefined on input line 443.
 
-[11]
+[11] [12]
 
-LaTeX Warning: Hyper reference `def:univ-vec-tensor' on page 12 undefined on input line 534.
+LaTeX Warning: Hyper reference `def:univ-vec-tensor' on page 13 undefined on input line 535.
 
-[12]
 
-LaTeX Warning: Hyper reference `def:hom-vec' on page 13 undefined on input line 566.
+LaTeX Warning: Hyper reference `def:hom-vec' on page 13 undefined on input line 567.
 
 [13]
 
-LaTeX Warning: Reference `prop:tensor-hom' on page 14 undefined on input line 592.
+LaTeX Warning: Reference `prop:tensor-hom' on page 14 undefined on input line 593.
 
 
-LaTeX Warning: Hyper reference `def:vec-hom' on page 14 undefined on input line 622.
+LaTeX Warning: Hyper reference `def:vec-hom' on page 14 undefined on input line 623.
 
 [14]
 
-LaTeX Warning: Hyper reference `def:rep-LieAlg' on page 15 undefined on input line 637.
+LaTeX Warning: Hyper reference `def:rep-LieAlg' on page 15 undefined on input line 638.
 
 
-LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 15 undefined on input line 664.
+LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 15 undefined on input line 665.
 
 
-LaTeX Warning: Hyper reference `def:ideal-LieAlg' on page 15 undefined on input line 676.
-
-
-LaTeX Warning: Hyper reference `prop:homo' on page 15 undefined on input line 705.
-
-
-LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 15 undefined on input line 706.
+LaTeX Warning: Hyper reference `def:ideal-LieAlg' on page 15 undefined on input line 677.
 
 [15]
 
-LaTeX Warning: Hyper reference `de:semisimple-LieAlg' on page 16 undefined on input line 714.
+LaTeX Warning: Hyper reference `prop:homo' on page 16 undefined on input line 706.
 
 
-LaTeX Warning: Reference `lem:finvec-basic' on page 16 undefined on input line 748.
+LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 16 undefined on input line 707.
+
+
+LaTeX Warning: Hyper reference `de:semisimple-LieAlg' on page 16 undefined on input line 715.
 
 [16]
 
-LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 17 undefined on input line 773.
+LaTeX Warning: Reference `lem:finvec-basic' on page 17 undefined on input line 749.
 
 
-LaTeX Warning: Hyper reference `de:semisimple-LieAlg' on page 17 undefined on input line 774.
+LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 17 undefined on input line 774.
 
 
-LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 17 undefined on input line 800.
+LaTeX Warning: Hyper reference `de:semisimple-LieAlg' on page 17 undefined on input line 775.
+
+[17]
+
+LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 18 undefined on input line 801.
 
 
-LaTeX Warning: Hyper reference `de:semisimple-LieAlg' on page 17 undefined on input line 801.
+LaTeX Warning: Hyper reference `de:semisimple-LieAlg' on page 18 undefined on input line 802.
 
-[17] [18]
+[18]
 
-LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 19 undefined on input line 861.
-
-
-LaTeX Warning: Hyper reference `def:simple-LieAlg' on page 19 undefined on input line 861.
+LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 19 undefined on input line 862.
 
 
-LaTeX Warning: Citation `Satake1987LieAlg' on page 19 undefined on input line 872.
+LaTeX Warning: Hyper reference `def:simple-LieAlg' on page 19 undefined on input line 862.
 
 
-LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 19 undefined on input line 875.
+LaTeX Warning: Citation `Satake1987LieAlg' on page 19 undefined on input line 873.
 
 
-LaTeX Warning: Reference `def:typeA' on page 19 undefined on input line 884.
-
-
-LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 19 undefined on input line 897.
+LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 19 undefined on input line 876.
 
 [19]
 
-LaTeX Warning: Hyper reference `prop:homo' on page 20 undefined on input line 958.
+LaTeX Warning: Reference `def:typeA' on page 20 undefined on input line 885.
+
+
+LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 20 undefined on input line 898.
 
 [20]
 
-LaTeX Warning: Hyper reference `prop:homo' on page 21 undefined on input line 986.
+LaTeX Warning: Hyper reference `prop:homo' on page 21 undefined on input line 959.
 
 [21]
 
-LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 22 undefined on input line 1023.
-
-
-LaTeX Warning: Hyper reference `ax:LieAlg' on page 22 undefined on input line 1050.
+LaTeX Warning: Hyper reference `prop:homo' on page 22 undefined on input line 987.
 
 [22]
 
-LaTeX Warning: Hyper reference `prop:split' on page 23 undefined on input line 1071.
+LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 23 undefined on input line 1024.
 
 
-LaTeX Warning: Hyper reference `def:sub-LieAlg' on page 23 undefined on input line 1088.
+LaTeX Warning: Hyper reference `ax:LieAlg' on page 23 undefined on input line 1051.
 
 
-LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 23 undefined on input line 1091.
-
-
-LaTeX Warning: Hyper reference `def:normalizer-LieAlg' on page 23 undefined on input line 1102.
+LaTeX Warning: Hyper reference `prop:split' on page 23 undefined on input line 1072.
 
 [23]
 
-LaTeX Warning: Hyper reference `def:ideal-LieAlg' on page 24 undefined on input line 1116.
+LaTeX Warning: Hyper reference `def:sub-LieAlg' on page 24 undefined on input line 1089.
 
 
-LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 24 undefined on input line 1129.
+LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 24 undefined on input line 1092.
+
+
+LaTeX Warning: Hyper reference `def:normalizer-LieAlg' on page 24 undefined on input line 1103.
+
+
+LaTeX Warning: Hyper reference `def:ideal-LieAlg' on page 24 undefined on input line 1117.
+
+[24]
+
+LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 25 undefined on input line 1130.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1145.
+(hyperref)                removing `math shift' on input line 1146.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leavevmode@ifvmode' on input line 1145.
+(hyperref)                removing `\leavevmode@ifvmode' on input line 1146.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 1.66702pt
-(hyperref)                removed on input line 1145.
+(hyperref)                removed on input line 1146.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1145.
+(hyperref)                removing `math shift' on input line 1146.
 
 
-LaTeX Warning: Reference `def:typeA' on page 24 undefined on input line 1148.
-
-[24]
-
-LaTeX Warning: Hyper reference `prop:subvec-directsum' on page 25 undefined on input line 1171.
-
-
-LaTeX Warning: Hyper reference `thm:eigen-decomp1' on page 25 undefined on input line 1171.
+LaTeX Warning: Reference `def:typeA' on page 25 undefined on input line 1149.
 
 [25]
 
-LaTeX Warning: Hyper reference `def:def:sub-g-module' on page 26 undefined on input line 1242.
+LaTeX Warning: Hyper reference `prop:subvec-directsum' on page 26 undefined on input line 1172.
+
+
+LaTeX Warning: Hyper reference `thm:eigen-decomp1' on page 26 undefined on input line 1172.
 
 [26]
 
-LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 27 undefined on input line 1295.
+LaTeX Warning: Hyper reference `def:def:sub-g-module' on page 27 undefined on input line 1243.
 
 [27]
 
-LaTeX Warning: Hyper reference `thm:Engel' on page 28 undefined on input line 1299.
+LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 28 undefined on input line 1296.
 
 
-LaTeX Warning: Hyper reference `def:nilpotent-LieAlg' on page 28 undefined on input line 1299.
+LaTeX Warning: Hyper reference `thm:Engel' on page 28 undefined on input line 1300.
 
 
-LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 28 undefined on input line 1300.
+LaTeX Warning: Hyper reference `def:nilpotent-LieAlg' on page 28 undefined on input line 1300.
 
 
-LaTeX Warning: Hyper reference `def:nilpotent-LieAlg' on page 28 undefined on input line 1305.
+LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 28 undefined on input line 1301.
 
 
-LaTeX Warning: Hyper reference `def:solvable-LieAlg' on page 28 undefined on input line 1305.
+LaTeX Warning: Hyper reference `def:nilpotent-LieAlg' on page 28 undefined on input line 1306.
 
 
-LaTeX Warning: Reference `prop:nilpo-basic' on page 28 undefined on input line 1305.
+LaTeX Warning: Hyper reference `def:solvable-LieAlg' on page 28 undefined on input line 1306.
 
 
-LaTeX Warning: Hyper reference `def:domain-basic' on page 28 undefined on input line 1330.
-
-
-LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 28 undefined on input line 1340.
+LaTeX Warning: Reference `prop:nilpo-basic' on page 28 undefined on input line 1306.
 
 [28]
 
-LaTeX Warning: Hyper reference `thm:eigen-decomp-1' on page 29 undefined on input line 1365.
+LaTeX Warning: Hyper reference `def:domain-basic' on page 29 undefined on input line 1331.
 
 
-LaTeX Warning: Hyper reference `def:normalizer-LieAlg' on page 29 undefined on input line 1381.
+LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 29 undefined on input line 1341.
 
 
-LaTeX Warning: Hyper reference `def:derivation-Alg' on page 29 undefined on input line 1401.
+LaTeX Warning: Hyper reference `thm:eigen-decomp-1' on page 29 undefined on input line 1366.
 
-[29] [30]
+[29]
 
-LaTeX Warning: Hyper reference `thm:Engel' on page 31 undefined on input line 1501.
-
-
-LaTeX Warning: Hyper reference `def:nilpotent-LieAlg' on page 31 undefined on input line 1501.
-
-[31]
-
-LaTeX Warning: Hyper reference `def:ideal-LieAlg' on page 32 undefined on input line 1509.
+LaTeX Warning: Hyper reference `def:normalizer-LieAlg' on page 30 undefined on input line 1382.
 
 
-LaTeX Warning: Reference `lem:nilpo-ideal' on page 32 undefined on input line 1509.
+LaTeX Warning: Hyper reference `def:derivation-Alg' on page 30 undefined on input line 1402.
+
+[30] [31]
+
+LaTeX Warning: Hyper reference `thm:Engel' on page 32 undefined on input line 1502.
 
 
-LaTeX Warning: Reference `lem:finvec-basic' on page 32 undefined on input line 1538.
+LaTeX Warning: Hyper reference `def:nilpotent-LieAlg' on page 32 undefined on input line 1502.
 
 
-LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 32 undefined on input line 1549.
+LaTeX Warning: Hyper reference `def:ideal-LieAlg' on page 32 undefined on input line 1510.
+
+
+LaTeX Warning: Reference `lem:nilpo-ideal' on page 32 undefined on input line 1510.
 
 [32]
 
-LaTeX Warning: Hyper reference `prop:dual-basis' on page 33 undefined on input line 1587.
+LaTeX Warning: Reference `lem:finvec-basic' on page 33 undefined on input line 1539.
 
 
-LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 33 undefined on input line 1594.
+LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 33 undefined on input line 1550.
 
 [33]
 
-LaTeX Warning: Hyper reference `def:solvable-LieAlg' on page 34 undefined on input line 1622.
+LaTeX Warning: Hyper reference `prop:dual-basis' on page 34 undefined on input line 1588.
 
 
-LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 34 undefined on input line 1622.
+LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 34 undefined on input line 1595.
+
+
+LaTeX Warning: Hyper reference `def:solvable-LieAlg' on page 34 undefined on input line 1623.
+
+
+LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 34 undefined on input line 1623.
 
 [34]
 
-LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 35 undefined on input line 1674.
+LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 35 undefined on input line 1675.
 
 [35] [36]
 
-LaTeX Warning: Hyper reference `col:rank-nullity' on page 37 undefined on input line 1776.
+LaTeX Warning: Hyper reference `col:rank-nullity' on page 37 undefined on input line 1777.
 
 [37] [38]
 
-LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 39 undefined on input line 1872.
+LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 39 undefined on input line 1873.
 
-[39]
+[39] [40]
 
-LaTeX Warning: Hyper reference `def:field-extention' on page 40 undefined on input line 1950.
-
-
-LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 40 undefined on input line 1956.
+LaTeX Warning: Hyper reference `def:field-extention' on page 41 undefined on input line 1951.
 
 
-LaTeX Warning: Hyper reference `def:field-extention' on page 40 undefined on input line 1959.
+LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 41 undefined on input line 1957.
 
-[40]
 
-LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 41 undefined on input line 1974.
+LaTeX Warning: Hyper reference `def:field-extention' on page 41 undefined on input line 1960.
 
-[41] (./out/chap2.aux)
+
+LaTeX Warning: Hyper reference `def:semisimple-LieAlg' on page 41 undefined on input line 1975.
+
+[41] [42] (./out/chap2.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1895,19 +1960,19 @@ Package rerunfilecheck Info: File `chap2.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 55075 strings out of 478285
- 244642,1977958 words of node,token memory allocated
- 13008 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 35 glue, 4 kern, 1 glyph, 5538 attribute, 62 glue_spec, 515 attribute_list, 2 write, 14 user_defined, 5 pdf_action nodes
-   avail lists: 1:37,2:55102,3:1846,4:1065,5:509,6:63,7:5684,8:78,9:2484,10:31,11:48
- 73013 multiletter control sequences out of 65536+600000
+ 56540 strings out of 478285
+ 244640,1977958 words of node,token memory allocated
+ 14870 words of node memory still in use:
+   27 hlist, 2 vlist, 13 rule, 35 glue, 4 kern, 1 glyph, 6197 attribute, 62 glue_spec, 588 attribute_list, 2 write, 30 user_defined, 16 pdf_literal, 6 pdf_action, 16 pdf_colorstack nodes
+   avail lists: 1:36,2:56620,3:1879,4:1065,5:518,6:68,7:6627,8:78,9:2639,10:31,11:48
+ 74426 multiletter control sequences out of 65536+600000
  143 fonts using 76994767 bytes
  138i,21n,131p,1815b,1421s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-italic.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/lm/lmsans17-regular.otf></usr/local/texlive/2023/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufb10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufb7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on chap2.pdf (41 pages, 684371 bytes).
+Output written on chap2.pdf (42 pages, 687734 bytes).
 
-PDF statistics: 1015 PDF objects out of 1200 (max. 8388607)
- 890 compressed objects within 9 object streams
- 258 named destinations out of 1000 (max. 131072)
- 64 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 1047 PDF objects out of 1200 (max. 8388607)
+ 904 compressed objects within 10 object streams
+ 259 named destinations out of 1000 (max. 131072)
+ 224 words of extra memory for PDF output out of 10000 (max. 100000000)
 
