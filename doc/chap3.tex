@@ -1106,6 +1106,7 @@ $\gamma$ が正則ならば $\forall \alpha \in \Phi$ に対して $\rpair{\gamm
 	さて，定理\ref{thm:Weylgroup-basic}-(3) より，$\mathscr{W}$ の作用によって移すことで $\alpha \in \overline{\mathfrak{C}(\Delta)}$ を仮定して良い．補題\ref{lem:irr-root-A}より $\beta_0 -\alpha \succ 0$ なので，$\forall \gamma \in \overline{\mathfrak{C}(\Delta)}$ に対して $\rpair{\gamma}{\beta_0 - \alpha} \ge 0$ である．$\gamma = \beta_0,\, \alpha$ の場合を考えることで $\rpair{\beta_0}{\beta_0} \ge \rpair{\beta_0}{\alpha} \ge \rpair{\alpha}{\alpha}$ が言えた．
 \end{proof}
 
+
 \section{ルート系の分類}
 
 この節では $(\mathbb{E},\, \Phi)$ を任意の\hyperref[def:rank-root]{ランク $l$} の\hyperref[ax:root-system]{ルート系}とし，その\hyperref[def:Weylgroup]{Weyl群}を $\mathscr{W}$ と略記する． 
@@ -1745,5 +1746,373 @@ $\Delta$ が互いに直交する2つの真部分集合のdisjoint unionに分�
 \end{proof}
 
 
+\section{ルート系の構成と自己同型}
+分類定理の締めとして，$A - G$の各ルート系が存在することを示す．$A_l, D_l$に対して別の方法もあるが，ここでは各ルート系を直接構成することにする．これにより，Weyl群の構造も具体的に明示される．\\
+Weyl群の生成系は，底$\Delta$に関する鏡映を含めば何でもいいことに注意（その方が見やすい場合もある）．
+\subsection{ルート系の構成}
+$n$次元\hyperref[def:Euclid-space]{Euclid空間} $\bigl(\, \mathbb{E},\, (\;,\,)\,\bigr)$の正規直交基底を$\varepsilon_1, \ldots, \varepsilon_n$と表す．また，何らかの有限個の基底により生成される$\mathbb{Z}$-加群のことを格子(lattice)と呼ぶ．特に，正規直交基底により生成されるものを$\Lambda$と書く．
+\begin{mylem}[label=lem:classification-step-11]{}
+	既約ルート系は，（$0$でない）高々2通りの長さを持つ格子の部分集合として定義できる．i.e. 定理\ref{thm:root-classification}に示された$A - G$の各ルート系は存在する．
+\end{mylem}
+\begin{proof}
+	まず，格子や長さの選び方によらず$\Phi$が\hyperref[ax:root-system]{ルート系}の公理の1-3を満たすことを示す．
+	\begin{description}
+		\item[\textbf{(Root-1)}] 格子は離散的かつ，高々有限の長さを持つベクトルの集合はコンパクトだから，$\Phi$は有限集合．かつ定義より$0$を含まないので，\textbf{(Root-1)}を満たす．
+		\item[\textbf{(Root-2)}] 等しい長さの格子ベクトルをすべて含むことから明らか．
+		\item[\textbf{(Root-3)}] \textbf{(Root-4)}を満たせば$\sigma_\alpha(\beta) \in \Phi$鏡映で$\Lambda$に写る．$\sigma_\alpha$は等長写像なので，\textbf{(Root-3)}を満たす．
+	\end{description}
+	よってあとは, \textbf{(Root-4)}は各ルート系ごとに示せばよい．実は長さの選び方は，$C_l, G_2$型を除いて$1, 2$のみにでき，$\sspair{\beta}{\alpha} = \frac{2}{(\alpha, \alpha)}(\beta, \alpha) \in \mathbb{Z}$より明らかに\textbf{(Root-4)}を満たす．\\
+	以下，ルート系$\Phi$を明示したときの複合$\pm$は全て任意とする．また，先頭の複合が底を選んだ際のルートの正負に対応する．
+	\begin{description}
+		\item[\textbf{$A_l\ (l \geq 1)$型}] 
+		\begin{equation}
+			\mathbb{E} = \bigl\{\, \alpha \in \mathbb{R}^{l+1} \bigm| (\alpha, \varepsilon_1 + \cdots + \varepsilon_{l+1}) = 0\bigr\},\quad  \Phi = \bigl\{\, \alpha \in \Lambda \cap \mathbb{E} \bigm| (\alpha, \alpha) = 2\bigr\} = \bigl\{\, \varepsilon_i - \varepsilon_j \bigm| i \neq j\bigr\} 
+		\end{equation}
+		とすると，$(\mathbb{E}, \Phi)$はルート系となる．
+		\begin{equation}
+			\Delta = \bigl\{\, \varepsilon_i - \varepsilon_{i+1} \bigm| i = 1, \ldots, l\bigr\}
+		\end{equation}	
+		は，線型独立性と
+		\begin{equation}
+			 \label{eq:Albase}
+			\varepsilon_i - \varepsilon_j = (\varepsilon_i - \varepsilon_{i+1}) + \cdots + (\varepsilon_{j-1} - \varepsilon_j),\quad  (i < j)
+		\end{equation}
+		より底となる．Cartan行列は
+		\begin{equation}
+			\label{eq:Alsspair}
+			\sspair{\varepsilon_i - \varepsilon_{i+1}}{\varepsilon_j - \varepsilon_{j+1}} = 2\delta_{i,j} - \delta_{i,j\pm 1}
+		\end{equation}
+		より，$A_l$型となっている．鏡映$\sigma_\alpha$は添字$(i, j)$を入れ替えるので，Weyl群は対称群$\mathfrak{S}_{l+1}$と同型．
+		
+		\item[\textbf{$B_l\ (l \geq 2)$型}] 
+		\begin{equation}
+			\mathbb{E} = \mathbb{R}^l,\quad  \Phi = \bigl\{\, \alpha \in \Lambda \bigm| (\alpha, \alpha) = 1, 2\} = \bigl\{\, \pm(\varepsilon_i \pm \varepsilon_j), \bigm| i \neq j\bigr\} \cup \bigl\{\, \pm\varepsilon_i, \bigm| i \in 1, \ldots, l\bigr\}
+		\end{equation}
+		とするとルート系となる．
+		\begin{equation}
+			\Delta = \bigl\{\, \varepsilon_i - \varepsilon_{i+1} \bigm| i = 1, \ldots, l-1\} \cup \{\varepsilon_l\bigr\}
+		\end{equation}	
+		は，線型独立性，\eqref{eq:Albase}と，
+		\begin{align}
+			\varepsilon_i &= (\varepsilon_i - \varepsilon_{i+1}) + \cdots + (\varepsilon_{l-1} - \varepsilon_l) + \varepsilon_l \\
+			\varepsilon_i + \varepsilon_j &= (\varepsilon_i - \varepsilon_j) + 2\varepsilon_j
+		\end{align}
+		より，底となる．Cartan行列は，\eqref{eq:Alsspair}と
+		\begin{equation}
+			\label{eq:Blsspair}
+			\sspair{\varepsilon_i - \varepsilon_{i+1}}{\varepsilon_l} = 2\sspair{\varepsilon_l}{\varepsilon_i - \varepsilon_{i+1}} = -2\delta_{i+1,l}
+		\end{equation}
+		より，$B_l$型となっている．鏡映$\sigma_{\varepsilon_i}$は$\varepsilon_i$の符号の入れ替えだから，$A_l$型のWeyl群の結果と合わせると，$B_l$型のWeyl群$\mathscr{W}$は$\mathbb{Z}_2^l \rtimes \mathfrak{S}_l$
+		
+		\item[\textbf{$C_l\ (l \geq 3)$型}] $B_l$型の双対で証明完了なので，詳細は省略．具体的なルート系だけ示しておく．
+		\begin{equation}
+			\mathbb{E} = \mathbb{R}^l,\quad  \Phi = \bigl\{\, \alpha \in I \bigm| (\alpha, \alpha) = 2, 4\bigr\}
+		\end{equation}
+		
+		\item[\textbf{$D_l\ (l \geq 4)$型}] 
+		\begin{equation}
+			\mathbb{E} = \mathbb{R}^l,\quad  \Phi = \bigl\{\, \alpha \in I \bigm| (\alpha, \alpha) = 2\bigr\} = \bigl\{\, \pm(\varepsilon_i \pm \varepsilon_j), \bigm| i \neq j\bigr\}
+		\end{equation}
+		とするとルート系となる．
+		\begin{equation}
+			\Delta = \bigl\{\, \varepsilon_i - \varepsilon_{i+1} \bigm| i = 1, \ldots, l-1\bigr\} \cup \{\varepsilon_l + \varepsilon_{l+1}\}
+		\end{equation}	
+		は，線型独立性，\eqref{eq:Albase}と，
+		\begin{align}
+			\varepsilon_i + \varepsilon_j &= (\varepsilon_i - \varepsilon_j) + 2(\varepsilon_j - \varepsilon_{l-1}) + (\varepsilon_{l-1} - \varepsilon_l) + (\varepsilon_{l-1} + \varepsilon_l)\quad  (j \leq l-1) \\
+			\varepsilon_i + \varepsilon_l &= (\varepsilon_i - \varepsilon_{l-1}) + (\varepsilon_{l-1} + \varepsilon_l)
+		\end{align}
+		より，底となる．Cartan行列は，\eqref{eq:Alsspair}と
+		\begin{equation}
+			\label{eq:Dlsspair}
+			\sspair{\varepsilon_i - \varepsilon_{i+1}}{\varepsilon_l + \varepsilon_{l+1}} = -\delta_{i+1,l}
+		\end{equation}
+		より，$D_l$型となっている．$\sigma_{\varepsilon_i + \varepsilon_j}\sigma_{\varepsilon_i - \varepsilon_j}$は2成分同時の符号の入れ替えで，この合成のみを含む部分群は，$i, i+1\ (l = 1, \ldots, l-1)$の符号の入れ替えで生成できる，互いに可換だから$\mathbb{Z}_2^{l-1}$．全体のWeyl群は$\mathscr{W} = \mathbb{Z}_2^{l-1} \rtimes \mathfrak{S}_l$
+		
+		\item[\textbf{$E_l\ (l = 6, 7, 8)$型}] $\Lambda'$を$\Lambda$の内，成分和が偶数のものとすると，$\Lambda$の部分$\mathbb{Z}$-加群である．
+		\begin{align}
+			\mathbb{E} &= \mathbb{R}^8,&\Phi = \Phi_8 &\coloneqq \Biggl\{\, \alpha \in \Lambda' + \frac{1}{2}\sum_{i=1}^8\varepsilon_i\mathbb{Z} \Biggm| (\alpha, \alpha) = 2\Biggr\} \\
+			&&&= \bigl\{\, \pm(\varepsilon_i \pm \varepsilon_j), \bigm| i \neq j \bigr\} \cup \Biggl\{ \frac{1}{2}\sum_{i=1}^8 (-1)^{c_i}\varepsilon_i \Biggm| c_i = 0, 1,\ \sum_{i=1}^8 c_i \in 2\mathbb{Z} \Biggr\}
+		\end{align}
+		\begin{align}
+			\mathbb{E} &= \bigl\{\, \alpha \in \mathbb{R}^8 \bigm| (\alpha, \varepsilon_7 + \varepsilon_8) = 0\bigr\} ,&  \Phi &= \mathbb{E} \cap \Phi_8 \\
+			\mathbb{E} &= \bigl\{\, \alpha \in \mathbb{R}^8 \bigm| (\alpha, \varepsilon_7 + \varepsilon_8) = (\alpha, \varepsilon_6 + \varepsilon_7) = 0\bigr\} ,&  \Phi &= \mathbb{E} \cap \Phi_8
+		\end{align}
+		とすると，いずれもルート系となる．
+		\begin{equation}
+			\Delta = \Biggl\{\alpha_1 \coloneqq \frac{1}{2}\Biggl(\varepsilon_1 + \varepsilon_8 - \sum_{i = 2}^7 \varepsilon_i \Biggr),\ \varepsilon_1 + \varepsilon_2 \Biggr\} \cup \bigl\{\, \varepsilon_{i+1} - \varepsilon_i \bigm| i = 1, \ldots, l-2\bigr\}
+		\end{equation}	
+		は，線型独立性と，\eqref{eq:Albase}などより底となる．Cartan行列を計算すると，$E_l$型となっている．Weyl群$\mathscr{W}$は有限の時間の計算で求めることができる．
+		
+		\item[\textbf{$F_4$型}] 
+		\begin{align}
+			\mathbb{E} = \mathbb{R}^4,\quad  \Phi &= \Biggl\{\, \alpha \in I + \frac{\varepsilon_1 + \varepsilon_2 + \varepsilon_3 + \varepsilon_4}{2}\mathbb{Z} \Biggm| (\alpha, \alpha) = 1, 2\Biggr\} \\
+			&= \bigl\{\, \pm\varepsilon_i\bigr\} \cup \bigl\{\, \pm(\varepsilon_i \pm \varepsilon_j), \bigm| i \neq j\bigr\} \cup \Bigl\{\, \pm\frac{1}{2}(\varepsilon_1 \pm \varepsilon_2 \pm \varepsilon_3 \pm \varepsilon_4)\Bigr\}
+		\end{align}
+		とすると，$(\mathbb{E}, \Phi)$はルート系となる．
+		\begin{equation}
+			\Delta = \Biggl\{\, \varepsilon_2 - \varepsilon_3, \varepsilon_3 - \varepsilon_4, \varepsilon_4, \frac{1}{2}(\varepsilon_1 - \varepsilon_2 - \varepsilon_3 - \varepsilon_4)\Biggr\}
+		\end{equation}	
+		は，線型独立性と，\eqref{eq:Albase}などより底となる．Cartan行列は，\eqref{eq:Alsspair}, \eqref{eq:Blsspair}と
+		\begin{align}
+			&\sspair*{\varepsilon_i - \varepsilon_{i+1}}{\frac{1}{2}(\varepsilon_1 - \varepsilon_2 - \varepsilon_3 - \varepsilon_4)} = 0\quad  (i = 2, 3)\\
+			&\sspair*{\varepsilon_4}{\frac{1}{2}(\varepsilon_1 - \varepsilon_2 - \varepsilon_3 - \varepsilon_4)} = \sspair*{\frac{1}{2}(\varepsilon_1 - \varepsilon_2 - \varepsilon_3 - \varepsilon_4)}{\varepsilon_4} = -1
+		\end{align}
+		より，$F_4$型となっている．Weyl群$\mathscr{W}$は，実は$D_4$型のWeyl群が正規部分群になっている．残りは$\Delta$の後ろ二つの単純ルートで生成できるので，$A_2$型のWeyl群と同型．よって，構造の一例は$(\mathbb{Z}_2^3 \rtimes \mathfrak{S}_4) \rtimes \mathfrak{S}_3$であり，$D_4$型の$\Aut\Phi$とも同型である．
+		
+		\item[\textbf{$G_2$型}] 
+		2次元なので，簡単に絵は書けるが，一応今までと同じ方法で示す．
+		\begin{align}
+			\mathbb{E} &= \bigl\{\, \alpha \in \mathbb{R}^3 \bigm| (\alpha, \varepsilon_1 + \varepsilon_2 + \varepsilon_3) = 0\bigr\}\\
+			\Phi &= \bigl\{\, \alpha \in I \cap \mathbb{E} \bigm| (\alpha, \alpha) = 2, 6\bigr\}\\
+			&= \pm\{\varepsilon_1 - \varepsilon_2, \varepsilon_2 - \varepsilon_3, \varepsilon_1 - \varepsilon_3, 2\varepsilon_1 - \varepsilon_2 - \varepsilon_3, 2\varepsilon_2 - \varepsilon_3 - \varepsilon_1, -2\varepsilon_3 + \varepsilon_1 + \varepsilon_2\}
+		\end{align}
+		とすると，ルート系となる．実際，
+		\begin{equation}
+			\Delta = \bigl\{\alpha_1 = \varepsilon_1 - \varepsilon_2,\ \alpha_2 = 2\varepsilon_2 - \varepsilon_3 - \varepsilon_1\bigr\}
+		\end{equation}	
+		は，線型独立性と，
+		\begin{align}
+			\varepsilon_2 - \varepsilon_3 &= \alpha_1 + \alpha_2 \\
+			\varepsilon_1 - \varepsilon_3 &= 2\alpha_1 + \alpha_2 \\
+			2\varepsilon_1 - \varepsilon_2 - \varepsilon_3 &= 3\alpha_1 + \alpha_2 \\
+			-2\varepsilon_3 + \varepsilon_1 + \varepsilon_2 &= 3\alpha_1 + 2\alpha_2
+		\end{align}
+		より，底となる．Cartan行列は，
+		\begin{equation}
+			\sspair{\alpha_1}{\alpha_2} = -1,\quad  \sspair{\alpha_2}{\alpha_1} = -3
+		\end{equation}
+		より，$G_2$型となっている．Weyl群$\mathscr{W}$は二面体群$\mathrm{D}_6 = \mathbb{Z}_6 \rtimes \mathbb{Z}_2$. 
+	\end{description}
+\end{proof}
+\begin{table}
+	\centering
+	\caption{既約ルート系の構造}
+	\label{tab:rootstructure}
+	\begin{tabular}{cccccc}
+		型 & 正ルート数 & Weyl群の構造 & Weyl群の位数 & $\Gamma$ & Cartan行列式 \\
+		\hline
+		$A_l$ & $\frac{(l+1)l}{2}$ & $\mathfrak{S}_{l+1}$ & $(l+1)!$ & $\mathbb{Z}_2\quad  (l \geq 2)$ & $l+1$ \\
+		$B_l,C_l$ & $l^2$ & $\mathbb{Z}_2^l \rtimes \mathfrak{S}_l$ & $2^l l!$ & $1$ & $2$ \\
+		$D_l$ & $l^2 - l$ & $\mathbb{Z}_2^{l-1} \rtimes \mathfrak{S}_l$ & $2^{l-1}l!$ & $\Biggl\{\begin{array}{ll}
+			\mathfrak{S}_3 &(l=4) \\
+			\mathbb{Z}_2 &(l>4)
+		\end{array}$ & $4$ \\
+		$E_6$ & $36$ &  & $72\times6!$ & $\mathbb{Z}_2$ & $3$ \\
+		$E_7$ & $63$ &  & $72\times8!$ & $1$ & $2$ \\
+		$E_8$ & $120$ &  & $192\times10!$ & $1$ & $1$ \\
+		$F_4$ & $24$ & $(\mathbb{Z}_2^3 \rtimes \mathfrak{S}_4) \rtimes \mathfrak{S}_3$ & $1152$ & $1$ & $1$ \\
+		$G_2$ & $6$ & $\mathrm{D}_6$ & $12$ & $1$ & $1$
+	\end{tabular}
+\end{table}
+
+\subsection{ルート系の同型}
+\begin{mytheo}[label=thm:aut-Dynkin]{ルート系の自己同型の全体像}
+	ルート系$\Phi$の底$\Delta$を固定する．この底を保つ同型写像
+	\begin{equation}
+		\Gamma = \bigl\{ \sigma = \Aut \Phi \bigm| \sigma(\Delta) = \Delta \}
+	\end{equation}
+	に対し，
+	\begin{equation}
+		\label{eq:aut-Dynkin}
+		\Aut\Phi = \mathscr{W} \rtimes \Gamma
+	\end{equation}
+	となる．．
+\end{mytheo}
+\begin{proof}
+	Weyl群の作用の自由性（定理\ref{thm:Weylgroup-basic}）より，$\Gamma \cap \mathscr{W} = \{1\}$である．また，$\forall \tau \in \Aut\Phi$について，$\tau(\Delta)$も底である．Weyl群の作用が推移的（定理\ref{thm:Weylgroup-basic}）なので，
+	\begin{equation}
+		\forall \tau \in \Aut\Phi,\ \exists \sigma \in \mathscr{W},\quad  \sigma\tau(\Delta) = \Delta  \IFF  \tau \in \mathscr{W}\Gamma
+	\end{equation}
+	である．補題\ref{lem:Weylgroup-basic}より，$\mathscr{W}$は正規部分群であったから，\eqref{eq:aut-Dynkin}が成り立つ．
+\end{proof}
+\hyperref[def:isom-root]{ルート系の同型写像}は$\sspair{}{}$を保つ．よって，$\Gamma$は\textbf{Dynkin図形の自己同型}(diagram automorphism)群である．この結果は，表\ref{tab:rootstructure}にまとまっている．特に，$D_4$のそれはTriality（双対(duality)の類推）と呼ばれる．
+
+\section{ウエイトの抽象論}
+ルート系$(\mathbb{E}, \Phi)$のWeyl群を$\mathscr{W}$とする．
+\subsection{ウエイト}
+\begin{mydef}[label=def:root-lattice]{整ウエイト，ルート格子(root lattice)}
+	ルート系$\Phi$により定まる
+	\begin{equation}
+		\Lambda_\text{w} = \bigl\{\lambda \in \mathbb{E} \bigm| \sspair{\lambda}{\Phi} \subset \mathbb{Z} \bigr\}
+	\end{equation}
+	は，$\sspair{}{}$の第一引数線型性より$\mathbb{Z}$-加群である．これを\textbf{ウエイト格子}(weight lattice)と呼び，その元を\textbf{整ウエイト}(integral weight)と呼ぶ．また，$\Phi$で生成される$\mathbb{Z}$-加群
+	\begin{equation}
+		\Lambda_\text{r} = \Span_\mathbb{Z}\Phi
+	\end{equation}
+	を\textbf{ルート格子}(root lattice)と呼ぶ．
+\end{mydef}
+定義より明らかに，
+\begin{equation}
+	\Phi \subset \Lambda_\text{w} \subset \mathbb{E}
+\end{equation}
+である．また底$\Delta$を固定すると，exercise10.1（演習回でやった双対ルートの話）より
+\begin{equation}
+	\sspair{\lambda}{\Phi} = \sspair{\Phi^\vee}{\lambda^\vee} \in \mathbb{Z}
+\end{equation}
+なので，$\sspair{}{}$の第一引数線型性の線型性から，$\Delta^\vee$だけ，双対を戻すと$\Delta$だけを調べれば良い:
+\begin{equation}
+	\sspair{\lambda}{\Phi} \subset \mathbb{Z}  \IFF  \sspair{\lambda}{\Delta} \subset \mathbb{Z}
+\end{equation}
+\begin{mydef}[label=def:domweight]{優ウエイト，強い優ウエイト}
+	ルート系$\Phi$の底$\Delta$を選ぶ．整ウエイト$\lambda \in \Lambda_\text{w}$が\textbf{優} (dominant) であるとは，
+	\begin{equation}
+		\sspair{\lambda}{\Delta} \subset \mathbb{Z}_{\geq0}
+	\end{equation}
+	を満たすことをいう．その集合を$\Lambda_\text{w}^+$と書く．また，整ウエイト$\lambda \in \Lambda_\text{w}$が\textbf{強い優} (strongly dominant) であるとは，
+	\begin{equation}
+		\sspair{\lambda}{\Delta} \subset \mathbb{Z}_{>0}
+	\end{equation}
+	を満たすことをいう．
+\end{mydef}
+\hyperref[def:Weylchamber]{Weylの区画}の言葉で言えば，優ウエイトの集合$\Lambda_\text{w}^+$は$\Lambda_\text{w} \cap \overline{\mathfrak{C}(\Delta)}$，強い優ウエイトの集合は$\Lambda_\text{w} \cap \mathfrak{C}(\Delta)$となる．
+
+底の\hyperref[def:dual-root]{双対}$\Delta^\vee$は，双対ルート系の底となるので，\hyperref[def:Euclid-space]{Euclid空間}の基底を張る．これに対するEuclid空間の双対的な基底をとることを考える．
+\begin{mydef}[label=def:fundamental-weight]{基本優ウエイト}
+	優ウエイトのうち，
+	\begin{equation}
+		\sspair{\lambda_i}{\alpha_j} = (\lambda_i, \alpha_j^\vee) = \delta_{ij},\quad  (\forall i, j = 1, \ldots, n)
+	\end{equation}
+	を満たす$\lambda_i$のことを（底$\Delta$に関する）\textbf{基本優ウエイト}(fundamental dominant weight)と呼ぶ．その集合を$\Delta_\text{w}$と書く．
+\end{mydef}
+$\Delta_\text{w}$は$\mathbb{E}$の基底なので，任意のベクトル$v \in \mathbb{E}$は
+\begin{equation}
+	\label{eq:coefficient-by-weight}
+	v = \sum_{i=1}^l v_i\lambda_i,\quad  \Biggl(v_i = \sum_{i=1}^l v_i\sspair{\lambda_i}{\alpha_j} = \sspair{v}{\alpha_j}\Biggr)
+\end{equation}
+と書ける．係数$v_i$は，$\sspair{}{}$の第一引数線型性より従う．
+\begin{mytheo}[label=thm:weightlatticebasis]{ウエイト格子の基底}
+	$\Delta_\text{w}$はウエイト格子の基底である．また，（強い）優ウエイトは非負（正）整数線型結合で書ける．
+\end{mytheo}
+\begin{proof}
+	任意のウエイトを\eqref{eq:coefficient-by-weight}のように展開した係数は，整ウエイトの定義より整数．優ウエイトの場合は，非負整数．強い優ウエイトの場合は，正整数．
+\end{proof}
+\begin{mydef}[label=def:root-fundamental-group]{ルート系の基本群}
+	\begin{equation}
+		\Lambda_\text{w} / \Lambda_\text{r}
+	\end{equation}
+	で定まる商は，有限な$\mathbb{Z}$-加群をなす．これをルート系$\Phi$の\textbf{基本群}(fundamental group)と呼ぶ．
+\end{mydef}
+\begin{proof}
+	単純ルートを\eqref{eq:coefficient-by-weight}のように展開した係数は，\hyperref[def:Cartan-matrix]{Cartan整数}そのもの．よって，ルート格子$\Lambda_\text{r}$はウエイト格子$\Lambda_\text{w}$の部分加群である．\\
+	Cartan行列は，ウェイト格子$\Lambda_\text{w}$の基底からルート格子$\Lambda_\text{r}$の基底への変換を表している．この行列式が，基本群の位数となる（$\mathbb{Z}/(p\mathbb{Z}) \simeq \mathbb{Z}_p$のイメージ）．i.e. 有限．
+\end{proof}
+PID（単項イデアル整域）上の有限生成加群の構造定理より，基本群は$\mathbb{Z}_p\ (p:\ \text{素数})$の直積で書ける．表\ref{tab:rootstructure}にある行列式の値から，$A_l, D_l$型以外は巡回群や自明な群だとわかる．実際は，$D_l$型のうち，$l$が偶数の場合は$\mathbb{Z}_2\times\mathbb{Z}_2$であり，他は全て単一の巡回群となる（Cartan逆行列から具体的に示される）．
+
+\subsection{優ウエイト}
+Weyl群$\mathscr{W}$は等長写像の群なので，$\mathbb{E}$上の内積を保つ．よって，$\mathscr{W}(\Lambda) \simeq \Lambda$である．
+\begin{mylem}[label=lem:dom-weight-A]{}
+	\begin{enumerate}
+		\item 各ウエイトは$\sigma \in \mathscr{W}$で別の優ウエイトと1対1で移り合う．
+		\item $\forall \lambda \in \Lambda_\text{w}^+,\ \forall \sigma \in \lambda,\quad  \sigma\lambda \prec \lambda$
+		\item $\lambda$が強い優ウエイトのとき，$\sigma\lambda = \lambda  \IFF  \sigma = 1$．
+	\end{enumerate}
+\end{mylem}
+\begin{proof}
+	定理\ref{lem:Weylgroup-FD}と，exercise10.14（$\mathbb{E}$の任意の点は，$\overline{\mathfrak{C}(\Delta)}$の点から，$\mathscr{W}$で写る）より直ちに従う．
+\end{proof}
+定義\ref{def:base-root}で定義した半順序$\prec$について，$\mu$が優だとしても$\mu \prec \lambda$なる$\lambda$が優とは限らないが，ある種の制限を与える．
+\begin{mylem}[label=lem:dom-weight-B]{}
+	$\forall \lambda \in \Lambda^+$に対し，$\mu \prec \lambda$を満たす整（，優，強い優）ウェイト$\mu$の数は有限．
+\end{mylem}
+\begin{proof}
+	$\lambda + \mu \in \Lambda^+$である．また$\prec$の定義より，$\lambda - \mu$は正ルートの線型結合で書けるから，$\lambda - \mu \in \Lambda^+$．よって，
+	\begin{equation}
+		0 \leq (\lambda + \mu, \lambda - \mu) = (\lambda, \lambda) - (\mu, \mu)
+	\end{equation}
+	となり，$\mu$はコンパクト集合$\bigl\{v \in \mathbb{E} \bigm| (v, v) \in (\lambda, \lambda)\bigr\}$の元．$\mu$は格子（離散集合）の元でもあるから，$\mu \prec \lambda$なる整ウエイトは有限個．
+\end{proof}
+
+\subsection{ウエイト$\delta$}
+系\ref{label=col:simpleroot-B}で定義した$\delta = \frac{1}{2}\sum_{\beta \succ 0} \beta$について考察する．
+\begin{mylem}[label=lem:weight-delta-A]{}
+	\begin{equation}
+		\delta = \sum_{j = 1}^l \lambda_j
+	\end{equation}
+	である．よって，$\delta$は強い優ウエイトである．
+\end{mylem}
+\begin{proof}
+	系\ref{label=col:simpleroot-B}より，$\sigma_{\alpha_j}\delta = \delta - \alpha_j\ (\alpha_j \in \Delta)$．射影の定義より，$\sspair{\delta}{\alpha_j} = 1$である．\eqref{eq:coefficient-by-weight}より，これは\hyperref[def:domweight]{ウエイト格子の基底}$\Delta_\text{w}$での\hyperref[eq:coefficient-by-weight]{展開係数}でもある:
+	\begin{equation}
+		\delta = \sum_{j=1}^l \sspair{\delta}{\alpha_j}\lambda_j = \sum_{j=1}^l \lambda_j
+	\end{equation}
+\end{proof}
+\begin{mylem}[label=lem:weight-delta-B]{}
+	$\forall \mu \in \Lambda^+, \forall \sigma \in \mathscr{W}$に対し，$\nu = \sigma^{-1}\mu$とすると，以下を満たす:
+	\begin{equation}
+		(\nu + \delta, \nu + \delta) \leq (\mu + \delta, \mu + \delta) \label{eq:weight-delta-B}
+	\end{equation}
+	ただし，等号成立は$\nu = \mu$に限る．
+\end{mylem}
+\begin{proof}
+	$\sigma$は等長写像なので，
+	\begin{align}
+		(\nu + \delta, \nu + \delta) &= (\sigma(\nu + \delta), \sigma(\nu + \delta)) = (\mu + \sigma\delta, \mu + \sigma\delta)\\
+		&= (\mu, \mu) + \textcolor{red}{2(\mu, \delta)} + (\delta, \delta) - \textcolor{red}{2(\mu, \delta)} +  2(\mu, \sigma\delta)\quad  (\because (\delta, \delta) = (\sigma\delta, \sigma\delta))\\
+		&= (\mu + \delta, \mu + \delta) - 2(\mu, \delta - \sigma\delta)
+	\end{align}
+	$\mu$は優ウエイトで，$\delta - \sigma\delta$は正ルートの和で書けるから，$(\mu, \delta - \sigma\delta) \geq 0$より，\eqref{eq:weight-delta-B}を満たす．等号成立条件は，
+	\begin{equation}
+		(\mu, \delta - \sigma\delta) = 0 \IFF (\mu, \delta) = (\mu, \sigma\delta) = (\nu, \delta) \IFF (\mu - \nu, \delta) = 0
+	\end{equation}
+	で，$\mu - \nu$は正ルートの和で書け，$\delta$はstrongly優なので，$\mu = \nu$．
+\end{proof}
+
+\subsection{ウエイトの飽和集合}
+\begin{mydef}[label=def:weight-saturated]{飽和集合，最高ウエイト}
+	\hyperref[def:root-lattice]{ウエイト格子}$\Lambda_\text{w}$の部分集合$\Pi$に対し，
+	\begin{equation}
+		\forall \lambda \in \Pi,\ \forall \alpha \in \Phi,\ \forall i = 0, \ldots, \sspair{\lambda}{\alpha},\quad  \lambda - i\alpha \in \Pi
+	\end{equation}
+	を満たすとき，$\Pi$は\textbf{飽和}している(saturated)と呼ぶ．また，$\exists \lambda \in \Lambda_\text{w}^+ \cap \Pi$について，
+	\begin{equation}
+		\mu \prec \lambda\quad  (\forall \mu \in \Pi)
+	\end{equation}
+	を満たすとき，$\Pi$は\textbf{最高ウエイト}(highest weight)を持つという．
+\end{mydef}
+鏡映の定義より，$\sigma_{\alpha}\lambda = \lambda - \sspair{\lambda}{\alpha}\alpha$だったから，$\mathscr{W}(\Pi) \subset \Pi$となる．
+\begin{myexample}[label=ex:saturated-of-weights]{自明な飽和集合}
+	零ベクトルの単元集合$\{0\}$は，$0$を最高ウエイトとする飽和集合．\\
+	また，半単純Lie代数のルート系について，$\Phi \cup \{0\}$は飽和集合．特に，既約なルート系に対しては補題\ref{lem:irr-root-A}より，半順序$\prec$に関する極大ルートを持っていた．
+\end{myexample}
+飽和集合に関するいくつかの補題を示そう．
+\begin{mylem}[label=lem:weight-saturated-A]{}
+	最高ウエイトを持つ飽和集合は有限．
+\end{mylem}
+\begin{proof}
+	補題\ref{lem:dom-weight-B}．
+\end{proof}
+\begin{mylem}[label=lem:weight-saturated-B]{}
+	$\Pi$を飽和集合とし，$\lambda$をその最高ウエイトとすると以下を満たす:
+	\begin{equation}
+		\forall \mu \in \Lambda^+,\ \mu \prec \lambda  \IMP  \mu \in \Pi
+	\end{equation}
+\end{mylem}
+\begin{proof}
+	$\mu \prec \lambda \in \Pi$より，
+	\begin{equation}
+		\forall i = 1, \ldots, l,\ \exists k_i \in \mathbb{Z}_{\geq 0}\quad  \mu' = \mu + \sum_{i = 1}^l k_i\alpha_i \in \Pi
+	\end{equation}
+	とできる．$\mu' \neq \mu$のとき，
+	\begin{equation}
+		\exists j \in \{1, \ldots, l\},\quad  (\mu' - \mu,\alpha_j),\ k_j > 0
+	\end{equation}
+	である（存在しないとすると，$(\mu' - \mu, \mu' - \mu) > 0$に矛盾）．よって，$\sspair{\mu' - \mu}{\alpha_j}$となる．$\mu$は優ウェイトなので，$\sspair{\mu}{\alpha_j} \geq 0$だから，$\sspair{\mu'}{\alpha_j} > 0$．飽和集合の定義より，新たな$\Pi$の元$\mu' - \sspair{\mu'}{\alpha_j}\alpha_j$が得られた．これを有限回繰り返せば，$\mu' = \mu$となる．
+\end{proof}
+\begin{mylem}[label=lem:weight-saturated-C]{}
+	$\Pi$を飽和集合，$\lambda$をその最高ウエイト，$\mu \in \Pi$とすると，以下を満たす:
+	\begin{equation}
+		(\mu + \delta, \mu + \delta) \leq (\lambda + \delta, \lambda + \delta) \label{eq:weight-delta-B}
+	\end{equation}
+	ただし，等号成立は$\mu = \lambda$に限る．
+\end{mylem}
+\begin{proof}
+	補題\ref{lem:dom-weight-A}, \ref{lem:weight-delta-B}より，$\mu$が優ウエイトの場合を調べればよい．$\lambda$は最高ウエイトなので，$\mu = \lambda - \pi$とすると，$\pi$は正ルートの和で書ける．すると，
+	\begin{align}
+		(\lambda + \delta, \lambda + \delta) - (\mu + \delta, \mu + \delta) &= (\lambda + \delta, \mu + \delta + \pi) - (\lambda + \delta - \pi, \mu + \delta) \\
+		&= (\lambda + \delta, \pi) + (\pi, \mu + \delta) \geq 0\quad  (\because \mu, \lambda, \delta \in \Lambda^+)
+	\end{align}
+	となる．$\lambda + \delta$は強い優ウエイトなので，等号成立は$\pi = 0  \IFF  \lambda = \mu$．
+\end{proof}
 
 \end{document}
