@@ -10,8 +10,6 @@
 
 Lie代数に積が備わっている必要はないが，\hyperref[ax:g-module]{$\mathfrak{g}$-加群}の定義\textbf{(M3)}には$xy,\ yx$という元が作用しているように見える．そうしてあるのは，自然に積の構造を入れた普遍包絡代数を作ることができるからである．
 
-ところでLie括弧も$\mathfrak{g}$の元であった．それならば$xy$と$yx$は独立でないはずであり，Lie括弧の無視した対称代数と同じ基底を張っても良さそうである．これがPBW定理の解釈と思われる．
-
 \subsection{テンソル代数と対称代数}
 この節では，体$\mathbb{K}$は任意とし，Lie代数$\mathfrak{g}$を無限次元を許す．\\
 半単純性を使わないので，第1章でやってもよい内容だが，PBW定理の証明はunpleasant taskなので，ここにあるらしい．
@@ -35,6 +33,9 @@ Lie代数に積が備わっている必要はないが，\hyperref[ax:g-module]{
 		\end{center}
 	\end{description}
 \end{mydef}
+\begin{myprop}[label=prop:unique-tensor-alg]{テンソル代数の一意性}
+	\hyperref[def:tensor-alg]{テンソル代数}は，単位的結合代数の同型を除いて一意的に存在する．
+\end{myprop}
 \begin{proof}
 	\begin{description}
 		\item[(一意性)] 別のテンソル代数を$(T', i')$とすると，普遍性より準同型$f \colon T \lto T',\ f' \colon T' \lto T$が得られる．可換図式
@@ -81,6 +82,9 @@ Lie代数に積が備わっている必要はないが，\hyperref[ax:g-module]{
 		\end{center}
 	\end{description}
 \end{mydef}
+\begin{myprop}[label=prop:unique-sym-alg]{対称代数の一意性}
+	\hyperref[def:sym-alg]{対称代数}は，単位的可換結合代数の同型を除いて一意的に存在する．
+\end{myprop}
 \begin{proof}
 	\begin{description}
 		\item[(一意性)] \hyperref[def:tensor-alg]{テンソル代数}の証明と全く同様．
@@ -149,10 +153,13 @@ Lie代数に積が備わっている必要はないが，\hyperref[ax:g-module]{
 		\end{center}
 	\end{description}
 \end{mydef}
+\begin{myprop}[label=prop:unique-univ-env-alg]{普遍包絡代数の一意性}
+	\hyperref[def:univ-env-alg]{普遍包絡代数}は，単位的結合代数の同型を除いて一意的に存在する．
+\end{myprop}
 \begin{proof}
 	\begin{description}
-		\item[\textbf{一意性}] いつもの．
-		\item[\textbf{存在}] $\mathfrak{g}$上の\hyperref[def:tensor-alg]{テンソル代数}$T(\mathfrak{g})$について，$J$を
+		\item[\textbf{(一意性)}] \hyperref[def:tensor-alg]{普遍包絡代数}の証明と全く同様．
+		\item[\textbf{(存在)}] $\mathfrak{g}$上の\hyperref[def:tensor-alg]{テンソル代数}$T(\mathfrak{g})$について，$J$を
 		\begin{equation}
 			\label{eq:univ-env-alg-J}
 			x \otimes y - y \otimes x - [x, y]\quad  (x, y \in \mathfrak{g})
@@ -168,9 +175,9 @@ Lie代数に積が備わっている必要はないが，\hyperref[ax:g-module]{
 \begin{mydef}[label=def:univ-env-alg-module]{$\mathfrak{U}(\mathfrak{g})$-加群}
 	\hyperref[col:PBW-C]{$i_\text{U}\colon \mathfrak{g} \lto \mathfrak{U}(\mathfrak{g})$は単射}だ（と後で示す）から，\hyperref[ax:g-module]{$\mathfrak{g}$-加群}$V$に対し，
 	\begin{equation}
-		\mathfrak{U}(\mathfrak{g}) \times V \lto V,\quad  i(x_1) \cdots i(x_n) \btr v \mapsto x_1 \btr ( \cdots (x_n \btr v)\ldots)
+		i(x_1) \cdots i(x_n) \btr v \mapsto x_1 \btr ( \cdots (x_n \btr v)\ldots)
 	\end{equation}
-	が定まる．\textbf{$\mathfrak{U}(\mathfrak{g})$-加群}とは，これを作用とする代数上の加群のことである．
+	を$\mathfrak{U}(\mathfrak{g}) \times V \lto V$に線型に拡張したものが定まる．\textbf{$\mathfrak{U}(\mathfrak{g})$-加群}とは，これを作用とする代数上の加群のことである．
 \end{mydef}
 
 \begin{mydef}[label=def:filtration]{フィルトレーション}
@@ -225,10 +232,15 @@ $p_\text{G}\colon \mathfrak{U}(\mathfrak{g}) \lto \gr\mathfrak{U}(\mathfrak{g})$
 	\end{equation}
 	i.e. $I \subset \Ker f_\text{G}$．同型定理より，$\omega$は準同型．
 \end{proof}
-次の定理（または系\ref{col:PBW-C}）はPincaré-Birkhoff-Witt定理と呼ばれる．証明は次節．
+次の定理（または系\ref{col:PBW-C}）はPincaré-Birkhoff-Witt定理と呼ばれる．
 \begin{mytheo}[label=thm:PBW]{Pincaré-Birkhoff-Witt定理 (PBW定理)}
-	\hyperref[def:sym-alg]{対称代数}から\hyperref[prop:graded-alg-by-filtered]{$\gr U$}への準同型$\omega: S \to \gr U$は代数の同型写像．
+	\hyperref[def:sym-alg]{対称代数}から$\hyperref[prop:graded-alg-by-filtered]{\gr}U$への準同型$\omega: S \to \gr U$は代数の同型写像．
 \end{mytheo}
+全単射性を含めた証明は次節だが，結合代数$\gr U(\mathfrak{g})$が可換代数であることを確認しよう．$m \in \mathbb{Z}_{\geq 2}$とすると，$p_\text{U}(T^m(\mathfrak{g}))$の元$x_1 \cdots x_m$に対し，
+\begin{equation}
+	x_1 \cdots x_m = x_1 \cdots x_{i+1}x_i \cdots x_m + x_1 \cdots [x_i,x_{i+1}] \cdots x_m
+\end{equation}
+である．ところで右辺第二項について，$x_1 \cdots [x_i,x_{i+1}] \cdots x_m \in U_m$だから，確かに$\gr U$は可換結合代数となっている．
 \begin{mycol}[label=col:PBW-A]{}
 	$W$を$T^m(\mathfrak{g})$の部分空間とする．標準的射影$p_{\text{S}}: T^m(\mathfrak{g}) \to S^m(\mathfrak{g})$に対し，$p_{\text{S}}|_{W}$が同型のとき，\\
 	\begin{equation}
