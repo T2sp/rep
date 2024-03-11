@@ -702,8 +702,18 @@ $\Im f$ は\hyperref[def:subLieAlg]{部分Lie代数}である
 \subsection{自己同型}
 
 \begin{mydef}[label=def:auto-LieAlg]{自己同型}
-
+	\hyperref[ax:LieAlg]{Lie代数}$\mathfrak{g}$を与える．写像$f \colon \mathfrak{g} \lto \mathfrak{g}$ が\textbf{Lie代数の同型} (automorphism) であるとは，$f$が\hyperref[def:hom-LieAlg]{Lie代数の準同型}であることを言う．\\
+	\hyperref[ax:LieAlg]{Lie代数}$\mathfrak{g}$の自己同型の集合を$\Aut\mathfrak{g}$と書き，写像の合成とする群をなす．
 \end{mydef}
+\begin{mydef}[label=def:inner-LieAlg]{内部自己同型}
+	\hyperref[ax:LieAlg]{Lie代数}$\mathfrak{g}$を与える．自己同型$f \in \Aut\mathfrak{g}$が\textbf{内部} (inner) であるとは，ある$x \in \mathfrak{g}$とある$\mathfrak{g}$を誘導するようなLie群の随伴表現$\Adj$が存在し，
+	\begin{equation}
+		f = \Adj (\exp(x))
+	\end{equation}
+	と書けることを言う? \\
+	\hyperref[ax:LieAlg]{Lie代数}$\mathfrak{g}$の内部自己同型の集合を$\Inn\mathfrak{g}$と書き，自己同型群$\Aut\mathfrak{g}$の部分群をなす．
+\end{mydef}
+
 
 \subsection{可解Lie代数}
 

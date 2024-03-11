@@ -143,7 +143,7 @@ $\Longleftarrow$は，命題\ref{prop:root-decomp-int}の$[g_\alpha, g_\beta] = 
 		&p(x^+) = v^+,\quad  p'(x^+) = w^+ \\
 		&\Im p = V,\quad  \Im p' = W
 	\end{align}
-	より，$p,\ p'$は共に\hyperref[ax:g-module]{$\mathfrak{g}$-加群}の全射準同型．
+	より，$p,\ p'$は共に\hyperref[ax:g-module]{$\mathfrak{g}$-加群}の全射\hyperref[g-module-hom]{準同型}．
 	\begin{center}
 		\begin{tikzcd}[row sep=large, column sep=large]
 			Y \ar[d, "p"']\ar[r, "p''"] & W \\
@@ -179,7 +179,7 @@ $\Longleftarrow$は，命題\ref{prop:root-decomp-int}の$[g_\alpha, g_\beta] = 
 \begin{equation}
 	I(\lambda) \btr v^+ = 0
 \end{equation}
-より，$\mathfrak{U}(\mathfrak{g})$-加群の準同型定理から，$\mathfrak{U}(\mathfrak{g}) / I(\lambda) \to M(\lambda)$は$1 + I(\lambda) \mapsto 1\otimes v^+$となる．再び，\hyperref[thm:PBW]{PBW定理}の系\ref{col:PBW-D}より，$\mathfrak{U}(\mathfrak{b}) + I(\lambda) \mapsto \mathbb{K}(1\otimes v^+)$となる．よって，この標準的射影は一対一対応であり，
+より，$\mathfrak{U}(\mathfrak{g})$-加群の\hyperref[g-module-hom]{準同型}定理から，$\mathfrak{U}(\mathfrak{g}) / I(\lambda) \to M(\lambda)$は$1 + I(\lambda) \mapsto 1\otimes v^+$となる．再び，\hyperref[thm:PBW]{PBW定理}の系\ref{col:PBW-D}より，$\mathfrak{U}(\mathfrak{b}) + I(\lambda) \mapsto \mathbb{K}(1\otimes v^+)$となる．よって，この標準的射影は一対一対応であり，
 \begin{equation}
 	U(\mathfrak{g}) / I(\lambda) \simeq \mathfrak{U}(\mathfrak{n}^-) \otimes \mathbb{K} \simeq M(\lambda)
 \end{equation}
@@ -204,6 +204,9 @@ $\Longleftarrow$は，命題\ref{prop:root-decomp-int}の$[g_\alpha, g_\beta] = 
 \begin{proof}
 	有限次元には，\hyperref[def:weight-rep]{ウエイト}$\lambda$の\hyperref[def:maximal-vector-rep]{極大ベクトル}$v^+$の存在が保証されていた．$L(\lambda) = \mathfrak{U}(\mathfrak{g}) \btr v^+$は\hyperref[def:irr]{既約$\mathfrak{g}$-加群}$V$の\hyperref[def:sub-g-module]{部分加群}で，非零なので$V \simeq L(\lambda)$．
 \end{proof}
+\begin{mydef}[label=def:fundamental-rep]{基本表現}
+	\hyperref[def:semisimple-LieAlg]{半単純Lie代数}$\mathfrak{g}$に対し，\hyperref[def:fundamental-weight]{基本ウエイト}$\lambda_i$に対する表現$\rho \colon \mathfrak{g} \lto L(\lambda_i)$を$\mathfrak{g}$の\textbf{基本表現}（fundamental representation）と呼ぶ．
+\end{mydef}
 
 \section{有限次元加群}
 \hyperref[thm:hwmodule-exist]{既約（最高ウエイト）$\mathfrak{g}$-加群}$L(\lambda)$が有限次元であるための\hyperref[def:weight-rep]{ウエイト}$\lambda$の条件を調べる．
@@ -340,12 +343,12 @@ $(\mu + \alpha\mathbb{Z}) \cap \Pi(\lambda)$なる整ウエイトの集合を\te
 	(4): 以上から$\Pi(\lambda)$は\hyperref[def:weight-saturated]{飽和集合}の定義そのものを満たすと言える．\\
 	(5): 補題\ref{lem:dom-weight-A}と補題\ref{lem:weight-saturated-B}を組み合わせると成り立つ．
 \end{proof}
-ルートと$\Pi(\lambda)$の元を書いた図を\textbf{ウエイト図}(weight diagram)と呼ぶ．重複度とやらも書き込みたいので，具体例は次節に回す．
+ルートと$\Pi(\lambda)$の元を書いた図を\textbf{ウエイト図}(weight diagram)と呼ぶ．あとで定義する\hyperref[def:mutiplicity]{重複度}も書き込みたいので，具体例は次節に回す．
 
 \subsection{$L(\lambda)$の生成系と関係式}
-$\mathfrak{U}(\mathfrak{g}) \to M(\lambda) \to L(\lambda)$という準同型を$\lambda$が優ウエイトの場合にさらに考察する．\\
+$\mathfrak{U}(\mathfrak{g}) \to M(\lambda) \to L(\lambda)$という\hyperref[g-module-hom]{準同型}を$\lambda$が優ウエイトの場合にさらに考察する．\\
 $M(\lambda) = \mathfrak{U}(\mathfrak{g}) / I(\lambda)$であり，$I(\lambda)$は$\mathfrak{U}(\mathfrak{g})$の左イデアルで，$M(\lambda)$の\hyperref[def:maximal-vector-rep]{極大ベクトル}$v^+$に対し，$I(\lambda) \btr v^+ = 0$となるものであった．\\
-同様に$\mathfrak{U}(\mathfrak{g})$の左イデアルで，$L(\lambda)$の\hyperref[def:maximal-vector-rep]{極大ベクトル}に作用すると$0$となるようなものを$J(\lambda)$とする．$I(\lambda) \subset J(\lambda)$より，準同型
+同様に$\mathfrak{U}(\mathfrak{g})$の左イデアルで，$L(\lambda)$の\hyperref[def:maximal-vector-rep]{極大ベクトル}に作用すると$0$となるようなものを$J(\lambda)$とする．$I(\lambda) \subset J(\lambda)$より，\hyperref[g-module-hom]{準同型}
 \begin{equation}
 	M(\lambda) = \mathfrak{U}(\mathfrak{g}) / I(\lambda) \lto L(\lambda) \simeq \mathfrak{U}(\mathfrak{g}) / J(\lambda)
 \end{equation}
@@ -389,7 +392,7 @@ $M(\lambda) = \mathfrak{U}(\mathfrak{g}) / I(\lambda)$であり，$I(\lambda)$�
 \section{重複度公式}
 この節では有限次元加群を考える．
 \begin{mydef}[label=def:mutiplicity]{ウエイトの重複度}
-	$\mu \in \mathfrak{h}^*$を整ウエイト，$\lambda \in \Lambda^+$を優ウエイトとする．\ref[thm:hwmodule-exist]{有限次元既約$\mathfrak{g}$-加群}$L(\lambda)$に対し，\hyperref[def:weight-rep]{ウエイト}$\mu$の\hyperref[def:weight-rep]{ウエイト空間}の次元
+	$\mu \in \mathfrak{h}^*$を整ウエイト，$\lambda \in \Lambda^+$を優ウエイトとする．\hyperref[thm:hwmodule-exist]{有限次元既約$\mathfrak{g}$-加群}$L(\lambda)$に対し，\hyperref[def:weight-rep]{ウエイト}$\mu$の\hyperref[def:weight-rep]{ウエイト空間}の次元
 	\begin{equation}
 		m_\lambda(\mu) \coloneqq \dim L(\lambda)_\mu
 	\end{equation}
@@ -398,21 +401,20 @@ $M(\lambda) = \mathfrak{U}(\mathfrak{g}) / I(\lambda)$であり，$I(\lambda)$�
 目標は，\hyperref[def:weight-rep]{ウエイト}の\hyperref[def:mutiplicity]{重複度}$m_\lambda(\mu)$に対する再帰的公式である，Freudenthalの公式を示すこと．
 
 \subsection{普遍Casimir演算子}
-\hyperref[thm:Weyl]{完全可約性に関するWeylの定理}の証明で出てきた，\hyperref[def:semisimple-LieAlg]{半単純Lie代数}$\mathfrak{g}$の表現$\phi$に対して定義された\hyperref[def:Casimir]{Casimir演算子}$c_\phi = c_\phi(\beta)$を思い出そう．これを対応する\hyperref[def:univ-env-alg]{普遍包絡代数}$\mathfrak{U}(\mathfrak{g})$の表現$\phi$に対する演算子と見ると，
+\hyperref[thm:Weyl]{完全可約性に関するWeylの定理}の証明で出てきた，\hyperref[def:semisimple-LieAlg]{半単純Lie代数}$\mathfrak{g}$の表現$\phi$に対して定義された\hyperref[def:Casimir]{Casimir演算子}$c_\phi = c_\phi(\beta)$を思い出そう．これを\hyperref[def:univ-env-alg]{普遍包絡代数}$\mathfrak{U}(\mathfrak{g})$の表現$\phi$に対する演算子と見ると，
 \begin{align}
 	c_\phi &\coloneqq \sum_{\mu=1}^{\dim\mathfrak{g}} \phi(e_\mu)\phi(e^\mu) = \sum_{\mu=1}^{\dim\mathfrak{g}} \phi(e_\mu e^\mu) \\
 	\label{eq:univ-Casimir-beta}
 	&= \phi(c_\mathfrak{g}(\beta))\quad  \biggl(c_\mathfrak{g}(\beta) \coloneqq \sum_{\mu=1}^{\dim\mathfrak{g}} e_\mu e^\mu \biggr)
 \end{align}
-
-ここで，$\mathfrak{g}$の随伴表現を考える．その跡形式を\hyperref[def:Killing-form]{Killing形式}$\kappa$と呼んでいた．\hyperref[thm:semisimple-LieAlg-iff]{半単純Lie代数のKilling形式は非退化}であったから，$\kappa$に関する双対基底（ここでも補題\ref{lem:Casimir}のように，$\mathfrak{g}^*$の基底ではなく$\mathfrak{g}$の基底）を構成できる．\\
+と書ける．$c_\mathfrak{g}(\beta)$は陽に$\phi$に依存していない\footnote{$\beta(x, y) = \Tr(\phi(x)\phi(y))$としていたので陰に依存している}．そこで$\phi$として$\mathfrak{g}$の随伴表現を考える．その跡形式を\hyperref[def:Killing-form]{Killing形式}$\kappa$と呼んでいた．\hyperref[thm:semisimple-LieAlg-iff]{半単純Lie代数のKilling形式は非退化}であったから，$\kappa$に関する双対基底（ここでも補題\ref{lem:Casimir}のように，$\mathfrak{g}^*$の基底ではなく$\mathfrak{g}$の基底）を構成できる．\\
 命題\ref{prop:root-decomp-basic1}より，$\alpha,\ \beta \in \mathfrak{h}^*$に対し，$\alpha \neq -\beta$であれば$g_\alpha$と$g_\beta$は直交する．よって，$\mathfrak{h} = \mathfrak{g}_0$及び$\mathfrak{g}_\alpha \oplus \mathfrak{g}_{-\alpha}$それぞれで\hyperref[def:Killing-form]{Killing形式}を考えれば良い．\\
 まず，$\{x_\alpha \in \mathfrak{g}\ (\forall \alpha \in \Phi)\}$と\hyperref[def:base-root]{単純ルート}$\alpha_i$に対する$\{h_i = [x_{\alpha_i}, x_{-\alpha_i}]\ (1 \leq i \leq l)\}$で$\mathfrak{g}$の基底を張る．\\
 $\kappa$に関する\hyperref[lem:Casimir]{双対}をそれぞれ$x^\alpha,\ h^i$とすると，命題\ref{prop:root-decomp-ortho}より$x^\alpha \in \mathfrak{g}_{-\alpha}$で，
 \begin{equation}
 	[x_\alpha, x^\alpha] = t_\alpha = \frac{(\alpha, \alpha)}{2}h_\alpha
 \end{equation}
-となる．このときの\eqref{eq:univ-Casimir-beta}で定義した$c_\mathfrak{g}(\beta)$に注目する．
+となる．このときの\eqref{eq:univ-Casimir-beta}で定義した$c_\mathfrak{g}(\beta) = c_\mathfrak{g}(\kappa)$に注目する．
 \begin{mydef}[label=def:univ-Casimir-op]{普遍Casimir演算子}
 	\hyperref[def:semisimple-LieAlg]{半単純Lie代数}$\mathfrak{g}$の\hyperref[def:univ-env-alg]{普遍包絡代数}を$\mathfrak{U}(\mathfrak{g})$，極大\hyperref[def:toral-subLieAlg]{トーラス}$\mathfrak{h}$の基底を$\{h_i\}_{i=1}^l$，$x_\alpha \in \mathfrak{g}_\alpha \setminus \{0\}$，$h_i, x_\alpha$を\hyperref[def:Killing-form]{Killing形式}$\kappa$に関して\hyperref[lem:Casimir]{双対}をとったものをそれぞれ$h^i, x^\alpha$とする．
 	\begin{equation}
@@ -420,7 +422,7 @@ $\kappa$に関する\hyperref[lem:Casimir]{双対}をそれぞれ$x^\alpha,\ h^i
 	\end{equation}
 	を（\hyperref[def:Killing-form]{Killing形式}に関する）\textbf{普遍Casimir演算子}(universal Casimir operator)と呼ぶ．
 \end{mydef}
-縮約をとっているので，$c_\mathfrak{g}$は基底によらない．$c_\phi = \phi(c_\mathfrak{g})$と$\phi(\mathfrak{g})$は可換なので，$\phi$が\hyperref[def:irr]{既約}なら$\phi(c_\mathfrak{g})$はスカラーとして作用する．\\
+縮約をとっているので，$c_\mathfrak{g}$は基底によらない．命題\ref{prop:Casimir-basic}より$c_\phi(\kappa) = \phi(c_\mathfrak{g})$と$\phi(\mathfrak{g})$は可換なので，$\phi$が\hyperref[def:irr]{既約}なら$\phi(c_\mathfrak{g})$はスカラーとして作用する．\\
 $c_\phi$と$\phi(c_\mathfrak{g})$の関係を調べる．そのために$\phi$の跡形式$\beta(x, y) = \Tr(\phi(x)\phi(y))$と$\kappa$の関係を調べる．
 \begin{mylem}[label=lem:trace-form-simple]{単純Lie代数の非退化対称結合双線型形式の同型性}
 	$\mathfrak{g}$を\hyperref[def:simple-LieAlg]{単純Lie代数}とし，$f(x, y),\ g(x, y)$を$\mathfrak{g}$上の非退化で対称な双線型形式とし，$\beta = f, g$について
@@ -434,19 +436,19 @@ $c_\phi$と$\phi(c_\mathfrak{g})$の関係を調べる．そのために$\phi$�
 	\end{equation}
 \end{mylem}
 \begin{proof}
-	各非退化双線型形式$f, g$で定まる同型$\mathfrak{g} \lto \mathfrak{g}^*,\ x \mapsto s_f, s_g$を
+	各非退化双線型形式$f, g$で定まる同型$\pi_f, \pi_g\colon \mathfrak{g} \lto \mathfrak{g}^*,\ x \mapsto s_f, s_g$を
 	\begin{equation}
 		s_f(y) = f(x, y),\quad  s_g(y) = g(x, y)
 	\end{equation}
 	で定義する．$\mathfrak{g}^*$は$\Lgl(\mathbb{K})$を返す\hyperref[ax:g-module]{$\mathfrak{g}$-加群}と見れる．$\mathbb{K}$は1次元線型空間なので，\eqref{eq:associative-bilinear}より，$\{s_f\}, \{s_g\}$は\hyperref[ax:g-module]{$\mathfrak{g}$-加群}として同型．\\
-	よって，\hyperref[ax:g-module]{$\mathfrak{g}$-加群}$s \coloneqq s_f^{-1}s_g\colon \mathfrak{g} \to \mathfrak{g}$は$\mathfrak{g}$上の同型写像．$\mathfrak{g}$は\hyperref[def:simple-LieAlg]{単純}なので，\hyperref[def:irr]{既約$\mathfrak{g}$-加群}となり，\hyperref[col:Schur-closed]{代数閉体上のSchurの補題}より$s$はスカラー倍．i.e.
+	よって，\hyperref[ax:g-module]{$\mathfrak{g}$-加群}$\pi_g^{-1}\circ\pi_f\colon \mathfrak{g} \to \mathfrak{g}$は$\mathfrak{g}$上の同型写像．$\mathfrak{g}$は\hyperref[def:simple-LieAlg]{単純}なので，\hyperref[def:irr]{既約$\mathfrak{g}$-加群}となり，\hyperref[col:Schur-closed]{代数閉体上のSchurの補題}より$\pi_f^{-1}\pi_g$はスカラー倍．i.e.
 	\begin{equation}
-		\forall x, y \in \mathfrak{g}\ \exists z \in \mathfrak{g},\quad  f(x, y) = g(z, y)  \IFF  \exists a \in \mathbb{K},\ z = ax
+		\forall x \in \mathfrak{g},\ \exists a \in \mathbb{K},\quad  \pi_g^{-1}\circ\pi_f(x) = ax  \IFF  \forall y \mathfrak{g},\ f(x, y) = g(ax, y)
 	\end{equation}
-	となり，$f, g$の双線型性より$f = ag$．
+	となり，$g$の双線型性より$f = ag$．
 \end{proof}
- \hyperref[ax:LieAlg]{Lie代数}$\mathfrak{g}$の非零の\hyperref[def:faithful]{忠実}な表現を$\phi$とする．$\Ker\phi \subsetneqq \mathfrak{g}$は$\mathfrak{g}$のイデアルとなる．\\
-$\mathfrak{g}$が\hyperref[def:simple-LieAlg]{単純}のとき，$\Ker\phi = \{0\}$だから，$\beta(x, y) \coloneqq \Tr(\phi(x)\phi(y))$は非退化で\eqref{eq:associative-bilinear}を満たす．$\phi = \ad$の場合の\hyperref[def:Killing-form]{Killing形式}$\kappa$はこれを満たすから，補題\ref{lem:trace-form-simple}より，$\kappa = a\beta\ (a \in \mathbb{K} \setminus \{0\})$と書ける．$\beta$に関する\hyperref[lem:Casimir]{双対}ベクトルは，$\kappa$に関する\hyperref[lem:Casimir]{双対}ベクトルの$1/a$倍となるから，\eqref{eq:univ-Casimir-beta}より，
+\hyperref[ax:LieAlg]{Lie代数}$\mathfrak{g}$の非零の\hyperref[def:faithful]{忠実}な表現を$\phi$とする．$\Ker\phi \subsetneqq \mathfrak{g}$は$\mathfrak{g}$のイデアルとなる．\\
+$\mathfrak{g}$が\hyperref[def:simple-LieAlg]{単純}のとき，$\Ker\phi = \{0\}$だから，$\beta(x, y) \coloneqq \Tr(\phi(x)\phi(y))$は非退化で\eqref{eq:associative-bilinear}を満たす．$\phi = \ad$の場合の\hyperref[def:Killing-form]{Killing形式}$\kappa$も含まれるから，補題\ref{lem:trace-form-simple}より，$\kappa = a\beta\ (a \in \mathbb{K} \setminus \{0\})$と書ける．$\beta$に関する\hyperref[lem:Casimir]{双対}ベクトルは，$\kappa$に関する\hyperref[lem:Casimir]{双対}ベクトルの$1/a$倍となるから，\eqref{eq:univ-Casimir-beta}より，
 \begin{equation}
 	c_\phi(\kappa) = \phi(c_\mathfrak{g}) = \phi(c_\mathfrak{g}(a\beta)) = \frac{1}{a}\phi(c_\mathfrak{g}(\beta)) = \frac{1}{a}c_\phi
 \end{equation}
@@ -465,138 +467,145 @@ $\mathfrak{g}$が\hyperref[def:simple-LieAlg]{単純}のとき，$\Ker\phi = \{0
 \end{equation}
 と書ける．次に，この$a_i$の値の求め方を示す．
 \subsection{Freudenthalの公式}
-$V$の\hyperref[def:weight-rep]{ウエイト}$\mu \in \Pi(\lambda)$に対する\hyperref[def:weight-rep]{ウエイト空間}$V_\mu$に対し，$\phi(x_\alpha)\phi(z_\alpha)$は$V_\mu \lto V_{\mu - \alpha} \lto V_\mu$より$V_\mu$の準同型．まずは，$V_\mu$上の跡を調べる．
+$V$の\hyperref[def:weight-rep]{ウエイト}$\mu \in \Pi(\lambda)$に対する\hyperref[def:weight-rep]{ウエイト空間}$V_\mu$に対し，$\phi(x_\alpha)\phi(x^\alpha)$は$V_\mu \lto V_{\mu - \alpha} \lto V_\mu$より$V_\mu$上の線型変換なので，$\phi(c_\mathbb{g})|_{V_\mu}$は$V_\mu$上の線型変換と見ることができる．ここで，$V_\mu$上の跡を調べる．
 \begin{mylem}[label=lem:Freudenthal]{ウエイト空間上の既約表現の跡形式}
-	優ウエイト$\lambda \in \Lambda^+$の\hyperref[thm:hwmodule-exist]{既約な$\mathfrak{g}$-加群}を$V = L(\lambda)$（表現と見たものを$\phi$と書く），$V$の\hyperref[def:weight-rep]{ウエイト}を$\mu \in \Lambda$（$\Pi(\lambda)$でないことに注意），その重複度を$m(\mu)$とすると，
+	優ウエイト$\lambda \in \Lambda^+$の\hyperref[thm:hwmodule-exist]{既約な$\mathfrak{g}$-加群}を$V = L(\lambda)$（表現と見たものを$\phi$と書く），$V$の\hyperref[def:weight-rep]{ウエイト}を$\mu \in \Lambda$，その\hyperref[def:mutiplicity]{重複度}を$m(\mu)$とすると，
 	\begin{align}
 		\Tr_{V_\mu} \phi(c_\mathfrak{g}) &= (\mu, \mu)m(\mu) + \sum_{\alpha \in \Phi} \sum_{i=1}^\infty m(\mu + i\alpha)(\mu + i\alpha, \alpha) \\
 		&= (\mu, \mu + 2\delta)m(\mu) + 2\sum_{\alpha \succ 0} \sum_{i=1}^\infty m(\mu + i\alpha)(\mu + i\alpha, \alpha)
 	\end{align}
+	を満たす．
 \end{mylem}
 \begin{proof}
+	$\mu \in \Lambda \setminus \Pi(\lambda)$の場合は$V_\mu = 0$より成立．以下，$\mu \in \Pi(\lambda)$を考える．\\
 	上述のように，$\mathfrak{h}$の基底$\{h_i\}_{i=1}^l$，$\mathfrak{g}_\alpha$の基底$\{x_\alpha\}$を固定し，\hyperref[def:Killing-form]{Killing形式}$\kappa$に関する\hyperref[lem:Casimir]{双対基底}を取る．\\
-	$\mu \in \Pi(\lambda)$として，$V_\mu$上の$x_\alpha x^\alpha,\ k_ik^i$の作用を直接見て，その和を調べる．
-	
-	まずは$x_\alpha x^\alpha$．$\mu + \alpha \notin \Pi(\lambda)$とすると，$\alpha$-string through $\mu$は，$r = \sspair{\mu}{\alpha}$に対し，$\{\mu,\ \mu - \alpha,\ \ldots,\ \mu - r\alpha\}$となる．\hyperref[thm:Weyl]{完全可約性に関するWeylの定理}より
-	\begin{equation}
-		W \coloneqq V_\mu \oplus \cdots \oplus V_{\mu - r\alpha}
-	\end{equation}
-	は\hyperref[def:irr]{既約}$\mathfrak{s}_\alpha$-加群の\hyperref[def:gmod-directsum]{直和}となる．$w_0 \in V_\mu$を$\mathfrak{s}_\alpha$-加群としての\hyperref[def:maximal-vector-rep]{極大ベクトル}とすると，
-	\begin{equation}
-		w_i \coloneqq \left\{\begin{aligned}
-			 &0 &&(i = -1) \\
-			 &\frac{(\alpha, \alpha)^i}{2^i}y^i \btr w_0  &&(i \geq 0)
-		\end{aligned} \right.
-	\end{equation}
-	に対し，$x^\alpha = \frac{(\alpha, \alpha)}{2}y_\alpha,\ t_\alpha = \frac{(\alpha, \alpha)}{2}h_\alpha$と補題\ref{lem:sl2-2}より，
-	\begin{enumerate}
-		\item $t_\alpha \btr w_i = (r - 2i)\frac{(\alpha, \alpha)}{2}w_i$
-		\item $x^\alpha \btr w_i = w_{i+1}$
-		\item $x_\alpha \btr w_i = i(r - i+1)\frac{(\alpha, \alpha)}{2}w_{i-1}  \WHERE i \ge 0$
-	\end{enumerate}
-	を満たす．特に，$w_m \in V_{\mu - m\alpha}$．よって，
-	\begin{equation}
-		\label{eq:Freudenthal-proof-1}
-		x_\alpha x^\alpha \btr w_i = (r - i)(i + 1)\frac{(\alpha, \alpha)}{2}w_i
-	\end{equation}
-	鏡映$\sigma_\alpha$に対し，$\sigma_\alpha(\mu - i\alpha) = \mu + (r - i)$と定理\ref{thm:suff-for-finite}より，
-	\begin{equation}
-		m(\mu - i\alpha) = m(\mu - (r - i)\alpha)\quad  (0 \leq i \leq r)
-	\end{equation}
-	となる．\hyperref[def:highest-weight-module]{最高ウエイト}$r - 2i = (\mu - i\alpha)(h_\alpha)$をもつベクトルの数を$n_i\ (0 \leq i \leq r/2)$とすると，
-	\begin{equation}
-		m(\mu - i\alpha) = \sum_{j = 0}^i n_i  \IMP  n_i = m(\mu - i\alpha) - m(\mu - (i - 1)\alpha)
-	\end{equation}
-	となる．$0 \leq j \leq i \leq r/2$とする．\hyperref[def:highest-weight-module]{最高ウエイト}$r - 2j$の\hyperref[def:weight-rep]{ウエイト空間}は，\eqref{eq:Freudenthal-proof-1}の$r \mapsto r - 2j,\ i \mapsto j - i$より，
-	\begin{equation}
-		\phi(x_\alpha)\phi(x^\alpha)w_{i - j} = (r - j - i)(i - j + 1)\frac{(\alpha, \alpha)}{2}w_{i - j}
-	\end{equation}
-	よって，
-	\begin{align}
-		\Tr_{V_{\mu - i\alpha}} \phi(x_\alpha)\phi(x^\alpha) &= \sum_{j = 0}^i n_j(r - j - i)(i - j + 1)\frac{(\alpha, \alpha)}{2} \\
-		&= \sum_{j = 0}^i (m(\mu - j\alpha) - m(\mu - (i - 1)\alpha))(r - j - i)(i - j + 1)\frac{(\alpha, \alpha)}{2} \\
-		&= \sum_{j = 0}^i m(\mu - j\alpha)((r - j - i)(i - j + 1) - (r - j - i - 1)(i - j))\frac{(\alpha, \alpha)}{2} \\
-		&= \sum_{j = 0}^i m(\mu - j\alpha)(r - 2j)\frac{(\alpha, \alpha)}{2} \\
-		&= \sum_{j = 0}^i m(\mu - j\alpha)((\mu, \alpha) - j(\alpha, \alpha))\quad  \Biggl(r = \sspair{\mu}{\alpha} = 2\frac{(\mu, \alpha)}{(\alpha, \alpha)}\Biggr) \\
-		\label{eq:Freudenthal-proof-2}
-		&= \sum_{j=0}^i m(\mu - j\alpha)(\mu - j\alpha, \alpha)  \Bigl(0 \leq i \leq \frac{r}{2}\Bigr)
-	\end{align}
-	次に，$\sigma_\alpha$の下で不変だから，$m(\mu - j\alpha) = m(\mu - (r - j)\alpha)$と合わせると
-	\begin{equation}
-		\Tr_{V_{\mu - i\alpha}} \phi(x_\alpha)\phi(x^\alpha) = \sum_{j=0}^{r - i - 1} m(\mu - j\alpha)(\mu - j\alpha, \alpha)\quad  \Bigl(\frac{r}{2} < i \leq r\Bigr)
-	\end{equation}
-	となる（右辺の和は本来$r - i$までだが，$x^\alpha$で）ここで，$(\mu - j\alpha, \alpha) + (\mu - (r-j)\alpha, \alpha) = 2(\mu, \alpha) - r(\alpha, \alpha) = 0$より，\ref{eq:Freudenthal-proof-2}は任意の$i$で成り立つ．
-	
-	任意の$\nu \in \Pi(\lambda)$は，$\nu + j\alpha = \mu$の形にできる．$m(\nu + (j + i)\alpha) = 0\ (i > 0)$より，
-	\begin{equation}
-		\Tr_{V_\mu} \phi(x_\alpha)\phi(z_\alpha) = \sum_{i=0}^\infty m(\mu + i\alpha)(\mu + i\alpha)
-	\end{equation}
-	
-	次に，$h_ih^i$．\hyperref[col:torus-centralizer]{$\kappa|_{\mathfrak{h}\times\mathfrak{h}}$は非退化}だったから，
-	\begin{equation}
-		\exists t_\mu \in \mathfrak{h},\ \forall h \in \mathfrak{h},\quad  \mu(h) = \kappa(t_\mu, h)
-	\end{equation}
-	を満たす．$t_\mu = \sum_{i=1}^l a^ih_i$と展開すると，
-	\begin{equation}
-		\mu(h_i) = \sum_{j=1}^l a^j\kappa(h_j, h_i),\quad  \mu(h^i) = a^i
-	\end{equation}
-	より，
-	\begin{equation}
-		\sum_{i=1}^l\Tr_{V_\mu} \phi(h_i)\phi(h^i) = m(\mu)\sum_{i=1}^l\mu(h_i)\mu(h^i) = m(\mu)\sum_{i,j=1}^l a^ia^j\kappa(h_i, h_j) = m(\mu)\kappa(t_\mu, t_\mu) = m(\mu)(\mu, \mu)
-	\end{equation}
-	となる．以上より，
+	$\mu \in \Pi(\lambda)$として，$V_\mu$上の$x_\alpha x^\alpha,\ h_ih^i$の作用を直接見て，その和を調べる．
+	\begin{description}
+		\item[($x_\alpha x^\alpha$)] $\mu + \alpha \notin \Pi(\lambda)$とすると，$\alpha$-string through $\mu$は$\{\mu,\ \mu - \alpha,\ \ldots,\ \mu - r\alpha\}\ (r = \sspair{\mu}{\alpha})$となる．\hyperref[thm:Weyl]{完全可約性に関するWeylの定理}より，ウエイト空間の直和
+		\begin{equation}
+			W \coloneqq V_\mu \oplus \cdots \oplus V_{\mu - r\alpha}
+		\end{equation}
+		はある\hyperref[def:irr]{既約}$\mathfrak{s}_\alpha$-加群の\hyperref[def:gmod-directsum]{直和}で表せる．$w_0 \in V_\mu$を$\mathfrak{s}_\alpha$-加群としての\hyperref[def:maximal-vector-rep]{極大ベクトル}とすると，
+		\begin{equation}
+			w_i \coloneqq \left\{\begin{aligned}
+				 &0 &&(i = -1) \\
+				 &\frac{(\alpha, \alpha)^i}{2^i}y^i \btr w_0  &&(i \geq 0)
+			\end{aligned} \right.
+		\end{equation}
+		に対し，$x^\alpha = \frac{(\alpha, \alpha)}{2}y_\alpha,\ t_\alpha = \frac{(\alpha, \alpha)}{2}h_\alpha$と補題\ref{lem:sl2-2}より，
+		\begin{enumerate}
+			\item $t_\alpha \btr w_i = (r - 2i)\frac{(\alpha, \alpha)}{2}w_i$
+			\item $x^\alpha \btr w_i = w_{i+1}$
+			\item $x_\alpha \btr w_i = i(r - i+1)\frac{(\alpha, \alpha)}{2}w_{i-1}  \WHERE i \ge 0$
+		\end{enumerate}
+		を満たす．特に，$w_m \in V_{\mu - m\alpha}$．よって，
+		\begin{equation}
+			\label{eq:Freudenthal-proof-1}
+			x_\alpha x^\alpha \btr w_i = (r - i)(i + 1)\frac{(\alpha, \alpha)}{2}w_i
+		\end{equation}
+		鏡映$\sigma_\alpha \in \mathscr{W}$に対し，$\sigma_\alpha(\mu - i\alpha) = \mu + (r - i)\alpha$と定理\ref{thm:suff-for-finite}より，
+		\begin{equation}
+			m(\mu - i\alpha) = m(\mu - (r - i)\alpha)\quad  (0 \leq i \leq r)
+		\end{equation}
+		となる．\hyperref[def:highest-weight-module]{最高ウエイト}$r - 2i = (\mu - i\alpha)(h_\alpha)$をもつベクトルの数を$n_i\ (0 \leq i \leq r/2)$とすると，
+		\begin{equation}
+			m(\mu - i\alpha) = \sum_{j = 0}^i n_i  \IMP  n_i = m(\mu - i\alpha) - m(\mu - (i - 1)\alpha)
+		\end{equation}
+		となる．$0 \leq j \leq i \leq r$とする．\hyperref[def:highest-weight-module]{最高ウエイト}$r - 2j$の\hyperref[def:weight-rep]{ウエイト空間}は，\eqref{eq:Freudenthal-proof-1}の$r \mapsto r - 2j,\ i \mapsto j - i$より，
+		\begin{equation}
+			\phi(x_\alpha)\phi(x^\alpha)w_{i - j} = (r - j - i)(i - j + 1)\frac{(\alpha, \alpha)}{2}w_{i - j}
+		\end{equation}
+		よって$0 \leq i \leq r/2$に対しては，
+		\begin{align}
+			\Tr_{V_{\mu - i\alpha}} \phi(x_\alpha)\phi(x^\alpha) &= \sum_{j = 0}^i n_j(r - j - i)(i - j + 1)\frac{(\alpha, \alpha)}{2} \\
+			&= \sum_{j = 0}^i (m(\mu - j\alpha) - m(\mu - (j - 1)\alpha))(r - j - i)(i - j + 1)\frac{(\alpha, \alpha)}{2} \\
+			&= \sum_{j = 0}^i m(\mu - j\alpha)((r - j - i)(i - j + 1) - (r - j - i - 1)(i - j))\frac{(\alpha, \alpha)}{2} \\
+			&= \sum_{j = 0}^i m(\mu - j\alpha)(r - 2j)\frac{(\alpha, \alpha)}{2} \\
+			&= \sum_{j = 0}^i m(\mu - j\alpha)((\mu, \alpha) - j(\alpha, \alpha))\quad  \Biggl(r = \sspair{\mu}{\alpha} = 2\frac{(\mu, \alpha)}{(\alpha, \alpha)}\Biggr) \\
+			\label{eq:Freudenthal-proof-2}
+			&= \sum_{j=0}^i m(\mu - j\alpha)(\mu - j\alpha, \alpha)\quad  \Bigl(0 \leq i \leq \frac{r}{2}\Bigr)
+		\end{align}
+		となる．$r/2 \leq i \leq r$の場合は和が$r - i$までになるだけ．ただし，$\phi(x^\alpha)w_{i - (r - i)} = 0$だから，
+		\begin{align}
+			\label{eq:Freudenthal-proof-3}
+			\Tr_{V_{\mu - i\alpha}} \phi(x_\alpha)\phi(x^\alpha) = \sum_{j=0}^{r - i - 1} m(\mu - j\alpha)(\mu - j\alpha, \alpha)\quad  \Bigl(\frac{r}{2} < i \leq r\Bigr)
+		\end{align}
+		となる．ここで，$m(\mu - j\alpha) = m(\mu - (r - j)\alpha)$より，
+		\begin{align}
+			m(\mu - j\alpha)(\mu - j\alpha, \alpha) + m(\mu - (r - j)\alpha)(\mu - (r - j)\alpha, \alpha) &= m(\mu - j\alpha)(2\mu - r\alpha, \alpha) \\
+			\label{eq:Freudenthal-proof-4}
+			&= 0
+		\end{align}
+		なので，\eqref{eq:Freudenthal-proof-2}を$i \geq r/2$で考えた際の$r - i,\ldots, i$の項の部分和は$0$\footnote{$\character\mathbb{K} \neq 2$より，$j = r/2$の項も$0$．}となり，\eqref{eq:Freudenthal-proof-3}に等しい．i.e. \eqref{eq:Freudenthal-proof-2}は任意の$i = 0, \ldots, r$で成り立つ．
+		
+		任意の$\nu \in \Pi(\lambda)$は，$\nu + j\alpha = \mu$の形にできる．$m(\nu + (j + i)\alpha) = 0\ (i > 0)$より，
+		\begin{equation}
+			\Tr_{V_\mu} \phi(x_\alpha)\phi(x^\alpha) = \sum_{i=0}^\infty m(\mu + i\alpha)(\mu + i\alpha)\quad  (\mu \in \Pi(\lambda))
+		\end{equation}
+
+	\item[\textbf{($h_ih^i$)}] \hyperref[col:torus-centralizer]{$\kappa|_{\mathfrak{h}\times\mathfrak{h}}$は非退化}だったから，
+		\begin{equation}
+			\exists t_\mu \in \mathfrak{h},\ \forall h \in \mathfrak{h},\quad  \mu(h) = \kappa(t_\mu, h)
+		\end{equation}
+		を満たす．特に，$t_\mu = \kappa(t_\mu, h^i)h_i = \mu(h^i)h_i$である．よって，
+		\begin{align}
+			\sum_{i=1}^l\Tr_{V_\mu} \phi(h_i)\phi(h^i) &= m(\mu)\sum_{i=1}^l\mu(h_i)\mu(h^i) = m(\mu)\sum_{i,j=1}^l\mu(h^j)\kappa(h_j, h_i)\mu(h^i) \\
+			&= m(\mu)\kappa(t_\mu, t_\mu) = m(\mu)(\mu, \mu)
+		\end{align}
+	\end{description}
+	以上より，
 	\begin{equation}
 		\Tr_{V_\mu} \phi(c_\mathfrak{g}) = (\mu, \mu)m(\mu) + \sum_{\alpha \in \Phi} \sum_{i=0}^\infty m(\mu + i\alpha)(\mu + i\alpha, \alpha)
 	\end{equation}
-	$\forall \alpha \in \Phi,\ -\alpha \in \Phi$だったから，和の$i = 0$の項は$0$．また，実は
+	ここで，\eqref{eq:Freudenthal-proof-4}の$j \in \mathbb{Z}_{\geq r/2}$の和をとると，
 	\begin{equation}
 		\sum_{i=-\infty}^\infty m(\mu + i\alpha)(\mu + i\alpha, \alpha) = 0
 	\end{equation}
-	となる（よって，$\mu \notin \Pi(\lambda)$でも成立）．よって，
+	となるから，$\alpha \prec 0$に対する$i \in \mathbb{Z}_{\geq 0}$の和を$i < 0$で書き直すと，
 	\begin{align}
 		\Tr_{V_\mu} \phi(c_\mathfrak{g}) &= (\mu, \mu)m(\mu) + \sum_{\alpha \succ 0} m(\mu)(\mu, \alpha) + 2\sum_{\alpha \succ 0} \sum_{i=1}^\infty m(\mu + i\alpha)(\mu + i\alpha, \alpha) \\
 		&= (\mu, \mu + 2\delta)m(\mu) + 2\sum_{\alpha \succ 0} \sum_{i=1}^\infty m(\mu + i\alpha)(\mu + i\alpha, \alpha)
 	\end{align}
+	となる（$\delta = \frac{1}{2}\sum_{\alpha \succ 0} \alpha$）．
 \end{proof}
 
 \begin{mytheo}[label=thm:Freudenthal]{Freudenthalの公式}
-	\hyperref[def:highest-weight-module]{最高ウエイト}$\lambda \in \Lambda^+$の非零で\hyperref[def:faithful]{忠実}な既約$\mathfrak{g}$-加群を$L(\lambda)$，整ウエイト$\mu \in \Lambda$の重複度を$m(\lambda)$とすると，以下を満たす．
+	\hyperref[def:highest-weight-module]{最高ウエイト}$\lambda \in \Lambda^+$の非零で\hyperref[def:faithful]{忠実}な既約$\mathfrak{g}$-加群を$L(\lambda)$，整ウエイト$\mu \in \Lambda$の\hyperref[def:mutiplicity]{重複度}を$m(\lambda)$とすると，以下を満たす．
 	\begin{equation}
 		\big((\lambda + \delta, \lambda + \delta) - (\mu + \delta, \mu + \delta)\big)m(\mu) = 2\sum_{\alpha \succ 0}\sum_{i=1}^\infty m(\mu + i\alpha)(\mu + i\alpha, \alpha)
 	\end{equation}
 \end{mytheo}
 \begin{proof}
-	補題\ref{lem:Freudenthal}の証明の続き．まず，$\phi(c_\mathfrak{g})$はスカラー倍だったから，
+	補題\ref{lem:Freudenthal}の証明の続き．まず，命題\ref{prop:Casimir-basic}より$\phi(c_\mathfrak{g})$はスカラー倍だったから，
 	\begin{equation}
 		\Tr_{V_\mu} \phi(c_\mathfrak{g}) = \phi(c_\mathfrak{g})m(\mu)
 	\end{equation}
-	となる．補題\ref{lem:Freudenthal}を\hyperref[def:highest-weight-module]{最高ウエイト}$\mu = \lambda$の場合で考えると，
+	となる．ここで，
 	\begin{equation}
-		c = (\lambda, \lambda + 2\delta) = (\lambda + \delta, \lambda + \delta) - (\delta, \delta)
+		(\mu, \mu + 2\delta) = (\mu + \delta, \mu + \delta) - (\delta, \delta)
 	\end{equation}
-	より，Freudenthalの公式が成り立つ．
+	であり，$\mu = \lambda$のときのこれは$\phi(c_\mathfrak{g})$（の固有値）に等しいから，Freudenthalの公式が成り立つ．
 \end{proof}
-
+$\lambda$が最高ウエイトで，\hyperref[thm:hwmodule-c]{$m(\lambda)=1$}だったから，この公式から$m(\mu)$を一意的に求めることが可能．
 \subsection{具体例}
-
 
 \subsection{代数的指標}
 
 \begin{mydef}[label=def:group-ring]{群環}
-	$G$を群，$R$を環とする．$G$で生成される自由$R$-加群$R[G]$に対し，その積を
+	$G$を群，$R$を環とする．$G$で生成される自由$R$-加群$R[G]$に対し，その積を$R$-係数の畳み込み
 	\begin{equation}
-		\biggl(\sum_{g \in G} a(g)g \biggr)\biggl(\sum_{h \in G} b(h)h \biggr) \coloneqq \sum_{g, h \in G} a(g)b(h)(gh) = \biggl(\sum_{g \in G} \biggl(\sum_{h \in G} a(h)b(h^{-1}g)g \biggr) \biggr)
+		\biggl(\sum_{g \in G} a(g)g \biggr)\biggl(\sum_{h \in G} b(h)h \biggr) \coloneqq \sum_{g, h \in G} a(g)b(h)(gh) = \sum_{g \in G} a *b(g)g\quad  \biggl(a * b(g) \coloneqq \sum_{h \in G} a(h)b(h^{-1}g)\biggr)
 	\end{equation}
-	と定めた（和は実際は有限和なのでwell-defined）$R$上の代数を\textbf{群環}(group ring)と呼ぶ．
+	で定めた（$G$の和は実際は有限和なのでwell-defined）$R$上の代数を\textbf{群環}(group ring)と呼ぶ．
 \end{mydef}
-\hyperref[def:root-lattice]{ウエイト格子}$\Lambda \subset \mathfrak{h}^*$は\hyperref[def:fundamental-weight]{基本ウエイト}で生成される$\mathbb{Z}$-加群だったので，スカラー倍の構造を忘れば加法群となる．よって，$\{e^\lambda | \lambda \in \Lambda\}$で生成される\hyperref[def:group-ring]]{群環}$Z[\Lambda]$が定義される（生成系を別の文字にしたのは，$Z[\Lambda]$の和$+$と$\Lambda$の積$+$を区別するため．$e^\lambda e^\mu = e^{\lambda + \mu}$）．\\
-また，$Z[\Lambda]$上の\hyperref[def:Weylgroup]{Weyl群}$\mathscr{W}$の作用を
+\hyperref[def:root-lattice]{ウエイト格子}$\Lambda \subset \mathfrak{h}^*$は\hyperref[def:fundamental-weight]{基本ウエイト}で生成される$\mathbb{Z}$-加群だったので，スカラー倍の構造を忘れば加法群となる．よって，$\{e^\lambda | \lambda \in \Lambda\}$で生成される\hyperref[def:group-ring]{群環}$Z[\Lambda]$が定義される（生成系を別の文字にしたのは，$Z[\Lambda]$の和$+$と$\Lambda$の積$+$を区別するため．$e^\lambda e^\mu = e^{\lambda + \mu}$）．\\
+また$Z[\Lambda]$上の\hyperref[def:Weylgroup]{Weyl群}$\mathscr{W}$の作用を
 \begin{equation}
-	\sigma e^\lambda = e^{\sigma\lambda}\ (\sigma \in \mathscr{W}
+	\sigma e^\lambda = e^{\sigma\lambda}\ (\sigma \in \mathscr{W})
 \end{equation}
 で定義する．一般の有限次元\hyperref[ax:g-module]{$\mathfrak{g}$-加群}$V$は，補題\ref{lem:weight-rep}より\hyperref[def:weight-rep]{ウエイト空間}の\hyperref[def:univ-vec-sum]{直和}で書けるから，$V$の\hyperref[def:weight-rep]{ウエイトの集合}$\Pi(V)$は有限集合．これに注意して指標を定義する．
 \begin{mydef}[label=def:alg-character]{代数的指標}
-	\hyperref[def:semisimple-LieAlg]{半単純Lie代数}$\mathfrak{g}$の\hyperref[def:root-lattice]{ウエイト格子}を$\Lambda \subset \mathfrak{h}^*$，有限次元\hyperref[ax:g-module]{$\mathfrak{g}$-加群}を$V$，\hyperref[def:weight-rep]{ウエイト}$\mu \in \Pi(V)$の重複度を$m_\lambda(\mu)$とする．\hyperref[def:group-ring]]{群環}$\mathbb{Z}[\Lambda]$の元
+	\hyperref[def:semisimple-LieAlg]{半単純Lie代数}$\mathfrak{g}$の\hyperref[def:root-lattice]{ウエイト格子}を$\Lambda \subset \mathfrak{h}^*$，有限次元\hyperref[ax:g-module]{$\mathfrak{g}$-加群}を$V$，\hyperref[def:weight-rep]{ウエイト}$\mu \in \Pi(V)$の\hyperref[def:mutiplicity]{重複度}を$m_\lambda(\mu)$とする．\hyperref[def:group-ring]{群環}$\mathbb{Z}[\Lambda]$の元
 	\begin{equation}
 		\ch_V \coloneqq \sum_{\mu \in \Pi(V)} m_\lambda(\mu)e^\mu = \sum_{\mu \in \Lambda} m_\lambda(\mu)e^\mu
 	\end{equation}
@@ -607,32 +616,36 @@ $V$の\hyperref[def:weight-rep]{ウエイト}$\mu \in \Pi(\lambda)$に対する\
 	$\ch_\lambda$は\hyperref[def:Weylgroup]{Weyl群}$\mathscr{W}$の作用の下で不変．
 \end{mylem}
 \begin{proof}
-	定理\ref{thm:thm:suff-for-finite}より，$m_\lambda(\mu) = m_\lambda(\sigma\mu)\ (\forall \sigma \in \mathscr{W})$なので$\mathscr{W}$-不変．
+	定理\ref{thm:thm:suff-for-finite}より，$m_\lambda(\mu) = m_\lambda(\mathscr{W}\mu)$なので$\mathscr{W}$-不変．
 \end{proof}
-有限次元加群$V$について，\hyperref[thm:Weyl]{完全可約性に関するWeylの定理}より，\hyperref[def:gmod-directsum]{直和}分解$V = \bigoplus_{i=1}^t V(\lambda_i)$に対し，
+有限次元加群$V$について，\hyperref[thm:Weyl]{完全可約性に関するWeylの定理}より，\hyperref[def:gmod-directsum]{直和}分解$V = \bigoplus_{i=1}^t L(\lambda_i)$に対し，
 \begin{equation}
 	\ch_V = \sum_{i=1}^t \ch_{\lambda_i}
 \end{equation}
-と一意的に書けるはず．特に補題\ref{lem:Weyl-stable-irr-ch}より，この和も$\mathscr{W}$の作用の下で不変．このことに注意して\hyperref[def:alg-character]{代数的指標}の和の性質を確認しよう．
-\begin{myprop}[label=prop:alg-character-add]{代数的指標の和}
-	$f \in \mathbb{Z}[\Lambda]$が\hyperref[def:Weylgroup]{Weyl群}$\mathscr{W}$の作用の下で不変とすると，\\
-	$f$は$\ch_\lambda\ (\lambda \in \Lambda^+)$の$\mathbb{Z}$-係数線型結合で一意的に書ける．特に，
+と書ける．よって$\{\ch_{\lambda}\}$が線型独立であれば，加群の直和と代数的指標の和が一対一に対応する．\\
+また補題\ref{lem:Weyl-stable-irr-ch}より，$\ch_V$も$\mathscr{W}$の作用の下で不変．\\
+よって線型独立性と，$\mathscr{W}$-不変性が有限次元加群の\hyperref[def:alg-character]{代数的指標}となる必要十分条件であることを示そう．
+\begin{myprop}[label=prop:alg-character-finite]{有限次元加群の代数的指標，代数的指標の和}
+	\hyperref[def:invariant-polynomial]{不変式}$\mathbb{Z}[\Lambda]^{\mathscr{W}}$は$\{\ch_\lambda | \lambda \in \Lambda^+ \}$で生成される．
+	
+	i.e. $f \in \mathbb{Z}[\Lambda]$が\hyperref[def:Weylgroup]{Weyl群}$\mathscr{W}$の作用の下で不変とすると，$f$は$\ch_\lambda\ (\lambda \in \Lambda^+)$の$\mathbb{Z}$-係数線型結合で一意的に書ける．特に，
 	\begin{equation}
-		\ch_\lambda = \sum_{\sigma\lambda} e^{\sigma\lambda}
+		\ch_\lambda = \sum_{\mu \in \mathscr{W}\lambda} e^\mu
 	\end{equation}
 \end{myprop}
 \begin{proof}
 	\begin{description}
 		\item[(存在)] $f = \sum_{\lambda \in \Lambda} c(\lambda)e^\lambda\ (c(\lambda) \in \mathbb{Z})$と書くと，$\mathscr{W}$の作用で不変だから，
 		\begin{equation}
-			f = \sum_{\lambda \in \Pi} c(\lambda) \sum_{\sigma\lambda} e^{\sigma\lambda}\quad  \biggl(\Pi = \bigl\{\lambda \in \Lambda^+ \bigm| c(\lambda) \neq 0\bigr\}\biggr)
+			f = \sum_{\lambda \in \Pi} c(\lambda) \sum_{\mu \in \mathscr{W}\lambda} e^\mu\quad  \biggl(\Pi = \bigl\{\lambda \in \Lambda^+ \bigm| c(\lambda) \neq 0\bigr\}\biggr)
 		\end{equation}
 		と書ける．$M_f = \bigcup_{\lambda \in \Pi} \{\mu \in \Lambda^+ | \mu \prec \lambda\}$とすると，補題\ref{lem:dom-weight-B}より有限集合．\\
 		ここで，$\lambda \in M_f$が極大のとき，補題\ref{lem:Weyl-stable-irr-ch}より，$f' = f - c(\lambda)\ch_\lambda$も$\mathscr{W}$の作用の下で不変．$L(\lambda)$の\hyperref[def:weight-rep]{ウエイトの集合}$\Pi(\lambda)$は\hyperref[def:weight-saturated]{飽和集合}だから，$\mu \prec \lambda$なる優ウエイトを全て含み，かつ$\lambda \notin M_{f'}$より，$M_{f'} \subsetneq M_f$．\\
-		よって，$\Card(M_f)$についての帰納法で，$\Card(M_f') = 0$になるまでこれを繰り返せば，$\mathscr{W}$-不変性より$f' = 0$になる．特に$\Card(M_f) = 1$の場合，
+		よって，$|M_f|$についての帰納法で，$|M_f'| = 0$になるまでこれを繰り返せば，$\mathscr{W}$-不変性より$f' = 0$になる．特に$|M_f| = 1$の場合，
 		\begin{equation}
-			f = c(\lambda) \sum_{\sigma\lambda} e^{\sigma\lambda}
+			f = c(\lambda) \sum_{\mu \in \mathscr{W}\lambda} e^\mu
 		\end{equation}
+		であり，$f = \ch_\lambda$のとき，\hyperref[thm:hwmodule-c]{最高ウエイト加群のウエイト空間の\hyperref[def:mutiplicity]{重複度}は$1$}だから，$c(\lambda) = 1$．
 		\item[(一意性)] $f = \sum_{\lambda \in \Pi} c(\lambda)\ch_\lambda = \sum_{\lambda' \in \Pi'} c'(\lambda')\ch_{\lambda'}\ \bigl(0 \notin c(\Pi), c'(\Pi')\bigr)$と書けたとする．\\
 		$\lambda \in \Pi$のうち，極大なものを$\lambda_0$とすると，$\lambda_0 \prec \lambda'_0$を満たす$\lambda'_0 \in \Pi'$が存在する．すると，$\lambda'_0 \prec \lambda$となる$\lambda \in \Pi$が存在するが，それは$\lambda_0$しかないから，
 		\begin{equation}
@@ -649,75 +662,316 @@ $V$の\hyperref[def:weight-rep]{ウエイト}$\mu \in \Pi(\lambda)$に対する\
 	\end{equation}
 \end{myprop}
 \begin{proof}
-	\hyperref[def:gmod-tensor]{$\mathfrak{g}$-加群のテンソル積の定義}より，\hyperref[def:weight-rep]{ウエイト空間}どうしのテンソル積$V_\mu \otimes W_\nu$は\hyperref[def:weight-rep]{ウエイト}は$\mu + \nu$の\hyperref[def:weight-rep]{ウエイト空間}．つまり，
+	\hyperref[def:gmod-tensor]{$\mathfrak{g}$-加群のテンソル積の定義}より，\hyperref[def:weight-rep]{ウエイト空間}どうしのテンソル積$V_\mu \otimes W_\nu$は\hyperref[def:weight-rep]{ウエイト}$\mu + \nu$の\hyperref[def:weight-rep]{ウエイト空間}．つまり，
 	\begin{equation}
 		m_{V \otimes W}(\mu + \nu) = \sum_{\pi + \pi' = \mu + \nu} m_V(\pi)m_W(\pi')
 	\end{equation}
 	となる．右辺は$\ch_V\ch_W$の$e^{\mu + \nu}$の係数に等しい．
 \end{proof}
-特に，$V, W$の\hyperref[def:highest-weight-module]{最高ウエイト}をそれぞれ$\lambda_V, \lambda_W$とすると，$V \otimes W$の\hyperref[def:irr]{既約}分解には，$L(\lambda_V + \lambda_W)$が含まれる．
+特に，$V, W$の\hyperref[def:highest-weight-module]{最高ウエイト}をそれぞれ$\lambda_V, \lambda_W$とすると，\hyperref[ax:g-module]{$\mathfrak{g}$-加群}$V \otimes W$の\hyperref[def:irr]{既約}分解には，$L(\lambda_V + \lambda_W)$が含まれる．
 
 \section{指標}
-
-
-
 \subsection{不変式論}
 
 \begin{mydef}[label=def:polynomial-function-ring]{多項式函数環}
-	体$\mathbb{K}$上の線型空間$V$に対し，$V^*$に対する\hyperref[label=def:sym-alg]{対称代数}
+	体$\mathbb{K}$上の線型空間$V$に対し，$V^*$に対する\hyperref[def:sym-alg]{対称代数}
 	\begin{equation}
 		\mathbb{K}[V] \coloneqq S(V^*)
 	\end{equation}
 	を$V$上の\textbf{多項式函数環}(ring of polynomial functions)と呼ぶ．
 \end{mydef}
 $V$を有限次元とし，$V^*$の基底を$(f^1,\ldots , f^n)$と取ると，$\mathbb{K}[V]$は$n$変数多項式代数$\mathbb{K}[f^1, \ldots, f^n]$と同型である．\\
-\hyperref[def:root-lattice]{ウエイト格子}$\Lambda$は$\mathfrak{h}^*$を張るから，$\lambda \in \Lambda$の多項式は$\mathbb{K}[V]$を張る．
+\hyperref[def:root-lattice]{ウエイト格子}$\Lambda$は$\mathfrak{h}^*$を張るから，$\lambda \in \Lambda$の多項式は$\mathbb{K}[\mathfrak{h}]$を張る．
 \begin{mydef}[label=def:poly-func-ring-modular]{誘導される多項式函数環の加群}
-	群を$G$，体$\mathbb{K}$上の線型空間を$V$とする．\\
-	$V$が$G$-加群のとき，対応する表現$\phi$に対し，
+	群を$G$，体$\mathbb{K}$上の線型空間を$V$とする．$V$が$G$-加群のとき，$V^*$上の$G$-加群が
 	\begin{equation}
-		g \btr f = f \circ \phi
+		(g \btr f)(v) \coloneqq f(g^{-1} \btr v)\quad  (\forall v \in V,\ g \in G,\ f \in V^*)
 	\end{equation}
-	により，\hyperref[def:polynomial-function-ring]{多項式函数環}上の加群が誘導される．
+	により定義される．\\
+	また，$V^*$が$G$-加群の（または誘導された）とき，\hyperref[def:polynomial-function-ring]{多項式函数環}$\mathbb{K}[V]$上の$G$-加群が
+	\begin{equation}
+		g \btr (f_1 \cdots f_n) \coloneqq (g \btr f_1) \cdots (g \btr f_n)
+	\end{equation}
+	を線型に拡張としたものとして定義される．
 \end{mydef}
 \begin{mydef}[label=def:invariant-polynomial]{不変式}
-	群を$G$，体$\mathbb{K}$上の線型空間を$V$とする．$\mathbb{K}[V]$が（定義\ref{def:poly-func-ring-modular}により誘導された）$G$-加群のとき，この作用で不変な集合
+	$G$を群，体$\mathbb{K}$上の線型空間を$V$とする．$\mathbb{K}[V]$が（定義\ref{def:poly-func-ring-modular}により誘導された）$G$-加群のとき，この作用で不変な集合
 	\begin{equation}
-		\mathbb{K}[V]^G = \bigl\{f \in \mathbb{K}[V] \bigm| g \btr f = f\ (\forall g \in G) \bigr\}
+		\mathbb{K}[V]^G \coloneqq \bigl\{f \in \mathbb{K}[V] \bigm| G \btr f = f \bigr\}
 	\end{equation}
-	を$V$上の$G$-\textbf{不変多項式}($G$-invariant polynomials on $V$)あるいは単に\textbf{不変式}と呼ぶ．
+	は$\mathbb{K}$-可換結合代数をなす．これを$V$上の$G$-\textbf{不変多項式}($G$-invariant polynomials on $V$)あるいは単に\textbf{不変式}(invariants)と呼ぶ．
 \end{mydef}
-\hyperref[def:Weylgroup]{Weyl群}$\mathscr{W}$は$\mathfrak{h}^*$に作用するから，$\mathscr{W}$-不変式$\mathbb{K}[\mathfrak{h}]^\mathscr{W}$が定義される．また，$\mathfrak{g}$の内部自己同型$\Int\mathfrak{g}$は$\mathfrak{g}$に作用するから，$\Int\mathfrak{g}$-不変式$\mathbb{K}[\mathfrak{g}]^{\Int\mathfrak{g}}$が定義される．
+$\mathbb{K}[V]^G$が$G$の作用で閉じていることを具体的に示すと以下（$g \in G, \lambda \in \mathbb{K},\ f_1, f_2 \in \mathbb{K}[V]^G$）：
+\begin{align}
+	g \btr (f_1 + f_2) &= g \btr f_1 + g \btr f_2 = f_1 + f_2 \\
+	g \btr (\lambda f_1) &= \lambda (g \btr f_1) = \lambda f_1 \\
+	g \btr (f_1f_2) &= (g \btr f_1)(g \btr f_2) = f_1f_2
+\end{align}
+\hyperref[def:Weylgroup]{Weyl群}$\mathscr{W}$は$\mathfrak{h}^*$に作用するから，$\mathscr{W}$-不変式$\mathbb{K}[\mathfrak{h}]^\mathscr{W}$が定義される．また，$\mathfrak{g}$の\hyperref[def:inner-LieAlg]{内部自己同型}$\Inn\mathfrak{g}$は$\mathfrak{g}$に作用するから，$\Inn\mathfrak{g}$-不変式$\mathbb{K}[\mathfrak{g}]^{\Inn\mathfrak{g}}$が定義される．
+\begin{mydef}[label=def:coinvariant-polynomial]{余不変式}
+	$G$を群，体$\mathbb{K}$上の線型空間を$V$とする．多項式代数$\mathbb{K}[V]$が（定義\ref{def:poly-func-ring-modular}により誘導された）$G$-加群のとき，軌道空間
+	\begin{equation}
+		\mathbb{K}[V]_G \coloneqq \mathbb{K}[V] / G
+	\end{equation}
+	は$\mathbb{K}$-可換結合代数をなす．これを$V$上の$G$-\textbf{余不変多項式}($G$-coinvariant polynomials on $V$)あるいは単に\textbf{余不変式}(coinvariants)と呼ぶ．
+\end{mydef}
+\begin{mytheo}[label=def:coinv-inv-isomorphism]{有限群上の不変式と余不変式の同型性}
+	有限群上の不変式と余不変式は同型．
+\end{mytheo}
+\begin{proof}
+	\begin{equation}
+		p_G \colon \mathbb{K}[V] \lto \mathbb{K}[V],\quad  x \mapsto \frac{1}{|G|}\sum_{g \in G} (g \btr x)
+	\end{equation}
+	は不変式$\mathbb{K}[V]^G$への（代数の）射影．よって，$\mathbb{K}[V]^G$はある商代数と同型だが，
+	\begin{equation}
+		p_G(x) = p_G(y)  \IFF  \exists g \in G,\ x = g \btr y\quad  (x, y \in \mathbb{K}[V])
+	\end{equation}
+	より$\mathbb{K}[V]^G$と$\mathbb{K}[V]_G$は同型．
+\end{proof}
+$\phi$を$\mathfrak{g}$の表現とする．$\mathbb{K}[\mathfrak{g}]^{\Inn\mathfrak{g}}$の元として，\textbf{跡多項式}(trace polynomial)
+\begin{equation}
+	t\colon x \mapsto \Tr(\phi(x)^k)\quad  (x \in \mathfrak{g})
+\end{equation}
+があることを見よう．まず$\tr \circ \phi$は線型なので，$\tr \circ \phi \in \mathfrak{g}^*$．
+
+\hyperref[]{テンソル積とHomの同型}より$\End(V) \simeq V^* \otimes V$なので，$\Tr \colon \End(V) \lto \mathbb{K}$は
+\begin{equation}
+	V^* \otimes V \lto \End(V),\quad  h \otimes v \mapsto (w \mapsto h(w)v)
+\end{equation}
+$\Tr(h \otimes v) = h(v)$．
+
+より，$t \in \mathbb{K}[\mathfrak{g}]$となる．
 
 
-
-
-
-
-
-
-\begin{mytheo}[label=thm:Lie-poly-func-ring]{(Chevalley)}
+\hyperref[def:inner-LieAlg]{内部自己同型}$\tau_\alpha\ (\alpha \in \Phi)$に対し，$\tau_\alpha|_\mathfrak{h} = \sigma_\alpha \in \mathscr{W}$であり，$\sigma_\alpha$は$\mathscr{W}$を生成した．\\
+よって射影$\mathfrak{g}^* \lto \mathfrak{h}^*$を多項式函数へ拡張したものを$p\colon \mathbb{K}[\mathfrak{g}] \lto \mathbb{K}[\mathfrak{h}]$とすると，$p$は不変式の代数準同型
+\begin{equation}
+	\theta \colon \mathbb{K}[\mathfrak{g}]^{\Inn\mathfrak{g}} \lto \mathbb{K}[\mathfrak{h}]^\mathscr{W}
+\end{equation}
+を誘導する．
+\begin{mytheo}[label=thm:Chevalley-restriction]{Chevalleyの制限定理}
 	$\mathfrak{g}$を\hyperref[def:semisimple-LieAlg]{半単純Lie代数}，$\mathfrak{h}$をその極大\hyperref[def:toral-subLieAlg]{トーラス}，$\mathscr{W}$を\hyperref[def:Weylgroup]{Weyl群}とする．不変式の代数準同型
 	\begin{equation}
-		\theta\colon \mathbb{K}[\mathfrak{g}]^{\Int\mathfrak{g}} \lto \mathbb{K}[\mathfrak{h}]^\mathscr{W}
+		\theta\colon \mathbb{K}[\mathfrak{g}]^{\Inn\mathfrak{g}} \lto \mathbb{K}[\mathfrak{h}]^\mathscr{W}
 	\end{equation}
-	は全射．
+	は同型．
 \end{mytheo}
-\begin{mytheo}[label=thm:]{}
-	$\mathfrak{g}$を\hyperref[def:semisimple-LieAlg]{半単純Lie代数}，$\mathfrak{U}(\mathfrak{g})$をその\hyperref[def:univ-env-alg]{普遍包絡代数}，$Z(\mathfrak{U}(\mathfrak{g}))$をその中心とすると，
+\begin{proof}(Steinberg)
+	\begin{description}
+		\item[\textbf{全射性}] $p_{\Inn \mathfrak{g}}(\lambda^k)\ (\lambda \in \Lambda^+,\ k \in \mathbb{Z}_{\geq 0})$を考えれば良い．
+		\hyperref[def:fundamental-weight]{基本ウエイト}
+		\item[\textbf{単射性}] 省略
+	\end{description}
+\end{proof}
+跡多項式の集合を$T \subset \mathbb{K}[\mathfrak{g}]^{\Inn\mathfrak{g}}$とする．\hyperref[thm:Chevalley-restriction]{Chevalleyの制限定理}の証明より，$\theta|_T$は全単射となる．つまり，次の定理が成り立つ．
+\begin{mytheo}[label=thm:Inn-G-invariant-structure]{$\mathbb{K}[\mathfrak{g}]^{\Inn\mathfrak{g}}$の構造}
+	$\mathbb{K}[\mathfrak{g}]^{\Inn\mathfrak{g}}$は跡多項式で生成される．
+\end{mytheo}
+
+\subsection{最高ウエイト加群と指標}
+\hyperref[def:univ-env-alg]{普遍包絡代数}$\mathfrak{U}(\mathfrak{g})$の中心を$\mathfrak{Z}(\mathfrak{g}) = Z(\mathfrak{U}(\mathfrak{g}))$とする．$\mathfrak{g}$の\hyperref[def:auto-LieAlg]{自己同型}$\tau \in \Aut\mathfrak{g}$は，$\mathfrak{U}(\mathfrak{g})$の自己同型に一意的に拡張される．
+\begin{mytheo}[label=thm:Inng-invariant-Ug]{}
+	$\mathfrak{g}$を\hyperref[def:semisimple-LieAlg]{半単純Lie代数}，$\mathfrak{U}(\mathfrak{g})$をその\hyperref[def:univ-env-alg]{普遍包絡代数}，$\mathfrak{Z}(\mathfrak{g})$をその中心とすると，
 	\begin{equation}
-		\mathbb{K}[\mathfrak{U}(\mathfrak{g})]^{\Int\mathfrak{g}} = Z(\mathfrak{U}(\mathfrak{g}))
+		\mathfrak{U}(\mathfrak{g})^{\Inn \mathfrak{g}} = \mathfrak{Z}(\mathfrak{g})
+	\end{equation}
+\end{mytheo}
+\begin{proof}
+	$\mathfrak{Z}(\mathfrak{g})$は中心だから，
+	\begin{equation}
+		0 = [x, \mathfrak{Z}(\mathfrak{g})] = \ad x(\mathfrak{Z}(\mathfrak{g}))  \IMP  \exp\ad x(z) = z\quad  (\forall z \in \mathfrak{Z}(\mathfrak{g}))
+	\end{equation}
+	つまり，任意の$\sigma \in \Inn\mathfrak{g}$に対し$z \in \mathfrak{Z}(\mathfrak{g})$は$\sigma$-不変だから，$\mathfrak{U}(\mathfrak{g})^{\Inn \mathfrak{g}} \supset \mathfrak{Z}(\mathfrak{g})$．\\
+	逆の包含を示す．$x_\alpha \in \mathfrak{g} \setminus \{0\}$を固定する．$(\ad x_\alpha)^t \neq 0,\ (\ad x_\alpha)^{t+1} = 0$とする．\\
+	今，体$\mathbb{K}$は無限集合だったから，異なるスカラー$a_1, \ldots, a_{t+1}$を選べる．このとき，仮定より$\exp \ad a_ix_\alpha = \exp (a_i\ad x_\alpha)$も$x$を固定する．ここで，Vandermonde行列式について，
+	\begin{equation}
+		\left|\begin{array}{ccccc}
+			1 & a_1 & \frac{a_1^2}{2!} & \cdots & \frac{a_1^t}{t!} \\
+			\vdots &&&& \vdots \\
+			1 & a_{t+1} & \frac{a_{t+1}^2}{2!} & \cdots & \frac{a_{t+1}^t}{t!}
+		\end{array}\right| = \prod_{k=0}^{t+1}\frac{1}{k!} \prod_{1 \leq i < j \leq t+1} (a_j - a_i) \neq 0
+	\end{equation}
+	だから，$\Span\{\exp (a_i\ad x_\alpha)\} = \Span\{1, \ad x_\alpha, \ldots (\ad x_\alpha)^t\}$．よって，
+	\begin{equation}
+		\exists b_i \in \mathbb{K},\quad  \ad x_\alpha = \sum_{i=1}^{t+1} b_i \exp (a_i\ad x_\alpha) = \sum_{i=1}^{t+1} b_i \exp(\ad (a_i x_\alpha)) = \sum_{i=0}^{t+1} b_i
+	\end{equation}
+	と書ける．$\ad x_\alpha$が冪零だから$\sum_{i=1}^{t+1} b_i = 0$となり，$\ad x_\alpha(\mathfrak{U}(\mathfrak{g})^{\Inn \mathfrak{g}}) = 0$．ところで，$x_\alpha$は$\mathfrak{g}$を生成するから，$\mathfrak{U}(\mathfrak{g})^{\Inn \mathfrak{g}} \subset \mathfrak{Z}(\mathfrak{g})$．
+\end{proof}
+ここで，任意の\hyperref[def:weight-rep]{ウエイト}$\lambda \in \mathfrak{h}^*$に対するVerma加群$M(\lambda)$を考える．$h \in \mathfrak{h}$とすると，\hyperref[def:weight-rep]{ウエイト}$\lambda$の\hyperref[def:maximal-vector-rep]{極大ベクトル}$v^+$に対し，
+\begin{align}
+	h \btr z \btr v^+ &= z \btr h \btr v^+ = \lambda(h)z \btr v^+\quad  (z \in \mathfrak{Z}(\mathfrak{g})) \\
+	\mathfrak{g}_\alpha \btr z \btr v^+ &= z \btr \mathfrak{g}_\alpha \btr v^+ = 0\quad  (\alpha \in \Phi^+)
+\end{align}
+となるから，$z \btr v^+$は\hyperref[def:highest-weight-module]{最高ウエイト}$\lambda$の\hyperref[def:maximal-vector-rep]{極大ベクトル}．定理\ref{thm:hwmodule}より\hyperref[def:highest-weight-module]{最高ウエイト}の\hyperref[def:mutiplicity]{重複度}$m(\lambda)$は$1$だから，$z \btr v^+ = \chi_\lambda(z) v^+$と書ける．
+\begin{mydef}[label=def:character]{指標}
+	\hyperref[def:highest-weight-module]{最高ウエイト}$\lambda \in \mathfrak{h}^*$のVerma加群に対し，\hyperref[def:maximal-vector-rep]{極大ベクトル}に作用したときの固有値を返す$\mathbb{K}$-代数の準同型
+	\begin{equation}
+		\chi_\lambda \colon \mathfrak{Z}(\mathfrak{g}) \lto \mathbb{K},\quad  z \mapsto \chi_\lambda(z)
+	\end{equation}
+	を$\lambda$の\textbf{指標}(character)と呼ぶ．
+\end{mydef}
+$\forall x \in \mathfrak{U}(\mathfrak{g})$に対し，$x \btr v^+$は$\mathfrak{Z}(\mathfrak{g})$の固有ベクトル．$M(\lambda)$は\hyperref[def:highest-weight-module]{最高ウエイト加群}だったから，$M(\lambda)$の全体が$\mathfrak{Z}(\mathfrak{g})$の作用で不変．よって，任意の$M(\lambda)$の\hyperref[def:sub-g-module]{部分$\mathfrak{g}$-加群}は$\mathfrak{Z}(\mathfrak{g})$の作用で不変で，同じ\hyperref[def:character]{指標}$\chi_\lambda$をもつ．
+\begin{myprop}[label=prop:hmmodule-character]{}
+	整ウエイト$\lambda \in \Lambda$，\hyperref[def:base-root]{単純ルート}$\alpha \in \Delta$，整数$m = \sspair{\lambda}{\alpha}$に対し，$m \geq 0$のとき，\\
+	$y_\alpha^{m+1} + I(\lambda)\ (M(\lambda) = \mathfrak{U}(\mathfrak{g}) / I(\lambda))$は\hyperref[def:weight-rep]{ウエイト}$\lambda - (m+1)\alpha$の\hyperref[def:maximal-vector-rep]{極大ベクトル}．
+\end{myprop}
+\begin{proof}
+	$h_\alpha - \sspair{\lambda}{\alpha} \in I(\lambda)$なので，補題\ref{lem:suff-for-finite}より従う．
+\end{proof}
+\hyperref[def:weight-rep]{ウエイト}$\lambda - (\sspair{\lambda}{\mu}+1)\alpha$の\hyperref[def:maximal-vector-rep]{極大ベクトル}で生成される\hyperref[def:highest-weight-module]{最高ウエイト加群}は$M(\lambda)$の\hyperref[def:sub-g-module]{部分$\mathfrak{g}$-加群}．\hyperref[def:character]{指標の定義}の直後の議論よりこの命題\ref{prop:hmmodule-character}の系として以下が成り立つ．
+\begin{mycol}[label=col:hmmodule-character]{}
+	$\sspair{\lambda}{\alpha} \geq 0$のとき，$\mu = \lambda - (\sspair{\lambda}{\alpha}+1)\alpha$とすると，$\chi_\mu = \chi_\lambda$．
+\end{mycol}
+極大\hyperref[def:toral-subLieAlg]{トーラス}$\mathfrak{h}$とWeyl群$\mathscr{W}$に対し，軌道空間$\mathfrak{h}^* / \mathscr{W}$は同値類であった．よって，$(\mathfrak{h}^* + \delta) / \mathscr{W}$も同値類となる．
+\begin{mycol}[label=col:hmmodule-character-2]{}
+	任意の整ウエイト$\lambda, \mu \in \Lambda$に対し，
+	\begin{equation}
+		\mathscr{W}(\mu + \delta) = \mathscr{W}(\lambda + \delta)  \IMP  \chi_\lambda = \chi_\mu
+	\end{equation}
+\end{mycol}
+\begin{proof}
+	$\mathscr{W} = \ev{\sigma_\alpha | \alpha \in \Delta}$だから，$\mu = \sigma_\alpha(\lambda + \delta) - \delta$の場合を示せば良い．系\ref{col:simpleroot-B}と$\sigma_\alpha$の定義より，
+	\begin{equation}
+		\mu = \sigma_\alpha\lambda - \alpha = \lambda - (\sspair{\lambda}{\alpha} + 1)\alpha
+	\end{equation}
+	となる．$\lambda$は整ウエイトだから，$\sspair{\lambda}{\alpha} \in \mathbb{Z}$．\\
+	$\sspair{\lambda}{\alpha} = -1$のとき，$\lambda = \mu$なので$\chi_\lambda = \chi_\mu$は明らか．\\
+	そうでないとき，$\sspair{\mu}{\alpha} + 1 = -(\sspair{\lambda}{\alpha} + 1)$だから，$\sspair{\lambda}{\alpha}, \sspair{\mu}{\alpha}$のいずれかは非負．よっていずれかが系\ref{col:hmmodule-character}の仮定を満たすから，$\chi_\lambda = \chi_\mu$は等しい．
+\end{proof}
+$\mathfrak{g}$の基底を$\{x_\alpha, y_\alpha, | \alpha \prec 0\}$（$x_\alpha \in \mathfrak{g}_\alpha,\ y_\alpha \in \mathfrak{g}_{-\alpha}$）と$\{h_i | 1 \leq i \leq l\}$（\hyperref[def:base-root]{ルート系の底}$\Delta = \{\alpha_i, \ldots, \alpha_l\}$に対し$h_i = h_{\alpha_i}$）ととる．$\mathfrak{U}(\mathfrak{g}),\ \mathfrak{U}(\mathfrak{h})$の\hyperref[col:PBW-C]{PBW基底}は$\{y_\alpha\}, \{h_i\},\ \{x_\alpha\}$の順に全順序となるようにとる．また，$p\colon \mathfrak{U}(\mathfrak{g}) \lto \mathfrak{U}(\mathfrak{h})$を射映とする．\\
+極大\hyperref[def:toral-subLieAlg]{トーラス}$\mathfrak{h}$は可換だったから，$\mathfrak{U}(\mathfrak{h}) = S(\mathfrak{h})$なので，以下では特に$S(\mathfrak{h})$と書く．
+
+\hyperref[thm:hwmodule-exist]{既約最高ウエイト加群}$L(\lambda)$の\hyperref[def:maximal-vector-rep]{極大ベクトル}$v^+$に対する$z \in \mathfrak{Z}(\mathfrak{g})$の作用を考える．\\
+単項式$\prod_{\alpha \succ 0}y_\alpha^{i_\alpha}\prod_{i = 1}^l h_\alpha^{k_\alpha}\prod_{\alpha \succ 0}x_\alpha^{j_\alpha}$はある$\alpha$に対して$j_\alpha > 0$ならば，$v^+$に作用すると$0$．逆に全ての$\alpha$に対して$j_\alpha = 0$の場合はウェイト$\lambda - i_\alpha\alpha$のベクトルに送る．つまり，\hyperref[def:character]{指標}$\chi_\lambda$に関与するのは，$S(\mathfrak{h})$の線型結合部分のみであり，
+\begin{equation}
+	\label{eq:Harish-Chandra-1}
+	\chi_\lambda = \lambda \circ p|_{\mathfrak{Z}(\mathfrak{g}) \cap S(\mathfrak{h})}
+\end{equation}
+となる（$\lambda\colon \mathfrak{U}(\mathfrak{h}) \lto \mathbb{K}$は$\lambda\colon \mathfrak{h} \lto \mathbb{K}$の標準的拡大）．$\chi_\lambda, \lambda$は代数準同型だから，$p|_{\mathfrak{Z}(\mathfrak{g}) \cap S(\mathfrak{h})}$は代数準同型となる．
+
+$\mathfrak{h}$の同型$h_i \mapsto h_i - 1\ (\forall i = 1, \ldots ,k)$を$\mathfrak{U}(\mathfrak{h}) \simeq S(\mathfrak{h})$に線型に拡張したものを$\eta$とすると，可換\hyperref[g-module-hom]{Lie代数の同型}．$\delta$は\hyperref[def:fundamental-weight]{基本ウエイト}の和だったから，$\delta(h_i) = 1$．$\delta$も同様に$S(\mathfrak{h})$に拡大すると，
+\begin{equation}
+	(\lambda + \delta) \circ \eta(h_i) = (\lambda + \delta)(h_i - 1) = (\lambda(h_i) + 1) - (\lambda + \delta)1 = \lambda(h_i)
+\end{equation}
+\begin{equation}
+	\therefore (\lambda + \delta) \circ \eta = \lambda
+\end{equation}
+となる．$\psi = \eta \circ p|_{\mathfrak{Z}(\mathfrak{g}) \cap S(\mathfrak{h})}$とすると，\eqref{eq:garish-chandra-1}と合わせて，
+\begin{equation}
+	\chi_\lambda = (\lambda + \delta) \circ \psi
+\end{equation}
+\begin{mylem}[label=lem:Harish-Chandra-1]{}
+	任意の\hyperref[def:weight-rep]{ウエイト}$\lambda, \mu \in \mathfrak{h}^*$に対し，
+	\begin{equation}
+		\chi_\lambda = \chi_\mu  \IMP  \mathscr{W} \lambda = \mathscr{W} \mu
+	\end{equation}
+\end{mylem}
+\begin{proof}
+	先程定義した$\psi$は$\lambda$に（汎函数として）依存しないので，系\ref{col:hmmodule-character-2}より，整ウエイト$\lambda \in \Lambda$に対し$\chi_\lambda = (\mathscr{W}\lambda) \circ \psi$となる．つまり，$\psi$は$\mathscr{W}$不変で$\Lambda$は$S(\mathfrak{h})$を生成するから，$\Im\psi \subset S(\mathfrak{h})^\mathscr{W} \subset S(\mathfrak{h})$．\\
+	逆にこのとき，$\forall \lambda \in \mathfrak{h}^*$で$\chi_\lambda = \chi_{\mathscr{W}\lambda}$．つまり，系\ref{col:hmmodule-character-2}が$\lambda, \mu \in \mathfrak{h}^*$でも成り立つことになる．
+\end{proof}
+\begin{mylem}[label=lem:Harish-Chandra-2]{}
+	$\lambda_1, \lambda_2 \in \mathfrak{h}^*$について，$\mathscr{W}\lambda_1 \neq \mathscr{W}\lambda_2$とすると，
+	\begin{equation}
+		\exists x \in S(\mathfrak{h})^\mathscr{W} (= \mathbb{K}[\mathfrak{h}^*]),\quad  \lambda_1(x) \neq \lambda_2(x)
+	\end{equation}
+\end{mylem}
+\begin{proof}
+	$\lambda_1(y) \neq 0$を満たす$y \in \mathfrak{h}$を選ぶ．$\mathscr{W}$は有限群なので，
+	\begin{equation}
+		y\prod_{\mu \in (\mathscr{W}\lambda \setminus \lambda_1) \cup \mathscr{W}\lambda_2} (y - \mu(y)) \in S(\mathfrak{h})
+	\end{equation}
+	が定義でき，さらに$\mathscr{W}$の作用の和をとったもの$x$が定義できる．すると$x \in S(\mathfrak{h})^\mathscr{W}$かつ，
+	\begin{equation}
+		\lambda_1(x) \neq 0 = \lambda_2(x) 
+	\end{equation}
+\end{proof}
+
+\begin{mytheo}[label=thm:Harish-Chandra]{Harish-Chandra同型}
+	$\lambda, \mu \in \mathfrak{h}^*$に対し，
+	\begin{equation}
+		\chi_\lambda = \chi_\mu  \IFF  \mathscr{W} \lambda = \mathscr{W} \mu
+	\end{equation}
+\end{mytheo}
+\begin{proof}
+	補題\ref{lem:Harish-Chandra-1}を示したから，その逆（つまり$\Longleftarrow$）を示せば良い．
+	
+	補題\ref{lem:Harish-Chandra-2}を示したから，$\chi_\lambda = (\lambda + \delta) \circ \psi$より$\Im\psi \subset S(\mathfrak{h})^\mathscr{W}$を示せば良い．
+	
+	命題\ref{prop:graded-alg-by-filtration}の意味での結合代数の次数付けについて$S \simeq \gr S$となること，\hyperref[thm:PBW]{PBW定理}，さらに群作用の不変性が$\Ker$が$0$の準同型で保存されること，定理\ref{thm:Inng-invariant-Ug}に注意して以下の図式を考える．
+	\begin{center}
+		\begin{tikzcd}[row sep=large, column sep=large]
+			\gr S(\mathfrak{g})^{\Inn\mathfrak{g}} \ar[d, leftrightarrow]\ar[r, leftrightarrow] & \gr \mathfrak{U}(\mathfrak{g})^{\Inn\mathfrak{g}} \\
+			S(\mathfrak{g})^{\Inn\mathfrak{g}} \ar[d, leftrightarrow]\ar[r, "\pi"] & \mathfrak{U}(\mathfrak{g})^{\Inn\mathfrak{g}} = \mathfrak{Z}(\mathfrak{g})\ar[r, "\psi"]\ar[u, "p_\text{G}"] &  \mathfrak{U}(\mathfrak{h})^\mathscr{W} = S(\mathfrak{h})^\mathscr{W}\ar[d, leftrightarrow] \\
+			\mathbb{K}[\mathfrak{g}]^{\Inn\mathfrak{g}} \ar[rr, "\theta"']&& \mathbb{K}[\mathfrak{h}]^\mathscr{W}
+		\end{tikzcd}
+	\end{center}
+	ただし，$S(\cdot)$と$\mathbb{K}[\cdot]$の同型性はKilling形式による双対による．\\
+	$\pi$が準同型であれば簡単だが，単なる線型写像ではあっても代数の準同型ではない\footnote{$\gr\mathfrak{U}$を考えていることから，$\mathfrak{U}$の最高次係数は変わらないことはわかる．準同型でないのは低次項は変わることがあるため．}．しかし，$\pi$を除いて，$S(\mathfrak{h})^\mathscr{W}$を$S(\mathfrak{h})$にすれば可換図式であり，標準的射映（の拡張）$p_\text{G}$と，$\gr \mathfrak{U}(\mathfrak{g})^{\Inn\mathfrak{g}}$から$S(\mathfrak{h})^\mathscr{W}$まで反時計回りに移す写像は全て準同型で，その合成は$\psi$に等しい\footnote{~\cite{Humphreys1972introduction}ではここを逆向きに追っている．}．群作用の不変性が$\Ker$が$0$の準同型で保存されるから，$\Im\psi \subset S(\mathfrak{h})^\mathscr{W} \subset S(\mathfrak{h})$\footnote{つまり，$S(\mathfrak{h})^\mathscr{W}$のままでも可換図式となる．}．
+\end{proof}
+
+\section{指標の諸公式}
+この節では有限次元\hyperref[ax:g-module]{$\mathfrak{g}$-加群}の\hyperref[def:character]{指標}や\hyperref[def:mutiplicity]{重複度}に関する公式を示す．
+\subsection{いくつかの$\mathfrak{h}^*$の函数}
+$\lambda \in \Lambda^+$に対する$L(\lambda)$の\hyperref[def:alg-character]{代数的指標}$\ch_\lambda$は自由$\mathbb{Z}$-加群でもあった．$\lambda \in \mathfrak{h}^*$に対する（任意の）\hyperref[def:highest-weight-module]{最高ウエイト加群}（の直和加群）上に\hyperref[def:alg-character]{代数的指標}を一般化しよう．\\
+\hyperref[def:highest-weight-module]{最高ウエイト加群}の直和の\hyperref[def:alg-character]{代数的指標}の展開係数$f(g)$は，定理 6.1.1(2)(3)より
+\begin{equation}
+	\mathfrak{X} \coloneqq \bigl\{f \colon \mathfrak{h}^* \lto \mathbb{K} \bigm| \supp f = \bigcup_{\text{有限和}}\{\lambda - \sum_{\alpha \succ 0} k_\alpha\alpha, k_\alpha \in \mathbb{Z} \}\bigr\}
+\end{equation}
+なる集合に含まれる．$\forall f, g \in \mathfrak{X}$に対し，\hyperref[def:highest-weight-module]{最高ウエイト加群}の直和分解の際の\hyperref[def:highest-weight-module]{最高ウエイト}の（有限）集合を$\Lambda_f, \Lambda_g$とする．$\forall \mu \in \supp g$に対し，
+\begin{equation}
+	\{\nu \in \mathfrak{h}^* | f(\nu)g(\mu - \nu) \neq 0\}
+\end{equation}
+は$\mathfrak{X}$の定義より離散集合．かつ，
+\begin{equation}
+	\exists \lambda_f \in \Lambda_f,\ \lambda_g \in \Lambda_g,\quad  \lambda - \lambda_g \prec \nu \prec \lambda_f
+\end{equation}
+より全ての$(\lambda_f,  \lambda_g)$の合併を考えるとコンパクト集合．よって有限集合だから，\hyperref[def:alg-character]{代数的指標}の積が，任意の\hyperref[def:highest-weight-module]{最高ウエイト加群}のとしてもwell-defined．
+
+ここで，生成子$e^\lambda$は特性函数
+\begin{equation}
+	e^{\lambda}(\lambda) = 1,\quad  e^{\lambda}(\mathfrak{h}^* \setminus \{\lambda\}) = 0
+\end{equation}
+と同一視できる．また$\mathfrak{X}$に対するWeyl群$\mathscr{W}$の作用は定義\ref{def:poly-func-ring-modular}のように自然に誘導される．特に，$\sigma(e^\lambda) = e^{\sigma\lambda}$．
+
+$p(\lambda)$を$-\lambda = \sum_{\alpha \prec 0} k_\alpha\alpha$を満たす非負整数の集合$\{k_\alpha\}$の数とする．当然$\lambda$がルート格子上に無い場合は，$p(\lambda) = 0$．
+
+
+
+
+Kostant函数
+
+
+
+
+
+
+
+\begin{mytheo}[label=thm:Kostant]{Kostantの重複度公式}
+	優ウエイト$\lambda \in \Lambda^+$に対し，\hyperref[thm:hwmodule-exist]{既約最高ウエイト加群}$L(\lambda)$の\hyperref[def:weight-rep]{ウエイト}$\mu$の\hyperref[def:mutiplicity]{重複度}は以下
+	\begin{equation}
+		m_\lambda(\mu) = \sum_{\sigma \in \mathscr{W}} sn(\sigma)p(\mu + \delta - \sigma(\lambda + \delta))
 	\end{equation}
 \end{mytheo}
 
 
 
 
+\begin{mytheo}[label=thm:Kostant]{Weylの指標公式}
+	優ウエイト$\lambda \in \Lambda^+$に対し，以下が成り立つ：
+	\begin{equation}
+		\Bigl(\sum_{\sigma \in \mathscr{W}} sn(\sigma)\varepsilon_{\sigma\delta}\Bigr) * \ch_\lambda = \sum_{\sigma \in \mathscr{W}} sn(\sigma)\varepsilon_{\sigma(\lambda + \delta)}
+	\end{equation}
+\end{mytheo}
 
 
 
-
-
+\begin{mytheo}[label=thm:Kostant]{Steinbergの公式}
+	優ウエイト$\lambda, \lambda', \lambda^{\prime\prime} \in \Lambda^+$に対し，$L(\lambda') \otimes L(\lambda^{\prime\prime})$の直和分解した際の$L(\lambda)$の個数は以下：
+	\begin{equation}
+		\sum_{\sigma,\sigma' \in \mathscr{W}} sn(\sigma\tau)p(\lambda + 2\delta - \sigma(\lambda' + \delta) - \sigma'(\lambda^{\prime\prime} + \delta))
+	\end{equation}
+\end{mytheo}
 
 
 
