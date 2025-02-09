@@ -1,19 +1,29 @@
-\begin{thebibliography}{1}
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{EGH{\etalchar{+}}11}
 
-\bibitem{Humphreys1972introduction}
-J.~E. Humphreys,
-\newblock {\em Introduction to Lie algebras and representation theory} (Springer, 1972).
+\bibitem[EGH{\etalchar{+}}11]{Etingof2011introduction}
+Pavel~I Etingof, Oleg Golberg, Sebastian Hensel, Tiankai Liu, Alex Schwendner, Dmitry Vaintrob, and Elena Yudovina.
+\newblock {\em Introduction to representation theory}.
+\newblock American Mathematical Soc., 2011.
 
-\bibitem{Satake1987LieAlg}
-佐武一郎,
-\newblock {\em リー環の話} (日本評論社, 1987).
+\bibitem[Hum72]{Humphreys1972introduction}
+James~E Humphreys.
+\newblock {\em Introduction to Lie algebras and representation theory}.
+\newblock Springer, 1972.
 
-\bibitem{Kobayashi2005Lie}
-小林俊行 and 大島利雄,
-\newblock {\em リー群と表現論} (岩波書店, 2005).
+\bibitem[佐武87]{Satake1987LieAlg}
+佐武一郎.
+\newblock リー環の話.
+\newblock 日本評論社, 1987.
 
-\bibitem{Etingof2011introduction}
-P.~I. Etingof {\em et~al.},
-\newblock {\em Introduction to representation theory} (American Mathematical Soc., 2011).
+\bibitem[小林05]{Kobayashi2005Lie}
+小林俊行, 大島利雄.
+\newblock リー群と表現論.
+\newblock 岩波書店, 2005.
+
+\bibitem[神保90]{Jimbo1990quantumgroup}
+神保道夫.
+\newblock 量子群とヤン・バクスター方程式.
+\newblock 丸善出版, 1990.
 
 \end{thebibliography}
