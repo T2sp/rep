@@ -1,0 +1,643 @@
+\documentclass[rep_main]{subfiles}
+
+\begin{document}
+
+\setcounter{chapter}{4}
+\chapter{存在定理}
+\section{普遍包絡代数}
+
+この章は\cite[Chapter V]{Humphreys1972introduction}に相当する．
+
+Lie代数に積が備わっている必要はないが，\hyperref[ax:g-module]{$\mathfrak{g}$-加群}の定義\textbf{(M3)}には$xy,\ yx$という元が作用しているように見える．そうしてあるのは，自然に積の構造を入れた普遍包絡代数を作ることができるからである．
+
+\subsection{テンソル代数と対称代数}
+この節では，体$\mathbb{K}$は任意とし，Lie代数$\mathfrak{g}$を無限次元を許す．\\
+半単純性を使わないので，第1章でやってもよい内容だが，PBW定理の証明はunpleasant taskなので，ここにあるらしい．
+
+いくつかの代数を普遍性によって定義する．
+\begin{mydef}[label=def:tensor-alg]{テンソル代数}
+	体$\mathbb{K}$上のベクトル空間を$V$とする．
+	\begin{itemize}
+		\item 単位的$\mathbb{K}$-結合\hyperref[ax:Alg]{代数}$T(V)$
+		\item 包含写像$i: V \to T(V)$
+	\end{itemize}
+	の組$(T(V), i)$が．\textbf{テンソル代数}(tensor algebra)であるとは，以下の性質を満たすことをいう．
+	\begin{description}
+		\item[\textbf{(テンソル代数の普遍性)}] \label{tensor-alg-univ}
+		任意の単位的$\mathbb{K}$-結合\hyperref[ax:Alg]{代数}$\textcolor{blue}{A}$および任意の$\mathbb{K}$-線型写像$\textcolor{blue}{f} \colon V \lto \textcolor{blue}{A}$に対して，以下の図式を可換にする$\mathbb{K}$-代数準同型$\textcolor{red}{\overline{f}} \colon T(V) \lto \textcolor{blue}{A}$が一意的に存在する：
+		\begin{center}
+			\begin{tikzcd}[row sep=large, column sep=large]
+				V \ar[d, hookrightarrow, "\bm{i}"']\ar[r, blue, "f"] &\forall \textcolor{blue}{A} \\
+				T(V) \arrow[ur, red, dashed, "\exists!\bar{f}"']&
+			\end{tikzcd}
+		\end{center}
+	\end{description}
+\end{mydef}
+\begin{myprop}[label=prop:unique-tensor-alg]{テンソル代数の一意性}
+	\hyperref[def:tensor-alg]{テンソル代数}は，単位的結合代数の同型を除いて一意的に存在する．
+\end{myprop}
+\begin{proof}
+	\begin{description}
+		\item[(一意性)] 別のテンソル代数を$(T', i')$とすると，普遍性より準同型$f \colon T \lto T',\ f' \colon T' \lto T$が得られる．可換図式
+		\begin{center}
+			\begin{tikzcd}[row sep=large, column sep=large]
+				&T\ar[dd, dashed, "\mathrm{id}_T"] \\
+				\mathfrak{g}\ar[ru, hookrightarrow, "\bm{i}"']\ar[rd, hookrightarrow, "\bm{i}"] &\\
+				&T
+			\end{tikzcd}
+		\end{center}
+		が成り立つので，$1_T = f' \circ f$．同様に$1_{T'} = f \circ f'$だから，$f, f'$は全単射．よって$(T, i),\ (T', i')$は同型である．
+		\item[(存在)] 
+		\begin{equation}
+			T^0(V) = \mathbb{K},\quad  T^1(V) = V,\quad  T^m(V) = V^{\otimes m}
+		\end{equation}
+		とし，これらの直和$T(V) = \bigoplus_{k = 0}^\infty T^k(V)$に対する積を
+		\begin{equation}
+			\label{eq:tensor-alg-multiply}
+			T^k(V) \times T^m(V) \to T^{k+m}(V),\quad  (v_1 \otimes \cdots \otimes v_k)(w_1 \otimes \cdots \otimes w_m) \mapsto v_1 \otimes \cdots \otimes v_k \otimes w_1 \otimes \cdots \otimes w_m
+		\end{equation}
+		を$T(V)$に拡張したものとすると，次数付き結合\hyperref[ax:Alg]{代数}となる．$i$は包含写像だから，
+		\begin{equation}
+			\bar{f}^k\colon T^k(V) \lto A,\quad  v_1 \otimes \cdots \otimes v_k \mapsto f(v_1)\cdots f(v_k)
+		\end{equation}
+		がwell-defined．これを，$T(V) \lto A$に拡張したものを$\bar{f}$とすると，\eqref{eq:tensor-alg-multiply}より代数の準同型であり，$f = \bar{f} \circ i$を満たす．
+	\end{description}
+\end{proof}
+
+\begin{mydef}[label=def:sym-alg]{対称代数}
+	体$\mathbb{K}$上のベクトル空間を$V$とする．
+	\begin{itemize}
+		\item 単位的$\mathbb{K}$-可換結合\hyperref[ax:Alg]{代数}$S(V)$
+		\item 包含写像$i: V \to S(V)$
+	\end{itemize}
+	の組$(S(V), i)$が．\textbf{対称代数}(symmetric algebra)であるとは，以下の性質を満たすことをいう．
+	\begin{description}
+		\item[\textbf{(対称代数の普遍性)}] \label{sym-alg-univ}
+		任意の単位的$\mathbb{K}$-可換結合代数$\textcolor{blue}{A}$および任意の線型写像$\textcolor{blue}{f} \colon V \lto \textcolor{blue}{A}$に対して，以下の図式を可換にする$\mathbb{K}$-代数の準同型$\textcolor{red}{\overline{f}} \colon S(V) \lto \textcolor{blue}{A}$が一意的に存在する：
+		\begin{center}
+			\begin{tikzcd}[row sep=large, column sep=large]
+				V \ar[d, hookrightarrow, "\bm{i}"']\ar[r, blue, "f"] &\forall \textcolor{blue}{A} \\
+				S(V) \arrow[ur, red, dashed, "\exists!\bar{f}"']&
+			\end{tikzcd}
+		\end{center}
+	\end{description}
+\end{mydef}
+\begin{myprop}[label=prop:unique-sym-alg]{対称代数の一意性}
+	\hyperref[def:sym-alg]{対称代数}は，単位的可換結合代数の同型を除いて一意的に存在する．
+\end{myprop}
+\begin{proof}
+	\begin{description}
+		\item[(一意性)] \hyperref[def:tensor-alg]{テンソル代数}の証明と全く同様．
+		\item[(存在)] 
+		\hyperref[def:tensor-alg]{テンソル代数}$T(V)$の
+		\begin{equation}
+			\label{eq:sym-alg-ideal}
+			x \otimes y - y \otimes x\quad  (x, y \in V)
+		\end{equation}
+		で生成される（両側）イデアルを$I$とし，
+		\begin{equation}
+			S(V) \coloneqq T(V)/I = \bigoplus_{i=0}^\infty S^i(V)\quad  \bigl(S^i(V) = T^i(V) / (I \cap T^i(V)) \bigr)
+		\end{equation}
+		とする．\hyperref[def:tensor-alg]{テンソル代数}から\hyperref[def:sym-alg]{対称代数}への標準的射影を$p_\text{S}\colon T(V) \to S(V)$とすると，
+		\begin{equation}
+			I = \bigoplus_{k = 0}^\infty (I \cap T^k(V)) = \bigoplus_{k = 2}^\infty (I \cap T^k(V)) \subset T^2(V)
+		\end{equation}
+		より，
+		\begin{equation}
+			p_\text{S}|_{T^0V \oplus T^1V} = p_\text{S}|_{\mathbb{K} \oplus V}
+		\end{equation}
+		は単射となる．特に，$i_\text{S} \coloneqq p|_V\colon V \lto S(V)$は包含写像である．\\
+		あとは，$S(V)$が\hyperref[sym-alg-univ]{対称代数の普遍性}を満たすことを示せばよい．以下の図式を考える:
+		\begin{center}
+			\begin{tikzcd}[row sep=large, column sep=large]
+				\mathfrak{g} \ar[d, hookrightarrow, "\bm{i}_\text{T}"']\ar[r, blue, "f"] &\forall \textcolor{blue}{A} \\
+				T(\mathfrak{g}) \ar[d, "p_\text{S}"']\ar[ur, dashed, "\exists!f_\text{T}"] \\
+				S(\mathfrak{g}) \ar[uur, red, dashed, "\bar{f}"]&
+			\end{tikzcd}
+		\end{center}
+		\hyperref[tensor-alg-univ]{テンソル代数の普遍性}より，$f_\text{T} \colon T(\mathfrak{g}) \to \textcolor{blue}{A}$が一意的に存在する．$A$の可換性より，$I \subset \Ker f_\text{T}$だから，準同型定理よりこれは可換図式である．特に$\textcolor{red}{\bar{f}}$は唯一である．
+	\end{description}
+\end{proof}
+\begin{myprop}[label=prop:sym-alg-poly-alg]{}
+	体$\mathbb{K}$上の$n$次元線型空間$V$の基底を$(x_1, \ldots, x_n)$とすると，$S(V)$は$1$と$x_{i(1)}\cdots x_{i(t)},\ t \in \mathbb{N},\ 1 \leq i(1) \leq \cdots \leq i(t) \leq n$を基底とする$\mathbb{K}$上の$n$変数多項式代数と自然同型を持つ．
+\end{myprop}
+\begin{proof}
+	\hyperref[def:sym-alg]{対称代数}の可換性より従う．
+\end{proof}
+ここで，体$\mathbb{K}$の標数を$0$とする．$T^m(V)$上の対称群$\mathfrak{S}_m$の作用をテンソル$v_1 \otimes \cdots \otimes v_m$の各$v_i$の添字の入れ替えとする．$\mathfrak{S}_m$の作用の下で不変なベクトルを\textbf{$m$次の（同次）対称テンソル}と呼ぶ．\\
+有限次元の場合，$V$の基底に$(x_1, \ldots, x_n)$対し，$x_{i(1)} \otimes \cdots \otimes x_{i(m)}\ (1 \leq i(j) \leq n)$は$T^m(V)$の基底をなす．また，任意の列$1 \leq i(1) \leq \cdots \leq i(m)  \leq n$に対し，対称テンソルを
+\begin{equation}
+	\frac{1}{m!} \sum_{\sigma \in \mathfrak{S}_m} x_{i(s(1))} \otimes \cdots \otimes x_{i(s(m))}
+\end{equation}
+と定義すると，これの$S^m(V)$への像は非零であり，$S^m(V)$の基底をなすから，$T^m \setminus (I \cap T^m)$の基底をなす．一方で，この対称テンソルは明らかに$m$次対称テンソルのなす空間（$\tilde{S}^m(V)$と呼ぶ）を張る．よって，標準的射影$p$は$\tilde{S}^m(V)$から$S^m(V)$への同型，$\tilde{S}(V)$から$S(V)$への同型を定める．
+
+\subsection{普遍包絡代数$\mathfrak{U}(\mathfrak{g})$の構成}
+\begin{mydef}[label=def:univ-env-alg]{普遍包絡代数}
+	体$\mathbb{K}$上のLie代数を$\mathfrak{g}$とする．
+	\begin{itemize}
+		\item 単位的$\mathbb{K}$-結合代数$\mathfrak{U}(\mathfrak{g})$
+		\item 以下を満たすLie代数準同型$i\colon \mathfrak{g} \lto \mathfrak{U}(\mathfrak{g})$
+		\begin{equation}
+			\label{eq:univ-env-alg}
+			i([x, y]) = i(x)i(y) - i(y)i(x)
+		\end{equation}
+	\end{itemize}
+	の組$(\mathfrak{U}(\mathfrak{g}), i)$が\textbf{普遍包絡代数}(universal enveloping algebra)であるとは，以下の性質を満たすことをいう．
+	\begin{description}
+		\item[\textbf{(普遍包絡代数の普遍性)}] 任意の単位的$\mathbb{K}$-結合代数$\textcolor{blue}{A}$および\eqref{eq:univ-env-alg}を満たす任意の線型写像$\textcolor{blue}{f} \colon V \lto \textcolor{blue}{A}$に対して，以下の図式を可換にする$\mathbb{K}$-代数の準同型$\textcolor{red}{\overline{f}} \colon \mathfrak{U}(V) \lto \textcolor{blue}{A}$が一意的に存在する：
+		\begin{center}
+			\begin{tikzcd}[row sep=large, column sep=large]
+				\mathfrak{g} \ar[d, hookrightarrow, "\bm{i}"']\ar[r, blue, "f"] &\forall \textcolor{blue}{A} \\
+				\mathfrak{U}(\mathfrak{g}) \arrow[ur, red, dashed, "\exists!\bar{f}"]&
+			\end{tikzcd}
+		\end{center}
+	\end{description}
+\end{mydef}
+\begin{myprop}[label=prop:unique-univ-env-alg]{普遍包絡代数の一意性}
+	\hyperref[def:univ-env-alg]{普遍包絡代数}は，単位的結合代数の同型を除いて一意的に存在する．
+\end{myprop}
+\begin{proof}
+	\begin{description}
+		\item[\textbf{(一意性)}] \hyperref[def:tensor-alg]{普遍包絡代数}の証明と全く同様．
+		\item[\textbf{(存在)}] $\mathfrak{g}$上の\hyperref[def:tensor-alg]{テンソル代数}$T(\mathfrak{g})$について，$J$を
+		\begin{equation}
+			\label{eq:univ-env-alg-J}
+			x \otimes y - y \otimes x - [x, y]\quad  (x, y \in \mathfrak{g})
+		\end{equation}
+		で生成される両側イデアルとする．ここで，
+		\begin{equation}
+			\mathfrak{U}(\mathfrak{g}) = T(\mathfrak{g}) / J
+		\end{equation}
+		と定義し，$p_\text{U} \colon T(\mathfrak{g}) \lto \mathfrak{U}(\mathfrak{g})$を標準的射影とする．$p_\text{U}|_{T^0(\mathfrak{g})} = p_\text{U}|_\mathbb{K}$は単射．あとで示す系\ref{col:PBW-B}より$p_\text{U}|_{T^1(\mathfrak{g})} = p_\text{U}|_\mathfrak{g}$も単射．よって，$(\mathfrak{U}(\mathfrak{g}), i = \eval{p_\text{U}}_\mathfrak{g})$は，\eqref{eq:univ-env-alg}を満たす単位的$\mathbb{K}$-結合代数である．\\
+		あとは\hyperref[def:univ-env-alg]{普遍包絡代数の普遍性}を成立させれば良いが，その証明は\hyperref[sym-alg-univ]{対称代数の普遍性}の証明と全く同様である．
+	\end{description}
+\end{proof}
+\begin{mydef}[label=def:univ-env-alg-module]{$\mathfrak{U}(\mathfrak{g})$-加群}
+	\hyperref[col:PBW-C]{$i_\text{U}\colon \mathfrak{g} \lto \mathfrak{U}(\mathfrak{g})$は単射}だ（と後で示す）から，\hyperref[ax:g-module]{$\mathfrak{g}$-加群}$V$に対し，
+	\begin{equation}
+		i(x_1) \cdots i(x_n) \btr v \mapsto x_1 \btr ( \cdots (x_n \btr v)\ldots)
+	\end{equation}
+	を$\mathfrak{U}(\mathfrak{g}) \times V \lto V$に線型に拡張したものが定まる．\textbf{$\mathfrak{U}(\mathfrak{g})$-加群}とは，これを作用とする代数上の加群のことである．
+\end{mydef}
+
+\begin{mydef}[label=def:filtration]{フィルトレーション}
+	全順序集合$I$で添字付けされた集合族$F = \{F_i\}_{i \in I}$が
+	\begin{equation}
+		i \leq J  \IMP  F_i \subset F_j
+	\end{equation}
+	を満たすとき，$F$を\textbf{フィルトレーション}（filtration）と呼ぶ．
+\end{mydef}
+\begin{mydef}[label=def:filtered-alg]{filtered 代数}
+	体$\mathbb{K}$上の代数$(A, \cdot)$について，あるフィルトレーション$\{F_i\}_{i \in \mathbb{Z}_{\geq 0}}$（または$\{F_i\}_{i \in \mathbb{N}}$）が存在し，
+	\begin{equation}
+		A = \sum_{i = 0}^\infty F_i,\quad  \forall n, m \in \mathbb{N},\quad  F_n\cdots F_m \subset F_{n+m}
+	\end{equation}
+	を満たすとき，$A$を\textbf{filtered代数}と呼ぶ．
+\end{mydef}
+\begin{myprop}[label=prop:graded-alg-by-filtered]{filtered結合代数が誘導する次数付き結合代数}
+	filtered結合代数$A$について，そのフィルトレーション$\{A_i\}_{i \in \mathbb{Z}_{\geq 0}}$とする．商代数
+	\begin{equation}
+		\gr A \coloneqq \bigoplus_{i=0}^\infty\gr_i A\quad  \biggl(\gr_0A \coloneqq A_0,\quad  \gr_mA \coloneqq A_m / A_{m-1}\ (m \geq 1) \biggr)
+	\end{equation}
+	と定義し，その積を
+	\begin{equation}
+		\gr_m A \times \gr_n A \lto \gr_{m+n} A,\quad  (x + A_{n - 1})(y + A_{m - 1}) \mapsto xy + A_{n + m -1}
+	\end{equation}
+	を$\gr A \times \gr A \lto \gr A$に拡張したものとすると，$\gr A$は次数付き結合代数となる．
+\end{myprop}
+任意の次数付き代数$G = \bigoplus_{i=0}^\infty G^i$に対し，
+\begin{equation}
+	\label{eq:filtration-for-graded}
+	G_i \coloneqq \bigoplus_{j = 0}^i G^j
+\end{equation}
+で定まる列$\{G_i\}_{i \in \mathbb{Z}_{\geq 0}}$はフィルトレーションであるから，$G$はfiltered代数．\\
+特に，$G^{i+1} \simeq G_{i+1} / G_i$だから，$G \simeq \gr G$．
+
+\subsection{PBW定理とその系}
+\hyperref[def:tensor-alg]{テンソル代数}$T(\mathfrak{g})$，\hyperref[def:sym-alg]{対称代数}$S(\mathfrak{g})$の\hyperref[def:filtration]{フィルトレーション}を\eqref{eq:filtration-for-graded}のように定義し，それぞれ$\{T_m\}_{m \in \mathbb{Z}_{\geq 0}},\ \{S_m\}_{m \in \mathbb{Z}_{\geq 0}}$とする．\\
+また，\hyperref[def:univ-env-alg]{普遍包絡代数}$\mathfrak{U}(\mathfrak{g})$は$U_m = p_\text{U}(T_m)$とすると，$\{U_i\}_{i \in \mathbb{Z}_{\geq 0}}$をフィルトレーションとするfiltered結合代数だから，（単位的）次数付き結合代数$\gr \mathfrak{U}(\mathfrak{g})$が命題\ref{prop:graded-alg-by-filtered}のように定義できる．\\
+$p_\text{G}\colon \mathfrak{U}(\mathfrak{g}) \lto \gr\mathfrak{U}(\mathfrak{g})$を，標準的射影$U_m \to \gr_m U$を拡張したものとする．$p_\text{U}(T^m) = p_\text{U}(T_m - T_{m-1}) = U_m - U_{m-1} \subset U_m$なので，全射
+\begin{equation}
+	f_{\text{G}, m} \coloneqq p_\text{G}\circ p_\text{U}|_{T^m}
+\end{equation}
+が定義できる．これを$T(\mathfrak{g}) \lto \gr U(\mathfrak{g})$に拡張したものを$f_\text{G}$とする．
+
+\begin{mylem}[label=lem:grU-alg]{}
+	$f_\text{G} \colon T(\mathfrak{g}) \lto \gr U(\mathfrak{g})$は代数的準同型．特に，\hyperref[def:tensor-alg]{テンソル代数}$T$の\hyperref[eq:sym-alg-ideal]{イデアル$I$}に対し$f_\text{G}(I) = 0$なので，準同型$\omega: S(\mathfrak{g}) \to \gr \mathfrak{U}(\mathfrak{g})$を誘導する．
+\end{mylem}
+\begin{proof}
+	標準的射影の合成なので，結合代数を保つから，$f_\text{G}$は代数準同型．また，$p_\text{U}(I) \subset p_\text{U}(T_2) = U_2$や，普遍包絡代数の構成\eqref{eq:univ-env-alg-J}に注意すると，
+	\begin{equation}
+		f_\text{G}(I) = p_\text{U}(I) / U_1 = p_\text{U}([\mathfrak{g}, \mathfrak{g}]) / U_1 \subset p_\text{U}(\mathfrak{g}) / U_1 = U_1 / U_1 = \{0\}
+	\end{equation}
+	i.e. $I \subset \Ker f_\text{G}$．同型定理より，$\omega$は準同型．
+\end{proof}
+次の定理（または系\ref{col:PBW-C}）はPincaré-Birkhoff-Witt定理と呼ばれる．
+\begin{mytheo}[label=thm:PBW]{Pincaré-Birkhoff-Witt定理 (PBW定理)}
+	\hyperref[def:sym-alg]{対称代数}から$\hyperref[prop:graded-alg-by-filtered]{\gr}U$への準同型$\omega: S \to \gr U$は代数の同型写像．
+\end{mytheo}
+全単射性を含めた証明は次節だが，結合代数$\gr U(\mathfrak{g})$が可換代数であることを確認しよう．$m \in \mathbb{Z}_{\geq 2}$とすると，$p_\text{U}(T^m(\mathfrak{g}))$の元$x_1 \cdots x_m$に対し，
+\begin{equation}
+	x_1 \cdots x_m = x_1 \cdots x_{i+1}x_i \cdots x_m + x_1 \cdots [x_i,x_{i+1}] \cdots x_m
+\end{equation}
+である．ところで右辺第二項について，$x_1 \cdots [x_i,x_{i+1}] \cdots x_m \in U_m$だから，確かに$\gr U$は可換結合代数となっている．
+\begin{mycol}[label=col:PBW-A]{}
+	$W$を$T^m(\mathfrak{g})$の部分空間とする．標準的射影$p_{\text{S}}: T^m(\mathfrak{g}) \to S^m(\mathfrak{g})$に対し，$p_{\text{S}}|_{W}$が同型のとき，\\
+	\begin{equation}
+		U_m(\mathfrak{g}) / p_{\text{U}}(W) = U_{m-1}(\mathfrak{g})
+	\end{equation}
+\end{mycol}
+\begin{proof}
+	以下の図式は，$\omega$は\hyperref[thm:PBW]{PBW定理}より同型，$f_\text{G}$は系\ref{lem:grU-alg}より準同型，他は標準的射影なので，可換図式である
+	\begin{center}
+		\begin{tikzcd}[row sep=large, column sep=large]
+			&U^m(\mathfrak{g})\ar[rd, "p_\text{G}"] \\
+			T^m(\mathfrak{g})\ar[rr, "f_\text{G}"']\ar[ru, "p_{\text{U}}"']\ar[rd, "p_{\text{S}}"] && \gr_m \mathfrak{U}(\mathfrak{g}) \\
+			&S^m(\mathfrak{g})\ar[ru, "\omega"]
+		\end{tikzcd}
+	\end{center}
+	\hyperref[thm:PBW]{PBW定理}と仮定より，下側の写像$\omega \circ p_{\text{S}}|_{W}$は同型．よって，上側の写像の$p_\text{U}(W)$は同型．$p_\text{G}$も同型になるから，$p_\text{U}(W) = U_m(\mathfrak{g})/U_{m-1}(\mathfrak{g})$の補空間．
+\end{proof}
+\begin{mycol}[label=col:PBW-B]{$i_\text{U}$は包含写像}
+	Lie代数から\hyperref[def:univ-env-alg]{普遍包絡代数}への準同型$i_\text{U} \coloneqq p_\text{U}|_\mathfrak{g}: \mathfrak{g} \to \mathfrak{U}(\mathfrak{g})$は単射（よって，$i_\text{U}$は包含写像）．
+\end{mycol}
+\begin{proof}
+	系\ref{col:PBW-A}の$W = T^1  = \mathfrak{g}$としたものである．
+\end{proof}
+以下では，$\mathfrak{g}$の基底の濃度を加算無限以下とする．
+\begin{mycol}[label=col:PBW-C]{PBW基底}
+	$(x_1, x_2, \ldots)$を$\mathfrak{g}$の順序付き基底とする．
+	\begin{equation}
+		\{1\} \cup \bigl\{x_{i(1)}\cdots x_{i(m)} \coloneqq p_\text{U}(x_{i(1)} \otimes \cdots \otimes x_{i(m)}) \bigm| m \in \mathbb{Z}_{\geq 0},\ i(1) \leq i(2) \leq \cdots \leq i(m) \bigr\}
+	\end{equation}
+	は$\mathfrak{U}(\mathfrak{g})$の基底をなす．この基底を単に\textbf{PBW基底}と呼ぶ．
+\end{mycol}
+\begin{proof}
+	$W \subset T^m$を$x_{i(1)}\otimes\cdots\otimes x_{i(m)}\ (i(1) \leq \ldots \leq i(m))$で張られる部分空間とする．$p_\text{S}|_{S^m}$は同型．系\ref{col:PBW-A}より，$U_m$において，$\pi(W)$は$U_{m-1}$の補空間となる．
+\end{proof}
+\begin{mycol}[label=col:PBW-D]{}
+	$\mathfrak{h}$を$\mathfrak{g}$の部分代数とし，$(h_1, h_2, \ldots)$を$\mathfrak{h}$の順序付き基底，$(h_1, \ldots, x_1, \ldots)$を$\mathfrak{g}$の順序付き基底とする．単射$\mathfrak{h} \to \mathfrak{g} \to \mathfrak{U}(\mathfrak{g})$に誘導される準同型$\mathfrak{U}(\mathfrak{h}) \to \mathfrak{U}(\mathfrak{g})$は単射であり，$\mathfrak{U}(\mathfrak{g})$は自由$\mathfrak{U}(\mathfrak{h})$-加群であり，その自由基底は
+	\begin{equation}
+		\{1\} \cup \bigl\{x_{i(1)}\cdots x_{i(m)} = p_\text{U}(x_{i(1)} \otimes \cdots \otimes x_{i(m)}),\ m \in \mathbb{Z}_{\geq 0},\ i(1) \leq i(2) \leq \cdots \leq i(m)\bigr\}
+	\end{equation}
+\end{mycol}
+\begin{proof}
+	系\ref{col:PBW-C}より従う．
+\end{proof}
+\begin{mycol}[label=col:PBW-E]{}
+	体$\mathbb{K}$の標数を$0$とする．標準的射影の合成$S^m(\mathfrak{g}) \to \tilde{S}^m(\mathfrak{g}) \to U_m(\mathfrak{g})$は$S^m(\mathfrak{g})$から$U_m(\mathfrak{g}) / U_{m-1}(\mathfrak{g})$への（線型）同型．
+\end{mycol}
+\begin{proof}
+	系\ref{col:PBW-A}の$W = \tilde{S}^m(\mathfrak{g})$とすればよい．
+\end{proof}
+
+\subsection{PBW定理の証明}
+Lie代数$\mathfrak{g}$の順序付けされた基底を$(x_\lambda)_{\lambda \in \Omega}$とする．命題\ref{prop:sym-alg-poly-alg}より，$S(\mathfrak{g})$は変数$z_\lambda\ (\lambda \in \Omega)$による多項式代数と見なせる．長さ$m$の列$\Sigma = (\lambda_1, \ldots, \lambda_m)$に対し，
+\begin{equation}
+	z_\Lambda \coloneqq z_{\lambda_1}\cdots z_{\lambda_m} \in S^m,\quad  x_\Lambda \coloneqq x_{\lambda_1}\otimes\cdots\otimes x_{\lambda_m} \in T^m
+\end{equation}
+とする．ただし，空集合$\emptyset$の長さは$0$で
+\begin{equation}
+	z_\emptyset = x_\emptyset = 1
+\end{equation}
+とする．また，\textbf{$\Sigma$が上昇列}であるとは，$\Omega$の順序$\leq$に対して$\lambda_1 \leq \cdots \leq \lambda_m$を満たすことを言い，また
+\begin{equation}
+	\lambda \leq \Sigma  \DEF  \lambda \leq \mu,\ (\forall \mu)
+\end{equation}
+とする．
+\begin{mylem}[label=lem:PBW-proof-A]{}
+	各$m \in \mathbb{Z}_{\geq0}$に対し，以下を満たす唯一の線型写像$f_m\colon L \otimes S_m \to S$が存在する．
+	\begin{description}
+		\item[($A_m$)] $f_m(x_\lambda \otimes z_{\Sigma}) = z_\lambda z_\Sigma\quad  (\forall \lambda \leq \Sigma,\ z_\Sigma \in S_m)$
+		\item[($B_m$)] $f_m(x_\lambda \otimes z_{\Sigma}) - z_\lambda z_\Sigma \in S_k\quad  (\forall k \leq m,\ z_\Sigma \in S_k)$
+		\item[($C_m$)] $f_m(x_\lambda \otimes f_m(x_\lambda \otimes z_\Xi)) = f_m(x_\mu \otimes f_m(x_\lambda \otimes z_\Xi)) + f_m([x_\lambda, x_\mu] \otimes z_\Xi)\quad  (\forall z_\Xi \in S_{m-1})$
+	\end{description}
+	特に，$f_m|_{\mathfrak{g} \otimes S_{m-1}} = f_{m-1}$．
+\end{mylem}
+\begin{proof}
+	\begin{equation}
+		???
+	\end{equation}
+	より，($C_m$)は($B_m$)から示される．また，$f_m$が$(A_m),\ (B_m),\ (C_m)$を満たすとき，$f_m|_{\mathfrak{g} \otimes S_{m-1}}$は，$(A_{m-1}),\ (B_{m-1}),\ (C_{m-1})$を満たすから，唯一性より$f_{m-1}$に等しい．\\
+	$f_m$の存在については，$m$についての帰納法で示す．$m = 0$については，
+	\begin{equation}
+		f_0(x_\lambda \otimes 1) = z_\lambda \in S_1
+	\end{equation}
+	より，($A_0$)，($B_0$)，($C_0$)が成り立つ．
+	
+	($A_{m-1}$)，($B_{m-1}$)，($C_{m-1}$)を満たす$f_{m-1}$が唯一存在するとき，$f_m(x_\lambda \otimes z_\Sigma)$を定義する．$z_\Sigma \in S_m$は対称代数の元だから，$z_\Sigma = z_{\Sigma'}$となる上昇列$\Sigma'$が存在するので，元から上昇列である場合を考えれば十分．\\
+	$\lambda \leq \Sigma$のときは，($A_m$)により定義する必要がある．\\
+	$\lambda \leq \Sigma$でないとき，$\Sigma = (\sigma_1, \Sigma')$とすると，$\lambda > \sigma_1$．($A_{m-1}$)より$z_\Sigma = z_{\sigma_1}z_{\Sigma'} = f(x_{\sigma_1} \otimes z_{\Sigma'})$．また，($B_m$)と($B_{m-1}$)を比較すると
+	\begin{equation}
+		f_m(x_\lambda \otimes z_{\Sigma'}) + S_{m-1}  =  f_{m-1}(x_\lambda \otimes z_{\Sigma'}) + S_{m-1} =  z_\lambda z_{\Sigma'}
+	\end{equation}
+	($C_m$)を満たす必要があるから，
+	\begin{align}
+		f_m(x_\lambda \otimes f_m(x_{\sigma_1} \otimes z_{\Sigma'})) &= z_{\sigma_1}f_m(x_\lambda \otimes z_{\Sigma'}) + f_m([x_\lambda, x_\mu] \otimes z_{\Sigma'}) \\
+		&= z_\lambda z_\Sigma + f_{m-1}(x_{\sigma_1} \otimes y) + f_m([x_\lambda, x_\mu] \otimes z_{\Sigma'})
+	\end{align}
+	
+\end{proof}
+
+\begin{mylem}[label=lem:PBW-proof-B]{}
+	以下を満たすLie代数$\mathfrak{g}$の表現$\rho \colon \mathfrak{g} \lto \Lgl (S(\mathfrak{g}))$が存在する．
+	\begin{description}
+		\item[(a)] $\forall \lambda \in \Sigma,\quad  \rho(x_\lambda)z_\Sigma = z_\lambda z_\Sigma$
+		\item[(b)] 長さ$m$の$\Sigma$に対し，$\rho(x_\lambda)z_\Sigma + S_m = z_\lambda z_\Sigma + S_m$
+	\end{description}
+\end{mylem}
+\begin{proof}
+	補題\ref{lem:PBW-proof-A}の$f_m$を拡張したものとして$f\colon \mathfrak{g} \times S \to S$が定義され，$(A_m),\ (B_m),\ (C_m)\ (\forall m \in \mathbb{Z}_{\geq 0})$を満たす．この$f$により，$S$は$\mathfrak{g}$-加群となり（特に$(C_m)$より），条件(a), (b)は$(A_m),\ (B_m)$より従う．
+\end{proof}
+\begin{mylem}[label=lem:PBW-proof-C]{}
+	$t \in T_m \cap J$（$J = \Ker p_\text{U},\ p_\text{U}\colon T(\mathfrak{g}) \lto \mathfrak{U}(\mathfrak{g})$は標準的射影）とすると，$t$の$m$次成分$t_m$に対し，$t_m \in I$．
+\end{mylem}
+\begin{proof}
+	$t_m$は$x_{\Sigma(i)}\ (1 \leq i \leq r\, \Sigma(i)\text{の長さは}m)$の線型結合で書ける．補題\ref{lem:PBW-proof-B}で定義した表現$\rho\colon \mathfrak{g} \to \Lgl(S)$は普遍包絡代数$\mathfrak{U}(\mathfrak{g})$の普遍性より，$\rho\colon T(\mathfrak{g}) \to \End S(\mathfrak{g})$に拡張され，$J \subset \Ker\rho$を満たす．i.e. $\rho(t) = 0$．\\
+	一方補題\ref{lem:PBW-proof-B}（の拡張）より，$\rho(t) \btr 1$は$z_{\Sigma(i)}$の線型結合で書ける．i.e. $t \in I$．
+\end{proof}
+\begin{proof}
+	PBWの証明: 示すべきは
+	\begin{equation}
+		t \in T^m,\ p_\text{U}(t) \in U_{m-1}  \IMP  t \in I
+	\end{equation}
+	である．まず，
+	\begin{equation}
+		t \in T^m,\ p_\text{U}(t) \in U_{m-1}  \IMP  \exists t' \in T_{m-1},\ p_\text{U}(t) = p_\text{U}(t')
+	\end{equation}
+	となるから，$t - t' \in (T^m \oplus T_{m-1}) \cap J = T_m \cap J$となる．補題\ref{lem:PBW-proof-B}より，$t \in I$．
+\end{proof}
+
+\subsection{自由Lie代数}
+\begin{mydef}[label=def:free-Lie-alg]{自由Lie代数}
+	集合$X$で生成される体$\mathbb{K}$上のLie代数$\mathfrak{g}$が$X$上\textbf{自由}(free)であるとは，以下を満たすこと．
+	\begin{description}
+		\item[\textbf{(自由Lie代数の普遍性)}]
+		任意の$\mathbb{K}$-上のLie代数$\textcolor{blue}{\mathfrak{M}}$および任意の写像$\textcolor{blue}{f} \colon X \lto \textcolor{blue}{\mathfrak{M}}$に対して，以下の図式を可換にする$\mathbb{K}$-代数の準同型$\textcolor{red}{\overline{f}} \colon \mathfrak{g} \lto \textcolor{blue}{\mathfrak{M}}$が一意的に存在する：
+		\begin{center}
+			\begin{tikzcd}[row sep=large, column sep=large]
+				X \ar[d, "\bm{i}"']\ar[r, blue, "f"] &\forall \textcolor{blue}{\mathfrak{M}} \\
+				\mathfrak{g} \arrow[ur, red, dashed, "\exists!\bar{f}"']&
+			\end{tikzcd}
+		\end{center}
+	\end{description}
+\end{mydef}
+\begin{proof}
+	\begin{description}
+		\item[(一意性)] \hyperref[def:tensor-alg]{テンソル代数}の証明と全く同様．
+		\item[(存在)] まず，$X$で生成される\hyperref[lem:univ-free-vec]{自由ベクトル空間}を$\mathbb{K}^{\oplus X}$とし，\\
+		そのテンソル代数$T(\mathbb{K}^{\oplus X})$を考え，\\
+		(テンソル積をLie括弧とするLie代数と見て)$X$で生成される$T(\mathbb{K}^{\oplus X})$の部分代数を$\mathfrak{g}$とする?? \\
+		あとは\hyperref[def:univ-env-alg]{自由Lie代数の普遍性}を成立させれば良い．が，その証明は\hyperref[sym-alg-univ]{対称代数の普遍性}の証明と同様で，$X \to \mathbb{K}^{\oplus X} \to T(\mathbb{K}^{\oplus X}) \to \mathfrak{g}$と縦に一つ伸び，$\mathfrak{M} \subset \mathfrak{U}(\mathfrak{M})$より結合代数の準同型がとれて?．
+	\end{description}
+\end{proof}
+\begin{mydef}[label=def:free-Lie-alg-rep]{自由Lie代数上の$\mathfrak{g}$-加群}
+	$X$上自由なLie代数$\mathfrak{g}$に対し，$X$で生成される\hyperref[lem:univ-free-vec]{自由ベクトル空間}$\mathbb{K}^{\oplus X}$は以下の作用により$\mathfrak{g}$-加群となる: \\
+各$x \in X$をLie代数$\Lgl(V)$の元に割り当て???，$X$を$\mathfrak{g}$に拡大する．
+\end{mydef}
+
+\begin{mydef}[label=def:Lie-alg-generators-relation]{Lie代数の生成系と関係式}
+	$X$上の自由Lie代数$\mathfrak{g}$に対し，$R$をイデアルとし，$p\colon \mathfrak{g} \lto \mathfrak{g}/R$を標準的射影とする．\\
+	$\mathfrak{g} / R$を生成系$p(X)$と関係式$R$（$\forall f \in R,\ r = 0$）をもつLie代数と呼ぶ．
+\end{mydef}
+ 
+\section{生成系と関係式}
+この節では標数$0$の代数閉体$\mathbb{K}$上の半単純Lie代数$\mathfrak{g}$とし，無限次元を許す．\\
+この節の目的は，任意のルート系に対し，半単純Lie代数が一意的に存在することを示すことである．
+\subsection{$\mathfrak{g}$が満たす関係式}
+\begin{myprop}[label=prop:semisimple-Lie-alg-relation]{半単純Lie代数が満たす関係式}
+	$\mathfrak{g}$を有限次元半単純Lie代数，$\mathfrak{h}$を極大トーラスとし，部分Lie代数の生成系$x_i \in \mathfrak{g}_{\alpha_i},\ y_i \in \mathfrak{g}_{-\alpha_i}$を固定する．$h_i = [x_i, y_i] \in [\mathfrak{g}_{\alpha_i}, \mathfrak{g}_{-\alpha_i}]$とし，$\Phi$を$\mathfrak{g}$のルート系，$\Delta$を底とする．\\
+	$\mathfrak{g}$は$\bigl\{ x_i,\ y_i,\ h_i \bigm| 1 \leq i \leq l \bigr\}$で生成され，（少なくとも）以下の関係式を満たす．
+	\begin{enumerate}
+		\item[(S1)] $[h_i, h_j] = 0\quad  (0 \leq i, j \leq l)$
+		\item[(S2)] $[x_i, y_j] = h_i\delta_{ij}$
+		\item[(S3)] $[h_i, x_j] = \sspair{\alpha_j}{\alpha_i}x_j,\ [h_i, y_j] = -\sspair{\alpha_j}{\alpha_i}y_j$
+		\item[($S_{ij}^+$)] $(\ad x_i)^{-\sspair{\alpha_j}{\alpha_i} + 1}(x_j) = 0\quad  (i \neq j)$
+		\item[($S_{ij}^-$)] $(\ad y_i)^{-\sspair{\alpha_j}{\alpha_i} + 1}(y_j) = 0\quad  (i \neq j)$
+	\end{enumerate}
+\end{myprop}
+\begin{proof}
+	\begin{description}
+		\item[(S1)] $h_i  \in [\mathfrak{g}_{\alpha_i}, \mathfrak{g}_{-\alpha_i}] \subset \mathfrak{h}$であり，\hyperref[lem:torus]{トーラスは可換}なので，$[h_i, h_j] = 0$．
+		\item[(S2)] $i = j$の場合は定義そのもの．$i \neq j$の場合は補題\ref{lem:base}より$\alpha_i - \alpha_j \notin \Phi$なので，$0$となる．
+		\item[(S3)] $[h_i, x_j] = \ad(h_i)(x_j) = \alpha_j(h_i)x_j = \sspair{\alpha_i}{\alpha_j}x_j$．$y_i$は$-\alpha_j(h_i)$より成立．
+		\item[($S_{ij}^+$)] 命題\ref{prop:root-decomp-basic1}より，$m \in \mathbb{Z}_{\geq 0}$に対し，
+		\begin{equation}
+			\ad{x_i}^{m}(x_j) \in \mathfrak{g}_{\alpha_j + m\alpha_i}
+		\end{equation}
+		また，\hyperref[lem:base]{$\alpha_i - \alpha_j \notin \Phi$}より，$\alpha_i$-string through $\alpha_j$は$\{\alpha_j, \ldots, \alpha_j - \sspair{\alpha_j}{\alpha_i}\}$．i.e. $m = -\sspair{\alpha_j}{\alpha_i} + 1$では$0$となる．
+		\item[($S_{ij}^-$)] $\ad{y_i}^{m}(y_j) \in \mathfrak{g}_{-\alpha_j - m\alpha_i}$，以下($S_{ij}^+$)の証明と同様．
+	\end{description}
+\end{proof}
+まずは，半単純Lie代数の関係式がこれだけであることを示す．
+
+\subsection{(S1)-(S3)による結果}
+無限次元を許すため，一旦($S_{ij}^\pm$)を除外して考える．\\
+ルート系$\Phi$とその底$\Delta$を固定する．Cartan整数を$c_{ij} = \sspair{\alpha_i}{\alpha_j}$と略記する．\\
+まず，$3l$個の生成子$\{\tilde{x}_i,\ \tilde{y}_i,\ \tilde{h}_i\}$で生成される自由Lie代数を$\tilde{\mathfrak{g}}$とする．
+\begin{equation}
+	\label{eq:semi-simple-ideal}
+	[\tilde{h}_i, \tilde{h}_j],\quad  [\tilde{h}_i, \tilde{h}_j] - \delta_{ij}\tilde{h}_i,\quad  [\tilde{h}_i, \tilde{x}_j] - c_{ji}\tilde{x}_j,\quad  [\tilde{h}_i, \tilde{y}_j] + c_{ji}\tilde{y}_j
+\end{equation}
+で生成される$\tilde{\mathfrak{g}}$のイデアルを$\tilde{K}$とする．$\mathfrak{g}_o = \tilde{\mathfrak{g}} / \tilde{K}$とし，$\{\tilde{x}_i,\ \tilde{y}_i,\ \tilde{h}_i\}$を標準的射影した$\{x_i, y_i, h_i\}$を$\mathfrak{g}_o$の生成系とする．一般に，$\dim \mathfrak{g}_o = \infty$．
+
+$\mathfrak{g}_o$を具体的に調べるために，適切な表現を構成する．\hyperref[def:free-Lie-alg-rep]{自由Lie代数$\tilde{\mathfrak{g}}$の表現}$\mathbb{K}^{\oplus X}$は何の問題もなく構成され，生成子は$3l$個あった．\\
+ある$l$次元$\mathbb{K}$-線型空間の基底を$(v_1, \ldots , v_l)$とし，そのテンソル代数（を代数というより線型空間と見て）を$V$とする．以下，テンソル積の記号$\otimes$を省略すると，$V$の基底は$v_{i_1}\cdots v_{i_t}$（ただし，$t = 0$のとき$1$）．ここで$V$上の準同型を以下で定義する．
+\begin{align}
+	\label{eq:eemi-simple-ideal-rep}
+	&\left\{\begin{aligned}
+		&\tilde{h}_j \btr 1 = 0 \\
+		&\tilde{h}_j \btr (v_{i_1}\cdots v_{i_t}) = -(c_{i_1j} + \cdots + c_{i_tj})(v_{i_1}\cdots v_{i_t})
+	\end{aligned}\right. \\
+	&\left\{\begin{aligned}
+		&\tilde{y}_j \btr 1 = v_j \\
+		&\tilde{y}_j \btr (v_{i_1}\cdots v_{i_t}) = -v_jv_{i_1}\cdots v_{i_t}
+	\end{aligned}\right. \\
+	&\left\{\begin{alignedat}{2}
+		&\tilde{x}_j \btr 1 = 0 \\
+		&\tilde{x}_j \btr (v_{i_1}\cdots v_{i_t}) &&= v_{i_1}\tilde{x}_j \btr (v_{i_2}\cdots v_{i_t}) - \delta_{i_1j}(c_{i_2j} + \cdots + c_{i_tj})(v_{i_2}\cdots v_{i_t}) \\
+		&\, &&= \sum_{k=1}^t -\delta_{i_kj}(c_{i_1j} + \cdots + c_{i_tj} - c_{i_kj})(v_{i_1}\cdots v_{i_{k-1}}v_{i_{k+1}}\cdots v_{i_t})
+	\end{alignedat}\right.
+\end{align}
+この作用を$\tilde{\mathfrak{g}}$に拡大した表現を$\tilde{\phi}\colon \tilde{\mathfrak{g}} \to \Lgl(V)$とする．\\
+$x_j$の作用について，$(c_{i_1i} + \cdots c_{i_ti} - c_{ji})\delta_{i_kj} = (c_{i_1i} + \cdots c_{i_ti} - c_{i_ki})\delta_{i_kj}$は$v_{i_1}\cdots v_{i_{k-1}}v_{i_{k+1}}\cdots v_{i_t}$の$\tilde{h}_i$の固有値だから，$\tilde{x}_j \btr (v_{i_1}\cdots v_{i_t})$は$\tilde{h}_j$の固有値$-(c_{i_1i} + \cdots c_{i_ti} - c_{ji})$の$\tilde{h}_i$の固有ベクトルとなる．
+\begin{myprop}[label=prop:aaaaaaaaaaa]{$\mathfrak{g}_o$加群の構成}
+	$\tilde{K} \subset \Ker\tilde{\phi}$．i.e. （準同型定理より）$\tilde{\phi}$は$\mathfrak{g}_o$-加群が定義できる．
+\end{myprop}
+\begin{proof}
+	$\tilde{K}$の生成系\eqref{eq:semi-simple-ideal}が$\Ker\tilde{\phi}$の元になることを見れば良い．\\
+	$V$の基底は，$\{\tilde{h}_i\}$を同時対角化しているから，$[\tilde{h}_i, \tilde{h}_j] \in \tilde{K}_o$．残りは，
+	\begin{align}
+		[\tilde{x}_i, \tilde{y}_j] \btr (v_{i_1}\cdots v_{i_t}) &= \bigl[v_j(\tilde{x}_i \btr v_{i_1}\cdots v_{i_t}) - \delta_{ji}(c_{i_1} + \cdots + c_{i_t}))(v_{i_1}\cdots v_{i_t})\bigr] - \tilde{y}_j \btr \tilde{x}_i \btr (v_{i_1}\cdots v_{i_t}) \\
+		&= \delta_{ij}\tilde{h}_i(v_{i_1}\cdots v_{i_t})
+	\end{align}
+	\begin{equation}
+		[\tilde{h}_i, \tilde{x}_j] \btr (v_{i_1}\cdots v_{i_t}) = c_{ji}(v_jv_{i_1}\cdots v_{i_t}) = c_{ji}\tilde{x}_j \btr (v_{i_1}\cdots v_{i_t})
+	\end{equation}
+	\begin{equation}
+		[\tilde{h}_i, \tilde{y}_j] \btr (v_{i_1}\cdots v_{i_t}) = -c_{ji}(v_jv_{i_1}\cdots v_{i_t}) = -c_{ji}\tilde{y}_j \btr (v_{i_1}\cdots v_{i_t})
+	\end{equation}
+	より，$[\tilde{h}_i, \tilde{h}_j] - \delta_{ij}\tilde{h}_i,\ [\tilde{h}_i, \tilde{y}_j] + c_{ji}\tilde{y}_j \in \Ker\tilde{\phi}$．
+\end{proof}
+\begin{mytheo}[label=thm:]{}
+	ルート系を$\Phi$，その底を$\{\alpha_1, \ldots, \alpha_l\}$，$\{x_i, y_i, h_i | 1 \leq i \leq l\}$で生成され，関係式(S1)-(S3)を満たすLie代数を$\mathfrak{g}_o$，$\{x_i\},\ \{y_i\},\ \{h_i\}$で生成される$\mathfrak{g}_o$の部分Lie代数をそれぞれ$\mathfrak{x}, \mathfrak{y}, \mathfrak{h}$とする．\\
+	このとき$\{h_i | 1 \leq i \leq l\}$は$\mathfrak{h}$の基底で，$\mathfrak{h}$は可換．また，$\mathfrak{g} = \mathfrak{y} \oplus \mathfrak{h} \oplus \mathfrak{x}$．
+\end{mytheo}
+\begin{proof}
+	\eqref{eq:eemi-simple-ideal-rep}の拡張で得られた表現$\tilde{\phi}\colon \mathbb{g} \lto x \in \Lgl(V)$に対し，$\mathbb{g}_o$加群と見たもの（命題\ref{prop:}より存在）を$\phi\colon \mathbb{g}_o \lto x \in \Lgl(V)$とする．\\
+	また，$\{\tilde{x}_i\},\ \{\tilde{y}_i\},\ \{\tilde{h}_i\}$で生成される$\mathfrak{g}_o$の部分Lie代数をそれぞれ$\tilde{\mathfrak{x}}, \tilde{\mathfrak{y}}, \tilde{\mathfrak{h}}$とする．
+	\begin{description}
+		\item[\textbf{Step1: $\tilde{\mathfrak{h}} \cap \Ker\tilde{\phi} = 0$}]
+		\begin{equation}
+			\tilde{\phi}\biggl(\sum_{j=1}^l a_j\tilde{h}_j \biggr)  \IMP  \sum_{j=1}^l a_jc_{ij}\  (1 \leq i \leq l)
+		\end{equation}
+		だが，Cartan行列$(c_{ij})$は正則なので，$a_j = 0\ (\forall j)$．
+		\item[\textbf{Step2: (Step1)より標準的射影$\tilde{\mathfrak{g}} \lto \mathfrak{g}_o$の$\tilde{\mathfrak{h}}$への制限は$\mathfrak{h}$への同型写像}]
+		\item[\textbf{Step3: 標準的射影$\tilde{\mathfrak{g}} \lto \mathfrak{g}_o$の$\tilde{\mathfrak{h}}$の部分空間$\tilde{\mathfrak{y}} + \tilde{\mathfrak{h}} + \tilde{\mathfrak{x}}$への制限は$\mathfrak{g}$への同型写像}]　
+		
+		関係式(S1)-(S3)より，$\mathbb{F}y_i + \mathbb{F}h_i + \mathbb{F}x_i$は$\lsl{2}{\mathbb{K}}$の準同型な像．$\lsl{2}{\mathbb{K}}$は単純Lie代数で，\textbf{(Step 2)}より$h_i \neq 0$なので，$\mathbb{F}y_i \oplus \mathbb{F}h_i \oplus \mathbb{F}x_i \simeq \lsl{2}{\mathbb{K}}$．\\
+		
+		aaaaaaa
+		
+		\item[\textbf{Step4: $\mathfrak{h}$は$\mathbb{g}_o$の$l$次元可換部分代数．}]　
+		
+		関係式(S1)と$\textbf{Step2}$より従う．
+		\item[\textbf{Step5: }]　
+		
+		\item[\textbf{Step6: }]　
+		
+		\item[\textbf{Step7: }]　
+		
+		\item[\textbf{Step8: }]　
+		
+		\item[\textbf{Step: }]　
+		
+		\item[\textbf{Step: }]　
+		
+		\item[\textbf{Step: }]　
+		
+		\item[\textbf{Step: }]　
+		
+		\item[\textbf{Step: }]　
+		
+	\end{description}•
+\end{proof}
+
+
+
+\subsection{Serreの定理}
+
+\begin{mylem}[label=lem:Serre]{}
+	$\mathfrak{g}_o$に対し，
+	\begin{equation}
+		\ad x_k(y_ij) = 0\quad  (1 \leq k \leq l,\ i \neq j)
+	\end{equation}
+\end{mylem}
+\begin{proof}
+	\begin{description}
+	\item[$k \neq i$の場合]
+	\item[$k = i$の場合]
+	\end{description}
+\end{proof}
+
+\begin{mydef}[label=def:locally-nilpotent]{局所冪零}
+	（無限次元）ベクトル空間$V$に対し，$x \in \End V$が
+	\begin{equation}
+		\forall v \in V,\ \exists m \in \mathbb{N},\quad  x^m(v) = 0
+	\end{equation}
+	を満たす時，$x$を\textbf{局所冪零}と言う．
+\end{mydef}
+$\forall v \in V$は，$x$の有限次元不変部分空間$W$(例えば$\Span\{v, x(v),\ldots , x^{m-1}(v)\}$)に含まれる．$x$は$W$上冪零だから，$\exp(x|_W)$が定義される．\\
+また，別の有限次元不変部分空間$W'$を持つ時，$\exp(x|_W)$と$\exp(x|_{W'})$は$W \cap W'$で一致するから，$\exp x \in \End V$がwell-defined．
+\hyperref[locally-nilpotent]{局所冪零}
+\begin{mytheo}[label=thm:Serre]{Serreの定理}
+	$\Phi$をルート系，$\Delta = \{\alpha_1, \ldots, \alpha_l\}$とし，$\mathfrak{g}$を$3l$個の元$\{x_i, y_i, h_i | 1 \leq i \leq l\}$で生成され，関係式(S1)-(S3), ($\text{S}_{ij}^\pm$)を持つとする．\\
+	このとき，$\mathfrak{g}$は（有限次元）半単純Lie代数で，極大トーラス$\mathfrak{h}$は$h_i$で張られ，等しいルート系$\Phi$を持つ．
+\end{mytheo}
+\begin{proof}
+		\item[\textbf{Step1: }]　
+		
+		\item[\textbf{Step2: }]　
+		
+		\item[\textbf{Step3: }]　
+		
+		\item[\textbf{Step4: }]　
+		
+		\item[\textbf{Step5: }]　
+		
+		\item[\textbf{Step6: }]　
+		
+		\item[\textbf{Step7: }]　
+		
+		\item[\textbf{Step8: }]　
+		
+		\item[\textbf{Step9: }]　
+		
+		\item[\textbf{Step10: }]　
+		
+		\item[\textbf{Step11: }]　
+		
+		\item[\textbf{Step12: }]　
+		
+		\item[\textbf{Step13: }]　
+		
+		\item[\textbf{Step14: }]　
+		
+\end{proof}
+
+\subsection{半単純Lie代数とルート系の一対一対応}
+\begin{mytheo}[label=thm:root-to-Lie-alg]{ルート系による半単純リー代数の構成}
+	\begin{enumerate}
+		\item 任意のルート系$\Phi$にたいし，$\Phi$を同じルート系にもつ\hyperref[def:semisimple-LieAlg]{半単純Lie代数}が存在する．
+		\item $\mathfrak{g},\ \mathfrak{g}'$を\hyperref[def:semisimple-LieAlg]{半単純Lie代数}とし，それぞれの極大トーラスを$\mathfrak{h},\ \mathfrak{h}'$，ルート系を$\Phi,\ \Phi'$とする．ルート系の同型$\Phi \lto \Phi'$が与えられ，底を$\Delta \mapsto \Delta'$と送るとし，$\pi\colon \mathfrak{h} \lto \mathfrak{h}'$を対応する同型とする（14節らしい）．\\
+		さらに，各単純ルート$\alpha \in \Delta,\ \alpha' \in \Delta'$に対し，$x_\alpha \in \mathfrak{g}_\alpha \setminus \{0\},\ x'_{\alpha'} \in \mathfrak{g'}_{\alpha'} \setminus \{0\}$を選ぶ．\\
+		このとき，$\pi$の拡大として唯一の同型$\pi\colon \mathfrak{g} \lto \mathfrak{g}'$が得られ，$\pi(x_\alpha) = x'_{\alpha'}$を満たす．
+	\end{enumerate}
+	
+\end{mytheo}
+
+
+\section{単純Lie代数}
+体$\mathbb{K}$を標数$0$の代数閉体とする．
+\subsection{簡約Lie代数と半単純性判定}
+ここでは，標数を任意とする．
+
+Lie代数が半単純であることを\hyperref[thm:semisimple-LieAlg-iff]{Killing形式が非退化}以外で確認する方法を示す．
+\begin{mydef}[label=def:red-Lie-alg]{簡約Lie代数}
+	Lie代数の\hyperref[def:rad-LieAlg]{根基}$\rad\mathfrak{g}$と\hyperref[def:center-LieAlg]{中心}$Z(\mathfrak{g})$が一致するとき，\textbf{簡約}(reductive) Lie代数という．
+\end{mydef}
+\begin{myprop}[label=prop:red-Lie-alg]{簡約Lie代数の性質}
+	\begin{enumerate}
+		\item $\mathfrak{g}$が\hyperref[def:red-Lie-alg]{簡約Lie代数}$  \IMP  \mathfrak{g} = [\mathfrak{g}, \mathfrak{g}] \oplus Z(\mathfrak{g})$で，$[\mathfrak{g}, \mathfrak{g}]$は\hyperref[def:semisimple-LieAlg]{半単純}．
+		\item Lie代数$\mathfrak{g}$が，非零な忠実な有限次元既約$\mathfrak{g}$-加群$V$をもち，$\dim V \notin (\character\mathbb{K})\mathbb{N}$\\
+		$\IMP  \mathfrak{g}$は\hyperref[def:red-Lie-alg]{簡約Lie代数}で，$\dim Z(\mathfrak{g}) \leq 1$．\\
+		さらに$\mathfrak{g} \subset \Lsl(V)$でもあるならば，$\mathfrak{g}$は\hyperref[def:semisimple-LieAlg]{半単純}．
+	\end{enumerate}
+\end{myprop}
+\begin{proof}
+	\begin{description}
+		\item[\textbf{(1)}] $\mathfrak{g}' = \mathfrak{g} / Z(\mathfrak{g}) = \mathfrak{g} / \rad\mathfrak{g}$は定義より\hyperref[def:semisimple-LieAlg]{半単純}．\\
+		系\ref{col:semisimple-decomp}，$\mathfrak{g}'$の定義，より$\mathfrak{g}' = [\mathfrak{g}', \mathfrak{g}'] = [\mathfrak{g}, \mathfrak{g}]$．\\
+		$\ad\mathfrak{g} \simeq \ad \mathfrak{g}'$は\hyperref[col:Schur-closed]{代数閉体上のSchurの補題}より完全可約だから，$\mathfrak{g} = [\mathfrak{g}, \mathfrak{g}] \oplus Z(\mathfrak{g})$となる．
+		\item[\textbf{(2)}] \hyperref[thm:eigen-Lie]{Lieの定理}より，$\rad\mathfrak{g}$は$V$の共通の固有ベクトル$v$をもち，適当な$\lambda \in (\rad\mathfrak{g})^*$で，
+		\begin{equation}
+			s \btr v = \lambda(s)v\quad  (s \in \rad\mathfrak{g})
+		\end{equation}
+		と書ける．$V$は既約だから，$\{v\} \cup \{x \btr v | x \in \mathfrak{g}\}$の部分集合が$V$の基底を張る．\\
+		また，$\rad\mathfrak{g}$は\hyperref[def:ideal-LieAlg]{イデアル}だから，$[\rad\mathfrak{g}, \mathfrak{g}] \subset \rad\mathfrak{g}$より，
+		\begin{equation}
+			\label{eq:rad-Lie-alg}
+			s \btr(x \btr v) = \lambda(s)(x \btr v) + \lambda([s, x])v\quad  (s \in \rad\mathfrak{g},\ x \in \mathfrak{g})
+		\end{equation}
+		となる．跡の巡回性より，$\Tr([\rad\mathfrak{g}, \mathfrak{g}]) \subset \Tr([\mathfrak{g}, \mathfrak{g}]) = \{0\}$．よって，$\Tr([s, x]) = \lambda([s, x]) \times \dim V = 0$．仮定より，$\dim V \notin (\character\mathbb{K})\mathbb{N}$なので，$\lambda[s, x] = 0$となり$\forall s \in \rad\mathfrak{g}$の表現行列は対角行列．\\
+		今，$V$は忠実な表現だから，$\rad\mathfrak{g} = Z(\mathfrak{g})$かつ，$\dim(\rad\mathfrak{g}) \leq 1$．
+		
+		最後に，$\mathfrak{g} \subset \Lsl(V)$のとき，$\Lsl(V)$のスカラー倍は$0$のみ（$\character\mathbb{K} = 0$としていた）なので，$\rad\mathfrak{g} = 0$．i.e. $\mathfrak{g}$は\hyperref[def:semisimple-LieAlg]{半単純}．
+	\end{description}
+\end{proof}
+特に(2)の仮定を満たすのは，$\mathbb{C}$上のLie代数$\mathfrak{g} \subset \Lgl(V)$で既約な場合などが挙げられる．
+
+
+
+
+\end{document}
